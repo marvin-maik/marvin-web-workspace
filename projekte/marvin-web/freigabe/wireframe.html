@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WIREFRAME · marvin-web Startseite · Struktur zur Freigabe</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:1100px;margin:0 auto;padding:0 24px 60px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+section{border:1px dashed #bbb;margin:28px 0;padding:28px;position:relative}
+h1{font-size:40px;line-height:1.1}h2{font-size:28px}h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+ul{margin:10px 0 10px 20px;color:#444}
+.img{background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 10px,#fafafa 10px,#fafafa 20px);
+  border:1px solid #ccc;display:flex;align-items:center;justify-content:center;
+  color:#999;font-family:ui-monospace,monospace;font-size:12px;min-height:180px;position:relative}
+.img::before,.img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top right,transparent 49.6%,#ddd 49.6%,#ddd 50.4%,transparent 50.4%)}
+.img::after{transform:scaleX(-1)}
+.btn{display:inline-block;border:2px solid #333;padding:12px 24px;font-weight:700;
+  text-decoration:none;color:#222;margin:6px 8px 6px 0}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap}.row>*{flex:1;min-width:200px}
+.card{border:1px solid #ccc;padding:18px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
+small{color:#888}
+</style>
+</head>
+<body>
+
+<div class="wf-note">Wireframe · marvin-web Startseite · Stand zur Freigabe · bewusst ungestylt — Design kommt nach deiner Freigabe</div>
+
+<section>
+  <div class="wf-note">Sektion 1 · HERO — beantwortet in 5 Sekunden: was, für wen, warum jetzt</div>
+  <h1>Websites, die Anfragen bringen.</h1>
+  <p><strong>In 5 Werktagen live. Zum Festpreis.</strong></p>
+  <p>Für Handwerker, Praxen und Selbstständige, die Kunden wollen statt Kompromisse. Texte inklusive, ein Ansprechpartner, kein Agentur-Theater.</p>
+  <a class="btn primary" href="#kontakt">Kostenlose Analyse anfragen</a>
+  <a class="btn" href="#pakete">Pakete ansehen</a>
+  <div class="row" style="margin-top:16px">
+    <div class="card">
+      <div class="wf-note">„Auftragszettel" — deine 4 Versprechen als Kasten</div>
+      <p>Preis: Festpreis, vorher fixiert<br>Dauer: 5 Werktage<br>Texte: inklusive<br>Kontakt: 1 Ansprechpartner</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wf-note">Sektion 2 · PROBLEM — spiegelt die 4 größten Einwände/Schmerzen</div>
+  <h2>Deine Website soll verkaufen. Nicht nur existieren.</h2>
+  <ul>
+    <li><strong>Keine Anfragen trotz Website</strong> — Telefon bleibt still, Besucher gehen zur Konkurrenz.</li>
+    <li><strong>Veraltet und nicht mobil</strong> — Kunden kommen übers Handy, Seite bricht.</li>
+    <li><strong>Agentur zu teuer, zu langsam</strong> — fünfstellig, drei Monate, Praktikant.</li>
+    <li><strong>Von Billiganbietern verbrannt</strong> — bezahlt und allein gelassen.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="wf-note">Sektion 3 · WERTE — Risiko-Senker (Hormozi: Likelihood/Risk)</div>
+  <h2>Drei Dinge, auf die du dich verlassen kannst.</h2>
+  <div class="row">
+    <div class="card"><h3>Festpreis heißt Festpreis</h3><p>Preis steht vor Projektstart fest. Keine Nachträge.</p></div>
+    <div class="card"><h3>Termine werden gehalten</h3><p>5 Werktage sind 5 Werktage.</p></div>
+    <div class="card"><h3>Klartext statt Fachchinesisch</h3><p>Alles ohne IT-Studium erklärt. Ehrlich, auch gegen den eigenen Umsatz.</p></div>
+  </div>
+</section>
+
+<section id="pakete">
+  <div class="wf-note">Sektion 4 · PAKETE-TEASER — Preisanker + Weg zur Detailseite</div>
+  <h2>Drei Pakete. Ein Festpreis. Kein Kleingedrucktes.</h2>
+  <div class="row">
+    <div class="card"><h3>S · Onepager</h3><p><strong>990 €</strong> einmalig</p><p>Alles Wichtige auf einer Seite, Texte inklusive, in 5 Werktagen live.</p><a class="btn" href="#">Details</a></div>
+    <div class="card" style="border-width:3px"><h3>M · Business-Site ★</h3><p><strong>1.990 €</strong> einmalig</p><p>4 bis 6 Seiten, Texte, die verkaufen, Google-Grundlagen.</p><a class="btn primary" href="#">Details</a></div>
+    <div class="card"><h3>L · Mit Shop</h3><p><strong>Auf Anfrage</strong></p><p>Onlineshop, rechtssicher für Deutschland, Einweisung inklusive.</p><a class="btn" href="#">Anfragen</a></div>
+  </div>
+  <p><small>Jedes Paket inkl. Betreuungs-Abo ab 49 €/Monat, im ersten Monat inklusive.</small></p>
+</section>
+
+<section>
+  <div class="wf-note">Sektion 5 · ABLAUF — Zeit-/Aufwands-Senker, echte Sequenz 01–04</div>
+  <h2>Von der Anfrage zur fertigen Website.</h2>
+  <div class="row">
+    <div class="card"><h3>01 Analyse &amp; Zielbild</h3><p>30 Minuten, kostenlos.</p></div>
+    <div class="card"><h3>02 Struktur &amp; Texte</h3><p>Freigabe, bevor gebaut wird.</p></div>
+    <div class="card"><h3>03 Umsetzung</h3><p>Nach spätestens 5 Werktagen zur Abnahme.</p></div>
+    <div class="card"><h3>04 Launch &amp; Übergabe</h3><p>Live + Einweisung + direkter Draht.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wf-note">Sektion 6 · ÜBER MICH — Vertrauen zur Person (Teaser zur Unterseite)</div>
+  <div class="row">
+    <div class="img" style="min-height:260px">FOTO: Portrait Marvin (echtes Foto, kein Stock)</div>
+    <div>
+      <h2>„Eine Website ist kein Kunstprojekt. Sie ist ein Werkzeug, das Anfragen bringen soll."</h2>
+      <p>Hey, ich bin Marvin. Ich baue Websites für Leute, die keine Zeit für Agentur-Theater haben. Du schreibst mir, ich antworte in der Regel am selben Tag.</p>
+      <a class="btn" href="#">Mehr über mich</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wf-note">Sektion 7 · SICHERHEIT — Risiko-Umkehr ohne erfundene Referenzen</div>
+  <h2>Du gehst kein Risiko ein.</h2>
+  <div class="row">
+    <div class="card"><h3>§1 Preis steht vorher fest</h3></div>
+    <div class="card"><h3>§2 Freigabe vor dem Bau</h3></div>
+    <div class="card"><h3>§3 Korrekturrunde inklusive</h3></div>
+  </div>
+  <p><span class="offen">OFFEN: Sobald echte Kundenstimmen existieren, ersetzen sie diesen Block.</span></p>
+</section>
+
+<section id="kontakt">
+  <div class="wf-note">Sektion 8 · KONTAKT — zwei Wege, niedrige Hürde (Sanwarwala: Friction)</div>
+  <h2>Kostenlose Website-Analyse in 2 Werktagen.</h2>
+  <p>Ich zeige dir die drei größten Schwachstellen deiner aktuellen Seite. Ohne Verkaufsdruck.</p>
+  <div class="row">
+    <div class="card"><h3>Formular</h3><p>Name · E-Mail · Website · Nachricht<br><small>(4 Felder, nur 2 Pflicht)</small></p><a class="btn primary" href="#">Analyse anfragen</a></div>
+    <div class="card"><h3>Oder direkt Termin</h3><p>30-Minuten-Slot buchen, ich rufe an.</p><a class="btn" href="#">Termin buchen</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wf-note">Sektion 9 · FAQ — Einwände auf der Seite beantworten</div>
+  <h2>Alles, was du wissen willst.</h2>
+  <ul>
+    <li>Was kostet eine Website bei dir?</li>
+    <li>Wie lange dauert es wirklich?</li>
+    <li>Was brauchst du von mir?</li>
+    <li>Was, wenn mir etwas nicht gefällt?</li>
+    <li>Wem gehört die Website am Ende?</li>
+    <li>Ich habe schon eine Website. Lohnt sich ein Neustart?</li>
+  </ul>
+</section>
+
+<div class="freigabe">
+  <h3>Deine Freigabe</h3>
+  <p>So wird deine Seite aufgebaut. Prüfe: Stimmen Reihenfolge, Texte und Preise? Fehlt eine Kundenfrage? Feedback am besten pro Sektion (z.B. „Sektion 4: Preis anders formulieren").</p>
+  <p><strong>Nach deiner Freigabe baue ich das Design.</strong> Eine Korrekturrunde nach der Umsetzung ist inklusive, weitere kosten 90 € pro Runde. Farben, Schriften und Bildsprache sind bewusst noch nicht Teil dieses Entwurfs.</p>
+</div>
+
+</body>
+</html>
