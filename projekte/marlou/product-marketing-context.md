@@ -111,23 +111,34 @@ Erlaubte Signature-Formulierungen: >>> noch zu entwickeln, Kandidaten aus dem Ma
 
 ## 4. Design-Tokens
 
->>> -> design-scout. VORLAEUFIG, wird in Phase 2 entschieden. NICHT beschlossen. <<<
+BESCHLOSSEN 2026-07-10 (Marvin): Richtung A "Expeditionslogbuch" aus design-dossier.md.
+Herleitung: Topo-Karten, GPS-Daten, Reiselogbuecher. "Wir waren dort" als Gestaltungsprinzip.
 
-    --ink:      /* -> design-scout */
-    --bg:       /* -> design-scout */
-    --signal:   /* -> design-scout */
-    --muted:    /* -> design-scout */
-    --line:     /* -> design-scout */
+    --ink:    #16130E   /* Tinten-Schwarzbraun */
+    --bg:     #FAF9F5   /* kuehles Papierweiss, bewusst KEIN Creme */
+    --signal: #C2331F   /* Kartenrot (Routenmarkierung, Expeditionszelt) */
+    --muted:  #6F6A60
+    --line:   #E2DFD7
 
-Fonts (Heading / Body): -> design-scout
-Signature-Element (genau EINES): -> design-scout
-Breakpoints: -> design-scout
+Fonts (alle self-hostbar, DSGVO):
+- Display: Cabinet Grotesk (Fontshare), 700/800
+- Body: General Sans (Fontshare)
+- Meta/Koordinaten: IBM Plex Mono (OFL), nur 400
 
-WARNUNG fuer design-scout: Der Palette-Vorschlag aus dem Erstgespraech (Off-White #F7F3EE
-+ DM Serif Display + Terrakotta #C47A4A, "cineastisch & authentisch") kollidiert mit der
-Anti-Slop-Regel "kein Creme+Serif+Terracotta Default-Look". In Phase 2: verwerfen,
-begruenden oder abwandeln — nicht unbesehen uebernehmen. Vollstaendiger Vorschlag inkl.
-Dschungelgruen #2B4035 und Warmbraun-Schwarz #1E1A17 steht in der Checkliste Kap. 8.
+Type-Scale: 12 (Mono-Meta, uppercase, ls 0.08em) -> 17 (Body) -> 22 -> 32 -> 48 ->
+clamp(64px, 9vw, 104px) Hero, lh 0.95, ls -0.02em. Der 12->104-Sprung ist der Wow-Mechanismus.
+
+Signature-Element (genau EINES): Koordinaten-Marker. Jede Sektion oeffnet mit Mono-Zeile
+aus echten GPS-Koordinaten bereister Orte plus Hairline, z.B.
+`S 22.9576 / E 18.4904 — SOSSUSVLEI, 2024`. Auch als Foto-Caption (Ort + Jahr), nie nackte Fotos.
+
+Konstruktions-Muster (Details in design-dossier.md, Richtung A):
+- Sektions-Marker: Mono-Label links ("01 / GUIDES"), Koordinate rechts, 1px-Hairline
+- Produkt-Funnel (PDF -> 1:1 -> Gruppenreise) als nummerierte Etappen einer Route, 1px-Linie
+- Preissektion nach jess.travel-Logik: Planungsgebuehr vs. Reisekosten als Zwei-Spalten-Tabelle
+
+Verworfen (Begruendung in design-dossier.md): Erstgespraech-CI (Creme+Serif+Terrakotta =
+Default-AI-Look), DM-Font-Paar, Handschrift-Fonts, Orange/Teal (Verwechslung mimio/Off The Path).
 
 Wettbewerber-CI als Abgrenzungs-Input (aus Live-Websites ausgelesen):
 - Off The Path: Montserrat + Roboto, Teal #41A4A9, Gold #D2954D — outdoorsy, serioes
