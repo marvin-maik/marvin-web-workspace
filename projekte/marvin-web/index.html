@@ -3,287 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MARVIN.WEB · Websites, die Anfragen bringen · Berlin</title>
-<meta name="description" content="Individuelle Websites für kleine Unternehmen aus Berlin. Live in 5 Werktagen, zum Festpreis, Texte inklusive. Ein Ansprechpartner, kein Callcenter.">
-<meta property="og:title" content="MARVIN.WEB · Websites, die Anfragen bringen">
-<meta property="og:description" content="Live in 5 Werktagen, zum Festpreis, Texte inklusive. Webdesign aus Berlin.">
+<title>Webdesign Berlin zum Festpreis · Websites, die Anfragen bringen | MARVIN.WEB</title>
+<meta name="description" content="Webdesign aus Berlin für kleine Unternehmen: individuelle Website in 5 Werktagen, zum Festpreis ab 990 €, Texte inklusive. Kostenlose Website-Analyse anfragen.">
+<meta property="og:title" content="Webdesign Berlin zum Festpreis · MARVIN.WEB">
+<meta property="og:description" content="Individuelle Website in 5 Werktagen, zum Festpreis, Texte inklusive.">
 <meta property="og:type" content="website">
+<!-- Vor Launch ergaenzen: og:url, og:image (1200x630), canonical mit finaler Domain -->
 <meta name="theme-color" content="#161412">
 <link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23161412'/><rect y='78' width='100' height='22' fill='%23e8440a'/></svg>">
-<style>
-  /* Clash Display: selbst gehostet (Fontshare-Lizenz, frei fuer kommerzielle Nutzung) */
-  @font-face{font-family:'Clash Display';src:url('fonts/clash-display-600.woff2') format('woff2');font-weight:600;font-display:swap;font-style:normal}
-  @font-face{font-family:'Clash Display';src:url('fonts/clash-display-700.woff2') format('woff2');font-weight:700;font-display:swap;font-style:normal}
-
-  :root{
-    --ink:#161412;         /* warmes fast-schwarz */
-    --ink-soft:#4a463f;
-    --paper:#f5f1e8;       /* werkstatt-papier */
-    --paper-deep:#ece7da;
-    --line:#d8d2c2;
-    --hair:#ded8c8;        /* spalten-guides, knapp unter line */
-    --signal:#e8440a;      /* signal-orange: grosse Typo/Deko (3:1 reicht dort) */
-    --signal-deep:#b53507; /* buttons/kleine texte: weiss darauf 6.04:1 */
-    --signal-press:#8F2A05;/* hover/pressed */
-    --signal-tint:#FF9B78; /* orange-aufhellung auf ink */
-    --muted:#6d675a;
-    --white:#FFFFFF;
-    --dark-line:#3A362F;   /* hairlines auf ink */
-    --dark-body:#CFC9BA;   /* flusstext auf ink */
-    --dark-soft:#B7B1A2;
-    --dark-muted:#8A8476;
-    --dark-for:#A9A294;
-    --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-    --disp:'Clash Display',-apple-system,BlinkMacSystemFont,sans-serif;
-    --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --wrap:1200px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:var(--paper);padding:14px 20px;font-family:var(--mono);font-size:13px;text-decoration:none}
-  .skip:focus{left:0}
-  .h-lg-dark{color:var(--paper);margin-top:16px}
-  .sec-last{border-bottom:none}
-  html{scroll-behavior:smooth}
-  ::selection{background:var(--signal);color:var(--white)}
-  body{
-    font-family:var(--body);font-weight:400;
-    background:var(--paper);color:var(--ink);
-    line-height:1.55;font-size:17px;
-    -webkit-font-smoothing:antialiased;
-    position:relative;
-  }
-  h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.0;letter-spacing:-0.02em}
-  a{color:inherit}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:1}
-  section{scroll-margin-top:72px}
-
-  /* ===== Spalten-Guides: 3 Linien ueber die volle Seitenhoehe (Porto-Muster) ===== */
-  .guides{position:absolute;inset:0;max-width:var(--wrap);margin:0 auto;padding:0 28px;pointer-events:none;z-index:0}
-  .guides i{position:absolute;top:0;bottom:0;width:1px;background:var(--hair);opacity:.5}
-  .guides i:nth-child(1){left:25%}
-  .guides i:nth-child(2){left:50%}
-  .guides i:nth-child(3){left:75%}
-  @media(max-width:860px){.guides i:nth-child(1),.guides i:nth-child(3){display:none}}
-
-  /* ===== Signature: Massband-Linie ===== */
-  .rule{
-    height:10px;border:none;
-    background:
-      repeating-linear-gradient(90deg, var(--signal) 0 2px, transparent 2px 24px) bottom/100% 8px no-repeat,
-      linear-gradient(var(--signal),var(--signal)) bottom/100% 2px no-repeat;
-  }
-
-  /* Mono-Labels */
-  .tag{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-  .tag::before{content:"// ";color:var(--signal)}
-
-  /* Buttons */
-  .btn{display:inline-block;font-family:var(--disp);font-weight:600;font-size:16.5px;letter-spacing:0;padding:16px 30px;text-decoration:none;cursor:pointer;border:2px solid var(--ink);transition:background .15s,color .15s,transform .15s,box-shadow .15s}
-  .btn:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
-  .btn-primary{background:var(--signal-deep);border-color:var(--signal-deep);color:var(--white)}
-  .btn-primary:hover{background:var(--signal-press);border-color:var(--signal-press);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
-  .btn-ghost{background:var(--paper);color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--signal)}
-
-  /* ===== Mono-Meta-Zeile + Nav ===== */
-  .meta-row{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;position:relative;z-index:2}
-  .meta-inner{max-width:var(--wrap);margin:0 auto;padding:10px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .meta-row b{color:var(--signal-tint);font-weight:500}
-  .meta-row a{color:var(--paper);text-underline-offset:3px}
-  nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:var(--wrap);margin:0 auto}
-  .logo{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-0.02em;text-decoration:none;text-transform:uppercase}
-  .logo b{color:var(--signal)}
-  .nav-links{display:flex;gap:32px;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--ink-soft);font-family:var(--mono);font-size:13.5px;letter-spacing:.04em;display:inline-block;padding:12px 0}
-  .nav-links a:hover{color:var(--signal-deep)}
-  .nav-cta{font-size:14.5px;padding:11px 20px}
-  @media(max-width:900px){.nav-links{display:none}}
-
-  /* ===== Hero: der Type-Scale-Sprung ===== */
-  .hero{padding:80px 0 96px;border-bottom:1px solid var(--line)}
-  .hero h1{
-    font-size:clamp(44px,10.5vw,150px);
-    font-weight:700;text-transform:uppercase;
-    line-height:.92;letter-spacing:-0.025em;
-    margin:20px 0 0;
-  }
-  .hero h1 em{font-style:normal;color:var(--signal)}
-  .hero .rule{margin:30px 0 40px;max-width:640px}
-  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
-  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:44px}}
-  .hero .sub{font-family:var(--disp);font-size:clamp(21px,2.6vw,28px);font-weight:600;margin-bottom:12px}
-  .hero .subline{color:var(--ink-soft);font-size:17.5px;max-width:520px;margin-bottom:36px}
-  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
-
-  /* Auftragszettel */
-  .docket{background:var(--white);border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--paper-deep)}
-  .docket-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid var(--ink);padding:14px 20px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-  .docket-head b{color:var(--signal-deep);font-weight:500}
-  .docket-row{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px dashed var(--line);font-size:15px}
-  .docket-row:last-of-type{border-bottom:none}
-  .docket-row .k{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding-top:2px}
-  .docket-row .v{font-weight:700;text-align:right}
-  .docket-foot{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;text-align:center}
-  .docket-foot b{color:var(--signal-tint);font-weight:500}
-
-  /* ===== Sektionen ===== */
-  .sec{padding:100px 0;border-bottom:1px solid var(--line)}
-  .sec-head{display:flex;align-items:baseline;gap:24px;margin-bottom:16px}
-  .sec-head .line{flex:1;height:1px;background:var(--line)}
-  .sec-head .aux{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .h-lg{font-size:clamp(36px,5.2vw,68px);margin-bottom:18px;max-width:820px}
-  .lede{color:var(--ink-soft);max-width:600px;font-size:17.5px}
-
-  /* Problem: Hairline-Liste */
-  .pains{margin-top:52px;border-top:1px solid var(--line)}
-  .pain{display:grid;grid-template-columns:56px 1fr 1.2fr;gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
-  @media(max-width:820px){.pain{grid-template-columns:40px 1fr;row-gap:6px}.pain p{grid-column:2}}
-  .pain .x{font-family:var(--mono);font-size:20px;color:var(--signal);font-weight:500}
-  .pain h3{font-size:clamp(21px,2.6vw,30px)}
-  .pain p{color:var(--muted);font-size:15.5px}
-
-  /* Werte / Sicherheit: Spalten mit Hairlines */
-  .values{display:grid;grid-template-columns:repeat(3,1fr);margin-top:52px;border-top:1px solid var(--line)}
-  @media(max-width:820px){.values{grid-template-columns:1fr}}
-  .value{padding:36px 32px 36px 0;border-bottom:1px solid var(--line)}
-  .value+.value{border-left:1px solid var(--line);padding-left:32px}
-  @media(max-width:820px){.value+.value{border-left:none;padding-left:0}}
-  .value .num{font-family:var(--mono);font-size:12.5px;color:var(--signal-deep);letter-spacing:.14em}
-  .value h3{font-size:23px;margin:14px 0 10px}
-  .value p{color:var(--ink-soft);font-size:15.5px}
-
-  /* Pakete */
-  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border:1.5px solid var(--ink);background:var(--white)}
-  @media(max-width:900px){.pkg-grid{grid-template-columns:1fr}}
-  .pkg{padding:40px 32px;display:flex;flex-direction:column;position:relative}
-  .pkg+.pkg{border-left:1.5px solid var(--ink)}
-  @media(max-width:900px){.pkg+.pkg{border-left:none;border-top:1.5px solid var(--ink)}}
-  .pkg .tier{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-  .pkg h3{font-size:28px;margin:12px 0 4px}
-  .pkg .for{font-size:14px;color:var(--muted);margin-bottom:24px}
-  .pkg .price{font-family:var(--disp);font-size:clamp(44px,4vw,60px);font-weight:700;letter-spacing:-0.03em;line-height:1}
-  .pkg .price small{font-family:var(--mono);font-size:12.5px;font-weight:400;color:var(--muted);letter-spacing:.04em}
-  .pkg ul{list-style:none;margin:26px 0 32px;flex:1}
-  .pkg ul li{padding:9px 0;font-size:15px;color:var(--ink-soft);border-bottom:1px dashed var(--line);display:flex;gap:10px}
-  .pkg ul li::before{content:"✓";color:var(--signal);font-weight:900;font-family:var(--mono)}
-  .pkg .btn{text-align:center}
-  .pkg.featured{background:var(--ink);color:var(--paper)}
-  .pkg.featured .tier{color:var(--signal-tint)}
-  .pkg.featured .for{color:var(--dark-for)}
-  .pkg.featured ul li{color:var(--dark-body);border-color:var(--dark-line)}
-  .pkg.featured .btn-ghost{background:transparent;color:var(--paper);border-color:var(--paper)}
-  .pkg.featured .btn-ghost:hover{background:var(--paper);color:var(--ink)}
-  .fbadge{position:absolute;top:-13px;right:24px;background:var(--signal-deep);color:var(--white);font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px}
-  .pkg-note{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:20px}
-
-  .compare{width:100%;border-collapse:collapse;background:var(--white);border:1.5px solid var(--ink);font-size:15px;margin-top:48px}
-  .compare th,.compare td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
-  .compare th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--paper-deep)}
-  .compare td:not(:first-child),.compare th:not(:first-child){text-align:center}
-  .compare tr:last-child td{border-bottom:none}
-  .yes{color:var(--signal-deep);font-weight:900}
-  .no{color:var(--muted)}
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  .table-scroll{overflow-x:auto}
-
-  /* Dunkle Full-Bleed-Sektionen */
-  .dark-sec{background:var(--ink);color:var(--paper);padding:100px 0;position:relative;z-index:1}
-  .dark-sec .tag{color:var(--paper)}
-  .dark-sec .lede,.dark-sec p{color:var(--dark-soft)}
-  .abo-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
-  @media(max-width:820px){.abo-grid{grid-template-columns:1fr;gap:40px}}
-  .abo-grid ul{list-style:none;margin-top:22px}
-  .abo-grid ul li{padding:10px 0;font-size:15.5px;color:var(--dark-body);border-bottom:1px dashed var(--dark-line);display:flex;gap:12px}
-  .abo-grid ul li::before{content:"✓";color:var(--signal);font-family:var(--mono);font-weight:900}
-  .price-huge{font-family:var(--disp);font-size:clamp(96px,13vw,190px);font-weight:600;letter-spacing:-0.04em;line-height:.85;color:var(--paper)}
-  .price-huge small{display:block;font-family:var(--mono);font-size:14px;font-weight:400;color:var(--dark-muted);letter-spacing:.06em;margin-top:20px;text-transform:uppercase}
-
-  /* Ablauf */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--line)}
-  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.steps{grid-template-columns:1fr}}
-  .step{padding:36px 28px 36px 0;border-bottom:1px solid var(--line)}
-  .step+.step{border-left:1px solid var(--line);padding-left:28px}
-  @media(max-width:900px){.step:nth-child(3){border-left:none;padding-left:0}}
-  @media(max-width:560px){.step+.step{border-left:none;padding-left:0}}
-  .step .big{font-family:var(--disp);font-size:clamp(72px,7vw,110px);font-weight:600;line-height:.9;color:transparent;-webkit-text-stroke:1.5px var(--signal);letter-spacing:-0.02em}
-  .step h3{font-size:19px;margin:18px 0 8px}
-  .step p{font-size:14.5px;color:var(--ink-soft)}
-
-  /* Ueber mich + Duotone-Slot */
-  .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
-  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}}
-  .duo{aspect-ratio:4/5;background:var(--signal-tint);position:relative;overflow:hidden;border:1.5px solid var(--ink)}
-  .duo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.04);mix-blend-mode:multiply;opacity:.9}
-  .duo .duo-note{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--white);text-align:center;padding:20px}
-  .about-text .pull{font-family:var(--disp);font-size:clamp(28px,3.8vw,48px);font-weight:600;line-height:1.05;letter-spacing:-0.02em;margin-bottom:24px}
-  .about-text .pull em{font-style:normal;color:var(--signal-deep)}
-  .about-text p{color:var(--ink-soft);margin-bottom:14px;font-size:16.5px}
-  .about-text .who{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:22px}
-
-  .ref-slot{margin-top:48px;border:1.5px dashed var(--line);padding:26px 28px;color:var(--muted);font-family:var(--mono);font-size:13px;line-height:1.7}
-
-  /* Kontakt */
-  .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;margin-top:56px}
-  @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
-  .form-card{background:var(--paper);color:var(--ink);padding:36px}
-  .form-card h3{font-size:24px}
-  label{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin:20px 0 8px;color:var(--ink-soft)}
-  input,textarea{width:100%;font-family:var(--body);font-size:16px;padding:13px 14px;border:1.5px solid var(--line);background:var(--white);color:var(--ink)}
-  input:focus,textarea:focus{outline:3px solid var(--signal);outline-offset:2px;border-color:var(--signal)}
-  a:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
-  textarea{min-height:110px;resize:vertical}
-  .form-card .btn{width:100%;text-align:center;margin-top:24px}
-  .book-card{border:1.5px solid var(--dark-line);padding:36px;display:flex;flex-direction:column;justify-content:center}
-  .book-card h3{font-size:24px;color:var(--paper);margin-bottom:12px}
-  .book-card p{font-size:15.5px;margin-bottom:24px}
-  .book-card .btn-ghost{background:transparent;color:var(--paper);border-color:var(--paper);align-self:flex-start}
-  .book-card .btn-ghost:hover{background:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--signal)}
-  .book-card .alt{font-family:var(--mono);font-size:13px;margin-top:26px;color:var(--dark-muted)}
-  .book-card .alt a{color:var(--paper);font-weight:600}
-
-  /* FAQ */
-  .faq-list{margin-top:48px;border-top:1px solid var(--line)}
-  details{border-bottom:1px solid var(--line)}
-  summary{padding:26px 4px;font-family:var(--disp);font-weight:600;font-size:clamp(18px,2vw,23px);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-family:var(--mono);font-size:26px;color:var(--signal);font-weight:400;flex-shrink:0;transition:transform .2s}
-  details[open] summary::after{transform:rotate(45deg)}
-  details .a{padding:0 4px 28px;color:var(--ink-soft);font-size:16px;max-width:760px}
-
-  /* Footer: Riesen-Wortmarke */
-  footer{background:var(--ink);color:var(--paper);padding:80px 0 40px;position:relative;z-index:1;overflow-x:clip}
-  .foot-mark{font-family:var(--disp);font-size:clamp(40px,12.8vw,150px);font-weight:600;letter-spacing:-0.04em;line-height:.85;text-transform:uppercase;white-space:nowrap}
-  .foot-mark b{color:var(--signal)}
-  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:48px;padding-top:24px;border-top:1px solid var(--dark-line);font-family:var(--mono);font-size:13px;color:var(--dark-muted)}
-  .foot-row a{color:var(--dark-soft);text-decoration:none;margin-left:22px;display:inline-block;padding:10px 0}
-  .foot-row a:hover{color:var(--paper)}
-
-  /* ===== Micro-Animations (Vanilla, JS fuegt Klassen hinzu — ohne JS bleibt alles sichtbar) ===== */
-  @keyframes drawRule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
-  .hero .rule{animation:drawRule .9s .25s cubic-bezier(.77,0,.18,1) both}
-  .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
-  .rv.in{opacity:1;transform:none}
-  .step .big{transition:color .7s ease .25s}
-  .step.rv.in .big{color:var(--signal)}
-  details .a{opacity:1}
-  details[open] .a{animation:faqIn .3s ease}
-  @keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
-</style>
 </head>
 <body>
 
-<a class="skip" href="#top">Zum Inhalt springen</a>
-
-<!-- Spalten-Guides (volle Seitenhoehe) -->
+<a class="skip" href="#main">Zum Inhalt springen</a>
 <div class="guides" aria-hidden="true"><i></i><i></i><i></i></div>
 
-<!-- MONO-META-ZEILE -->
 <div class="meta-row">
   <div class="meta-inner">
     <span>BERLIN&nbsp;·&nbsp;MO&ndash;FR&nbsp;9&ndash;18&nbsp;UHR</span>
@@ -291,22 +27,24 @@
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#top">Marvin<b>.</b>Web</a>
-    <ul class="nav-links">
-      <li><a href="#pakete">Pakete</a></li>
-      <li><a href="#ablauf">Ablauf</a></li>
-      <li><a href="#ueber">Über mich</a></li>
+    <a class="logo" href="index.html">Marvin<b>.</b>Web</a>
+    <button class="burger" aria-expanded="false" aria-controls="nav-menu">Menü</button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="pakete.html">Pakete</a></li>
+      <li><a href="projekte.html">Projekte</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a href="#kontakt" class="btn btn-primary nav-cta">Kostenlose Analyse</a>
   </div>
 </nav>
 
+<main id="main">
+
 <!-- HERO -->
-<header class="hero" id="top">
+<header class="hero">
   <div class="wrap">
     <span class="tag">Webdesign aus Berlin</span>
     <h1>Websites, die <em>Anfragen</em> bringen.</h1>
@@ -317,8 +55,13 @@
         <p class="subline">Für Handwerker, Praxen und Selbstständige, die Kunden wollen statt Kompromisse. Texte inklusive, ein Ansprechpartner, kein Agentur-Theater.</p>
         <div class="hero-ctas">
           <a href="#kontakt" class="btn btn-primary">Kostenlose Analyse anfragen</a>
-          <a href="#pakete" class="btn btn-ghost">Pakete ansehen</a>
+          <a href="pakete.html" class="btn btn-ghost">Pakete ansehen</a>
         </div>
+        <ul class="trust-row">
+          <li>Festpreis ab 990&nbsp;€</li>
+          <li>Freigabe vor dem Bau</li>
+          <li>Korrekturrunde inklusive</li>
+        </ul>
       </div>
       <aside class="docket" aria-label="Konditionen im Überblick">
         <div class="docket-head"><span>Auftrag&nbsp;·&nbsp;Klartext</span><b>№ 001</b></div>
@@ -359,12 +102,12 @@
   </div>
 </section>
 
-<!-- PAKETE -->
+<!-- PAKETE-TEASER -->
 <section class="sec" id="pakete">
   <div class="wrap">
     <div class="sec-head"><span class="tag">Pakete &amp; Preise</span><span class="line"></span><span class="aux">Festpreis, vorab fixiert</span></div>
     <h2 class="h-lg">Drei Pakete. Ein Festpreis. Kein Kleingedrucktes.</h2>
-    <p class="lede">Du weißt vor Projektstart, was es kostet und wann es fertig ist. So einfach sollte das immer sein.</p>
+    <p class="lede">Du weißt vor Projektstart, was es kostet und wann es fertig ist. Alle Details, der Leistungsvergleich und was im Preis steckt: auf der Pakete-Seite.</p>
     <div class="pkg-grid">
       <div class="pkg">
         <span class="tier">S · Onepager</span>
@@ -374,11 +117,9 @@
         <ul>
           <li>Alles Wichtige auf einer Seite</li>
           <li>Texte inklusive, du gibst nur frei</li>
-          <li>Mobil optimiert und blitzschnell</li>
-          <li>Kontaktformular und Anfahrt</li>
           <li>In 5 Werktagen live</li>
         </ul>
-        <a href="#kontakt" class="btn btn-ghost">Passt zu mir</a>
+        <a href="pakete.html" class="btn btn-ghost">Details ansehen</a>
       </div>
       <div class="pkg featured">
         <span class="fbadge">Beliebt</span>
@@ -390,10 +131,8 @@
           <li>4 bis 6 Seiten mit klarer Struktur</li>
           <li>Texte, die für dich verkaufen</li>
           <li>Google-Grundlagen von Anfang an</li>
-          <li>Leistungsseiten je Angebot</li>
-          <li>Bewertungen und Referenzen eingebunden</li>
         </ul>
-        <a href="#kontakt" class="btn btn-primary">Passt zu mir</a>
+        <a href="pakete.html" class="btn btn-primary">Details ansehen</a>
       </div>
       <div class="pkg">
         <span class="tier">L · Shop</span>
@@ -402,52 +141,13 @@
         <p class="price">Anfrage</p>
         <ul>
           <li>Onlineshop mit Bezahlung und Versand</li>
-          <li>Produktpflege, die du selbst schaffst</li>
           <li>Rechtssicher für Deutschland</li>
-          <li>Zahlungsarten nach Wahl</li>
           <li>Einweisung inklusive</li>
         </ul>
-        <a href="#kontakt" class="btn btn-ghost">Anfragen</a>
+        <a href="pakete.html" class="btn btn-ghost">Details ansehen</a>
       </div>
     </div>
-    <p class="pkg-note">Jedes Paket inkl. Betreuungs-Abo ab 49 €/Monat, im ersten Monat inklusive.</p>
-
-    <div class="table-scroll">
-      <table class="compare">
-        <thead>
-          <tr><th>Leistung</th><th>S</th><th>M</th><th>L</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Festpreis vor Projektstart</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Texte inklusive</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Mobil optimiert</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Mehrere Unterseiten</td><td class="no">&ndash;<span class="sr-only"> nicht enthalten</span></td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Google-Grundlagen (SEO)</td><td class="no">&ndash;<span class="sr-only"> nicht enthalten</span></td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Onlineshop</td><td class="no">&ndash;<span class="sr-only"> nicht enthalten</span></td><td class="no">&ndash;<span class="sr-only"> nicht enthalten</span></td><td class="yes">✓</td></tr>
-          <tr><td>Live in 5 Werktagen</td><td class="yes">✓</td><td class="yes">✓</td><td>nach Umfang</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- BETREUUNGS-ABO -->
-<section class="dark-sec" id="abo">
-  <div class="wrap abo-grid">
-    <div>
-      <span class="tag">Betreuungs-Abo</span>
-      <h2 class="h-lg h-lg-dark">Nach dem Launch nicht allein.</h2>
-      <p class="lede">Jedes Paket enthält das Betreuungs-Abo. Deine Seite bleibt sicher, aktuell und du hast weiterhin einen direkten Draht zu mir.</p>
-      <ul>
-        <li>Hosting und Domain-Verwaltung</li>
-        <li>Updates und Sicherheit</li>
-        <li>Kleine Text- und Bildänderungen</li>
-        <li>Monatlich kündbar, keine Mindestlaufzeit</li>
-      </ul>
-    </div>
-    <div>
-      <p class="price-huge">49&nbsp;€<small>ab / Monat · im ersten Monat inklusive</small></p>
-    </div>
+    <p class="pkg-note">Jedes Paket inkl. Betreuungs-Abo ab 49 €/Monat, im ersten Monat inklusive. <a href="pakete.html" style="color:var(--ink);font-weight:700">Alle Leistungen im Vergleich &rarr;</a></p>
   </div>
 </section>
 
@@ -462,20 +162,21 @@
       <div class="step"><span class="big">03</span><h3>Umsetzung</h3><p>Ich baue, du arbeitest weiter. Nach spätestens 5 Werktagen steht die Seite zur Abnahme.</p></div>
       <div class="step"><span class="big">04</span><h3>Launch &amp; Übergabe</h3><p>Die Seite geht live, du bekommst eine Einweisung und mich weiterhin als direkten Ansprechpartner.</p></div>
     </div>
+    <p class="pkg-note">Wie das in echt aussieht? <a href="projekte.html" style="color:var(--ink);font-weight:700">Ein Projekt Schritt für Schritt &rarr;</a></p>
   </div>
 </section>
 
-<!-- ÜBER MICH -->
+<!-- ÜBER MICH (TEASER) -->
 <section class="sec" id="ueber">
   <div class="wrap about-grid">
     <figure class="duo">
       <img src="img/marvin.jpg" alt="Marvin Müller, Webdesigner aus Berlin" width="775" height="969" loading="lazy">
     </figure>
     <div class="about-text">
-      <p class="pull">„Eine Website ist kein Kunstprojekt. Sie ist ein <em>Werkzeug</em>, das Anfragen bringen soll.&ldquo;</p>
-      <p>Hey, ich bin Marvin. Ich baue Websites für Leute, die keine Zeit für Agentur-Theater haben. Kein Ticketsystem, keine Warteschleife: Du schreibst mir per Mail oder WhatsApp, ich antworte in der Regel am selben Tag.</p>
-      <p>Vom ersten Gespräch bis zum Launch bin ich dein einziger Ansprechpartner. Und danach auch.</p>
+      <p class="pull">„Eine Website ist kein Kunstprojekt. Sie ist ein <em>Werkzeug</em>, das Anfragen bringen soll."</p>
+      <p>Hey, ich bin Marvin. Ich baue Websites für Leute, die keine Zeit für Agentur-Theater haben. Kein Ticketsystem, keine Warteschleife: Du schreibst mir, ich antworte in der Regel am selben Tag.</p>
       <p class="who">Marvin Müller · Webdesign · Berlin</p>
+      <p style="margin-top:18px"><a href="ueber-mich.html" class="btn btn-ghost">Mehr über mich &amp; meine Arbeitsweise</a></p>
     </div>
   </div>
 </section>
@@ -490,7 +191,7 @@
       <div class="value"><span class="num">§2</span><h3>Freigabe vor dem Bau</h3><p>Struktur und Texte gehst du ab, bevor ich baue. Kein böses Erwachen.</p></div>
       <div class="value"><span class="num">§3</span><h3>Korrekturrunde inklusive</h3><p>Nach der Umsetzung passen wir gemeinsam an. Erst wenn du zufrieden bist, geht die Seite live.</p></div>
     </div>
-    <div class="ref-slot">// Platz für echte Referenzen und Kundenstimmen, sobald die ersten Projekte live sind.<br>// Hier kommen Screenshots und Ergebnisse in Zahlen rein, nichts Erfundenes.</div>
+    <div class="ref-slot">// Platz für echte Kundenstimmen, sobald die ersten Projekte live sind. Bis dahin: <a href="projekte.html" style="color:var(--ink)">mein Prozess, Schritt für Schritt dokumentiert</a> — nichts Erfundenes.</div>
   </div>
 </section>
 
@@ -532,9 +233,8 @@
     <div class="sec-head"><span class="tag">Häufige Fragen</span><span class="line"></span></div>
     <h2 class="h-lg">Alles, was du wissen willst.</h2>
     <div class="faq-list">
-      <details><summary>Was kostet eine Website bei dir?</summary><div class="a">Ein Onepager startet bei 990 Euro, die Business-Site bei 1.990 Euro, jeweils zum Festpreis. Der Preis steht vor Projektstart fest und ändert sich nicht.</div></details>
+      <details><summary>Was kostet eine Website bei dir?</summary><div class="a">Ein Onepager startet bei 990 Euro, die Business-Site bei 1.990 Euro, jeweils zum Festpreis. Der Preis steht vor Projektstart fest und ändert sich nicht. Alle Details auf der <a href="pakete.html">Pakete-Seite</a>.</div></details>
       <details><summary>Wie lange dauert es wirklich?</summary><div class="a">5 Werktage ab dem Moment, in dem Struktur und Texte freigegeben sind. Die meisten Projekte sind inklusive Vorgespräch nach rund zwei Wochen komplett abgeschlossen.</div></details>
-      <details><summary>Was ist im Betreuungs-Abo enthalten?</summary><div class="a">Hosting, Domain-Verwaltung, Updates, Sicherheit, kleine Text- und Bildänderungen und ein direkter Draht zu mir. Monatlich kündbar, keine Mindestlaufzeit.</div></details>
       <details><summary>Was brauchst du von mir?</summary><div class="a">Logo und Fotos falls vorhanden und 30 Minuten für das Analysegespräch. Die Texte schreibe ich, du gibst sie nur frei. Mehr nicht.</div></details>
       <details><summary>Was, wenn mir etwas nicht gefällt?</summary><div class="a">Du gibst Struktur und Texte frei, bevor gebaut wird, und nach der Umsetzung gibt es eine Korrekturrunde. Erst wenn du zufrieden bist, geht die Seite live.</div></details>
       <details><summary>Wem gehört die Website am Ende?</summary><div class="a">Dir. Du bekommst deine Seite und deine Domain, ohne Abhängigkeit von einem Baukasten. Das Betreuungs-Abo ist ein Service, kein Käfig.</div></details>
@@ -543,6 +243,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -550,9 +252,9 @@
     <div class="foot-row">
       <span>© 2026 · Webdesign aus Berlin</span>
       <div>
-        <a href="#pakete">Pakete</a>
-        <a href="#ablauf">Ablauf</a>
-        <a href="#faq">FAQ</a>
+        <a href="pakete.html">Pakete</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="ueber-mich.html">Über mich</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
@@ -560,34 +262,6 @@
   </div>
 </footer>
 
-<script>
-  // Lokale Uhrzeit in der Meta-Zeile (rein dekorativ, kein externer Request)
-  (function(){
-    var el = document.getElementById('clock');
-    function tick(){ el.textContent = new Date().toLocaleTimeString('de-DE'); }
-    tick(); setInterval(tick, 1000);
-  })();
-
-  // Scroll-Reveals: JS fuegt .rv erst hinzu, dadurch ohne JS/mit reduced-motion nichts versteckt
-  (function(){
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (!('IntersectionObserver' in window)) return;
-    var els = document.querySelectorAll('.sec-head, .h-lg, .lede, .pain, .value, .pkg, .step, .docket, .ref-slot, .about-grid > *, .abo-grid > *, .contact-grid > *');
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        // isIntersecting: normal reveal. top<0: beim schnellen Scrollen vorbeigesprungen -> sofort zeigen
-        if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    // rootMargin oben riesig: auch Elemente, die beim schnellen Scrollen ueber den
-    // Viewport hinausgesprungen sind, gelten als "im Bereich" und werden gemeldet
-    }, {threshold: 0.12, rootMargin: '9999px 0px -40px 0px'});
-    els.forEach(function(el, i){
-      el.classList.add('rv');
-      el.style.transitionDelay = (i % 4) * 70 + 'ms';
-      io.observe(el);
-    });
-  })();
-</script>
-
+<script src="site.js"></script>
 </body>
 </html>
