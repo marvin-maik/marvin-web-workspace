@@ -25,13 +25,16 @@ Einrichtung: formspree.io -> New Form -> ID kopieren (Format `mabcdefg`). Free: 
 
 Optional Danke-Seite: `<input type="hidden" name="_next" value="https://DOMAIN/danke.html">`
 
-## 2. Cal.com (Terminbuchung)
+## 2. Cal.eu (Terminbuchung) — bewusst die EU-Variante von Cal.com
 
-Einrichtung: cal.com -> Event Type (z.B. "analyse-30min") -> Link kopieren.
-DSGVO-freundlichste Variante: schlichter Link/Button (kein Embed, kein externes Script vor Consent):
+Einrichtung: **app.cal.eu** (EU-Hosting, DSGVO-freundlicher als cal.com!) -> Event Type
+anlegen -> Public-Link: `cal.eu/<username>/<slug>`. Praxis-Erfahrung marvin-web:
+Event-Titel kundenfreundlich benennen ("Website-Analyse (30 Min)"), Profilname pruefen.
+DSGVO-freundlichste Einbindung: schlichter Link/Button (kein Embed = kein Consent noetig,
+Daten fliessen erst bei Klick):
 
 ```html
-<a href="https://cal.com/CAL_USERNAME/analyse-30min" target="_blank" rel="noopener" class="btn">
+<a href="https://cal.eu/CAL_USERNAME/30min" target="_blank" rel="noopener" class="btn">
   Termin buchen
 </a>
 ```

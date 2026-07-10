@@ -9,6 +9,7 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
   Danach `git push` — Backup-Remote: github.com/marvin-maik/marvin-web-workspace (privat).
 - Erst Struktur-/Token-Plan zeigen, dann Code. Bei Aenderungen gezielt editieren, nie komplett neu generieren.
 - Vor Design-/Copy-Arbeit lesen: `_referenz/hosting-referenz.md` + `projekte/<name>/product-marketing-context.md`.
+- Vor jedem Build lesen: `_referenz/technik-patterns.md` (kampferprobte Loesungen — nicht neu erfinden).
 
 ## Agenten (delegieren statt selbst Kontext verbrennen)
 - Recherche zu Design/Templates/Tokens -> **design-scout**
