@@ -50,9 +50,11 @@ section{scroll-margin-top:72px}
 /* Spalten-Guides */
 .guides{position:absolute;inset:0;max-width:var(--wrap);margin:0 auto;padding:0 28px;pointer-events:none;z-index:0}
 .guides i{position:absolute;top:0;bottom:0;width:1px;background:var(--hair);opacity:.5}
-.guides i:nth-child(1){left:25%}
-.guides i:nth-child(2){left:50%}
-.guides i:nth-child(3){left:75%}
+/* Positionen auf die CONTENT-Box gerechnet (28px Padding raus), damit die Guides
+   exakt auf den Spaltenkanten der Section-Grids liegen statt 14px daneben */
+.guides i:nth-child(1){left:calc(28px + (100% - 56px)*.25)}
+.guides i:nth-child(2){left:calc(28px + (100% - 56px)*.5)}
+.guides i:nth-child(3){left:calc(28px + (100% - 56px)*.75)}
 @media(max-width:860px){.guides i:nth-child(1),.guides i:nth-child(3){display:none}}
 
 /* Signature: Massband-Linie */
@@ -109,14 +111,14 @@ nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px
 
 /* Seiten-Kopf (Unterseiten) */
 .page-head{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-.page-head h1{font-size:clamp(40px,7vw,92px);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-0.025em;margin:18px 0 0}
+.page-head h1{font-size:clamp(40px,7vw,92px);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-0.012em;word-spacing:.16em;margin:18px 0 0}
 .page-head h1 em{font-style:normal;color:var(--signal)}
 .page-head .rule{margin:26px 0 22px;max-width:520px}
 .page-head .lede{margin-bottom:0}
 
 /* Hero (Startseite) */
 .hero{padding:80px 0 96px;border-bottom:1px solid var(--line)}
-.hero h1{font-size:clamp(44px,10.5vw,150px);font-weight:700;text-transform:uppercase;line-height:.92;letter-spacing:-0.025em;margin:20px 0 0}
+.hero h1{font-size:clamp(44px,10.5vw,150px);font-weight:700;text-transform:uppercase;line-height:.92;letter-spacing:-0.012em;word-spacing:.16em;margin:20px 0 0}
 .hero h1 em{font-style:normal;color:var(--signal)}
 .hero .rule{margin:30px 0 40px;max-width:640px}
 .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
@@ -259,8 +261,8 @@ nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px
 /* Ueber mich / Duotone */
 .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
 @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}}
-.duo{aspect-ratio:4/5;background:var(--signal-tint);position:relative;overflow:hidden;border:1.5px solid var(--ink)}
-.duo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.04);mix-blend-mode:multiply;opacity:.9}
+.duo{aspect-ratio:4/5;background:var(--paper-deep);position:relative;overflow:hidden;border:1.5px solid var(--ink)}
+.duo img{width:100%;height:100%;object-fit:cover}
 .pull{font-family:var(--disp);font-size:clamp(28px,3.8vw,48px);font-weight:600;line-height:1.05;letter-spacing:-0.025em;margin-bottom:24px}
 .pull em{font-style:normal;color:var(--signal-deep)}
 .about-text p{color:var(--ink-soft);margin-bottom:14px;font-size:16.5px}
