@@ -9,9 +9,11 @@ Nach Marvins Korrektur werden die finalen Antworten in product-marketing-context
    Kompass-Gespraech 149 EUR (60 Min inkl. schriftlicher Empfehlung) und komplette
    Reiseplanung 79 EUR pro geplantem Reisetag (Beispiel: 10 Tage = 790 EUR).
    Planungsgebuehr immer klar getrennt von den Reisekosten ausgewiesen.
-3. **Erste 3 Guides:** (1) "10 Tage Namibia fuer Abenteuer-Paare" (Start-Guide, passt zum
-   Koordinaten-Signature), (2) "14 Tage Van-Life an Portugals Atlantikkueste",
-   (3) "12 Tage Brasilien: Regenwald statt Copacabana". Gliederung je Guide: Tag-fuer-Tag-Plan,
+3. **Erste 3 Guides (korrigiert: nur selbst erlebte Ziele):**
+   (1) "Suedafrika ab Durban: 12 Tage Drakensberg, Wild Coast und Safari" (Louisas
+   Heimatbasis, 8 Monate vor Ort), (2) "Australien fuer Paare: 14 Tage Ostkueste
+   abseits des Backpacker-Trails" (Marvin, 46 Monate im Land), (3) "12 Tage Brasilien:
+   Regenwald statt Copacabana" (Louisa). Gliederung je Guide: Tag-fuer-Tag-Plan,
    konkrete Unterkuenfte mit Links, Must-do-Erlebnisse mit Buchungsinfo, Praxis-Teil
    (Visum, Budget, Reisezeit, Packliste), Insider-Abschnitt.
 4. **Impressum/Gewerbe (korrigiert 2026-07-10):** MARLOU GbR, Marvin Maik Mueller und
@@ -36,13 +38,13 @@ Nach Marvins Korrektur werden die finalen Antworten in product-marketing-context
     Aussenweltereignisse reagieren, wenn unterwegs alles anders kommt. Beide Geschichten
     gehoeren auf die Seite, nicht nur Marvins.
     Story-Entwurf fuer die Ueber-uns-Copy (Phase 3, noch zu verfeinern):
-    "Louisa war acht Monate in Afrika unterwegs. Marvin hat fast vier Jahre in
-    Australien gelebt, mittendrin die Pandemie: dichte Grenzen, gestrichene Fluege,
-    Plaene, die alle zwei Wochen neu geschrieben wurden. Dabei haben wir gemerkt, was
-    wir koennen: Reisen planen, die funktionieren. Und ruhig bleiben, wenn nichts mehr
-    funktioniert."
-    >>> Zahl bestaetigen: wirklich 46 Monate Australien (fast 4 Jahre) oder Tippfehler
-    fuer 4 bis 6 Monate? Und: welche Laender genau bei Louisas 8 Monaten Afrika? <<<
+    "Louisa hat acht Monate in Durban gelebt und von dort aus Suedafrika bereist.
+    Marvin hat fast vier Jahre in Australien gelebt, mittendrin die Pandemie: dichte
+    Grenzen, gestrichene Fluege, Plaene, die alle zwei Wochen neu geschrieben wurden.
+    Dabei haben wir gemerkt, was wir koennen: Reisen planen, die funktionieren. Und
+    ruhig bleiben, wenn nichts mehr funktioniert."
+    BESTAETIGT (Marvin, 2026-07-10): 46 Monate Australien stimmt. Louisa: Basis Durban,
+    von dort viele Kurztrips.
 11. **Visions-Satz (Entwurf):** "Ihr kommt nicht mit Fotos nach Hause. Ihr kommt mit
     einer Geschichte zurueck, die nur euch gehoert."
 12. **Leistungsabgrenzung:** MARLOU plant, bucht aber nicht. Kunden buchen selbst ueber
@@ -51,11 +53,13 @@ Nach Marvins Korrektur werden die finalen Antworten in product-marketing-context
 13. **Ergebnis des Beratungsgespraechs:** 60-Min-Videocall, danach innerhalb von
     5 Werktagen der massgeschneiderte Tag-fuer-Tag-Reiseplan als PDF, eine
     Ueberarbeitungsrunde inklusive, Rueckfragen per E-Mail bis zur Abreise.
-14. **Erlebnis-Basis beider (korrigiert, echt):** Louisa: 8 Monate Afrika unterwegs
-    (Laender/Stationen noch konkretisieren), plus Brasilien. Marvin: 46 Monate
-    Australien (inkl. Corona-Zeit vor Ort), Van Life, Skydiving, Cage Diving,
-    Speerfischen, Tauchen. Fuer die Website: konkrete Orte/Stationen mit Koordinaten
-    sammeln (Signature-Element braucht echte Koordinaten bereister Orte).
+14. **Erlebnis-Basis beider (korrigiert, echt):** Louisa: 8 Monate Basis Durban
+    (Suedafrika), von dort viele Kurztrips (Stationen fuer Koordinaten noch sammeln,
+    Kandidaten: Drakensberg, Wild Coast, Safari-Parks), plus Brasilien. Marvin:
+    46 Monate Australien (inkl. Corona-Zeit vor Ort), Van Life, Skydiving, Cage Diving,
+    Speerfischen, Tauchen. Fuer die Website: konkrete Orte mit Koordinaten sammeln
+    (Signature-Element braucht echte Koordinaten bereister Orte, z.B. Durban
+    S 29.8587 / E 31.0218).
 15. **Radikale Authentizitaet:** Noch Vision, keine belegten Kontakte. Auf der Website
     als Richtung formulieren ("Wohin wir wollen" auf der Gruppenreisen-Seite), NIE als
     bestehendes Angebot.

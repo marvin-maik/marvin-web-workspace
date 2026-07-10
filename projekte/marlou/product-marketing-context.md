@@ -27,9 +27,15 @@ Preise / Pakete: >>> NICHT FINAL — nur Orientierung aus dem Erstgespraech <<<
   Reisekosten trennen. Kunden sehen genau, wofuer sie zahlen.
 
 USP (warum hier statt woanders):
-- Beide haben die Erlebnisse selbst erlebt: Marvin (Van Life, Skydiving, Cage Diving,
-  Speerfischen, Tauchen), Louisa (u.a. Afrika, Brasilien und mehr). Kein KI-Plan, kein
-  Reiseblog-Aggregat.
+- Beide haben die Erlebnisse selbst erlebt: Marvin (46 Monate Australien inkl.
+  Corona-Zeit vor Ort, Van Life, Skydiving, Cage Diving, Speerfischen, Tauchen),
+  Louisa (8 Monate Basis Durban/Suedafrika mit vielen Kurztrips, plus Brasilien).
+  Kein KI-Plan, kein Reiseblog-Aggregat.
+- Ursprungsgeschichte (echt, bestaetigt 2026-07-10): Beide haben in langen
+  Auslandszeiten gelernt, Reisen zu planen und auf Aussenweltereignisse zu reagieren
+  (Marvin sass waehrend der Pandemie in Australien: dichte Grenzen, gestrichene
+  Fluege, staendiges Umplanen). Story-Entwurf in
+  material/lueckenliste-antworten-entwurf.md Punkt 10, beide als Gesichter.
 - Marktluecke belegt (Wettbewerbs-Radar der Checkliste): Im deutschsprachigen Markt gibt
   es keinen Anbieter, der adventure-fokussierte Reiseplanung als digitales Produkt fuer
   Paare verkauft. Windrose.de = Luxussegment (kein Wettbewerber), ADAC/Thalia = Verlage,
@@ -222,7 +228,19 @@ Material-Status:
 
 ---
 
-## Lueckenliste (konsolidiert — Fragen an Marvin/Kunde, 1:1 stellbar)
+## Lueckenliste — STATUS: BEANTWORTET (2026-07-10)
+
+Alle 18 Punkte sind beantwortet bzw. als fiktive Annahme gesetzt, siehe
+material/lueckenliste-antworten-entwurf.md (von Marvin korrigiert: Impressum-Adresse
+Erich-Weinert-Str. 23, 10439 Berlin; Story auf echte Auslandszeiten umgebaut,
+46 Monate Australien bestaetigt, Louisa Basis Durban; Guides nur selbst erlebte Ziele).
+Kernentscheidungen: Domain marlou.travel, PDF 29/39 EUR via Digistore24, Beratung
+149 EUR Kompass-Gespraech / 79 EUR pro Reisetag Komplettplanung, Lead Magnet via
+MailerLite, Cal.com fuer Termine. Noch offen fuer Launch (nicht blockierend fuer
+Struktur/Build): echte Fotoauswahl, komplette Koordinaten-Liste bereister Orte,
+AGB-Paket, echte Social-Profile.
+
+Urspruengliche Fragen (historisch, Antworten im Entwurfs-Dokument):
 
 Aus dem Erstgespraech (1–11):
 1. Domain: Sollen wir marlou.de, marlou.travel oder marlou.co pruefen und sichern?
