@@ -14,10 +14,11 @@ Nach Marvins Korrektur werden die finalen Antworten in product-marketing-context
    (3) "12 Tage Brasilien: Regenwald statt Copacabana". Gliederung je Guide: Tag-fuer-Tag-Plan,
    konkrete Unterkuenfte mit Links, Must-do-Erlebnisse mit Buchungsinfo, Praxis-Teil
    (Visum, Budget, Reisezeit, Packliste), Insider-Abschnitt.
-4. **Impressum/Gewerbe (fiktive Annahme):** MARLOU GbR, Marvin Mueller und Louisa Berger,
-   Musterstrasse 12, 50823 Koeln, hallo@marlou.travel. Kleingewerbe angemeldet. Da nur
-   geplant und nicht gebucht wird: keine Reiseveranstalter-Lizenz noetig (Annahme, im
-   echten Fall anwaltlich pruefen; auf der Website entsprechend formulieren).
+4. **Impressum/Gewerbe (korrigiert 2026-07-10):** MARLOU GbR, Marvin Maik Mueller und
+   Louisa Berger, Erich-Weinert-Strasse 23, 10439 Berlin (Adresse aus marvin-web
+   uebernommen). Telefon fiktiv: +49 30 555 0 4623 (Platzhalter). E-Mail:
+   hallo@marlou.travel. Kleingewerbe angemeldet. Da nur geplant und nicht gebucht wird:
+   keine Reiseveranstalter-Lizenz noetig (Annahme, im echten Fall anwaltlich pruefen).
 5. **Fotos:** 20-30 eigene Fotos aus Namibia, Brasilien, Van Life Portugal, Tauchen
    Aegypten, Skydiving. Fuer das Mockup: Platzhalter in finalen Bildmassen, jeweils mit
    echter Caption-Struktur (Koordinate, Ort, Jahr).
@@ -27,11 +28,21 @@ Nach Marvins Korrektur werden die finalen Antworten in product-marketing-context
    kostenloser Mini-Guide (PDF) gegen E-Mail, via MailerLite.
 9. **Verkaufsplattform:** Digistore24 (deutsches Recht, VAT, PayPal integriert).
    Kauf-Buttons der Website verlinken auf den Digistore24-Checkout.
-10. **Ursprungsgeschichte (Entwurf):** Namibia 2024. Louisa hatte drei Wochen in vier
-    Abenden geplant, inklusive eines Abends bei einer Familie ausserhalb von Windhoek,
-    den kein Blog und keine Suchmaschine kennt. Auf dem Rueckflug fragte das Paar neben
-    uns, ob wir beruflich Reisen planen, und wollte den kompletten Plan abkaufen.
-    Da war MARLOU geboren.
+10. **Ursprungsgeschichte (korrigiert 2026-07-10, basiert auf ECHTEN Auslandszeiten):**
+    Kern: Louisa war 8 Monate in Afrika unterwegs, Marvin 46 Monate in Australien,
+    davon ein grosser Teil waehrend der Corona-Pandemie (geschlossene Grenzen,
+    gestrichene Fluege, Plaene die immer wieder neu geschrieben werden mussten).
+    Die Erkenntnis daraus: Wir koennen zwei Dinge richtig gut, Reisen planen und auf
+    Aussenweltereignisse reagieren, wenn unterwegs alles anders kommt. Beide Geschichten
+    gehoeren auf die Seite, nicht nur Marvins.
+    Story-Entwurf fuer die Ueber-uns-Copy (Phase 3, noch zu verfeinern):
+    "Louisa war acht Monate in Afrika unterwegs. Marvin hat fast vier Jahre in
+    Australien gelebt, mittendrin die Pandemie: dichte Grenzen, gestrichene Fluege,
+    Plaene, die alle zwei Wochen neu geschrieben wurden. Dabei haben wir gemerkt, was
+    wir koennen: Reisen planen, die funktionieren. Und ruhig bleiben, wenn nichts mehr
+    funktioniert."
+    >>> Zahl bestaetigen: wirklich 46 Monate Australien (fast 4 Jahre) oder Tippfehler
+    fuer 4 bis 6 Monate? Und: welche Laender genau bei Louisas 8 Monaten Afrika? <<<
 11. **Visions-Satz (Entwurf):** "Ihr kommt nicht mit Fotos nach Hause. Ihr kommt mit
     einer Geschichte zurueck, die nur euch gehoert."
 12. **Leistungsabgrenzung:** MARLOU plant, bucht aber nicht. Kunden buchen selbst ueber
@@ -40,10 +51,11 @@ Nach Marvins Korrektur werden die finalen Antworten in product-marketing-context
 13. **Ergebnis des Beratungsgespraechs:** 60-Min-Videocall, danach innerhalb von
     5 Werktagen der massgeschneiderte Tag-fuer-Tag-Reiseplan als PDF, eine
     Ueberarbeitungsrunde inklusive, Rueckfragen per E-Mail bis zur Abreise.
-14. **Louisas Erlebnisse (fiktiv konkretisiert):** Roadtrips Namibia + Suedafrika,
-    3 Monate Brasilien (Portugiesisch-Grundkenntnisse), Kilimandscharo-Besteigung
-    Tansania, Tauchschein (AOWD). Marvin: Van Life Europa, Skydiving (Lizenz),
-    Cage Diving Suedafrika, Speerfischen, Tauchen Rotes Meer.
+14. **Erlebnis-Basis beider (korrigiert, echt):** Louisa: 8 Monate Afrika unterwegs
+    (Laender/Stationen noch konkretisieren), plus Brasilien. Marvin: 46 Monate
+    Australien (inkl. Corona-Zeit vor Ort), Van Life, Skydiving, Cage Diving,
+    Speerfischen, Tauchen. Fuer die Website: konkrete Orte/Stationen mit Koordinaten
+    sammeln (Signature-Element braucht echte Koordinaten bereister Orte).
 15. **Radikale Authentizitaet:** Noch Vision, keine belegten Kontakte. Auf der Website
     als Richtung formulieren ("Wohin wir wollen" auf der Gruppenreisen-Seite), NIE als
     bestehendes Angebot.
