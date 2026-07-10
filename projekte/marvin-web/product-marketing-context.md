@@ -27,20 +27,22 @@ Klartext-Level: 4 (direkt, kein Agentur-Sprech)
 Verbotene Floskeln: Standardliste (Kap. 9.5) + "Ihr Partner fuer", "massgeschneidert".
 Erlaubte Signature: "In 5 Werktagen live." / "Ein Preis, keine Ueberraschungen."
 
-## 4. Design-Tokens (VORSCHLAG — herzuleiten, nicht Default-AI)
-Welt der Zielgruppe: verlaesslich, schnell, klar, kein Bullshit. Anti-Slop: keiner der drei
-verbotenen Looks. EIN Signature-Element: Signal-Highlight unter einer Kernaussage im Hero.
+## 4. Design-Tokens (Stand v2, freigegeben als Richtung "Werkstatt-Editorial")
+Welt der Zielgruppe: verlaesslich, schnell, klar, kein Bullshit. Konzept: Auftragszettel/
+technisches Datenblatt — Hairlines statt Karten-Boxen, Mono-Labels, riesige Editorial-Typo.
 
-    --ink:    #14171A   /* fast schwarz, warm */    Begruendung: Klarheit, Seriositaet ohne Kaelte
-    --bg:     #FAF8F4   /* warmes Papierweiss */     (kein Creme-Look, kuehler/heller)
-    --signal: #F0480C   /* Signal-Orange (GO)  */    Begruendung: Tempo/Aktion/bezahlbar, kein SaaS-Blau
-    --muted:  #5C6169   /* Sekundaertext */
-    --line:   #E6E1D8   /* Rahmen/Trenner */
-    --ink-2:  #1E3A5F   /* tiefes Vertrauensblau, sparsam fuer Akzentflaechen */
+    --ink:    #161412   /* warmes fast-schwarz */
+    --paper:  #f5f1e8   /* werkstatt-papier */
+    --signal: #e8440a   /* signal-orange (GO) */     Begruendung: Tempo/Aktion, kein SaaS-Blau
+    --muted:  #7a7466
+    --line:   #d8d2c2 / --hair: #c9c2af (hairlines)
 
-Fonts: Heading + Body eine klare Grotesk (Inter oder Systemschrift-Stack) — eine Familie.
-Signature-Element: Orange Marker-Strich unter EINER Hero-Kernphrase. Sonst diszipliniert.
-Breakpoints: 860px, 560px.
+Fonts: Archivo (Display 900, uppercase Hero, kursives Highlight-Wort) + IBM Plex Mono
+(Labels, Nummern, Zusaetze). Fuer Launch selbst hosten (DSGVO), Mockup nutzt Google CDN.
+Signature-Element: Massband-Linie (orange Linie mit Teilstrichen), Hero + konsistent.
+Weitere Merkmale: scharfe Kanten (keine Radien), Buttons mit Hard-Shadow-Hover,
+Ablauf-Nummern als Outline-Ziffern, dunkle Full-Bleed-Sektionen (Abo, Kontakt), Riesen-
+Wortmarke im Footer. Breakpoints: 960/900/860px, 560px.
 
 ## 5. Referenzen
 >>> OFFEN: hat Marvin schon fertige Projekte / Testimonials? <<<
