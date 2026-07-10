@@ -6,6 +6,7 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Neue Projekte laufen nach dem Playbook-Skill `neues-projekt` (Phasen + Freigaben).
 - Status-Board `PROJEKTE.md` bei jedem Phasenwechsel aktualisieren.
 - Git: Commit nach jedem Meilenstein (Phase abgeschlossen, Version gebaut). Deutsch, praegnant.
+  Danach `git push` — Backup-Remote: github.com/marvin-maik/marvin-web-workspace (privat).
 - Erst Struktur-/Token-Plan zeigen, dann Code. Bei Aenderungen gezielt editieren, nie komplett neu generieren.
 - Vor Design-/Copy-Arbeit lesen: `_referenz/hosting-referenz.md` + `projekte/<name>/product-marketing-context.md`.
 
