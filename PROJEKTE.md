@@ -5,7 +5,7 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 
 | Projekt | Phase | Naechster Schritt | Wartet auf |
 |---|---|---|---|
-| marvin-web (Business-Site, 4 Seiten) | Build fertig, QA laeuft | QA-Befunde fixen, Marvins Freigabe, dann Launch | Marvin: Review der 4 Seiten; spaeter: Dieter, Formspree-AVV, finale Mail, og:image, Domain |
+| marvin-web (Business-Site, 4 Seiten) | QA bestanden, Befunde gefixt | Marvins Review + Formular-Testsubmit, dann Launch (Cloudflare) | Marvin: Review; Launch-Rest: Domain, og:image, Danke-Seite, Dieter, Formspree-AVV, finale Mail |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
 
 ## Erledigt / Log

@@ -13,10 +13,18 @@
   var btn = document.querySelector('.burger');
   var nav = document.querySelector('nav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', function () {
-    var open = nav.classList.toggle('open');
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.textContent = open ? 'Schliessen' : 'Menü';
+    btn.textContent = open ? 'Schließen' : 'Menü';
+  }
+  btn.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+  // Menue schliesst bei Link-Klick (wichtig fuer Anker-Links) und bei Escape
+  nav.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { setOpen(false); btn.focus(); }
   });
 })();
 
