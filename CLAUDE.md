@@ -27,3 +27,10 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Single-File-Mockups (`index.html`), Hosting GitHub (`marvin-maik/<repo>`) + Cloudflare Pages.
 - Formulare Formspree, Buchung Cal.com, Rechtstexte Dieter Datenschutz — Snippets in `_referenz/integrations.md`.
 - Fertige Erkenntnisse/Muster nach Projektende in `_fundus/` ablegen.
+
+## Deployment (Stand Launch 2026-07-10)
+- LIVE auf Cloudflare Pages (Direct Upload via wrangler, Account comspiele@web.de):
+  https://marvin-web.pages.dev
+- Nach jedem Push zusaetzlich deployen:
+  `npx wrangler pages deploy projekte/marvin-web --project-name marvin-web --branch main`
+- Spaeter optional: Git-Integration im CF-Dashboard fuer Auto-Deploy bei Push.
