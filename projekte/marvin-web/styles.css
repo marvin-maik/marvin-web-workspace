@@ -85,7 +85,7 @@ section{scroll-margin-top:72px}
 .meta-row{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;position:relative;z-index:2}
 .meta-inner{max-width:var(--wrap);margin:0 auto;padding:10px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .meta-row b{color:var(--signal-tint);font-weight:500}
-.meta-row a{color:var(--paper);text-underline-offset:3px}
+.meta-row a{color:var(--paper);text-underline-offset:3px;white-space:nowrap}
 nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:var(--wrap);margin:0 auto;gap:16px}
 .logo{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-0.02em;text-decoration:none;text-transform:uppercase}
@@ -111,7 +111,7 @@ nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px
 
 /* Seiten-Kopf (Unterseiten) */
 .page-head{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-.page-head h1{font-size:clamp(40px,7vw,92px);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-0.012em;word-spacing:.16em;margin:18px 0 0}
+.page-head h1{font-size:clamp(44px,7.5vw,92px);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-0.012em;word-spacing:.16em;margin:18px 0 0;overflow-wrap:break-word;hyphens:auto}
 .page-head h1 em{font-style:normal;color:var(--signal)}
 .page-head .rule{margin:26px 0 22px;max-width:520px}
 .page-head .lede{margin-bottom:0}
@@ -327,9 +327,6 @@ footer{background:var(--ink);color:var(--paper);padding:80px 0 40px;position:rel
 .foot-row a:hover{color:var(--paper)}
 
 /* Hover-Interactions (dezent, zur Werkstatt-Sprache passend) */
-.duo{cursor:default}
-.duo img{transition:transform .6s cubic-bezier(.22,1,.36,1)}
-.duo:hover img{transform:scale(1.045)}
 .docket{transition:box-shadow .25s ease,transform .25s ease}
 .docket:hover{transform:translate(-3px,-3px);box-shadow:12px 12px 0 var(--paper-deep)}
 .case,.stack,.guarantee-band{transition:transform .25s ease,box-shadow .25s ease}
