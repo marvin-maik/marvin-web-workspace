@@ -15,3 +15,6 @@ dist/
 .env
 .env.*
 *.key
+
+# geklontes Referenz-Repo (eigenes git)
+_referenz/awesome-design-md/

@@ -26,6 +26,31 @@ Via Chrome MCP live gesichtet, Kategorie Agency (framer.com/community/marketplac
 5. **Wortmarke als Raumfueller** (Porto/Constantine): haben wir im Footer; Porto zeigt es als Hero.
 6. **Logo-/Referenz-Wall in Karten-Slidern** (Porto): Platzhalter-tauglich fuer spaetere Referenzen.
 
+## Porto: exakte Werte (per JS aus der Live-Demo extrahiert)
+
+- **Fonts:** Clash Display (Display, kostenlos via Fontshare!) + Inter Display (Body)
+- **Palette:** BG #161616, Karten #292929, Akzent #FF462E (Orange-Rot), Grau #808080
+- **Der Wow-Mechanismus:** Type-Scale 12/13 → 18 → 24 → 34 → 48 → 88 → 120 → 276 → **397px**.
+  Labels zu Wortmarke = 30x-Sprung. Wortmarke: Weight nur 600 (nicht 900!), line-height 0.8,
+  letter-spacing -3px, uppercase, ~27vw breit (full-bleed).
+- **Rasterlinien:** 3 schlichte 1px-Divs ueber die volle Dokumenthoehe (22.000px), Farbe knapp
+  ueber BG. Kein Trick, nur Konsequenz.
+- **Duotone-Bilder:** vorgefaerbte Assets, kein CSS-Filter. Fuer uns: CSS-Duotone
+  (grayscale + mix-blend-mode overlay in --signal) oder Bild vorbearbeiten.
+- Lizenz-Hinweis: Werte/Muster als Inspiration ok, Code/Design nicht klonen.
+
+## Neue Quellen (von Marvin, Juli 2026)
+
+- **getdesign.md**: 74 DESIGN.md-Briefings (Google-Spec) fuer AI-Coding-Agents — komplette
+  Token-Systeme mit Begruendung. KOMPLETT LOKAL GEKLONT: `_referenz/awesome-design-md/design-md/`.
+  Fuer MARVIN.WEB-Aesthetik relevant: **wired** (Paper-Editorial, Hairlines #e0e0e0, Serif-Display),
+  **vodafone** (monumentale Uppercase + Kapitelbaender), **nike** (massive Uppercase, monochrom),
+  **mastercard** (warmes Cream-Canvas). Workflow: DESIGN.md als Stil-Referenz ins Briefing geben.
+- **A1 Gallery (AI-Kategorie)**: ~190 AI-Website-Designs. Achtung: Dark+Neon = Anti-Slop-verboten
+  fuer MARVIN.WEB; als Pattern-Quelle fuer Tech-Kundenprojekte ok.
+- **Figma Community AI Collection**: 100+ AI-Interfaces/Landingpage-Strukturen (Figma MCP nutzbar).
+- **Lapa Ninja (AI-Tag)**: Landingpage-Galerie; blockt WebFetch, per Chrome MCP browsen.
+
 ## Learnings zur Recherche selbst
 - Galerien (Framer/Webflow/Land-book) sind JS-gerendert -> WebFetch sieht nichts, Chrome MCP noetig.
 - Framer-Demos liegen unter <slug>.framer.website, Link "Live Preview" auf der Template-Detailseite.
