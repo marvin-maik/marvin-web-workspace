@@ -7,7 +7,7 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 |---|---|---|---|
 | marvin-web (Business-Site, 4 Seiten) | LIVE: marvin-web.pages.dev | Formular-Testsubmit auf Live-Site; dann Domain, og:image, Danke-Seite, Dieter, Formspree-AVV | Marvin: Testsubmit + Domain-Wunsch |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
-| MARLOU (Travel-Service, Probeprojekt fiktiv) | Brief | brief-builder + design-scout laufen, danach Lueckenliste + Design-Entscheid an Marvin | Agenten-Ergebnisse |
+| MARLOU (Travel-Service, Probeprojekt fiktiv) | Design | Brief + Design-Dossier fertig; Richtung festlegen, Lueckenliste beantworten | Marvin: Design-Entscheid (Empfehlung: Richtung A Expeditionslogbuch) + Lueckenliste |
 
 ## Erledigt / Log
 - 2026-07-10: Onepager-Final als Tag `onepager-final` + Kopie in _fundus/onepager-final/ gesichert.
