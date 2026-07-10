@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>MARLOU Wireframe: Start</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:1100px;margin:0 auto;padding:0 24px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+.wf-nav{display:flex;gap:18px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid #ddd;
+  font-size:14px;align-items:center}
+.wf-nav strong{margin-right:auto;letter-spacing:.06em}
+.wf-nav a{color:#222}
+.wf-nav a.aktiv{font-weight:700;text-decoration:none;border-bottom:2px solid #222}
+section{border:1px dashed #bbb;margin:28px 0;padding:28px;position:relative}
+.job{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:14px}
+h1{font-size:40px;line-height:1.1}h2{font-size:28px}h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+ul{max-width:640px;margin:10px 0 10px 20px;color:#444}
+.img{background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 10px,#fafafa 10px,#fafafa 20px);
+  border:1px solid #ccc;display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#999;font-family:ui-monospace,monospace;font-size:12px;min-height:180px;position:relative;
+  margin:16px 0;padding:12px}
+.img::before,.img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top right,transparent 49.6%,#ddd 49.6%,#ddd 50.4%,transparent 50.4%)}
+.img::after{transform:scaleX(-1)}
+.img span{position:relative;z-index:1;background:#fff;padding:4px 8px}
+.btn{display:inline-block;border:2px solid #333;padding:12px 24px;font-weight:700;
+  text-decoration:none;color:#222;margin:6px 8px 6px 0}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}.row>*{flex:1;min-width:200px}
+.card{border:1px solid #ccc;padding:18px}
+.card .meta{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:8px}
+.card .preis{font-weight:700;margin-top:8px}
+.proof{font-family:ui-monospace,monospace;font-size:12px;color:#666;margin-top:10px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+input[type=text],input[type=email],textarea{border:1px solid #999;padding:12px;font-size:15px;
+  width:100%;max-width:320px;font-family:inherit;margin:6px 8px 6px 0;vertical-align:middle}
+.klein{font-size:13px;color:#888}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
+footer{border-top:1px solid #ddd;padding:24px 0 40px;font-size:14px;color:#666}
+footer a{color:#666;margin-right:14px}
+</style>
+</head>
+<body>
+
+<div class="wf-note">MARLOU Wireframe · Seite 1 von 6: Start · Graustufen sind Absicht: Hier geht es um Aufbau und Texte, nicht um Farben</div>
+
+<nav class="wf-nav">
+  <strong>MARLOU</strong>
+  <a href="wireframe.html" class="aktiv">Start</a>
+  <a href="wireframe-guides.html">Reise-Guides</a>
+  <a href="wireframe-beratung.html">Beratung</a>
+  <a href="wireframe-gruppenreisen.html">Gruppenreisen</a>
+  <a href="wireframe-ueber-uns.html">Über uns</a>
+  <a href="wireframe-kontakt.html">Kontakt</a>
+</nav>
+
+<section>
+  <div class="job">HERO · Job: In 5 Sekunden klar: was, für wen, warum jetzt</div>
+  <h1>Abenteuerreisen für Paare. Selbst erlebt, für euch geplant.</h1>
+  <p>MARLOU plant Reisen für Paare, die mehr wollen als Strand und Hotelbuffet. Fertige Guides zum Sofort-Download oder eine Planung im Gespräch. Alles aus eigener Erfahrung: 46 Monate Australien, 8 Monate Südafrika, Brasilien und einige Umwege.</p>
+  <a class="btn primary" href="wireframe-guides.html">Reise-Guides ansehen</a>
+  <a class="btn" href="wireframe-beratung.html">Beratung ansehen</a>
+  <div class="proof">Ab 29 EUR · Sofort-Download · Jede Route selbst gereist</div>
+  <div class="img" style="min-height:260px"><span>FOTO: Marvin + Louisa unterwegs (echtes Foto, kein Stock)</span></div>
+</section>
+
+<section>
+  <div class="job">EINWAND · Job: "Das kann ich googeln" sofort entkräften</div>
+  <h2>Klar könnt ihr das selbst googeln.</h2>
+  <p>40 Tabs, drei Blogs, die voneinander abschreiben, und am Ende der gleiche Plan, den alle haben. Eine gute Abenteuerreise scheitert selten am Ziel. Sie scheitert an drei Wochenenden Recherche, die keiner von euch hat.</p>
+  <p><strong>Wir haben die Recherche schon gemacht. Vor Ort.</strong></p>
+</section>
+
+<section>
+  <div class="job">FUNNEL · Job: Den Weg Guide → Beratung → Gruppenreise sichtbar machen</div>
+  <h2>Von der Idee zur Abreise, in Etappen</h2>
+  <div class="row">
+    <div class="card">
+      <div class="meta">Etappe 01</div>
+      <h3>Reise-Guide</h3>
+      <p>Fertige Route zum Sofort-Download. Tagesplan, Unterkünfte, Erlebnisse, Packliste. Der risikoarme Einstieg.</p>
+      <p class="preis">ab 29 EUR</p>
+    </div>
+    <div class="card">
+      <div class="meta">Etappe 02</div>
+      <h3>Beratung</h3>
+      <p>Euer eigener Trip, im Gespräch geplant. Kompass-Gespräch oder Komplettplanung Tag für Tag.</p>
+      <p class="preis">ab 149 EUR</p>
+    </div>
+    <div class="card">
+      <div class="meta">Etappe 03</div>
+      <h3>Gruppenreise</h3>
+      <p>Kleine, handverlesene Gruppen. Noch in Arbeit, die Warteliste ist offen.</p>
+      <p class="preis">bald</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="job">GUIDES-TEASER · Job: Conversion-Pfad 1, sofort kaufbar, kleiner Preis</div>
+  <h2>Die Guides</h2>
+  <div class="row">
+    <div class="card">
+      <h3>Südafrika ab Durban</h3>
+      <p>12 Tage Drakensberg, Wild Coast, Safari.</p>
+      <p class="proof">Louisas Revier: 8 Monate vor Ort gelebt</p>
+      <p class="preis">39 EUR</p>
+    </div>
+    <div class="card">
+      <h3>Australien Ostküste</h3>
+      <p>14 Tage abseits des Backpacker-Trails.</p>
+      <p class="proof">Marvins Revier: 46 Monate im Land</p>
+      <p class="preis">39 EUR</p>
+    </div>
+    <div class="card">
+      <h3>Brasilien</h3>
+      <p>10 Tage Regenwald statt Copacabana.</p>
+      <p class="proof">Von Louisa bereist</p>
+      <p class="preis">29 EUR</p>
+    </div>
+  </div>
+  <a class="btn" href="wireframe-guides.html">Alle Guides ansehen</a>
+  <p><span class="offen">OFFEN: Preise und Tage-Zuschnitt final? (29 EUR bis 10 Tage, 39 EUR ab 12 Tage)</span></p>
+</section>
+
+<section>
+  <div class="job">BERATUNG-TEASER · Job: Pfad 2 + Preis-Skepsis vorwegnehmen (Planung ≠ Reisekosten)</div>
+  <h2>Wenn es euer eigener Trip werden soll</h2>
+  <p>Kompass-Gespräch: 60 Minuten, 149 EUR, danach kennt ihr Ziel, Route und Budgetrahmen. Komplettplanung: 79 EUR pro Reisetag, wir schreiben euren Plan Tag für Tag.</p>
+  <p><strong>Ihr zahlt uns die Planung. Hotels und Flüge bucht ihr selbst, zu euren Preisen.</strong></p>
+  <a class="btn" href="wireframe-beratung.html">So läuft die Beratung</a>
+</section>
+
+<section>
+  <div class="job">ÜBER-UNS-TEASER · Job: "Ist das seriös?" Gesichter + echte Fakten</div>
+  <h2>Wer hier plant</h2>
+  <p>Louisa hat acht Monate in Durban gelebt und Südafrika von dort aus bereist. Marvin hat fast vier Jahre in Australien gelebt, mittendrin die Pandemie: dichte Grenzen, gestrichene Flüge, Pläne, die alle zwei Wochen neu geschrieben wurden.</p>
+  <p>Dabei haben wir gemerkt, was wir können: Reisen planen, die funktionieren. Und ruhig bleiben, wenn nichts mehr funktioniert.</p>
+  <div class="row">
+    <div class="img"><span>FOTO: Marvin (echtes Foto)</span></div>
+    <div class="img"><span>FOTO: Louisa (echtes Foto)</span></div>
+  </div>
+  <a class="btn" href="wireframe-ueber-uns.html">Unsere Geschichte</a>
+</section>
+
+<section>
+  <div class="job">LEAD MAGNET · Job: E-Mail-Liste aufbauen, unabhängig vom Algorithmus</div>
+  <h2>Noch kein Ziel im Kopf?</h2>
+  <p>Der kostenlose Mini-Guide: Die 5 besten Abenteuer-Destinations für Paare. Mit Budgetrahmen, bester Reisezeit und dem einen Erlebnis pro Ziel, das den Trip trägt.</p>
+  <input type="email" placeholder="Eure E-Mail-Adresse">
+  <a class="btn primary" href="#">Mini-Guide holen</a>
+  <p class="klein">Kein Spam. Abmeldung jederzeit.</p>
+</section>
+
+<section>
+  <div class="job">FAQ KURZ · Job: Die 3 größten Einwände direkt auf der Startseite</div>
+  <h2>Kurz beantwortet</h2>
+  <h3>Bucht ihr auch Hotels und Flüge?</h3>
+  <p>Nein, wir planen. Ihr bucht selbst über die Links im Plan. So bleibt ihr flexibel und zahlt keine versteckte Marge.</p>
+  <h3>Für wen ist MARLOU nichts?</h3>
+  <p>Für Pauschalurlaub mit Liege am Pool. Und für Backpacker, die drei Monate Zeit für die eigene Recherche haben.</p>
+  <h3>Warum nicht einfach eine KI fragen?</h3>
+  <p>Könnt ihr. Ihr bekommt den Durchschnitt aus allen Reiseblogs. Wir waren da.</p>
+  <p><span class="offen">OFFEN: Geld-zurück-Garantie für Guides anbieten? (senkt Kaufrisiko, noch nicht entschieden)</span></p>
+</section>
+
+<div class="freigabe">
+  <h3>Freigabe</h3>
+  <p>Was du jetzt tust: Seite für Seite durchklicken, pro Sektion Feedback geben (Text, Reihenfolge, fehlt was, fliegt was raus). Gelbe Marker sind offene Fragen. Danach bauen wir im echten Design. Eine Korrekturrunde nach Umsetzung ist inklusive, weitere kosten extra.</p>
+</div>
+
+<footer>
+  hallo@marlou.travel<br><br>
+  <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB + Widerruf</a>
+  <span class="klein">(Rechtsseiten folgen vor Launch via Dieter + Shop-Rechtspaket)</span>
+</footer>
+
+</body>
+</html>

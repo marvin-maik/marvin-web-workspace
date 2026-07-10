@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>MARLOU Wireframe: Reise-Guides</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:1100px;margin:0 auto;padding:0 24px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+.wf-nav{display:flex;gap:18px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid #ddd;
+  font-size:14px;align-items:center}
+.wf-nav strong{margin-right:auto;letter-spacing:.06em}
+.wf-nav a{color:#222}
+.wf-nav a.aktiv{font-weight:700;text-decoration:none;border-bottom:2px solid #222}
+section{border:1px dashed #bbb;margin:28px 0;padding:28px;position:relative}
+.job{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:14px}
+h1{font-size:40px;line-height:1.1}h2{font-size:28px}h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+ul{max-width:640px;margin:10px 0 10px 20px;color:#444}
+.img{background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 10px,#fafafa 10px,#fafafa 20px);
+  border:1px solid #ccc;display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#999;font-family:ui-monospace,monospace;font-size:12px;min-height:180px;position:relative;
+  margin:16px 0;padding:12px}
+.img::before,.img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top right,transparent 49.6%,#ddd 49.6%,#ddd 50.4%,transparent 50.4%)}
+.img::after{transform:scaleX(-1)}
+.img span{position:relative;z-index:1;background:#fff;padding:4px 8px}
+.btn{display:inline-block;border:2px solid #333;padding:12px 24px;font-weight:700;
+  text-decoration:none;color:#222;margin:6px 8px 6px 0}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}.row>*{flex:1;min-width:200px}
+.card{border:1px solid #ccc;padding:18px}
+.card .meta{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:8px}
+.card .preis{font-weight:700;margin-top:8px}
+.proof{font-family:ui-monospace,monospace;font-size:12px;color:#666;margin-top:10px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+input[type=email]{border:1px solid #999;padding:12px;font-size:15px;
+  width:100%;max-width:320px;font-family:inherit;margin:6px 8px 6px 0;vertical-align:middle}
+.klein{font-size:13px;color:#888}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
+footer{border-top:1px solid #ddd;padding:24px 0 40px;font-size:14px;color:#666}
+footer a{color:#666;margin-right:14px}
+</style>
+</head>
+<body>
+
+<div class="wf-note">MARLOU Wireframe · Seite 2 von 6: Reise-Guides</div>
+
+<nav class="wf-nav">
+  <strong>MARLOU</strong>
+  <a href="wireframe.html">Start</a>
+  <a href="wireframe-guides.html" class="aktiv">Reise-Guides</a>
+  <a href="wireframe-beratung.html">Beratung</a>
+  <a href="wireframe-gruppenreisen.html">Gruppenreisen</a>
+  <a href="wireframe-ueber-uns.html">Über uns</a>
+  <a href="wireframe-kontakt.html">Kontakt</a>
+</nav>
+
+<section>
+  <div class="job">KOPF · Job: Klar machen, was hier gekauft wird</div>
+  <h1>Reise-Guides. Fertige Abenteuer zum Sofort-Download.</h1>
+  <p>Jeder Guide ist eine Route, die wir selbst gereist sind. Kein Aggregat aus Blogs, keine KI-Liste. Kaufen, runterladen, losplanen.</p>
+</section>
+
+<section>
+  <div class="job">GUIDES · Job: Das Produktregal, ein Guide pro Karte, sofort kaufbar</div>
+  <h2>Drei Routen, selbst gereist</h2>
+  <div class="row">
+    <div class="card">
+      <div class="img" style="min-height:140px"><span>FOTO: Drakensberge (eigenes Foto)</span></div>
+      <div class="meta">12 Tage · PDF</div>
+      <h3>Südafrika ab Durban</h3>
+      <p>Drakensberg, Wild Coast, Safari.</p>
+      <ul>
+        <li>Route ab Flughafen Durban</li>
+        <li>Unterkünfte von Backpacker-Lodge bis Farmstay</li>
+        <li>Safari ohne Touristen-Konvoi</li>
+      </ul>
+      <p class="proof">8 Monate vor Ort gelebt, nicht nur durchgereist</p>
+      <p class="preis">39 EUR</p>
+      <a class="btn primary" href="#">Guide kaufen</a>
+    </div>
+    <div class="card">
+      <div class="img" style="min-height:140px"><span>FOTO: Australien Küste (eigenes Foto)</span></div>
+      <div class="meta">14 Tage · PDF</div>
+      <h3>Australien Ostküste</h3>
+      <p>Abseits des Backpacker-Trails.</p>
+      <ul>
+        <li>Küstenroute mit Van oder Mietwagen</li>
+        <li>Tauch- und Skydiving-Spots mit Buchungsinfo</li>
+        <li>Was ihr auslassen könnt, und warum</li>
+      </ul>
+      <p class="proof">46 Monate im Land, inklusive Pandemie-Umplanung</p>
+      <p class="preis">39 EUR</p>
+      <a class="btn primary" href="#">Guide kaufen</a>
+    </div>
+    <div class="card">
+      <div class="img" style="min-height:140px"><span>FOTO: Regenwald Brasilien (eigenes Foto)</span></div>
+      <div class="meta">10 Tage · PDF</div>
+      <h3>Brasilien</h3>
+      <p>Regenwald statt Copacabana.</p>
+      <ul>
+        <li>Atlantik-Regenwald in Tagesetappen</li>
+        <li>Ohne Gewaltmärsche, mit Alternativen</li>
+        <li>Sicherheit ehrlich eingeordnet</li>
+      </ul>
+      <p class="proof">Von Louisa bereist</p>
+      <p class="preis">29 EUR</p>
+      <a class="btn primary" href="#">Guide kaufen</a>
+    </div>
+  </div>
+  <p><span class="offen">OFFEN: Kauf-Buttons bekommen vor Launch Digistore24-Produktlinks</span></p>
+</section>
+
+<section>
+  <div class="job">INHALT · Job: Den Preis rechtfertigen, Kaufinhalt konkret machen</div>
+  <h2>Was in jedem Guide steckt</h2>
+  <ul>
+    <li>Tag-für-Tag-Plan mit Fahrzeiten und Alternativen</li>
+    <li>Konkrete Unterkünfte mit Links</li>
+    <li>Must-do-Erlebnisse mit Buchungsinfo und Kontakten</li>
+    <li>Praxis-Teil: Visum, Budget, beste Reisezeit, Packliste</li>
+    <li>Insider-Abschnitt mit dem, was in keinem Blog steht</li>
+  </ul>
+  <div class="img"><span>GRAFIK/MOCKUP: Beispiel-Doppelseite aus einem Guide</span></div>
+</section>
+
+<section>
+  <div class="job">QUALIFIKATION · Job: Fehlkäufe und Support sparen, ehrlich abgrenzen</div>
+  <h2>Für wen das ist. Und für wen nicht.</h2>
+  <div class="row">
+    <div class="card">
+      <h3>Für euch, wenn</h3>
+      <ul>
+        <li>ihr zu zweit reist</li>
+        <li>ihr Erlebnisse wollt statt Sehenswürdigkeiten abhaken</li>
+        <li>eure Zeit zu schade für 40 Recherche-Tabs ist</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Nichts für euch, wenn</h3>
+      <ul>
+        <li>ihr All-inclusive sucht</li>
+        <li>ihr eine geführte Gruppenreise erwartet (die kommt später)</li>
+        <li>ihr alles selbst recherchieren wollt</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="job">FAQ · Job: Kauf-Einwände direkt vor dem Kauf klären</div>
+  <h2>Fragen vor dem Kauf</h2>
+  <h3>Wie bekomme ich den Guide?</h3>
+  <p>Direkt nach dem Kauf als PDF-Download, dazu ein Download-Link per E-Mail.</p>
+  <h3>Was ist mit Widerruf?</h3>
+  <p>Beim Sofort-Download stimmt ihr zu, dass der Widerruf mit dem Download erlischt. Das steht klar vor dem Kauf-Button.</p>
+  <h3>Sind Links im Guide Werbung?</h3>
+  <p>Manche Unterkunfts- und Erlebnis-Links sind Affiliate-Links. Das steht im Guide auf Seite 1 und kostet euch nichts.</p>
+  <p><span class="offen">OFFEN: Bekommen Käufer spätere Guide-Updates kostenlos?</span></p>
+</section>
+
+<section>
+  <div class="job">LEAD MAGNET · Job: Wer noch nicht kauft, bleibt per E-Mail erreichbar</div>
+  <h2>Noch unsicher, welches Ziel?</h2>
+  <p>Der kostenlose Mini-Guide: Die 5 besten Abenteuer-Destinations für Paare.</p>
+  <input type="email" placeholder="Eure E-Mail-Adresse">
+  <a class="btn primary" href="#">Mini-Guide holen</a>
+</section>
+
+<div class="freigabe">
+  <h3>Freigabe</h3>
+  <p>Pro Sektion Feedback geben. Gelbe Marker sind offene Fragen. Nach Freigabe: eine Korrekturrunde nach Umsetzung inklusive.</p>
+</div>
+
+<footer>
+  hallo@marlou.travel<br><br>
+  <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB + Widerruf</a>
+</footer>
+
+</body>
+</html>

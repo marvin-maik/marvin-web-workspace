@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>MARLOU Wireframe: Kontakt</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:1100px;margin:0 auto;padding:0 24px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+.wf-nav{display:flex;gap:18px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid #ddd;
+  font-size:14px;align-items:center}
+.wf-nav strong{margin-right:auto;letter-spacing:.06em}
+.wf-nav a{color:#222}
+.wf-nav a.aktiv{font-weight:700;text-decoration:none;border-bottom:2px solid #222}
+section{border:1px dashed #bbb;margin:28px 0;padding:28px;position:relative}
+.job{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:14px}
+h1{font-size:40px;line-height:1.1}h2{font-size:28px}h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+.btn{display:inline-block;border:2px solid #333;padding:12px 24px;font-weight:700;
+  text-decoration:none;color:#222;margin:6px 8px 6px 0}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}.row>*{flex:1;min-width:200px}
+.card{border:1px solid #ccc;padding:18px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+input[type=text],input[type=email],textarea{border:1px solid #999;padding:12px;font-size:15px;
+  width:100%;max-width:420px;font-family:inherit;margin:6px 0;display:block}
+textarea{min-height:120px}
+label{font-size:14px;color:#444;display:block;margin-top:10px}
+.klein{font-size:13px;color:#888}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
+footer{border-top:1px solid #ddd;padding:24px 0 40px;font-size:14px;color:#666}
+footer a{color:#666;margin-right:14px}
+</style>
+</head>
+<body>
+
+<div class="wf-note">MARLOU Wireframe · Seite 6 von 6: Kontakt</div>
+
+<nav class="wf-nav">
+  <strong>MARLOU</strong>
+  <a href="wireframe.html">Start</a>
+  <a href="wireframe-guides.html">Reise-Guides</a>
+  <a href="wireframe-beratung.html">Beratung</a>
+  <a href="wireframe-gruppenreisen.html">Gruppenreisen</a>
+  <a href="wireframe-ueber-uns.html">Über uns</a>
+  <a href="wireframe-kontakt.html" class="aktiv">Kontakt</a>
+</nav>
+
+<section>
+  <div class="job">KONTAKT · Job: Niedrige Hürde für alle, die noch nicht buchen wollen</div>
+  <h1>Kontakt</h1>
+  <p>Schreibt uns, was ihr vorhabt. Wir antworten innerhalb von 2 Werktagen. <span class="offen">OFFEN: Antwortzeit bestätigen</span></p>
+  <div class="row">
+    <div class="card">
+      <h3>Nachricht</h3>
+      <label>Name</label>
+      <input type="text" placeholder="Euer Name">
+      <label>E-Mail</label>
+      <input type="email" placeholder="Eure E-Mail-Adresse">
+      <label>Worum geht es?</label>
+      <textarea placeholder="Ziel, Zeitraum, was ihr euch vorstellt"></textarea>
+      <a class="btn primary" href="#">Nachricht senden</a>
+      <p><span class="offen">OFFEN: Formspree-Endpoint folgt vor Launch</span></p>
+    </div>
+    <div class="card">
+      <h3>Oder direkt reden</h3>
+      <p>Wenn ihr schon wisst, dass ihr Planung wollt: bucht direkt ein Kompass-Gespräch, das spart eine E-Mail-Runde.</p>
+      <a class="btn" href="wireframe-beratung.html">Zur Beratung</a>
+      <p class="klein">E-Mail: hallo@marlou.travel</p>
+    </div>
+  </div>
+</section>
+
+<div class="freigabe">
+  <h3>Freigabe</h3>
+  <p>Pro Sektion Feedback geben. Gelbe Marker sind offene Fragen. Nach Freigabe: eine Korrekturrunde nach Umsetzung inklusive.</p>
+</div>
+
+<footer>
+  hallo@marlou.travel<br><br>
+  <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB + Widerruf</a>
+</footer>
+
+</body>
+</html>
