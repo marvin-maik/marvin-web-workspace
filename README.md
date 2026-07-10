@@ -85,7 +85,7 @@ Pro Projekt einmalig:
     cd projekte/<name>
     git init && git add -A && git commit -m "init"
     # Repo auf github.com anlegen (leer, Public/Private egal), dann:
-    git remote add origin git@github.com:<username>/<repo>.git
+    git remote add origin git@github.com:marvin-maik/<repo>.git
     git branch -M main && git push -u origin main
 
 Dann auf dash.cloudflare.com → Pages → Connect to Git → Repo waehlen → Deploy.
