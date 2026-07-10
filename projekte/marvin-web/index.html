@@ -255,14 +255,25 @@
   details .a{padding:0 4px 28px;color:var(--ink-soft);font-size:16px;max-width:760px}
 
   /* Footer: Riesen-Wortmarke */
-  footer{background:var(--ink);color:var(--paper);padding:80px 0 40px;position:relative;z-index:1}
-  .foot-mark{font-family:var(--disp);font-size:clamp(44px,15.5vw,220px);font-weight:600;letter-spacing:-0.04em;line-height:.85;text-transform:uppercase}
+  footer{background:var(--ink);color:var(--paper);padding:80px 0 40px;position:relative;z-index:1;overflow-x:clip}
+  .foot-mark{font-family:var(--disp);font-size:clamp(40px,12.8vw,150px);font-weight:600;letter-spacing:-0.04em;line-height:.85;text-transform:uppercase;white-space:nowrap}
   .foot-mark b{color:var(--signal)}
   .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:48px;padding-top:24px;border-top:1px solid var(--dark-line);font-family:var(--mono);font-size:13px;color:var(--dark-muted)}
   .foot-row a{color:var(--dark-soft);text-decoration:none;margin-left:22px;display:inline-block;padding:10px 0}
   .foot-row a:hover{color:var(--paper)}
 
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  /* ===== Micro-Animations (Vanilla, JS fuegt Klassen hinzu — ohne JS bleibt alles sichtbar) ===== */
+  @keyframes drawRule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  .hero .rule{animation:drawRule .9s .25s cubic-bezier(.77,0,.18,1) both}
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+  .rv.in{opacity:1;transform:none}
+  .step .big{transition:color .7s ease .25s}
+  .step.rv.in .big{color:var(--signal)}
+  details .a{opacity:1}
+  details[open] .a{animation:faqIn .3s ease}
+  @keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -557,6 +568,26 @@
     var el = document.getElementById('clock');
     function tick(){ el.textContent = new Date().toLocaleTimeString('de-DE'); }
     tick(); setInterval(tick, 1000);
+  })();
+
+  // Scroll-Reveals: JS fuegt .rv erst hinzu, dadurch ohne JS/mit reduced-motion nichts versteckt
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+    var els = document.querySelectorAll('.sec-head, .h-lg, .lede, .pain, .value, .pkg, .step, .docket, .ref-slot, .about-grid > *, .abo-grid > *, .contact-grid > *');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        // isIntersecting: normal reveal. top<0: beim schnellen Scrollen vorbeigesprungen -> sofort zeigen
+        if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    // rootMargin oben riesig: auch Elemente, die beim schnellen Scrollen ueber den
+    // Viewport hinausgesprungen sind, gelten als "im Bereich" und werden gemeldet
+    }, {threshold: 0.12, rootMargin: '9999px 0px -40px 0px'});
+    els.forEach(function(el, i){
+      el.classList.add('rv');
+      el.style.transitionDelay = (i % 4) * 70 + 'ms';
+      io.observe(el);
+    });
   })();
 </script>
 
