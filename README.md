@@ -44,7 +44,7 @@ Werden von Claude Code automatisch nach Beschreibung getriggert. Kuratiert (nich
 Nachziehen (voller Katalog): `npx skillkit install <repo> --list` dann
 `npx skillkit install <repo> --skill=name1,name2 --global --force`.
 
-### MCPs (global, `~/.claude/settings.json`)
+### MCPs (global, `~/.claude.json` — NICHT settings.json, die wird fuer MCPs ignoriert!)
 - **magic** (21st.dev) — schon vorhanden
 - **gsap-master** — schon vorhanden
 - **context7** — aktuelle Framework-Doku. Laeuft sofort, kein Key. (Optional Gratis-Key
