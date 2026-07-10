@@ -5,7 +5,7 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 
 | Projekt | Phase | Naechster Schritt | Wartet auf |
 |---|---|---|---|
-| marvin-web (eigene Service-Seite) | Launchbereit (bis auf Rechtstexte) | Impressum + Datenschutz (Dieter), og:image, dann Cloudflare Pages | Marvin: Dieter-Account; optional finale Kontakt-Mail |
+| marvin-web (eigene Service-Seite) | LAUNCHBEREIT | Cloudflare Pages verbinden -> live | Marvin: Go; spaeter: Dieter-Validierung der Rechtstexte, Formspree-AVV, finale Mail, og:image |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
 
 ## Erledigt / Log
