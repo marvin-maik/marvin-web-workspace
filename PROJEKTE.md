@@ -5,7 +5,7 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 
 | Projekt | Phase | Naechster Schritt | Wartet auf |
 |---|---|---|---|
-| marvin-web (eigene Service-Seite) | Build (v2 fertig, v3 geplant) | v3 mit Porto-Rezept bauen (Clash Display, Type-Scale-Sprung, Rasterlinien), danach qa-polish | Marvin: Go fuer v3; Formspree-ID, Cal-Link, Kontakt-Mail; Festpreis-Bestaetigung (990/1990 aus Draft uebernommen) |
+| marvin-web (eigene Service-Seite) | QA bestanden (v3) | Marvins Daten eintragen, dann Launch (GitHub-Repo + Cloudflare Pages) | Marvin: Formspree-ID, Cal.com-Link, Kontakt-Mail, Portrait-Foto; Impressum/Datenschutz via Dieter; og:image vor Launch |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
 
 ## Erledigt / Log
