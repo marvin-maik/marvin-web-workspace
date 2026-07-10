@@ -17,10 +17,19 @@ Eingerichtet: Juli 2026. Siehe `_referenz/hosting-referenz.md` fuer die volle St
 
 ## Neues Projekt starten
 
-1. `projekte/<name>/` anlegen.
-2. `_templates/product-marketing-context.md` dorthin kopieren und ausfuellen.
-3. Im Chat anhaengen: die ausgefuellte Kontext-Datei + `_referenz/hosting-referenz.md`.
-4. Claude liefert erst Struktur-/Token-Plan, dann Single-File-Mockup (Kap. 9.6).
+Einfach `/neues-projekt` in Claude Code — das Playbook-Skill orchestriert alle Phasen
+(Brief -> Design -> Freigabe -> Build -> QA -> Launch) inkl. Status-Board `PROJEKTE.md`.
+
+## Agenten-System (Juli 2026, in `~/.claude/agents/`)
+
+- **design-scout** — Design-Recherche: Galerien, lokale DESIGN.md-Sammlung, Token-Extraktion
+  -> Dossier mit 2-3 Richtungen. Lernt ueber Sessions (memory).
+- **brief-builder** — Kundenmaterial -> fertige `product-marketing-context.md` + Lueckenliste.
+- **qa-polish** — Endkontrolle: WCAG, Responsive, Performance, DSGVO-Aussenkontakte,
+  Anti-Slop, Launch-Platzhalter. Berichtet nur, aendert nichts.
+
+Dazu: `CLAUDE.md` (Standing Orders, laedt automatisch), `PROJEKTE.md` (Status-Board),
+`_referenz/integrations.md` (geprueft Snippets: Formspree, Cal.com, Maps, Dieter, Fonts).
 
 ---
 
