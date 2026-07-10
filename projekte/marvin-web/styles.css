@@ -163,6 +163,11 @@ nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px
 .value .num{font-family:var(--mono);font-size:12.5px;color:var(--signal-deep);letter-spacing:.14em}
 .value h3{font-size:23px;margin:14px 0 10px}
 .value p{color:var(--ink-soft);font-size:15.5px}
+/* Subgrid: num/h3/p teilen sich spaltenuebergreifend dieselben Zeilen —
+   Absaetze starten auf gleicher Hoehe, auch wenn eine h3 zweizeilig umbricht */
+@supports(grid-template-rows:subgrid){
+  .value{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
+}
 
 /* Pakete */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border:1.5px solid var(--ink);background:var(--white)}
@@ -247,6 +252,9 @@ nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px
 .step.rv.in .big{color:var(--signal)}
 .step h3{font-size:19px;margin:18px 0 8px}
 .step p{font-size:14.5px;color:var(--ink-soft)}
+@supports(grid-template-rows:subgrid){
+  .step{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
+}
 
 /* Ueber mich / Duotone */
 .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
