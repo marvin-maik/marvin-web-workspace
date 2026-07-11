@@ -7,7 +7,7 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 |---|---|---|---|
 | marvin-web (Business-Site, 4 Seiten) | LIVE: marvin-web.pages.dev | Formular-Testsubmit auf Live-Site; dann Domain, og:image, Danke-Seite, Dieter, Formspree-AVV | Marvin: Testsubmit + Domain-Wunsch |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
-| MARLOU (Travel-Service, Probeprojekt fiktiv, MEHRSEITIG) | Build fertig, QA laeuft | qa-polish-Befunde fixen, dann Launch-Vorbereitung (Platzhalter: Digistore, Cal, Formspree, MailerLite, Fotos, Koordinaten) | qa-polish-Bericht + Marvins Review auf echten Geraeten |
+| MARLOU (Travel-Service, Probeprojekt fiktiv, MEHRSEITIG) | QA bestanden | Marvins Review auf echten Geraeten; danach waere Launch dran (Blocker-Liste = Platzhalter: Digistore, Cal, Formspree, MailerLite, Dieter, Rechtstexte, Fotos, Koordinaten, og-Tags, d3 selbst hosten) | Marvin: Review + Entscheidung ob Probeprojekt deployt wird |
 
 ## Erledigt / Log
 - 2026-07-10: Onepager-Final als Tag `onepager-final` + Kopie in _fundus/onepager-final/ gesichert.
