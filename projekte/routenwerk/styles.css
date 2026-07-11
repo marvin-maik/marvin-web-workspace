@@ -1,5 +1,5 @@
-/* MARLOU · Expeditionslogbuch (Richtung A, design-dossier.md)
-   Tokens beschlossen 2026-07-10. Fonts selbst gehostet (DSGVO). */
+/* ROUTENWERK (Demo-Referenz von MARVIN.WEB) · Expeditionslogbuch-System
+   Abgeleitet vom internen Basis-Build. Fonts selbst gehostet (DSGVO). */
 
 @font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-700.woff2') format('woff2');font-weight:700;font-display:swap}
 @font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}

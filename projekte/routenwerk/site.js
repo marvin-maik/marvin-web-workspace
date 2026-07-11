@@ -1,4 +1,4 @@
-/* MARLOU site.js: Reveals, Routen-Rotator, Marquee. Vanilla, kein Framework. */
+/* ROUTENWERK (Demo) site.js: Reveals, Routen-Rotator, Marquee. Vanilla, kein Framework. */
 (function(){
   "use strict";
   var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
