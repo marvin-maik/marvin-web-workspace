@@ -1,6 +1,11 @@
 # product-marketing-context.md — MARLOU
 
-Projekt: MARLOU — Travel Planning Service fuer Abenteuer-Paare (Probeprojekt, fiktiv)
+Projekt: MARLOU — Travel Planning Service fuer Abenteuer-Paare.
+STATUS-WECHSEL 2026-07-11: ECHTES kuenftiges Projekt von Marvin + Louisa (nicht mehr
+fiktiv). Die als fiktiv markierten Annahmen (Preise, Guide-Themen, Story-Details,
+GbR/Impressum) muessen vor echtem Launch von beiden validiert werden.
+Demo-Ableger fuer die MARVIN.WEB-Referenzen: projekte/junico/ (fiktive Marke JUNICO,
+siehe dortige DEMO-README.md). Design-Aenderungen zuerst hier, dann dorthin syncen.
 Stand: 2026-07-10 (Quelle: Erstgespraech-Checkliste Marvin, mimioreisen.com/ueber-uns)
 
 ---

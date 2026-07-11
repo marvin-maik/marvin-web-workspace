@@ -7,7 +7,8 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 |---|---|---|---|
 | marvin-web (Business-Site, 4 Seiten) | LIVE: marvin-web.pages.dev | Formular-Testsubmit auf Live-Site; dann Domain, og:image, Danke-Seite, Dieter, Formspree-AVV | Marvin: Testsubmit + Domain-Wunsch |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
-| MARLOU (Travel-Service, Probeprojekt fiktiv, MEHRSEITIG) | QA bestanden | Marvins Review auf echten Geraeten; danach waere Launch dran (Blocker-Liste = Platzhalter: Digistore, Cal, Formspree, MailerLite, Dieter, Rechtstexte, Fotos, Koordinaten, og-Tags, d3 selbst hosten) | Marvin: Review + Entscheidung ob Probeprojekt deployt wird |
+| MARLOU (ECHTES Projekt Marvin+Louisa, Travel-Service) | Build fertig, QA bestanden; pausiert bis echtes Material | Fiktive Annahmen validieren (Preise, Guides, Story), dann echte Fotos/Koordinaten/Accounts/Domain, Launch-Blocker abarbeiten | Marvin + Louisa: Material + Entscheidungen |
+| JUNICO (Demo-Referenz fuer marvin-web, fiktiv, Kopie von MARLOU) | Umgeflaggt (Jule+Nico, Demo-Kennzeichnung) | Auf marvin-web verlinken + als Pages-Demo deployen (vorher Formulare entschaerfen) | Marvin: Go fuer Namen JUNICO + Deploy |
 
 ## Erledigt / Log
 - 2026-07-10: Onepager-Final als Tag `onepager-final` + Kopie in _fundus/onepager-final/ gesichert.
