@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ROUTENWERK Moodboard: Abflug-Welt</title>
+<style>
+@font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-700.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{
+  --ink:#16130E; --bg:#FAF9F5; --signal:#C2331F; --muted:#6F6A60; --line:#E2DFD7;
+  --papier-tief:#F2EFE8; --flap:#211C15; --flap-hell:#2B251C; --solari:#E8B84B;
+  --display:'Cabinet Grotesk',sans-serif; --body:'General Sans',sans-serif;
+  --mono:'B612 Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);background:var(--bg);overflow-x:clip}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 80px}
+.kopfnote{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:30px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.5vw,52px);line-height:1.05;margin:10px 0 6px}
+h2{font-family:var(--display);font-weight:800;font-size:24px;margin:64px 0 6px}
+p{max-width:640px;margin:8px 0;color:#3d3830}
+.anno{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+a{color:var(--ink)}
+
+/* ============ 1. Split-Flap-Abflugtafel ============ */
+.tafel{background:var(--ink);padding:26px 22px;border-radius:6px;overflow-x:auto}
+.tafel-kopf{display:flex;justify-content:space-between;gap:14px;font-family:var(--mono);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8f887b;
+  border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:14px;min-width:640px}
+.brett{display:grid;grid-template-columns:minmax(220px,1.4fr) minmax(140px,1fr) minmax(80px,.6fr) minmax(140px,1fr);
+  gap:10px 22px;align-items:center;min-width:640px}
+.flaps{white-space:nowrap}
+.flaps b{display:inline-block;font-family:var(--mono);font-weight:400;font-size:17px;
+  color:var(--bg);background:linear-gradient(var(--flap-hell) 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,var(--flap) 52%);
+  width:1.3ch;text-align:center;padding:6px 0;margin-right:2px;border-radius:2.5px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+.flaps b.leer{background:linear-gradient(#1D1912 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,#181510 52%)}
+.flaps.status b{color:var(--solari)}
+
+/* ============ 2. Boarding-Pass ============ */
+.pass{display:flex;flex-wrap:wrap;background:var(--bg);border:1px solid var(--muted);max-width:760px;
+  box-shadow:5px 5px 0 var(--line)}
+.pass-haupt{flex:2.4;min-width:300px;padding:22px 26px}
+.pass-kopf{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.pass-kopf b{color:var(--signal);font-weight:700}
+.route{font-family:var(--mono);font-weight:700;font-size:clamp(28px,4.5vw,44px);letter-spacing:.02em;line-height:1}
+.route small{font-size:14px;font-weight:400;color:var(--muted);letter-spacing:.08em;display:block;margin-bottom:4px}
+.pass-titel{font-family:var(--display);font-weight:800;font-size:22px;margin:14px 0 2px}
+.pass-moment{font-style:italic;color:var(--muted);max-width:40ch}
+.felder{display:flex;gap:26px;flex-wrap:wrap;margin-top:16px}
+.feld{font-family:var(--mono)}
+.feld span{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.feld b{font-size:15px;font-weight:700}
+.perfo{width:0;border-left:2px dashed var(--muted)}
+.pass-stub{flex:1;min-width:170px;padding:22px 20px;display:flex;flex-direction:column;gap:10px;background:var(--papier-tief)}
+.barcode{height:52px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,
+  var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 16px);margin-top:auto}
+.stub-code{font-family:var(--mono);font-weight:700;font-size:26px}
+.stub-preis{font-family:var(--display);font-weight:800;font-size:30px}
+
+/* ============ 3. Gate-Buttons ============ */
+.btn-gate{display:inline-block;font-family:var(--mono);font-weight:700;font-size:14px;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--bg);
+  background:linear-gradient(var(--flap-hell) 48%,rgba(0,0,0,.45) 48%,rgba(0,0,0,.45) 52%,var(--flap) 52%);
+  padding:15px 26px;border-radius:4px;margin:8px 10px 0 0;box-shadow:0 2px 0 rgba(0,0,0,.35);
+  border:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn-gate:hover{transform:translateY(-2px);box-shadow:0 4px 0 rgba(0,0,0,.35)}
+.btn-gate.rot{background:linear-gradient(#D14430 48%,rgba(0,0,0,.3) 48%,rgba(0,0,0,.3) 52%,var(--signal) 52%)}
+.btn-gate:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
+.btn-alt{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;
+  border:2px solid var(--ink);color:var(--ink);text-decoration:none;padding:13px 26px;margin:8px 10px 0 0}
+
+/* ============ 4. Gate-Wegweiser ============ */
+.wegweiser{background:var(--ink);border-radius:6px;overflow:hidden;max-width:640px}
+.weg{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid #353026;
+  font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--bg);
+  text-decoration:none;transition:background .15s}
+.weg:last-child{border-bottom:none}
+.weg:hover{background:#221D15}
+.weg .gate{font-weight:700;color:var(--solari);font-size:13px;min-width:74px}
+.weg .pfeil{margin-left:auto;color:var(--solari);font-size:18px}
+.weg .zusatz{font-size:10.5px;color:#8f887b}
+
+/* ============ 5. Gepaeckanhaenger ============ */
+.tag{display:inline-block;background:var(--papier-tief);border:1px solid var(--muted);
+  border-radius:8px 26px 8px 8px;padding:16px 20px 14px 44px;position:relative;
+  transform:rotate(-3deg);box-shadow:3px 3px 0 var(--line);max-width:290px}
+.tag::before{content:"";position:absolute;left:14px;top:18px;width:16px;height:16px;
+  border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.tag .tag-code{font-family:var(--mono);font-weight:700;font-size:34px;line-height:1;display:block}
+.tag .tag-zeile{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px;display:block}
+.tag .tag-streifen{display:block;height:8px;background:repeating-linear-gradient(90deg,var(--signal) 0 14px,transparent 14px 20px);margin-top:10px;border-radius:2px}
+
+/* ============ 6. Passport-Doppelseite ============ */
+.passport{display:flex;flex-wrap:wrap;border:1px solid var(--muted);max-width:820px;
+  background:var(--papier-tief);box-shadow:5px 5px 0 var(--line)}
+.passport>div{flex:1;min-width:280px;padding:30px 26px;position:relative;min-height:250px}
+.passport>div:first-child{border-right:1px dashed var(--muted)}
+.passport .seite-nr{position:absolute;bottom:10px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.2em;color:var(--muted)}
+.passport>div:first-child .seite-nr{right:16px}
+.passport>div:last-child .seite-nr{left:16px}
+.stempel{display:inline-block;font-family:var(--mono);font-weight:700;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--signal);
+  border:3px double var(--signal);border-radius:10px;padding:12px 16px;
+  text-align:center;line-height:1.5;opacity:.85;
+  mask-image:radial-gradient(circle at 30% 60%,transparent 0 2px,black 3px),radial-gradient(circle at 75% 25%,transparent 0 1.5px,black 2.5px)}
+.stempel small{display:block;font-size:9px;letter-spacing:.2em;font-weight:400}
+.stempel.rund{border-radius:50%;padding:22px 14px}
+.stempel.blau{color:#2E4A6B;border-color:#2E4A6B}
+.s1{transform:rotate(-7deg)}
+.s2{transform:rotate(4deg);margin:18px 0 0 34px}
+.s3{transform:rotate(-3deg);margin:8px 0 0 8px}
+.s4{transform:rotate(6deg);margin:26px 0 0 40px}
+
+/* ============ 7. Gepaeckband-Marquee ============ */
+.band{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:14px 0;white-space:nowrap;background:
+  repeating-linear-gradient(90deg,transparent 0 46px,var(--line) 46px 47px)}
+.band-track{display:inline-flex;align-items:center;gap:30px;padding-right:30px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mini-tag{display:inline-block;flex:0 0 auto;background:var(--papier-tief);border:1px solid var(--muted);
+  border-radius:4px 12px 4px 4px;padding:4px 10px 4px 18px;font-weight:700;font-size:11px;
+  color:var(--ink);position:relative;transform:rotate(-2deg)}
+.mini-tag::before{content:"";position:absolute;left:6px;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--bg);border:1px solid var(--muted)}
+
+/* ============ 8. Check-in-Schalter ============ */
+.checkin{background:var(--ink);color:var(--bg);border-radius:6px;padding:30px 28px;max-width:640px}
+.checkin .schild{display:flex;justify-content:space-between;gap:12px;align-items:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:#8f887b;border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:16px}
+.checkin .schild b{color:var(--solari);font-weight:700}
+.checkin h3{font-family:var(--display);font-weight:800;font-size:26px;margin-bottom:6px}
+.checkin p{color:#CFC9BD;max-width:46ch}
+.checkin form{display:flex;gap:0;flex-wrap:wrap;margin-top:16px}
+.checkin input{border:1px solid #4A443A;background:#1D1912;color:var(--bg);
+  padding:14px;font-family:var(--body);font-size:16px;width:100%;max-width:300px}
+.checkin input:focus{outline:2px solid var(--solari);outline-offset:1px}
+.checkin .btn-gate{margin:0}
+.checkin .klein{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:#8f887b;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kopfnote">ROUTENWERK Moodboard · "Der Urlaub beginnt auf der Website" · Abflug-Welt in 9 Elementen · B612 Mono (Airbus-Cockpit-Font)</div>
+  <h1>Der Urlaub beginnt hier.</h1>
+  <p>Moodboard für den ROUTENWERK-Look: Elemente aus der Welt alter Flughafen-Terminals, alle im Token-System gebaut, keine Bilder nötig. Klapp-Animationen und Band-Bewegung kommen später als Schicht obendrauf.</p>
+
+  <h2>1. Die Abflugtafel</h2>
+  <p>Ersetzt auf der Startseite die Funnel-Etappen: die Produkte als Abflüge, die Gruppenreise ehrlich auf BALD.</p>
+  <div class="tafel">
+    <div class="tafel-kopf"><span>Abflüge · Departures</span><span>Routenwerk</span><span>Gate: routenwerk.de</span></div>
+    <div class="brett" id="brett"></div>
+  </div>
+  <p class="anno">Statusspalte in Solari-Gelb · später: Buchstaben klappen beim Laden um, Status wechselt</p>
+
+  <h2>2. Die Boarding-Pass-Karte</h2>
+  <p>Guide-Karten als Bordkarten: Perforations-Kante, Abriss-Stub, Barcode, Flughafen-Codes.</p>
+  <div class="pass">
+    <div class="pass-haupt">
+      <div class="pass-kopf"><span>Boarding Pass · Reise-Guide</span><b>Sofort-Download</b></div>
+      <div class="route"><small>Von / Nach</small>BER &#9656; KEF</div>
+      <div class="pass-titel">Island Ringstraße</div>
+      <p class="pass-moment">Der Moment, in dem das erste Polarlicht über dem Gletscher aufzieht.</p>
+      <div class="felder">
+        <div class="feld"><span>Tage</span><b>12</b></div>
+        <div class="feld"><span>Koordinate</span><b>N 64.1466 / W 21.9426</b></div>
+        <div class="feld"><span>Klasse</span><b>Selbst gereist</b></div>
+      </div>
+    </div>
+    <div class="perfo" aria-hidden="true"></div>
+    <div class="pass-stub">
+      <div class="stub-code">KEF</div>
+      <div class="feld"><span>Fare</span></div>
+      <div class="stub-preis">39 €</div>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+  </div>
+  <p class="anno">Meta-Daten als Ticket-Felder · Stub bricht auf Mobile unter die Karte</p>
+
+  <h2>3. Buttons im Gate-Stil</h2>
+  <a class="btn-gate rot" href="#">Guide kaufen · 39 €</a>
+  <a class="btn-gate" href="#">Boarding: Beratung</a>
+  <a class="btn-alt" href="#">Alle Guides ansehen</a>
+  <p class="anno">Primär mit Klapp-Kachel-Optik (Mittellinie), Sekundär bleibt ruhig</p>
+
+  <h2>4. Gate-Wegweiser</h2>
+  <p>Navigation oder CTA-Band als Terminal-Beschilderung: die drei Produkte als Gates.</p>
+  <div class="wegweiser">
+    <a class="weg" href="#"><span class="gate">Gate 01</span> Reise-Guides <span class="zusatz">ab 29 €</span><span class="pfeil">&#9656;</span></a>
+    <a class="weg" href="#"><span class="gate">Gate 02</span> Beratung <span class="zusatz">ab 149 €</span><span class="pfeil">&#9656;</span></a>
+    <a class="weg" href="#"><span class="gate">Gate 03</span> Gruppenreisen <span class="zusatz">bald</span><span class="pfeil">&#9656;</span></a>
+  </div>
+  <p class="anno">Gate-Nummern in Solari-Gelb · funktioniert als Footer-CTA-Band oder mobile Navigation</p>
+
+  <h2>5. Der Gepäckanhänger</h2>
+  <p>Kleines Label-Element für Teaser, Preise oder Neu-Marker: ein Anhänger am Koffer.</p>
+  <span class="tag">
+    <span class="tag-code">TIA</span>
+    <span class="tag-zeile">Albanien · 8 Tage · Riviera + Berge</span>
+    <span class="tag-streifen"></span>
+  </span>
+  <p class="anno">Leicht gedreht, mit Öse und Priority-Streifen</p>
+
+  <h2>6. Die Passport-Doppelseite</h2>
+  <p>Ersetzt die Erlebnis-Fakten: Belege als gesammelte Stempel auf einer Passseite. Jede Zusage ein Abdruck.</p>
+  <div class="passport">
+    <div>
+      <span class="stempel s1">Island<br>selbst gereist<small>Routenwerk · Herbst</small></span>
+      <span class="stempel rund blau s2">Albanien<br>2x gefahren</span>
+      <span class="seite-nr">Seite 04</span>
+    </div>
+    <div>
+      <span class="stempel blau s3">Jordanien<br>selbst gereist<small>Wadi Rum · Camp</small></span>
+      <span class="stempel rund s4">Geld zurück<br>zugesagt</span>
+      <span class="seite-nr">Seite 05</span>
+    </div>
+  </div>
+  <p class="anno">Zwei Stempelfarben wie echte Grenzstempel · verschiedene Formen und Drehungen, Fehlstellen im Abdruck</p>
+
+  <h2>7. Das Gepäckband</h2>
+  <p>Die Marquee-Zeile als Kofferband: Koordinaten und Mini-Anhänger laufen durch, die Segmente im Hintergrund sind die Bandglieder.</p>
+  <div class="band"><div class="band-track" id="bandTrack"></div></div>
+  <p class="anno">Läuft später langsam wie ein echtes Band · pausiert bei Hover, steht bei reduced-motion</p>
+
+  <h2>8. Der Check-in-Schalter</h2>
+  <p>Der Lead Magnet als Schalter: E-Mail abgeben ist Einchecken.</p>
+  <div class="checkin">
+    <div class="schild"><span>Check-in · Schalter 1</span><b>Geöffnet</b></div>
+    <h3>Noch kein Ziel im Kopf?</h3>
+    <p>Der kostenlose Mini-Guide: 5 Routen für den nächsten Urlaub, mit Budgetrahmen und bester Reisezeit.</p>
+    <form onsubmit="return false">
+      <label for="ci" style="position:absolute;left:-9999px">E-Mail</label>
+      <input id="ci" type="email" placeholder="Eure E-Mail-Adresse">
+      <button class="btn-gate rot" type="submit">Einchecken</button>
+    </form>
+    <p class="klein">Kein Spam · Abmeldung jederzeit · Boarding sofort</p>
+  </div>
+  <p class="anno">Dunkler Schalter-Block mit Solari-Status "Geöffnet" · ersetzt das bisherige Lead-Magnet-Band</p>
+
+  <h2>9. Schrift-System</h2>
+  <p>Display bleibt Cabinet Grotesk (Marke), Fließtext General Sans. Alle Terminal-Elemente sprechen B612 Mono, den Font, den Airbus für Cockpit-Anzeigen entworfen hat. Er ersetzt IBM Plex Mono im ganzen System, damit auch die Koordinaten-Marker Terminal sprechen.</p>
+  <p class="anno" style="font-size:14px">B612 MONO · N 64.1466 / W 21.9426 · GATE 01 · BOARDING · 0123456789</p>
+
+  <p style="margin-top:60px"><a href="../index.html">Zur ROUTENWERK-Demo</a></p>
+</div>
+
+<script>
+var zeilen = [
+  ["ISLAND",      "12 TAGE",       "39 €", "BOARDING"],
+  ["ALBANIEN",    "8 TAGE",        "29 €", "BOARDING"],
+  ["JORDANIEN",   "7 TAGE",        "29 €", "BOARDING"],
+  ["GRUPPENREISE","KLEINE GRUPPE", "",     "BALD"]
+];
+var brett = document.getElementById("brett");
+var breiten = [13, 13, 5, 9];
+zeilen.forEach(function(zeile){
+  zeile.forEach(function(text, spalte){
+    var div = document.createElement("div");
+    div.className = "flaps" + (spalte === 3 ? " status" : "");
+    var voll = text.padEnd(breiten[spalte], " ");
+    for (var i = 0; i < voll.length; i++){
+      var b = document.createElement("b");
+      if (voll[i] === " "){ b.className = "leer"; b.innerHTML = "&nbsp;"; }
+      else b.textContent = voll[i];
+      div.appendChild(b);
+    }
+    brett.appendChild(div);
+  });
+});
+var bandDaten = ["N 64.1466 / W 21.9426 REYKJAVIK", "KEF", "N 40.1017 / E 19.7446 HIMARË", "TIA",
+  "N 30.3285 / E 35.4444 PETRA", "AMM", "JEDE ROUTE SELBST GEREIST", "N 42.3953 / E 19.7712 THETH"];
+var track = document.getElementById("bandTrack");
+bandDaten.concat(bandDaten).forEach(function(t){
+  var el = document.createElement("span");
+  if (t.length <= 3) el.className = "mini-tag";
+  el.textContent = t;
+  track.appendChild(el);
+});
+</script>
+</body>
+</html>
