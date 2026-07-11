@@ -10,6 +10,11 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Erst Struktur-/Token-Plan zeigen, dann Code. Bei Aenderungen gezielt editieren, nie komplett neu generieren.
 - Vor Design-/Copy-Arbeit lesen: `_referenz/hosting-referenz.md` + `projekte/<name>/product-marketing-context.md`.
 - Vor jedem Build lesen: `_referenz/technik-patterns.md` (kampferprobte Loesungen — nicht neu erfinden).
+- In jeder Design-/Wireframe-Phase: `_fundus/highlight-elemente.md` konsultieren und 1-2
+  passende Highlights anbieten (Streusel, nicht Teig). Devise: lieber bewusst dagegen
+  entscheiden als aus Unwissenheit. Neue Muster aus Templates/Screenshots dort ablegen.
+  Kein Muster als "zu fragil" verwerfen — robust bauen, testen, Code danach in
+  technik-patterns.md sichern.
 
 ## Agenten (delegieren statt selbst Kontext verbrennen)
 - Recherche zu Design/Templates/Tokens -> **design-scout**
