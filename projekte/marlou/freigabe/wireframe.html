@@ -89,6 +89,28 @@ input[type=email]{border:1px solid #999;padding:12px;font-size:15px;width:100%;m
   font-family:inherit;margin:6px 8px 6px 0;vertical-align:middle}
 .band.dunkel input[type=email]{border-color:#777;background:#fff}
 .klein{font-size:13px;color:#888}
+.arc{width:100%;max-width:1000px;display:block;margin:0 auto}
+.arc circle{cursor:pointer}
+.arc text{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.08em;fill:#888;text-transform:uppercase;cursor:pointer}
+.arc .aktiv-label{fill:#222;font-weight:700}
+.rot-karte{display:flex;flex-wrap:wrap;border:1px solid #999;background:#fff;max-width:900px;margin:8px auto 0}
+.rot-bild{flex:1;min-width:240px;min-height:300px;border-right:1px solid #ccc;
+  background:repeating-linear-gradient(45deg,#eee,#eee 10px,#f7f7f7 10px,#f7f7f7 20px);
+  display:flex;align-items:center;justify-content:center;text-align:center;color:#999;
+  font-family:ui-monospace,monospace;font-size:11px;padding:10px;position:relative}
+.rot-bild::before,.rot-bild::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top right,transparent 49.6%,#ddd 49.6%,#ddd 50.4%,transparent 50.4%)}
+.rot-bild::after{transform:scaleX(-1)}
+.rot-bild span{position:relative;z-index:1;background:#fff;padding:3px 6px}
+.rot-txt{flex:1.6;min-width:280px;padding:24px}
+.rot-meta{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:#666;margin-bottom:6px}
+.rot-nav{display:flex;gap:10px;justify-content:center;margin-top:14px}
+.rot-nav button{border:1px dashed #888;background:#fff;width:44px;height:44px;border-radius:50%;
+  font-size:18px;cursor:pointer;color:#222}
+.rot-nav button:focus-visible{outline:2px solid #222;outline-offset:2px}
+.thumb{display:inline-block;width:36px;height:24px;background:#ddd;border:1px solid #aaa;
+  vertical-align:middle;margin:0 12px}
 .offen{background:#fff3a3;padding:2px 6px;font-size:14px;color:#222}
 .freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
 footer{border-top:1px solid #ddd;padding:24px 0 40px;font-size:14px;color:#666}
@@ -163,38 +185,36 @@ footer a{color:#666;margin-right:14px}
 
 <section>
   <div class="wrap">
-    <div class="marker"><span>04 / DIE GUIDES · Job: Conversion-Pfad 1, Momente statt Ortslisten verkaufen</span><span>3 ROUTEN</span></div>
-    <h2>Die Guides</h2>
-    <div class="row">
-      <div class="gcard">
-        <div class="bild"><span>FOTO hochkant: Drakensberge (eigenes Foto)</span></div>
-        <div class="metaleiste"><span>S 29.8587 / E 31.0218</span><span>12 Tage · 39 EUR</span></div>
-        <div class="inhalt">
-          <h3>Südafrika ab Durban</h3>
-          <p class="moment">Der Abend, an dem ihr allein am Wasserloch sitzt und die Elefanten kommen.</p>
-          <p class="klein">Louisas Revier: 8 Monate vor Ort gelebt</p>
-        </div>
-      </div>
-      <div class="gcard">
-        <div class="bild"><span>FOTO hochkant: Australien Küste (eigenes Foto)</span></div>
-        <div class="metaleiste"><span>S 16.9203 / E 145.7710</span><span>14 Tage · 39 EUR</span></div>
-        <div class="inhalt">
-          <h3>Australien Ostküste</h3>
-          <p class="moment">Der Morgen, an dem ihr vor Sonnenaufgang zum Riff rausfahrt.</p>
-          <p class="klein">Marvins Revier: 46 Monate im Land</p>
-        </div>
-      </div>
-      <div class="gcard">
-        <div class="bild"><span>FOTO hochkant: Regenwald Brasilien (eigenes Foto)</span></div>
-        <div class="metaleiste"><span>S 23.2195 / W 44.7167</span><span>10 Tage · 29 EUR</span></div>
-        <div class="inhalt">
-          <h3>Brasilien</h3>
-          <p class="moment">Der Moment, in dem der Regenwald lauter ist als jede Stadt.</p>
-          <p class="klein">Von Louisa bereist</p>
-        </div>
+    <div class="marker"><span>04 / DIE GUIDES · Job: Conversion-Pfad 1 als Highlight-Element "Routen-Rotator"</span><span>3 ROUTEN · 1 KARTE</span></div>
+    <h2 style="text-align:center">Die Guides</h2>
+    <svg class="arc" viewBox="0 0 1000 130" aria-hidden="true">
+      <path d="M 0 20 Q 500 140 1000 20" fill="none" stroke="#999" stroke-dasharray="4 6"/>
+      <circle id="dot0" cx="200" cy="58" r="10" fill="#222" onclick="zeige(0)"/>
+      <circle id="dot1" cx="500" cy="80" r="6" fill="#fff" stroke="#888" onclick="zeige(1)"/>
+      <circle id="dot2" cx="800" cy="58" r="6" fill="#fff" stroke="#888" onclick="zeige(2)"/>
+      <text id="lab0" x="200" y="100" text-anchor="middle" class="aktiv-label" onclick="zeige(0)">SÜDAFRIKA</text>
+      <text id="lab1" x="500" y="118" text-anchor="middle" onclick="zeige(1)">AUSTRALIEN</text>
+      <text id="lab2" x="800" y="100" text-anchor="middle" onclick="zeige(2)">BRASILIEN</text>
+    </svg>
+    <div class="rot-karte">
+      <div class="rot-bild"><span id="rotFoto">FOTO hochkant: Drakensberge (eigenes Foto)</span></div>
+      <div class="rot-txt">
+        <div class="rot-meta"><span id="rotKoord">S 29.8587 / E 31.0218</span> · <span id="rotTage">12 Tage · 39 EUR</span></div>
+        <h3 id="rotTitel">Südafrika ab Durban</h3>
+        <p class="moment" id="rotMoment">Der Abend, an dem ihr allein am Wasserloch sitzt und die Elefanten kommen.</p>
+        <p class="klein" id="rotProof">Louisas Revier: 8 Monate vor Ort gelebt</p>
+        <a class="btn primary" href="wireframe-guides.html">Zum Guide</a>
       </div>
     </div>
-    <a class="btn" href="wireframe-guides.html">Alle Guides ansehen</a>
+    <div class="rot-nav">
+      <button type="button" onclick="blaettern(-1)" aria-label="Vorheriger Guide">&#8592;</button>
+      <button type="button" onclick="blaettern(1)" aria-label="Nächster Guide">&#8594;</button>
+    </div>
+    <p class="anno" style="text-align:center">Highlight-Element: Im finalen Build wechselt die Karte beim Scrollen (sticky, sanfte Überblendung, kein Scroll-Jacking), Pfeile und Punkte funktionieren zusätzlich. Marquee unten wechselt synchron mit.</p>
+  </div>
+  <div class="marquee" id="rotMarquee"></div>
+  <div class="wrap">
+    <p class="anno">Marquee mit Foto-Thumbs zwischen den Orten (traavellio-Muster), läuft im finalen Design langsam · Koordinaten sind Platzhalter</p>
     <p><span class="offen">OFFEN: Preise und Tage-Zuschnitt final? Koordinaten sind Platzhalter bis eure Liste steht.</span></p>
   </div>
 </section>
@@ -242,9 +262,6 @@ footer a{color:#666;margin-right:14px}
   </div>
 </section>
 
-<div class="marquee">S 29.8587 / E 31.0218 DURBAN &nbsp;·&nbsp; S 16.9203 / E 145.7710 CAIRNS &nbsp;·&nbsp; S 28.6820 / E 28.9110 DRAKENSBERGE &nbsp;·&nbsp; S 23.2195 / W 44.7167 PARATY &nbsp;·&nbsp; S 33.8688 / E 151.2093 SYDNEY &nbsp;·&nbsp; VAN LIFE EUROPA &nbsp;·&nbsp; 46 MONATE AUSTRALIEN &nbsp;·&nbsp; 8 MONATE SÜDAFRIKA</div>
-<div class="wrap"><p class="anno">Koordinaten-Marquee: läuft im finalen Design langsam durch · Orte sind Platzhalter bis eure Liste steht</p></div>
-
 <section class="band dunkel">
   <div class="wrap">
     <div class="marker"><span>08 / LEAD MAGNET · Job: E-Mail-Liste aufbauen, als Band statt Restsektion</span><span>0 EUR</span></div>
@@ -268,5 +285,53 @@ footer a{color:#666;margin-right:14px}
   </footer>
 </div>
 
+<script>
+var routen = [
+  {ort:"SÜDAFRIKA", koord:"S 29.8587 / E 31.0218", tage:"12 Tage · 39 EUR",
+   titel:"Südafrika ab Durban",
+   moment:"Der Abend, an dem ihr allein am Wasserloch sitzt und die Elefanten kommen.",
+   proof:"Louisas Revier: 8 Monate vor Ort gelebt",
+   foto:"FOTO hochkant: Drakensberge (eigenes Foto)",
+   orte:["S 29.8587 / E 31.0218 DURBAN","S 28.6820 / E 28.9110 DRAKENSBERGE","WILD COAST","SAFARI"]},
+  {ort:"AUSTRALIEN", koord:"S 16.9203 / E 145.7710", tage:"14 Tage · 39 EUR",
+   titel:"Australien Ostküste",
+   moment:"Der Morgen, an dem ihr vor Sonnenaufgang zum Riff rausfahrt.",
+   proof:"Marvins Revier: 46 Monate im Land",
+   foto:"FOTO hochkant: Australien Küste (eigenes Foto)",
+   orte:["S 16.9203 / E 145.7710 CAIRNS","S 33.8688 / E 151.2093 SYDNEY","GREAT BARRIER REEF","46 MONATE IM LAND"]},
+  {ort:"BRASILIEN", koord:"S 23.2195 / W 44.7167", tage:"10 Tage · 29 EUR",
+   titel:"Brasilien",
+   moment:"Der Moment, in dem der Regenwald lauter ist als jede Stadt.",
+   proof:"Von Louisa bereist",
+   foto:"FOTO hochkant: Regenwald Brasilien (eigenes Foto)",
+   orte:["S 23.2195 / W 44.7167 PARATY","ATLANTIK-REGENWALD","10 TAGE","REGENWALD STATT COPACABANA"]}
+];
+var aktiv = 0;
+function zeige(i){
+  aktiv = (i + routen.length) % routen.length;
+  var r = routen[aktiv];
+  document.getElementById("rotFoto").textContent = r.foto;
+  document.getElementById("rotKoord").textContent = r.koord;
+  document.getElementById("rotTage").textContent = r.tage;
+  document.getElementById("rotTitel").textContent = r.titel;
+  document.getElementById("rotMoment").textContent = r.moment;
+  document.getElementById("rotProof").textContent = r.proof;
+  for (var n = 0; n < routen.length; n++){
+    var dot = document.getElementById("dot"+n), lab = document.getElementById("lab"+n);
+    dot.setAttribute("r", n===aktiv ? 10 : 6);
+    dot.setAttribute("fill", n===aktiv ? "#222" : "#fff");
+    dot.setAttribute("stroke", n===aktiv ? "none" : "#888");
+    lab.setAttribute("class", n===aktiv ? "aktiv-label" : "");
+  }
+  var teile = [];
+  for (var m = 0; m < r.orte.length; m++){
+    teile.push(r.orte[m]);
+    teile.push('<span class="thumb" title="Foto-Thumb"></span>');
+  }
+  document.getElementById("rotMarquee").innerHTML = teile.join(" ") + " " + teile.join(" ");
+}
+function blaettern(richtung){ zeige(aktiv + richtung); }
+zeige(0);
+</script>
 </body>
 </html>

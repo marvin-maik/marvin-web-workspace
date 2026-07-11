@@ -46,6 +46,29 @@ Die vollstaendige v2-Copy steht im Wireframe selbst (verbindliche Fassung fuer d
 Freigabe). Die Sektions-Jobs und die v1-Basis-Copy unten gelten weiter, wo v2 nichts
 anderes sagt.
 
+## v2.1: Highlight-Elemente (Marvins Template-Screenshots + 21st.dev)
+
+**Highlight 1: Routen-Rotator auf der Startseite (eingebaut, im Wireframe klickbar).**
+Nach dem Vorbild traavellio-Sticky-Destinations + "Top Destinations"-Karussell:
+gestrichelte Routen-Linie mit 3 Koordinaten-Punkten (statt Flaggen: Logbuch-Welt),
+aktiver Punkt gross, grosse Guide-Karte wechselt (Foto, Moment-Satz, Preis, CTA),
+die Koordinaten-Marquee-Zeile darunter wechselt synchron die Orte, mit Foto-Thumbs
+zwischen den Woertern (traavellio Running-Text). Im Build: Wechsel beim Scrollen via
+position:sticky + sanfte Ueberblendung, KEIN Scroll-Jacking (robust auf Mobile),
+Pfeile/Punkte als zweiter Weg, prefers-reduced-motion respektiert.
+
+**Highlight 2: Foto-Marquee (eingebaut).** Die Marquee-Zeile ist jetzt Teil des
+Rotators und traegt kleine Bild-Thumbs zwischen den Ortsnamen.
+
+**Ideenspeicher (aus 21st.dev, nicht eingebaut, Marvin entscheidet):**
+- Vorher/Nachher-Slider (Image Comparison): auf der Beratungs-Seite denkbar als
+  "40 Recherche-Tabs vs. euer fertiger Tagesplan" (Screenshot-Chaos links, Plan-PDF
+  rechts, Griff zum Ziehen). Passt zum Einwand "kann ich selbst googeln".
+- Briefmarken-Zackenkante als Sektions-Trenner (aus Marvins Screenshot): passt zur
+  Logbuch-Welt, waere aber ein ZWEITES Deko-System neben dem Koordinaten-Marker.
+  Anti-Slop-Regel sagt ein Signature-Element. Nur nehmen, wenn dafuer etwas anderes
+  fliegt.
+
 Freigabe-Regel: Hier sind Aenderungen billig. Nach Freigabe gilt: eine Korrekturrunde
 nach Umsetzung inklusive, weitere kostenpflichtig.
 
