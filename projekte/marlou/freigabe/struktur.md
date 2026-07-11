@@ -1,8 +1,50 @@
-# MARLOU: Struktur & Texte zur Freigabe
+# MARLOU: Struktur & Texte zur Freigabe (v2)
 
-Stand: 2026-07-11. Mehrseitige Business-Site (Vorgabe Marvin), 6 Content-Seiten plus
-Rechtsseiten. Klickbares Wireframe: `freigabe/wireframe.html` (Graustufen mit Absicht,
-Design kommt nach Freigabe aus Richtung A "Expeditionslogbuch").
+Stand: 2026-07-11, v2 nach Marvins Feedback ("zu simpel, Reisen sind ein Erlebnis").
+Mehrseitige Business-Site, 6 Content-Seiten plus Rechtsseiten. Klickbares Wireframe:
+`freigabe/wireframe.html` (Graustufen mit Absicht, Design kommt nach Freigabe aus
+Richtung A "Expeditionslogbuch").
+
+---
+
+## v2-Update: was sich gegenueber v1 geaendert hat
+
+**Layout (aus Template-Analyse, Muster-Katalog in design-dossier.md):**
+- Jede Sektion beginnt mit einer Logbuch-Marker-Zeile (Mono-Label + Koordinate + Hairline)
+  statt monotonem H2-Einstieg. Koordinaten sind Platzhalter bis Marvins Liste steht.
+- Breitenwechsel pro Seite: Full-bleed-Heros (Start, Ueber uns), graue Baender
+  (Kostentransparenz, Preis-Einwand), dunkle CTA-Baender vor jedem Footer.
+- Start: Foto-Hero mit Proof-Chips, Einwand als Display-Statement, Funnel-Etappen auf
+  1px-Route (Etappe 03 bewusst leer), 3:4-Guide-Karten mit Koordinaten-Meta-Leiste,
+  Koordinaten-Marquee, Lead Magnet als dunkles Band.
+- Guides: Karten ragen in die Kopf-Flaeche (Overlap), 2:3-Produktkarten mit Kauf-Button
+  in der Karte, "Was drinsteckt" als aufklappbares Accordion mit PDF-Preview-Flaeche,
+  harter Fuer-wen-Split, FAQ zweispaltig.
+- Beratung: asymmetrischer Split-Kopf, Komplettplanung doppelt breit mit grossem
+  Rechenbeispiel (790 EUR), Kostentabelle als eigenes Band, 4 Schritte auf Route,
+  O-Ton-Zitat, Cal.com im CTA-Band.
+- Gruppenreisen: Riesen-Typo "BALD." statt Fake-Inhalt, leerer Dia-Rahmen
+  ("N ?.???? / E ?.???? — Ziel in Arbeit"), nur 4 Sektionen.
+- Ueber uns: Full-bleed-Foto, zwei versetzte Story-Splits mit Bild-Captions,
+  Erlebnis-Fakten als grosses Zahlenband, Prinzipien auf Route, Zitat-Band.
+- Kontakt: 60/40-Split Formular/Kompass-Karte, Koordinaten-Kopfzeile, Marquee statt CTA-Band.
+
+**Copy (Kritik durch Hormozi/Sanwarwala/mimio, Details in material/copy-kritik-experten.md):**
+- Hero-H1 traegt jetzt das Ergebnis: "Abenteuer zu zweit, von denen ihr noch Jahre erzaehlt."
+- Je Guide ein Moment-Satz (z.B. "Der Abend, an dem ihr allein am Wasserloch sitzt und
+  die Elefanten kommen.") statt reiner Ortsliste.
+- Neue Sektion auf Guides: "Warum nicht ein 5-Euro-Template?" (Etsy-Preis-Einwand).
+- Vorschlag Geld-zurueck-Garantie fuer Guides (OFFEN, Marvin entscheidet).
+- Vorschlag: Kompass-Gebuehr 149 EUR auf Komplettplanung anrechenbar (OFFEN).
+- Wertanker Beratung: "spart euch drei Wochenenden Recherche".
+- O-Ton-Zitat Marvin (Pandemie/Australien) auf der Beratungs-Seite.
+- Visions-Satz jetzt auch auf der Startseite als Zitat-Band.
+- Warteliste mit Grund JETZT: Erstzugriff auf die wenigen Plaetze.
+- Kontakt-H1: "Erzaehlt uns, was ihr vorhabt."
+
+Die vollstaendige v2-Copy steht im Wireframe selbst (verbindliche Fassung fuer die
+Freigabe). Die Sektions-Jobs und die v1-Basis-Copy unten gelten weiter, wo v2 nichts
+anderes sagt.
 
 Freigabe-Regel: Hier sind Aenderungen billig. Nach Freigabe gilt: eine Korrekturrunde
 nach Umsetzung inklusive, weitere kostenpflichtig.
@@ -292,9 +334,12 @@ Job: Seriositaet belegen ohne Fake-Proof (noch keine Kundenstimmen vorhanden).
 ## Offene Fragen (gesammelt, gelb im Wireframe)
 
 1. Guide-Preise und Tage-Zuschnitt final (29 EUR bis 10 Tage, 39 EUR ab 12 Tage)?
-2. Geld-zurueck-Garantie fuer Guides ja/nein?
-3. Frist fuer Kompass-Zusammenfassung (48 Stunden)?
-4. Guide-Updates fuer Kaeufer kostenlos?
-5. Antwortzeit Kontakt (2 Werktage)?
-6. Koordinaten-Liste bereister Orte (fuer Signature-Element im Design)
-7. Vor Launch: Digistore24-Links, Cal.com-Link, Formspree-Endpoint, Dieter, AGB-Paket
+2. Geld-zurueck-Garantie fuer Guides ja/nein? ("Wenn ihr nach dem Lesen nicht losplanen
+   wollt: Geld zurueck.")
+3. Kompass-Gebuehr (149 EUR) auf die Komplettplanung anrechenbar? (Hormozi-Empfehlung:
+   macht den Einstieg risikofrei und die Upsell-Bruecke stark)
+4. Frist fuer Kompass-Zusammenfassung (48 Stunden)?
+5. Guide-Updates fuer Kaeufer kostenlos?
+6. Antwortzeit Kontakt (2 Werktage)?
+7. Koordinaten-Liste bereister Orte (alle Koordinaten im Wireframe sind Platzhalter)
+8. Vor Launch: Digistore24-Links, Cal.com-Link, Formspree-Endpoint, Dieter, AGB-Paket
