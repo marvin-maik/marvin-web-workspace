@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ROUTENWERK Demo: 3D-Globus mit Flugverkehr</title>
+<style>
+@font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+:root{
+  --ink:#16130E; --bg:#FAF9F5; --signal:#C2331F; --muted:#6F6A60; --line:#E2DFD7;
+  --papier-tief:#F2EFE8; --solari:#E8B84B;
+  --display:'Cabinet Grotesk',sans-serif; --body:'General Sans',sans-serif;
+  --mono:'B612 Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 80px}
+.kopfnote{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:30px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.5vw,52px);line-height:1.05;margin:10px 0 6px}
+p{max-width:640px;margin:8px 0;color:#3d3830}
+.anno{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+a{color:var(--ink)}
+.buehne{background:var(--ink);border-radius:6px;position:relative;overflow:hidden;touch-action:pan-y}
+.buehne .schild{position:absolute;top:14px;left:18px;z-index:2;display:flex;gap:14px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8f887b}
+.buehne .schild b{color:var(--solari);font-weight:700}
+#szene{width:100%;height:560px;display:block;cursor:grab}
+#szene:active{cursor:grabbing}
+.status{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);min-height:18px;margin-top:10px}
+.credit{font-size:13px;color:var(--muted);max-width:640px;margin-top:16px}
+.credit a{color:var(--muted)}
+</style>
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="kopfnote">ROUTENWERK Demo · 3D-Globus mit Flugverkehr · Papier-Weltkarte als Textur + 3 A320 auf Umlaufbahnen</div>
+  <h1>Drei Vögel im Anflug.</h1>
+  <p>Der Logbuch-Globus als echte 3D-Szene: Die Kugel trägt unsere Papier-Landkarte mit Routen und Pins, drumherum ziehen drei A320 ihre Bahnen in verschiedenen Höhen und Neigungen. Ziehen zum Drehen, Scrollen zum Zoomen.</p>
+  <div class="buehne">
+    <div class="schild"><span>Luftraum · Routenwerk</span><b>3 A320</b></div>
+    <canvas id="szene"></canvas>
+  </div>
+  <p class="status" id="status">Szene lädt …</p>
+  <p class="anno">Gleiche Daten wie der 2D-Globus (Island, Albanien, Jordanien, Berlin) · Flieger neigen sich in die Kurve · reduced-motion: alles steht, Drehen per Hand bleibt · Budget: Modell 640 KB + three.js ~660 KB, nur fuer EINE Seite</p>
+  <p class="credit">Pflicht-Credit (CC-BY-4.0): This work is based on <a href="https://sketchfab.com/3d-models/airbus-a320-200-v2-c078f9af15884a6b820c7e778831b110" target="_blank" rel="noopener">"Airbus A320-200 V2"</a> by <a href="https://sketchfab.com/fDlruosne" target="_blank" rel="noopener">Dlourine</a>, licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-BY-4.0</a>.</p>
+  <p style="margin-top:50px"><a href="demo-plane.html">Zur Flugzeug-Demo</a> · <a href="demo-boarding.html">Zum Moodboard</a> · <a href="../index.html">Zur ROUTENWERK-Demo</a></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+
+const status = document.getElementById("status");
+const ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+window.__demo = { renderer: false, textur: false, flieger: 0, fehler: null };
+
+const canvas = document.getElementById("szene");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+const szene = new THREE.Scene();
+const kamera = new THREE.PerspectiveCamera(38, 2, .1, 100);
+kamera.position.set(0, .9, 3.4);
+window.__demo.renderer = true;
+
+szene.add(new THREE.HemisphereLight(0xFAF9F5, 0x2B251C, 1.15));
+const sonne = new THREE.DirectionalLight(0xffffff, 1.6);
+sonne.position.set(4, 3, 5);
+szene.add(sonne);
+
+const controls = new OrbitControls(kamera, canvas);
+controls.enableDamping = true;
+controls.enablePan = false;
+controls.minDistance = 2.2;
+controls.maxDistance = 6;
+
+/* ---------- Papier-Weltkarte als Kugel-Textur (gleiche Welt wie der 2D-Globus) ---------- */
+const farbe = {};
+["ink","bg","signal","muted","line","papier-tief"].forEach(k => {
+  farbe[k] = getComputedStyle(document.documentElement).getPropertyValue("--" + k).trim();
+});
+const routen = [
+  [[-21.9426,64.1466],[-19.0060,63.4187],[-15.2082,64.2539]],
+  [[19.8187,41.3275],[19.7446,40.1017],[19.7712,42.3953]],
+  [[35.9106,31.9539],[35.4444,30.3285],[35.4207,29.5765]]
+];
+const pins = routen.flat().concat([[13.4234,52.5496]]);
+
+const tex = document.createElement("canvas");
+tex.width = 2048; tex.height = 1024;
+const tctx = tex.getContext("2d");
+const proj = d3.geoEquirectangular().translate([1024, 512]).scale(2048 / (2 * Math.PI));
+const tpfad = d3.geoPath(proj, tctx);
+function texturMalen(land){
+  tctx.fillStyle = farbe.bg; tctx.fillRect(0, 0, 2048, 1024);
+  tctx.beginPath(); tpfad(d3.geoGraticule10());
+  tctx.lineWidth = 1; tctx.strokeStyle = farbe.line; tctx.stroke();
+  if (land){
+    tctx.beginPath(); tpfad(land);
+    tctx.fillStyle = farbe["papier-tief"]; tctx.fill();
+    tctx.lineWidth = 1.6; tctx.strokeStyle = farbe.muted; tctx.stroke();
+  }
+  tctx.setLineDash([8, 8]);
+  routen.forEach(r => {
+    tctx.beginPath(); tpfad({type:"LineString", coordinates:r});
+    tctx.lineWidth = 3; tctx.strokeStyle = farbe.signal; tctx.stroke();
+  });
+  tctx.setLineDash([]);
+  pins.forEach(p => {
+    const xy = proj(p);
+    tctx.beginPath(); tctx.arc(xy[0], xy[1], 7, 0, 2 * Math.PI);
+    tctx.fillStyle = farbe.signal; tctx.fill();
+    tctx.lineWidth = 3; tctx.strokeStyle = farbe.bg; tctx.stroke();
+  });
+}
+texturMalen(null);
+const erdTextur = new THREE.CanvasTexture(tex);
+erdTextur.colorSpace = THREE.SRGBColorSpace;
+const erde = new THREE.Mesh(
+  new THREE.SphereGeometry(1, 96, 64),
+  new THREE.MeshBasicMaterial({ map: erdTextur })
+);
+szene.add(erde);
+window.__demo.textur = true;
+
+fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
+  .then(r => r.json())
+  .then(welt => { texturMalen(topojson.feature(welt, welt.objects.land)); erdTextur.needsUpdate = true; })
+  .catch(() => {});
+
+/* ---------- 3 A320 auf Umlaufbahnen ---------- */
+/* NASE_KORREKTUR: falls die Flieger seitwaerts fliegen, hier drehen (glTF-Konvention: Nase +Z) */
+const NASE_KORREKTUR = Math.PI;
+const bahnen = [
+  { radius: 1.38, neigungX: .45, neigungZ: 0,    tempo: .30, start: 0 },
+  { radius: 1.52, neigungX: -.30, neigungZ: .55, tempo: .22, start: 2.1 },
+  { radius: 1.66, neigungX: .12, neigungZ: -.85, tempo: .17, start: 4.4 }
+];
+const dreher = [];
+const lader = new GLTFLoader();
+lader.setMeshoptDecoder(MeshoptDecoder);
+lader.load("modelle/a320-meshopt.glb", gltf => {
+  const basis = gltf.scene;
+  const box = new THREE.Box3().setFromObject(basis);
+  const groesse = new THREE.Vector3(); box.getSize(groesse);
+  const skala = .33 / Math.max(groesse.x, groesse.y, groesse.z);
+  const mitte = new THREE.Vector3(); box.getCenter(mitte);
+  bahnen.forEach(b => {
+    const orbit = new THREE.Group();
+    orbit.rotation.x = b.neigungX;
+    orbit.rotation.z = b.neigungZ;
+    orbit.rotation.y = b.start;
+    const halter = new THREE.Group();
+    halter.position.set(b.radius, 0, 0);
+    const flieger = basis.clone(true);
+    flieger.scale.setScalar(skala);
+    flieger.position.sub(mitte.clone().multiplyScalar(skala));
+    const nase = new THREE.Group();
+    nase.rotation.y = NASE_KORREKTUR;   /* Nase in Flugrichtung (-Z bei +Y-Rotation) */
+    nase.rotation.z = .22;               /* leichte Kurvenlage */
+    nase.add(flieger);
+    halter.add(nase);
+    orbit.add(halter);
+    szene.add(orbit);
+    dreher.push({ orbit, tempo: b.tempo });
+    window.__demo.flieger++;
+  });
+  status.textContent = "Szene geladen · 3 A320 im Umlauf · Ziehen zum Drehen, Scrollen zum Zoomen";
+}, undefined, err => {
+  window.__demo.fehler = String(err);
+  status.textContent = "Flugzeug-Modell konnte nicht geladen werden, Globus laeuft trotzdem.";
+});
+
+/* ---------- Groesse + Loop ---------- */
+function masse(){
+  const w = canvas.clientWidth || 1000, h = canvas.clientHeight || 560;
+  renderer.setSize(w, h, false);
+  kamera.aspect = w / h;
+  kamera.updateProjectionMatrix();
+}
+masse();
+window.addEventListener("resize", masse);
+
+const uhr = new THREE.Clock();
+function bild(){
+  const dt = uhr.getDelta();
+  if (!ruhig){
+    erde.rotation.y += dt * .05;
+    dreher.forEach(d => { d.orbit.rotation.y += dt * d.tempo; });
+  }
+  controls.update();
+  renderer.render(szene, kamera);
+  requestAnimationFrame(bild);
+}
+requestAnimationFrame(bild);
+if (window.__demo.renderer && status.textContent === "Szene lädt …")
+  status.textContent = "Globus bereit, Flieger laden …";
+</script>
+</body>
+</html>
