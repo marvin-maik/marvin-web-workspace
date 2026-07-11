@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>MARLOU Demo: Logbuch-Globus</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0}
+.marker{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:#888;border-top:1px solid #bbb;padding-top:10px;margin:26px 0}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:8px 0}
+p{color:#444;max-width:640px;margin:10px 0}
+.buehne{position:relative;border:1px solid #ccc;background:#fafafa;margin:18px 0;touch-action:none}
+canvas{display:block;width:100%;height:auto;cursor:grab}
+canvas.zieht{cursor:grabbing}
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.filter button{border:1px solid #888;background:#fff;padding:9px 16px;font-family:ui-monospace,monospace;
+  font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:#222}
+.filter button.aktiv{background:#222;color:#fff;border-color:#222}
+.filter button:focus-visible{outline:2px solid #222;outline-offset:2px}
+.status{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:#666;min-height:18px}
+.anno{font-family:ui-monospace,monospace;font-size:10.5px;color:#999;text-transform:uppercase;
+  letter-spacing:.06em;margin:6px 0 40px}
+a{color:#222}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px;color:#222}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="wf-note">MARLOU Demo · Highlight-Kandidat: Logbuch-Globus · Graustufen sind Absicht</div>
+  <div class="marker"><span>DEMO / GLOBUS · Job: Alle Reiserouten auf einen Blick verorten</span><span>DREHEN · ZOOMEN · FILTERN</span></div>
+  <h1>Wo wir waren.</h1>
+  <p>Dreht sich von selbst. Ziehen zum Drehen, Scrollen oder Zwei-Finger-Pinch zum Zoomen, Filter fuer die Routen. Jeder Pin ist ein Ort, den wir selbst bereist haben.</p>
+  <div class="filter" id="filter">
+    <button data-route="alle" class="aktiv">Alle Routen</button>
+    <button data-route="suedafrika">Südafrika</button>
+    <button data-route="australien">Australien</button>
+    <button data-route="brasilien">Brasilien</button>
+  </div>
+  <div class="buehne"><canvas id="globus" width="1100" height="640"></canvas></div>
+  <div class="status" id="status">S 29.8587 / E 31.0218 — DURBAN · BASISLAGER LOUISA</div>
+  <p class="anno">Demo laedt d3 + Weltkarte vom CDN. Im Launch-Build: selbst gehostet (DSGVO). Koordinaten sind Platzhalter bis eure Liste steht. Bei prefers-reduced-motion dreht der Globus nicht von selbst.</p>
+  <p><span class="offen">OFFEN: Wohin damit? Vorschlag: Ueber-uns-Seite (ersetzt dort den statischen Fakten-Block-Anhang). Auf der Startseite wuerde er mit dem Routen-Rotator konkurrieren (Streusel-Regel).</span></p>
+  <p><a href="wireframe.html">Zurueck zum Wireframe</a></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script>
+(function(){
+  var canvas = document.getElementById("globus");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+  var skala = 300, minSkala = 220, maxSkala = 900;
+  var projektion = d3.geoOrthographic().translate([W/2, H/2]).scale(skala).clipAngle(90);
+  var pfad = d3.geoPath(projektion, ctx);
+  var gitter = d3.geoGraticule10();
+  var land = null;
+
+  var routen = {
+    suedafrika: {
+      name: "SÜDAFRIKA",
+      pins: [
+        {ort:"DURBAN", koord:[31.0218,-29.8587], label:"S 29.8587 / E 31.0218 — DURBAN · BASISLAGER LOUISA"},
+        {ort:"DRAKENSBERGE", koord:[28.9110,-28.6820], label:"S 28.6820 / E 28.9110 — DRAKENSBERGE"},
+        {ort:"WILD COAST", koord:[29.5000,-31.6000], label:"S 31.6000 / E 29.5000 — WILD COAST"}
+      ]
+    },
+    australien: {
+      name: "AUSTRALIEN",
+      pins: [
+        {ort:"CAIRNS", koord:[145.7710,-16.9203], label:"S 16.9203 / E 145.7710 — CAIRNS"},
+        {ort:"BRISBANE", koord:[153.0260,-27.4705], label:"S 27.4705 / E 153.0260 — BRISBANE"},
+        {ort:"SYDNEY", koord:[151.2093,-33.8688], label:"S 33.8688 / E 151.2093 — SYDNEY · 46 MONATE"}
+      ]
+    },
+    brasilien: {
+      name: "BRASILIEN",
+      pins: [
+        {ort:"PARATY", koord:[-44.7167,-23.2195], label:"S 23.2195 / W 44.7167 — PARATY"},
+        {ort:"UBATUBA", koord:[-45.0710,-23.4340], label:"S 23.4340 / W 45.0710 — UBATUBA · REGENWALD"}
+      ]
+    }
+  };
+  var basis = {ort:"BERLIN", koord:[13.4234,52.5496], label:"N 52.5496 / E 13.4234 — BERLIN · HEUTE ZUHAUSE"};
+  var aktiveRoute = "alle";
+
+  function aktivePins(){
+    var liste = [];
+    Object.keys(routen).forEach(function(k){
+      if (aktiveRoute === "alle" || aktiveRoute === k) liste = liste.concat(routen[k].pins);
+    });
+    liste.push(basis);
+    return liste;
+  }
+  function aktiveLinien(){
+    var linien = [];
+    Object.keys(routen).forEach(function(k){
+      if (aktiveRoute === "alle" || aktiveRoute === k){
+        linien.push({type:"LineString", coordinates: routen[k].pins.map(function(p){return p.koord;})});
+      }
+    });
+    return linien;
+  }
+
+  function zeichnen(){
+    ctx.clearRect(0,0,W,H);
+    ctx.beginPath(); pfad({type:"Sphere"});
+    ctx.fillStyle = "#f7f7f7"; ctx.fill();
+    ctx.lineWidth = 1; ctx.strokeStyle = "#999"; ctx.stroke();
+    ctx.beginPath(); pfad(gitter);
+    ctx.lineWidth = 0.5; ctx.strokeStyle = "#e2e2e2"; ctx.stroke();
+    if (land){
+      ctx.beginPath(); pfad(land);
+      ctx.fillStyle = "#dcdcdc"; ctx.fill();
+      ctx.lineWidth = 0.7; ctx.strokeStyle = "#aaa"; ctx.stroke();
+    }
+    ctx.setLineDash([5,5]);
+    aktiveLinien().forEach(function(l){
+      ctx.beginPath(); pfad(l);
+      ctx.lineWidth = 1.6; ctx.strokeStyle = "#222"; ctx.stroke();
+    });
+    ctx.setLineDash([]);
+    var zentrum = [-projektion.rotate()[0], -projektion.rotate()[1]];
+    aktivePins().forEach(function(p){
+      if (d3.geoDistance(p.koord, zentrum) > Math.PI/2) return;
+      var xy = projektion(p.koord);
+      ctx.beginPath(); ctx.arc(xy[0], xy[1], 6, 0, 2*Math.PI);
+      ctx.fillStyle = "#222"; ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = "#fff"; ctx.stroke();
+      ctx.font = "11px ui-monospace, monospace";
+      ctx.fillStyle = "#444";
+      ctx.fillText(p.ort, xy[0]+10, xy[1]+4);
+    });
+  }
+
+  var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var interagiert = false, zuletzt = 0;
+  d3.timer(function(){
+    if (!ruhig && !interagiert && performance.now() - zuletzt > 3000){
+      var r = projektion.rotate();
+      projektion.rotate([r[0] + 0.12, r[1], r[2]]);
+      zeichnen();
+    }
+  });
+
+  var dragAktiv = false, px = 0, py = 0;
+  canvas.addEventListener("pointerdown", function(e){
+    if (e.isPrimary === false) return;
+    dragAktiv = true; interagiert = true; px = e.clientX; py = e.clientY;
+    canvas.classList.add("zieht"); canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", function(e){
+    if (!dragAktiv || e.isPrimary === false) return;
+    var faktor = 75 / projektion.scale();
+    var r = projektion.rotate();
+    var lat = Math.max(-75, Math.min(75, r[1] - (e.clientY - py) * faktor));
+    projektion.rotate([r[0] + (e.clientX - px) * faktor, lat, r[2]]);
+    px = e.clientX; py = e.clientY;
+    zeichnen();
+  });
+  function dragEnde(){ dragAktiv = false; interagiert = false; zuletzt = performance.now(); canvas.classList.remove("zieht"); }
+  canvas.addEventListener("pointerup", dragEnde);
+  canvas.addEventListener("pointercancel", dragEnde);
+
+  function zoomen(delta){
+    skala = Math.max(minSkala, Math.min(maxSkala, skala * delta));
+    projektion.scale(skala);
+    zeichnen();
+  }
+  canvas.addEventListener("wheel", function(e){
+    e.preventDefault(); interagiert = true; zuletzt = performance.now(); interagiert = false;
+    zoomen(e.deltaY < 0 ? 1.08 : 0.93);
+  }, {passive:false});
+  var pinchAbstand = null;
+  canvas.addEventListener("touchmove", function(e){
+    if (e.touches.length === 2){
+      e.preventDefault();
+      dragAktiv = false;
+      var a = e.touches[0], b = e.touches[1];
+      var d = Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
+      if (pinchAbstand) zoomen(d / pinchAbstand);
+      pinchAbstand = d;
+    }
+  }, {passive:false});
+  canvas.addEventListener("touchend", function(){ pinchAbstand = null; });
+
+  var status = document.getElementById("status");
+  document.getElementById("filter").addEventListener("click", function(e){
+    var btn = e.target.closest("button"); if (!btn) return;
+    aktiveRoute = btn.dataset.route;
+    document.querySelectorAll(".filter button").forEach(function(b){ b.classList.toggle("aktiv", b === btn); });
+    if (aktiveRoute !== "alle"){
+      var r = routen[aktiveRoute];
+      status.textContent = r.pins[0].label;
+      var ziel = r.pins[0].koord;
+      projektion.rotate([-ziel[0], -ziel[1] * 0.6, 0]);
+    } else {
+      status.textContent = "ALLE ROUTEN · " + (Object.keys(routen).length) + " REISEN · " + aktivePins().length + " ORTE";
+    }
+    zuletzt = performance.now();
+    zeichnen();
+  });
+
+  zeichnen();
+  fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
+    .then(function(r){ return r.json(); })
+    .then(function(welt){ land = topojson.feature(welt, welt.objects.land); zeichnen(); })
+    .catch(function(){ status.textContent = "WELTKARTE KONNTE NICHT GELADEN WERDEN (OFFLINE?) · KUGEL + PINS FUNKTIONIEREN TROTZDEM"; });
+})();
+</script>
+</body>
+</html>

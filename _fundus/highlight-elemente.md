@@ -67,6 +67,27 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
   Count-up-Animation optional via IntersectionObserver, einmalig, reduced-motion: statisch.
 - Status: MARLOU v2 Ueber-uns (statisch). Count-up noch nie gebaut.
 
+### 5b. Interaktiver Globus mit Routen-Pins (Marvins Idee, 2026-07-11)
+- Gesehen bei: Marvins Konzept fuer MARLOU; verwandt: cobe-Globes auf 21st.dev,
+  globe.gl-Landingpages
+- Wirkung: Alle Reisen/Standorte auf einen Blick verortet; "wir waren wirklich dort"
+  wird raeumlich erfahrbar. Auto-Rotation nach Load, Ziehen zum Drehen, Zoom
+  (Scroll + Zwei-Finger-Pinch), Pins pro Ort, Routen als Grosskreis-Boegen, Filter.
+- Robuste Konstruktion (erprobt in projekte/marlou/freigabe/demo-globus.html):
+  d3-geo Orthographic auf Canvas (kein WebGL noetig, Line-Art passt zu Karten-Welten),
+  world-atlas 110m (klein), Pointer-Events fuer Drag (scale-adjustierte Rotation,
+  Lat-Klemme +-75), wheel + touch-Pinch fuer Zoom, d3.timer fuer Auto-Rotation.
+  FALLEN: d3.timer/rAF pausiert in Hintergrund-Tabs (nicht als Bug jagen);
+  Timer-Uhr vs. performance.now() nicht mischen (gleiche Zeitbasis verwenden!);
+  prefers-reduced-motion: keine Auto-Rotation; touch-action:none auf der Buehne,
+  sonst kaempft der Browser ums Scrollen. Launch: d3 (~90KB) + topojson selbst
+  hosten (DSGVO), Alternative fuer Sparsamkeit: cobe (~5KB, aber ohne Zoom/Labels).
+- Wann passend: Marken mit echter geografischer Story (Reisen, Import, Standorte).
+  Nicht als Deko fuer Firmen ohne Orts-Bezug. Grosses Element: zaehlt als DAS
+  Highlight seiner Seite.
+- Status: Demo gebaut + funktional getestet (MARLOU). Nach Launch-Einsatz Code in
+  technik-patterns.md.
+
 ## Layout-Highlights (statisch, sofort einsetzbar)
 
 ### 6. Riesen-Typo als Raumfueller (Outline oder angeschnitten)

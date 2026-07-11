@@ -69,6 +69,14 @@ Rotators und traegt kleine Bild-Thumbs zwischen den Ortsnamen.
   Anti-Slop-Regel sagt ein Signature-Element. Nur nehmen, wenn dafuer etwas anderes
   fliegt.
 
+**Highlight 3 (Marvins Idee, Demo gebaut): Logbuch-Globus.**
+Interaktive Erdkugel im Line-Art-Stil: Pins fuer bereiste Orte, Routen als
+Grosskreis-Boegen, Auto-Rotation nach Load, Ziehen zum Drehen, Zoom per Scroll und
+Zwei-Finger-Pinch, Filter pro Route (Klick dreht die Kugel zum Ziel). Klickbare Demo:
+`freigabe/demo-globus.html`. Vorschlag Platzierung: Ueber-uns-Seite ("Wo wir waren"),
+auf Start wuerde er mit dem Routen-Rotator konkurrieren. Technik: d3-geo auf Canvas,
+selbst hostbar, reduced-motion respektiert. OFFEN: einbauen ja/nein + wo.
+
 Freigabe-Regel: Hier sind Aenderungen billig. Nach Freigabe gilt: eine Korrekturrunde
 nach Umsetzung inklusive, weitere kostenpflichtig.
 
