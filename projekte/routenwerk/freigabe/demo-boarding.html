@@ -77,6 +77,15 @@ a{color:var(--ink)}
 .btn-alt{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;
   border:2px solid var(--ink);color:var(--ink);text-decoration:none;padding:13px 26px;margin:8px 10px 0 0}
 
+/* ============ 3b. Split-Flap-Button (Marvins Richtung) ============ */
+.btn-flap{display:inline-flex;gap:3px;background:#0E0C08;border:none;border-radius:6px;
+  padding:10px 12px;cursor:pointer;margin:8px 10px 0 0;text-decoration:none}
+.btn-flap b{display:inline-block;font-family:var(--mono);font-weight:700;font-size:19px;
+  color:var(--solari);width:1.5ch;text-align:center;padding:12px 0;border-radius:3px;
+  background:linear-gradient(var(--flap-hell) 47%,rgba(0,0,0,.65) 47%,rgba(0,0,0,.65) 53%,var(--flap) 53%)}
+.btn-flap:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
+.btn-flap.rot b{color:#FF8A6B}
+
 /* ============ 4. Gate-Wegweiser ============ */
 .wegweiser{background:var(--ink);border-radius:6px;overflow:hidden;max-width:640px}
 .weg{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid #353026;
@@ -99,10 +108,14 @@ a{color:var(--ink)}
 .tag .tag-streifen{display:block;height:8px;background:repeating-linear-gradient(90deg,var(--signal) 0 14px,transparent 14px 20px);margin-top:10px;border-radius:2px}
 
 /* ============ 6. Passport-Doppelseite ============ */
-.passport{display:flex;flex-wrap:wrap;border:1px solid var(--muted);max-width:820px;
-  background:var(--papier-tief);box-shadow:5px 5px 0 var(--line)}
-.passport>div{flex:1;min-width:280px;padding:30px 26px;position:relative;min-height:250px}
-.passport>div:first-child{border-right:1px dashed var(--muted)}
+.passport{display:flex;border:1px solid var(--muted);max-width:600px;
+  aspect-ratio:176/125;background:var(--papier-tief);box-shadow:5px 5px 0 var(--line);
+  border-radius:6px;overflow:hidden}
+.passport>div{flex:1;padding:26px 22px;position:relative}
+.passport>div:first-child{border-right:1px solid color-mix(in srgb,var(--muted) 40%,transparent);
+  box-shadow:inset -14px 0 18px -14px rgba(0,0,0,.28)}
+.passport>div:last-child{box-shadow:inset 14px 0 18px -14px rgba(0,0,0,.28)}
+@media(max-width:560px){.passport{aspect-ratio:auto;flex-wrap:wrap}.passport>div{min-width:100%;min-height:200px}}
 .passport .seite-nr{position:absolute;bottom:10px;font-family:var(--mono);font-size:9.5px;
   letter-spacing:.2em;color:var(--muted)}
 .passport>div:first-child .seite-nr{right:16px}
@@ -132,6 +145,64 @@ a{color:var(--ink)}
 .mini-tag::before{content:"";position:absolute;left:6px;top:50%;transform:translateY(-50%);
   width:6px;height:6px;border-radius:50%;background:var(--bg);border:1px solid var(--muted)}
 
+/* ============ 9. Postkarte ============ */
+.postkarte{display:flex;border:1px solid var(--muted);max-width:640px;aspect-ratio:148/105;
+  background:var(--bg);box-shadow:5px 5px 0 var(--line);border-radius:4px;overflow:hidden}
+.pk-links{flex:1.15;padding:22px;border-right:1px solid var(--line)}
+.pk-links .pk-gruss{font-family:var(--display);font-weight:800;font-size:24px;margin-bottom:8px}
+.pk-links p{font-style:italic;color:#4a443a;font-size:15px;max-width:34ch}
+.pk-rechts{flex:1;padding:22px;position:relative;display:flex;flex-direction:column}
+.pk-marke{position:absolute;top:14px;right:14px;width:64px;height:78px;background:var(--papier-tief);
+  border:1px solid var(--muted);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;
+  mask-image:radial-gradient(circle 4px at 0 0,transparent 98%,black),radial-gradient(circle,black 98%,black);
+  -webkit-mask-image:radial-gradient(circle 3.5px, transparent 0 3px, black 3.2px);
+  -webkit-mask-size:14px 14px;-webkit-mask-position:-7px -7px}
+.pk-stempelkreis{position:absolute;top:26px;right:64px;width:58px;height:58px;border:2px solid var(--muted);
+  border-radius:50%;opacity:.5;transform:rotate(-12deg)}
+.pk-adresse{margin-top:auto;display:flex;flex-direction:column;gap:16px}
+.pk-adresse i{display:block;border-bottom:1px solid var(--muted);height:14px}
+@media(max-width:560px){.postkarte{aspect-ratio:auto;flex-wrap:wrap}.pk-links{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* ============ 10. Briefmarken-Fotorahmen ============ */
+.briefmarke{display:inline-block;background:var(--bg);padding:12px;position:relative;
+  -webkit-mask-image:radial-gradient(circle 5px, transparent 0 4.4px, black 4.6px);
+  -webkit-mask-size:18px 18px;-webkit-mask-position:-9px -9px;
+  mask-image:radial-gradient(circle 5px, transparent 0 4.4px, black 4.6px);
+  mask-size:18px 18px;mask-position:-9px -9px;
+  filter:drop-shadow(3px 3px 0 var(--line))}
+.bm-bild{width:190px;aspect-ratio:3/4;background:
+  repeating-linear-gradient(45deg,var(--papier-tief),var(--papier-tief) 10px,#EAE5DA 10px,#EAE5DA 20px);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:var(--mono);font-size:9.5px;color:var(--muted);padding:8px;
+  border:1px solid var(--line)}
+.bm-fuss{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:8px}
+.bm-fuss b{color:var(--signal);font-size:15px}
+
+/* ============ 11. Koffer-Scan ============ */
+.scan{background:#12100C;border-radius:6px;padding:28px 24px;max-width:640px;position:relative;overflow:hidden}
+.scan::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.015) 3px 4px)}
+.scan-kopf{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:#6B6659;margin-bottom:18px}
+.scan-kopf b{color:var(--solari)}
+.koffer{position:relative;border:2px solid #5E82A8;border-radius:14px;height:190px;max-width:460px;margin:0 auto}
+.koffer::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  width:90px;height:26px;border:2px solid #5E82A8;border-bottom:none;border-radius:10px 10px 0 0}
+.scan-item{position:absolute;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px}
+.si-1{left:6%;top:14%;width:34%;height:44%;background:rgba(232,184,75,.22);border:1px solid rgba(232,184,75,.6);color:var(--solari)}
+.si-2{left:44%;top:22%;width:24%;height:58%;background:rgba(94,130,168,.25);border:1px solid rgba(94,130,168,.7);color:#9FBEDD}
+.si-3{left:72%;top:12%;width:21%;height:34%;background:rgba(194,51,31,.22);border:1px solid rgba(194,51,31,.6);color:#FF8A6B}
+.si-4{left:12%;top:64%;width:52%;height:26%;background:rgba(232,184,75,.14);border:1px dashed rgba(232,184,75,.5);color:var(--solari)}
+.si-5{left:74%;top:56%;width:19%;height:32%;background:rgba(94,130,168,.18);border:1px dashed rgba(94,130,168,.55);color:#9FBEDD}
+
+/* ============ 12. Flugroute mit Flugzeug ============ */
+.flugroute{max-width:100%;display:block}
+.flugroute path.linie{stroke:var(--muted);stroke-dasharray:5 7;fill:none}
+.flugroute .flieger{fill:var(--signal)}
+.flugroute text{font-family:var(--mono);font-size:10px;letter-spacing:.08em;fill:var(--muted);text-transform:uppercase}
+
 /* ============ 8. Check-in-Schalter ============ */
 .checkin{background:var(--ink);color:var(--bg);border-radius:6px;padding:30px 28px;max-width:640px}
 .checkin .schild{display:flex;justify-content:space-between;gap:12px;align-items:center;
@@ -151,7 +222,7 @@ a{color:var(--ink)}
 </head>
 <body>
 <div class="wrap">
-  <div class="kopfnote">ROUTENWERK Moodboard · "Der Urlaub beginnt auf der Website" · Abflug-Welt in 9 Elementen · B612 Mono (Airbus-Cockpit-Font)</div>
+  <div class="kopfnote">ROUTENWERK Moodboard · "Der Urlaub beginnt auf der Website" · Abflug-Welt in 13 Elementen · B612 Mono (Airbus-Cockpit-Font)</div>
   <h1>Der Urlaub beginnt hier.</h1>
   <p>Moodboard für den ROUTENWERK-Look: Elemente aus der Welt alter Flughafen-Terminals, alle im Token-System gebaut, keine Bilder nötig. Klapp-Animationen und Band-Bewegung kommen später als Schicht obendrauf.</p>
 
@@ -187,11 +258,12 @@ a{color:var(--ink)}
   </div>
   <p class="anno">Meta-Daten als Ticket-Felder · Stub bricht auf Mobile unter die Karte</p>
 
-  <h2>3. Buttons im Gate-Stil</h2>
-  <a class="btn-gate rot" href="#">Guide kaufen · 39 €</a>
-  <a class="btn-gate" href="#">Boarding: Beratung</a>
+  <h2>3. Der Split-Flap-Button</h2>
+  <p>Marvins Richtung: Der Button IST eine kleine Anzeigetafel. Beim Hover oder Fokus klappen die Buchstaben mehrfach durch und landen wieder auf dem Text (oder einem anderen). Fahr mit der Maus drüber, das läuft schon.</p>
+  <a class="btn-flap" href="#" data-text="GUIDE KAUFEN" data-alt="ABFLUG 39 €"> </a>
+  <a class="btn-flap rot" href="#" data-text="BOARDING"> </a>
   <a class="btn-alt" href="#">Alle Guides ansehen</a>
-  <p class="anno">Primär mit Klapp-Kachel-Optik (Mittellinie), Sekundär bleibt ruhig</p>
+  <p class="anno">Variante 1 klappt zu "ABFLUG 39 €" und zurück · Variante 2 klappt auf sich selbst · Sekundär bleibt ruhig · reduced-motion: kein Flip</p>
 
   <h2>4. Gate-Wegweiser</h2>
   <p>Navigation oder CTA-Band als Terminal-Beschilderung: die drei Produkte als Gates.</p>
@@ -212,7 +284,7 @@ a{color:var(--ink)}
   <p class="anno">Leicht gedreht, mit Öse und Priority-Streifen</p>
 
   <h2>6. Die Passport-Doppelseite</h2>
-  <p>Ersetzt die Erlebnis-Fakten: Belege als gesammelte Stempel auf einer Passseite. Jede Zusage ein Abdruck.</p>
+  <p>Ersetzt die Erlebnis-Fakten: Belege als gesammelte Stempel. Format wie ein echter Pass: zwei Seiten je 88 auf 125 Millimeter, aufgeschlagen mit Falz in der Mitte.</p>
   <div class="passport">
     <div>
       <span class="stempel s1">Island<br>selbst gereist<small>Routenwerk · Herbst</small></span>
@@ -247,7 +319,60 @@ a{color:var(--ink)}
   </div>
   <p class="anno">Dunkler Schalter-Block mit Solari-Status "Geöffnet" · ersetzt das bisherige Lead-Magnet-Band</p>
 
-  <h2>9. Schrift-System</h2>
+  <h2>9. Die Postkarte</h2>
+  <p>Für Kundenstimmen, sobald es echte gibt (Testimonial als Urlaubsgruß), oder als Story-Teaser. Echtes A6-Format.</p>
+  <div class="postkarte">
+    <div class="pk-links">
+      <div class="pk-gruss">Grüße aus Theth!</div>
+      <p>Der Plan hat gehalten, sogar als die Fähre ausfiel. Seite 4 im Guide hatte den Umweg schon drin. Danke dafür.</p>
+      <p style="font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Platzhalter, bis echte Stimmen da sind</p>
+    </div>
+    <div class="pk-rechts">
+      <div class="pk-marke">ROUTENWERK<br>POST</div>
+      <div class="pk-stempelkreis" aria-hidden="true"></div>
+      <div class="pk-adresse"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <p class="anno">A6-Proportion, Adresslinien, Marke + runder Poststempel · Kundenstimmen als Urlaubsgruesse statt Testimonial-Karussell</p>
+
+  <h2>10. Der Briefmarken-Fotorahmen</h2>
+  <p>Echte Reisefotos als Briefmarken gerahmt: gezackter Rand, Wert, Absender. So werden Fotos zu Objekten der Welt statt Deko.</p>
+  <span class="briefmarke">
+    <span class="bm-bild">FOTO folgt:<br>Wadi Rum</span>
+    <span class="bm-fuss"><span>Routenwerk Post</span><b>29</b></span>
+  </span>
+  <p class="anno">Zackenrand per CSS-Maske, kein Bild noetig · Wert = Guide-Preis, kleiner Gag</p>
+
+  <h2>11. Der Koffer-Scan</h2>
+  <p>"Was in jedem Guide steckt" als Sicherheits-Scanner: der Koffer wird durchleuchtet, der Inhalt ist beschriftet.</p>
+  <div class="scan">
+    <div class="scan-kopf"><span>Sicherheitskontrolle · Inhalt</span><b>Freigegeben</b></div>
+    <div class="koffer">
+      <div class="scan-item si-1">Tagesplan</div>
+      <div class="scan-item si-2">Unterkünfte</div>
+      <div class="scan-item si-3">Insider</div>
+      <div class="scan-item si-4">Packliste + Budget</div>
+      <div class="scan-item si-5">Plan B</div>
+    </div>
+  </div>
+  <p class="anno">Roentgen-Optik in drei Transparenzfarben · ersetzt das Accordion oder ergaenzt es als Auftakt-Bild</p>
+
+  <h2>12. Kleine Flugzeuge auf Route</h2>
+  <p>Papierflieger auf gestrichelter Route: als Sektions-Trenner, und später fliegen sie animiert die Linie entlang. Auf dem Globus (Über-uns-Seite) ziehen sie als Umlaufbahn ihre Kreise.</p>
+  <svg class="flugroute" viewBox="0 0 1000 90" aria-hidden="true">
+    <path class="linie" d="M 0 70 C 250 10, 420 85, 640 40 S 920 15, 1000 45"/>
+    <text x="12" y="86">KEF</text>
+    <text x="958" y="34">AMM</text>
+    <g transform="translate(640 40) rotate(-8)">
+      <path class="flieger" d="M0 0 L-22 -7 L-16 0 L-22 7 Z"/>
+    </g>
+    <g transform="translate(300 38) rotate(14)" opacity=".45">
+      <path class="flieger" d="M0 0 L-22 -7 L-16 0 L-22 7 Z"/>
+    </g>
+  </svg>
+  <p class="anno">Flieger als schlichte SVG-Silhouette (kein Emoji) · Animation spaeter: offset-path entlang der Linie, reduced-motion: statisch</p>
+
+  <h2>13. Schrift-System</h2>
   <p>Display bleibt Cabinet Grotesk (Marke), Fließtext General Sans. Alle Terminal-Elemente sprechen B612 Mono, den Font, den Airbus für Cockpit-Anzeigen entworfen hat. Er ersetzt IBM Plex Mono im ganzen System, damit auch die Koordinaten-Marker Terminal sprechen.</p>
   <p class="anno" style="font-size:14px">B612 MONO · N 64.1466 / W 21.9426 · GATE 01 · BOARDING · 0123456789</p>
 
@@ -285,6 +410,50 @@ bandDaten.concat(bandDaten).forEach(function(t){
   if (t.length <= 3) el.className = "mini-tag";
   el.textContent = t;
   track.appendChild(el);
+});
+
+/* Split-Flap-Button: Buchstaben klappen bei Hover/Fokus durch */
+var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+document.querySelectorAll(".btn-flap").forEach(function(btn){
+  var basis = btn.dataset.text;
+  var alt = btn.dataset.alt || basis;
+  var lang = Math.max(basis.length, alt.length);
+  basis = basis.padEnd(lang, " "); alt = alt.padEnd(lang, " ");
+  btn.textContent = "";
+  for (var i = 0; i < lang; i++){
+    var b = document.createElement("b");
+    b.textContent = basis[i] === " " ? "\u00A0" : basis[i];
+    btn.appendChild(b);
+  }
+  var kacheln = btn.querySelectorAll("b");
+  var laeuft = false;
+  function flip(ziel){
+    if (ruhig || laeuft) { setzen(ziel); return; }
+    laeuft = true;
+    var fertig = 0;
+    kacheln.forEach(function(k, i){
+      var schritte = 3 + (i % 4);
+      var n = 0;
+      var iv = setInterval(function(){
+        n++;
+        if (n >= schritte){
+          k.textContent = ziel[i] === " " ? "\u00A0" : ziel[i];
+          clearInterval(iv);
+          if (++fertig === kacheln.length) laeuft = false;
+        } else {
+          k.textContent = POOL[Math.floor(Math.random() * POOL.length)];
+        }
+      }, 65 + i * 6);
+    });
+  }
+  function setzen(ziel){
+    kacheln.forEach(function(k, i){ k.textContent = ziel[i] === " " ? "\u00A0" : ziel[i]; });
+  }
+  btn.addEventListener("mouseenter", function(){ flip(alt); });
+  btn.addEventListener("mouseleave", function(){ flip(basis); });
+  btn.addEventListener("focus", function(){ flip(alt); });
+  btn.addEventListener("blur", function(){ flip(basis); });
 });
 </script>
 </body>

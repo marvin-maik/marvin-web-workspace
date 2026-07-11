@@ -116,6 +116,28 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
   Kombination mit 5c (gleiche Welt).
 - Status: Design-Probe gebaut (demo-boarding.html), Responsive-Feinschliff beim Einbau.
 
+### 5c2. Split-Flap-Button (Marvins Richtung, 2026-07-11)
+- Der Button IST eine Mini-Anzeigetafel: jeder Buchstabe eine Solari-Kachel (Gelb auf
+  Dunkel), bei Hover/Fokus klappen die Buchstaben mehrfach durch (Zufallszeichen) und
+  landen auf dem Text oder einem Alternativtext ("GUIDE KAUFEN" -> "ABFLUG 39 €").
+- Konstruktion (gebaut + getestet, demo-boarding.html Sektion 3): JS zerlegt data-text
+  in Kachel-spans; setInterval je Kachel mit gestaffeltem Tempo, laeuft-Flag gegen
+  Doppel-Trigger, mouseleave/blur klappt zurueck, reduced-motion: sofort setzen.
+  FALLE: setInterval wird in Hintergrund-Tabs auf 1s gedrosselt (nicht als Bug jagen).
+- Nur fuer 1-2 Haupt-CTAs pro Seite; Sekundaer-Buttons bleiben ruhig.
+
+### 5f. Reise-Ephemera-Familie: Postkarte, Briefmarke, Koffer-Scan, Flugroute (2026-07-11)
+- Postkarte (A6-Proportion 148:105): Kundenstimmen als Urlaubsgruss (Marke, runder
+  Poststempel, Adresslinien) statt Testimonial-Karussell.
+- Briefmarken-Fotorahmen: Fotos mit Zackenrand per CSS-Maske (radial-gradient
+  mask-size Trick), Wert-Ecke = Preis. Macht Fotos zu Objekten der Welt.
+- Koffer-Scan: Produktinhalt als Roentgenbild (dunkles Panel, Kofferumriss,
+  transparente beschriftete Flaechen). Ersetzt Feature-Listen.
+- Flugroute: gestrichelte Kurve + Papierflieger-SVG (kein Emoji) als Trenner;
+  Animation spaeter via offset-path, auf dem Globus als Umlaufbahn.
+- Alle in demo-boarding.html (ROUTENWERK) gebaut; Passport-Doppelseite dort im
+  echten Pass-Format (2x 88x125 mm, Falz mit Schatten).
+
 ### 5e. Passport-Stempel als Beleg-Marker
 - Wirkung: Zusagen (Garantie, "selbst gereist") als gestempelter Abdruck statt Behauptung.
 - Konstruktion: border double + border-radius, rotate(-6deg), mask-image mit
