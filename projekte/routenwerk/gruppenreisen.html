@@ -50,24 +50,31 @@
 
 <section style="padding-top:0">
   <div class="wrap" data-rv>
-    <div class="marker"><span>03 / Ziel in Arbeit</span><b>Das Logbuch wartet</b></div>
-    <div style="max-width:360px">
-      <div class="foto" style="aspect-ratio:3/4;border-style:dashed"><span>Dieser Rahmen bleibt leer, bis die erste Reise steht.</span></div>
-      <div class="caption" style="border-style:dashed;border-top:none"><span>N ?.???? / E ?.????</span><span>Ziel in Arbeit</span></div>
+    <div class="marker"><span>03 / Am Gate</span><b>Der Vogel wartet schon</b></div>
+    <div class="buehne3d">
+      <div class="schild"><span>Gate 03 · Standby</span><b>A320-200</b></div>
+      <!-- Vor Launch: model-viewer + Modell selbst hosten -->
+      <model-viewer src="freigabe/modelle/a320.glb"
+        alt="Airbus A320-200 wartet am Gate, drehbares 3D-Modell"
+        camera-controls auto-rotate rotation-per-second="7deg"
+        shadow-intensity="1.1" exposure="1.05"
+        camera-orbit="35deg 82deg 105%" min-camera-orbit="auto auto 60%" max-camera-orbit="auto auto 180%"
+        interaction-prompt="none"></model-viewer>
     </div>
+    <p class="kleingedruckt" style="margin-top:10px">3D-Modell: <a href="https://sketchfab.com/3d-models/airbus-a320-200-v2-c078f9af15884a6b820c7e778831b110" target="_blank" rel="noopener">&bdquo;Airbus A320-200 V2&ldquo;</a> von <a href="https://sketchfab.com/fDlruosne" target="_blank" rel="noopener">Dlourine</a>, <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-BY-4.0</a></p>
   </div>
 </section>
 
 <section class="band-ink hell">
   <div class="wrap" data-rv>
-    <div class="marker"><span>04 / Warteliste</span><b>Erstzugriff</b></div>
+    <div class="schalter-schild"><span>Check-in · Standby-Liste</span><b>Geöffnet</b></div>
     <h2>Wenn die erste Reise steht, erfahrt ihr es zuerst.</h2>
     <p>Und ihr habt Erstzugriff auf die Plätze. Es werden wenige sein, das ist der Punkt.</p>
     <!-- MAILERLITE_FORM_ACTION vor Launch eintragen (eigene Gruppe: Warteliste) -->
     <form class="inline-form" action="MAILERLITE_FORM_ACTION" method="POST">
       <label class="skip" for="warteliste-mail">E-Mail-Adresse</label>
       <input id="warteliste-mail" type="email" name="email" autocomplete="email" placeholder="Eure E-Mail-Adresse" required>
-      <button class="btn btn-voll" type="submit">Auf die Warteliste</button>
+      <button class="btn-flap" type="submit" data-text="AUF STANDBY" data-alt="ERSTZUGRIFF">Auf die Warteliste</button>
     </form>
     <p class="kleingedruckt">Nur Nachricht zur ersten Reise, sonst nichts.</p>
   </div>
@@ -110,5 +117,6 @@
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
 <script src="site.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 </body>
 </html>

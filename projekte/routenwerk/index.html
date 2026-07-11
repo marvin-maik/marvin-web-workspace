@@ -40,7 +40,7 @@
   <div class="wrap hero-unten">
     <h1><span class="satz">Abenteuer,</span> <span class="satz">von denen ihr noch Jahre erzählt.</span></h1>
     <p>Fertige Reise-Guides ab 29 € oder euer eigener Plan im Gespräch. Drei Routen im Regal, und jede davon hat jemand aus dem Team selbst recherchiert und ist sie gefahren.</p>
-    <a class="btn btn-voll" href="guides.html">Reise-Guides ansehen</a>
+    <a class="btn-flap" href="guides.html" data-text="GUIDES ANSEHEN" data-alt="ABFLUG AB 29 €">Guides ansehen</a>
     <a class="btn" href="beratung.html">Beratung ansehen</a>
     <div class="chips">
       <span class="chip">Ab 29 €</span>
@@ -62,23 +62,15 @@
 
 <section>
   <div class="wrap" data-rv>
-    <div class="marker"><span>03 / Die Route</span><b>3 Etappen</b></div>
+    <div class="marker"><span>03 / Die Abflugtafel</span><b>Departures</b></div>
     <h2>Von der Idee zur Abreise</h2>
-    <div class="etappen">
-      <div class="etappe" data-n="Etappe 01">
-        <h3>Reise-Guide</h3>
-        <p>Fertige Route zum Sofort-Download. Tagesplan, Unterkünfte, Erlebnisse, Packliste. Der risikoarme Einstieg.</p>
-        <p class="preis">ab 29 €</p>
-      </div>
-      <div class="etappe" data-n="Etappe 02">
-        <h3>Beratung</h3>
-        <p>Euer eigener Trip, im Gespräch geplant. Kompass-Gespräch oder Komplettplanung Tag für Tag.</p>
-        <p class="preis">ab 149 €</p>
-      </div>
-      <div class="etappe leer" data-n="Etappe 03">
-        <h3>Gruppenreise</h3>
-        <p>Kleine, handverlesene Gruppen. Noch in Arbeit, die Warteliste ist offen.</p>
-        <p class="preis">bald</p>
+    <p>Drei Wege, ein Terminal. Jede Zeile ist klickbar.</p>
+    <div class="tafel">
+      <div class="tafel-kopf"><span>Abflüge · Departures</span><span>Routenwerk</span><span>Gate: routenwerk.de</span></div>
+      <div class="brett" data-tafel>
+        <a class="flapzeile" href="guides.html" data-zeile="REISE-GUIDES|SOFORT-PDF|29 €|BOARDING" aria-label="Reise-Guides, Sofort-PDF ab 29 Euro, Boarding"></a>
+        <a class="flapzeile" href="beratung.html" data-zeile="BERATUNG|EUER PLAN|149 €|BOARDING" aria-label="Beratung, euer Plan ab 149 Euro, Boarding"></a>
+        <a class="flapzeile" href="gruppenreisen.html" data-zeile="GRUPPENREISE|KLEINE GRUPPE||BALD" aria-label="Gruppenreise, kleine Gruppe, bald"></a>
       </div>
     </div>
   </div>
@@ -99,34 +91,70 @@
         <text id="rotlab2" x="800" y="104" text-anchor="middle" onclick="rotZeige(2)">JORDANIEN</text>
       </svg>
       <div class="rot-slides">
-        <article class="rot-slide aktiv" data-orte="N 64.1466 / W 21.9426 REYKJAVIK|N 63.4187 / W 19.0060 VÍK|N 64.2539 / W 15.2082 HÖFN|RINGSTRASSE KOMPLETT">
-          <div class="foto"><span>Foto folgt: Island Südküste, eigenes Foto</span></div>
-          <div class="rot-txt">
-            <p class="rot-meta">N 64.1466 / W 21.9426 · <b>12 Tage · 39 €</b></p>
+        <article class="rot-slide pass aktiv" data-orte="N 64.1466 / W 21.9426 REYKJAVIK|KEF|N 63.4187 / W 19.0060 VÍK|N 64.2539 / W 15.2082 HÖFN|RINGSTRASSE KOMPLETT">
+          <div class="pass-haupt">
+            <div class="pass-kopf"><span>Boarding Pass · Reise-Guide</span><b>Sofort-Download</b></div>
+            <div class="pass-route"><small>Von / Nach</small>BER &#9656; KEF</div>
             <h3>Island Ringstraße</h3>
             <p class="moment">Der Moment, in dem das erste Polarlicht über dem Gletscher aufzieht.</p>
+            <div class="felder">
+              <div class="feld"><span>Tage</span><b>12</b></div>
+              <div class="feld"><span>Koordinate</span><b>N 64.1466 / W 21.9426</b></div>
+              <div class="feld"><span>Klasse</span><b>Selbst gereist</b></div>
+            </div>
             <p class="proofzeile">Team-Route, zuletzt im Herbst selbst gefahren</p>
             <a class="btn" href="guides.html">Zum Guide</a>
           </div>
+          <div class="perfo" aria-hidden="true"></div>
+          <div class="pass-stub">
+            <div class="stub-code">KEF</div>
+            <div class="feld"><span>Fare</span></div>
+            <div class="stub-preis">39 €</div>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
         </article>
-        <article class="rot-slide" data-orte="N 41.3275 / E 19.8187 TIRANA|N 40.1017 / E 19.7446 HIMARË|N 42.3953 / E 19.7712 THETH|RIVIERA + BERGE">
-          <div class="foto"><span>Foto folgt: Albanische Riviera, eigenes Foto</span></div>
-          <div class="rot-txt">
-            <p class="rot-meta">N 40.1017 / E 19.7446 · <b>8 Tage · 29 €</b></p>
+        <article class="rot-slide pass" data-orte="N 41.3275 / E 19.8187 TIRANA|TIA|N 40.1017 / E 19.7446 HIMARË|N 42.3953 / E 19.7712 THETH|RIVIERA + BERGE">
+          <div class="pass-haupt">
+            <div class="pass-kopf"><span>Boarding Pass · Reise-Guide</span><b>Sofort-Download</b></div>
+            <div class="pass-route"><small>Von / Nach</small>BER &#9656; TIA</div>
             <h3>Albanien: Riviera und Berge</h3>
             <p class="moment">Der Abend am Kiesstrand, an dem außer euch niemand mehr da ist.</p>
+            <div class="felder">
+              <div class="feld"><span>Tage</span><b>8</b></div>
+              <div class="feld"><span>Koordinate</span><b>N 40.1017 / E 19.7446</b></div>
+              <div class="feld"><span>Klasse</span><b>Selbst gereist</b></div>
+            </div>
             <p class="proofzeile">Team-Route, zweimal selbst gefahren</p>
             <a class="btn" href="guides.html">Zum Guide</a>
           </div>
+          <div class="perfo" aria-hidden="true"></div>
+          <div class="pass-stub">
+            <div class="stub-code">TIA</div>
+            <div class="feld"><span>Fare</span></div>
+            <div class="stub-preis">29 €</div>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
         </article>
-        <article class="rot-slide" data-orte="N 31.9539 / E 35.9106 AMMAN|N 30.3285 / E 35.4444 PETRA|N 29.5765 / E 35.4207 WADI RUM|WÜSTE + FELSENSTADT">
-          <div class="foto"><span>Foto folgt: Wadi Rum, eigenes Foto</span></div>
-          <div class="rot-txt">
-            <p class="rot-meta">N 30.3285 / E 35.4444 · <b>7 Tage · 29 €</b></p>
+        <article class="rot-slide pass" data-orte="N 31.9539 / E 35.9106 AMMAN|AMM|N 30.3285 / E 35.4444 PETRA|N 29.5765 / E 35.4207 WADI RUM|WÜSTE + FELSENSTADT">
+          <div class="pass-haupt">
+            <div class="pass-kopf"><span>Boarding Pass · Reise-Guide</span><b>Sofort-Download</b></div>
+            <div class="pass-route"><small>Von / Nach</small>BER &#9656; AMM</div>
             <h3>Jordanien: Wadi Rum und Petra</h3>
             <p class="moment">Die Stille im Wadi Rum, wenn der Motor aus ist.</p>
+            <div class="felder">
+              <div class="feld"><span>Tage</span><b>7</b></div>
+              <div class="feld"><span>Koordinate</span><b>N 30.3285 / E 35.4444</b></div>
+              <div class="feld"><span>Klasse</span><b>Selbst gereist</b></div>
+            </div>
             <p class="proofzeile">Team-Route, im Frühjahr selbst gefahren</p>
             <a class="btn" href="guides.html">Zum Guide</a>
+          </div>
+          <div class="perfo" aria-hidden="true"></div>
+          <div class="pass-stub">
+            <div class="stub-code">AMM</div>
+            <div class="feld"><span>Fare</span></div>
+            <div class="stub-preis">29 €</div>
+            <div class="barcode" aria-hidden="true"></div>
           </div>
         </article>
       </div>
@@ -183,16 +211,16 @@
 
 <section class="band-ink hell">
   <div class="wrap" data-rv>
-    <div class="marker"><span>08 / Mini-Guide</span><b>0 €</b></div>
+    <div class="schalter-schild"><span>Check-in · Schalter 1</span><b>Geöffnet</b></div>
     <h2>Noch kein Ziel im Kopf?</h2>
     <p>Der kostenlose Mini-Guide: Die 5 besten Abenteuer-Destinations für Paare. Mit Budgetrahmen, bester Reisezeit und dem einen Erlebnis pro Ziel, das den Trip trägt.</p>
     <!-- MAILERLITE_FORM_ACTION vor Launch eintragen -->
     <form class="inline-form" action="MAILERLITE_FORM_ACTION" method="POST">
       <label class="skip" for="lead-mail">E-Mail-Adresse</label>
       <input id="lead-mail" type="email" name="email" autocomplete="email" placeholder="Eure E-Mail-Adresse" required>
-      <button class="btn btn-voll" type="submit">Mini-Guide holen</button>
+      <button class="btn-flap" type="submit" data-text="EINCHECKEN" data-alt="MINI-GUIDE 0 €">Einchecken</button>
     </form>
-    <p class="kleingedruckt">Kein Spam. Abmeldung jederzeit.</p>
+    <p class="kleingedruckt">Kein Spam · Abmeldung jederzeit · Boarding sofort</p>
   </div>
 </section>
 

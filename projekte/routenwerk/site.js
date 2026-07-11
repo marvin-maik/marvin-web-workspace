@@ -33,8 +33,8 @@
       var orte = slides[idx].getAttribute("data-orte").split("|");
       var teile = [];
       orte.forEach(function(o){
-        teile.push("<span>" + o + "</span>");
-        teile.push('<span class="thumb" aria-hidden="true"></span>');
+        var cls = o.length <= 4 ? ' class="mini-tag"' : "";
+        teile.push("<span" + cls + ">" + o + "</span>");
       });
       var track = '<div class="marquee-track">' + teile.join("") + teile.join("") + "</div>";
       marquee.innerHTML = track;
@@ -91,5 +91,67 @@
   document.querySelectorAll("[data-marquee]").forEach(function(m){
     var inhalt = m.innerHTML;
     m.innerHTML = '<div class="marquee-track">' + inhalt + inhalt + "</div>";
+  });
+
+  /* ---------- Abflugtafel: Zeilen aus data-Attributen in Klapp-Kacheln zerlegen ---------- */
+  document.querySelectorAll("[data-tafel]").forEach(function(brett){
+    var breiten = [13, 13, 5, 9];
+    brett.querySelectorAll("[data-zeile]").forEach(function(zeile){
+      var werte = zeile.getAttribute("data-zeile").split("|");
+      werte.forEach(function(text, spalte){
+        var div = document.createElement("div");
+        div.className = "flaps" + (spalte === 3 ? " st" : "");
+        var voll = text.padEnd(breiten[spalte], " ");
+        for (var i = 0; i < voll.length; i++){
+          var b = document.createElement("b");
+          if (voll[i] === " "){ b.className = "leer"; b.innerHTML = "&nbsp;"; }
+          else b.textContent = voll[i];
+          div.appendChild(b);
+        }
+        zeile.appendChild(div);
+      });
+    });
+  });
+
+  /* ---------- Split-Flap-Buttons: Buchstaben klappen bei Hover/Fokus ---------- */
+  var FLAP_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  document.querySelectorAll(".btn-flap").forEach(function(btn){
+    var basis = btn.dataset.text || btn.textContent.trim();
+    var alt = btn.dataset.alt || basis;
+    var lang = Math.max(basis.length, alt.length);
+    basis = basis.padEnd(lang, " "); alt = alt.padEnd(lang, " ");
+    btn.textContent = "";
+    for (var i = 0; i < lang; i++){
+      var b = document.createElement("b");
+      b.textContent = basis[i] === " " ? "\u00A0" : basis[i];
+      btn.appendChild(b);
+    }
+    var kacheln = btn.querySelectorAll("b");
+    var laeuft = false;
+    function setzen(ziel){
+      kacheln.forEach(function(k, i){ k.textContent = ziel[i] === " " ? "\u00A0" : ziel[i]; });
+    }
+    function flip(ziel){
+      if (ruhig || laeuft){ setzen(ziel); return; }
+      laeuft = true;
+      var fertig = 0;
+      kacheln.forEach(function(k, i){
+        var schritte = 3 + (i % 4), n = 0;
+        var iv = setInterval(function(){
+          n++;
+          if (n >= schritte){
+            k.textContent = ziel[i] === " " ? "\u00A0" : ziel[i];
+            clearInterval(iv);
+            if (++fertig === kacheln.length) laeuft = false;
+          } else {
+            k.textContent = FLAP_POOL[Math.floor(Math.random() * FLAP_POOL.length)];
+          }
+        }, 65 + i * 6);
+      });
+    }
+    btn.addEventListener("mouseenter", function(){ flip(alt); });
+    btn.addEventListener("mouseleave", function(){ flip(basis); });
+    btn.addEventListener("focus", function(){ flip(alt); });
+    btn.addEventListener("blur", function(){ flip(basis); });
   });
 })();

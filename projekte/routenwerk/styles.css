@@ -6,7 +6,8 @@
 @font-face{font-family:'General Sans';src:url('fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
 @font-face{font-family:'General Sans';src:url('fonts/general-sans-500.woff2') format('woff2');font-weight:500;font-display:swap}
 @font-face{font-family:'General Sans';src:url('fonts/general-sans-600.woff2') format('woff2');font-weight:600;font-display:swap}
-@font-face{font-family:'IBM Plex Mono';src:url('fonts/ibm-plex-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-700.woff2') format('woff2');font-weight:700;font-display:swap}
 
 :root{
   --ink:#16130E;
@@ -18,9 +19,13 @@
   --btn-text:#fff;
   --hero-schraffur-1:#241F17;
   --hero-schraffur-2:#2B251C;
+  --solari:#E8B84B;          /* Anzeigetafel-Gelb */
+  --flap:#211C15;            /* Klapp-Kachel dunkel */
+  --flap-hell:#2B251C;       /* Klapp-Kachel oben */
+  --stempel-blau:#2E4A6B;    /* zweite Grenzstempel-Farbe */
   --display:'Cabinet Grotesk',sans-serif;
   --body:'General Sans',sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --mono:'B612 Mono',ui-monospace,monospace;
   --wrap:1160px;
   --pad:24px;
 }
@@ -323,3 +328,163 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   .rot-slide .foto{border-right:none;border-bottom:1px solid var(--line)}
   .inline-form input[type=email]{border-right:1px solid var(--muted);max-width:100%}
 }
+
+/* ==================== ABFLUG-WELT (Moodboard-Integration 2026-07-11) ==================== */
+
+/* ---------- Split-Flap-Abflugtafel ---------- */
+.tafel{background:var(--ink);padding:26px 22px;border-radius:6px;overflow-x:auto;margin-top:34px}
+.tafel-kopf{display:flex;justify-content:space-between;gap:14px;font-family:var(--mono);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8f887b;
+  border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:14px;min-width:640px}
+.brett{display:grid;grid-template-columns:minmax(210px,1.4fr) minmax(140px,1fr) minmax(80px,.6fr) minmax(130px,1fr);
+  gap:10px 22px;align-items:center;min-width:640px}
+.brett a.flapzeile{display:contents;text-decoration:none;color:inherit;cursor:pointer}
+.flaps{white-space:nowrap}
+.flaps b{display:inline-block;font-family:var(--mono);font-weight:400;font-size:17px;
+  color:var(--bg);background:linear-gradient(var(--flap-hell) 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,var(--flap) 52%);
+  width:1.3ch;text-align:center;padding:6px 0;margin-right:2px;border-radius:2.5px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+.flaps b.leer{background:linear-gradient(#1D1912 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,#181510 52%)}
+.flaps.st b{color:var(--solari)}
+.flapzeile:hover .flaps b,.flapzeile:focus-visible .flaps b{color:var(--solari)}
+.flapzeile:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
+
+/* ---------- Split-Flap-Button (Haupt-CTA, max 1-2 pro Seite) ---------- */
+.btn-flap{display:inline-flex;gap:3px;background:#0E0C08;border:none;border-radius:6px;
+  padding:10px 12px;cursor:pointer;margin:10px 12px 0 0;text-decoration:none;vertical-align:middle}
+.btn-flap b{display:inline-block;font-family:var(--mono);font-weight:700;font-size:17px;
+  color:var(--solari);width:1.5ch;text-align:center;padding:11px 0;border-radius:3px;
+  background:linear-gradient(var(--flap-hell) 47%,rgba(0,0,0,.65) 47%,rgba(0,0,0,.65) 53%,var(--flap) 53%)}
+.btn-flap:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
+
+/* ---------- Boarding-Pass (Guide-Karten + Rotator-Slides) ---------- */
+.pass{display:flex;flex-wrap:wrap;background:var(--bg);border:1px solid var(--muted);
+  box-shadow:5px 5px 0 var(--line)}
+.pass-haupt{flex:2.2;min-width:290px;padding:22px 26px;display:flex;flex-direction:column;align-items:flex-start}
+.pass-kopf{display:flex;justify-content:space-between;gap:10px;width:100%;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.pass-kopf b{color:var(--signal);font-weight:700}
+.pass-route{font-family:var(--mono);font-weight:700;font-size:clamp(26px,3.6vw,38px);letter-spacing:.02em;line-height:1}
+.pass-route small{font-size:12px;font-weight:400;color:var(--muted);letter-spacing:.08em;display:block;margin-bottom:4px}
+.pass h2,.pass h3{font-size:22px;line-height:1.2;margin:12px 0 2px;letter-spacing:0}
+.felder{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+.feld{font-family:var(--mono)}
+.feld span{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.feld b{font-size:14px;font-weight:700}
+.perfo{width:0;border-left:2px dashed var(--muted)}
+.pass-stub{flex:1;min-width:165px;padding:22px 20px;display:flex;flex-direction:column;gap:8px;background:var(--papier-tief)}
+.stub-code{font-family:var(--mono);font-weight:700;font-size:26px}
+.stub-preis{font-family:var(--display);font-weight:800;font-size:28px}
+.barcode{height:46px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,
+  var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 16px);margin-top:auto}
+@media(max-width:720px){.perfo{width:100%;height:0;border-left:none;border-top:2px dashed var(--muted)}}
+
+/* ---------- Passport-Stempel ---------- */
+.stempel{display:inline-block;font-family:var(--mono);font-weight:700;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--signal);
+  border:3px double var(--signal);border-radius:10px;padding:12px 16px;
+  text-align:center;line-height:1.5;opacity:.85;
+  mask-image:radial-gradient(circle at 30% 60%,transparent 0 2px,black 3px),radial-gradient(circle at 75% 25%,transparent 0 1.5px,black 2.5px)}
+.stempel small{display:block;font-size:9px;letter-spacing:.2em;font-weight:400}
+.stempel.rund{border-radius:50%;padding:20px 14px}
+.stempel.blau{color:var(--stempel-blau);border-color:var(--stempel-blau)}
+
+/* ---------- Passport-Doppelseite (Belege) ---------- */
+.passport{display:flex;border:1px solid var(--muted);max-width:620px;aspect-ratio:176/125;
+  background:var(--papier-tief);box-shadow:5px 5px 0 var(--line);border-radius:6px;overflow:hidden;margin-top:24px}
+.passport>div{flex:1;padding:26px 22px;position:relative}
+.passport>div:first-child{border-right:1px solid color-mix(in srgb,var(--muted) 40%,transparent);
+  box-shadow:inset -14px 0 18px -14px rgba(0,0,0,.28)}
+.passport>div:last-child{box-shadow:inset 14px 0 18px -14px rgba(0,0,0,.28)}
+.passport .seite-nr{position:absolute;bottom:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--muted)}
+.passport>div:first-child .seite-nr{right:16px}
+.passport>div:last-child .seite-nr{left:16px}
+.s1{transform:rotate(-7deg)}
+.s2{transform:rotate(4deg);margin:16px 0 0 30px}
+.s3{transform:rotate(-3deg);margin:6px 0 0 6px}
+.s4{transform:rotate(6deg);margin:22px 0 0 34px}
+@media(max-width:560px){.passport{aspect-ratio:auto;flex-wrap:wrap}.passport>div{min-width:100%;min-height:190px}}
+
+/* ---------- Koffer-Scan ---------- */
+.scan{background:#12100C;border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;margin:22px 0}
+.scan::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.015) 3px 4px)}
+.scan-kopf{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:#6B6659;margin-bottom:18px}
+.scan-kopf b{color:var(--solari)}
+.koffer{position:relative;border:2px solid #5E82A8;border-radius:14px;height:190px;max-width:460px;margin:14px auto 0}
+.koffer::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  width:90px;height:26px;border:2px solid #5E82A8;border-bottom:none;border-radius:10px 10px 0 0}
+.scan-item{position:absolute;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px}
+.si-1{left:6%;top:14%;width:34%;height:44%;background:rgba(232,184,75,.22);border:1px solid rgba(232,184,75,.6);color:var(--solari)}
+.si-2{left:44%;top:22%;width:24%;height:58%;background:rgba(94,130,168,.25);border:1px solid rgba(94,130,168,.7);color:#9FBEDD}
+.si-3{left:72%;top:12%;width:21%;height:34%;background:rgba(194,51,31,.22);border:1px solid rgba(194,51,31,.6);color:#FF8A6B}
+.si-4{left:12%;top:64%;width:52%;height:26%;background:rgba(232,184,75,.14);border:1px dashed rgba(232,184,75,.5);color:var(--solari)}
+.si-5{left:74%;top:56%;width:19%;height:32%;background:rgba(94,130,168,.18);border:1px dashed rgba(94,130,168,.55);color:#9FBEDD}
+
+/* ---------- Gate-Wegweiser ---------- */
+.wegweiser{background:var(--ink);border-radius:6px;overflow:hidden;max-width:640px;margin-top:22px}
+.weg{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid #353026;
+  font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--bg);
+  text-decoration:none;transition:background .15s}
+.weg:last-child{border-bottom:none}
+.weg:hover{background:#221D15}
+.weg:focus-visible{outline:2px solid var(--solari);outline-offset:-3px}
+.weg .gate{font-weight:700;color:var(--solari);font-size:13px;min-width:74px}
+.weg .pfeil{margin-left:auto;color:var(--solari);font-size:18px}
+.weg .zusatz{font-size:10.5px;color:#8f887b}
+
+/* ---------- Gepaeckband (Marquee-Umbau) ---------- */
+.marquee{background:repeating-linear-gradient(90deg,transparent 0 46px,var(--line) 46px 47px)}
+.mini-tag{display:inline-block;flex:0 0 auto;background:var(--papier-tief);border:1px solid var(--muted);
+  border-radius:4px 12px 4px 4px;padding:4px 10px 4px 18px;font-weight:700;font-size:11px;
+  color:var(--ink);position:relative;transform:rotate(-2deg)}
+.mini-tag::before{content:"";position:absolute;left:6px;top:50%;transform:translateY(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--bg);border:1px solid var(--muted)}
+
+/* ---------- Check-in-Schalter (Lead Magnet / Warteliste) ---------- */
+.schalter-schild{display:flex;justify-content:space-between;gap:12px;align-items:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:#8f887b;border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:18px}
+.schalter-schild b{color:var(--solari);font-weight:700}
+.band-ink input[type=email]{border-color:#4A443A;background:#1D1912;color:var(--bg)}
+.band-ink input[type=email]:focus{outline-color:var(--solari)}
+
+/* ---------- Briefmarken-Fotorahmen ---------- */
+.briefmarke{display:inline-block;background:var(--bg);padding:12px;
+  -webkit-mask-image:radial-gradient(circle 5px, transparent 0 4.4px, black 4.6px);
+  -webkit-mask-size:18px 18px;-webkit-mask-position:-9px -9px;
+  mask-image:radial-gradient(circle 5px, transparent 0 4.4px, black 4.6px);
+  mask-size:18px 18px;mask-position:-9px -9px;
+  filter:drop-shadow(3px 3px 0 var(--line));max-width:100%}
+.briefmarke .foto{min-height:230px;border:1px solid var(--line)}
+.bm-fuss{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:8px}
+.bm-fuss b{color:var(--signal);font-size:15px}
+
+/* ---------- Postkarte ---------- */
+.postkarte{display:flex;border:1px solid var(--muted);max-width:640px;aspect-ratio:148/105;
+  background:var(--bg);box-shadow:5px 5px 0 var(--line);border-radius:4px;overflow:hidden;margin-top:24px}
+.pk-links{flex:1.15;padding:22px;border-right:1px solid var(--line)}
+.pk-links .pk-gruss{font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:8px}
+.pk-links p{font-style:italic;color:#4a443a;font-size:15px;max-width:34ch}
+.pk-rechts{flex:1;padding:22px;position:relative;display:flex;flex-direction:column}
+.pk-marke{position:absolute;top:14px;right:14px;width:60px;height:74px;background:var(--papier-tief);
+  border:1px solid var(--muted);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center}
+.pk-stempelkreis{position:absolute;top:26px;right:60px;width:54px;height:54px;border:2px solid var(--muted);
+  border-radius:50%;opacity:.5;transform:rotate(-12deg)}
+.pk-adresse{margin-top:auto;display:flex;flex-direction:column;gap:16px}
+.pk-adresse i{display:block;border-bottom:1px solid var(--muted);height:14px}
+@media(max-width:560px){.postkarte{aspect-ratio:auto;flex-wrap:wrap}.pk-links{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* ---------- 3D-Buehnen (Globus / Flugzeug) ---------- */
+.buehne3d{background:var(--ink);border-radius:6px;position:relative;overflow:hidden;touch-action:pan-y;margin-top:24px}
+.buehne3d .schild{position:absolute;top:14px;left:18px;z-index:2;display:flex;gap:14px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8f887b}
+.buehne3d .schild b{color:var(--solari);font-weight:700}
+.buehne3d canvas,.buehne3d model-viewer{width:100%;height:540px;display:block;--poster-color:transparent}
+.buehne3d canvas{cursor:grab}
+.buehne3d canvas:active{cursor:grabbing}
