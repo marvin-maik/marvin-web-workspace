@@ -88,6 +88,40 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
 - Status: Demo gebaut + funktional getestet (MARLOU). Nach Launch-Einsatz Code in
   technik-patterns.md.
 
+### 5c. Split-Flap-Abflugtafel (Solari-Board) (Marvins Idee, 2026-07-11)
+- Gesehen bei: alte Flughafen-/Bahnhofs-Anzeigetafeln; Marvins Konzept "der Urlaub
+  beginnt auf der Website"
+- Wirkung: Produkte/Angebote als Abfluege inszeniert; sofort erkennbare nostalgische
+  Reise-Ikonografie, macht aus einer Liste ein Objekt.
+- Robuste Konstruktion (Design-Probe: projekte/marlou/freigabe/demo-boarding.html):
+  Grid mit Mono-Kacheln, jeder Buchstabe ein span mit linear-gradient (Mittellinie =
+  Klappkante), Status-Spalte in Solari-Gelb (#E8B84B auf Ink). Font: B612 Mono
+  (Airbus-Cockpit-Font, OFL, self-hostbar, gwfh). Klapp-ANIMATION spaeter als Schicht:
+  Buchstaben-Rotation per CSS 3D oder Zeichen-Durchlauf per JS, reduced-motion: statisch.
+  Mobile: overflow-x auf der Tafel, Mindestbreite halten (Tafel darf scrollen, ist ein Objekt).
+- Wann passend: Reise/Transport/Event-Marken. Die Tafel ist DAS Signature-Element
+  ihrer Seite; nicht mit anderen Grossobjekten (Globus, Rotator) auf derselben Seite stapeln.
+- Status: Design-Probe gebaut. Animation noch nie gebaut.
+
+### 5d. Boarding-Pass- / Ticket-Karte (Marvins Idee, 2026-07-11)
+- Gesehen bei: klassische Bordkarten/Plane-Tickets; verwandt: Ticket-UIs auf Dribbble
+- Wirkung: Produktkarte wird zum Reisedokument: Perforations-Kante, Abriss-Stub,
+  Barcode, Flughafen-Codes (BER -> DUR), Meta-Daten als Ticket-Felder. Der Kauf fuehlt
+  sich wie Einchecken an.
+- Robuste Konstruktion: flex mit .haupt + .perfo (0-Breite, dashed border-left,
+  Halbkreis-Kerben via radial-gradient in ::before/::after) + .stub (abgesetzter
+  Hintergrund, Barcode als repeating-linear-gradient). Kein Bild noetig. Mobile:
+  Stub bricht unter die Karte (flex-wrap), Perforation wird horizontal.
+- Wann passend: alles mit Ziel/Termin/Zutritt (Reisen, Events, Kurse). Stark in
+  Kombination mit 5c (gleiche Welt).
+- Status: Design-Probe gebaut (demo-boarding.html), Responsive-Feinschliff beim Einbau.
+
+### 5e. Passport-Stempel als Beleg-Marker
+- Wirkung: Zusagen (Garantie, "selbst gereist") als gestempelter Abdruck statt Behauptung.
+- Konstruktion: border double + border-radius, rotate(-6deg), mask-image mit
+  radial-gradient-Fehlstellen fuer den Abdruck-Look. Mono-Font, EINE Stelle pro Seite.
+- Verwandt mit Muster 9 (Zackenkante), gleiche Anti-Slop-Warnung: sparsam, sonst Deko.
+
 ## Layout-Highlights (statisch, sofort einsetzbar)
 
 ### 6. Riesen-Typo als Raumfueller (Outline oder angeschnitten)

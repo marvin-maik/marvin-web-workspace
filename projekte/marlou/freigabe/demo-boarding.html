@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>MARLOU Design-Probe: Abflug-Welt (Boarding)</title>
+<style>
+@font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-700.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{
+  --ink:#16130E; --bg:#FAF9F5; --signal:#C2331F; --muted:#6F6A60; --line:#E2DFD7;
+  --papier-tief:#F2EFE8; --flap:#211C15; --flap-hell:#2B251C;
+  --display:'Cabinet Grotesk',sans-serif; --body:'General Sans',sans-serif;
+  --mono:'B612 Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 80px}
+.kopfnote{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:30px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.5vw,52px);line-height:1.05;margin:10px 0 6px}
+h2{font-family:var(--display);font-weight:800;font-size:24px;margin:56px 0 6px}
+p{max-width:640px;margin:8px 0;color:#3d3830}
+.anno{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+a{color:var(--ink)}
+
+/* ============ 1. Split-Flap-Abflugtafel ============ */
+.tafel{background:var(--ink);padding:26px 22px;border-radius:6px;overflow-x:auto}
+.tafel-kopf{display:flex;justify-content:space-between;gap:14px;font-family:var(--mono);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8f887b;
+  border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:14px;min-width:640px}
+.brett{display:grid;grid-template-columns:minmax(220px,1.4fr) minmax(120px,1fr) minmax(80px,.6fr) minmax(140px,1fr);
+  gap:10px 22px;align-items:center;min-width:640px}
+.flapzeile{display:contents}
+.flaps{white-space:nowrap}
+.flaps b{display:inline-block;font-family:var(--mono);font-weight:400;font-size:17px;
+  color:var(--bg);background:linear-gradient(var(--flap-hell) 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,var(--flap) 52%);
+  width:1.3ch;text-align:center;padding:6px 0;margin-right:2px;border-radius:2.5px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+.flaps b.leer{background:linear-gradient(#1D1912 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,#181510 52%)}
+.flaps.status b{color:#E8B84B}
+.flaps.geht b{color:var(--bg)}
+.flaps.rot b{color:#FF7A5C}
+
+/* ============ 2. Boarding-Pass-Karte ============ */
+.pass{display:flex;background:var(--bg);border:1px solid var(--muted);max-width:760px;
+  box-shadow:5px 5px 0 var(--line);position:relative}
+.pass-haupt{flex:2.4;padding:22px 26px}
+.pass-kopf{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px}
+.pass-kopf b{color:var(--signal);font-weight:700}
+.route{font-family:var(--mono);font-weight:700;font-size:clamp(28px,4.5vw,44px);letter-spacing:.02em;line-height:1}
+.route small{font-size:14px;font-weight:400;color:var(--muted);letter-spacing:.08em;display:block;margin-bottom:4px}
+.pass-titel{font-family:var(--display);font-weight:800;font-size:22px;margin:14px 0 2px}
+.pass-moment{font-style:italic;color:var(--muted);max-width:40ch}
+.felder{display:flex;gap:26px;flex-wrap:wrap;margin-top:16px}
+.feld{font-family:var(--mono)}
+.feld span{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.feld b{font-size:15px;font-weight:700}
+.perfo{width:0;border-left:2px dashed var(--muted);position:relative;margin:0}
+.perfo::before,.perfo::after{content:"";position:absolute;left:-11px;width:20px;height:20px;
+  border-radius:50%;background:var(--bg);border:1px solid var(--muted)}
+.perfo::before{top:-11px;border-top-color:transparent;border-left-color:transparent;border-right-color:transparent;
+  background:radial-gradient(circle at 50% 0,var(--papier-tief) 0 9px,transparent 10px)}
+.perfo::after{bottom:-11px;background:radial-gradient(circle at 50% 100%,var(--papier-tief) 0 9px,transparent 10px)}
+.pass-stub{flex:1;padding:22px 20px;display:flex;flex-direction:column;gap:10px;background:var(--papier-tief)}
+.barcode{height:52px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,
+  var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 16px);margin-top:auto}
+.stub-code{font-family:var(--mono);font-weight:700;font-size:26px}
+.stub-preis{font-family:var(--display);font-weight:800;font-size:30px}
+
+/* ============ 3. Buttons (Gate-Schild-Stil) ============ */
+.btn-gate{display:inline-block;font-family:var(--mono);font-weight:700;font-size:14px;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--bg);
+  background:linear-gradient(var(--flap-hell) 48%,rgba(0,0,0,.45) 48%,rgba(0,0,0,.45) 52%,var(--flap) 52%);
+  padding:15px 26px;border-radius:4px;margin:8px 10px 0 0;
+  box-shadow:0 2px 0 rgba(0,0,0,.35)}
+.btn-gate:hover{transform:translateY(-2px);box-shadow:0 4px 0 rgba(0,0,0,.35)}
+.btn-gate.rot{background:linear-gradient(#D14430 48%,rgba(0,0,0,.3) 48%,rgba(0,0,0,.3) 52%,var(--signal) 52%)}
+.btn-alt{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;
+  border:2px solid var(--ink);color:var(--ink);text-decoration:none;padding:13px 26px;margin:8px 10px 0 0}
+
+/* ============ 4. Passport-Stempel ============ */
+.stempel{display:inline-block;font-family:var(--mono);font-weight:700;font-size:12px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--signal);
+  border:3px double var(--signal);border-radius:10px;padding:12px 18px;
+  transform:rotate(-6deg);opacity:.85;text-align:center;line-height:1.5;
+  mask-image:radial-gradient(circle at 30% 60%,transparent 0 2px,black 3px),radial-gradient(circle at 75% 25%,transparent 0 1.5px,black 2.5px)}
+.stempel small{display:block;font-size:9px;letter-spacing:.2em;font-weight:400}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kopfnote">MARLOU Design-Probe · "Der Urlaub beginnt auf der Website" · Abflug-Welt: Split-Flap-Tafel, Boarding-Pass, Gate-Buttons, Stempel</div>
+  <h1>Der Urlaub beginnt hier.</h1>
+  <p>Vier Elemente aus der Welt alter Flughafen-Terminals, übersetzt in unser Token-System. Font der Mono-Elemente: B612 Mono, von Airbus für Cockpit-Anzeigen entworfen. Die Klapp-Animation der Tafel kommt später als Schicht obendrauf, das Layout steht auch ohne.</p>
+
+  <h2>1. Die Abflugtafel</h2>
+  <p>Ersetzt auf der Startseite die Funnel-Etappen: eure Produkte als Abflüge. Später klappen die Buchstaben beim Laden um (Split-Flap-Animation), die Statusspalte wechselt.</p>
+  <div class="tafel">
+    <div class="tafel-kopf"><span>Abflüge · Departures</span><span>Logbuch Marlou</span><span>Gate: marlou.travel</span></div>
+    <div class="brett" id="brett"></div>
+  </div>
+  <p class="anno">Statuszeile gelb wie bei alten Solari-Tafeln · Gruppenreise steht als "BALD" drauf, ehrlicher geht Coming Soon nicht</p>
+
+  <h2>2. Die Boarding-Pass-Karte</h2>
+  <p>Guide-Karten als Bordkarten: Abriss-Kante mit Perforation, Barcode, Flughafen-Codes. BER nach DUR ist eine echte Ansage.</p>
+  <div class="pass">
+    <div class="pass-haupt">
+      <div class="pass-kopf"><span>Boarding Pass · Reise-Guide</span><b>Sofort-Download</b></div>
+      <div class="route"><small>Von / Nach</small>BER &#9656; DUR</div>
+      <div class="pass-titel">Südafrika ab Durban</div>
+      <p class="pass-moment">Der Abend, an dem ihr allein am Wasserloch sitzt und die Elefanten kommen.</p>
+      <div class="felder">
+        <div class="feld"><span>Tage</span><b>12</b></div>
+        <div class="feld"><span>Koordinate</span><b>S 29.8587 / E 31.0218</b></div>
+        <div class="feld"><span>Klasse</span><b>Selbst gereist</b></div>
+      </div>
+    </div>
+    <div class="perfo" aria-hidden="true"></div>
+    <div class="pass-stub">
+      <div class="stub-code">DUR</div>
+      <div class="feld"><span>Fare</span></div>
+      <div class="stub-preis">39 €</div>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+  </div>
+  <p class="anno">Perforations-Kante + Abriss-Stub mit Barcode · Meta-Daten als Ticket-Felder statt Karten-Bullets</p>
+
+  <h2>3. Buttons im Gate-Stil</h2>
+  <p>Primär-Buttons tragen die Klapp-Kachel-Optik (mit der Mittellinie der Split-Flaps), Sekundär bleibt der ruhige Rahmen.</p>
+  <a class="btn-gate rot" href="#">Guide kaufen · 39 €</a>
+  <a class="btn-gate" href="#">Boarding: Beratung</a>
+  <a class="btn-alt" href="#">Alle Guides ansehen</a>
+  <p class="anno">Hover hebt den Button wie eine Klappe an · Fokus-Zustände wie im Build</p>
+
+  <h2>4. Der Passport-Stempel</h2>
+  <p>Für genau EINE Stelle: die Geld-zurück-Zusage auf der Guides-Seite, gestempelt statt behauptet.</p>
+  <span class="stempel">Geld zurück<br>zugesagt<small>Marlou · Berlin</small></span>
+  <p class="anno">Doppelring, leicht gedreht, mit Fehlstellen wie ein echter Stempelabdruck · sparsam einsetzen, sonst Deko</p>
+
+  <p style="margin-top:60px"><a href="wireframe.html">Zurück zum Wireframe</a> · <a href="demo-globus.html">Globus-Demo</a></p>
+</div>
+
+<script>
+var zeilen = [
+  ["SÜDAFRIKA",   "12 TAGE",       "39 €", "BOARDING"],
+  ["AUSTRALIEN",  "14 TAGE",       "39 €", "BOARDING"],
+  ["BRASILIEN",   "10 TAGE",       "29 €", "BOARDING"],
+  ["GRUPPENREISE","KLEINE GRUPPE", "",     "BALD"]
+];
+var brett = document.getElementById("brett");
+var breiten = [13, 13, 5, 9];
+zeilen.forEach(function(zeile){
+  zeile.forEach(function(text, spalte){
+    var div = document.createElement("div");
+    div.className = "flaps" + (spalte === 3 ? " status" : "");
+    var voll = text.padEnd(breiten[spalte], " ");
+    for (var i = 0; i < voll.length; i++){
+      var b = document.createElement("b");
+      if (voll[i] === " "){ b.className = "leer"; b.innerHTML = "&nbsp;"; }
+      else b.textContent = voll[i];
+      div.appendChild(b);
+    }
+    brett.appendChild(div);
+  });
+});
+</script>
+</body>
+</html>
