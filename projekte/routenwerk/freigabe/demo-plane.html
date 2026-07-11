@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ROUTENWERK Demo: 3D-Flugzeug (A320)</title>
+<style>
+@font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+:root{
+  --ink:#16130E; --bg:#FAF9F5; --signal:#C2331F; --muted:#6F6A60; --line:#E2DFD7;
+  --solari:#E8B84B;
+  --display:'Cabinet Grotesk',sans-serif; --body:'General Sans',sans-serif;
+  --mono:'B612 Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);font-size:17px;line-height:1.55;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 80px}
+.kopfnote{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:30px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.5vw,52px);line-height:1.05;margin:10px 0 6px}
+h2{font-family:var(--display);font-weight:800;font-size:24px;margin:56px 0 6px}
+p{max-width:640px;margin:8px 0;color:#3d3830}
+.anno{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+a{color:var(--ink)}
+.buehne{background:var(--ink);border-radius:6px;position:relative;overflow:hidden}
+.buehne .schild{position:absolute;top:14px;left:18px;z-index:2;display:flex;gap:14px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8f887b}
+.buehne .schild b{color:var(--solari);font-weight:700}
+model-viewer{width:100%;height:520px;--poster-color:transparent;display:block}
+.status{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);min-height:18px;margin-top:10px}
+.credit{font-size:13px;color:var(--muted);max-width:640px;margin-top:16px}
+.credit a{color:var(--muted)}
+</style>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="kopfnote">ROUTENWERK Demo · 3D-Flugzeug im Browser · Airbus A320, von 15,4 MB auf 365 KB komprimiert</div>
+  <h1>Der Vogel fliegt im Browser.</h1>
+  <p>Marvins Sketchfab-Modell, Draco-komprimiert auf 365 KB (kleiner als manches Foto). Dreht sich von selbst, mit Maus oder Finger frei drehbar, Scrollen zoomt. Auf dem iPhone öffnet die USDZ-Datei sogar in AR.</p>
+
+  <div class="buehne">
+    <div class="schild"><span>Rollfeld · Nacht</span><b>A320-200</b></div>
+    <model-viewer id="mv"
+      loading="eager"
+      src="modelle/a320.glb"
+      alt="Airbus A320-200, drehbares 3D-Modell"
+      camera-controls auto-rotate rotation-per-second="8deg"
+      shadow-intensity="1.1" exposure="1.05"
+      camera-orbit="35deg 82deg 105%" min-camera-orbit="auto auto 60%" max-camera-orbit="auto auto 180%"
+      interaction-prompt="none">
+    </model-viewer>
+  </div>
+  <p class="status" id="status">Modell lädt …</p>
+  <p class="credit">Pflicht-Credit (CC-BY-4.0): This work is based on <a href="https://sketchfab.com/3d-models/airbus-a320-200-v2-c078f9af15884a6b820c7e778831b110" target="_blank" rel="noopener">"Airbus A320-200 V2"</a> by <a href="https://sketchfab.com/fDlruosne" target="_blank" rel="noopener">Dlourine</a>, licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-BY-4.0</a>. Kommerzielle Nutzung erlaubt, Credit muss auf der Seite stehen (Footer reicht).</p>
+
+  <h2>Wo es hinpassen würde</h2>
+  <p>Ehrliche Einordnung: Das Modell ist fotorealistisch, unsere Welt ist Retro-Print. Damit es kein Stilbruch wird, gehört es auf eine Bühne, nicht in den Fließtext. Drei Kandidaten:</p>
+  <p><strong>1. Hero-Szene:</strong> dunkle Bühne wie hier, Flugzeug dreht langsam hinter der Headline. Der teuerste, eindrucksvollste Einsatz.<br>
+  <strong>2. Gruppenreisen-Seite:</strong> "BALD." plus das wartende Flugzeug am Gate, die Seite hat Platz und Leere als Konzept.<br>
+  <strong>3. 404-Seite:</strong> "Falsches Gate." Klein, charmant, risikofrei.</p>
+  <p class="anno">Technik im Build: model-viewer selbst hosten (ein JS-File), lazy laden erst wenn die Sektion sichtbar wird, Poster-Standbild als Fallback, reduced-motion: keine Auto-Rotation · Performance-Budget: Modell + Viewer zusammen ~700 KB, nur auf EINER Seite einsetzen</p>
+
+  <p style="margin-top:50px"><a href="demo-boarding.html">Zum Moodboard</a> · <a href="../index.html">Zur ROUTENWERK-Demo</a></p>
+</div>
+
+<script>
+var mv = document.getElementById("mv");
+var status = document.getElementById("status");
+function geladen(){ status.textContent = "Modell geladen · 365 KB · Ziehen zum Drehen, Scrollen zum Zoomen"; }
+if (mv.loaded) geladen();
+mv.addEventListener("load", geladen);
+mv.addEventListener("error", function(){ status.textContent = "Modell konnte nicht geladen werden (Konsole pruefen)"; });
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) mv.removeAttribute("auto-rotate");
+</script>
+</body>
+</html>
