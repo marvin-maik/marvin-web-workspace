@@ -20,7 +20,7 @@
 
 <nav aria-label="Hauptnavigation">
   <div class="nav-inner">
-    <a class="wortmarke" href="index.html">MAR<em>LOU</em></a>
+    <a class="wortmarke" href="index.html">MAR<span>LOU</span></a>
     <a href="guides.html">Reise-Guides</a>
     <a href="beratung.html">Beratung</a>
     <a href="gruppenreisen.html">Gruppenreisen</a>
@@ -52,7 +52,7 @@
       </div>
       <div class="bild">
         <div class="foto"><span>Foto folgt: Louisa unterwegs in Südafrika</span></div>
-        <div class="caption"><span>S 29.8587 / E 31.0218 — Durban</span><span>8 Monate</span></div>
+        <div class="caption"><span>S 29.8587 / E 31.0218 · Durban</span><span>8 Monate</span></div>
       </div>
     </div>
     <div class="split gedreht versatz" data-rv>
@@ -86,15 +86,15 @@
   <div class="wrap">
     <div class="marker"><span>04 / Die Karte</span><b>Drehen · Zoomen · Filtern</b></div>
     <h2 data-rv>Wo wir waren. Und wohin wir planen.</h2>
-    <p data-rv>Dreht sich von selbst. Ziehen zum Drehen, Scrollen oder Zwei-Finger-Pinch zum Zoomen. Jeder gefüllte Pin ist ein Ort, den wir selbst bereist haben.</p>
+    <p data-rv>Dreht sich von selbst. Ziehen oder Pfeiltasten zum Drehen, Zoomen mit Strg und Scrollrad, Pinch oder Plus und Minus. Jeder gefüllte Pin ist ein Ort, den wir selbst bereist haben.</p>
     <div class="globus-filter" role="group" aria-label="Routen-Filter">
       <button type="button" data-route="alle" class="aktiv">Alle Routen</button>
       <button type="button" data-route="suedafrika">Südafrika</button>
       <button type="button" data-route="australien">Australien</button>
       <button type="button" data-route="brasilien">Brasilien</button>
     </div>
-    <div class="globus-buehne"><canvas id="globus" width="1120" height="620" aria-label="Interaktiver Globus mit bereisten Orten und Routen"></canvas></div>
-    <p class="globus-status" id="globusStatus" aria-live="polite">S 29.8587 / E 31.0218 — Durban · Basislager Louisa</p>
+    <div class="globus-buehne"><canvas id="globus" width="1120" height="620" tabindex="0" aria-label="Interaktiver Globus mit bereisten Orten und Routen. Drehen mit Pfeiltasten, Zoomen mit Plus und Minus."></canvas></div>
+    <p class="globus-status" id="globusStatus" aria-live="polite">S 29.8587 / E 31.0218 · Durban · Basislager Louisa</p>
     <div class="globus-legende">
       <span><span class="legende-pin voll" aria-hidden="true"></span>Selbst bereist</span>
       <span><span class="legende-pin leer" aria-hidden="true"></span>Für Paare geplant (kommt mit den ersten Beratungen)</span>
@@ -153,7 +153,7 @@
       </div>
       <div>
         <p class="mono">Basislager</p>
-        <p class="mono" style="margin-top:8px">N 52.5496 / E 13.4234 — Berlin</p>
+        <p class="mono" style="margin-top:8px">N 52.5496 / E 13.4234 · Berlin</p>
       </div>
     </div>
     <div class="foot-marke" aria-hidden="true">MARLOU</div>
@@ -186,9 +186,22 @@
     line: css.getPropertyValue("--line").trim(),
     papier: css.getPropertyValue("--papier-tief").trim()
   };
-  var skala = 290, minSkala = 220, maxSkala = 900;
-  var projektion = d3.geoOrthographic().translate([W/2, H/2]).scale(skala).clipAngle(90);
+  var zoomFaktor = 1;
+  var projektion = d3.geoOrthographic().clipAngle(90);
   var pfad = d3.geoPath(projektion, ctx);
+
+  /* Responsive + Retina: Backing-Store an clientWidth * devicePixelRatio koppeln */
+  function masse(){
+    var dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth || 1120;
+    H = Math.round(W * .55);
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.height = H + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    projektion.translate([W/2, H/2]).scale((H/2 - 18) * zoomFaktor);
+    zeichnen();
+  }
   var gitter = d3.geoGraticule10();
   var land = null;
 
@@ -196,21 +209,21 @@
      Beratungen dazu, kein Fake-Proof vorab. Koordinaten: Platzhalter bis Marvins Liste. */
   var routen = {
     suedafrika: { pins: [
-      {ort:"DURBAN", typ:"bereist", koord:[31.0218,-29.8587], label:"S 29.8587 / E 31.0218 — Durban · Basislager Louisa"},
-      {ort:"DRAKENSBERGE", typ:"bereist", koord:[28.9110,-28.6820], label:"S 28.6820 / E 28.9110 — Drakensberge"},
-      {ort:"WILD COAST", typ:"bereist", koord:[29.5000,-31.6000], label:"S 31.6000 / E 29.5000 — Wild Coast"}
+      {ort:"DURBAN", typ:"bereist", koord:[31.0218,-29.8587], label:"S 29.8587 / E 31.0218 · Durban · Basislager Louisa"},
+      {ort:"DRAKENSBERGE", typ:"bereist", koord:[28.9110,-28.6820], label:"S 28.6820 / E 28.9110 · Drakensberge"},
+      {ort:"WILD COAST", typ:"bereist", koord:[29.5000,-31.6000], label:"S 31.6000 / E 29.5000 · Wild Coast"}
     ]},
     australien: { pins: [
-      {ort:"CAIRNS", typ:"bereist", koord:[145.7710,-16.9203], label:"S 16.9203 / E 145.7710 — Cairns"},
-      {ort:"BRISBANE", typ:"bereist", koord:[153.0260,-27.4705], label:"S 27.4705 / E 153.0260 — Brisbane"},
-      {ort:"SYDNEY", typ:"bereist", koord:[151.2093,-33.8688], label:"S 33.8688 / E 151.2093 — Sydney · 46 Monate"}
+      {ort:"CAIRNS", typ:"bereist", koord:[145.7710,-16.9203], label:"S 16.9203 / E 145.7710 · Cairns"},
+      {ort:"BRISBANE", typ:"bereist", koord:[153.0260,-27.4705], label:"S 27.4705 / E 153.0260 · Brisbane"},
+      {ort:"SYDNEY", typ:"bereist", koord:[151.2093,-33.8688], label:"S 33.8688 / E 151.2093 · Sydney · 46 Monate"}
     ]},
     brasilien: { pins: [
-      {ort:"PARATY", typ:"bereist", koord:[-44.7167,-23.2195], label:"S 23.2195 / W 44.7167 — Paraty"},
-      {ort:"UBATUBA", typ:"bereist", koord:[-45.0710,-23.4340], label:"S 23.4340 / W 45.0710 — Ubatuba · Regenwald"}
+      {ort:"PARATY", typ:"bereist", koord:[-44.7167,-23.2195], label:"S 23.2195 / W 44.7167 · Paraty"},
+      {ort:"UBATUBA", typ:"bereist", koord:[-45.0710,-23.4340], label:"S 23.4340 / W 45.0710 · Ubatuba · Regenwald"}
     ]}
   };
-  var basis = {ort:"BERLIN", typ:"bereist", koord:[13.4234,52.5496], label:"N 52.5496 / E 13.4234 — Berlin · heute zuhause"};
+  var basis = {ort:"BERLIN", typ:"bereist", koord:[13.4234,52.5496], label:"N 52.5496 / E 13.4234 · Berlin · heute zuhause"};
   var geplant = []; /* wird mit echten Kundenreisen gefuellt: {ort, typ:"geplant", koord, label} */
   var aktiveRoute = "alle";
 
@@ -271,7 +284,7 @@
 
   var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var interagiert = false, zuletzt = 0;
-  /* Gleiche Zeitbasis (performance.now) fuer Timer UND Interaktionen — Learnings-Falle */
+  /* Gleiche Zeitbasis (performance.now) fuer Timer UND Interaktionen · Learnings-Falle */
   d3.timer(function(){
     if (!ruhig && !interagiert && performance.now() - zuletzt > 3000){
       var r = projektion.rotate();
@@ -300,14 +313,28 @@
   canvas.addEventListener("pointercancel", dragEnde);
 
   function zoomen(delta){
-    skala = Math.max(minSkala, Math.min(maxSkala, skala * delta));
-    projektion.scale(skala);
+    zoomFaktor = Math.max(.8, Math.min(3.2, zoomFaktor * delta));
+    projektion.scale((H/2 - 18) * zoomFaktor);
     zeichnen();
   }
+  /* Zoom nur mit Strg/Cmd (Trackpad-Pinch sendet ctrlKey), sonst scrollt die Seite normal */
   canvas.addEventListener("wheel", function(e){
+    if (!e.ctrlKey && !e.metaKey) return;
     e.preventDefault(); zuletzt = performance.now();
     zoomen(e.deltaY < 0 ? 1.08 : .93);
   }, {passive:false});
+  /* Tastatur: Pfeiltasten drehen, Plus/Minus zoomen */
+  canvas.addEventListener("keydown", function(e){
+    var r = projektion.rotate(), schritt = 8;
+    if (e.key === "ArrowLeft") projektion.rotate([r[0] - schritt, r[1], 0]);
+    else if (e.key === "ArrowRight") projektion.rotate([r[0] + schritt, r[1], 0]);
+    else if (e.key === "ArrowUp") projektion.rotate([r[0], Math.min(75, r[1] + schritt), 0]);
+    else if (e.key === "ArrowDown") projektion.rotate([r[0], Math.max(-75, r[1] - schritt), 0]);
+    else if (e.key === "+" || e.key === "=") { zoomen(1.15); e.preventDefault(); zuletzt = performance.now(); return; }
+    else if (e.key === "-") { zoomen(.87); e.preventDefault(); zuletzt = performance.now(); return; }
+    else return;
+    e.preventDefault(); zuletzt = performance.now(); zeichnen();
+  });
   var pinchAbstand = null;
   canvas.addEventListener("touchmove", function(e){
     if (e.touches.length === 2){
@@ -338,7 +365,8 @@
     zeichnen();
   });
 
-  zeichnen();
+  masse();
+  window.addEventListener("resize", masse);
   fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
     .then(function(r){ return r.json(); })
     .then(function(welt){ land = topojson.feature(welt, welt.objects.land); zeichnen(); })

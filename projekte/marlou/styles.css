@@ -15,6 +15,9 @@
   --muted:#6F6A60;
   --line:#E2DFD7;
   --papier-tief:#F2EFE8;      /* Foto-Platzhalter, abgesetzte Flaechen */
+  --btn-text:#fff;
+  --hero-schraffur-1:#241F17;
+  --hero-schraffur-2:#2B251C;
   --display:'Cabinet Grotesk',sans-serif;
   --body:'General Sans',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
@@ -56,9 +59,9 @@ nav{border-bottom:1px solid var(--line);background:var(--bg);position:relative;z
   align-items:center;gap:26px;min-height:64px;flex-wrap:wrap}
 .wortmarke{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:.12em;
   color:var(--ink);text-decoration:none;margin-right:auto}
-.wortmarke em{font-style:normal;color:var(--signal)}
+.wortmarke span{color:var(--signal)}
 nav a:not(.wortmarke){font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;
-  padding:4px 0;background:linear-gradient(var(--ink),var(--ink)) no-repeat 0 100%/0 2px;
+  padding:12px 0;background:linear-gradient(var(--ink),var(--ink)) no-repeat 0 100%/0 2px;
   transition:background-size .25s}
 nav a:not(.wortmarke):hover{background-size:100% 2px}
 nav a[aria-current="page"]{background-size:100% 2px}
@@ -84,11 +87,11 @@ section{padding:84px 0}
   padding:13px 26px;margin:8px 10px 0 0;cursor:pointer;
   transition:transform .15s,box-shadow .15s,background .15s,color .15s}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
-.btn-voll{background:var(--signal);border-color:var(--signal);color:#fff}
+.btn-voll{background:var(--signal);border-color:var(--signal);color:var(--btn-text)}
 .btn-voll:hover{box-shadow:3px 3px 0 var(--ink)}
 .band-ink .btn{border-color:var(--bg);color:var(--bg)}
 .band-ink .btn:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
-.band-ink .btn-voll{background:var(--signal);border-color:var(--signal);color:#fff}
+.band-ink .btn-voll{background:var(--signal);border-color:var(--signal);color:var(--btn-text)}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
   border:1px solid currentColor;padding:7px 13px;white-space:nowrap}
@@ -108,7 +111,7 @@ section{padding:84px 0}
 .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;
   justify-content:space-between;background:var(--ink);color:var(--bg);padding:0;overflow:hidden}
 .hero .foto-flaeche{position:absolute;inset:0;background:
-  repeating-linear-gradient(45deg,#241F17,#241F17 14px,#2B251C 14px,#2B251C 28px)}
+  repeating-linear-gradient(45deg,var(--hero-schraffur-1),var(--hero-schraffur-1) 14px,var(--hero-schraffur-2) 14px,var(--hero-schraffur-2) 28px)}
 .hero .wrap{position:relative;z-index:1;width:100%}
 .hero-oben{padding-top:16px}
 .hero-unten{padding-bottom:56px}
@@ -116,9 +119,9 @@ section{padding:84px 0}
 .hero p{color:color-mix(in srgb,var(--bg) 80%,transparent);max-width:560px}
 .hero .btn{border-color:var(--bg);color:var(--bg)}
 .hero .btn:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
-.hero .btn-voll{background:var(--signal);border-color:var(--signal);color:#fff}
+.hero .btn-voll{background:var(--signal);border-color:var(--signal);color:var(--btn-text)}
 .hero .foto-hinweis{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
-  text-transform:uppercase;color:color-mix(in srgb,var(--bg) 45%,transparent);margin-top:20px}
+  text-transform:uppercase;color:color-mix(in srgb,var(--bg) 62%,transparent);margin-top:20px}
 
 /* ---------- Etappen-Route ---------- */
 .etappen{display:flex;gap:20px;flex-wrap:wrap;position:relative;padding-top:30px;margin-top:44px}
@@ -161,6 +164,7 @@ section{padding:84px 0}
 .rot-nav button:hover{background:var(--ink);color:var(--bg)}
 
 /* ---------- Marquee ---------- */
+.marquee:empty{display:none}
 .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   padding:15px 0;white-space:nowrap}
 .marquee-track{display:inline-flex;align-items:center;gap:26px;padding-right:26px;
@@ -239,6 +243,7 @@ td{color:var(--ink)}
 .metaleiste{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);
   font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
   border-bottom:1px solid var(--line);padding:9px 13px}
+.gcard h2,.paket h2{font-size:22px;line-height:1.2;margin-bottom:6px;letter-spacing:0}
 .gcard .inhalt{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1;align-items:flex-start}
 .gcard ul{margin:10px 0 14px 20px}
 .gcard li{margin:5px 0}
@@ -247,14 +252,14 @@ td{color:var(--ink)}
 /* ---------- Riesen-Typo ---------- */
 .riesig{font-family:var(--display);font-weight:800;font-size:clamp(96px,21vw,290px);
   line-height:.85;letter-spacing:-.02em;color:var(--bg);
-  -webkit-text-stroke:2px var(--muted);text-stroke:2px var(--muted);margin-left:-4px;user-select:none}
+  -webkit-text-stroke:2px var(--muted);margin-left:-4px}
 
 /* ---------- Logbuch-Globus (Highlight, Ueber-uns) ---------- */
-.globus-buehne{position:relative;border:1px solid var(--line);background:var(--bg);touch-action:none}
+.globus-buehne{position:relative;border:1px solid var(--line);background:var(--bg);touch-action:pan-y}
 .globus-buehne canvas{display:block;width:100%;height:auto;cursor:grab}
 .globus-buehne canvas.zieht{cursor:grabbing}
 .globus-filter{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 14px}
-.globus-filter button{border:1px solid var(--muted);background:var(--bg);padding:10px 17px;
+.globus-filter button{border:1px solid var(--muted);background:var(--bg);padding:13px 18px;
   font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
   cursor:pointer;color:var(--ink);transition:background .15s,color .15s}
 .globus-filter button:hover{border-color:var(--ink)}
@@ -289,7 +294,7 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .foot-marke{font-family:var(--display);font-weight:800;letter-spacing:.06em;line-height:.9;
   font-size:clamp(64px,17vw,220px);white-space:nowrap;color:color-mix(in srgb,var(--bg) 14%,transparent);
   user-select:none}
-.foot-legal{display:flex;gap:20px;flex-wrap:wrap;font-size:14px;
+.foot-legal{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;line-height:2;
   border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);padding-top:18px;margin-top:10px}
 .foot-legal a{text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--bg) 35%,transparent)}
 
