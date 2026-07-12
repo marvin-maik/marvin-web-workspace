@@ -350,12 +350,34 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .flapzeile:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
 
 /* ---------- Split-Flap-Button (Haupt-CTA, max 1-2 pro Seite) ---------- */
-.btn-flap{display:inline-flex;gap:3px;background:#0E0C08;border:none;border-radius:6px;
-  padding:10px 12px;cursor:pointer;margin:10px 12px 0 0;text-decoration:none;vertical-align:middle}
+/* Primaer-Button: helle Split-Flap-Anzeige (Marvins Skizze) — grauer Rahmen,
+   transparente Kacheln mit Hairline, Tinten-Buchstaben, Grundlinie unter den Kacheln */
+.btn-flap{display:inline-flex;gap:4px;background:transparent;border:1.5px solid var(--ink);
+  border-radius:8px;padding:9px 13px 13px;cursor:pointer;margin:10px 12px 0 0;text-decoration:none;
+  vertical-align:middle;position:relative;transition:transform .15s,box-shadow .15s}
+.btn-flap::after{content:"";position:absolute;left:13px;right:13px;bottom:8px;height:1px;background:var(--line)}
 .btn-flap b{display:inline-block;font-family:var(--mono);font-weight:700;font-size:17px;
-  color:var(--solari);width:1.5ch;text-align:center;padding:11px 0;border-radius:3px;
-  background:linear-gradient(var(--flap-hell) 47%,rgba(0,0,0,.65) 47%,rgba(0,0,0,.65) 53%,var(--flap) 53%)}
-.btn-flap:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
+  color:var(--ink);width:1.6ch;text-align:center;padding:9px 0;border-radius:3px;
+  border:1px solid var(--line);background:color-mix(in srgb,var(--papier-tief) 45%,transparent)}
+.btn-flap:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--muted)}
+.btn-flap:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+/* Sekundaer-Button: Terminal-Wegweiser-Schild (Departures-Sign) mit Papierflieger + Pfeil */
+.btn-sign{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;
+  font-size:16px;border:2px solid var(--ink);border-radius:10px;color:var(--ink);background:transparent;
+  text-decoration:none;padding:11px 18px;margin:10px 12px 0 0;transition:transform .15s,box-shadow .15s}
+.btn-sign:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.btn-sign:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.btn-sign .plane{width:20px;height:20px;flex:0 0 auto;color:var(--ink)}
+.btn-sign .pfeil{margin-left:2px;color:var(--signal);font-weight:700;font-size:19px;line-height:1}
+.hero .btn-sign,.band-ink .btn-sign{border-color:var(--bg);color:var(--bg)}
+.hero .btn-sign .plane,.band-ink .btn-sign .plane{color:var(--bg)}
+.hero .btn-sign:hover,.band-ink .btn-sign:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
+.hero .btn-sign .pfeil,.band-ink .btn-sign .pfeil{color:var(--solari)}
+
+/* Kleiner Koffer als Marquee-Akzent (leicht schraeg) */
+.koffer-ic{display:inline-flex;flex:0 0 auto;color:var(--muted);transform:rotate(-8deg)}
+.koffer-ic svg{width:26px;height:22px}
 
 /* ---------- Boarding-Pass (Guide-Karten + Rotator-Slides) ---------- */
 .pass{display:flex;flex-wrap:wrap;background:var(--bg);border:1px solid var(--muted);
@@ -407,22 +429,21 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 @media(max-width:560px){.passport{aspect-ratio:auto;flex-wrap:wrap}.passport>div{min-width:100%;min-height:190px}}
 
 /* ---------- Koffer-Scan ---------- */
-.scan{background:#12100C;border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;margin:22px 0}
-.scan::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.015) 3px 4px)}
+.scan{background:var(--papier-tief);border:1px solid var(--line);border-radius:6px;
+  padding:28px 24px;position:relative;overflow:hidden;margin:22px 0}
 .scan-kopf{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;
-  letter-spacing:.14em;text-transform:uppercase;color:#6B6659;margin-bottom:18px}
-.scan-kopf b{color:var(--solari)}
-.koffer{position:relative;border:2px solid #5E82A8;border-radius:14px;height:190px;max-width:460px;margin:14px auto 0}
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.scan-kopf b{color:var(--signal)}
+.koffer{position:relative;border:2px solid var(--muted);border-radius:14px;height:190px;max-width:460px;margin:14px auto 0}
 .koffer::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
-  width:90px;height:26px;border:2px solid #5E82A8;border-bottom:none;border-radius:10px 10px 0 0}
+  width:90px;height:26px;border:2px solid var(--muted);border-bottom:none;border-radius:10px 10px 0 0}
 .scan-item{position:absolute;border-radius:6px;display:flex;align-items:center;justify-content:center;
   font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px}
-.si-1{left:6%;top:14%;width:34%;height:44%;background:rgba(232,184,75,.22);border:1px solid rgba(232,184,75,.6);color:var(--solari)}
-.si-2{left:44%;top:22%;width:24%;height:58%;background:rgba(94,130,168,.25);border:1px solid rgba(94,130,168,.7);color:#9FBEDD}
-.si-3{left:72%;top:12%;width:21%;height:34%;background:rgba(194,51,31,.22);border:1px solid rgba(194,51,31,.6);color:#FF8A6B}
-.si-4{left:12%;top:64%;width:52%;height:26%;background:rgba(232,184,75,.14);border:1px dashed rgba(232,184,75,.5);color:var(--solari)}
-.si-5{left:74%;top:56%;width:19%;height:32%;background:rgba(94,130,168,.18);border:1px dashed rgba(94,130,168,.55);color:#9FBEDD}
+.si-1{left:6%;top:14%;width:34%;height:44%;background:color-mix(in srgb,var(--signal) 10%,transparent);border:1px solid color-mix(in srgb,var(--signal) 45%,transparent);color:var(--signal)}
+.si-2{left:44%;top:22%;width:24%;height:58%;background:color-mix(in srgb,var(--muted) 14%,transparent);border:1px solid var(--muted);color:var(--ink)}
+.si-3{left:72%;top:12%;width:21%;height:34%;background:color-mix(in srgb,var(--signal) 12%,transparent);border:1px solid color-mix(in srgb,var(--signal) 50%,transparent);color:var(--signal)}
+.si-4{left:12%;top:64%;width:52%;height:26%;background:color-mix(in srgb,var(--muted) 10%,transparent);border:1px dashed var(--muted);color:var(--ink)}
+.si-5{left:74%;top:56%;width:19%;height:32%;background:color-mix(in srgb,var(--muted) 10%,transparent);border:1px dashed var(--muted);color:var(--ink)}
 
 /* ---------- Gate-Wegweiser ---------- */
 .wegweiser{background:var(--ink);border-radius:6px;overflow:hidden;max-width:640px;margin-top:22px}

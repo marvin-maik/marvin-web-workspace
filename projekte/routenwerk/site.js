@@ -28,13 +28,16 @@
     var scrolly = window.matchMedia("(min-width: 861px)").matches && !ruhig;
     if (scrolly) rotator.classList.add("scrolly");
 
+    var kofferIcon = '<span class="koffer-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="12" y1="10.5" x2="12" y2="16.5"/></svg></span>';
     function marqueeFuellen(idx){
       if (!marquee) return;
       var orte = slides[idx].getAttribute("data-orte").split("|");
       var teile = [];
-      orte.forEach(function(o){
-        var cls = o.length <= 4 ? ' class="mini-tag"' : "";
-        teile.push("<span" + cls + ">" + o + "</span>");
+      orte.forEach(function(o, i){
+        // Koordinaten-Eintraege auf den Ortsnamen kuerzen (weniger Text, Feedback Marvin)
+        var kurz = /^[NSEW]\s/.test(o) ? o.trim().split(" ").pop() : o;
+        teile.push("<span>" + kurz + "</span>");
+        if (i % 2 === 1) teile.push(kofferIcon);
       });
       var track = '<div class="marquee-track">' + teile.join("") + teile.join("") + "</div>";
       marquee.innerHTML = track;
