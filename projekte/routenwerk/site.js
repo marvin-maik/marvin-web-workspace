@@ -49,10 +49,10 @@
     burger.addEventListener("click", function(){
       var offen = navLinks.classList.toggle("offen");
       burger.setAttribute("aria-expanded", offen ? "true" : "false");
-      burger.setAttribute("aria-label", offen ? "Menü schliessen" : "Menü öffnen");
+      burger.setAttribute("aria-label", offen ? "Menü schließen" : "Menü öffnen");
     });
     navLinks.addEventListener("click", function(e){ if (e.target.closest("a")) navSchliessen(); });
-    document.addEventListener("keydown", function(e){ if (e.key === "Escape") navSchliessen(); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape" && navLinks.classList.contains("offen")){ navSchliessen(); burger.focus(); } });
   }
 
   /* ---------- Routen-Rotator (Highlight 1, nur Startseite) ----------
@@ -132,7 +132,7 @@
         var y = -a * 20;                  // % hoch: folgt dem Bogen (Raender hoeher)
         var rot = rel * 8;                // Neigung entlang der Kurve
         var sc = (1 - a * 0.16) * kartSkala();
-        var op = ar >= 1 ? 0 : (1 - a * 0.55);   // nur direkte Nachbarkarte sichtbar
+        var op = 1 - Math.pow(a, 1.5);           // stetig bis 0 bei ar>=1 -> kein ploetzliches Spawnen/Despawnen
         s.style.transform = "translate(-50%,-50%) translate(" + x + "%," + y + "%) rotate(" + rot + "deg) scale(" + sc + ")";
         s.style.opacity = op.toFixed(2);
         s.style.zIndex = String(100 - Math.round(ar * 10));
@@ -343,9 +343,7 @@
     var lang = Math.max(basis.length, alt.length);
     basis = basis.padEnd(lang, " "); alt = alt.padEnd(lang, " ");
     btn.textContent = "";
-    var mitte = Math.ceil(lang / 2);   // Mobil-Umbruch mittig -> beide Zeilen gleich viele Kacheln
     for (var i = 0; i < lang; i++){
-      if (i === mitte){ var brk = document.createElement("i"); brk.className = "flapbreak"; brk.setAttribute("aria-hidden", "true"); btn.appendChild(brk); }
       var b = document.createElement("b");
       b.textContent = basis[i] === " " ? "\u00A0" : basis[i];
       btn.appendChild(b);

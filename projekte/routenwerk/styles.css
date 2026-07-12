@@ -447,12 +447,15 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   border:1px solid var(--line);background:color-mix(in srgb,var(--papier-tief) 45%,transparent)}
 .btn-flap:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--muted)}
 .btn-flap:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
-/* Mobil: Flap bricht in 2 Zeilen, mittig gesplittet (gleiche Kachelzahl je Zeile), linksbuendig.
-   Steht bewusst NACH den Basis-Regeln, damit die Overrides greifen. */
+/* Mobil: alle CTAs volle Breite (konsistent gestapelt, kein "zu grosser" Button). Der Flap
+   bleibt 1-zeilig, die Kacheln fuellen die Breite (schmaler statt Umbruch -> keine sinnlosen
+   Brueche). Steht bewusst NACH den Basis-Regeln, damit die Overrides greifen. */
 @media(max-width:720px){
-  .btn-flap{flex-wrap:wrap;height:auto;justify-content:flex-start;row-gap:5px;margin-right:0}
+  .btn-flap,.btn-sign{width:100%;box-sizing:border-box;justify-content:center;margin-left:0;margin-right:0}
+  .btn-flap{flex-wrap:nowrap;height:auto;gap:3px;padding:8px 10px 11px}
   .btn-flap::after{display:none}
-  .btn-flap .flapbreak{display:block;flex-basis:100%;width:0;height:0;padding:0;margin:0}
+  .btn-flap .flapbreak{display:none}
+  .btn-flap b{flex:1 1 0;min-width:0;width:auto;font-size:15px}
 }
 
 /* Sekundaer-Button: nur EIN Icon — Text links, Abflug-Plane rechts (kein Pfeil) */
