@@ -91,21 +91,27 @@
        bevor sie sich bewegt / bevor die Sektion losgelassen wird). */
     var LEAD = 0.18;
     var manuellBis = 0;
+    /* Sanftes Nachziehen (Lerp): istPos gleitet weich auf zielPos zu, statt 1:1 dem
+       Scroll zu folgen -> geschmeidigere Kartenbewegung. */
+    var zielPos = 0, istPos = 0, animAktiv = false;
+    function easeLoop(){
+      var diff = zielPos - istPos;
+      if (Math.abs(diff) < 0.0015){ istPos = zielPos; render(istPos); animAktiv = false; return; }
+      istPos += diff * 0.13;
+      render(istPos);
+      requestAnimationFrame(easeLoop);
+    }
+    function starteEase(){ if (!animAktiv){ animAktiv = true; requestAnimationFrame(easeLoop); } }
     if (scrolly){
-      var tick = false;
       window.addEventListener("scroll", function(){
-        if (tick) return;
-        tick = true;
-        requestAnimationFrame(function(){
-          tick = false;
-          if (performance.now() < manuellBis) return;
-          var r = rotator.getBoundingClientRect();
-          var spanne = r.height - window.innerHeight;
-          if (spanne <= 0) return;
-          var fRaw = Math.min(1, Math.max(0, -r.top / spanne));
-          var f = Math.min(1, Math.max(0, (fRaw - LEAD) / (1 - 2 * LEAD)));
-          render(f * (n - 1));
-        });
+        if (performance.now() < manuellBis) return;
+        var r = rotator.getBoundingClientRect();
+        var spanne = r.height - window.innerHeight;
+        if (spanne <= 0) return;
+        var fRaw = Math.min(1, Math.max(0, -r.top / spanne));
+        var f = Math.min(1, Math.max(0, (fRaw - LEAD) / (1 - 2 * LEAD)));
+        zielPos = f * (n - 1);
+        starteEase();
       }, {passive:true});
     }
 
