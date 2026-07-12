@@ -59,7 +59,7 @@
         var rel = i - pos;
         var ar = Math.abs(rel);
         var a = Math.min(1, ar);
-        var x = rel * 66;                 // % Kartenbreite: naechste kommt von rechts rein
+        var x = rel * 96;                 // % Kartenbreite: grosser Abstand -> keine Ueberlappung
         var y = -a * 20;                  // % hoch: folgt dem Bogen (Raender hoeher)
         var rot = rel * 8;                // Neigung entlang der Kurve
         var sc = 1 - a * 0.16;
