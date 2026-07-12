@@ -19,7 +19,7 @@
   --hero-schraffur-1:#241F17;
   --hero-schraffur-2:#2B251C;
   --solari:#E8B84B;          /* Anzeigetafel-Gelb */
-  --plane-mask:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M21%2016v-2l-8-5V3.5A1.5%201.5%200%200%200%2011.5%202%201.5%201.5%200%200%200%2010%203.5V9l-8%205v2l8-2.5V19l-2%201.5V22l3.5-1%203.5%201v-1.5L13%2019v-5.5l8%202.5z'/%3E%3C/svg%3E");
+  --plane-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2096%2096%27%3E%3Cpath%20d%3D%27M0%200%20C4.47945131%203.22186401%208.32847566%207.2925644%2012.1484375%2011.25390625%20C12.84453125%2011.96224609%2013.540625%2012.67058594%2014.2578125%2013.40039062%20C15.68317723%2014.85599834%2017.08669789%2016.33328475%2018.46875%2017.83007812%20C22.37355778%2021.85362486%2022.37355778%2021.85362486%2027.6237793%2023.0546875%20C30.18994712%2022.55374216%2032.53799365%2021.87302012%2035%2021%20C40.63179913%2019.39759235%2046.10757287%2018.16870323%2052%2019%20C54.56671163%2021.56671163%2054.35526365%2023.51825983%2054.55859375%2027.02734375%20C54%2029%2054%2029%2051.84558105%2030.51020813%20C48.87241322%2032.06679752%2046.15547103%2032.95797617%2042.91210938%2033.80932617%20C41.70735962%2034.12943161%2040.50260986%2034.44953705%2039.26135254%2034.77934265%20C37.95557564%2035.11756802%2036.64970579%2035.45543475%2035.34375%2035.79296875%20C33.99510451%2036.14689192%2032.64659575%2036.50133647%2031.29821777%2036.85627747%20C28.4785825%2037.59663986%2025.65758231%2038.33147416%2022.83544922%2039.06225586%20C19.22499919%2039.99752174%2015.6179684%2040.94526401%2012.01183319%2041.89701366%20C9.23002469%2042.62994777%206.44666912%2043.35685469%203.66279602%2044.08190346%20C2.33233628%2044.42905849%201.00232212%2044.77792601%20-0.32722473%2045.12856102%20C-2.18728109%2045.61800619%20-4.04965523%2046.09861708%20-5.91210938%2046.57885742%20C-6.96958374%2046.85404709%20-8.02705811%2047.12923676%20-9.11657715%2047.4127655%20C-11.86127447%2047.97174732%20-14.21073438%2048.21594551%20-17%2048%20C-18.40966797%2046.68652344%20-18.40966797%2046.68652344%20-19.4921875%2044.859375%20C-19.88664062%2044.20066406%20-20.28109375%2043.54195312%20-20.6875%2042.86328125%20C-21.079375%2042.16589844%20-21.47125%2041.46851563%20-21.875%2040.75%20C-22.29007813%2040.06808594%20-22.70515625%2039.38617188%20-23.1328125%2038.68359375%20C-26.10327101%2033.58430663%20-26.10327101%2033.58430663%20-25.60595703%2030.77050781%20C-25.40599121%2030.18624023%20-25.20602539%2029.60197266%20-25%2029%20C-22.875%2028.1875%20-22.875%2028.1875%20-20%2028%20C-18.54313997%2029.2949867%20-17.08742858%2030.59143581%20-15.6484375%2031.90625%20C-13.21751209%2033.51918629%20-11.07179005%2033.15185801%20-8.30078125%2032.59765625%20C-7.16189453%2032.30181641%20-7.16189453%2032.30181641%20-6%2032%20C-5.02417969%2031.75121094%20-4.04835938%2031.50242188%20-3.04296875%2031.24609375%20C-0.35105697%2030.53078472%202.3266296%2029.78137113%205%2029%20C2.33353007%2024.05087021%20-0.33795915%2019.10899521%20-3.1796875%2014.2578125%20C-3.54384766%2013.63342285%20-3.90800781%2013.0090332%20-4.28320312%2012.36572266%20C-5.00303173%2011.13563987%20-5.72818428%209.90865497%20-6.45898438%208.68505859%20C-8.09104625%205.88939704%20-9%204.29799878%20-9%201%20C-5.50565561%20-0.65010707%20-3.65760119%20-1.32708274%200%200%20Z%27%20transform%3D%27translate%2834%2C13%29%27%2F%3E%3Cpath%20d%3D%27M0%200%20C23.76%200%2047.52%200%2072%200%20C72%202.64%2072%205.28%2072%208%20C48.24%208%2024.48%208%200%208%20C0%205.36%200%202.72%200%200%20Z%27%20transform%3D%27translate%2812%2C72%29%27%2F%3E%3C%2Fsvg%3E");
   --flap:#211C15;            /* Klapp-Kachel dunkel */
   --flap-hell:#2B251C;       /* Klapp-Kachel oben */
   --stempel-blau:#2E4A6B;    /* zweite Grenzstempel-Farbe */
@@ -452,20 +452,18 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .btn-flap:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--muted)}
 .btn-flap:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 
-/* Sekundaer-Button: Terminal-Wegweiser-Schild (Departures-Sign) mit Papierflieger + Pfeil */
-/* Selbsttragend: Flieger (::before, Maske) + Pfeil (::after) — HTML ist nur <a class="btn-sign">Text</a> */
-.btn-sign{display:inline-flex;align-items:center;gap:9px;height:60px;box-sizing:border-box;
+/* Sekundaer-Button: nur EIN Icon — Text links, Abflug-Plane rechts (kein Pfeil) */
+/* Selbsttragend: Plane (::after, Maske) — HTML ist nur <a class="btn-sign">Text</a> */
+.btn-sign{display:inline-flex;align-items:center;gap:10px;height:60px;box-sizing:border-box;
   font-family:var(--body);font-weight:600;font-size:16px;border:2px solid var(--ink);border-radius:10px;
   color:var(--ink);background:transparent;text-decoration:none;padding:0 18px;margin:10px 12px 0 0;
   vertical-align:top;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.btn-sign::before{content:"";width:20px;height:20px;flex:0 0 auto;background:currentColor;
+.btn-sign::after{content:"";width:22px;height:22px;flex:0 0 auto;background:currentColor;
   -webkit-mask:var(--plane-mask) center/contain no-repeat;mask:var(--plane-mask) center/contain no-repeat}
-.btn-sign::after{content:"\2197";margin-left:2px;color:var(--signal);font-weight:700;font-size:19px;line-height:1}
 .btn-sign:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
 .btn-sign:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 .hero .btn-sign,.band-ink .btn-sign{border-color:var(--bg);color:var(--bg)}
 .hero .btn-sign:hover,.band-ink .btn-sign:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
-.hero .btn-sign::after,.band-ink .btn-sign::after{color:var(--solari)}
 
 /* Kleiner Koffer als Marquee-Akzent (leicht schraeg) */
 .koffer-ic{display:inline-flex;flex:0 0 auto;color:var(--muted);transform:rotate(-8deg)}
@@ -596,4 +594,3 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .pass-stub.mit-foto .feld span{color:color-mix(in srgb,var(--bg) 78%,transparent)}
 .pass-stub.mit-foto .barcode{display:none}
 .pass-stub.mit-foto .btn-sign{border-color:var(--bg);color:var(--bg);background:rgba(0,0,0,.22)}
-.pass-stub.mit-foto .btn-sign::after{color:var(--solari)}
