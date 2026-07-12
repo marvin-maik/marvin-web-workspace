@@ -140,6 +140,16 @@ section{padding:84px 0}
 /* Buehnen-Wrap muss volle Breite halten (absolute Karten steuern keine Breite bei;
    sonst schrumpft der flex-column-Wrap durch margin:auto auf Inhaltsbreite) */
 .rot-buehne>.wrap{width:100%}
+/* Scroll-Hinweis: nur im Sticky-Modus, sitzt unten in der Buehne, blendet zur letzten Karte aus */
+.rot-hint{display:none}
+@media(min-width:861px){
+  .rotator.scrolly .rot-hint{display:flex;flex-direction:row;align-items:center;gap:8px;
+    position:absolute;left:50%;top:calc(100vh - 24px);bottom:auto;transform:translateX(-50%);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);pointer-events:none;transition:opacity .3s}
+  .rot-hint svg{width:13px;height:13px;animation:hintWippen 1.8s ease-in-out infinite}
+}
+@keyframes hintWippen{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 .rot-arc{width:100%;max-width:980px;margin:0 auto;display:block}
 .rot-arc circle{cursor:pointer;transition:r .2s}
 .rot-arc text{font-family:var(--mono);font-size:13px;letter-spacing:.08em;fill:var(--muted);cursor:pointer}

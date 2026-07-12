@@ -26,6 +26,7 @@
   if (rotator){
     var slides = rotator.querySelectorAll(".rot-slide");
     var rotSlides = rotator.querySelector(".rot-slides");
+    var rotHint = rotator.querySelector(".rot-hint");
     var n = slides.length;
     var aktiv = -1;
     var marquee = document.getElementById("rotMarquee");
@@ -111,6 +112,7 @@
         var fRaw = Math.min(1, Math.max(0, -r.top / spanne));
         var f = Math.min(1, Math.max(0, (fRaw - LEAD) / (1 - 2 * LEAD)));
         zielPos = f * (n - 1);
+        if (rotHint){ rotHint.style.opacity = f < 0.8 ? "1" : Math.max(0, (1 - f) / 0.2).toFixed(2); }
         starteEase();
       }, {passive:true});
     }
