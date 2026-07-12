@@ -18,15 +18,18 @@
     ziele.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---------- Routen-Rotator (Highlight 1, nur Startseite) ---------- */
+  /* ---------- Routen-Rotator (Highlight 1, nur Startseite) ----------
+     Scroll-getrieben: die Buehne bleibt sticky stehen, waehrend der Scroll die 3 Karten
+     horizontal durchschiebt (Filmstreifen). Kein Scroll-Jacking, natives Scrollen bleibt. */
   var rotator = document.getElementById("rotator");
   if (rotator){
     var slides = rotator.querySelectorAll(".rot-slide");
+    var track = rotator.querySelector(".rot-track");
     var n = slides.length;
     var aktiv = 0;
     var marquee = document.getElementById("rotMarquee");
     var scrolly = window.matchMedia("(min-width: 861px)").matches && !ruhig;
-    if (scrolly) rotator.classList.add("scrolly");
+    if (scrolly){ rotator.classList.add("scrolly"); if (track) track.style.transition = "none"; }
 
     var kofferIcon = '<span class="koffer-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="12" y1="10.5" x2="12" y2="16.5"/></svg></span>';
     function marqueeFuellen(idx){
@@ -34,33 +37,43 @@
       var orte = slides[idx].getAttribute("data-orte").split("|");
       var teile = [];
       orte.forEach(function(o, i){
-        // Koordinaten-Eintraege auf den Ortsnamen kuerzen (weniger Text, Feedback Marvin)
         var kurz = /^[NSEW]\s/.test(o) ? o.trim().split(" ").pop() : o;
         teile.push("<span>" + kurz + "</span>");
         if (i % 2 === 1) teile.push(kofferIcon);
       });
-      var track = '<div class="marquee-track">' + teile.join("") + teile.join("") + "</div>";
-      marquee.innerHTML = track;
+      marquee.innerHTML = '<div class="marquee-track">' + teile.join("") + teile.join("") + "</div>";
     }
 
-    function setAktiv(idx){
-      aktiv = (idx + n) % n;
-      slides.forEach(function(s, i){ s.classList.toggle("aktiv", i === aktiv); });
-      for (var i = 0; i < n; i++){
-        var dot = document.getElementById("rotdot" + i);
-        var lab = document.getElementById("rotlab" + i);
-        if (dot){
-          dot.setAttribute("r", i === aktiv ? 11 : 6.5);
-          dot.setAttribute("fill", i === aktiv ? "var(--signal)" : "var(--bg)");
-          dot.setAttribute("stroke", i === aktiv ? "var(--signal)" : "var(--muted)");
-        }
-        if (lab) lab.classList.toggle("aktiv", i === aktiv);
+    /* pos: kontinuierliche Position 0..n-1. Verschiebt den Track + dimmt/verkleinert
+       die Nachbarkarten (Coverflow-Gefuehl) und aktualisiert Punkte/Marquee. */
+    var rotSlides = rotator.querySelector(".rot-slides");
+    function render(pos){
+      if (track){
+        var slideW = rotSlides ? rotSlides.clientWidth : 0;
+        track.style.transform = "translateX(" + (-pos * slideW) + "px)";
       }
-      marqueeFuellen(aktiv);
+      slides.forEach(function(s, i){
+        var dist = Math.min(1, Math.abs(i - pos));
+        s.style.opacity = (1 - dist * 0.65).toFixed(3);
+        s.style.transform = "scale(" + (1 - dist * 0.05).toFixed(3) + ")";
+      });
+      var idx = Math.round(pos);
+      if (idx !== aktiv){
+        aktiv = idx;
+        for (var i = 0; i < n; i++){
+          var dot = document.getElementById("rotdot" + i);
+          var lab = document.getElementById("rotlab" + i);
+          if (dot){
+            dot.setAttribute("r", i === aktiv ? 11 : 6.5);
+            dot.setAttribute("fill", i === aktiv ? "var(--signal)" : "var(--bg)");
+            dot.setAttribute("stroke", i === aktiv ? "var(--signal)" : "var(--muted)");
+          }
+          if (lab) lab.classList.toggle("aktiv", i === aktiv);
+        }
+        marqueeFuellen(aktiv);
+      }
     }
 
-    /* Scroll-Steuerung: sticky Buehne, Fortschritt bestimmt die aktive Route.
-       Kein Scroll-Jacking: natives Scrollen bleibt unangetastet. */
     var manuellBis = 0;
     if (scrolly){
       var tick = false;
@@ -73,21 +86,28 @@
           var r = rotator.getBoundingClientRect();
           var spanne = r.height - window.innerHeight;
           if (spanne <= 0) return;
-          var f = Math.min(.999, Math.max(0, -r.top / spanne));
-          var idx = Math.floor(f * n);
-          if (idx !== aktiv) setAktiv(idx);
+          var f = Math.min(1, Math.max(0, -r.top / spanne));
+          render(f * (n - 1));
         });
       }, {passive:true});
     }
 
-    /* Pfeile + Punkte: immer verfuegbar (Mobile, reduced-motion, Ungeduld) */
+    /* Punkte/Pfeile: im Scroll-Modus zur passenden Scroll-Position springen,
+       sonst (Mobile/reduced-motion) direkt die Karte setzen. */
     window.rotZeige = function(i){
-      setAktiv(i);
-      manuellBis = performance.now() + 1200; /* Scroll-Handler kurz zurueckhalten */
+      i = (i + n) % n;
+      if (scrolly){
+        var docTop = rotator.getBoundingClientRect().top + window.scrollY;
+        var top = docTop + (i / (n - 1)) * (rotator.offsetHeight - window.innerHeight);
+        window.scrollTo({ top: top, behavior: "smooth" });
+      } else {
+        aktiv = -1; render(i);
+        manuellBis = performance.now() + 1000;
+      }
     };
     window.rotBlaettern = function(richtung){ window.rotZeige(aktiv + richtung); };
 
-    setAktiv(0);
+    aktiv = -1; render(0);
   }
 
   /* ---------- Statische Marquees (data-marquee: Inhalt verdoppeln) ---------- */

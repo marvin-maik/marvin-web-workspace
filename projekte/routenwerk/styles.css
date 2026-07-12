@@ -140,10 +140,11 @@ section{padding:84px 0}
 .rot-arc circle{cursor:pointer;transition:r .2s}
 .rot-arc text{font-family:var(--mono);font-size:13px;letter-spacing:.08em;fill:var(--muted);cursor:pointer}
 .rot-arc text.aktiv{fill:var(--ink);font-weight:700}
-.rot-slides{position:relative;max-width:980px;margin:6px auto 0;display:grid}
-.rot-slide{grid-area:1/1;display:flex;flex-wrap:wrap;border:1px solid var(--muted);
-  background:var(--bg);opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
-.rot-slide.aktiv{opacity:1;visibility:visible}
+/* Horizontaler Filmstreifen: Track wird beim Scrollen translatiert (scroll-getrieben) */
+.rot-slides{position:relative;max-width:980px;margin:6px auto 0;overflow:hidden}
+.rot-track{display:flex;will-change:transform;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.rot-slide{flex:0 0 100%;display:flex;flex-wrap:wrap;border:1px solid var(--muted);
+  background:var(--bg);transition:opacity .25s ease,transform .25s ease}
 .rot-slide .foto{flex:1;min-width:250px;min-height:340px;border:none;border-right:1px solid var(--line)}
 .rot-txt{flex:1.5;min-width:280px;padding:30px 32px;display:flex;flex-direction:column;align-items:flex-start}
 .rot-meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;

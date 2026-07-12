@@ -53,6 +53,25 @@ koennen muessen. Muster: `<span style="white-space:nowrap">fixer Teil ·</span> 
 passt (Text ragt sonst unsichtbar ueber die Box -> horizontaler Scroll, schwer zu finden;
 Symptom: scrollWidth > innerWidth, aber kein Element im Rect-Scan). `overflow-x:clip` als Gurt.
 
+## Scroll-getriebener Rotator (Sticky-Filmstreifen, kampferprobt ROUTENWERK)
+
+Sticky-Buehne + horizontaler Track, den der Scroll durchschiebt (Island->Albanien->Jordanien):
+- Sektion `height:300vh` (nur Desktop, `@media(min-width:861px)`), innere `.rot-buehne`
+  `position:sticky;top:0;min-height:100vh;justify-content:center`.
+- Track = flex-Row, Slides `flex:0 0 100%`, Fenster `.rot-slides{overflow:hidden}`.
+- Scroll-Handler: `f = clamp(-rotator.getBoundingClientRect().top / (offsetHeight-innerHeight), 0,1)`,
+  `pos = f*(n-1)`, `track.style.transform = translateX(-pos * slideWidth + "px")`.
+  WICHTIG: translateX in PIXELN (pos*slideWidth), NICHT in `%` — `%` bezieht sich auf die
+  Track-BOX-Breite (= Fensterbreite), nicht auf den Inhalt -> viel zu kleiner Weg.
+- Nachbarkarten dimmen/skalieren nach `dist=|i-pos|` (Coverflow-Gefuehl).
+- Scrolly-Modus: `track.style.transition="none"` (sonst schmiert der Scroll). Mobile/reduced-motion:
+  NICHT scrolly -> CSS-Transition am Track lassen, Pfeile/Punkte setzen den Index direkt.
+- Punkt-Klick: zur Scroll-Position springen via `docTop = getBoundingClientRect().top + scrollY`
+  (NICHT offsetTop, das ist bei verschachtelten Sektionen ungenau).
+- TEST-FALLE: `html{scroll-behavior:smooth}` laesst JEDEN window.scrollTo sanft animieren ->
+  Messungen direkt nach scrollTo lesen Zwischenzustaende. Zum Testen `behavior:'instant'`
+  oder scroll-behavior temporaer auf `auto`.
+
 ## Micro-Animations (Vanilla, kein GSAP unter ~50KB-Seiten)
 
 **Scroll-Reveals, robust:** JS fuegt .rv erst hinzu (ohne JS nichts versteckt), reduced-motion
