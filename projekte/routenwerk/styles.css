@@ -136,15 +136,21 @@ section{padding:84px 0}
 @media(min-width:861px){.rotator.scrolly{height:300vh}
   .rotator.scrolly .rot-buehne{position:sticky;top:0;min-height:100vh;display:flex;
     flex-direction:column;justify-content:center;padding:40px 0}}
+/* Buehnen-Wrap muss volle Breite halten (absolute Karten steuern keine Breite bei;
+   sonst schrumpft der flex-column-Wrap durch margin:auto auf Inhaltsbreite) */
+.rot-buehne>.wrap{width:100%}
 .rot-arc{width:100%;max-width:980px;margin:0 auto;display:block}
 .rot-arc circle{cursor:pointer;transition:r .2s}
 .rot-arc text{font-family:var(--mono);font-size:13px;letter-spacing:.08em;fill:var(--muted);cursor:pointer}
 .rot-arc text.aktiv{fill:var(--ink);font-weight:700}
-/* Horizontaler Filmstreifen: Track wird beim Scrollen translatiert (scroll-getrieben) */
-.rot-slides{position:relative;max-width:980px;margin:6px auto 0;overflow:hidden}
-.rot-track{display:flex;will-change:transform;transition:transform .45s cubic-bezier(.4,0,.2,1)}
-.rot-slide{flex:0 0 100%;display:flex;flex-wrap:wrap;border:1px solid var(--muted);
-  background:var(--bg);transition:opacity .25s ease,transform .25s ease}
+/* Kurven-Coverflow: Karten liegen gestapelt auf einer Buehne, JS positioniert sie
+   entlang der Bogenlinie (aktive Karte zentriert, naechste kommt von oben rechts) */
+.rot-slides{position:relative;max-width:980px;margin:6px auto 0;overflow:visible}
+.rot-track{display:contents}
+.rot-slide{position:absolute;top:50%;left:50%;width:100%;display:flex;flex-wrap:wrap;
+  border:1px solid var(--muted);background:var(--bg);box-shadow:5px 7px 0 var(--line);
+  transform:translate(-50%,-50%);transform-origin:center center;will-change:transform,opacity;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s ease}
 .rot-slide .foto{flex:1;min-width:250px;min-height:340px;border:none;border-right:1px solid var(--line)}
 .rot-txt{flex:1.5;min-width:280px;padding:30px 32px;display:flex;flex-direction:column;align-items:flex-start}
 .rot-meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
