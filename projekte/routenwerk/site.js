@@ -55,6 +55,54 @@
     document.addEventListener("keydown", function(e){ if (e.key === "Escape" && navLinks.classList.contains("offen")){ navSchliessen(); burger.focus(); } });
   }
 
+  /* ---------- Consent (Externe Inhalte) ----------
+     Kein Cookie-Tool: die Seite setzt keine Cookies. Der Banner steuert nur das Laden
+     externer Inhalte (aktuell: Karten-CDN auf der Team-Seite). Ablehnen ist gleichwertig,
+     die Wahl liegt im localStorage (technisch notwendig, kein Consent noetig) und ist
+     jederzeit ueber "Datenschutz-Einstellungen" im Footer aenderbar. */
+  var CONSENT_KEY = "rw-consent-v1";
+  function consentLesen(){ try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || "null"); } catch(e){ return null; } }
+  var bannerEl = null;
+  function bannerWeg(){ if (bannerEl){ bannerEl.remove(); bannerEl = null; } }
+  function bannerZeigen(){
+    if (bannerEl) return;
+    bannerEl = document.createElement("div");
+    bannerEl.className = "consent-banner";
+    bannerEl.setAttribute("role", "region");
+    bannerEl.setAttribute("aria-label", "Datenschutz-Einstellungen");
+    bannerEl.innerHTML =
+      '<div class="cb-inner">' +
+      '<p class="cb-kicker">Datenschutz · Externe Inhalte</p>' +
+      '<p class="cb-text">Diese Seite setzt keine Cookies. Nur die interaktive Weltkarte lädt Kartendaten von einem externen Server (jsDelivr CDN). Dabei wird eure IP-Adresse übertragen. <a href="datenschutz.html">Details in der Datenschutzerklärung</a></p>' +
+      '<div class="cb-aktionen">' +
+      '<button type="button" class="cb-btn" data-wahl="nein">Ablehnen</button>' +
+      '<button type="button" class="cb-btn" data-wahl="ja">Erlauben</button>' +
+      '</div></div>';
+    bannerEl.addEventListener("click", function(e){
+      var b = e.target.closest(".cb-btn");
+      if (b) window.rwConsent.setzen(b.getAttribute("data-wahl") === "ja");
+    });
+    document.body.appendChild(bannerEl);
+  }
+  window.rwConsent = {
+    hat: function(){ var c = consentLesen(); return !!(c && c.extern); },
+    entschieden: function(){ return consentLesen() !== null; },
+    setzen: function(erlaubt){
+      try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ extern: !!erlaubt, zeit: new Date().toISOString() })); } catch(e){}
+      bannerWeg();
+      document.dispatchEvent(new CustomEvent("rw-consent", { detail: { extern: !!erlaubt } }));
+    },
+    zeigen: bannerZeigen
+  };
+  if (!window.rwConsent.entschieden()) bannerZeigen();
+  /* Widerrufs-Link in jeden Footer (Pflicht: Entscheidung muss aenderbar bleiben) */
+  document.querySelectorAll(".foot-legal").forEach(function(fl){
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "consent-link"; btn.textContent = "Datenschutz-Einstellungen";
+    btn.addEventListener("click", bannerZeigen);
+    fl.insertBefore(btn, fl.querySelector("span.mono"));
+  });
+
   /* ---------- Routen-Rotator (Highlight 1, nur Startseite) ----------
      Kurven-Coverflow: die Buehne bleibt sticky stehen; der Scroll fuehrt die Karten
      entlang der Bogenlinie durch (naechste kommt von oben rechts, aktive zentriert).

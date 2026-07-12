@@ -134,3 +134,18 @@ Personen-Fotos (Kundenfeedback: unangenehm).
 - **Formspree**: Formular erst im Dashboard anlegen (Add New -> New Form), Endpoint-Format
   formspree.io/f/<id>. AVV/DPA gesondert abschliessen (Datenschutzerklaerung verspricht es).
 - **Fontshare**: woff2 direkt vom CDN ziehen und selbst hosten (Lizenz erlaubt kommerziell).
+
+## Consent-Gate fuer externe Inhalte (ohne Cookie-Tool)
+Stand: Routenwerk v43. Wenn eine statische Seite KEINE Cookies setzt und nur einzelne
+externe Ladungen hat (CDN-Scripts, Embeds), braucht es kein Cookie-Tool: ein eigener
+Banner steuert das Nachladen. Kernpunkte, die es DSGVO-fest machen:
+- Externe <script src>-Tags entfernen; Laden erst nach Zustimmung dynamisch
+  (`document.createElement("script")` in Promise-Kette), Init-Code als `window.__xInit`.
+- Ablehnen und Erlauben GLEICH gestaltet (gleiche Groesse/Farbe), Banner blockiert nicht.
+- Wahl in localStorage (technisch notwendig, selbst consent-frei) + CustomEvent
+  (`rw-consent`), auf das Seiten-Scripts hoeren.
+- Widerruf: Button "Datenschutz-Einstellungen" wird per JS in jeden `.foot-legal` injiziert.
+- Ohne Zustimmung: Platzhalter mit eigenem "Laden und zustimmen"-Button (Zwei-Klick-Muster
+  wie bei YouTube-Embeds).
+- Beweis beim Testen: `typeof d3 === "undefined"` + 0 CDN-Requests VOR Klick, geladen danach.
+Code: projekte/routenwerk/site.js (Consent-Block) + ueber-uns.html (Globus-Gate).

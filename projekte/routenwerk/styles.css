@@ -612,3 +612,27 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .pass-stub.mit-foto .feld span{color:color-mix(in srgb,var(--bg) 78%,transparent)}
 .pass-stub.mit-foto .barcode{display:none}
 .pass-stub.mit-foto .btn-sign{border-color:var(--bg);color:var(--bg);background:rgba(0,0,0,.22)}
+
+/* ---------- Consent-Banner (Externe Inhalte) ---------- */
+.consent-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--flap);color:var(--bg);
+  border-top:2px solid var(--solari);box-shadow:0 -10px 30px rgba(22,19,14,.25)}
+.cb-inner{max-width:var(--wrap);margin:0 auto;padding:14px var(--pad) 16px;display:grid;
+  grid-template-columns:1fr auto;align-items:center;gap:8px 28px}
+.cb-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--solari);grid-column:1/-1;margin:0}
+.cb-text{margin:0;max-width:none;font-size:14px;line-height:1.5;color:color-mix(in srgb,var(--bg) 88%,transparent)}
+.cb-text a{color:var(--bg)}
+.cb-aktionen{display:flex;gap:10px}
+/* Ablehnen und Erlauben bewusst GLEICH gestaltet (DSGVO: gleichwertige Wahl) */
+.cb-btn{font-family:var(--body);font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:8px;
+  border:1.5px solid var(--bg);background:transparent;color:var(--bg);cursor:pointer;min-width:112px}
+.cb-btn:hover{background:rgba(250,249,245,.14)}
+.cb-btn:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
+.consent-link{background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;
+  text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.cb-inner{grid-template-columns:1fr}.cb-btn{flex:1}}
+
+/* Globus: Platzhalter solange externe Inhalte abgelehnt sind */
+.globus-consent{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;text-align:center;padding:24px;background:var(--papier-tief)}
+.globus-consent .gc-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin:0}
+.globus-consent p{max-width:46ch;color:var(--muted);margin:0}

@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=41">
+<link rel="stylesheet" href="styles.css?v=43">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -195,13 +195,43 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=41"></script>
+<script src="site.js?v=43"></script>
 <!-- Globus: d3 + topojson + die world-atlas land-110m.json (unten per fetch) VOR LAUNCH
      selbst hosten (DSGVO: alle drei laden sonst vom CDN und senden die Besucher-IP). CDN nur im Mockup. -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 <script>
+/* Consent-Gate: die externen Karten-Libs (jsDelivr) laden erst NACH Zustimmung
+   (rwConsent in site.js). VOR LAUNCH: d3 + topojson + land-110m.json selbst hosten,
+   dann entfaellt dieses Gate komplett. */
 (function(){
+  "use strict";
+  var buehne = document.querySelector(".globus-buehne");
+  if (!buehne) return;
+  var gestartet = false;
+  function ladeSkript(src){ return new Promise(function(res, rej){ var s = document.createElement("script"); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+  function starten(){
+    if (gestartet) return; gestartet = true;
+    var hinweis = buehne.querySelector(".globus-consent"); if (hinweis) hinweis.remove();
+    ladeSkript("https://cdn.jsdelivr.net/npm/d3@7")
+      .then(function(){ return ladeSkript("https://cdn.jsdelivr.net/npm/topojson-client@3"); })
+      .then(function(){ if (window.__globusInit) window.__globusInit(); })
+      .catch(function(){ gestartet = false; platzhalter(); });
+  }
+  function platzhalter(){
+    if (buehne.querySelector(".globus-consent")) return;
+    var d = document.createElement("div");
+    d.className = "globus-consent";
+    d.innerHTML = '<p class="gc-kicker">Externe Inhalte deaktiviert</p>' +
+      '<p>Die Karte lädt Daten vom CDN jsDelivr. Dabei wird eure IP-Adresse übertragen.</p>' +
+      '<button type="button" class="btn-sign">Karte laden und zustimmen</button>';
+    d.querySelector("button").addEventListener("click", function(){ window.rwConsent.setzen(true); });
+    buehne.appendChild(d);
+  }
+  if (window.rwConsent && window.rwConsent.hat()) starten();
+  else platzhalter();
+  document.addEventListener("rw-consent", function(e){ if (e.detail.extern) starten(); });
+})();
+
+window.__globusInit = function(){
   "use strict";
   var canvas = document.getElementById("globus");
   if (!canvas || typeof d3 === "undefined") return;
@@ -441,7 +471,7 @@
     .then(function(r){ return r.json(); })
     .then(function(welt){ land = topojson.feature(welt, welt.objects.land); zeichnen(); })
     .catch(function(){ status.textContent = "Weltkarte gerade nicht ladbar. Kugel, Pins und Routen funktionieren trotzdem."; });
-})();
+};
 </script>
 </body>
 </html>
