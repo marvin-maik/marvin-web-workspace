@@ -415,7 +415,12 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 
 /* ---------- Split-Flap-Abflugtafel ---------- */
 /* Helle Abflugtafel: gleiche Split-Flap-Sprache wie die Buttons, kein schwarzer Slab mehr */
-.tafel{background:var(--papier-tief);border:1px solid var(--line);padding:24px 22px;border-radius:6px;overflow-x:auto;margin-top:34px}
+.tafel{background:var(--papier-tief);border:1px solid var(--line);padding:24px 22px;border-radius:6px;overflow-x:auto;margin-top:34px;
+  /* Scrollbar SICHTBAR stylen: Mobile versteckt sie sonst und keiner ahnt, dass die Tafel scrollt */
+  scrollbar-width:thin;scrollbar-color:var(--solari) var(--line)}
+.tafel::-webkit-scrollbar{height:9px}
+.tafel::-webkit-scrollbar-track{background:var(--line);border-radius:5px}
+.tafel::-webkit-scrollbar-thumb{background:var(--solari);border-radius:5px}
 .tafel-kopf{display:flex;justify-content:space-between;gap:14px;font-family:var(--mono);
   font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
   border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px;min-width:640px}
