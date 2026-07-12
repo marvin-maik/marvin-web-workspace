@@ -185,6 +185,8 @@ section{padding:84px 0}
 .rot-nav button{border:1px solid var(--ink);background:var(--bg);width:48px;height:48px;
   border-radius:50%;font-size:19px;cursor:pointer;color:var(--ink);transition:background .15s,color .15s}
 .rot-nav button:hover{background:var(--ink);color:var(--bg)}
+/* Swipe-Hinweis + Mobil-CTA: nur im Mobil-Deck sichtbar (Regeln im max-width:860-Block) */
+.rot-swipe-hint,.rot-cta-mobil{display:none}
 
 /* ---------- Marquee ---------- */
 .marquee:empty{display:none}
@@ -342,6 +344,18 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   .splithart>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
   .versatz{margin-top:24px}
   .bild-klein{max-width:100%}
+  /* Mobil-Deck: Karten liegen gestapelt, oberste per Finger wischbar (JS renderStack) */
+  .rotator.mobil .rot-slides{margin:64px auto 20px;touch-action:pan-y}
+  .rotator.mobil .rot-slide{box-shadow:6px 8px 0 var(--line)}
+  .rot-swipe-hint{display:block;text-align:center;margin:16px 0 0;font-family:var(--mono);
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:opacity .35s}
+  .rot-swipe-hint.weg{opacity:0}
+  .rot-cta-mobil{display:block;overflow:hidden;text-align:center;margin:0 auto;max-width:340px;max-height:0;opacity:0;
+    font-family:var(--body);font-size:14px;line-height:1.45;color:var(--muted);text-decoration:none;
+    transition:max-height .45s ease,opacity .4s ease,margin .45s ease;pointer-events:none}
+  .rot-cta-mobil.sichtbar{max-height:90px;opacity:1;margin-top:20px;pointer-events:auto}
+  .rot-cta-mobil b{display:block;color:var(--signal);font-weight:600;margin-top:3px;
+    text-decoration:underline;text-underline-offset:3px}
 }
 @media(max-width:720px){
   .nav-inner{gap:14px;padding-top:12px;padding-bottom:12px}

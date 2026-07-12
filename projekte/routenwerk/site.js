@@ -54,7 +54,11 @@
     var aktiv = -1;
     var marquee = document.getElementById("rotMarquee");
     var scrolly = window.matchMedia("(min-width: 861px)").matches && !ruhig;
+    var mobil = window.matchMedia("(max-width: 860px)").matches;
+    var ctaMobil = document.getElementById("rotCta");
+    var swipeHint = document.getElementById("rotSwipeHint");
     if (scrolly){ rotator.classList.add("scrolly"); slides.forEach(function(s){ s.style.transition = "none"; }); }
+    if (mobil){ rotator.classList.add("mobil"); }
 
     var kofferIcon = '<span class="koffer-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="12" y1="10.5" x2="12" y2="16.5"/></svg></span>';
     function marqueeFuellen(idx){
@@ -80,8 +84,27 @@
       if (h) rotSlides.style.height = Math.round(h * kartSkala()) + "px";
     }
 
-    /* pos 0..n-1 kontinuierlich. Jede Karte liegt nach ihrer Distanz zur aktiven Position
-       auf der Bogenlinie: rel>0 -> oben rechts, rel<0 -> oben links, rel=0 -> zentriert. */
+    /* Aktive Karte wechseln: Punkte/Labels/Marquee nachziehen; auf Mobil den CTA nach der
+       letzten Karte einblenden. */
+    function aktualisiereAktiv(idx){
+      if (idx === aktiv) return;
+      aktiv = idx;
+      for (var i = 0; i < n; i++){
+        var dot = document.getElementById("rotdot" + i);
+        var lab = document.getElementById("rotlab" + i);
+        if (dot){
+          dot.setAttribute("r", i === aktiv ? 11 : 6.5);
+          dot.setAttribute("fill", i === aktiv ? "var(--signal)" : "var(--bg)");
+          dot.setAttribute("stroke", i === aktiv ? "var(--signal)" : "var(--muted)");
+        }
+        if (lab){ lab.classList.toggle("aktiv", i === aktiv); lab.setAttribute("aria-current", i === aktiv ? "true" : "false"); }
+      }
+      marqueeFuellen(aktiv);
+      if (ctaMobil) ctaMobil.classList.toggle("sichtbar", aktiv === n - 1);
+    }
+
+    /* Desktop-Coverflow: pos 0..n-1 kontinuierlich. Jede Karte liegt nach ihrer Distanz zur
+       aktiven Position auf der Bogenlinie: rel>0 -> oben rechts, rel<0 -> oben links. */
     function render(pos){
       slides.forEach(function(s, i){
         var rel = i - pos;
@@ -98,21 +121,36 @@
         s.style.pointerEvents = ar < 0.5 ? "auto" : "none";
         s.setAttribute("aria-hidden", ar >= 0.5 ? "true" : "false");
       });
-      var idx = Math.round(pos);
-      if (idx !== aktiv){
-        aktiv = idx;
-        for (var i = 0; i < n; i++){
-          var dot = document.getElementById("rotdot" + i);
-          var lab = document.getElementById("rotlab" + i);
-          if (dot){
-            dot.setAttribute("r", i === aktiv ? 11 : 6.5);
-            dot.setAttribute("fill", i === aktiv ? "var(--signal)" : "var(--bg)");
-            dot.setAttribute("stroke", i === aktiv ? "var(--signal)" : "var(--muted)");
-          }
-          if (lab){ lab.classList.toggle("aktiv", i === aktiv); lab.setAttribute("aria-current", i === aktiv ? "true" : "false"); }
+      aktualisiereAktiv(Math.round(pos));
+    }
+
+    /* Mobile: Karten als Stapel. Oberste Karte folgt dem Finger (dx px), darunterliegende
+       ragen versetzt hervor; weggewischte Karten fliegen nach links raus. */
+    function renderStack(dx){
+      dx = dx || 0;
+      slides.forEach(function(s, i){
+        var rel = i - aktiv;
+        if (rel < 0){
+          // weggewischt: nach links raus
+          s.style.transform = "translate(-50%,-50%) translate(-130%,0) rotate(-12deg)";
+          s.style.opacity = "0"; s.style.zIndex = "0"; s.style.pointerEvents = "none";
+          s.setAttribute("aria-hidden", "true");
+        } else if (rel === 0){
+          // oberste Karte folgt dem Finger
+          s.style.transform = "translate(-50%,-50%) translate(" + dx + "px,0) rotate(" + (dx * 0.03) + "deg)";
+          s.style.opacity = "1"; s.style.zIndex = "30"; s.style.pointerEvents = "auto";
+          s.setAttribute("aria-hidden", "false");
+        } else if (rel <= 2){
+          // dahinterliegende Karten: nach OBEN versetzt (Versatz > Skalen-Verkuerzung) + leicht
+          // schmaler -> Stapel schaut als Streifen oben hervor
+          s.style.transform = "translate(-50%,-50%) translate(0," + (rel * -30) + "px) scale(" + (1 - rel * 0.02) + ")";
+          s.style.opacity = "1"; s.style.zIndex = String(30 - rel * 10); s.style.pointerEvents = "none";
+          s.setAttribute("aria-hidden", "true");
+        } else {
+          s.style.opacity = "0"; s.style.zIndex = "0"; s.style.pointerEvents = "none";
+          s.setAttribute("aria-hidden", "true");
         }
-        marqueeFuellen(aktiv);
-      }
+      });
     }
 
     /* Dead-Zones: erste + letzte LEAD des Scroll-Wegs stehen still (Karte "angekommen",
@@ -147,13 +185,19 @@
     /* Punkte/Pfeile: im Scroll-Modus zur passenden Scroll-Position springen (Dead-Zone
        einrechnen), sonst (Mobile/reduced-motion) direkt die Karte setzen. */
     window.rotZeige = function(i){
-      i = (i + n) % n;
       if (scrolly){
+        i = (i + n) % n;
         var docTop = rotator.getBoundingClientRect().top + window.scrollY;
         var spanne = rotator.offsetHeight - window.innerHeight;
         var fRaw = LEAD + (i / (n - 1)) * (1 - 2 * LEAD);
         window.scrollTo({ top: docTop + fRaw * spanne, behavior: "smooth" });
+      } else if (mobil){
+        i = Math.max(0, Math.min(n - 1, i));       // Deck: clampen statt umlaufen
+        slides.forEach(function(s){ s.style.transition = ""; });
+        aktualisiereAktiv(i);
+        renderStack(0);
       } else {
+        i = (i + n) % n;
         render(i);
         manuellBis = performance.now() + 1000;
       }
@@ -169,15 +213,52 @@
       });
     });
 
+    /* Mobile: Deck per Finger durchwischen. Oberste Karte folgt horizontal; ab Schwelle
+       blaettern (weiter/zurueck), sonst zurueckschnappen. Vertikales Wischen = Seiten-Scroll. */
+    if (mobil){
+      var startX = 0, startY = 0, ziehen = false, drag = 0, horiz = false;
+      rotSlides.addEventListener("touchstart", function(e){
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+        ziehen = true; drag = 0; horiz = false;
+        if (slides[aktiv]) slides[aktiv].style.transition = "none";
+      }, { passive: true });
+      rotSlides.addEventListener("touchmove", function(e){
+        if (!ziehen) return;
+        var dx = e.touches[0].clientX - startX, dy = e.touches[0].clientY - startY;
+        if (!horiz){
+          if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+          horiz = Math.abs(dx) > Math.abs(dy);
+          if (!horiz){ ziehen = false; if (slides[aktiv]) slides[aktiv].style.transition = ""; return; }
+        }
+        if ((aktiv === 0 && dx > 0) || (aktiv === n - 1 && dx < 0)) dx *= 0.3;   // Widerstand am Ende
+        drag = dx;
+        e.preventDefault();
+        renderStack(drag);
+      }, { passive: false });
+      function swipeEnde(){
+        if (!ziehen) return; ziehen = false;
+        if (slides[aktiv]) slides[aktiv].style.transition = "";
+        if (drag < -55 && aktiv < n - 1){ aktualisiereAktiv(aktiv + 1); if (swipeHint) swipeHint.classList.add("weg"); }
+        else if (drag > 55 && aktiv > 0){ aktualisiereAktiv(aktiv - 1); if (swipeHint) swipeHint.classList.add("weg"); }
+        drag = 0;
+        renderStack(0);
+      }
+      rotSlides.addEventListener("touchend", swipeEnde, { passive: true });
+      rotSlides.addEventListener("touchcancel", swipeEnde, { passive: true });
+    }
+
     buehneHoehe();
     var rotResizeT;
     window.addEventListener("resize", function(){
       buehneHoehe();
-      if (aktiv >= 0) render(istPos);
+      if (mobil){ renderStack(0); }
+      else if (aktiv >= 0){ render(istPos); }
       clearTimeout(rotResizeT);
       rotResizeT = setTimeout(function(){ if (aktiv >= 0) marqueeFuellen(aktiv); }, 200);
     });
-    render(0);
+    if (mobil){ aktualisiereAktiv(0); renderStack(0); }
+    else { render(0); }
     // Nach dem Laden der Mono-Schrift neu vermessen (Wortbreiten aendern sich)
     if (document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ if (aktiv >= 0) marqueeFuellen(aktiv); }); }
   }
