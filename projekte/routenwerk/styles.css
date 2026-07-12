@@ -352,20 +352,22 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 /* ---------- Split-Flap-Button (Haupt-CTA, max 1-2 pro Seite) ---------- */
 /* Primaer-Button: helle Split-Flap-Anzeige (Marvins Skizze) — grauer Rahmen,
    transparente Kacheln mit Hairline, Tinten-Buchstaben, Grundlinie unter den Kacheln */
-.btn-flap{display:inline-flex;gap:4px;background:transparent;border:1.5px solid var(--ink);
-  border-radius:8px;padding:9px 13px 13px;cursor:pointer;margin:10px 12px 0 0;text-decoration:none;
-  vertical-align:middle;position:relative;transition:transform .15s,box-shadow .15s}
-.btn-flap::after{content:"";position:absolute;left:13px;right:13px;bottom:8px;height:1px;background:var(--line)}
-.btn-flap b{display:inline-block;font-family:var(--mono);font-weight:700;font-size:17px;
-  color:var(--ink);width:1.6ch;text-align:center;padding:9px 0;border-radius:3px;
+.btn-flap{display:inline-flex;gap:4px;align-items:stretch;height:60px;box-sizing:border-box;
+  background:transparent;border:1.5px solid var(--ink);border-radius:8px;padding:8px 12px 11px;
+  cursor:pointer;margin:10px 12px 0 0;text-decoration:none;vertical-align:top;position:relative;
+  transition:transform .15s,box-shadow .15s}
+.btn-flap::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:1px;background:var(--line)}
+.btn-flap b{display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);
+  font-weight:700;font-size:17px;color:var(--ink);width:1.6ch;border-radius:3px;
   border:1px solid var(--line);background:color-mix(in srgb,var(--papier-tief) 45%,transparent)}
 .btn-flap:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--muted)}
 .btn-flap:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 
 /* Sekundaer-Button: Terminal-Wegweiser-Schild (Departures-Sign) mit Papierflieger + Pfeil */
-.btn-sign{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:600;
-  font-size:16px;border:2px solid var(--ink);border-radius:10px;color:var(--ink);background:transparent;
-  text-decoration:none;padding:11px 18px;margin:10px 12px 0 0;transition:transform .15s,box-shadow .15s}
+.btn-sign{display:inline-flex;align-items:center;gap:10px;height:60px;box-sizing:border-box;
+  font-family:var(--body);font-weight:600;font-size:16px;border:2px solid var(--ink);border-radius:10px;
+  color:var(--ink);background:transparent;text-decoration:none;padding:0 20px;margin:10px 12px 0 0;
+  vertical-align:top;transition:transform .15s,box-shadow .15s}
 .btn-sign:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
 .btn-sign:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 .btn-sign .plane{width:20px;height:20px;flex:0 0 auto;color:var(--ink)}
