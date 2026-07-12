@@ -118,7 +118,8 @@ section{padding:84px 0}
   text-transform:uppercase;color:color-mix(in srgb,var(--bg) 62%,transparent);margin-top:20px}
 
 /* ---------- Etappen-Route ---------- */
-.etappen{display:flex;gap:20px;flex-wrap:wrap;position:relative;padding-top:30px;margin-top:44px}
+/* row-gap 54px: bei Umbruch (schmaler VW) haben die -42px-Nummern-Labels Platz, keine Ueberlappung */
+.etappen{display:flex;gap:54px 20px;flex-wrap:wrap;position:relative;padding-top:30px;margin-top:44px}
 .etappen::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--muted)}
 .etappe{flex:1;min-width:240px;border:1px solid var(--line);background:var(--bg);
   padding:24px;position:relative;transition:transform .15s,box-shadow .15s}
@@ -185,7 +186,7 @@ summary{padding:18px 0;font-family:var(--display);font-weight:700;font-size:20px
   cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-family:var(--mono);color:var(--signal);font-size:22px;font-weight:400}
-details[open] summary::after{content:"\00d7"}
+details[open] summary::after{content:"\2212"}
 details .dbody{padding:0 0 22px}
 
 /* ---------- Splits ---------- */
@@ -285,8 +286,8 @@ footer{background:var(--ink);color:var(--bg);padding:64px 0 28px;overflow-x:clip
 .foot-grid{display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between;margin-bottom:44px}
 footer a{color:var(--bg)}
 footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
-.foot-marke{font-family:var(--display);font-weight:800;letter-spacing:.06em;line-height:.9;
-  font-size:clamp(64px,17vw,220px);white-space:nowrap;color:color-mix(in srgb,var(--bg) 14%,transparent);
+.foot-marke{font-family:var(--display);font-weight:800;letter-spacing:.04em;line-height:.9;
+  font-size:clamp(38px,12vw,150px);white-space:nowrap;max-width:100%;color:color-mix(in srgb,var(--bg) 14%,transparent);
   user-select:none}
 .foot-legal{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;line-height:2;
   border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);padding-top:18px;margin-top:10px}
@@ -321,21 +322,21 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 /* ==================== ABFLUG-WELT (Moodboard-Integration 2026-07-11) ==================== */
 
 /* ---------- Split-Flap-Abflugtafel ---------- */
-.tafel{background:var(--ink);padding:26px 22px;border-radius:6px;overflow-x:auto;margin-top:34px}
+/* Helle Abflugtafel: gleiche Split-Flap-Sprache wie die Buttons, kein schwarzer Slab mehr */
+.tafel{background:var(--papier-tief);border:1px solid var(--line);padding:24px 22px;border-radius:6px;overflow-x:auto;margin-top:34px}
 .tafel-kopf{display:flex;justify-content:space-between;gap:14px;font-family:var(--mono);
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8f887b;
-  border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:14px;min-width:640px}
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px;min-width:640px}
 .brett{display:grid;grid-template-columns:minmax(210px,1.4fr) minmax(140px,1fr) minmax(80px,.6fr) minmax(130px,1fr);
   gap:10px 22px;align-items:center;min-width:640px}
 .brett a.flapzeile{display:contents;text-decoration:none;color:inherit;cursor:pointer}
 .flaps{white-space:nowrap}
-.flaps b{display:inline-block;font-family:var(--mono);font-weight:400;font-size:17px;
-  color:var(--bg);background:linear-gradient(var(--flap-hell) 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,var(--flap) 52%);
-  width:1.3ch;text-align:center;padding:6px 0;margin-right:2px;border-radius:2.5px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
-.flaps b.leer{background:linear-gradient(#1D1912 48%,rgba(0,0,0,.55) 48%,rgba(0,0,0,.55) 52%,#181510 52%)}
-.flaps.st b{color:var(--solari)}
-.flapzeile:hover .flaps b,.flapzeile:focus-visible .flaps b{color:var(--solari)}
+.flaps b{display:inline-block;font-family:var(--mono);font-weight:700;font-size:17px;color:var(--ink);
+  background:linear-gradient(var(--bg) 48%,color-mix(in srgb,var(--line) 75%,transparent) 48% 52%,var(--bg) 52%);
+  width:1.3ch;text-align:center;padding:6px 0;margin-right:2px;border-radius:2.5px;border:1px solid var(--line)}
+.flaps b.leer{background:color-mix(in srgb,var(--papier-tief) 60%,var(--bg));border-color:color-mix(in srgb,var(--line) 70%,transparent)}
+.flaps.st b{color:var(--signal)}
+.flapzeile:hover .flaps b,.flapzeile:focus-visible .flaps b{border-color:var(--muted)}
 .flapzeile:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
 
 /* ---------- Split-Flap-Button (Haupt-CTA, max 1-2 pro Seite) ---------- */
@@ -420,22 +421,6 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .s4{transform:rotate(6deg);margin:22px 0 0 34px}
 @media(max-width:560px){.passport{aspect-ratio:auto;flex-wrap:wrap}.passport>div{min-width:100%;min-height:190px}}
 
-/* ---------- Koffer-Scan ---------- */
-.scan{background:var(--papier-tief);border:1px solid var(--line);border-radius:6px;
-  padding:28px 24px;position:relative;overflow:hidden;margin:22px 0}
-.scan-kopf{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.scan-kopf b{color:var(--signal)}
-.koffer{position:relative;border:2px solid var(--muted);border-radius:14px;height:190px;max-width:460px;margin:14px auto 0}
-.koffer::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
-  width:90px;height:26px;border:2px solid var(--muted);border-bottom:none;border-radius:10px 10px 0 0}
-.scan-item{position:absolute;border-radius:6px;display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px}
-.si-1{left:6%;top:14%;width:34%;height:44%;background:color-mix(in srgb,var(--signal) 10%,transparent);border:1px solid color-mix(in srgb,var(--signal) 45%,transparent);color:var(--signal)}
-.si-2{left:44%;top:22%;width:24%;height:58%;background:color-mix(in srgb,var(--muted) 14%,transparent);border:1px solid var(--muted);color:var(--ink)}
-.si-3{left:72%;top:12%;width:21%;height:34%;background:color-mix(in srgb,var(--signal) 12%,transparent);border:1px solid color-mix(in srgb,var(--signal) 50%,transparent);color:var(--signal)}
-.si-4{left:12%;top:64%;width:52%;height:26%;background:color-mix(in srgb,var(--muted) 10%,transparent);border:1px dashed var(--muted);color:var(--ink)}
-.si-5{left:74%;top:56%;width:19%;height:32%;background:color-mix(in srgb,var(--muted) 10%,transparent);border:1px dashed var(--muted);color:var(--ink)}
 
 /* ---------- Gate-Wegweiser ---------- */
 .wegweiser{background:var(--ink);border-radius:6px;overflow:hidden;max-width:640px;margin-top:22px}
