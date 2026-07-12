@@ -88,6 +88,12 @@ Personen-Fotos (Kundenfeedback: unangenehm).
   oder Tab sichtbar machen.
 - **Chrome cached CSS/Bilder aggressiv beim einfachen Reload** — bei "Aenderung wirkt nicht":
   erst Cache pruefen (`link.href='styles.css?v='+Date.now()`), nicht Code debuggen.
+- **Cache-Falle auch fuers HTML-Dokument** (nicht nur Assets): `python3 -m http.server`
+  schickt keine no-cache-Header, Chrome zeigt dann alte Seiten trotz geaenderter Datei.
+  DAUERHAFTE LOESUNG: Dev-Server mit no-store-Header nutzen statt `-m http.server` ->
+  `_referenz/serve-nocache.py <port> <dir>` (in launch.json eintragen). Danach ist jeder
+  Reload frisch. ACHTUNG: bereits gecachte Seiten brauchen EINMAL Cmd+Shift+R, dann greift no-store.
+  Asset-Versionierung (`styles.css?v=N`) bleibt trotzdem gute Praxis fuer den Launch.
 - **Kaputtes Bild (naturalWidth 0) rendert keine Transforms** — wirkt wie CSS-Bug, ist Laden.
 - **python http.server ist single-threaded** — parallele Requests hakeln; Messung nach
   Reload 1-2s warten. Server-Tod zeigt sich als "alles laedt aus Cache".
