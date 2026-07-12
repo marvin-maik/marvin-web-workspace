@@ -3,6 +3,29 @@
   "use strict";
   var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Nahtloses Endlos-Marquee: Basis-Sequenz so oft wiederholen, dass EINE Gruppe mindestens
+     Container-Breite fuellt (sonst wandert bei der -100%-Schleife eine Luecke durch, sobald
+     der Inhalt schmaler als der Viewport ist). Dann zwei identische Gruppen. Tempo bleibt
+     konstant, weil die Dauer proportional zur Gruppenbreite gesetzt wird (~13 px/s). */
+  var MARQUEE_GAP = 26, MARQUEE_PXPS = 13;
+  function baueMarquee(el, basisHTML){
+    if (!el) return;
+    el.innerHTML = '<div class="marquee-group">' + basisHTML + '</div>';
+    var einheit = el.firstChild ? el.firstChild.getBoundingClientRect().width : 0;
+    var breite = el.getBoundingClientRect().width;
+    var wdh = (einheit > 0 && breite > 0) ? Math.max(1, Math.ceil(breite / einheit) + 1) : 4;
+    var gruppe = "";
+    for (var k = 0; k < wdh; k++) gruppe += basisHTML;
+    el.innerHTML = '<div class="marquee-group">' + gruppe + '</div><div class="marquee-group" aria-hidden="true">' + gruppe + "</div>";
+    var g = el.querySelectorAll(".marquee-group");
+    var gw = g[0] ? g[0].getBoundingClientRect().width : 0;
+    if (gw > 0){
+      var dauer = (gw + MARQUEE_GAP) / MARQUEE_PXPS;
+      g[0].style.animationDuration = dauer + "s";
+      g[1].style.animationDuration = dauer + "s";
+    }
+  }
+
   /* ---------- Scroll-Reveals (Pattern aus technik-patterns.md, Schnell-Scroll-sicher) ---------- */
   if (!ruhig && "IntersectionObserver" in window){
     var ziele = document.querySelectorAll("[data-rv]");
@@ -39,19 +62,22 @@
       var orte = slides[idx].getAttribute("data-orte").split("|");
       var teile = [];
       orte.forEach(function(o, i){
-        var kurz = /^[NSEW]\s/.test(o) ? o.trim().split(" ").pop() : o;
+        // Koordinaten-Prefix entfernen, Ortsname bleibt vollstaendig (auch mehrwortig, z.B. "Wadi Rum")
+        var kurz = o.replace(/^[NSEW]\s[\d.]+\s*\/\s*[NSEW]\s[\d.]+\s*/, "").trim();
         teile.push("<span>" + kurz + "</span>");
         if (i % 2 === 1) teile.push(kofferIcon);
       });
-      var eine = teile.join("");
-      marquee.innerHTML = '<div class="marquee-group">' + eine + '</div><div class="marquee-group" aria-hidden="true">' + eine + "</div>";
+      baueMarquee(marquee, teile.join(""));
     }
 
-    /* Buehnenhoehe = groesste Karte (Karten sind absolut, sonst kollabiert die Buehne) */
+    /* Auf kurzen Viewports (Laptops) Karten proportional verkleinern, damit Karten + Ticker
+       ohne Ueberlappung und ohne Abschneiden in die gepinnte Buehne passen. */
+    function kartSkala(){ var h = window.innerHeight; if (!scrolly || h >= 840) return 1; return Math.max(0.72, (h - 250) / 590); }
+    /* Buehnenhoehe = groesste Karte * Skala (Karten sind absolut, sonst kollabiert die Buehne) */
     function buehneHoehe(){
       var h = 0;
       slides.forEach(function(s){ h = Math.max(h, s.offsetHeight); });
-      if (h) rotSlides.style.height = h + "px";
+      if (h) rotSlides.style.height = Math.round(h * kartSkala()) + "px";
     }
 
     /* pos 0..n-1 kontinuierlich. Jede Karte liegt nach ihrer Distanz zur aktiven Position
@@ -64,7 +90,7 @@
         var x = rel * 96;                 // % Kartenbreite: grosser Abstand -> keine Ueberlappung
         var y = -a * 20;                  // % hoch: folgt dem Bogen (Raender hoeher)
         var rot = rel * 8;                // Neigung entlang der Kurve
-        var sc = 1 - a * 0.16;
+        var sc = (1 - a * 0.16) * kartSkala();
         var op = ar >= 1 ? 0 : (1 - a * 0.55);   // nur direkte Nachbarkarte sichtbar
         s.style.transform = "translate(-50%,-50%) translate(" + x + "%," + y + "%) rotate(" + rot + "deg) scale(" + sc + ")";
         s.style.opacity = op.toFixed(2);
@@ -83,7 +109,7 @@
             dot.setAttribute("fill", i === aktiv ? "var(--signal)" : "var(--bg)");
             dot.setAttribute("stroke", i === aktiv ? "var(--signal)" : "var(--muted)");
           }
-          if (lab) lab.classList.toggle("aktiv", i === aktiv);
+          if (lab){ lab.classList.toggle("aktiv", i === aktiv); lab.setAttribute("aria-current", i === aktiv ? "true" : "false"); }
         }
         marqueeFuellen(aktiv);
       }
@@ -134,16 +160,40 @@
     };
     window.rotBlaettern = function(richtung){ window.rotZeige((aktiv < 0 ? 0 : aktiv) + richtung); };
 
+    /* Bogen-Labels per Tastatur bedienbar (Enter/Space): sie ersetzen die im Scroll-Modus
+       ausgeblendeten Pfeil-Buttons als fokussierbare Navigation. */
+    slides.forEach(function(_, i){
+      var lab = document.getElementById("rotlab" + i);
+      if (lab) lab.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar"){ e.preventDefault(); window.rotZeige(i); }
+      });
+    });
+
     buehneHoehe();
-    window.addEventListener("resize", buehneHoehe);
+    var rotResizeT;
+    window.addEventListener("resize", function(){
+      buehneHoehe();
+      if (aktiv >= 0) render(istPos);
+      clearTimeout(rotResizeT);
+      rotResizeT = setTimeout(function(){ if (aktiv >= 0) marqueeFuellen(aktiv); }, 200);
+    });
     render(0);
+    // Nach dem Laden der Mono-Schrift neu vermessen (Wortbreiten aendern sich)
+    if (document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ if (aktiv >= 0) marqueeFuellen(aktiv); }); }
   }
 
-  /* ---------- Statische Marquees (data-marquee: Inhalt verdoppeln) ---------- */
+  /* ---------- Statische Marquees (data-marquee): nahtlos, breiten-adaptiv ---------- */
+  var statischeMarquees = [];
   document.querySelectorAll("[data-marquee]").forEach(function(m){
-    var inhalt = m.innerHTML;
-    m.innerHTML = '<div class="marquee-group">' + inhalt + '</div><div class="marquee-group" aria-hidden="true">' + inhalt + "</div>";
+    statischeMarquees.push({ el: m, basis: m.innerHTML });
+    baueMarquee(m, m.innerHTML);
   });
+  if (statischeMarquees.length){
+    function statischeNeu(){ statischeMarquees.forEach(function(s){ baueMarquee(s.el, s.basis); }); }
+    var statT;
+    window.addEventListener("resize", function(){ clearTimeout(statT); statT = setTimeout(statischeNeu, 200); });
+    if (document.fonts && document.fonts.ready){ document.fonts.ready.then(statischeNeu); }
+  }
 
   /* ---------- Abflugtafel: Zeilen aus data-Attributen in Klapp-Kacheln zerlegen ---------- */
   document.querySelectorAll("[data-tafel]").forEach(function(brett){

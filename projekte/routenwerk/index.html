@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=22">
+<link rel="stylesheet" href="styles.css?v=27">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -80,14 +80,18 @@
     <div class="wrap">
       <div class="marker"><span>04 / Die Guides</span><b>3 Routen · 1 Karte</b></div>
       <h2 style="text-align:center">Die Guides</h2>
-      <svg class="rot-arc" viewBox="0 0 1000 132" aria-hidden="true">
-        <path d="M 0 20 Q 500 140 1000 20" fill="none" stroke="var(--muted)" stroke-dasharray="4 7"/>
-        <circle id="rotdot0" cx="200" cy="58" r="11" fill="var(--signal)" stroke="var(--signal)" stroke-width="2" onclick="rotZeige(0)"/>
-        <circle id="rotdot1" cx="500" cy="80" r="6.5" fill="var(--bg)" stroke="var(--muted)" stroke-width="2" onclick="rotZeige(1)"/>
-        <circle id="rotdot2" cx="800" cy="58" r="6.5" fill="var(--bg)" stroke="var(--muted)" stroke-width="2" onclick="rotZeige(2)"/>
-        <text id="rotlab0" x="200" y="104" text-anchor="middle" class="aktiv" onclick="rotZeige(0)">ISLAND</text>
-        <text id="rotlab1" x="500" y="122" text-anchor="middle" onclick="rotZeige(1)">ALBANIEN</text>
-        <text id="rotlab2" x="800" y="104" text-anchor="middle" onclick="rotZeige(2)">JORDANIEN</text>
+      <div class="rot-hint" id="rotHint" aria-hidden="true">
+        <span>Weiter scrollen</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <svg class="rot-arc" viewBox="0 0 1000 132" role="group" aria-label="Reise-Guide auswaehlen">
+        <path d="M 0 20 Q 500 140 1000 20" fill="none" stroke="var(--muted)" stroke-dasharray="4 7" aria-hidden="true"/>
+        <circle id="rotdot0" cx="200" cy="58" r="11" fill="var(--signal)" stroke="var(--signal)" stroke-width="2" onclick="rotZeige(0)" aria-hidden="true"/>
+        <circle id="rotdot1" cx="500" cy="80" r="6.5" fill="var(--bg)" stroke="var(--muted)" stroke-width="2" onclick="rotZeige(1)" aria-hidden="true"/>
+        <circle id="rotdot2" cx="800" cy="58" r="6.5" fill="var(--bg)" stroke="var(--muted)" stroke-width="2" onclick="rotZeige(2)" aria-hidden="true"/>
+        <text id="rotlab0" x="200" y="104" text-anchor="middle" class="aktiv" role="button" tabindex="0" aria-label="Island-Guide anzeigen" onclick="rotZeige(0)">ISLAND</text>
+        <text id="rotlab1" x="500" y="122" text-anchor="middle" role="button" tabindex="0" aria-label="Albanien-Guide anzeigen" onclick="rotZeige(1)">ALBANIEN</text>
+        <text id="rotlab2" x="800" y="104" text-anchor="middle" role="button" tabindex="0" aria-label="Jordanien-Guide anzeigen" onclick="rotZeige(2)">JORDANIEN</text>
       </svg>
       <div class="rot-slides">
         <div class="rot-track">
@@ -165,10 +169,6 @@
       </div>
     </div>
     <div class="marquee" id="rotMarquee" aria-hidden="true"></div>
-    <div class="rot-hint" id="rotHint" aria-hidden="true">
-      <span>Weiter scrollen</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
   </div>
 </section>
 
@@ -265,6 +265,6 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=22"></script>
+<script src="site.js?v=27"></script>
 </body>
 </html>

@@ -135,20 +135,25 @@ section{padding:84px 0}
 /* ---------- Routen-Rotator (Highlight 1) ---------- */
 .rotator{position:relative}
 @media(min-width:861px){.rotator.scrolly{height:300vh}
-  .rotator.scrolly .rot-buehne{position:sticky;top:0;min-height:100vh;display:flex;
-    flex-direction:column;justify-content:center;padding:40px 0 104px}
-  /* Ticker als immer sichtbares Bodenband am Viewport-Rand (nicht erst nach der letzten Karte) */
-  .rotator.scrolly #rotMarquee{position:absolute;left:0;right:0;top:calc(100vh - 46px);margin:0}
-  /* Pfeil-Nav im Scroll-Modus redundant (Scroll + Bogen-Punkte navigieren), Bodenzone freihalten */
+  .rotator.scrolly .rot-buehne{position:sticky;top:0;min-height:100vh;box-sizing:border-box;display:flex;
+    flex-direction:column;justify-content:space-between;padding:32px 0 20px}
+  /* Karten-Zone waechst und zentriert; Ticker sitzt als Bodenband unten im Fluss -> nie Ueberlappung */
+  .rotator.scrolly .rot-buehne>.wrap{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center}
+  /* explizite Breite: sonst kollabiert .rot-slides (nur absolute Karten + margin:auto) im Flex-Column auf 0 */
+  .rotator.scrolly .rot-slides{width:100%}
+  .rotator.scrolly #rotMarquee{margin:0}
+  /* Pfeil-Nav im Scroll-Modus redundant (Scroll + Bogen-Punkte navigieren) */
   .rotator.scrolly .rot-nav{display:none}}
+/* Kurze Laptop-Viewports: Bogen flacher, damit Karten + Ticker sicher ohne Ueberlappung passen */
+@media(min-width:861px) and (max-height:820px){ .rotator.scrolly .rot-arc{max-width:720px} }
 /* Buehnen-Wrap muss volle Breite halten (absolute Karten steuern keine Breite bei;
    sonst schrumpft der flex-column-Wrap durch margin:auto auf Inhaltsbreite) */
 .rot-buehne>.wrap{width:100%}
-/* Scroll-Hinweis: nur im Sticky-Modus, sitzt unten in der Buehne, blendet zur letzten Karte aus */
+/* Scroll-Hinweis: nur im Sticky-Modus, sitzt unter der h2, blendet zur letzten Karte aus */
 .rot-hint{display:none}
 @media(min-width:861px){
-  .rotator.scrolly .rot-hint{display:flex;flex-direction:row;align-items:center;gap:8px;
-    position:absolute;left:50%;top:calc(100vh - 74px);bottom:auto;transform:translateX(-50%);
+  .rotator.scrolly .rot-hint{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;
+    margin:8px 0 2px;
     font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--muted);pointer-events:none;transition:opacity .3s}
   .rot-hint svg{width:13px;height:13px;animation:hintWippen 1.8s ease-in-out infinite}
@@ -158,6 +163,7 @@ section{padding:84px 0}
 .rot-arc circle{cursor:pointer;transition:r .2s}
 .rot-arc text{font-family:var(--mono);font-size:13px;letter-spacing:.08em;fill:var(--muted);cursor:pointer}
 .rot-arc text.aktiv{fill:var(--ink);font-weight:700}
+.rot-arc text:focus-visible{outline:2px solid var(--signal);outline-offset:4px}
 /* Kurven-Coverflow: Karten liegen gestapelt auf einer Buehne, JS positioniert sie
    entlang der Bogenlinie (aktive Karte zentriert, naechste kommt von oben rechts) */
 .rot-slides{position:relative;max-width:980px;margin:6px auto 0;overflow:visible}
@@ -188,7 +194,7 @@ section{padding:84px 0}
   padding:15px 0;display:flex;gap:26px}
 .marquee-group{flex:0 0 auto;display:flex;align-items:center;gap:26px;white-space:nowrap;
   font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);animation:lauf 46s linear infinite;will-change:transform}
+  color:var(--muted);animation:lauf 46s linear infinite}
 .marquee:hover .marquee-group{animation-play-state:paused}
 @keyframes lauf{to{transform:translateX(calc(-100% - 26px))}}
 .thumb{display:inline-block;width:44px;height:30px;flex:0 0 auto;border:1px solid var(--line);
