@@ -154,8 +154,9 @@
         el.style.transform = "translate(-50%,-50%) translate(-130%,0) rotate(-12deg)";
         el.style.opacity = "0"; el.style.zIndex = "0"; el.style.pointerEvents = "none";
         el.setAttribute("aria-hidden", "true");
-      } else if (rel <= 2){                    // dahinter: nach oben versetzt + schmaler -> Stapel oben sichtbar
-        el.style.transform = "translate(-50%,-50%) translate(0," + (rel * -30) + "px) scale(" + (1 - rel * 0.02) + ")";
+      } else if (rel <= 2){                    // dahinter: nach oben versetzt + schmaler + minimal geneigt (wie abgelegt)
+        var neig = rel === 1 ? 1.5 : -2;
+        el.style.transform = "translate(-50%,-50%) translate(0," + (rel * -30) + "px) rotate(" + neig + "deg) scale(" + (1 - rel * 0.02) + ")";
         el.style.opacity = "1"; el.style.zIndex = String(30 - rel * 10); el.style.pointerEvents = "none";
         el.setAttribute("aria-hidden", "true");
       } else {
@@ -342,9 +343,10 @@
     var lang = Math.max(basis.length, alt.length);
     basis = basis.padEnd(lang, " "); alt = alt.padEnd(lang, " ");
     btn.textContent = "";
+    var mitte = Math.ceil(lang / 2);   // Mobil-Umbruch mittig -> beide Zeilen gleich viele Kacheln
     for (var i = 0; i < lang; i++){
+      if (i === mitte){ var brk = document.createElement("i"); brk.className = "flapbreak"; brk.setAttribute("aria-hidden", "true"); btn.appendChild(brk); }
       var b = document.createElement("b");
-      if (basis[i] === " ") b.className = "luecke";   // Wortgrenze -> Mobil-Umbruchpunkt
       b.textContent = basis[i] === " " ? "\u00A0" : basis[i];
       btn.appendChild(b);
     }
