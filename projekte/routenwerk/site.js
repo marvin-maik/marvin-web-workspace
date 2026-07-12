@@ -55,8 +55,9 @@
     var marquee = document.getElementById("rotMarquee");
     var scrolly = window.matchMedia("(min-width: 861px)").matches && !ruhig;
     var mobil = window.matchMedia("(max-width: 860px)").matches;
-    var ctaMobil = document.getElementById("rotCta");
+    var eggEl = document.getElementById("rotEgg");        // Easter-Egg-Karte hinter der letzten
     var swipeHint = document.getElementById("rotSwipeHint");
+    var deckIdx = 0;                                       // Mobil-Stapelposition 0..n (n = Egg)
     if (scrolly){ rotator.classList.add("scrolly"); slides.forEach(function(s){ s.style.transition = "none"; }); }
     if (mobil){ rotator.classList.add("mobil"); }
 
@@ -81,7 +82,11 @@
     function buehneHoehe(){
       var h = 0;
       slides.forEach(function(s){ h = Math.max(h, s.offsetHeight); });
-      if (h) rotSlides.style.height = Math.round(h * kartSkala()) + "px";
+      if (h){
+        var hh = Math.round(h * kartSkala());
+        rotSlides.style.height = hh + "px";
+        if (eggEl) eggEl.style.minHeight = hh + "px";   // Egg fuellt die Deckflaeche wie eine echte Karte
+      }
     }
 
     /* Aktive Karte wechseln: Punkte/Labels/Marquee nachziehen; auf Mobil den CTA nach der
@@ -100,7 +105,6 @@
         if (lab){ lab.classList.toggle("aktiv", i === aktiv); lab.setAttribute("aria-current", i === aktiv ? "true" : "false"); }
       }
       marqueeFuellen(aktiv);
-      if (ctaMobil) ctaMobil.classList.toggle("sichtbar", aktiv === n - 1);
     }
 
     /* Desktop-Coverflow: pos 0..n-1 kontinuierlich. Jede Karte liegt nach ihrer Distanz zur
@@ -126,31 +130,43 @@
 
     /* Mobile: Karten als Stapel. Oberste Karte folgt dem Finger (dx px), darunterliegende
        ragen versetzt hervor; weggewischte Karten fliegen nach links raus. */
+    /* Eine Karte im Stapel positionieren. rel = Kartenindex - deckIdx. */
+    function stapelKarte(el, rel, dx){
+      if (rel === 0){                          // oberste Karte folgt dem Finger
+        el.style.transform = "translate(-50%,-50%) translate(" + dx + "px,0) rotate(" + (dx * 0.03) + "deg)";
+        el.style.opacity = "1"; el.style.zIndex = "30"; el.style.pointerEvents = "auto";
+        el.setAttribute("aria-hidden", "false");
+      } else if (rel < 0){                     // weggewischt: nach links raus
+        el.style.transform = "translate(-50%,-50%) translate(-130%,0) rotate(-12deg)";
+        el.style.opacity = "0"; el.style.zIndex = "0"; el.style.pointerEvents = "none";
+        el.setAttribute("aria-hidden", "true");
+      } else if (rel <= 2){                    // dahinter: nach oben versetzt + schmaler -> Stapel oben sichtbar
+        el.style.transform = "translate(-50%,-50%) translate(0," + (rel * -30) + "px) scale(" + (1 - rel * 0.02) + ")";
+        el.style.opacity = "1"; el.style.zIndex = String(30 - rel * 10); el.style.pointerEvents = "none";
+        el.setAttribute("aria-hidden", "true");
+      } else {
+        el.style.opacity = "0"; el.style.zIndex = "0"; el.style.pointerEvents = "none";
+        el.setAttribute("aria-hidden", "true");
+      }
+    }
     function renderStack(dx){
       dx = dx || 0;
-      slides.forEach(function(s, i){
-        var rel = i - aktiv;
-        if (rel < 0){
-          // weggewischt: nach links raus
-          s.style.transform = "translate(-50%,-50%) translate(-130%,0) rotate(-12deg)";
-          s.style.opacity = "0"; s.style.zIndex = "0"; s.style.pointerEvents = "none";
-          s.setAttribute("aria-hidden", "true");
-        } else if (rel === 0){
-          // oberste Karte folgt dem Finger
-          s.style.transform = "translate(-50%,-50%) translate(" + dx + "px,0) rotate(" + (dx * 0.03) + "deg)";
-          s.style.opacity = "1"; s.style.zIndex = "30"; s.style.pointerEvents = "auto";
-          s.setAttribute("aria-hidden", "false");
-        } else if (rel <= 2){
-          // dahinterliegende Karten: nach OBEN versetzt (Versatz > Skalen-Verkuerzung) + leicht
-          // schmaler -> Stapel schaut als Streifen oben hervor
-          s.style.transform = "translate(-50%,-50%) translate(0," + (rel * -30) + "px) scale(" + (1 - rel * 0.02) + ")";
-          s.style.opacity = "1"; s.style.zIndex = String(30 - rel * 10); s.style.pointerEvents = "none";
-          s.setAttribute("aria-hidden", "true");
-        } else {
-          s.style.opacity = "0"; s.style.zIndex = "0"; s.style.pointerEvents = "none";
-          s.setAttribute("aria-hidden", "true");
-        }
-      });
+      slides.forEach(function(s, i){ stapelKarte(s, i - deckIdx, dx); });
+      if (!eggEl) return;
+      var eRel = n - deckIdx;
+      if (eRel === 0){                         // Egg ist oben (letzte Karte weggewischt)
+        eggEl.style.transform = "translate(-50%,-50%) translate(" + dx + "px,0) rotate(" + (dx * 0.03) + "deg)";
+        eggEl.style.opacity = "1"; eggEl.style.zIndex = "30"; eggEl.style.pointerEvents = "auto";
+        eggEl.setAttribute("aria-hidden", "false");
+      } else if (eRel === 1){                  // versteckt hinter der letzten Karte: taucht beim Ziehen nach links auf
+        var fort = Math.min(1, Math.max(0, -dx / 150));
+        eggEl.style.transform = "translate(-50%,-50%) scale(" + (0.94 + 0.06 * fort) + ")";
+        eggEl.style.opacity = fort.toFixed(2); eggEl.style.zIndex = "5"; eggEl.style.pointerEvents = "none";
+        eggEl.setAttribute("aria-hidden", "true");
+      } else {
+        eggEl.style.opacity = "0"; eggEl.style.zIndex = "0"; eggEl.style.pointerEvents = "none";
+        eggEl.setAttribute("aria-hidden", "true");
+      }
     }
 
     /* Dead-Zones: erste + letzte LEAD des Scroll-Wegs stehen still (Karte "angekommen",
@@ -192,9 +208,10 @@
         var fRaw = LEAD + (i / (n - 1)) * (1 - 2 * LEAD);
         window.scrollTo({ top: docTop + fRaw * spanne, behavior: "smooth" });
       } else if (mobil){
-        i = Math.max(0, Math.min(n - 1, i));       // Deck: clampen statt umlaufen
+        deckIdx = Math.max(0, Math.min(n - 1, i));  // Pfeile/Labels: nur Routen, nicht das Egg
         slides.forEach(function(s){ s.style.transition = ""; });
-        aktualisiereAktiv(i);
+        if (eggEl) eggEl.style.transition = "";
+        aktualisiereAktiv(deckIdx);
         renderStack(0);
       } else {
         i = (i + n) % n;
@@ -217,11 +234,17 @@
        blaettern (weiter/zurueck), sonst zurueckschnappen. Vertikales Wischen = Seiten-Scroll. */
     if (mobil){
       var startX = 0, startY = 0, ziehen = false, drag = 0, horiz = false;
+      // oberstes Element im Deck (Karte 0..n-1 oder Egg an Position n)
+      function obenEl(){ return deckIdx < n ? slides[deckIdx] : eggEl; }
+      function transitionAus(an){
+        var o = obenEl(); if (o) o.style.transition = an ? "none" : "";
+        if (eggEl) eggEl.style.transition = an ? "none" : "";   // Egg taucht beim Ziehen fluessig auf
+      }
       rotSlides.addEventListener("touchstart", function(e){
         if (e.touches.length !== 1) return;
         startX = e.touches[0].clientX; startY = e.touches[0].clientY;
         ziehen = true; drag = 0; horiz = false;
-        if (slides[aktiv]) slides[aktiv].style.transition = "none";
+        transitionAus(true);
       }, { passive: true });
       rotSlides.addEventListener("touchmove", function(e){
         if (!ziehen) return;
@@ -229,18 +252,19 @@
         if (!horiz){
           if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
           horiz = Math.abs(dx) > Math.abs(dy);
-          if (!horiz){ ziehen = false; if (slides[aktiv]) slides[aktiv].style.transition = ""; return; }
+          if (!horiz){ ziehen = false; transitionAus(false); return; }
         }
-        if ((aktiv === 0 && dx > 0) || (aktiv === n - 1 && dx < 0)) dx *= 0.3;   // Widerstand am Ende
+        if ((deckIdx === 0 && dx > 0) || (deckIdx === n && dx < 0)) dx *= 0.3;   // Widerstand an den Enden
         drag = dx;
         e.preventDefault();
         renderStack(drag);
       }, { passive: false });
       function swipeEnde(){
         if (!ziehen) return; ziehen = false;
-        if (slides[aktiv]) slides[aktiv].style.transition = "";
-        if (drag < -55 && aktiv < n - 1){ aktualisiereAktiv(aktiv + 1); if (swipeHint) swipeHint.classList.add("weg"); }
-        else if (drag > 55 && aktiv > 0){ aktualisiereAktiv(aktiv - 1); if (swipeHint) swipeHint.classList.add("weg"); }
+        transitionAus(false);
+        if (drag < -55 && deckIdx < n){ deckIdx++; if (swipeHint) swipeHint.classList.add("weg"); }
+        else if (drag > 55 && deckIdx > 0){ deckIdx--; if (swipeHint) swipeHint.classList.add("weg"); }
+        if (deckIdx < n) aktualisiereAktiv(deckIdx);   // Egg (Pos n) laesst die letzte Route aktiv
         drag = 0;
         renderStack(0);
       }

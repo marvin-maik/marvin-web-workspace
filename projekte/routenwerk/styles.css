@@ -185,8 +185,9 @@ section{padding:84px 0}
 .rot-nav button{border:1px solid var(--ink);background:var(--bg);width:48px;height:48px;
   border-radius:50%;font-size:19px;cursor:pointer;color:var(--ink);transition:background .15s,color .15s}
 .rot-nav button:hover{background:var(--ink);color:var(--bg)}
-/* Swipe-Hinweis + Mobil-CTA: nur im Mobil-Deck sichtbar (Regeln im max-width:860-Block) */
-.rot-swipe-hint,.rot-cta-mobil{display:none}
+/* Swipe-Hinweis + Egg-Karte: nur im Mobil-Deck sichtbar (Regeln im max-width:860-Block) */
+.rot-swipe-hint{display:none}
+.rot-egg{display:none}
 
 /* ---------- Marquee ---------- */
 .marquee:empty{display:none}
@@ -350,12 +351,16 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   .rot-swipe-hint{display:block;text-align:center;margin:16px 0 0;font-family:var(--mono);
     font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:opacity .35s}
   .rot-swipe-hint.weg{opacity:0}
-  .rot-cta-mobil{display:block;overflow:hidden;text-align:center;margin:0 auto;max-width:340px;max-height:0;opacity:0;
-    font-family:var(--body);font-size:14px;line-height:1.45;color:var(--muted);text-decoration:none;
-    transition:max-height .45s ease,opacity .4s ease,margin .45s ease;pointer-events:none}
-  .rot-cta-mobil.sichtbar{max-height:90px;opacity:1;margin-top:20px;pointer-events:auto}
-  .rot-cta-mobil b{display:block;color:var(--signal);font-weight:600;margin-top:3px;
-    text-decoration:underline;text-underline-offset:3px}
+  /* Easter-Egg-Karte: liegt versteckt hinter der letzten Karte, taucht beim Wegwischen auf (JS) */
+  .rotator.mobil .rot-egg{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;
+    position:absolute;top:50%;left:50%;width:100%;min-height:340px;box-sizing:border-box;padding:38px 30px;
+    border:1px solid var(--signal);background:var(--bg);box-shadow:6px 8px 0 var(--line);
+    transform:translate(-50%,-50%);transform-origin:center center;opacity:0;will-change:transform,opacity;
+    transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s ease}
+  .rot-egg .egg-tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal)}
+  .rot-egg h3{font-size:27px;line-height:1.1;margin:4px 0 6px}
+  .rot-egg p{color:var(--muted);font-size:15px;line-height:1.5;max-width:34ch}
+  .rot-egg .btn-sign{margin-top:16px}
 }
 @media(max-width:720px){
   .nav-inner{gap:14px;padding-top:12px;padding-bottom:12px}

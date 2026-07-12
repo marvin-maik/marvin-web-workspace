@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=30">
+<link rel="stylesheet" href="styles.css?v=32">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -162,13 +162,18 @@
           </div>
         </article>
         </div>
+        <div class="rot-egg" id="rotEgg" aria-hidden="true">
+          <p class="egg-tag">Versteckte Route</p>
+          <h3>Noch nicht genug?</h3>
+          <p>Dann wird eure eigene Reise unser nächster Guide. Sagt uns, wohin es gehen soll.</p>
+          <a class="btn-sign" href="beratung.html">Eigene Reise planen</a>
+        </div>
       </div>
       <p class="rot-swipe-hint" id="rotSwipeHint" aria-hidden="true">Karten wischen oder tippen</p>
       <div class="rot-nav">
         <button type="button" onclick="rotBlaettern(-1)" aria-label="Vorheriger Guide">&#8592;</button>
         <button type="button" onclick="rotBlaettern(1)" aria-label="Nächster Guide">&#8594;</button>
       </div>
-      <a class="rot-cta-mobil" id="rotCta" href="beratung.html">Noch nicht das Richtige dabei? <b>Euer eigener Trip, geplant von uns.</b></a>
     </div>
     <div class="marquee" id="rotMarquee" aria-hidden="true"></div>
   </div>
@@ -267,6 +272,6 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=30"></script>
+<script src="site.js?v=32"></script>
 </body>
 </html>
