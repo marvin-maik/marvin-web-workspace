@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -48,7 +48,7 @@
           <textarea id="msg" name="nachricht" placeholder="Ziel, Zeitraum, was ihr euch vorstellt" required></textarea>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <input type="hidden" name="_subject" value="Anfrage ueber ROUTENWERK">
-          <button class="btn btn-voll" type="submit">Nachricht senden</button>
+          <button class="btn-flap" type="submit" data-text="NACHRICHT SENDEN" data-alt="ABFLUG">Nachricht senden</button>
         </form>
       </div>
       <div class="bild">
@@ -56,7 +56,7 @@
           <p class="mono">Oder direkt reden</p>
           <h2>Kompass-Gespräch</h2>
           <p>Wenn ihr schon wisst, dass ihr Planung wollt: bucht direkt. Das spart eine E-Mail-Runde. 149 €, voll anrechenbar auf die Komplettplanung.</p>
-          <a class="btn" href="beratung.html#termin">Zur Terminbuchung</a>
+          <a class="btn-sign" href="beratung.html#termin">Zur Terminbuchung</a>
           <p class="kleingedruckt"><a href="mailto:hallo@routenwerk.de">hallo@routenwerk.de</a></p>
         </div>
       </div>
@@ -119,6 +119,6 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=5"></script>
+<script src="site.js?v=6"></script>
 </body>
 </html>

@@ -16,10 +16,10 @@
   --muted:#6F6A60;
   --line:#E2DFD7;
   --papier-tief:#F2EFE8;      /* Foto-Platzhalter, abgesetzte Flaechen */
-  --btn-text:#fff;
   --hero-schraffur-1:#241F17;
   --hero-schraffur-2:#2B251C;
   --solari:#E8B84B;          /* Anzeigetafel-Gelb */
+  --plane-mask:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M21%2016v-2l-8-5V3.5A1.5%201.5%200%200%200%2011.5%202%201.5%201.5%200%200%200%2010%203.5V9l-8%205v2l8-2.5V19l-2%201.5V22l3.5-1%203.5%201v-1.5L13%2019v-5.5l8%202.5z'/%3E%3C/svg%3E");
   --flap:#211C15;            /* Klapp-Kachel dunkel */
   --flap-hell:#2B251C;       /* Klapp-Kachel oben */
   --stempel-blau:#2E4A6B;    /* zweite Grenzstempel-Farbe */
@@ -86,17 +86,9 @@ section{padding:84px 0}
 .band-ink p{color:color-mix(in srgb,var(--bg) 82%,transparent)}
 .band-ink h2,.band-ink h3,.band-ink .statement{color:var(--bg)}
 
-/* ---------- Buttons + Chips ---------- */
-.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;
-  border:2px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;
-  padding:13px 26px;margin:8px 10px 0 0;cursor:pointer;
-  transition:transform .15s,box-shadow .15s,background .15s,color .15s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
-.btn-voll{background:var(--signal);border-color:var(--signal);color:var(--btn-text)}
-.btn-voll:hover{box-shadow:3px 3px 0 var(--ink)}
-.band-ink .btn{border-color:var(--bg);color:var(--bg)}
-.band-ink .btn:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
-.band-ink .btn-voll{background:var(--signal);border-color:var(--signal);color:var(--btn-text)}
+/* ---------- Buttons + Chips ----------
+   Genau ZWEI Button-Typen im ganzen System:
+   Primaer = .btn-flap (Split-Flap-Anzeige), Sekundaer = .btn-sign (Departures-Schild) */
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
   border:1px solid currentColor;padding:7px 13px;white-space:nowrap}
@@ -122,9 +114,6 @@ section{padding:84px 0}
 .hero-unten{padding-bottom:56px}
 .hero h1{color:var(--bg);max-width:15ch}
 .hero p{color:color-mix(in srgb,var(--bg) 80%,transparent);max-width:560px}
-.hero .btn{border-color:var(--bg);color:var(--bg)}
-.hero .btn:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
-.hero .btn-voll{background:var(--signal);border-color:var(--signal);color:var(--btn-text)}
 .hero .foto-hinweis{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
   text-transform:uppercase;color:color-mix(in srgb,var(--bg) 62%,transparent);margin-top:20px}
 
@@ -159,7 +148,7 @@ section{padding:84px 0}
 .rot-meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
   color:var(--muted);margin-bottom:10px}
 .rot-meta b{color:var(--signal);font-weight:400}
-.rot-txt .btn{margin-top:auto}
+.rot-txt .btn-sign,.rot-txt .btn-flap{margin-top:auto}
 .moment{font-style:italic;color:var(--muted)}
 .proofzeile{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
   color:var(--muted);margin-top:12px}
@@ -229,7 +218,7 @@ details .dbody{padding:0 0 22px}
 .paket.kompakt{flex:1;min-width:270px}
 .paket.gross{flex:1.7;min-width:320px;border:2px solid var(--ink)}
 .paket .mono{margin-bottom:10px}
-.paket .btn{margin-top:auto;align-self:flex-start}
+.paket .btn-sign,.paket .btn-flap{margin-top:auto;align-self:flex-start}
 .preisgross{font-family:var(--display);font-weight:800;font-size:clamp(44px,6vw,76px);line-height:1;margin:14px 0 4px}
 .preisgross small{font-family:var(--body);font-size:16px;font-weight:400;color:var(--muted);letter-spacing:0}
 table{border-collapse:collapse;width:100%;margin:20px 0;background:var(--bg)}
@@ -252,7 +241,7 @@ td{color:var(--ink)}
 .gcard .inhalt{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1;align-items:flex-start}
 .gcard ul{margin:10px 0 14px 20px}
 .gcard li{margin:5px 0}
-.gcard .btn{margin-top:auto}
+.gcard .btn-sign,.gcard .btn-flap{margin-top:auto}
 
 /* ---------- Riesen-Typo ---------- */
 .riesig{font-family:var(--display);font-weight:800;font-size:clamp(96px,21vw,290px);
@@ -287,7 +276,7 @@ input:focus,textarea:focus{outline:2px solid var(--signal);outline-offset:1px;bo
 textarea{min-height:140px;resize:vertical}
 .inline-form{display:flex;gap:0;flex-wrap:wrap;align-items:stretch;margin-top:14px}
 .inline-form input[type=email]{max-width:340px;border-right:none}
-.inline-form .btn{margin:0}
+.inline-form .btn-sign,.inline-form .btn-flap{margin:0}
 .kleingedruckt{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--muted);margin-top:10px}
 
@@ -364,18 +353,19 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .btn-flap:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 
 /* Sekundaer-Button: Terminal-Wegweiser-Schild (Departures-Sign) mit Papierflieger + Pfeil */
-.btn-sign{display:inline-flex;align-items:center;gap:10px;height:60px;box-sizing:border-box;
+/* Selbsttragend: Flieger (::before, Maske) + Pfeil (::after) — HTML ist nur <a class="btn-sign">Text</a> */
+.btn-sign{display:inline-flex;align-items:center;gap:9px;height:60px;box-sizing:border-box;
   font-family:var(--body);font-weight:600;font-size:16px;border:2px solid var(--ink);border-radius:10px;
-  color:var(--ink);background:transparent;text-decoration:none;padding:0 20px;margin:10px 12px 0 0;
-  vertical-align:top;transition:transform .15s,box-shadow .15s}
+  color:var(--ink);background:transparent;text-decoration:none;padding:0 18px;margin:10px 12px 0 0;
+  vertical-align:top;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn-sign::before{content:"";width:20px;height:20px;flex:0 0 auto;background:currentColor;
+  -webkit-mask:var(--plane-mask) center/contain no-repeat;mask:var(--plane-mask) center/contain no-repeat}
+.btn-sign::after{content:"\2197";margin-left:2px;color:var(--signal);font-weight:700;font-size:19px;line-height:1}
 .btn-sign:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
 .btn-sign:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
-.btn-sign .plane{width:20px;height:20px;flex:0 0 auto;color:var(--ink)}
-.btn-sign .pfeil{margin-left:2px;color:var(--signal);font-weight:700;font-size:19px;line-height:1}
 .hero .btn-sign,.band-ink .btn-sign{border-color:var(--bg);color:var(--bg)}
-.hero .btn-sign .plane,.band-ink .btn-sign .plane{color:var(--bg)}
 .hero .btn-sign:hover,.band-ink .btn-sign:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
-.hero .btn-sign .pfeil,.band-ink .btn-sign .pfeil{color:var(--solari)}
+.hero .btn-sign::after,.band-ink .btn-sign::after{color:var(--solari)}
 
 /* Kleiner Koffer als Marquee-Akzent (leicht schraeg) */
 .koffer-ic{display:inline-flex;flex:0 0 auto;color:var(--muted);transform:rotate(-8deg)}
