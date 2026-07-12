@@ -336,7 +336,9 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   width:1.3ch;text-align:center;padding:6px 0;margin-right:2px;border-radius:2.5px;border:1px solid var(--line)}
 .flaps b.leer{background:color-mix(in srgb,var(--papier-tief) 60%,var(--bg));border-color:color-mix(in srgb,var(--line) 70%,transparent)}
 .flaps.st b{color:var(--signal)}
-.flapzeile:hover .flaps b,.flapzeile:focus-visible .flaps b{border-color:var(--muted)}
+/* Hover: nur die beschrifteten Kacheln bekommen Signal-Buchstaben (lesbar, klare Zeilen-Aktivierung);
+   leere Kacheln bleiben ruhig, damit das Brett nicht zubusselt */
+.flapzeile:hover .flaps b:not(.leer),.flapzeile:focus-visible .flaps b:not(.leer){color:var(--signal);border-color:color-mix(in srgb,var(--signal) 35%,var(--line))}
 .flapzeile:focus-visible{outline:2px solid var(--solari);outline-offset:3px}
 
 /* ---------- Split-Flap-Button (Haupt-CTA, max 1-2 pro Seite) ---------- */
@@ -423,16 +425,17 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 
 
 /* ---------- Gate-Wegweiser ---------- */
-.wegweiser{background:var(--ink);border-radius:6px;overflow:hidden;max-width:640px;margin-top:22px}
-.weg{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid #353026;
-  font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--bg);
+/* Hell, passend zur Abflugtafel */
+.wegweiser{background:var(--papier-tief);border:1px solid var(--line);border-radius:6px;overflow:hidden;max-width:640px;margin-top:22px}
+.weg{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
   text-decoration:none;transition:background .15s}
 .weg:last-child{border-bottom:none}
-.weg:hover{background:#221D15}
-.weg:focus-visible{outline:2px solid var(--solari);outline-offset:-3px}
-.weg .gate{font-weight:700;color:var(--solari);font-size:13px;min-width:74px}
-.weg .pfeil{margin-left:auto;color:var(--solari);font-size:18px}
-.weg .zusatz{font-size:10.5px;color:#8f887b}
+.weg:hover{background:var(--bg)}
+.weg:focus-visible{outline:2px solid var(--signal);outline-offset:-3px}
+.weg .gate{font-weight:700;color:var(--signal);font-size:13px;min-width:74px}
+.weg .pfeil{margin-left:auto;color:var(--signal);font-size:18px}
+.weg .zusatz{font-size:10.5px;color:var(--muted)}
 
 /* ---------- Gepaeckband (Marquee-Umbau) ---------- */
 .marquee{background:repeating-linear-gradient(90deg,transparent 0 46px,var(--line) 46px 47px)}
