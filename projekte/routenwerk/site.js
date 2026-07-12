@@ -41,6 +41,20 @@
     ziele.forEach(function(el){ io.observe(el); });
   }
 
+  /* ---------- Mobile-Navigation (Burger) ---------- */
+  var burger = document.querySelector(".nav-burger");
+  var navLinks = document.getElementById("navLinks");
+  if (burger && navLinks){
+    function navSchliessen(){ navLinks.classList.remove("offen"); burger.setAttribute("aria-expanded", "false"); burger.setAttribute("aria-label", "Menü öffnen"); }
+    burger.addEventListener("click", function(){
+      var offen = navLinks.classList.toggle("offen");
+      burger.setAttribute("aria-expanded", offen ? "true" : "false");
+      burger.setAttribute("aria-label", offen ? "Menü schliessen" : "Menü öffnen");
+    });
+    navLinks.addEventListener("click", function(e){ if (e.target.closest("a")) navSchliessen(); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") navSchliessen(); });
+  }
+
   /* ---------- Routen-Rotator (Highlight 1, nur Startseite) ----------
      Kurven-Coverflow: die Buehne bleibt sticky stehen; der Scroll fuehrt die Karten
      entlang der Bogenlinie durch (naechste kommt von oben rechts, aktive zentriert).
@@ -330,6 +344,7 @@
     btn.textContent = "";
     for (var i = 0; i < lang; i++){
       var b = document.createElement("b");
+      if (basis[i] === " ") b.className = "luecke";   // Wortgrenze -> Mobil-Umbruchpunkt
       b.textContent = basis[i] === " " ? "\u00A0" : basis[i];
       btn.appendChild(b);
     }

@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=32">
+<link rel="stylesheet" href="styles.css?v=34">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -21,11 +21,14 @@
 <nav aria-label="Hauptnavigation">
   <div class="nav-inner">
     <a class="wortmarke" href="index.html">ROUTEN<span>WERK</span></a>
+    <button class="nav-burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
     <a href="guides.html">Reise-Guides</a>
     <a href="beratung.html" aria-current="page">Beratung</a>
     <a href="gruppenreisen.html">Gruppenreisen</a>
     <a href="ueber-uns.html">Über uns</a>
     <a href="kontakt.html">Kontakt</a>
+    </div>
   </div>
 </nav>
 
@@ -74,16 +77,16 @@
   <div class="wrap" data-rv>
     <div class="marker"><span>03 / Kostentransparenz</span><b>Planung &ne; Reisekosten</b></div>
     <h2>Wofür ihr uns bezahlt. Und wofür nicht.</h2>
-    <table>
-      <tr>
-        <th scope="col">Was ihr an uns zahlt</th>
-        <th scope="col">Was ihr an Hotels und Airlines zahlt</th>
-      </tr>
-      <tr>
-        <td>Die Planungsgebühr. Fix, vorher bekannt, einmalig.</td>
-        <td>Eure Buchungen, eure Preise, direkt bei den Anbietern. Wir verdienen daran nichts mit.</td>
-      </tr>
-    </table>
+    <div class="vergleich">
+      <div>
+        <h3>Was ihr an uns zahlt</h3>
+        <p>Die Planungsgebühr. Fix, vorher bekannt, einmalig.</p>
+      </div>
+      <div>
+        <h3>Was ihr an Hotels und Airlines zahlt</h3>
+        <p>Eure Buchungen, eure Preise, direkt bei den Anbietern. Wir verdienen daran nichts mit.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -179,6 +182,6 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=32"></script>
+<script src="site.js?v=34"></script>
 </body>
 </html>
