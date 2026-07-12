@@ -43,7 +43,8 @@
         teile.push("<span>" + kurz + "</span>");
         if (i % 2 === 1) teile.push(kofferIcon);
       });
-      marquee.innerHTML = '<div class="marquee-track">' + teile.join("") + teile.join("") + "</div>";
+      var eine = teile.join("");
+      marquee.innerHTML = '<div class="marquee-group">' + eine + '</div><div class="marquee-group" aria-hidden="true">' + eine + "</div>";
     }
 
     /* Buehnenhoehe = groesste Karte (Karten sind absolut, sonst kollabiert die Buehne) */
@@ -141,7 +142,7 @@
   /* ---------- Statische Marquees (data-marquee: Inhalt verdoppeln) ---------- */
   document.querySelectorAll("[data-marquee]").forEach(function(m){
     var inhalt = m.innerHTML;
-    m.innerHTML = '<div class="marquee-track">' + inhalt + inhalt + "</div>";
+    m.innerHTML = '<div class="marquee-group">' + inhalt + '</div><div class="marquee-group" aria-hidden="true">' + inhalt + "</div>";
   });
 
   /* ---------- Abflugtafel: Zeilen aus data-Attributen in Klapp-Kacheln zerlegen ---------- */

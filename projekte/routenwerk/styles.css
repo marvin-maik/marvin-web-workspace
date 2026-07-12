@@ -136,7 +136,11 @@ section{padding:84px 0}
 .rotator{position:relative}
 @media(min-width:861px){.rotator.scrolly{height:300vh}
   .rotator.scrolly .rot-buehne{position:sticky;top:0;min-height:100vh;display:flex;
-    flex-direction:column;justify-content:center;padding:40px 0}}
+    flex-direction:column;justify-content:center;padding:40px 0 104px}
+  /* Ticker als immer sichtbares Bodenband am Viewport-Rand (nicht erst nach der letzten Karte) */
+  .rotator.scrolly #rotMarquee{position:absolute;left:0;right:0;top:calc(100vh - 46px);margin:0}
+  /* Pfeil-Nav im Scroll-Modus redundant (Scroll + Bogen-Punkte navigieren), Bodenzone freihalten */
+  .rotator.scrolly .rot-nav{display:none}}
 /* Buehnen-Wrap muss volle Breite halten (absolute Karten steuern keine Breite bei;
    sonst schrumpft der flex-column-Wrap durch margin:auto auf Inhaltsbreite) */
 .rot-buehne>.wrap{width:100%}
@@ -144,7 +148,7 @@ section{padding:84px 0}
 .rot-hint{display:none}
 @media(min-width:861px){
   .rotator.scrolly .rot-hint{display:flex;flex-direction:row;align-items:center;gap:8px;
-    position:absolute;left:50%;top:calc(100vh - 24px);bottom:auto;transform:translateX(-50%);
+    position:absolute;left:50%;top:calc(100vh - 74px);bottom:auto;transform:translateX(-50%);
     font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--muted);pointer-events:none;transition:opacity .3s}
   .rot-hint svg{width:13px;height:13px;animation:hintWippen 1.8s ease-in-out infinite}
@@ -178,13 +182,15 @@ section{padding:84px 0}
 
 /* ---------- Marquee ---------- */
 .marquee:empty{display:none}
+/* Nahtlose Endlos-Schleife: zwei identische Gruppen, jede laeuft translateX(0 -> -100% - gap);
+   Gruppe 2 uebernimmt exakt den Platz von Gruppe 1, keine sichtbare Naht. */
 .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:15px 0;white-space:nowrap}
-.marquee-track{display:inline-flex;align-items:center;gap:26px;padding-right:26px;
+  padding:15px 0;display:flex;gap:26px}
+.marquee-group{flex:0 0 auto;display:flex;align-items:center;gap:26px;white-space:nowrap;
   font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--muted);animation:lauf 46s linear infinite;will-change:transform}
-.marquee:hover .marquee-track{animation-play-state:paused}
-@keyframes lauf{to{transform:translateX(-50%)}}
+.marquee:hover .marquee-group{animation-play-state:paused}
+@keyframes lauf{to{transform:translateX(calc(-100% - 26px))}}
 .thumb{display:inline-block;width:44px;height:30px;flex:0 0 auto;border:1px solid var(--line);
   background:repeating-linear-gradient(45deg,var(--papier-tief),var(--papier-tief) 6px,color-mix(in srgb,var(--papier-tief) 55%,var(--bg)) 6px,color-mix(in srgb,var(--papier-tief) 55%,var(--bg)) 12px)}
 
