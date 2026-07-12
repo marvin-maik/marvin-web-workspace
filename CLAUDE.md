@@ -39,4 +39,6 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
   https://marvin-web.pages.dev
 - Nach jedem Push zusaetzlich deployen:
   `npx wrangler pages deploy projekte/marvin-web --project-name marvin-web --branch main`
+- ROUTENWERK-Demo LIVE (seit 2026-07-12, fuer Shop-Test + Portfolio): https://routenwerk.pages.dev
+  Deploy: `npx wrangler pages deploy projekte/routenwerk --project-name routenwerk --branch main`
 - Spaeter optional: Git-Integration im CF-Dashboard fuer Auto-Deploy bei Push.
