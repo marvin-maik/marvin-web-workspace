@@ -130,12 +130,15 @@
       btn.appendChild(b);
     }
     var kacheln = btn.querySelectorAll("b");
-    var laeuft = false;
+    var laeuft = false, pending = null;
     function setzen(ziel){
       kacheln.forEach(function(k, i){ k.textContent = ziel[i] === " " ? "\u00A0" : ziel[i]; });
     }
+    /* Laeuft ein Flip, wird das neue Ziel gemerkt (pending) statt abgebrochen \u2014
+       so klappt die Animation IMMER bis 100% durch, auch bei kurzem Hover. */
     function flip(ziel){
-      if (ruhig || laeuft){ setzen(ziel); return; }
+      if (ruhig){ setzen(ziel); return; }
+      if (laeuft){ pending = ziel; return; }
       laeuft = true;
       var fertig = 0;
       kacheln.forEach(function(k, i){
@@ -145,7 +148,11 @@
           if (n >= schritte){
             k.textContent = ziel[i] === " " ? "\u00A0" : ziel[i];
             clearInterval(iv);
-            if (++fertig === kacheln.length) laeuft = false;
+            if (++fertig === kacheln.length){
+              laeuft = false;
+              if (pending !== null && pending !== ziel){ var p = pending; pending = null; flip(p); }
+              else pending = null;
+            }
           } else {
             k.textContent = FLAP_POOL[Math.floor(Math.random() * FLAP_POOL.length)];
           }
