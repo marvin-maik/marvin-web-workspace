@@ -472,8 +472,12 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
 .hero .btn-sign:hover,.band-ink .btn-sign:hover{box-shadow:3px 3px 0 color-mix(in srgb,var(--bg) 45%,transparent)}
 
 /* Kleiner Koffer als Marquee-Akzent (leicht schraeg) */
-.koffer-ic{display:inline-flex;flex:0 0 auto;color:var(--muted);transform:rotate(-8deg)}
+.koffer-ic{display:inline-flex;flex:0 0 auto;color:var(--muted)}
 .koffer-ic svg{width:26px;height:22px}
+/* 3 Koffer-Varianten, je eigene leichte Neigung -> lebendiger, nicht uniform */
+.koffer-ic.kv1{transform:rotate(-7deg)}
+.koffer-ic.kv2{transform:rotate(5deg)}
+.koffer-ic.kv3{transform:rotate(-2deg)}
 
 /* ---------- Boarding-Pass (Guide-Karten + Rotator-Slides) ---------- */
 .pass{display:flex;flex-wrap:wrap;background:var(--bg);border:1px solid var(--muted);

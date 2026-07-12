@@ -75,7 +75,13 @@
     if (scrolly){ rotator.classList.add("scrolly"); slides.forEach(function(s){ s.style.transition = "none"; }); }
     if (mobil){ rotator.classList.add("mobil"); }
 
-    var kofferIcon = '<span class="koffer-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="12" y1="10.5" x2="12" y2="16.5"/></svg></span>';
+    /* 3 Koffer-Varianten (klassisch, mit Gurten, Trolley); Neigung je Variante im CSS */
+    var kofferVarianten = [
+      '<span class="koffer-ic kv1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="12" y1="10.5" x2="12" y2="16.5"/></svg></span>',
+      '<span class="koffer-ic kv2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="8.5" y1="7.5" x2="8.5" y2="19.5"/><line x1="15.5" y1="7.5" x2="15.5" y2="19.5"/></svg></span>',
+      '<span class="koffer-ic kv3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6.5" y="6" width="11" height="13" rx="1.8"/><path d="M9.5 6V3.5h5V6"/><line x1="12" y1="9" x2="12" y2="16"/><line x1="8" y1="19" x2="8" y2="21"/><line x1="16" y1="19" x2="16" y2="21"/></svg></span>'
+    ];
+    var kofferZaehler = 0;   // karten-uebergreifend -> alle 3 Varianten kommen vor
     function marqueeFuellen(idx){
       if (!marquee) return;
       var orte = slides[idx].getAttribute("data-orte").split("|");
@@ -84,7 +90,7 @@
         // Koordinaten-Prefix entfernen, Ortsname bleibt vollstaendig (auch mehrwortig, z.B. "Wadi Rum")
         var kurz = o.replace(/^[NSEW]\s[\d.]+\s*\/\s*[NSEW]\s[\d.]+\s*/, "").trim();
         teile.push("<span>" + kurz + "</span>");
-        if (i % 2 === 1) teile.push(kofferIcon);
+        if (i % 2 === 1) teile.push(kofferVarianten[kofferZaehler++ % kofferVarianten.length]);
       });
       baueMarquee(marquee, teile.join(""));
     }
