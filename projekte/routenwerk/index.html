@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=17">
+<link rel="stylesheet" href="styles.css?v=20">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -33,7 +33,7 @@
 <main id="main">
 
 <section class="hero hell">
-  <div class="foto-flaeche" aria-hidden="true"></div>
+  <div class="foto-flaeche" style="background-image:linear-gradient(rgba(22,19,14,.5),rgba(22,19,14,.74)),url(img/hero.jpg)" aria-hidden="true"></div>
   <div class="wrap hero-oben">
     <div class="marker"><span>01 / Logbuch Routenwerk</span><b>N 64.1466 / W 21.9426 · Reykjavik</b></div>
   </div>
@@ -47,7 +47,6 @@
       <span class="chip">Sofort-Download</span>
       <span class="chip">Jede Route selbst gereist</span>
     </div>
-    <p class="foto-hinweis">Foto folgt: das Team unterwegs, echtes Foto, kein Stock</p>
   </div>
 </section>
 
@@ -107,7 +106,7 @@
             <a class="btn-sign" href="guides.html">Zum Guide</a>
           </div>
           <div class="perfo" aria-hidden="true"></div>
-          <div class="pass-stub">
+          <div class="pass-stub mit-foto" style="--stub-img:url(img/island.jpg)">
             <div class="stub-code">KEF</div>
             <div class="feld"><span>Fare</span></div>
             <div class="stub-preis">39 €</div>
@@ -129,7 +128,7 @@
             <a class="btn-sign" href="guides.html">Zum Guide</a>
           </div>
           <div class="perfo" aria-hidden="true"></div>
-          <div class="pass-stub">
+          <div class="pass-stub mit-foto" style="--stub-img:url(img/albanien.jpg)">
             <div class="stub-code">TIA</div>
             <div class="feld"><span>Fare</span></div>
             <div class="stub-preis">29 €</div>
@@ -151,7 +150,7 @@
             <a class="btn-sign" href="guides.html">Zum Guide</a>
           </div>
           <div class="perfo" aria-hidden="true"></div>
-          <div class="pass-stub">
+          <div class="pass-stub mit-foto" style="--stub-img:url(img/jordanien.jpg)">
             <div class="stub-code">AMM</div>
             <div class="feld"><span>Fare</span></div>
             <div class="stub-preis">29 €</div>
@@ -262,6 +261,6 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=17"></script>
+<script src="site.js?v=20"></script>
 </body>
 </html>
