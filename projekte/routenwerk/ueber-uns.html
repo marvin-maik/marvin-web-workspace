@@ -71,34 +71,32 @@
         </span>
       </div>
     </div>
-    <div class="postkarte" data-rv>
-      <div class="pk-links">
-        <div class="pk-gruss">Grüße aus Theth!</div>
-        <p>Hier ist Guide Nr. 2 entstanden: drei Tage ohne Netz, dafür mit dem besten Blick der Albanischen Alpen. Genau solche Orte packen wir in die Pläne.</p>
-        <p style="font-style:normal" class="kleingedruckt">Das Routenwerk-Team, unterwegs</p>
-      </div>
-      <div class="pk-rechts">
-        <div class="pk-marke">ROUTENWERK<br>POST</div>
-        <div class="pk-stempelkreis" aria-hidden="true"></div>
-        <div class="pk-adresse"><i></i><i></i><i></i></div>
-      </div>
-    </div>
+</div>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap" data-rv>
     <div class="marker"><span>03 / Erlebnis-Fakten</span><b>Belegt statt behauptet</b></div>
-    <div class="passport">
-      <div>
-        <span class="stempel s1">Island<br>selbst gereist<small>Routenwerk · Herbst</small></span>
-        <span class="stempel rund blau s2">Albanien<br>2x gefahren</span>
-        <span class="seite-nr">Seite 04</span>
+    <div class="split" style="align-items:center">
+      <div class="txt">
+        <div class="stats">
+          <div class="stat"><strong>10</strong><span>Jahre zusammen unterwegs</span></div>
+          <div class="stat"><strong>4</strong><span>Kontinente selbst bereist</span></div>
+          <div class="stat"><strong>3</strong><span>Guides, jede Route selbst gereist</span></div>
+        </div>
       </div>
-      <div>
-        <span class="stempel blau s3">Jordanien<br>selbst gereist<small>Wadi Rum · Camp</small></span>
-        <span class="stempel rund s4">Geld zurück<br>zugesagt</span>
-        <span class="seite-nr">Seite 05</span>
+      <div class="bild" style="flex:0 0 auto;max-width:330px">
+        <div class="passport" style="max-width:330px;margin-top:0;transform:rotate(-2deg)">
+          <div>
+            <span class="stempel s1" style="font-size:10.5px;padding:9px 12px">Island<br>selbst gereist</span>
+            <span class="seite-nr">Seite 04</span>
+          </div>
+          <div>
+            <span class="stempel rund blau s3" style="font-size:10px;padding:14px 10px">Geld zurück<br>zugesagt</span>
+            <span class="seite-nr">Seite 05</span>
+          </div>
+        </div>
       </div>
     </div>
     <p style="margin-top:20px">Gletscherwanderung, Tauchen, Wüsten-Camp, Van Life. Nicht als Liste zum Angeben, sondern als Planungswissen: wir wissen, was diese Erlebnisse kosten, wie man sie bucht und wann sie sich lohnen.</p>
@@ -107,30 +105,20 @@
 
 <section>
   <div class="wrap">
-    <div class="marker"><span>04 / Der Luftraum</span><b>3 A320 im Umlauf</b></div>
+    <div class="marker"><span>04 / Die Karte</span><b>Drehen · Zoomen · Filtern</b></div>
     <h2 data-rv>Wo wir waren. Und wohin wir planen.</h2>
-    <p data-rv>Die Weltkugel trägt unsere Routen und Pins, drumherum ziehen drei Maschinen ihre Bahnen. Ziehen oder Pfeiltasten zum Drehen, Scrollen zum Zoomen.</p>
-    <div class="buehne3d">
-      <div class="schild"><span>Luftraum · Routenwerk</span><b>3 A320</b></div>
-      <canvas id="szene3d" tabindex="0" aria-label="3D-Globus mit bereisten Routen, drei Flugzeuge kreisen darum. Drehen mit Pfeiltasten."></canvas>
+    <p data-rv>Dreht sich von selbst, drei Maschinen ziehen ihre Bahnen darüber. Ziehen oder Pfeiltasten zum Drehen, Zoomen mit Strg und Scrollrad, Pinch oder Plus und Minus. Jeder gefüllte Pin ist ein Ort, den wir selbst bereist haben.</p>
+    <div class="globus-filter" role="group" aria-label="Routen-Filter">
+      <button type="button" data-route="alle" class="aktiv">Alle Routen</button>
+      <button type="button" data-route="island">Island</button>
+      <button type="button" data-route="albanien">Albanien</button>
+      <button type="button" data-route="jordanien">Jordanien</button>
     </div>
-    <p class="globus-status" id="globusStatus" aria-live="polite">Szene lädt …</p>
+    <div class="globus-buehne"><canvas id="globus" width="1120" height="620" tabindex="0" aria-label="Interaktiver Globus mit bereisten Orten und Routen. Drehen mit Pfeiltasten, Zoomen mit Plus und Minus."></canvas></div>
+    <p class="globus-status" id="globusStatus" aria-live="polite">N 64.1466 / W 21.9426 · Reykjavik · Start der ersten Team-Route</p>
     <div class="globus-legende">
-      <span><span class="legende-pin voll" aria-hidden="true"></span>Selbst bereist (Pins auf der Kugel)</span>
+      <span><span class="legende-pin voll" aria-hidden="true"></span>Selbst bereist</span>
       <span><span class="legende-pin leer" aria-hidden="true"></span>Für Kunden geplant (kommt mit den ersten Beratungen)</span>
-    </div>
-    <p class="kleingedruckt">3D-Modell: <a href="https://sketchfab.com/3d-models/airbus-a320-200-v2-c078f9af15884a6b820c7e778831b110" target="_blank" rel="noopener">&bdquo;Airbus A320-200 V2&ldquo;</a> von <a href="https://sketchfab.com/fDlruosne" target="_blank" rel="noopener">Dlourine</a>, <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC-BY-4.0</a> · Vor Launch: three.js + Modell selbst hosten</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap" data-rv>
-    <div class="marker"><span>05 / Wie wir planen</span><b>3 Regeln</b></div>
-    <h2>Wie wir planen</h2>
-    <div class="etappen">
-      <div class="etappe" data-n="Regel 1"><p><strong>Nur Ziele, die wir kennen.</strong> Sonst sagen wir es.</p></div>
-      <div class="etappe" data-n="Regel 2"><p><strong>Planung getrennt von Buchung.</strong> Ihr seht genau, wofür ihr zahlt.</p></div>
-      <div class="etappe" data-n="Regel 3"><p><strong>Ein Plan muss auch Plan B können.</strong> Deshalb steht in jedem Plan eine Schlechtwetter-Alternative.</p></div>
     </div>
   </div>
 </section>
@@ -138,8 +126,25 @@
 <section>
   <div class="wrap" data-rv>
     <div class="marker"><span>06 / Die Vision</span><b>Logbuch Routenwerk</b></div>
-    <p class="zitat">Ihr sollt unterwegs nicht auf die Karte schauen. <em>Ihr sollt euch umschauen.</em></p>
-    <p class="quelle">Aus dem Routenwerk-Logbuch</p>
+    <div class="split" style="align-items:center">
+      <div class="txt">
+        <p class="zitat">Ihr sollt unterwegs nicht auf die Karte schauen. <em>Ihr sollt euch umschauen.</em></p>
+        <p class="quelle">Aus dem Routenwerk-Logbuch</p>
+      </div>
+      <div class="bild" style="flex:0 0 auto;max-width:320px">
+        <div class="postkarte" style="max-width:320px;margin-top:0;transform:rotate(2deg)">
+          <div class="pk-links" style="padding:14px">
+            <div class="pk-gruss" style="font-size:16px">Grüße aus Theth!</div>
+            <p style="font-size:12px">Drei Tage ohne Netz, der beste Blick der Albanischen Alpen. Hier entstand Guide Nr. 2.</p>
+          </div>
+          <div class="pk-rechts" style="padding:14px">
+            <div class="pk-marke" style="width:40px;height:50px;font-size:7px">RW<br>POST</div>
+            <div class="pk-stempelkreis" style="width:36px;height:36px;right:44px;top:18px"></div>
+            <div class="pk-adresse"><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -192,154 +197,241 @@
 <!-- Globus: d3 + topojson VOR LAUNCH selbst hosten (DSGVO), CDN nur im Mockup -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-<script type="importmap">
-{"imports":{
-  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-}}
-</script>
-<script type="module">
-/* 3D-Luftraum: Papier-Globus + 3 A320. Vor Launch: three.js, Decoder und Modell selbst hosten. */
-import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
+<script>
+(function(){
+  "use strict";
+  var canvas = document.getElementById("globus");
+  if (!canvas || typeof d3 === "undefined") return;
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+  var css = getComputedStyle(document.documentElement);
+  var farbe = {
+    ink: css.getPropertyValue("--ink").trim(),
+    bg: css.getPropertyValue("--bg").trim(),
+    signal: css.getPropertyValue("--signal").trim(),
+    muted: css.getPropertyValue("--muted").trim(),
+    line: css.getPropertyValue("--line").trim(),
+    papier: css.getPropertyValue("--papier-tief").trim()
+  };
+  var zoomFaktor = 1;
+  var projektion = d3.geoOrthographic().clipAngle(90);
+  var pfad = d3.geoPath(projektion, ctx);
 
-const status = document.getElementById("globusStatus");
-const ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const canvas = document.getElementById("szene3d");
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
-const szene = new THREE.Scene();
-const kamera = new THREE.PerspectiveCamera(38, 2, .1, 100);
-kamera.position.set(0, .9, 3.4);
-szene.add(new THREE.HemisphereLight(0xFAF9F5, 0x2B251C, 1.15));
-const sonne = new THREE.DirectionalLight(0xffffff, 1.6);
-sonne.position.set(4, 3, 5);
-szene.add(sonne);
-const controls = new OrbitControls(kamera, canvas);
-controls.enableDamping = true;
-controls.enablePan = false;
-controls.minDistance = 2.2;
-controls.maxDistance = 6;
-
-const farbe = {};
-["ink","bg","signal","muted","line","papier-tief"].forEach(k => {
-  farbe[k] = getComputedStyle(document.documentElement).getPropertyValue("--" + k).trim();
-});
-const routen = [
-  [[-21.9426,64.1466],[-19.0060,63.4187],[-15.2082,64.2539]],
-  [[19.8187,41.3275],[19.7446,40.1017],[19.7712,42.3953]],
-  [[35.9106,31.9539],[35.4444,30.3285],[35.4207,29.5765]]
-];
-const pins = routen.flat().concat([[13.4234,52.5496]]);
-const tex = document.createElement("canvas");
-tex.width = 2048; tex.height = 1024;
-const tctx = tex.getContext("2d");
-const proj = d3.geoEquirectangular().translate([1024, 512]).scale(2048 / (2 * Math.PI));
-const tpfad = d3.geoPath(proj, tctx);
-function texturMalen(land){
-  tctx.fillStyle = farbe.bg; tctx.fillRect(0, 0, 2048, 1024);
-  tctx.beginPath(); tpfad(d3.geoGraticule10());
-  tctx.lineWidth = 1; tctx.strokeStyle = farbe.line; tctx.stroke();
-  if (land){
-    tctx.beginPath(); tpfad(land);
-    tctx.fillStyle = farbe["papier-tief"]; tctx.fill();
-    tctx.lineWidth = 1.6; tctx.strokeStyle = farbe.muted; tctx.stroke();
+  /* Responsive + Retina: Backing-Store an clientWidth * devicePixelRatio koppeln */
+  function masse(){
+    var dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth || 1120;
+    H = Math.round(W * .55);
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.height = H + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    projektion.translate([W/2, H/2]).scale((H/2 - 18) * zoomFaktor);
+    zeichnen();
   }
-  tctx.setLineDash([8, 8]);
-  routen.forEach(r => {
-    tctx.beginPath(); tpfad({type:"LineString", coordinates:r});
-    tctx.lineWidth = 3; tctx.strokeStyle = farbe.signal; tctx.stroke();
-  });
-  tctx.setLineDash([]);
-  pins.forEach(p => {
-    const xy = proj(p);
-    tctx.beginPath(); tctx.arc(xy[0], xy[1], 7, 0, 2 * Math.PI);
-    tctx.fillStyle = farbe.signal; tctx.fill();
-    tctx.lineWidth = 3; tctx.strokeStyle = farbe.bg; tctx.stroke();
-  });
-}
-texturMalen(null);
-const erdTextur = new THREE.CanvasTexture(tex);
-erdTextur.colorSpace = THREE.SRGBColorSpace;
-const welt = new THREE.Group();
-szene.add(welt);
-const erde = new THREE.Mesh(new THREE.SphereGeometry(1, 96, 64), new THREE.MeshBasicMaterial({ map: erdTextur }));
-welt.add(erde);
-fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
-  .then(r => r.json())
-  .then(w => { texturMalen(topojson.feature(w, w.objects.land)); erdTextur.needsUpdate = true; })
-  .catch(() => {});
+  var gitter = d3.geoGraticule10();
+  var land = null;
 
-/* NASE_KORREKTUR: falls die Flieger seitwaerts fliegen, hier drehen */
-const NASE_KORREKTUR = Math.PI;
-const bahnen = [
-  { radius: 1.38, nx: .45, nz: 0,    tempo: .30, start: 0 },
-  { radius: 1.52, nx: -.30, nz: .55, tempo: .22, start: 2.1 },
-  { radius: 1.66, nx: .12, nz: -.85, tempo: .17, start: 4.4 }
-];
-const dreher = [];
-const lader = new GLTFLoader();
-lader.setMeshoptDecoder(MeshoptDecoder);
-lader.load("freigabe/modelle/a320-meshopt.glb", gltf => {
-  const basis = gltf.scene;
-  const box = new THREE.Box3().setFromObject(basis);
-  const groesse = new THREE.Vector3(); box.getSize(groesse);
-  const skala = .33 / Math.max(groesse.x, groesse.y, groesse.z);
-  const mitte = new THREE.Vector3(); box.getCenter(mitte);
-  bahnen.forEach(b => {
-    const orbit = new THREE.Group();
-    orbit.rotation.set(b.nx, b.start, b.nz);
-    const halter = new THREE.Group();
-    halter.position.set(b.radius, 0, 0);
-    const flieger = basis.clone(true);
-    flieger.scale.setScalar(skala);
-    flieger.position.sub(mitte.clone().multiplyScalar(skala));
-    const nase = new THREE.Group();
-    nase.rotation.y = NASE_KORREKTUR;
-    nase.rotation.z = .22;
-    nase.add(flieger);
-    halter.add(nase);
-    orbit.add(halter);
-    welt.add(orbit);
-    dreher.push({ orbit, tempo: b.tempo });
-  });
-  status.textContent = "3 A320 im Umlauf · Ziehen zum Drehen, Scrollen zum Zoomen";
-}, undefined, () => {
-  status.textContent = "Flugzeuge gerade nicht ladbar, der Globus dreht trotzdem.";
-});
+  /* typ: "bereist" (voll) | "geplant" (Umriss). Geplante Pins kommen mit echten
+     Beratungen dazu. Demo-Daten: klassische Blog-Routen, frei nachreisbar. */
+  var routen = {
+    island: { pins: [
+      {ort:"REYKJAVIK", typ:"bereist", koord:[-21.9426,64.1466], label:"N 64.1466 / W 21.9426 · Reykjavik"},
+      {ort:"VÍK", typ:"bereist", koord:[-19.0060,63.4187], label:"N 63.4187 / W 19.0060 · Vík"},
+      {ort:"HÖFN", typ:"bereist", koord:[-15.2082,64.2539], label:"N 64.2539 / W 15.2082 · Höfn"}
+    ]},
+    albanien: { pins: [
+      {ort:"TIRANA", typ:"bereist", koord:[19.8187,41.3275], label:"N 41.3275 / E 19.8187 · Tirana"},
+      {ort:"HIMARË", typ:"bereist", koord:[19.7446,40.1017], label:"N 40.1017 / E 19.7446 · Himarë"},
+      {ort:"THETH", typ:"bereist", koord:[19.7712,42.3953], label:"N 42.3953 / E 19.7712 · Theth"}
+    ]},
+    jordanien: { pins: [
+      {ort:"AMMAN", typ:"bereist", koord:[35.9106,31.9539], label:"N 31.9539 / E 35.9106 · Amman"},
+      {ort:"PETRA", typ:"bereist", koord:[35.4444,30.3285], label:"N 30.3285 / E 35.4444 · Petra"},
+      {ort:"WADI RUM", typ:"bereist", koord:[35.4207,29.5765], label:"N 29.5765 / E 35.4207 · Wadi Rum"}
+    ]}
+  };
+  var basis = {ort:"BERLIN", typ:"bereist", koord:[13.4234,52.5496], label:"N 52.5496 / E 13.4234 · Berlin · das Studio"};
+  var geplant = []; /* wird mit echten Kundenreisen gefuellt: {ort, typ:"geplant", koord, label} */
 
-canvas.addEventListener("keydown", e => {
-  const schritt = .25;
-  if (e.key === "ArrowLeft") welt.rotation.y -= schritt;
-  else if (e.key === "ArrowRight") welt.rotation.y += schritt;
-  else if (e.key === "ArrowUp") welt.rotation.x = Math.max(-1.1, welt.rotation.x - schritt);
-  else if (e.key === "ArrowDown") welt.rotation.x = Math.min(1.1, welt.rotation.x + schritt);
-  else return;
-  e.preventDefault();
-});
+  /* Flug-Overlay: 3 Maschinen ziehen auf Grosskreis-Bahnen ueber die Kugel */
+  var flugBahnen = [
+    { ring: d3.geoCircle().center([-30, 55]).radius(90).precision(2)().coordinates[0], phase: 0,   tempo: .14 },
+    { ring: d3.geoCircle().center([120, -10]).radius(90).precision(2)().coordinates[0], phase: 60,  tempo: .10 },
+    { ring: d3.geoCircle().center([40, 25]).radius(90).precision(2)().coordinates[0], phase: 120, tempo: .07 }
+  ];
+  var flugProj = d3.geoOrthographic().clipAngle(90);
+  var aktiveRoute = "alle";
 
-function masse(){
-  const w = canvas.clientWidth || 1000, h = canvas.clientHeight || 540;
-  renderer.setSize(w, h, false);
-  kamera.aspect = w / h;
-  kamera.updateProjectionMatrix();
-}
-masse();
-window.addEventListener("resize", masse);
-const uhr = new THREE.Clock();
-(function bild(){
-  const dt = uhr.getDelta();
-  if (!ruhig){
-    erde.rotation.y += dt * .05;
-    dreher.forEach(d => { d.orbit.rotation.y += dt * d.tempo; });
+  function aktivePins(){
+    var liste = [];
+    Object.keys(routen).forEach(function(k){
+      if (aktiveRoute === "alle" || aktiveRoute === k) liste = liste.concat(routen[k].pins);
+    });
+    if (aktiveRoute === "alle") liste = liste.concat(geplant);
+    liste.push(basis);
+    return liste;
   }
-  controls.update();
-  renderer.render(szene, kamera);
-  requestAnimationFrame(bild);
+  function aktiveLinien(){
+    var linien = [];
+    Object.keys(routen).forEach(function(k){
+      if (aktiveRoute === "alle" || aktiveRoute === k){
+        linien.push({type:"LineString", coordinates: routen[k].pins.map(function(p){return p.koord;})});
+      }
+    });
+    return linien;
+  }
+
+  function zeichnen(){
+    ctx.clearRect(0,0,W,H);
+    ctx.beginPath(); pfad({type:"Sphere"});
+    ctx.fillStyle = farbe.bg; ctx.fill();
+    ctx.lineWidth = 1; ctx.strokeStyle = farbe.muted; ctx.stroke();
+    ctx.beginPath(); pfad(gitter);
+    ctx.lineWidth = .5; ctx.strokeStyle = farbe.line; ctx.stroke();
+    if (land){
+      ctx.beginPath(); pfad(land);
+      ctx.fillStyle = farbe.papier; ctx.fill();
+      ctx.lineWidth = .8; ctx.strokeStyle = farbe.muted; ctx.stroke();
+    }
+    ctx.setLineDash([5,5]);
+    aktiveLinien().forEach(function(l){
+      ctx.beginPath(); pfad(l);
+      ctx.lineWidth = 1.7; ctx.strokeStyle = farbe.signal; ctx.stroke();
+    });
+    ctx.setLineDash([]);
+    var zentrum = [-projektion.rotate()[0], -projektion.rotate()[1]];
+    aktivePins().forEach(function(p){
+      if (d3.geoDistance(p.koord, zentrum) > Math.PI/2) return;
+      var xy = projektion(p.koord);
+      ctx.beginPath(); ctx.arc(xy[0], xy[1], 6.5, 0, 2*Math.PI);
+      if (p.typ === "geplant"){
+        ctx.fillStyle = farbe.bg; ctx.fill();
+        ctx.lineWidth = 2.5; ctx.strokeStyle = farbe.signal; ctx.stroke();
+      } else {
+        ctx.fillStyle = farbe.signal; ctx.fill();
+        ctx.lineWidth = 2; ctx.strokeStyle = farbe.bg; ctx.stroke();
+      }
+      ctx.font = "11px 'B612 Mono', monospace";
+      ctx.fillStyle = farbe.ink;
+      ctx.fillText(p.ort, xy[0]+11, xy[1]+4);
+    });
+  
+    /* Flieger (leicht erhoehte Projektion, hinter der Kugel unsichtbar) */
+    flugProj.rotate(projektion.rotate()).translate(projektion.translate()).scale(projektion.scale() * 1.07);
+    flugBahnen.forEach(function(fb){
+      var L = fb.ring.length;
+      var i0 = ((Math.floor(fb.phase) % L) + L) % L;
+      var pos = fb.ring[i0], next = fb.ring[(i0 + 2) % L];
+      if (d3.geoDistance(pos, zentrum) > 1.45) return;
+      var a = flugProj(pos), b = flugProj(next);
+      var wink = Math.atan2(b[1] - a[1], b[0] - a[0]);
+      var f = Math.max(.8, Math.min(1.8, projektion.scale() / 300));
+      ctx.save();
+      ctx.translate(a[0], a[1]);
+      ctx.rotate(wink);
+      ctx.scale(f, f);
+      ctx.beginPath();
+      ctx.moveTo(11, 0); ctx.lineTo(-8, -6.5); ctx.lineTo(-4, 0); ctx.lineTo(-8, 6.5);
+      ctx.closePath();
+      ctx.fillStyle = farbe.ink; ctx.fill();
+      ctx.lineWidth = 1.6; ctx.strokeStyle = farbe.bg; ctx.stroke();
+      ctx.restore();
+    });
+  }
+
+  var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var interagiert = false, zuletzt = 0;
+  /* Gleiche Zeitbasis (performance.now) fuer Timer UND Interaktionen · Learnings-Falle */
+  d3.timer(function(){
+    if (ruhig) return;
+    flugBahnen.forEach(function(fb){ fb.phase += fb.tempo; });
+    if (!interagiert && performance.now() - zuletzt > 3000){
+      var r = projektion.rotate();
+      projektion.rotate([r[0] + .12, r[1], r[2]]);
+    }
+    zeichnen();
+  });
+
+  var dragAktiv = false, px = 0, py = 0;
+  canvas.addEventListener("pointerdown", function(e){
+    if (e.isPrimary === false) return;
+    dragAktiv = true; interagiert = true; px = e.clientX; py = e.clientY;
+    canvas.classList.add("zieht"); canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", function(e){
+    if (!dragAktiv || e.isPrimary === false) return;
+    var faktor = 75 / projektion.scale();
+    var r = projektion.rotate();
+    var lat = Math.max(-75, Math.min(75, r[1] - (e.clientY - py) * faktor));
+    projektion.rotate([r[0] + (e.clientX - px) * faktor, lat, r[2]]);
+    px = e.clientX; py = e.clientY;
+    zeichnen();
+  });
+  function dragEnde(){ dragAktiv = false; interagiert = false; zuletzt = performance.now(); canvas.classList.remove("zieht"); }
+  canvas.addEventListener("pointerup", dragEnde);
+  canvas.addEventListener("pointercancel", dragEnde);
+
+  function zoomen(delta){
+    zoomFaktor = Math.max(.8, Math.min(3.2, zoomFaktor * delta));
+    projektion.scale((H/2 - 18) * zoomFaktor);
+    zeichnen();
+  }
+  /* Zoom nur mit Strg/Cmd (Trackpad-Pinch sendet ctrlKey), sonst scrollt die Seite normal */
+  canvas.addEventListener("wheel", function(e){
+    if (!e.ctrlKey && !e.metaKey) return;
+    e.preventDefault(); zuletzt = performance.now();
+    zoomen(e.deltaY < 0 ? 1.08 : .93);
+  }, {passive:false});
+  /* Tastatur: Pfeiltasten drehen, Plus/Minus zoomen */
+  canvas.addEventListener("keydown", function(e){
+    var r = projektion.rotate(), schritt = 8;
+    if (e.key === "ArrowLeft") projektion.rotate([r[0] - schritt, r[1], 0]);
+    else if (e.key === "ArrowRight") projektion.rotate([r[0] + schritt, r[1], 0]);
+    else if (e.key === "ArrowUp") projektion.rotate([r[0], Math.min(75, r[1] + schritt), 0]);
+    else if (e.key === "ArrowDown") projektion.rotate([r[0], Math.max(-75, r[1] - schritt), 0]);
+    else if (e.key === "+" || e.key === "=") { zoomen(1.15); e.preventDefault(); zuletzt = performance.now(); return; }
+    else if (e.key === "-") { zoomen(.87); e.preventDefault(); zuletzt = performance.now(); return; }
+    else return;
+    e.preventDefault(); zuletzt = performance.now(); zeichnen();
+  });
+  var pinchAbstand = null;
+  canvas.addEventListener("touchmove", function(e){
+    if (e.touches.length === 2){
+      e.preventDefault();
+      dragAktiv = false;
+      var a = e.touches[0], b = e.touches[1];
+      var d = Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
+      if (pinchAbstand) zoomen(d / pinchAbstand);
+      pinchAbstand = d;
+    }
+  }, {passive:false});
+  canvas.addEventListener("touchend", function(){ pinchAbstand = null; });
+
+  var status = document.getElementById("globusStatus");
+  document.querySelector(".globus-filter").addEventListener("click", function(e){
+    var btn = e.target.closest("button"); if (!btn) return;
+    aktiveRoute = btn.dataset.route;
+    document.querySelectorAll(".globus-filter button").forEach(function(b){ b.classList.toggle("aktiv", b === btn); });
+    if (aktiveRoute !== "alle"){
+      var r = routen[aktiveRoute];
+      status.textContent = r.pins[0].label;
+      var ziel = r.pins[0].koord;
+      projektion.rotate([-ziel[0], -ziel[1] * .6, 0]);
+    } else {
+      status.textContent = "Alle Routen · " + Object.keys(routen).length + " Reisen · " + aktivePins().length + " Orte";
+    }
+    zuletzt = performance.now();
+    zeichnen();
+  });
+
+  masse();
+  window.addEventListener("resize", masse);
+  fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json")
+    .then(function(r){ return r.json(); })
+    .then(function(welt){ land = topojson.feature(welt, welt.objects.land); zeichnen(); })
+    .catch(function(){ status.textContent = "Weltkarte gerade nicht ladbar. Kugel, Pins und Routen funktionieren trotzdem."; });
 })();
-if (status.textContent === "Szene lädt …") status.textContent = "Globus bereit, Flieger laden …";
 </script>
 </body>
 </html>
