@@ -176,3 +176,27 @@ DSGVO-clean, unsichtbar, kostenlos, kein Consent noetig. Faengt den Grossteil de
   Wenn echtes CAPTCHA noetig: Cloudflare Turnstile + serverseitige Pruefung per Pages Function
   (Secret als CF-Env-Var, nie im Code). Sitekey ist oeffentlich, Secret bleibt geheim.
 Code: projekte/routenwerk/site.js (Botschutz-Block) + styles.css (.hp-feld) + *.html (_gotcha-Feld).
+
+## Text-Zerlege-Effekte barrierefrei (Split-Flap, Typewriter, Scramble)
+Jeder Effekt, der Button-/Linktext per JS in Einzel-Elemente splittet, loescht den zugaenglichen
+Namen (SR sagt nur "Link"/"Schalter") und liest beim Flip Zufallszeichen vor. Das trifft genau die
+Haupt-CTAs, weil die die Effekte bekommen. Screenreader-Testlauf 2026-07-13 hat es gefunden,
+axe/Lighthouse vorher nicht zuverlaessig.
+Pflicht-Bauweise (routenwerk site.js, .btn-flap-Block):
+1. VOR dem Zerlegen: `btn.setAttribute("aria-label", btn.textContent.trim() || basis)`
+   (Originaltext gemischt geschrieben, NICHT die Allcaps-data-text-Variante).
+2. Kacheln nicht direkt in den Button, sondern in `<span aria-hidden="true">` mit
+   `style.display = "contents"` -> Span ist layout-neutral, Flex-Gap zwischen den Kacheln
+   bleibt erhalten, `.btn-flap b`-Selektoren matchen weiter.
+3. Der aria-label bleibt beim Hover-/Fokus-Flip stabil (data-alt aendert nur die Optik).
+Gleiche Regel fuer Zeilen, die JS in Kacheln zerlegt (Abflugtafel .flaps): Zeilen-Link traegt
+aria-label, die erzeugten Kachel-Container bekommen aria-hidden="true".
+
+## Karussell/Deck: Screenreader-Ansage + inert
+Inaktive Karten korrekt mit aria-hidden + inert aus dem A11y-Baum nehmen — aber dann MUSS ein
+`aria-live="polite"`-Element (`.sr-only`, per JS erzeugt) den Wechsel ansagen, sonst bekommt AT
+von Scroll-/Pfeil-/Label-Navigation nichts mit: `"Guide " + (i+1) + " von " + n + ": " + titel`.
+Auch versteckte Zusatz-Karten (Easter Egg hinter der letzten Karte) brauchen inert, solange sie
+nicht oben liegen — aria-hidden + opacity:0 allein laesst den Link darin fokussierbar.
+Deko-Glyphen im Karten-Content (&#9656; als Routen-Pfeil) in `<span aria-hidden="true">` wickeln.
+Code: projekte/routenwerk/site.js (Rotator-Block: ansage, renderStack) + index.html (.pass-route).

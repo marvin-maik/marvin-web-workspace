@@ -65,8 +65,30 @@ ausdruecklichen Wunsch angestrebt. "100% barrierefrei" ist realistisch nie dauer
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 ```
 
+## Screenreader-Fallen (Audit routenwerk 2026-07-13, echter SR-Testlauf)
+Diese vier Fehler hat der automatische Check NICHT gefunden, erst der Screenreader-Test:
+- [ ] **JS darf Button-/Linktext nie ersatzlos zerlegen.** Jeder Text-Effekt, der textContent
+      in Einzel-Elemente splittet (Split-Flap, Typewriter, Scramble, Letter-Reveal), loescht den
+      zugaenglichen Namen -> SR sagt nur "Link"/"Schalter". Pflicht-Muster: VOR dem Zerlegen
+      `aria-label` mit dem Originaltext setzen, Kacheln in `<span aria-hidden="true"
+      style="display:contents">` (display:contents haelt Flex/Grid-Layout intakt). Trifft
+      ausgerechnet die Haupt-CTAs, weil die die Effekte bekommen. Code: technik-patterns.md.
+- [ ] **Karussell/Deck: Wechsel ansagen.** Inaktive Karten sind (korrekt) inert/aria-hidden,
+      aber dann bekommt AT vom Kartenwechsel nichts mit -> `aria-live="polite"`-Element
+      ("Guide 2 von 3: Albanien..."), per JS beim Wechsel fuellen. Auch versteckte
+      Zusatz-Karten (Easter Egg) brauchen `inert`, nicht nur aria-hidden/opacity.
+- [ ] **Deko-Glyphen verstecken.** Pfeile/Dreiecke/Trenner als Text (&#9656;, ·, ->) liest
+      der SR woertlich vor ("schwarzes Dreieck nach rechts") -> in
+      `<span aria-hidden="true">` wickeln.
+- [ ] **Echte Umlaute in aria-label.** "auswaehlen" wird "aus-wa-ehlen" ausgesprochen.
+      ae/oe/ue-Schreibweise ist nur fuer Code-Kommentare ok, nie fuer vorgelesene Attribute.
+
 ## Kampferprobter Stand (routenwerk + marvin-web, Audit 2026-07)
 Beide Seiten auf AA gebracht: Alt-Texte, Kontrast (Fliesstext 16-17:1, Buttons 6:1, Eyebrow ueber Foto
 voll deckend), Reflow bis 320px, Tastatur inkl. inert auf Slider-Karten, Fokus sichtbar + scroll-padding,
 Landmarks + eine h1 + Heading-Ordnung, Tabelle mit th/scope, aria-pressed auf Filtern, Uhr reduced-motion,
-Honeypot barrierefrei (KEIN aria-hidden am fokussierbaren Feld). Restlich offen: nur AAA (freiwillig).
+Honeypot barrierefrei (KEIN aria-hidden am fokussierbaren Feld; dass der SR "Bitte dieses Feld
+frei lassen" vorliest, ist Absicht, kein Bug). Nachtrag 2026-07-13 (SR-Testlauf Marvin): Split-Flap-CTAs
+ohne Namen, Deck-Wechsel ohne Ansage, Deko-Glyphen, ae-Umlaute in aria-label -> alles gefixt,
+Muster oben unter "Screenreader-Fallen". Restlich offen: nur AAA (freiwillig) + bekannte Eigenheit:
+.satz-Spans (inline-block gegen Satz-Umbruch) lassen VoiceOver die h1 in zwei Haeppchen lesen — akzeptiert.

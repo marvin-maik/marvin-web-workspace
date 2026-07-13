@@ -125,6 +125,13 @@
     if (scrolly){ rotator.classList.add("scrolly"); slides.forEach(function(s){ s.style.transition = "none"; }); }
     if (mobil){ rotator.classList.add("mobil"); }
 
+    /* Kartenwechsel fuer Screenreader ansagen: inaktive Karten sind inert/aria-hidden,
+       ohne Ansage bekommt AT vom Wechsel (Scroll, Pfeile, Bogen-Labels) nichts mit. */
+    var ansage = document.createElement("p");
+    ansage.className = "sr-only";
+    ansage.setAttribute("aria-live", "polite");
+    rotator.appendChild(ansage);
+
     /* 3 Koffer-Varianten (klassisch, mit Gurten, Trolley); Neigung je Variante im CSS */
     var kofferVarianten = [
       '<span class="koffer-ic kv1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><line x1="12" y1="10.5" x2="12" y2="16.5"/></svg></span>',
@@ -175,6 +182,8 @@
         if (lab){ lab.classList.toggle("aktiv", i === aktiv); lab.setAttribute("aria-current", i === aktiv ? "true" : "false"); }
       }
       marqueeFuellen(aktiv);
+      var titel = slides[aktiv].querySelector("h3");
+      ansage.textContent = "Guide " + (aktiv + 1) + " von " + n + (titel ? ": " + titel.textContent : "");
     }
 
     /* Desktop-Coverflow: pos 0..n-1 kontinuierlich. Jede Karte liegt nach ihrer Distanz zur
@@ -227,6 +236,7 @@
       slides.forEach(function(s, i){ stapelKarte(s, i - deckIdx, dx); });
       if (!eggEl) return;
       var eRel = n - deckIdx;
+      eggEl.inert = eRel !== 0;   /* verstecktes Egg samt Link aus Tab-Reihenfolge + A11y-Baum */
       if (eRel === 0){                         // Egg ist oben (letzte Karte weggewischt)
         eggEl.style.transform = "translate(-50%,-50%) translate(" + dx + "px,0) rotate(" + (dx * 0.03) + "deg)";
         eggEl.style.opacity = "1"; eggEl.style.zIndex = "30"; eggEl.style.pointerEvents = "auto";
@@ -381,6 +391,7 @@
       werte.forEach(function(text, spalte){
         var div = document.createElement("div");
         div.className = "flaps" + (spalte === 3 ? " st" : "");
+        div.setAttribute("aria-hidden", "true");   /* Zeilen-Link traegt aria-label, Kacheln sind Deko */
         var voll = text.padEnd(breiten[spalte], " ");
         for (var i = 0; i < voll.length; i++){
           var b = document.createElement("b");
@@ -444,14 +455,22 @@
   document.querySelectorAll(".btn-flap").forEach(function(btn){
     var basis = btn.dataset.text || btn.textContent.trim();
     var alt = btn.dataset.alt || basis;
+    /* A11y: der Text wird gleich in Einzel-Kacheln zerlegt und beim Flip durch
+       Zufallszeichen gewuerfelt. Fester Name ans Element, Kacheln raus aus dem
+       A11y-Baum (display:contents haelt das Flex-Gap-Layout intakt). */
+    btn.setAttribute("aria-label", btn.textContent.trim() || basis);
     var lang = Math.max(basis.length, alt.length);
     basis = basis.padEnd(lang, " "); alt = alt.padEnd(lang, " ");
     btn.textContent = "";
+    var deck = document.createElement("span");
+    deck.setAttribute("aria-hidden", "true");
+    deck.style.display = "contents";
     for (var i = 0; i < lang; i++){
       var b = document.createElement("b");
       b.textContent = basis[i] === " " ? "\u00A0" : basis[i];
-      btn.appendChild(b);
+      deck.appendChild(b);
     }
+    btn.appendChild(deck);
     var kacheln = btn.querySelectorAll("b");
     var laeuft = false, pending = null;
     function setzen(ziel){
