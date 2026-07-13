@@ -50,7 +50,8 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Nach jedem Push zusaetzlich deployen:
   `npx wrangler pages deploy projekte/marvin-web --project-name marvin-web --branch main`
 - ROUTENWERK-Demo LIVE (seit 2026-07-12, fuer Shop-Test + Portfolio): https://routenwerk.pages.dev
-  Deploy NIE direkt aus dem Projektordner (DEMO-README.md + handoff/ sind intern,
-  Leak-Vorfall 2026-07-13)! Immer ueber Staging-Kopie:
-  `rsync -a --exclude 'DEMO-README.md' --exclude 'handoff' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main`
+  Deploy NIE direkt aus dem Projektordner (DEMO-README.md + handoff/ + freigabe/ sind intern,
+  Leak-Vorfall 2026-07-13; freigabe/ nachtraeglich in Excludes seit 2026-07-13)! Immer ueber
+  Staging-Kopie, /tmp/rw-deploy vorher loeschen (rsync ohne --delete laesst Altlasten drin):
+  `rm -rf /tmp/rw-deploy && rsync -a --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main`
 - Spaeter optional: Git-Integration im CF-Dashboard fuer Auto-Deploy bei Push.
