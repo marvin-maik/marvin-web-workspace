@@ -33,6 +33,12 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Single-File-Mockups (`index.html`), Hosting GitHub (`marvin-maik/<repo>`) + Cloudflare Pages.
 - Formulare Formspree, Buchung Cal.com, Rechtstexte Dieter Datenschutz — Snippets in `_referenz/integrations.md`.
 - Fertige Erkenntnisse/Muster nach Projektende in `_fundus/` ablegen.
+- BOTSCHUTZ PFLICHT auf JEDEM Formular (kein Opt-out): Honeypot (off-screen `.hp-feld`,
+  Feld `_gotcha`) + Zeit-Falle in site.js (<2,5s = Bot). Unsichtbar, kein externer Dienst,
+  kein Consent noetig. Muster + Code in `_referenz/technik-patterns.md`.
+  NIEMALS Google reCAPTCHA (Werbe-Profiling, US-Transfer, Consent-pflichtig, Abmahn-Risiko).
+  Wenn echtes CAPTCHA noetig: Cloudflare Turnstile + serverseitige Pruefung per Pages Function
+  (Secret als CF-Env-Var). Cloudflare ist eh schon Hoster -> kein neuer Datenempfaenger, kein Cookie.
 
 ## Deployment (Stand Launch 2026-07-10)
 - LIVE auf Cloudflare Pages (Direct Upload via wrangler, Account comspiele@web.de):
