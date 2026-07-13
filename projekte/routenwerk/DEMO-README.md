@@ -41,4 +41,12 @@ dann hierher uebernehmen. Copy und Routen bleiben getrennt.
    Kauf-Buttons auf Hinweis-Anker)
 2. Auf marvin-web projekte.html als Referenz verlinken (Screenshot + Beschreibung)
 3. Deploy: GitHub-Repo marvin-maik/routenwerk-demo + Cloudflare Pages
-   (DEMO-README.md ausschliessen, og-Tags auf Demo-URL, d3 selbst hosten)
+   (DEMO-README.md UND handoff/ ausschliessen, og-Tags auf Demo-URL, d3 selbst hosten)
+
+## Handoff (2026-07-13)
+
+`handoff/` = internes CD-Handoff-Paket (nach _templates/cd-handoff-prompt-vorlage.md):
+- `brand-guidelines.html`: 8 Seiten A4, Preset KOMPAKT, druckfaehig (Browser-Druckdialog -> PDF).
+  INTERN-Block am Ende (offene Punkte + Inkonsistenzen) erscheint nicht im Druck.
+- `routenwerk-bildmarke.svg`: neue Bildmarke (Startpunkt + Route + Zielmarke).
+  Noch NICHT in die Website eingebaut — wartet auf Marvins Review.

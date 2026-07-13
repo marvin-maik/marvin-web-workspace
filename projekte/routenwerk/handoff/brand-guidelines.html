@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROUTENWERK · Brand Guidelines</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:'Cabinet Grotesk';src:url('../fonts/cabinet-grotesk-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Cabinet Grotesk';src:url('../fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'General Sans';src:url('../fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'General Sans';src:url('../fonts/general-sans-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'General Sans';src:url('../fonts/general-sans-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('../fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('../fonts/b612-mono-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --ink:#16130E; --bg:#FAF9F5; --signal:#C2331F; --muted:#6F6A60;
+  --line:#E2DFD7; --papier-tief:#F2EFE8; --solari:#E8B84B;
+  --flap:#211C15; --stempel-blau:#2E4A6B;
+  --display:'Cabinet Grotesk',sans-serif; --body:'General Sans',sans-serif;
+  --mono:'B612 Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#DEDBD3;font-family:var(--body);color:var(--ink);font-size:12pt;line-height:1.5}
+
+.seite{width:210mm;height:296mm;background:var(--bg);margin:10mm auto;padding:16mm 18mm;
+  position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(22,19,14,.18);
+  display:flex;flex-direction:column}
+.seite.dunkel{background:var(--ink);color:var(--bg)}
+
+.kopf{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-family:var(--mono);font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-bottom:12mm}
+.dunkel .kopf{border-color:#3a352b;color:#8f887b}
+.fuss{margin-top:auto;display:flex;justify-content:space-between;font-family:var(--mono);
+  font-size:8pt;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:6px}
+.dunkel .fuss{border-color:#3a352b;color:#8f887b}
+
+h2{font-family:var(--display);font-weight:700;font-size:26pt;line-height:1.04;
+  letter-spacing:-.015em;margin-bottom:8mm}
+h3{font-family:var(--display);font-weight:700;font-size:13pt;margin:7mm 0 2.5mm}
+h3:first-of-type{margin-top:0}
+p{max-width:150mm;margin:2mm 0}
+.klein{font-size:10pt;color:var(--muted)}
+.mono{font-family:var(--mono);font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+table{border-collapse:collapse;width:100%;font-size:9.5pt;margin:3mm 0}
+th{font-family:var(--mono);font-size:8pt;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);text-align:left;font-weight:400;padding:2mm 3mm 2mm 0;border-bottom:1px solid var(--ink)}
+td{padding:2.2mm 3mm 2.2mm 0;border-bottom:1px solid var(--line);vertical-align:top}
+td code{font-family:var(--mono);font-size:8.5pt}
+
+.wortmarke{font-family:var(--display);font-weight:800;letter-spacing:.12em;color:var(--ink)}
+.wortmarke span{color:var(--signal)}
+.dunkel .wortmarke{color:var(--bg)}
+
+/* Cover */
+.cover{justify-content:space-between}
+.cover-titel{font-family:var(--display);font-weight:800;font-size:44pt;letter-spacing:.1em;line-height:1.05}
+.cover-titel span{color:var(--signal)}
+.cover-sub{font-family:var(--display);font-weight:700;font-size:20pt;color:#8f887b;margin-top:2mm}
+
+/* Logo-Flaechen */
+.logo-reihe{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin:4mm 0}
+.logo-feld{border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  min-height:44mm;padding:8mm;background:var(--bg)}
+.logo-feld.dkl{background:var(--ink);border-color:var(--ink)}
+.logo-feld.rot{background:var(--signal);border-color:var(--signal)}
+.logo-feld figure{text-align:center}
+.logo-feld figcaption{font-family:var(--mono);font-size:7.5pt;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin-top:4mm}
+.logo-feld.dkl figcaption{color:#8f887b}
+.lockup{display:inline-flex;align-items:center;gap:.45em}
+
+/* Farben */
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:3mm 0}
+.sw{border:1px solid var(--line)}
+.sw-farbe{height:20mm}
+.sw-info{padding:2mm 3mm;font-size:9pt}
+.sw-info b{display:block;font-weight:600}
+.sw-info code{font-family:var(--mono);font-size:8pt;color:var(--muted)}
+.sw.akzent .sw-farbe{height:11mm}
+
+/* Typo-Specimen */
+.spec{border-bottom:1px solid var(--line);padding:4mm 0}
+.spec-gross{font-family:var(--display);font-weight:800;font-size:34pt;line-height:1;letter-spacing:-.02em}
+.spec-mittel{font-family:var(--body);font-size:13pt}
+.spec-mono{font-family:var(--mono);font-size:10pt;letter-spacing:.08em;text-transform:uppercase}
+
+/* UI-Demo */
+.btn-flap-demo{display:inline-flex;gap:3px;align-items:stretch;height:46px;border:1.5px solid var(--ink);
+  border-radius:8px;padding:6px 9px 8px;position:relative;text-decoration:none}
+.btn-flap-demo b{display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);
+  font-weight:700;font-size:12pt;color:var(--ink);width:1.6ch;border-radius:3px;
+  border:1px solid var(--line);background:rgba(242,239,232,.45)}
+.btn-sign-demo{display:inline-flex;align-items:center;gap:8px;height:46px;font-family:var(--body);
+  font-weight:600;font-size:11pt;border:2px solid var(--ink);border-radius:10px;color:var(--ink);
+  padding:0 14px;text-decoration:none}
+.btn-sign-demo svg{width:17px;height:17px}
+.hover-demo{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--muted)}
+.focus-demo{outline:2px solid var(--signal);outline-offset:3px}
+.chip-demo{font-family:var(--mono);font-size:8pt;letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid currentColor;padding:5px 10px;display:inline-block;margin-right:2mm}
+.marker-demo{display:flex;justify-content:space-between;font-family:var(--mono);font-size:8.5pt;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);
+  padding-top:2.5mm;margin:3mm 0}
+.marker-demo b{font-weight:400;color:var(--ink)}
+
+/* Do/Dont */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.dd ul{list-style:none}
+.dd li{padding:2.2mm 0 2.2mm 7mm;border-bottom:1px solid var(--line);font-size:9.5pt;position:relative}
+.dd li::before{position:absolute;left:0;font-family:var(--mono);font-weight:700}
+.dd .do li::before{content:"+";color:var(--stempel-blau)}
+.dd .dont li::before{content:"x";color:var(--signal)}
+
+/* Verdichtete Seite (Seite 6): gleicher Look, engere Vertikalabstaende */
+.eng .kopf{margin-bottom:7mm}
+.eng h2{margin-bottom:4mm}
+.eng h3{margin:4mm 0 1.8mm}
+.eng p{margin:1.5mm 0}
+.eng .marker-demo{margin:2mm 0}
+.eng .btn-flap-demo,.eng .btn-sign-demo{height:42px}
+
+/* Intern-Block (nur Bildschirm) */
+.intern{width:210mm;margin:10mm auto;padding:10mm;background:var(--solari);border:2px dashed var(--ink)}
+.intern h2{font-size:14pt;margin-bottom:3mm}
+.intern ul{margin-left:5mm;font-size:10pt}
+
+@page{size:A4;margin:0}
+@media print{
+  body{background:none}
+  .seite{margin:0;box-shadow:none;page-break-after:always;height:296mm}
+  .intern{display:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="bildmarke">
+      <circle cx="16" cy="80" r="5.5" fill="currentColor"/>
+      <path d="M16 80 C26 52 42 42 64 60" fill="none" stroke="currentColor" stroke-width="3.5" stroke-dasharray="4 7"/>
+      <circle cx="70" cy="30" r="11" fill="#C2331F"/>
+      <path d="M70 64 59 38h22z" fill="#C2331F"/>
+    </g>
+    <symbol id="marke" viewBox="0 0 96 96"><use href="#bildmarke"/></symbol>
+    <symbol id="plane" viewBox="0 0 96 96">
+      <path d="M34 13c4.48 3.22 8.33 7.29 12.15 11.25l2.11 2.15c1.42 1.46 2.83 2.93 4.21 4.43 3.9 4.02 3.9 4.02 9.16 5.22 2.56-.5 4.91-1.18 7.37-2.05 5.63-1.6 11.11-2.83 17-2 2.57 2.57 2.36 4.52 2.56 8.03-.56 1.97-.56 1.97-2.71 3.48-2.98 1.56-5.69 2.45-8.93 3.3l-3.62.97-3.92 1.01-4.05 1.07c-2.82.74-5.64 1.47-8.46 2.2l-10.83 2.84-8.35 2.18-3.99 1.05-5.59 1.45-3.2.83c-2.75.56-5.1.8-7.89.59-1.4-1.32-1.4-1.32-2.49-3.14l-1.2-2-1.18-2.11-1.26-2.07c-2.97-5.1-2.97-5.1-2.47-7.91l.6-1.77c2.13-.81 2.13-.81 5-1 1.46 1.3 2.91 2.59 4.35 3.91 2.43 1.61 4.58 1.24 7.35.69l2.3-.6 2.96-.75c2.69-.72 5.37-1.47 8.04-2.25-2.67-4.95-5.34-9.89-8.18-14.74l-1.1-1.89c-.72-1.23-1.45-2.46-2.18-3.68-1.63-2.8-2.54-4.39-2.54-7.69 3.49-1.65 5.34-2.33 9-1z"/>
+      <path d="M12 72h72v8H12z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- SEITE 1: COVER -->
+<div class="seite dunkel cover">
+  <div class="kopf"><span>Logbuch Routenwerk</span><span>Brand Guidelines · Stand 07/2026</span></div>
+  <div>
+    <svg viewBox="0 0 96 96" style="width:34mm;height:34mm;color:#FAF9F5;margin-bottom:14mm"><use href="#bildmarke"/></svg>
+    <div class="cover-titel">ROUTEN<span>WERK</span></div>
+    <div class="cover-sub">Brand Guidelines</div>
+    <p style="margin-top:10mm;max-width:110mm;color:#c9c4b8">Wie die Marke aussieht, spricht und gebaut wird.
+    Für alle, die künftig etwas für ROUTENWERK gestalten: Designer, Druckerei, Social Media.</p>
+  </div>
+  <div class="fuss"><span>N 52.5496 / E 13.4234 · Berlin</span><span>Demo-Projekt · Design: MARVIN.WEB</span></div>
+</div>
+
+<!-- SEITE 2: LOGO -->
+<div class="seite">
+  <div class="kopf"><span>01 / Logo</span><span>Bildmarke + Wortmarke</span></div>
+  <h2>Das Logo</h2>
+  <p>Die Bildmarke erzählt das Produkt in drei Zeichen: Startpunkt, geplante Route, Ziel.
+  Sie ist aus der Website destilliert: die gestrichelte Routen-Kurve stammt aus der Guide-Auswahl,
+  die rote Zielmarke aus dem Favicon. Die Wortmarke ist in Cabinet Grotesk Extrabold gesetzt,
+  Laufweite +12 %, die Silbe WERK steht immer in Signal-Rot.</p>
+  <div class="logo-reihe">
+    <div class="logo-feld" style="grid-column:1/3">
+      <figure>
+        <span class="lockup">
+          <svg viewBox="0 0 96 96" style="width:22mm;height:22mm;color:var(--ink)"><use href="#bildmarke"/></svg>
+          <span class="wortmarke" style="font-size:30pt">ROUTEN<span>WERK</span></span>
+        </span>
+        <figcaption>Vollversion (Lockup): Bildmarke + Wortmarke, Abstand 0,45 Versalhöhen</figcaption>
+      </figure>
+    </div>
+    <div class="logo-feld dkl">
+      <figure>
+        <span class="lockup">
+          <svg viewBox="0 0 96 96" style="width:14mm;height:14mm;color:var(--bg)"><use href="#bildmarke"/></svg>
+          <span class="wortmarke" style="font-size:18pt;color:var(--bg)">ROUTEN<span>WERK</span></span>
+        </span>
+        <figcaption>Auf Tinte: Wortmarke in Papier, Zielmarke bleibt Signal-Rot</figcaption>
+      </figure>
+    </div>
+    <div class="logo-feld">
+      <figure>
+        <svg viewBox="0 0 96 96" style="width:16mm;height:16mm;color:var(--ink)"><use href="#bildmarke"/></svg>
+        <figcaption>Bildmarke solo: App-Icons, Favicon, Stempel</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="klein">Einfarbige Variante (nur Tinte bzw. nur Papier) für Fax, Prägung, Laser: gesamte Marke in einer
+  Farbe, der WERK-Akzent entfällt. Als Datei noch zu erzeugen, siehe Assets (Seite 8).</p>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines</span><span>Seite 2</span></div>
+</div>
+
+<!-- SEITE 3: CLEAR SPACE -->
+<div class="seite">
+  <div class="kopf"><span>01 / Logo</span><span>Schutzraum + Mindestgrößen</span></div>
+  <h2>Schutzraum und Mindestgrößen</h2>
+  <p>Die Maßeinheit X ist der Durchmesser des Zielpunkt-Kreises der Bildmarke. Um das gesamte Logo
+  bleibt auf allen vier Seiten mindestens 1X frei. X skaliert mit dem Logo mit, deshalb gilt die
+  Regel auf der Visitenkarte genauso wie auf dem Messebanner.</p>
+  <div style="display:flex;justify-content:center;margin:8mm 0">
+    <svg viewBox="20 20 400 115" style="width:150mm">
+      <!-- Geometrie gemessen: Bounding Box (62.5/55.5, 296x47.5), X = 16 = Zielpunkt-Durchmesser -->
+      <text x="46.5" y="33" font-family="B612 Mono" font-size="10" fill="#6F6A60">X = DURCHMESSER ZIELPUNKT · SCHUTZRAUM 1X RUNDUM</text>
+      <rect x="46.5" y="39.5" width="327.6" height="79.5" fill="none" stroke="#6F6A60" stroke-width="1" stroke-dasharray="5 4"/>
+      <rect x="62.5" y="55.5" width="295.6" height="47.5" fill="none" stroke="#6F6A60" stroke-width="0.6"/>
+      <g transform="translate(55,42) scale(0.68)">
+        <g transform="scale(1.05)"><use href="#bildmarke" style="color:#16130E"/></g>
+        <text x="118" y="66" font-family="Cabinet Grotesk" font-weight="800" font-size="42" letter-spacing="5" fill="#16130E">ROUTEN<tspan fill="#C2331F">WERK</tspan></text>
+      </g>
+      <!-- X-Masskaestchen: fuellen exakt die 1X-Luecke zwischen Bounding Box und Schutzraum-Grenze -->
+      <rect x="62.5" y="39.5" width="16" height="16" fill="none" stroke="#C2331F" stroke-width="1.2"/>
+      <rect x="46.5" y="55.5" width="16" height="16" fill="none" stroke="#C2331F" stroke-width="1.2"/>
+      <rect x="342.1" y="103" width="16" height="16" fill="none" stroke="#C2331F" stroke-width="1.2"/>
+      <rect x="358.1" y="87" width="16" height="16" fill="none" stroke="#C2331F" stroke-width="1.2"/>
+    </svg>
+  </div>
+  <h3>Mindestgrößen</h3>
+  <table>
+    <tr><th>Anwendung</th><th>Digital</th><th>Print</th></tr>
+    <tr><td>Vollversion (Lockup)</td><td>140 px Breite</td><td>30 mm Breite</td></tr>
+    <tr><td>Bildmarke solo</td><td>20 px Höhe (Favicon: 16 px, dann ohne Route)</td><td>6 mm Höhe</td></tr>
+  </table>
+  <p class="klein">Die Print-Werte sind festgelegte Empfehlungen aus dem Redesign, keine Messwerte.
+  Unterhalb der Mindestgröße bricht zuerst die gestrichelte Route weg: dann die Bildmarke ohne
+  Routen-Linie verwenden (wie im Favicon).</p>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines</span><span>Seite 3</span></div>
+</div>
+
+<!-- SEITE 4: FARBEN -->
+<div class="seite">
+  <div class="kopf"><span>02 / Farbe</span><span>Palette + Kontraste</span></div>
+  <h2>Farbpalette</h2>
+  <div class="swatches">
+    <div class="sw"><div class="sw-farbe" style="background:#16130E"></div><div class="sw-info"><b>Tinte</b><code>#16130E</code> · Text, dunkle Bänder</div></div>
+    <div class="sw"><div class="sw-farbe" style="background:#FAF9F5;border-bottom:1px solid var(--line)"></div><div class="sw-info"><b>Papier</b><code>#FAF9F5</code> · Grundfläche</div></div>
+    <div class="sw"><div class="sw-farbe" style="background:#C2331F"></div><div class="sw-info"><b>Signal-Rot</b><code>#C2331F</code> · Akzent, CTA, WERK</div></div>
+    <div class="sw"><div class="sw-farbe" style="background:#6F6A60"></div><div class="sw-info"><b>Stein</b><code>#6F6A60</code> · Nebentexte, Labels</div></div>
+    <div class="sw"><div class="sw-farbe" style="background:#F2EFE8;border-bottom:1px solid var(--line)"></div><div class="sw-info"><b>Papier-Tief</b><code>#F2EFE8</code> · abgesetzte Flächen</div></div>
+    <div class="sw"><div class="sw-farbe" style="background:#E2DFD7"></div><div class="sw-info"><b>Linie</b><code>#E2DFD7</code> · Hairlines, Rahmen</div></div>
+  </div>
+  <h3>Akzente (nur in ihrer Welt)</h3>
+  <div class="swatches">
+    <div class="sw akzent"><div class="sw-farbe" style="background:#E8B84B"></div><div class="sw-info"><b>Solari-Gelb</b><code>#E8B84B</code> · nur auf der Abflugtafel</div></div>
+    <div class="sw akzent"><div class="sw-farbe" style="background:#2E4A6B"></div><div class="sw-info"><b>Stempel-Blau</b><code>#2E4A6B</code> · nur Grenzstempel-Grafik</div></div>
+    <div class="sw akzent"><div class="sw-farbe" style="background:#211C15"></div><div class="sw-info"><b>Flap-Dunkel</b><code>#211C15</code> · Tafel-Kacheln</div></div>
+  </div>
+  <h3>Kontraste (WCAG 2.1, gemessen)</h3>
+  <table>
+    <tr><th>Kombination</th><th>Wert</th><th>Einsatz</th></tr>
+    <tr><td>Tinte auf Papier</td><td>17,6 : 1</td><td>Uneingeschränkt (AAA)</td></tr>
+    <tr><td>Signal-Rot auf Papier</td><td>5,3 : 1</td><td>Text jeder Größe (AA)</td></tr>
+    <tr><td>Stein auf Papier</td><td>5,1 : 1</td><td>Text jeder Größe (AA)</td></tr>
+    <tr><td>Stein auf Papier-Tief</td><td>4,7 : 1</td><td>AA, knapp: nicht weiter abdunkeln</td></tr>
+    <tr><td>Solari auf Flap-Dunkel</td><td>9,2 : 1</td><td>Uneingeschränkt (AAA)</td></tr>
+    <tr><td>Signal-Rot auf Tinte</td><td>3,3 : 1</td><td>NUR Grafik und Text ab 24 px, kein Fließtext</td></tr>
+  </table>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines</span><span>Seite 4</span></div>
+</div>
+
+<!-- SEITE 5: TYPOGRAFIE -->
+<div class="seite">
+  <div class="kopf"><span>03 / Typografie</span><span>Drei Schriften, drei Rollen</span></div>
+  <h2>Typografie</h2>
+  <div class="spec">
+    <p class="mono">Display · Cabinet Grotesk 700/800</p>
+    <div class="spec-gross">Abenteuer AaBbGg 0123</div>
+  </div>
+  <div class="spec">
+    <p class="mono">Lesetext · General Sans 400/500/600</p>
+    <p class="spec-mittel">Eine gute Abenteuerreise scheitert selten am Ziel. Sie scheitert an drei
+    Wochenenden Recherche. AaBbGg 0123</p>
+  </div>
+  <div class="spec">
+    <p class="mono">Technik-Ebene · B612 Mono 400/700</p>
+    <p class="spec-mono">N 64.1466 / W 21.9426 · Boarding · Gate 0123</p>
+  </div>
+  <h3>Größensystem (Website)</h3>
+  <table>
+    <tr><th>Rolle</th><th>Schrift</th><th>Größe</th><th>Zeilenhöhe / Laufweite</th></tr>
+    <tr><td>H1</td><td>Cabinet Grotesk 700</td><td>44 bis 96 px (fluid)</td><td>0,98 / −2 %</td></tr>
+    <tr><td>H2</td><td>Cabinet Grotesk 700</td><td>30 bis 48 px (fluid)</td><td>1,04 / −1,5 %</td></tr>
+    <tr><td>H3</td><td>Cabinet Grotesk 700</td><td>22 px</td><td>1,2</td></tr>
+    <tr><td>Statement</td><td>Cabinet Grotesk 700</td><td>28 bis 52 px (fluid)</td><td>1,08 / −1,5 %</td></tr>
+    <tr><td>Fließtext</td><td>General Sans 400</td><td>17 px</td><td>1,55 · max. 640 px Zeilenbreite</td></tr>
+    <tr><td>Mono-Label</td><td>B612 Mono 400</td><td>12 px, VERSALIEN</td><td>+8 % Laufweite</td></tr>
+    <tr><td>Chip</td><td>B612 Mono 400</td><td>11,5 px, VERSALIEN</td><td>+7 % Laufweite</td></tr>
+  </table>
+  <p class="klein">B612 Mono ist die Beweis-Ebene der Marke: Koordinaten, Preise, Gates, Labels.
+  Sie wurde für Flugzeug-Cockpits entworfen. Nie für Fließtext verwenden.</p>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines</span><span>Seite 5</span></div>
+</div>
+
+<!-- SEITE 6: UI + BILDSPRACHE -->
+<div class="seite eng">
+  <div class="kopf"><span>04 / UI + Bild</span><span>Elemente + Fotostil</span></div>
+  <h2>UI-Elemente und Bildsprache</h2>
+  <h3>Genau zwei Buttons</h3>
+  <div style="display:flex;gap:8mm;align-items:flex-start;flex-wrap:wrap;margin:3mm 0">
+    <figure>
+      <span class="btn-flap-demo"><b>G</b><b>U</b><b>I</b><b>D</b><b>E</b><b>S</b></span>
+      <figcaption class="mono" style="margin-top:2mm">Primär: Split-Flap · Radius 8 px</figcaption>
+    </figure>
+    <figure>
+      <span class="btn-sign-demo">Beratung ansehen <svg viewBox="0 0 96 96" fill="currentColor"><use href="#plane"/></svg></span>
+      <figcaption class="mono" style="margin-top:2mm">Sekundär: Schild + Abflug-Icon · Radius 10 px</figcaption>
+    </figure>
+    <figure>
+      <span class="btn-sign-demo hover-demo">Hover-Zustand <svg viewBox="0 0 96 96" fill="currentColor"><use href="#plane"/></svg></span>
+      <figcaption class="mono" style="margin-top:2mm">Hover: −2/−2 px + Hartschatten 3 px</figcaption>
+    </figure>
+  </div>
+  <p class="klein">Fokus (Tastatur): 2 px Signal-Rot, 3 px Abstand. Es gibt keine dritte Buttonform.
+  Höhe immer 60 px, mobil volle Breite.</p>
+  <h3>Signature-Element: Koordinaten-Marker</h3>
+  <div class="marker-demo"><span>04 / Die Guides</span><b>N 64.1466 / W 21.9426 · Reykjavik</b></div>
+  <p class="klein">Jede Sektion beginnt mit Laufnummer + echtem Ort. Nie mit erfundenen Koordinaten füllen.</p>
+  <h3>Chips und Kanten</h3>
+  <p><span class="chip-demo">Ab 29 €</span><span class="chip-demo">Sofort-Download</span><span class="chip-demo">Jede Route selbst gereist</span></p>
+  <p class="klein">Karten (Boarding-Pass) sind eckig mit Hartschatten 5 px/5 px in Linie-Farbe.
+  Nur Buttons und Flap-Kacheln haben Radien (8/10/3 px). Keine weichen Schlagschatten.</p>
+  <h3>Raster und Abstände</h3>
+  <p class="klein">Inhaltsbreite 1160 px, Seitenrand 24 px, Sektionsabstand 84 px. Innenabstände aus
+  der Reihe 10/12/14/18/24. Kein starres 8er-Raster, aber nichts außerhalb dieser Reihe erfinden.</p>
+  <h3>Bildsprache</h3>
+  <p class="klein">Dokumentarische Reise-Landschaften, keine Stockfoto-Posen. Liegt Text auf dem Foto,
+  immer Tinte-Overlay (50 bis 74 % Deckung). Platzhalter sind schraffiert und tragen eine Mono-Caption,
+  nie nackte Graufläche.</p>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines</span><span>Seite 6</span></div>
+</div>
+
+<!-- SEITE 7: SPRACHE + DO/DONT -->
+<div class="seite">
+  <div class="kopf"><span>05 / Sprache</span><span>Tonalität + Regeln</span></div>
+  <h2>Sprache und Tonalität</h2>
+  <p>ROUTENWERK spricht Paare und kleine Gruppen direkt an: Ihr-Form, nie Sie. Der Ton ist direkt und
+  trocken, mit einem Augenzwinkern ("40 Tabs später habt ihr den gleichen Plan wie alle").
+  Die Metaphern kommen konsequent aus einer Welt: Flughafen und Logbuch. Boarding, Abflug, Gate,
+  Einchecken, Basislager. Keine zweite Metaphern-Welt aufmachen.</p>
+  <table>
+    <tr><th>Muster</th><th>Beispiel</th></tr>
+    <tr><td>Beweis-Formel (immer wörtlich)</td><td>"Jede Route selbst gereist"</td></tr>
+    <tr><td>Preise immer konkret</td><td>"Ab 29 €", "60 Minuten, 149 €", nie "günstig"</td></tr>
+    <tr><td>CTA: kurz, imperativ</td><td>"Guides ansehen", "Einchecken", "Eigene Reise planen"</td></tr>
+    <tr><td>Einwand direkt aufgreifen</td><td>"Klar könnt ihr das selbst googeln."</td></tr>
+  </table>
+  <div class="dd" style="margin-top:6mm">
+    <div class="do">
+      <h3>Do</h3>
+      <ul>
+        <li>WERK-Akzent immer auf der zweiten Silbe, immer Signal-Rot</li>
+        <li>Koordinaten-Marker mit echten Orten und Koordinaten füllen</li>
+        <li>Solari-Gelb ausschließlich auf Flap-Dunkel einsetzen</li>
+        <li>Fotos mit Text: Tinte-Overlay verwenden</li>
+        <li>Bei zu kleiner Darstellung auf die Bildmarke ohne Route wechseln</li>
+      </ul>
+    </div>
+    <div class="dont">
+      <h3>Don't</h3>
+      <ul>
+        <li>Logo nie auf Signal-Rot oder auf Fotos ohne Overlay setzen</li>
+        <li>Keine dritte Buttonform, keine weichen Schlagschatten</li>
+        <li>Signal-Rot nie als Fließtext auf Tinte (Kontrast 3,3:1)</li>
+        <li>Keine Emojis als Icons, keine zweite Metaphern-Welt</li>
+        <li>B612 Mono nie für Fließtext, Laufweite der Wortmarke nie ändern</li>
+      </ul>
+    </div>
+  </div>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines</span><span>Seite 7</span></div>
+</div>
+
+<!-- SEITE 8: ASSETS + LIZENZEN -->
+<div class="seite">
+  <div class="kopf"><span>06 / Assets</span><span>Dateien + Lizenzen</span></div>
+  <h2>Assets und Lizenzen</h2>
+  <h3>Dateien im Paket</h3>
+  <table>
+    <tr><th>Datei</th><th>Inhalt</th></tr>
+    <tr><td><code>routenwerk-bildmarke.svg</code></td><td>Bildmarke zweifarbig (Tinte + Signal-Rot), beliebig skalierbar</td></tr>
+    <tr><td><code>fonts/*.woff2</code></td><td>Cabinet Grotesk 700/800, General Sans 400/500/600, B612 Mono 400/700</td></tr>
+    <tr><td>Favicon</td><td>Zielmarke solo, als Inline-SVG im Website-Code</td></tr>
+    <tr><td>OFFEN</td><td>Lockup als SVG-Datei (Wortmarke in Pfade gewandelt), einfarbige Variante, og:image 1200×630</td></tr>
+  </table>
+  <h3>Schriftlizenzen</h3>
+  <table>
+    <tr><th>Schrift</th><th>Quelle</th><th>Lizenz</th></tr>
+    <tr><td>Cabinet Grotesk</td><td>Fontshare (Indian Type Foundry)</td><td>ITF Free Font License: Web + Print erlaubt, Weitergabe/Verkauf der Dateien nicht</td></tr>
+    <tr><td>General Sans</td><td>Fontshare (Indian Type Foundry)</td><td>ITF Free Font License, wie oben</td></tr>
+    <tr><td>B612 Mono</td><td>Google Fonts / Airbus</td><td>SIL Open Font License: Web + Print + Weitergabe erlaubt</td></tr>
+  </table>
+  <p class="klein">Alle Schriften werden selbst gehostet, kein Google-Fonts-CDN (DSGVO). Lizenzstände
+  bitte vor kommerzieller Print-Großauflage einmal gegen die aktuellen Lizenztexte prüfen.</p>
+  <h3>Kontakt</h3>
+  <p>Fragen zur Anwendung, neue Formate, Druckdaten:<br>
+  <strong>MARVIN.WEB</strong> · Demo-Projekt, Kontakt über marvin-web.pages.dev</p>
+  <div class="fuss"><span>ROUTENWERK Brand Guidelines · Stand 07/2026</span><span>Seite 8</span></div>
+</div>
+
+<!-- INTERN: erscheint nicht im Druck/PDF -->
+<div class="intern">
+  <h2>INTERN (nicht Teil des Kundendokuments, im Druck ausgeblendet)</h2>
+  <h3 style="font-size:11pt;margin-top:4mm">Offene Punkte</h3>
+  <ul>
+    <li>Lockup als eigenständige SVG-Datei (Wortmarke in Pfade konvertieren) und einfarbige Variante erzeugen</li>
+    <li>og:image (1200×630) fehlt noch, steht auch im Launch-Kommentar der index.html</li>
+    <li>Print-Mindestgrößen sind festgelegte Empfehlungen aus dem Redesign, kein Andruck gemacht</li>
+    <li>Neue Bildmarke ist noch NICHT in die Website eingebaut (Nav zeigt reine Wortmarke, Favicon alt)</li>
+  </ul>
+  <h3 style="font-size:11pt;margin-top:4mm">Gefundene Inkonsistenzen (QA-Futter)</h3>
+  <ul>
+    <li>Hartcodierte Farben außerhalb der Tokens in styles.css: #8f887b (Z. 573, 607), #353026 (Z. 573), #4A443A + #1D1912 (Z. 575), #4a443a (Z. 593)</li>
+    <li>fonts/ibm-plex-mono-400.woff2 liegt im Ordner, wird aber von keinem @font-face geladen</li>
+    <li>Stein auf Papier-Tief besteht AA nur knapp (4,7:1), bei künftigen Ton-Anpassungen zuerst prüfen</li>
+  </ul>
+</div>
+
+</body>
+</html>

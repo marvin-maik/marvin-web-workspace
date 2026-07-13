@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <!-- ROUTENWERK Bildmarke: Startpunkt, gestrichelte Route, Zielmarke.
+       Herleitung: Favicon-Pin + Routen-Kurve des Guide-Rotators (rot-arc).
+       Clear-Space-Einheit X = Durchmesser des Zielpunkt-Kreises (22/96 der Markenhoehe). -->
+  <circle cx="16" cy="80" r="5.5" fill="#16130E"/>
+  <path d="M16 80 C26 52 42 42 64 60" fill="none" stroke="#16130E" stroke-width="3.5" stroke-dasharray="4 7"/>
+  <circle cx="70" cy="30" r="11" fill="#C2331F"/>
+  <path d="M70 64 59 38h22z" fill="#C2331F"/>
+</svg>
