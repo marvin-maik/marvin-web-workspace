@@ -1,0 +1,11 @@
+# Security-Header fuer alle Seiten (Cloudflare Pages liest diese Datei beim Deploy).
+# Bewusst ohne CSP: die Seiten haben Inline-JS/CSS, ein strikter CSP wuerde sie brechen.
+# HSTS wird ueber das Cloudflare-Dashboard gesetzt, nicht per Header-Datei.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
