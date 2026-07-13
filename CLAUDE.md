@@ -20,6 +20,7 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Recherche zu Design/Templates/Tokens -> **design-scout**
 - Kundenmaterial zu Kontext-Datei -> **brief-builder**
 - Fertige HTML-Datei pruefen -> **qa-polish** (aendert nichts, berichtet nur)
+- Logo/Bildmarke/Monogramm entwickeln -> **logo-designer** (Konzept-Sheet, Wortmarken als SVG-Pfade; Werkzeuge in _tools/logo/)
 
 ## Anti-Slop (verbindlich, Kurzfassung — Details in hosting-referenz.md Kap. 9.5)
 - Copy: KEINE Gedankenstriche. Keine Floskeln ("massgeschneidert", "nahtlos", "Ihr Partner fuer",
