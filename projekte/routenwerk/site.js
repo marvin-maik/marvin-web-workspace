@@ -389,6 +389,28 @@
     });
   });
 
+  /* ---------- Abflugtafel: eigener Scroll-Indikator (iOS zeigt native Scrollbar nicht) ---------- */
+  document.querySelectorAll(".tafel").forEach(function(tafel){
+    var bar = document.createElement("div");
+    bar.className = "tafel-scroll";
+    var daumen = document.createElement("b");
+    bar.appendChild(daumen);
+    tafel.after(bar);
+    function aktualisieren(){
+      var scrollbar = tafel.scrollWidth - tafel.clientWidth;
+      if (scrollbar <= 2){ bar.style.display = "none"; return; }
+      bar.style.display = "block";
+      var spur = bar.clientWidth;
+      var breite = Math.max(36, spur * tafel.clientWidth / tafel.scrollWidth);
+      var pos = (spur - breite) * (tafel.scrollLeft / scrollbar);
+      daumen.style.width = breite + "px";
+      daumen.style.transform = "translateX(" + pos + "px)";
+    }
+    tafel.addEventListener("scroll", aktualisieren, { passive: true });
+    window.addEventListener("resize", aktualisieren);
+    aktualisieren();
+  });
+
   /* ---------- Split-Flap-Buttons: Buchstaben klappen bei Hover/Fokus ---------- */
   var FLAP_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   document.querySelectorAll(".btn-flap").forEach(function(btn){
