@@ -5,7 +5,9 @@
   var el = document.getElementById('clock');
   if (!el) return;
   function tick() { el.textContent = new Date().toLocaleTimeString('de-DE'); }
-  tick(); setInterval(tick, 1000);
+  tick();
+  // WCAG 2.2.2: auto-aktualisierende Anzeige nur, wenn keine reduzierte Bewegung gewuenscht ist
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(tick, 1000);
 })();
 
 // Mobile-Navigation

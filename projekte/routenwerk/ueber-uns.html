@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#16130E">
 <link rel="preload" href="fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=47">
+<link rel="stylesheet" href="styles.css?v=48">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FAF9F5'/><circle cx='50' cy='42' r='16' fill='%23C2331F'/><path d='M50 92 34 54h32z' fill='%23C2331F'/></svg>">
 </head>
 <body>
@@ -87,8 +87,8 @@
           <div class="stat"><strong>3</strong><span>Guides, jede Route selbst gereist</span></div>
         </div>
       </div>
-      <div class="bild" style="flex:0 0 auto;max-width:330px">
-        <div class="passport" style="max-width:330px;margin-top:0;transform:rotate(-2deg)">
+      <div class="bild" style="flex:0 1 auto;max-width:min(330px,100%)">
+        <div class="passport" style="max-width:min(330px,100%);margin-top:0;transform:rotate(-2deg)">
           <div>
             <span class="stempel s1" style="font-size:10.5px;padding:9px 12px">Island<br>selbst gereist</span>
             <span class="seite-nr">Seite 04</span>
@@ -110,10 +110,10 @@
     <h2 data-rv>Wo wir waren. Und wohin wir planen.</h2>
     <p data-rv>Dreht sich von selbst, drei Maschinen ziehen ihre Bahnen darüber. Ziehen oder Pfeiltasten zum Drehen, Zoomen mit Strg und Scrollrad, Pinch oder Plus und Minus. Jeder gefüllte Pin ist ein Ort, den wir selbst bereist haben.</p>
     <div class="globus-filter" role="group" aria-label="Routen-Filter">
-      <button type="button" data-route="alle" class="aktiv">Alle Routen</button>
-      <button type="button" data-route="island">Island</button>
-      <button type="button" data-route="albanien">Albanien</button>
-      <button type="button" data-route="jordanien">Jordanien</button>
+      <button type="button" data-route="alle" class="aktiv" aria-pressed="true">Alle Routen</button>
+      <button type="button" data-route="island" aria-pressed="false">Island</button>
+      <button type="button" data-route="albanien" aria-pressed="false">Albanien</button>
+      <button type="button" data-route="jordanien" aria-pressed="false">Jordanien</button>
     </div>
     <div class="globus-buehne"><canvas id="globus" width="1120" height="620" tabindex="0" aria-label="Interaktiver Globus mit bereisten Orten und Routen. Drehen mit Pfeiltasten, Zoomen mit Plus und Minus."></canvas></div>
     <p class="globus-status" id="globusStatus" aria-live="polite">N 64.1466 / W 21.9426 · Reykjavik · Start der ersten Team-Route</p>
@@ -132,8 +132,8 @@
         <p class="zitat">Ihr sollt unterwegs nicht auf die Karte schauen. <em>Ihr sollt euch umschauen.</em></p>
         <p class="quelle">Aus dem Routenwerk-Logbuch</p>
       </div>
-      <div class="bild" style="flex:0 0 auto;max-width:320px">
-        <div class="postkarte" style="max-width:320px;margin-top:0;transform:rotate(2deg)">
+      <div class="bild" style="flex:0 1 auto;max-width:min(320px,100%)">
+        <div class="postkarte" style="max-width:min(320px,100%);margin-top:0;transform:rotate(2deg)">
           <div class="pk-links" style="padding:14px">
             <div class="pk-gruss" style="font-size:16px">Grüße aus Theth!</div>
             <p style="font-size:12px">Drei Tage ohne Netz, der beste Blick der Albanischen Alpen. Hier entstand Guide Nr. 2.</p>
@@ -194,7 +194,7 @@
 </footer>
 
 <!-- Vor Launch: Dieter-Consent-Snippet einfuegen (DIETER_SNIPPET_URL) -->
-<script src="site.js?v=47"></script>
+<script src="site.js?v=48"></script>
 <!-- Globus: d3 + topojson + die world-atlas land-110m.json (unten per fetch) VOR LAUNCH
      selbst hosten (DSGVO: alle drei laden sonst vom CDN und senden die Besucher-IP). CDN nur im Mockup. -->
 <script>
@@ -451,7 +451,7 @@ window.__globusInit = function(){
   document.querySelector(".globus-filter").addEventListener("click", function(e){
     var btn = e.target.closest("button"); if (!btn) return;
     aktiveRoute = btn.dataset.route;
-    document.querySelectorAll(".globus-filter button").forEach(function(b){ b.classList.toggle("aktiv", b === btn); });
+    document.querySelectorAll(".globus-filter button").forEach(function(b){ var an = b === btn; b.classList.toggle("aktiv", an); b.setAttribute("aria-pressed", an ? "true" : "false"); });
     if (aktiveRoute !== "alle"){
       var r = routen[aktiveRoute];
       status.textContent = r.pins[0].label;

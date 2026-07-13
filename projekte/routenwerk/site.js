@@ -64,7 +64,7 @@
   function consentLesen(){ try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || "null"); } catch(e){ return null; } }
   var bannerEl = null;
   function bannerWeg(){ if (bannerEl){ bannerEl.remove(); bannerEl = null; } }
-  function bannerZeigen(){
+  function bannerZeigen(fokus){
     if (bannerEl) return;
     bannerEl = document.createElement("div");
     bannerEl.className = "consent-banner";
@@ -83,6 +83,8 @@
       if (b) window.rwConsent.setzen(b.getAttribute("data-wahl") === "ja");
     });
     document.body.appendChild(bannerEl);
+    // Bei nutzerausgeloester Einblendung Fokus in den Banner setzen (nicht beim Auto-Load)
+    if (fokus){ var ersterBtn = bannerEl.querySelector(".cb-btn"); if (ersterBtn) ersterBtn.focus(); }
   }
   window.rwConsent = {
     hat: function(){ var c = consentLesen(); return !!(c && c.extern); },
@@ -99,7 +101,7 @@
   document.querySelectorAll(".foot-legal").forEach(function(fl){
     var btn = document.createElement("button");
     btn.type = "button"; btn.className = "consent-link"; btn.textContent = "Datenschutz-Einstellungen";
-    btn.addEventListener("click", bannerZeigen);
+    btn.addEventListener("click", function(){ bannerZeigen(true); });
     fl.insertBefore(btn, fl.querySelector("span.mono"));
   });
 
@@ -192,6 +194,7 @@
         s.style.zIndex = String(100 - Math.round(ar * 10));
         s.style.pointerEvents = ar < 0.5 ? "auto" : "none";
         s.setAttribute("aria-hidden", ar >= 0.5 ? "true" : "false");
+        s.inert = ar >= 0.5;                     // inaktive Karten aus Tab-Reihenfolge + A11y-Baum nehmen
       });
       aktualisiereAktiv(Math.round(pos));
     }
@@ -200,6 +203,7 @@
        ragen versetzt hervor; weggewischte Karten fliegen nach links raus. */
     /* Eine Karte im Stapel positionieren. rel = Kartenindex - deckIdx. */
     function stapelKarte(el, rel, dx){
+      el.inert = rel !== 0;                     // nur die oberste Karte ist fokussierbar
       if (rel === 0){                          // oberste Karte folgt dem Finger
         el.style.transform = "translate(-50%,-50%) translate(" + dx + "px,0) rotate(" + (dx * 0.03) + "deg)";
         el.style.opacity = "1"; el.style.zIndex = "30"; el.style.pointerEvents = "auto";

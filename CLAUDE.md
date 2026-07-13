@@ -28,6 +28,9 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
   EIN Signature-Element pro Seite. Keine Emojis als Icons.
 - Code: Vanilla CSS mit Token-Custom-Properties, kein Tailwind in Single-Files, semantisches HTML,
   eine h1, Fokus-Zustaende, prefers-reduced-motion. Fonts fuer Launch IMMER selbst hosten (DSGVO).
+- BARRIEREFREIHEIT: Zielniveau WCAG 2.1 AA (BFSG-Pflicht bei Shop/Verkauf, sonst Verkaufsargument).
+  Checkliste + kampferprobte Muster in `_referenz/barrierefreiheit-checkliste.md` -> VOR Launch abarbeiten.
+  AAA (7:1, Leichte Sprache, Audiodeskription) ist optional, nur auf Wunsch. Kontrast IMMER rechnen.
 
 ## Technik-Defaults
 - Single-File-Mockups (`index.html`), Hosting GitHub (`marvin-maik/<repo>`) + Cloudflare Pages.

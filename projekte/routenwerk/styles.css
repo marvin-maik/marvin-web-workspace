@@ -95,7 +95,7 @@ nav a[aria-current="page"]{background-size:100% 2px}
   font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-bottom:34px}
 .marker b{font-weight:400;color:var(--ink)}
-.hell .marker{border-color:color-mix(in srgb,var(--bg) 30%,transparent);color:color-mix(in srgb,var(--bg) 72%,transparent)}
+.hell .marker{border-color:color-mix(in srgb,var(--bg) 30%,transparent);color:var(--bg)}
 .hell .marker b{color:var(--bg)}
 
 /* ---------- Sektionen + Baender ---------- */
@@ -269,7 +269,7 @@ details .dbody{padding:0 0 22px}
 .pakete{display:flex;gap:20px;flex-wrap:wrap;align-items:stretch}
 .paket{border:1px solid var(--line);padding:28px;background:var(--bg);display:flex;flex-direction:column}
 .paket.kompakt{flex:1;min-width:270px}
-.paket.gross{flex:1.7;min-width:320px;border:2px solid var(--ink)}
+.paket.gross{flex:1.7;min-width:240px;border:2px solid var(--ink)}
 .paket .mono{margin-bottom:10px}
 .paket .btn-sign,.paket .btn-flap{margin-top:auto;align-self:flex-start}
 .preisgross{font-family:var(--display);font-weight:800;font-size:clamp(44px,6vw,76px);line-height:1;margin:14px 0 4px}
