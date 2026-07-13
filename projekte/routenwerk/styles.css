@@ -62,9 +62,10 @@ strong{font-weight:600}
 nav{border-bottom:1px solid var(--line);background:var(--bg);position:relative;z-index:5}
 .nav-inner{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);display:flex;
   align-items:center;gap:26px;min-height:64px;flex-wrap:wrap}
-.wortmarke{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:.12em;
-  color:var(--ink);text-decoration:none;margin-right:auto}
+.wortmarke{display:flex;align-items:center;font-family:var(--display);font-weight:800;font-size:21px;
+  letter-spacing:.12em;color:var(--ink);text-decoration:none;margin-right:auto}
 .wortmarke span{color:var(--signal)}
+.wortmarke img{height:20px;width:auto;display:block}
 nav a:not(.wortmarke){font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;
   padding:12px 0;background:linear-gradient(var(--ink),var(--ink)) no-repeat 0 100%/0 2px;
   transition:background-size .25s}
