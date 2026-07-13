@@ -411,6 +411,30 @@
     aktualisieren();
   });
 
+  /* ---------- Formular-Botschutz: Honeypot + Zeit-Falle (unsichtbar, kein externer Dienst) ---------- */
+  document.querySelectorAll("form:has([name='_gotcha'])").forEach(function(form){
+    var geladen = Date.now();
+    var MINDEST = 2500; /* ms bis zum ersten erlaubten Absenden: schneller = Bot */
+    form.addEventListener("submit", function(e){
+      var hp = form.querySelector("[name='_gotcha']");
+      /* Honeypot ausgefuellt: sicher ein Bot, still blockieren */
+      if (hp && hp.value){ e.preventDefault(); return; }
+      /* Zu schnell abgeschickt: wahrscheinlich Bot. Echten Menschen einen Hinweis geben,
+         der zweite Versuch liegt automatisch ueber der Schwelle und geht durch. */
+      if (Date.now() - geladen < MINDEST){
+        e.preventDefault();
+        var hinweis = form.querySelector(".schutz-hinweis");
+        if (!hinweis){
+          hinweis = document.createElement("p");
+          hinweis.className = "schutz-hinweis kleingedruckt";
+          hinweis.setAttribute("role", "status");
+          hinweis.textContent = "Einen Moment noch, bitte gleich erneut absenden.";
+          form.appendChild(hinweis);
+        }
+      }
+    });
+  });
+
   /* ---------- Split-Flap-Buttons: Buchstaben klappen bei Hover/Fokus ---------- */
   var FLAP_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   document.querySelectorAll(".btn-flap").forEach(function(btn){

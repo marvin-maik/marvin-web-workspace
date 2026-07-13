@@ -336,6 +336,9 @@ textarea{min-height:140px;resize:vertical}
 .inline-form{display:flex;gap:0;flex-wrap:wrap;align-items:stretch;margin-top:14px}
 .inline-form input[type=email]{max-width:340px;border-right:none}
 .inline-form .btn-sign,.inline-form .btn-flap{margin:0}
+/* Honeypot: fuer Menschen unsichtbar (off-screen, nicht fokussierbar), Bots fuellen es aus */
+.hp-feld{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.schutz-hinweis{width:100%;margin-top:8px;color:var(--muted)}
 .kleingedruckt{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--muted);margin-top:10px}
 
