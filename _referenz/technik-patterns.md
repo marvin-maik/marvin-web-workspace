@@ -149,3 +149,14 @@ Banner steuert das Nachladen. Kernpunkte, die es DSGVO-fest machen:
   wie bei YouTube-Embeds).
 - Beweis beim Testen: `typeof d3 === "undefined"` + 0 CDN-Requests VOR Klick, geladen danach.
 Code: projekte/routenwerk/site.js (Consent-Block) + ueber-uns.html (Globus-Gate).
+
+## Sichtbarer Scroll-Indikator fuer horizontal scrollbare Boxen (Mobile)
+Problem: `overflow-x:auto` scrollt zwar, aber iOS Safari rendert `::-webkit-scrollbar`
+NICHT (Overlay-Scrollbar erscheint nur waehrend des Wischens). Ergebnis: die Box wirkt
+rechts abgeschnitten statt scrollbar, niemand ahnt, dass man wischen kann.
+Loesung: native Scrollbar aus (`scrollbar-width:none` + `::-webkit-scrollbar{display:none}`),
+eigener Balken als Sibling darunter. JS setzt Daumen-Breite = sichtbarer Anteil
+(spur*clientWidth/scrollWidth, min 36px) und Position = scrollLeft-Ratio per translateX;
+Listener auf scroll (passive) + resize. Blendet sich aus, wenn nicht ueberlaufend (Desktop).
+Farbe im Seiten-Look (hier Solari-Gold auf Linien-Grau).
+Code: projekte/routenwerk/site.js (".tafel"-Block) + styles.css (.tafel-scroll).
