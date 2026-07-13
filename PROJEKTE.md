@@ -1,7 +1,7 @@
 # Status-Board
 
 Eine Zeile pro Projekt. Bei jedem Phasenwechsel aktualisieren.
-Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
+Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Report -> Live+Betreuung
 
 | Projekt | Phase | Naechster Schritt | Wartet auf |
 |---|---|---|---|
