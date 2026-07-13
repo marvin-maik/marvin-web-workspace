@@ -160,3 +160,16 @@ eigener Balken als Sibling darunter. JS setzt Daumen-Breite = sichtbarer Anteil
 Listener auf scroll (passive) + resize. Blendet sich aus, wenn nicht ueberlaufend (Desktop).
 Farbe im Seiten-Look (hier Solari-Gold auf Linien-Grau).
 Code: projekte/routenwerk/site.js (".tafel"-Block) + styles.css (.tafel-scroll).
+
+## Formular-Botschutz ohne externen Dienst (Honeypot + Zeit-Falle)
+DSGVO-clean, unsichtbar, kostenlos, kein Consent noetig. Faengt den Grossteil des Spams.
+- Honeypot: verstecktes Textfeld `name="_gotcha"` in .hp-feld (position:absolute;left:-9999px;
+  1x1;overflow:hidden), aria-hidden, tabindex=-1. Steht im HTML-Markup (nicht per JS injiziert),
+  damit HTML-parsende Bots es ausfuellen. Formspree prueft `_gotcha` serverseitig und verwirft.
+- Zeit-Falle (site.js, `form:has([name='_gotcha'])`): geladen=Date.now() beim Load; on submit
+  preventDefault, wenn Honeypot gefuellt (still) ODER <2500ms seit Load (Hinweis, 2. Versuch geht durch).
+- Grenze: rein clientseitige Zeit-Falle stoppt keine JS-losen Direkt-POSTs -> dafuer Schicht 2.
+- Wichtig: KEIN Google reCAPTCHA (laedt Google-Skript, IP in USA, Consent-pflichtig, Abmahn-Thema).
+  Wenn echtes CAPTCHA noetig: Cloudflare Turnstile + serverseitige Pruefung per Pages Function
+  (Secret als CF-Env-Var, nie im Code). Sitekey ist oeffentlich, Secret bleibt geheim.
+Code: projekte/routenwerk/site.js (Botschutz-Block) + styles.css (.hp-feld) + *.html (_gotcha-Feld).
