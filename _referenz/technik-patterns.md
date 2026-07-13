@@ -164,8 +164,11 @@ Code: projekte/routenwerk/site.js (".tafel"-Block) + styles.css (.tafel-scroll).
 ## Formular-Botschutz ohne externen Dienst (Honeypot + Zeit-Falle)
 DSGVO-clean, unsichtbar, kostenlos, kein Consent noetig. Faengt den Grossteil des Spams.
 - Honeypot: verstecktes Textfeld `name="_gotcha"` in .hp-feld (position:absolute;left:-9999px;
-  1x1;overflow:hidden), aria-hidden, tabindex=-1. Steht im HTML-Markup (nicht per JS injiziert),
-  damit HTML-parsende Bots es ausfuellen. Formspree prueft `_gotcha` serverseitig und verwirft.
+  1x1;overflow:hidden), tabindex=-1, sichtbares Label "Bitte dieses Feld frei lassen".
+  KEIN aria-hidden am Wrapper! Er umschliesst ein fokussierbares Feld -> axe-Regel
+  'aria-hidden-focus' / WCAG 4.1.2. Off-screen + tabindex=-1 + Klartext-Label ist der
+  barrierefreie Honeypot (AT-Nutzer hoeren die Anweisung). Steht im HTML-Markup (nicht per JS
+  injiziert), damit HTML-parsende Bots es ausfuellen. Formspree prueft `_gotcha` serverseitig.
 - Zeit-Falle (site.js, `form:has([name='_gotcha'])`): geladen=Date.now() beim Load; on submit
   preventDefault, wenn Honeypot gefuellt (still) ODER <2500ms seit Load (Hinweis, 2. Versuch geht durch).
 - Grenze: rein clientseitige Zeit-Falle stoppt keine JS-losen Direkt-POSTs -> dafuer Schicht 2.
