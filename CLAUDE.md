@@ -35,6 +35,12 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 
 ## Technik-Defaults
 - Single-File-Mockups (`index.html`), Hosting GitHub (`marvin-maik/<repo>`) + Cloudflare Pages.
+- PFLICHTDATEIEN je Projekt (Details + Status-Tabelle: `_referenz/pflichtseiten-checkliste.md`):
+  404.html (Pfade root-absolut, sonst SPA-Fallback/Soft-404 auf CF Pages; Vorlage routenwerk),
+  _headers mit Security-Headern, Favicon-Serie. Demos auf pages.dev: noindex per _headers.
+  Launch auf finaler Domain: robots.txt + sitemap.xml + canonical/og:image.
+  Bei Verkauf: Widerruf inkl. Muster-Widerrufsformular, PAngV-Preise, BFSG-Info.
+  KEIN ODR-Link mehr (Plattform seit 07/2025 abgeschaltet).
 - Formulare Formspree, Buchung Cal.com, Rechtstexte Dieter Datenschutz — Snippets in `_referenz/integrations.md`.
 - Fertige Erkenntnisse/Muster nach Projektende in `_fundus/` ablegen.
 - BOTSCHUTZ PFLICHT auf JEDEM Formular (kein Opt-out): Honeypot (off-screen `.hp-feld`,
