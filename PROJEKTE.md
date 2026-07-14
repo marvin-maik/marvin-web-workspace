@@ -5,12 +5,17 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Rep
 
 | Projekt | Phase | Naechster Schritt | Wartet auf |
 |---|---|---|---|
-| marvin-web (Business-Site, 5 Seiten) | LIVE: marvin-web.pages.dev · 2026-07-14 lokal ergaenzt (noch NICHT deployed): OG-Bild + Twitter-Card, apple-touch/favicon-32, JSON-LD ProfessionalService, danke.html + Formspree-_next | Deploy-Go von Marvin (Staging-Excludes: `_*` inkl. _og-src/_icon-src/_schema). CF Web Analytics registriert + Beacon im Code (Daten ab Deploy); UptimeRobot-Keyword-Monitor "MARVIN.WEB" live (Up, 5-Min, Alarm an comspiele@web.de). Danach: Formular-Testsubmit, Datenschutz um WhatsApp + CF Web Analytics ergaenzen (Dieter), Geraete-Review, Domain, Formspree-AVV | Marvin: Deploy-Go + Test-Alarm-Mail im Postfach/Spam pruefen |
+| marvin-web (Business-Site, 5 Seiten) | LIVE + DEPLOYED 2026-07-14 (83d69515): OG-Bild + Twitter-Card, apple-touch/favicon-32, JSON-LD, danke.html + _next (CF Clean-URL /danke, Kette landet auf 200), WhatsApp (Float nur Logo + Kontakt-Button), CF Web Analytics Beacon (Token ...cc80, misst ab jetzt), UptimeRobot-Keyword-Monitor "MARVIN.WEB" (Up, 5-Min, Mail an comspiele@web.de); Datenschutz um WhatsApp + CF Web Analytics ergaenzt. Live verifiziert via Deployment-URL. | Offen: Test-Alarm-Mail (Postfach/Spam) pruefen; Formspree-Testsubmit real; Datenschutz fachlich pruefen lassen; Domain + Formspree-AVV; Geraete-Review | Marvin: Test-Mail + Domain-Entscheidung |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
 | MARLOU (ECHTES Projekt Marvin+Louisa) | PAUSIERT — NICHT BEARBEITEN (Marvins Ansage 2026-07-11) | Ruht, bis Marvin+Louisa es aktiv reaktivieren; Design-Verbesserungen aus ROUTENWERK werden erst DANN zurueckgespielt | Marvin + Louisa |
-| ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Deploy 2026-07-14: Bilder optimiert (2,3 MB -> 429 KB, Perf 98 live), CSP frame-ancestors statt X-Frame-Options (marvin-web darf einbetten), Timeline-Fix beratung.html | Startseiten-og:image + twitter:card 2026-07-14 lokal nachgezogen (Bild existierte, nur Tag fehlte -> leere Share-Vorschau) -> **routenwerk neu deployen** (rw-deploy-Befehl); favicon-32 optional (noindex-Demo). Dann Nachkontrolle 2026-07-28: Formular-Test, Customer-Feedback; Insights nach _fundus/; Timeline-Fix bei MARLOU-Reaktivierung zurueckspielen | Marvin: routenwerk-Deploy-Go |
+| ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Deploy 2026-07-14: Bilder optimiert (2,3 MB -> 429 KB, Perf 98 live), CSP frame-ancestors statt X-Frame-Options (marvin-web darf einbetten), Timeline-Fix beratung.html | Startseiten-og:image + twitter:card DEPLOYED 2026-07-14 (14bcf3f8) -> leere Share-Vorschau gefixt, live verifiziert. Nachkontrolle 2026-07-28: Formular-Test, Customer-Feedback; Insights nach _fundus/; Timeline-Fix bei MARLOU-Reaktivierung zurueckspielen | erledigt |
 
 ## Erledigt / Log
+- 2026-07-14: DEPLOYED. marvin-web (83d69515) + routenwerk (14bcf3f8) live ueber Staging-Kopie
+  (Leak-Kontrolle bestanden, MARLOU bewusst nicht committet/deployt). Commit 9434058 + gepusht.
+  Live via Deployment-URL verifiziert: alle Icons/OG/Beacon/Schema/WhatsApp 200 + vorhanden,
+  Danke-Kette /danke.html -> 308 -> /danke -> 200, noindex aktiv (pages.dev). Datenschutz war
+  ohne Dieter direkt ergaenzt (WhatsApp + CF Web Analytics) -> bei Gelegenheit fachlich pruefen lassen.
 - 2026-07-14: UptimeRobot-Keyword-Monitor fuer marvin-web eingerichtet (via Chrome, Marvins
   Konto Marvin-Maik, GitHub-Login): Keyword "MARVIN.WEB" auf https://marvin-web.pages.dev,
   Alarm wenn Keyword FEHLT (faengt Ausfall + kaputten Deploy), 5-Min-Intervall (Free), Mail an
