@@ -409,6 +409,10 @@ summary:hover{color:var(--signal-deep)}
 
 /* CTA-Zeile unter Case-Bloecken */
 .case-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
+/* Unter dem zentrierten Live-Fenster: Buttons + Trust-Zeile auf der Fenster-Achse
+   (Headline/Lede bleiben links am Seitenraster) */
+#demo .case-ctas{justify-content:center}
+#demo .trust-row{justify-content:center}
 
 /* Leistungs-Checkliste (Case-Study): Offer-Stack mit Haken + Designfiles-Blick daneben */
 .leistung-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;margin-top:56px;align-items:start}

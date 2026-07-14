@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROUTENWERK · Brand Guidelines</title>
+<style>
+@font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Cabinet Grotesk';src:url('fonts/cabinet-grotesk-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'General Sans';src:url('fonts/general-sans-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'B612 Mono';src:url('fonts/b612-mono-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --ink:#16130E;
+  --papier:#FAF9F5;
+  --signal:#C2331F;
+  --muted:#6F6A60;
+  --line:#E2DFD7;
+  --flap:#211C15;
+  --solari:#E8B84B;
+  --stempel:#2E4A6B;
+  --tisch:#DAD5C8;
+  --display:'Cabinet Grotesk',sans-serif;
+  --body:'General Sans',sans-serif;
+  --mono:'B612 Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--tisch);color:var(--ink);line-height:1.5}
+
+/* ---------- Werkzeugleiste (nur Bildschirm) ---------- */
+.werkzeugleiste{position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:14px 28px;background:var(--ink);color:var(--papier)}
+.werkzeugleiste .mono{color:var(--papier);opacity:.7}
+.werkzeugleiste button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--signal);color:var(--papier);border:0;padding:10px 16px;cursor:pointer}
+.werkzeugleiste button:hover{background:#a92a19}
+.werkzeugleiste button:focus-visible{outline:2px solid var(--solari);outline-offset:2px}
+
+/* ---------- Grundraster ---------- */
+.buehne{padding:56px 24px 120px;display:flex;flex-direction:column;align-items:center;gap:64px}
+.spread{width:min(1040px,94vw);display:flex;box-shadow:0 30px 60px -20px rgba(22,19,14,.35),0 4px 12px rgba(22,19,14,.15);
+  background:var(--papier)}
+.spread:nth-child(odd){transform:rotate(-.35deg)}
+.spread:nth-child(even){transform:rotate(.35deg)}
+.seite{flex:1 1 0;aspect-ratio:3/4;position:relative;overflow:hidden;padding:34px 32px;
+  display:flex;flex-direction:column;justify-content:space-between}
+.seite + .seite{border-left:1px solid var(--line)}
+.seite.ink{background:var(--ink);color:var(--papier)}
+.seite.flap{background:var(--flap);color:var(--papier)}
+
+/* Kopf- und Fusszeile jeder Seite */
+.kopf{display:flex;justify-content:space-between;align-items:flex-start;align-self:stretch;
+  width:100%;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.fuss{display:flex;justify-content:space-between;align-items:flex-end;align-self:stretch;
+  width:100%;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
+
+/* ---------- Typo ---------- */
+h1,h2,h3{font-family:var(--display);font-weight:800;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:clamp(26px,3.4vw,40px);line-height:.98}
+h2{font-size:16px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;margin-bottom:10px;color:var(--signal)}
+.seite.ink h2,.seite.flap h2{color:var(--solari)}
+h3{font-size:13px;font-weight:700;margin-bottom:4px}
+p{font-size:12.5px;line-height:1.55;max-width:46ch}
+.mono{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.seite.ink .mono,.seite.flap .mono{color:var(--papier);opacity:.65}
+.riesig{font-family:var(--display);font-weight:800;font-size:clamp(120px,17vw,180px);line-height:.8;
+  letter-spacing:-.03em}
+.titel{font-family:var(--display);font-weight:800;text-wrap:balance;letter-spacing:-.015em;
+  font-size:clamp(26px,3.4vw,40px);line-height:.98}
+
+/* ---------- Wiederkehrende Bausteine ---------- */
+.wasserzeichen{position:absolute;inset:0;opacity:.055;pointer-events:none;display:grid;
+  grid-template-columns:repeat(4,1fr);gap:18px;padding:24px;transform:rotate(-6deg) scale(1.25)}
+.wasserzeichen svg,.wasserzeichen img{width:100%;height:auto}
+
+.logo-feld{border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:24px}
+.logo-feld.dunkel{background:var(--ink);border-color:var(--ink)}
+.logo-feld svg,.logo-feld img{width:100%;height:auto}
+
+.tabelle{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px}
+.tabelle th,.tabelle td{padding:9px 8px 9px 0;text-align:left;border-bottom:1px solid var(--line)}
+.tabelle th{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);font-weight:400}
+.seite.ink .tabelle th,.seite.ink .tabelle td,.seite.flap .tabelle th,.seite.flap .tabelle td{border-color:rgba(250,249,245,.2)}
+
+.farben{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.balken{padding:14px 18px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.balken strong{font-family:var(--display);font-weight:700;font-size:14px}
+.balken span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;opacity:.85;text-align:right}
+
+.liste{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.liste li{font-size:12px;line-height:1.4;padding-left:18px;position:relative}
+.liste.check li::before{content:'✓';position:absolute;left:0;color:var(--signal);font-weight:700}
+.liste.kreuz li::before{content:'✕';position:absolute;left:0;color:var(--muted);font-weight:700}
+
+.spez{font-family:var(--display);font-weight:800}
+.spez.cg{font-size:15px}
+.spez.gs{font-family:var(--body);font-weight:400;font-size:12.5px}
+.spez.bm{font-family:var(--mono);font-size:11px}
+
+/* ---------- Grafische Elemente (Seite 15-18) ---------- */
+.flap-kachel{display:inline-block;font-family:var(--mono);font-weight:700;font-size:20px;
+  width:1.3ch;text-align:center;padding:8px 0;margin-right:4px;border-radius:3px;border:1px solid var(--line);
+  background:linear-gradient(var(--papier) 48%,var(--line) 48% 52%,var(--papier) 52%);color:var(--ink)}
+.stempel-demo{display:inline-block;font-family:var(--mono);font-weight:700;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--signal);border:3px double var(--signal);
+  border-radius:10px;padding:12px 14px;text-align:center;line-height:1.5;transform:rotate(-4deg)}
+.perfo-demo{flex:0 0 auto;width:0;border-left:2px dashed var(--muted)}
+.barcode-demo{height:28px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,
+  var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 16px)}
+.brief-demo{display:inline-block;background:var(--papier);padding:8px 8px 5px;border:1px solid var(--line);
+  box-shadow:3px 4px 0 var(--line)}
+
+@media print{
+  body{background:#fff}
+  .werkzeugleiste{display:none}
+  .buehne{display:block;padding:0}
+  .spread{width:297mm;height:210mm;margin:0;box-shadow:none;transform:none!important;
+    page-break-after:always;break-inside:avoid}
+  .seite{aspect-ratio:auto;height:auto}
+  @page{size:A4 landscape;margin:0}
+}
+@media (max-width:760px){
+  .spread{flex-direction:column}
+  .seite + .seite{border-left:0;border-top:1px solid var(--line)}
+  .seite{aspect-ratio:3/3.6}
+}
+</style>
+</head>
+<body>
+
+<div class="werkzeugleiste">
+  <span class="mono">Routenwerk · Brand Guidelines · v1.0 · Juli 2026</span>
+  <button onclick="window.print()">Als PDF drucken</button>
+</div>
+
+<div class="buehne">
+
+<!-- SPREAD 1 — Cover -->
+<div class="spread">
+  <div class="seite ink">
+    <div class="kopf"><span>Corporate Design</span><span>Seite 01</span></div>
+    <div style="text-align:center">
+      <img src="logo-invers.svg" style="width:88%;margin:0 auto;display:block" alt="Routenwerk Logo, invers">
+      <p class="mono" style="text-align:center;margin-top:18px;color:var(--papier);opacity:.65">Brand Guidelines · Corporate Design System</p>
+    </div>
+    <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
+  </div>
+  <div class="seite" style="justify-content:flex-end">
+    <div class="wasserzeichen" aria-hidden="true">
+      <img src="zeichen.svg" alt="">
+      <img src="zeichen.svg" alt="">
+      <img src="zeichen.svg" alt="">
+      <img src="zeichen.svg" alt="">
+    </div>
+    <div class="kopf" style="position:relative;z-index:1"><span>Routenwerk</span><span>Seite 02</span></div>
+    <div style="position:relative;z-index:1">
+      <h1>ABENTEUER,<br>FERTIG<br>GEPLANT.</h1>
+      <p class="mono" style="margin-top:14px">Jede Route selbst gereist</p>
+    </div>
+    <div class="fuss" style="position:relative;z-index:1"><span>hallo@routenwerk.de</span><span>Juli 2026</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 2 — Brand Message / Content -->
+<div class="spread">
+  <div class="seite">
+    <div class="kopf"><span>01 · Einführung</span><span>Seite 03</span></div>
+    <div>
+      <h2>Markenbotschaft</h2>
+      <p>Routenwerk plant Abenteuerreisen bis ins Detail, aber jede Route wird selbst gereist, bevor sie verkauft wird. Kein Katalog aus zweiter Hand. Jeder Guide kennt die Straße, den Pass, die Unterkunft persönlich.</p>
+      <p style="margin-top:12px">Die Marke steht für kuratierte Freiheit: durchgeplant, wo es zählt (Logistik, Sicherheit, Zeitpuffer), offen, wo es sich lohnt (Tempo, Umwege, Entdeckung).</p>
+      <div style="margin-top:20px;aspect-ratio:16/9;background:repeating-linear-gradient(135deg,var(--flap) 0 2px,#241F17 2px 4px);border:1px solid var(--line)"></div>
+      <p class="mono" style="margin-top:8px">Bildplatzhalter · Reisefoto, Querformat</p>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+  <div class="seite ink">
+    <div class="kopf"><span>01 · Einführung</span><span>Seite 04</span></div>
+    <div>
+      <h2>Inhalt dieses Guides</h2>
+      <table class="tabelle">
+        <tr><td class="spez bm">01</td><td>Brand Logo</td><td class="mono">05-07</td></tr>
+        <tr><td class="spez bm">02</td><td>Brand Color</td><td class="mono">08-10</td></tr>
+        <tr><td class="spez bm">03</td><td>Brand Typography</td><td class="mono">11-12</td></tr>
+        <tr><td class="spez bm">04</td><td>Marken-Anwendung</td><td class="mono">13-14</td></tr>
+        <tr><td class="spez bm">05</td><td>Grafische Elemente</td><td class="mono">15-18</td></tr>
+        <tr><td class="spez bm">06</td><td>Nutzungsregeln</td><td class="mono">19</td></tr>
+        <tr><td class="spez bm">07</td><td>Assets &amp; Lizenzen</td><td class="mono">20</td></tr>
+      </table>
+    </div>
+    <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 3 — Section 01 Cover + Logo Mark -->
+<div class="spread">
+  <div class="seite flap" style="align-items:flex-start">
+    <div class="kopf"><span>Section One</span><span>Seite 05</span></div>
+    <div style="width:100%">
+      <span class="riesig" style="color:var(--solari)">01</span>
+      <div class="titel" style="margin-top:6px">BRAND<br>LOGO</div>
+    </div>
+    <img src="zeichen.svg" width="72" style="align-self:flex-end" alt="" aria-hidden="true">
+  </div>
+  <div class="seite">
+    <div class="kopf"><span>01 · Logo</span><span>Seite 06</span></div>
+    <div>
+      <h2>1.1 Hauptlogo &amp; Schutzraum</h2>
+      <p>Das O von ROUTEN ist die rote Zielmarke mit Pin-Spitze, WERK folgt in Rot. Schutzraum rundum: <strong>1X</strong>, X = Radius der Zielmarke (34.7 Einheiten im Logo-Raster).</p>
+      <div class="logo-feld" style="margin-top:14px;aspect-ratio:94/25;padding:14px">
+        <svg viewBox="-78 -148 940 250" xmlns="http://www.w3.org/2000/svg" width="100%" role="img" aria-label="Wortmarke Routenwerk mit Schutzraum-Vermassung: 1X Abstand rundum, X gleich Radius der Zielmarke">
+        <g stroke="#6F6A60" fill="none">
+          <rect x="-30.3" y="-104" width="848.4" height="159.7" stroke-width="3.2" stroke-dasharray="7 8"/>
+          <line x1="393.9" y1="-104" x2="393.9" y2="-69.3" stroke-width="2.6"/>
+          <line x1="378.9" y1="-104" x2="408.9" y2="-104" stroke-width="2.6"/>
+          <line x1="378.9" y1="-69.3" x2="408.9" y2="-69.3" stroke-width="2.6"/>
+          <line x1="393.9" y1="21" x2="393.9" y2="55.7" stroke-width="2.6"/>
+          <line x1="378.9" y1="21" x2="408.9" y2="21" stroke-width="2.6"/>
+          <line x1="378.9" y1="55.7" x2="408.9" y2="55.7" stroke-width="2.6"/>
+          <line x1="-30.3" y1="-24.15" x2="4.4" y2="-24.15" stroke-width="2.6"/>
+          <line x1="-30.3" y1="-39.15" x2="-30.3" y2="-9.15" stroke-width="2.6"/>
+          <line x1="4.4" y1="-39.15" x2="4.4" y2="-9.15" stroke-width="2.6"/>
+          <line x1="783.4" y1="-24.15" x2="818.1" y2="-24.15" stroke-width="2.6"/>
+          <line x1="783.4" y1="-39.15" x2="783.4" y2="-9.15" stroke-width="2.6"/>
+          <line x1="818.1" y1="-39.15" x2="818.1" y2="-9.15" stroke-width="2.6"/>
+        </g>
+        <g fill="#6F6A60" font-family="'B612 Mono',monospace" font-size="26" text-anchor="middle">
+          <text x="393.9" y="-118">X</text>
+          <text x="393.9" y="90">X</text>
+          <text x="-54.3" y="-18">X</text>
+          <text x="842.1" y="-18">X</text>
+        </g>
+        <g fill="#16130E"><path d="M19.700-25.100L19.700 0L5.400 0L5.400-67L36.500-67Q47.900-67 54.750-61.700Q61.600-56.400 61.600-46.100Q61.600-37.500 56.400-32.650Q51.200-27.800 42.600-26.800Q46.300-25.800 48.750-23.550Q51.200-21.300 53.600-17.400L64.200 0L47.700 0L36.400-19Q34.400-22.400 31.850-23.750Q29.300-25.100 24.900-25.100L19.700-25.100M36-54.300L19.700-54.300L19.700-36.600L36-36.600Q46.600-36.600 46.600-45.400Q46.600-54.300 36-54.300"/><path d="M196.800 1Q182.600 1 175.600-6.400Q168.600-13.800 168.600-29.400L168.600-67L182.900-67L182.900-29.200Q182.900-20.600 186.250-16.700Q189.600-12.800 196.900-12.800Q204.300-12.800 207.550-16.650Q210.800-20.500 210.800-29.200L210.800-67L225.100-67L225.100-29.400Q225.100-13.700 218.150-6.350Q211.200 1 196.800 1"/><path d="M277.600-54.300L277.600 0L263.300 0L263.300-54.300L243.300-54.300L243.300-67L297.600-67L297.600-54.300"/><path d="M365.600-12.700L365.600 0L316.400 0L316.400-67L365.600-67L365.600-54.300L330.700-54.300L330.700-40.200L359.900-40.200L359.900-27.500L330.700-27.500L330.700-12.700"/><path d="M400.700-28.600L400.700 0L386.400 0L386.400-67L400.300-67L424.100-32L430.200-21.500L429.300-37.300L429.300-67L443.600-67L443.600 0L430 0L405.600-35.300L399.600-45.200"/></g>
+        <g fill="#C2331F"><circle cx="114.7" cy="-33.5" r="34.7"/><path d="M114.7 20 86.2 -16.2h56.9z"/><path d="M506.100-35.100L497.400 0L478.100 0L462-67L478.500-67L485.600-30.400L488.100-10.100L491.600-28.800L500.300-67L519.200-67L527.800-28.800L531.200-10.100L533.800-30.400L541-67L557.400-67L541.200 0L521.900 0L513.300-35.100L509.700-56.800"/><path d="M625-12.700L625 0L575.800 0L575.800-67L625-67L625-54.300L590.100-54.300L590.100-40.200L619.300-40.200L619.300-27.500L590.100-27.500L590.100-12.700"/><path d="M660.100-25.100L660.100 0L645.800 0L645.800-67L676.900-67Q688.300-67 695.150-61.700Q702-56.400 702-46.100Q702-37.500 696.800-32.650Q691.600-27.800 683-26.800Q686.700-25.800 689.150-23.550Q691.600-21.300 694-17.400L704.600 0L688.100 0L676.800-19Q674.800-22.400 672.250-23.750Q669.700-25.100 665.300-25.100L660.100-25.100M676.400-54.300L660.100-54.300L660.100-36.600L676.400-36.600Q687-36.600 687-45.400Q687-54.300 676.400-54.300"/><path d="M737.600-18.800L737.600 0L723.300 0L723.300-67L737.600-67L737.600-48L737.200-35.400L746.500-46.800L764.600-67L781.400-67L758.100-40.500L782.400 0L765.900 0L748-30.100"/></g>
+        </svg>
+      </div>
+      <p class="mono" style="margin-top:6px">Logo darf auf keiner Seite näher als 1X an andere Inhalte heranrücken.</p>
+
+      <h2 style="margin-top:16px">1.2 Submark (Icon)</h2>
+      <p>R + Zielmarke: derselbe Ausschnitt aus der Wortmarke, nur aufs Icon-Feld skaliert. Für Favicon, App-Icon und Social-Avatar. Nie als Ersatz für das Hauptlogo.</p>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:10px;border:1px solid var(--line);padding:12px 16px">
+        <img src="zeichen.svg" width="46" style="flex-shrink:0" alt="Submark: R und Zielmarke in dunkler Kachel">
+        <span class="mono">zeichen.svg</span>
+      </div>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 4 — Size & Scale + Section 02 Cover -->
+<div class="spread">
+  <div class="seite">
+    <div class="kopf"><span>01 · Logo</span><span>Seite 07</span></div>
+    <div>
+      <h2>1.3 Größe &amp; Einsatz</h2>
+      <table class="tabelle">
+        <tr><th>Kontext</th><th>Zeichen</th><th>Minimum</th></tr>
+        <tr><td>Browsertab / App-Icon</td><td>Submark</td><td>16 px</td></tr>
+        <tr><td>Navigation</td><td>Wortmarke</td><td>120 px Breite</td></tr>
+        <tr><td>Fußzeile</td><td>Wortmarke</td><td>100 px Breite</td></tr>
+        <tr><td>Briefkopf / Visitenkarte (Print)</td><td>Wortmarke</td><td>25 mm Breite</td></tr>
+      </table>
+      <div style="display:flex;gap:14px;margin-top:22px">
+        <div class="logo-feld" style="flex:1;aspect-ratio:3/2;padding:18px"><img src="logo.svg" alt="Logo auf hellem Grund"></div>
+        <div class="logo-feld dunkel" style="flex:1;aspect-ratio:3/2;padding:18px"><img src="logo-invers.svg" alt="Logo invers auf dunklem Grund"></div>
+      </div>
+      <p class="mono" style="margin-top:10px">Standard auf Papier · Invers auf Tinte</p>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+  <div class="seite flap" style="align-items:flex-start">
+    <div class="kopf"><span>Section Two</span><span>Seite 08</span></div>
+    <div style="width:100%">
+      <span class="riesig" style="color:var(--signal)">02</span>
+      <div class="titel" style="margin-top:6px">BRAND<br>COLOR</div>
+    </div>
+    <div style="display:flex;gap:8px;align-self:flex-end">
+      <div style="width:26px;height:26px;background:var(--signal)"></div>
+      <div style="width:26px;height:26px;background:var(--solari)"></div>
+      <div style="width:26px;height:26px;background:var(--stempel)"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SPREAD 5 — Primary + Secondary Colors -->
+<div class="spread">
+  <div class="seite">
+    <div class="kopf"><span>02 · Farbe</span><span>Seite 09</span></div>
+    <div>
+      <h2>2.1 Primärfarben</h2>
+      <div class="farben">
+        <div class="balken" style="background:#16130E;color:#FAF9F5;min-height:76px"><strong>Tinte</strong><span>#16130E<br>Text, Struktur</span></div>
+        <div class="balken" style="background:#C2331F;color:#FAF9F5;min-height:76px"><strong>Signal-Rot</strong><span>#C2331F<br>CTA, Zielmarke, Akzente</span></div>
+        <div class="balken" style="background:#FAF9F5;color:#16130E;border:1px solid var(--line);min-height:76px"><strong>Papier</strong><span>#FAF9F5<br>Haupthintergrund</span></div>
+      </div>
+      <h2 style="margin-top:26px">2.2 Kontraste (WCAG)</h2>
+      <table class="tabelle">
+        <tr><th>Kombination</th><th>Ratio</th><th>Stufe</th></tr>
+        <tr><td>Tinte auf Papier</td><td>17.6:1</td><td>AAA</td></tr>
+        <tr><td>Signal-Rot auf Papier</td><td>5.3:1</td><td>AA</td></tr>
+        <tr><td>Muted auf Papier</td><td>5.1:1</td><td>AA</td></tr>
+      </table>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+  <div class="seite ink">
+    <div class="kopf"><span>02 · Farbe</span><span>Seite 10</span></div>
+    <div>
+      <h2>2.3 Sekundär &amp; Funktional</h2>
+      <div class="farben">
+        <div class="balken" style="background:#6F6A60;color:#FAF9F5;min-height:58px"><strong>Muted</strong><span>#6F6A60 · Labels, Captions</span></div>
+        <div class="balken" style="background:#E2DFD7;color:#16130E;min-height:58px"><strong>Linie</strong><span>#E2DFD7 · Divider, Borders</span></div>
+        <div class="balken" style="background:#211C15;color:#FAF9F5;min-height:58px"><strong>Flap-Dunkel</strong><span>#211C15 · Abflugtafel-Kacheln</span></div>
+        <div class="balken" style="background:#E8B84B;color:#16130E;min-height:58px"><strong>Solari-Gelb</strong><span>#E8B84B · Anzeigetafel, Sekundär-Icons</span></div>
+        <div class="balken" style="background:#2E4A6B;color:#FAF9F5;min-height:58px"><strong>Stempel-Blau</strong><span>#2E4A6B · Illustrations-Akzent</span></div>
+      </div>
+    </div>
+    <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 6 — Section 03 Cover + Type Specimen -->
+<div class="spread">
+  <div class="seite flap" style="align-items:flex-start">
+    <div class="kopf"><span>Section Three</span><span>Seite 11</span></div>
+    <div style="width:100%">
+      <span class="riesig" style="color:var(--solari)">03</span>
+      <div class="titel" style="margin-top:6px">BRAND<br>TYPO</div>
+    </div>
+    <span class="mono" style="align-self:flex-end">Cabinet Grotesk / General Sans / B612 Mono</span>
+  </div>
+  <div class="seite">
+    <div class="kopf"><span>03 · Typografie</span><span>Seite 12</span></div>
+    <div>
+      <h2>3.1 Schriftschnitte</h2>
+      <div class="spez cg" style="font-size:34px;line-height:1.05">Aa Bb Cc</div>
+      <p class="mono" style="margin-top:2px">Cabinet Grotesk 700/800 · Display, Headlines</p>
+      <div class="spez gs" style="margin-top:16px;font-size:16px">Aa Bb Cc</div>
+      <p class="mono" style="margin-top:2px">General Sans 400/500/600 · Body, UI</p>
+      <div class="spez bm" style="margin-top:16px;font-size:14px">Aa Bb Cc 0123456789</div>
+      <p class="mono" style="margin-top:2px">B612 Mono · Labels, Zahlen, Captions</p>
+      <table class="tabelle" style="margin-top:16px">
+        <tr><th>Element</th><th>Größe</th><th>Tracking</th></tr>
+        <tr><td>H1 Hero</td><td>44-96 px</td><td>-.02em</td></tr>
+        <tr><td>H2 Sektion</td><td>30-48 px</td><td>-.015em</td></tr>
+        <tr><td>Body</td><td>17 px</td><td>normal</td></tr>
+        <tr><td>Mono Label</td><td>12 px</td><td>.08em</td></tr>
+      </table>
+      <p class="mono" style="margin-top:10px">Alle Fonts selbst gehostet (WOFF2), keine Google-Fonts-CDN, DSGVO-konform.</p>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 7 — Section 04 Cover + Anwendung -->
+<div class="spread">
+  <div class="seite flap" style="align-items:flex-start">
+    <div class="kopf"><span>Section Four</span><span>Seite 13</span></div>
+    <div style="width:100%">
+      <span class="riesig" style="color:var(--signal)">04</span>
+      <div class="titel" style="margin-top:6px">MARKEN-<br>ANWENDUNG</div>
+    </div>
+    <img src="zeichen.svg" width="60" style="align-self:flex-end" alt="" aria-hidden="true">
+    </div>
+  <div class="seite">
+    <div class="kopf"><span>04 · Anwendung</span><span>Seite 14</span></div>
+    <div>
+      <h2>4.1 Digitale Touchpoints</h2>
+      <div style="border:1px solid var(--line);padding:18px;display:flex;align-items:center;gap:12px">
+        <img src="zeichen.svg" width="24" alt="" aria-hidden="true">
+        <span class="mono">routenwerk.de</span>
+      </div>
+      <p class="mono" style="margin-top:8px">Browsertab · zeichen.svg als Favicon</p>
+
+      <div style="margin-top:26px;border:1px solid var(--ink);background:var(--papier);padding:22px;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between">
+        <img src="logo.svg" style="width:52%" alt="" aria-hidden="true">
+        <span class="mono" style="color:var(--muted)">hallo@routenwerk.de · +49 XXX XXXXXXX</span>
+      </div>
+      <p class="mono" style="margin-top:8px">Mailsignatur / digitale Visitenkarte</p>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 8 — Section 05 Cover + Split-Flap/Stempel -->
+<div class="spread">
+  <div class="seite flap" style="align-items:flex-start">
+    <div class="kopf"><span>Section Five</span><span>Seite 15</span></div>
+    <div style="width:100%">
+      <span class="riesig" style="color:var(--solari)">05</span>
+      <div class="titel" style="margin-top:6px">GRAFISCHE<br>ELEMENTE</div>
+    </div>
+    <span class="mono" style="align-self:flex-end">Abgeleitet aus der Website, nicht frei kombinierbar</span>
+  </div>
+  <div class="seite">
+    <div class="kopf"><span>05 · Elemente</span><span>Seite 16</span></div>
+    <div>
+      <h2>5.1 Split-Flap-Tafel</h2>
+      <p>Abflugtafel-Optik für Listen und Vergleiche: helle Kacheln mit horizontaler Falz-Linie, Tinte-Text, Signal-Rot bei Hervorhebung.</p>
+      <div style="margin-top:12px;padding:16px;border:1px solid var(--line)">
+        <span class="flap-kachel">R</span><span class="flap-kachel">O</span><span class="flap-kachel">U</span><span class="flap-kachel">T</span><span class="flap-kachel" style="color:var(--signal)">E</span><span class="flap-kachel">N</span>
+      </div>
+      <p class="mono" style="margin-top:8px">Nutzung: .tafel / .btn-flap, nie mehr als 1-2 Flap-Buttons pro Seite</p>
+
+      <div style="margin-top:12px;display:flex;align-items:center;gap:14px;padding:10px 12px;border:1px solid var(--line)">
+        <svg viewBox="0 0 96 96" width="40" style="flex-shrink:0" role="img" aria-label="Einzelbuchstaben-Kachel: R in dunkler Flap-Kachel, fruehere Submark"><rect x="4" y="4" width="88" height="88" rx="10" fill="#211C15"/><g transform="translate(20.99,74.00) scale(0.7761)"><path d="M19.700-25.100L19.700 0L5.400 0L5.400-67L36.500-67Q47.900-67 54.750-61.700Q61.600-56.400 61.600-46.100Q61.600-37.500 56.400-32.650Q51.200-27.800 42.600-26.800Q46.300-25.800 48.750-23.550Q51.200-21.300 53.600-17.400L64.200 0L47.700 0L36.400-19Q34.400-22.400 31.850-23.750Q29.300-25.100 24.900-25.100L19.700-25.100M36-54.300L19.700-54.300L19.700-36.600L36-36.600Q46.600-36.600 46.600-45.400Q46.600-54.300 36-54.300" fill="#FAF9F5"/></g><line x1="10" y1="48" x2="86" y2="48" stroke="#FAF9F5" stroke-opacity=".28" stroke-width="2.5"/></svg>
+        <span class="mono">Einzelbuchstaben-Kachel (R) · frühere Submark-Lösung, als Design-Referenz erhalten · Original in freigabe/</span>
+      </div>
+
+      <h2 style="margin-top:22px">5.2 Passport-Stempel</h2>
+      <p>Rundstempel-Optik für Vertrauenssignale (Bewertungen, Gütesiegel). Signal-Rot Standard, Stempel-Blau als zweite Variante bei mehreren Stempeln nebeneinander.</p>
+      <div style="margin-top:12px;display:flex;gap:20px;align-items:center">
+        <div class="stempel-demo">Geprüft<br>2026</div>
+        <div class="stempel-demo" style="color:#2E4A6B;border-color:#2E4A6B;transform:rotate(3deg)">Original<br>Route</div>
+      </div>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 9 — Boarding-Pass/Briefmarke + Weitere Muster -->
+<div class="spread">
+  <div class="seite">
+    <div class="kopf"><span>05 · Elemente</span><span>Seite 17</span></div>
+    <div>
+      <h2>5.3 Boarding-Pass-Lochung</h2>
+      <p>Perforierte Trennlinie zwischen Hauptteil und Abriss-Stub, Barcode-Muster als Fußzeile. Signalisiert „Beleg, Ticket, Nachweis".</p>
+      <div style="margin-top:12px;display:flex;border:1px solid var(--muted)">
+        <div style="flex:2;padding:16px"><span class="mono">RW · 2847</span></div>
+        <div class="perfo-demo"></div>
+        <div style="flex:1;padding:16px;display:flex;align-items:flex-end"><div class="barcode-demo" style="width:100%"></div></div>
+      </div>
+
+      <h2 style="margin-top:22px">5.4 Briefmarken-Rahmen</h2>
+      <p>Foto-Rahmen mit weißem Rand und Schlagschatten, wie eine aufgeklebte Briefmarke. Für Reisefotos in Guides und Testimonials.</p>
+      <div style="margin-top:12px" class="brief-demo">
+        <div style="width:120px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,var(--line) 0 8px,var(--papier) 8px 16px)"></div>
+      </div>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+  <div class="seite ink">
+    <div class="kopf"><span>05 · Elemente</span><span>Seite 18</span></div>
+    <div>
+      <h2>5.5 Weitere Muster</h2>
+      <table class="tabelle">
+        <tr><th>Element</th><th>Einsatz</th></tr>
+        <tr><td>Postkarte</td><td>Zitate, Testimonials</td></tr>
+        <tr><td>Gepäckband-Marquee</td><td>Laufender Textstreifen, Trust-Logos</td></tr>
+        <tr><td>Koordinaten-Marker</td><td>Signature-Zeile unter Sektionstiteln</td></tr>
+        <tr><td>Foto-Schraffur</td><td>Platzhalter, bis echtes Foto vorliegt</td></tr>
+      </table>
+      <p class="mono" style="margin-top:14px">Vollständige Muster + Code: technik-patterns.md im MARVIN.WEB-Workspace.</p>
+      <p style="margin-top:14px">Diese Elemente sind Website-Bauteile, keine freien Deko-Assets. Immer im bestehenden Kontext (Karte, Tabelle, Button) verwenden, nie isoliert als Ornament.</p>
+    </div>
+    <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 10 — Nutzungsregeln + Assets -->
+<div class="spread">
+  <div class="seite">
+    <div class="kopf"><span>06 · Regeln</span><span>Seite 19</span></div>
+    <div>
+      <h2>6.1 Do's</h2>
+      <ul class="liste check">
+        <li>Logo im Schutzraum nutzen (1X rundum)</li>
+        <li>Einfarbvariante (logo-mono.svg) für Print</li>
+        <li>Signal-Rot nur für Aktionen einsetzen</li>
+        <li>Fonts selbst hosten, nie über CDN</li>
+        <li>Touch-Targets ≥ 44 px bei mobiler Bedienung</li>
+      </ul>
+      <h2 style="margin-top:18px;color:var(--ink)">6.2 Don'ts</h2>
+      <ul class="liste kreuz">
+        <li>Logo unter 40% Kontrast platzieren</li>
+        <li>Logo verzerren, drehen oder mit Effekten verändern</li>
+        <li>Signal-Rot mit Grauton kombinieren</li>
+        <li>Mehr als zwei Buttons pro Sektion</li>
+        <li>Emojis als Icons verwenden</li>
+      </ul>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+  <div class="seite ink">
+    <div class="kopf"><span>07 · Assets</span><span>Seite 20</span></div>
+    <div>
+      <h2>7.1 Lieferumfang</h2>
+      <table class="tabelle">
+        <tr><td>logo.svg</td><td>Standard, Print/Web</td></tr>
+        <tr><td>logo-mono.svg</td><td>Einfarbdruck</td></tr>
+        <tr><td>logo-invers.svg</td><td>Weiß auf dunkel</td></tr>
+        <tr><td>zeichen.svg</td><td>Icon, Favicon</td></tr>
+        <tr><td>favicon-16…512.png</td><td>Browsertab, App-Icon</td></tr>
+        <tr><td>fonts/ (7 WOFF2-Dateien)</td><td>Webfonts, selbst hosten</td></tr>
+      </table>
+      <h2 style="margin-top:18px">7.2 Schriftlizenzen</h2>
+      <p>Cabinet Grotesk &amp; General Sans: Web-Lizenz, selbst gehostet, Print freigegeben. B612 Mono: SIL Open Font License 1.1, frei nutzbar.</p>
+      <p class="mono" style="margin-top:14px">Fragen: hallo@routenwerk.de · Design: MARVIN.WEB</p>
+    </div>
+    <div class="fuss"><span>routenwerk.de</span><span>Ende</span></div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
