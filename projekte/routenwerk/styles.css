@@ -350,9 +350,8 @@ footer{background:var(--ink);color:var(--bg);padding:64px 0 28px;overflow-x:clip
 .foot-grid{display:flex;gap:40px;flex-wrap:wrap;justify-content:space-between;margin-bottom:44px}
 footer a{color:var(--bg)}
 footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
-.foot-marke{font-family:var(--display);font-weight:800;letter-spacing:.04em;line-height:.9;
-  font-size:clamp(38px,12vw,150px);white-space:nowrap;max-width:100%;color:color-mix(in srgb,var(--bg) 14%,transparent);
-  user-select:none}
+.foot-marke{max-width:100%;height:auto}
+.foot-marke img{width:100%;height:auto;max-width:480px;display:block}
 .foot-legal{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;line-height:2;
   border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);padding-top:18px;margin-top:10px}
 .foot-legal a{text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--bg) 35%,transparent)}
