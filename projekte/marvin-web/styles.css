@@ -376,7 +376,12 @@ summary:hover{color:var(--signal-deep)}
 .shot-geraete button:hover{background:var(--paper-deep)}
 .shot-geraete button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .shot-geraete button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
-.live-stage{position:relative;height:min(640px,72vh);overflow:hidden;background:var(--paper-deep)}
+.live-stage{position:relative;height:min(700px,75vh);overflow:hidden;background:var(--paper-deep)}
+/* Live-Hinweis: sagt dem Nutzer, dass das Fenster bedienbar ist; verschwindet bei Interaktion */
+.live-cue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:9px;white-space:nowrap;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;padding:11px 18px;pointer-events:none;z-index:2;transition:opacity .4s ease}
+.live-cue b{width:9px;height:9px;border-radius:50%;background:var(--signal);animation:cuePuls 1.6s ease-in-out infinite}
+@keyframes cuePuls{0%,100%{opacity:1}50%{opacity:.3}}
+.live-cue.weg{opacity:0}
 .live-frame{display:block;border:0;background:var(--white);transform-origin:0 0}
 .live-stage[data-device="tablet"] .live-frame,
 .live-stage[data-device="iphone"] .live-frame{border-inline:1.5px solid var(--ink);box-sizing:content-box}

@@ -121,4 +121,20 @@
   });
   window.addEventListener('resize', layout, { passive: true });
   layout();
+
+  // Live-Hinweis ausblenden, sobald der Nutzer das Fenster entdeckt hat:
+  // Maus drueber, Klick in den iframe (Fokuswechsel) oder nach 8s Sichtbarkeit (Touch).
+  var cue = stage.querySelector('.live-cue');
+  function cueWeg() { if (cue) { cue.classList.add('weg'); cue = null; } }
+  stage.addEventListener('pointerenter', cueWeg, { once: true });
+  window.addEventListener('blur', function () {
+    if (document.activeElement === frame) cueWeg();
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (eintraege, io) {
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) { setTimeout(cueWeg, 8000); io.disconnect(); }
+      });
+    }, { threshold: 0.4 }).observe(stage);
+  }
 })();
