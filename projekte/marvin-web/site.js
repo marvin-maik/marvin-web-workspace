@@ -34,7 +34,7 @@
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
-  var els = document.querySelectorAll('.sec-head, .h-lg, .lede, .pain, .value, .pkg, .step, .docket, .ref-slot, .case, .stack, .guarantee-band, .about-grid > *, .abo-grid > *, .contact-grid > *');
+  var els = document.querySelectorAll('.sec-head, .h-lg, .lede, .pain, .value, .pkg, .step, .docket, .ref-slot, .case, .stack, .guarantee-band, .fact, .case-ctas, .about-grid > *, .abo-grid > *, .contact-grid > *');
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       // isIntersecting: normal. top<0: beim schnellen Scrollen vorbeigesprungen -> sofort zeigen
