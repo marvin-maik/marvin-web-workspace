@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# ROUTENWERK ist ein Demo-Projekt (Referenz für marvin-web.pages.dev Portfolio).
+# Keine Indexierung gewünscht. Sitemap nur für interne Navigation.
