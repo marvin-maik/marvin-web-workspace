@@ -394,6 +394,15 @@ summary:hover{color:var(--signal-deep)}
 /* CTA-Zeile unter Case-Bloecken */
 .case-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
 
+/* Leistungs-Checkliste (Case-Study): Offer-Stack mit Haken + Designfiles-Blick daneben */
+.leistung-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;margin-top:56px;align-items:start}
+@media(max-width:900px){.leistung-grid{grid-template-columns:1fr}}
+.leistung-grid .stack{margin-top:0}
+.stack-liste .what::before{content:"✓ ";color:var(--signal-deep);font-family:var(--mono);font-weight:900}
+.design-blick{border:1.5px solid var(--ink);background:var(--white);padding:18px;margin:0}
+.design-blick img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.design-blick figcaption{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
