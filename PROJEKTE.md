@@ -8,7 +8,7 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Rep
 | marvin-web (Business-Site, 4 Seiten) | LIVE: marvin-web.pages.dev | Formular-Testsubmit auf Live-Site; dann Domain, og:image, Danke-Seite, Dieter, Formspree-AVV | Marvin: Testsubmit + Domain-Wunsch |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
 | MARLOU (ECHTES Projekt Marvin+Louisa) | PAUSIERT — NICHT BEARBEITEN (Marvins Ansage 2026-07-11) | Ruht, bis Marvin+Louisa es aktiv reaktivieren; Design-Verbesserungen aus ROUTENWERK werden erst DANN zurueckgespielt | Marvin + Louisa |
-| ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE: routenwerk.pages.dev; Logo-Pick 2026-07-13: A=Favicon, C=Nav-Logo, eingebaut inkl. og:image/canonical; 2026-07-14: Guidelines als Spread-Layout neu, Logo-System nachgeschaerft (C=Hauptlogo, A=Submark, Route+Pin/Roundel verworfen), Handoff eigenstaendig (Fonts inkl., Konzept-Sheet+Bildmarke nach freigabe/) | Deploy des Logo-Stands; dann Live-Check (Gate 2) + Launch-Report; Review Abflug-Welt echte Geraete | Marvin: Review |
+| ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Logo C+A eingebaut, Brand-Guidelines + Lieferpaket fertig, robots.txt+sitemap.xml live | Nachkontrolle 2026-07-28 (2-4 Wochen): Formular-Test, Google-Indexierung, Customer-Feedback; Insights nach _fundus/ | erledigt |
 
 ## Erledigt / Log
 - 2026-07-10: Onepager-Final als Tag `onepager-final` + Kopie in _fundus/onepager-final/ gesichert.

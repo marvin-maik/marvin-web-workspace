@@ -83,22 +83,19 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
 .logo-feld.dunkel{background:var(--ink);border-color:var(--ink)}
 .logo-feld svg,.logo-feld img{width:100%;height:auto}
 
-.tabelle{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
-.tabelle th,.tabelle td{padding:6px 8px 6px 0;text-align:left;border-bottom:1px solid var(--line)}
+.tabelle{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px}
+.tabelle th,.tabelle td{padding:9px 8px 9px 0;text-align:left;border-bottom:1px solid var(--line)}
 .tabelle th{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;
   color:var(--muted);font-weight:400}
 .seite.ink .tabelle th,.seite.ink .tabelle td,.seite.flap .tabelle th,.seite.flap .tabelle td{border-color:rgba(250,249,245,.2)}
 
-.swatch-reihe{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-.swatch{display:flex;align-items:center;gap:12px}
-.swatch .kachel{width:44px;height:44px;flex-shrink:0;border:1px solid rgba(0,0,0,.08)}
-.swatch .txt{font-size:11px;line-height:1.35}
-.swatch .txt strong{display:block;font-family:var(--display);font-weight:700;font-size:12.5px}
-.swatch .txt span{font-family:var(--mono);font-size:9.5px;color:var(--muted)}
-.seite.ink .swatch .txt span,.seite.flap .swatch .txt span{color:#B8B3A8}
+.farben{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.balken{padding:14px 18px;display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.balken strong{font-family:var(--display);font-weight:700;font-size:14px}
+.balken span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;opacity:.85;text-align:right}
 
-.liste{list-style:none;margin-top:6px;display:flex;flex-direction:column;gap:6px}
-.liste li{font-size:11.5px;padding-left:16px;position:relative}
+.liste{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.liste li{font-size:12px;line-height:1.4;padding-left:18px;position:relative}
 .liste.check li::before{content:'✓';position:absolute;left:0;color:var(--signal);font-weight:700}
 .liste.kreuz li::before{content:'✕';position:absolute;left:0;color:var(--muted);font-weight:700}
 
@@ -256,11 +253,11 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
         <tr><td>Fußzeile</td><td>Wortmarke</td><td>100 px Breite</td></tr>
         <tr><td>Briefkopf / Visitenkarte (Print)</td><td>Wortmarke</td><td>25 mm Breite</td></tr>
       </table>
-      <div style="display:flex;gap:12px;margin-top:16px">
-        <div class="logo-feld" style="flex:1;padding:10px"><img src="logo.svg" alt="Logo auf hellem Grund"></div>
-        <div class="logo-feld dunkel" style="flex:1;padding:10px"><img src="logo-invers.svg" alt="Logo invers auf dunklem Grund"></div>
+      <div style="display:flex;gap:14px;margin-top:22px">
+        <div class="logo-feld" style="flex:1;aspect-ratio:3/2;padding:18px"><img src="logo.svg" alt="Logo auf hellem Grund"></div>
+        <div class="logo-feld dunkel" style="flex:1;aspect-ratio:3/2;padding:18px"><img src="logo-invers.svg" alt="Logo invers auf dunklem Grund"></div>
       </div>
-      <p class="mono" style="margin-top:8px">Standard auf Papier · Invers auf Tinte</p>
+      <p class="mono" style="margin-top:10px">Standard auf Papier · Invers auf Tinte</p>
     </div>
     <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
   </div>
@@ -284,12 +281,12 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
     <div class="kopf"><span>02 · Farbe</span><span>Seite 09</span></div>
     <div>
       <h2>2.1 Primärfarben</h2>
-      <div class="swatch-reihe">
-        <div class="swatch"><div class="kachel" style="background:#16130E"></div><div class="txt"><strong>Tinte</strong><span>#16130E · Text, Struktur</span></div></div>
-        <div class="swatch"><div class="kachel" style="background:#C2331F"></div><div class="txt"><strong>Signal-Rot</strong><span>#C2331F · CTA, Zielmarke, Akzente</span></div></div>
-        <div class="swatch"><div class="kachel" style="background:#FAF9F5;border:1px solid var(--line)"></div><div class="txt"><strong>Papier</strong><span>#FAF9F5 · Haupthintergrund</span></div></div>
+      <div class="farben">
+        <div class="balken" style="background:#16130E;color:#FAF9F5;min-height:76px"><strong>Tinte</strong><span>#16130E<br>Text, Struktur</span></div>
+        <div class="balken" style="background:#C2331F;color:#FAF9F5;min-height:76px"><strong>Signal-Rot</strong><span>#C2331F<br>CTA, Zielmarke, Akzente</span></div>
+        <div class="balken" style="background:#FAF9F5;color:#16130E;border:1px solid var(--line);min-height:76px"><strong>Papier</strong><span>#FAF9F5<br>Haupthintergrund</span></div>
       </div>
-      <h2 style="margin-top:22px">2.2 Kontraste (WCAG)</h2>
+      <h2 style="margin-top:26px">2.2 Kontraste (WCAG)</h2>
       <table class="tabelle">
         <tr><th>Kombination</th><th>Ratio</th><th>Stufe</th></tr>
         <tr><td>Tinte auf Papier</td><td>17.6:1</td><td>AAA</td></tr>
@@ -303,12 +300,12 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
     <div class="kopf"><span>02 · Farbe</span><span>Seite 10</span></div>
     <div>
       <h2>2.3 Sekundär &amp; Funktional</h2>
-      <div class="swatch-reihe">
-        <div class="swatch"><div class="kachel" style="background:#6F6A60"></div><div class="txt"><strong>Muted</strong><span>#6F6A60 · Labels, Captions</span></div></div>
-        <div class="swatch"><div class="kachel" style="background:#E2DFD7"></div><div class="txt"><strong>Linie</strong><span>#E2DFD7 · Divider, Borders</span></div></div>
-        <div class="swatch"><div class="kachel" style="background:#211C15"></div><div class="txt"><strong>Flap-Dunkel</strong><span>#211C15 · Abflugtafel-Kacheln</span></div></div>
-        <div class="swatch"><div class="kachel" style="background:#E8B84B"></div><div class="txt"><strong>Solari-Gelb</strong><span>#E8B84B · Anzeigetafel, Sekundär-Icons</span></div></div>
-        <div class="swatch"><div class="kachel" style="background:#2E4A6B"></div><div class="txt"><strong>Stempel-Blau</strong><span>#2E4A6B · Illustrations-Akzent für Karten und Grafiken</span></div></div>
+      <div class="farben">
+        <div class="balken" style="background:#6F6A60;color:#FAF9F5;min-height:58px"><strong>Muted</strong><span>#6F6A60 · Labels, Captions</span></div>
+        <div class="balken" style="background:#E2DFD7;color:#16130E;min-height:58px"><strong>Linie</strong><span>#E2DFD7 · Divider, Borders</span></div>
+        <div class="balken" style="background:#211C15;color:#FAF9F5;min-height:58px"><strong>Flap-Dunkel</strong><span>#211C15 · Abflugtafel-Kacheln</span></div>
+        <div class="balken" style="background:#E8B84B;color:#16130E;min-height:58px"><strong>Solari-Gelb</strong><span>#E8B84B · Anzeigetafel, Sekundär-Icons</span></div>
+        <div class="balken" style="background:#2E4A6B;color:#FAF9F5;min-height:58px"><strong>Stempel-Blau</strong><span>#2E4A6B · Illustrations-Akzent</span></div>
       </div>
     </div>
     <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
@@ -362,17 +359,17 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
     <div class="kopf"><span>04 · Anwendung</span><span>Seite 14</span></div>
     <div>
       <h2>4.1 Digitale Touchpoints</h2>
-      <div style="border:1px solid var(--line);padding:14px;display:flex;align-items:center;gap:10px">
-        <img src="zeichen-flap.svg" width="20" alt="" aria-hidden="true">
+      <div style="border:1px solid var(--line);padding:18px;display:flex;align-items:center;gap:12px">
+        <img src="zeichen-flap.svg" width="24" alt="" aria-hidden="true">
         <span class="mono">routenwerk.de</span>
       </div>
-      <p class="mono" style="margin-top:6px">Browsertab · zeichen-flap.svg als Favicon</p>
+      <p class="mono" style="margin-top:8px">Browsertab · zeichen-flap.svg als Favicon</p>
 
-      <div style="margin-top:18px;border:1px solid var(--ink);background:var(--papier);padding:16px;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between">
+      <div style="margin-top:26px;border:1px solid var(--ink);background:var(--papier);padding:22px;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between">
         <img src="logo.svg" style="width:52%" alt="" aria-hidden="true">
         <span class="mono" style="color:var(--muted)">hallo@routenwerk.de · +49 XXX XXXXXXX</span>
       </div>
-      <p class="mono" style="margin-top:6px">Mailsignatur / digitale Visitenkarte</p>
+      <p class="mono" style="margin-top:8px">Mailsignatur / digitale Visitenkarte</p>
     </div>
     <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
   </div>
