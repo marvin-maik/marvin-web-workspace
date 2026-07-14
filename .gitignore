@@ -11,6 +11,9 @@ node_modules/
 dist/
 .cache/
 
+# wrangler / Cloudflare Pages — lokaler Cache (Account-Daten, wird neu erzeugt)
+.wrangler/
+
 # Secrets — niemals committen
 .env
 .env.*
