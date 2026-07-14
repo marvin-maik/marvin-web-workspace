@@ -462,7 +462,9 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
    bleibt 1-zeilig, die Kacheln fuellen die Breite (schmaler statt Umbruch -> keine sinnlosen
    Brueche). Steht bewusst NACH den Basis-Regeln, damit die Overrides greifen. */
 @media(max-width:720px){
-  .btn-flap,.btn-sign{width:100%;box-sizing:border-box;justify-content:center;margin-left:0;margin-right:0}
+  /* max-width kappt die Streckung im Bereich ~500-720px (Tablet/grosse Phones):
+     auf schmalen Phones weiterhin volle Breite, darueber bleiben die Flap-Kacheln kompakt */
+  .btn-flap,.btn-sign{width:100%;max-width:440px;box-sizing:border-box;justify-content:center;margin-left:0;margin-right:0}
   .btn-flap{flex-wrap:nowrap;height:auto;gap:3px;padding:8px 10px 11px}
   .btn-flap::after{display:none}
   .btn-flap .flapbreak{display:none}
