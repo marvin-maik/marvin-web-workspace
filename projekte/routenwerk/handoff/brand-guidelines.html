@@ -104,6 +104,19 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
 .spez.gs{font-family:var(--body);font-weight:400;font-size:12.5px}
 .spez.bm{font-family:var(--mono);font-size:11px}
 
+/* ---------- Grafische Elemente (Seite 15-18) ---------- */
+.flap-kachel{display:inline-block;font-family:var(--mono);font-weight:700;font-size:20px;
+  width:1.3ch;text-align:center;padding:8px 0;margin-right:4px;border-radius:3px;border:1px solid var(--line);
+  background:linear-gradient(var(--papier) 48%,var(--line) 48% 52%,var(--papier) 52%);color:var(--ink)}
+.stempel-demo{display:inline-block;font-family:var(--mono);font-weight:700;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--signal);border:3px double var(--signal);
+  border-radius:10px;padding:12px 14px;text-align:center;line-height:1.5;transform:rotate(-4deg)}
+.perfo-demo{flex:0 0 auto;width:0;border-left:2px dashed var(--muted)}
+.barcode-demo{height:28px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,
+  var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 16px)}
+.brief-demo{display:inline-block;background:var(--papier);padding:8px 8px 5px;border:1px solid var(--line);
+  box-shadow:3px 4px 0 var(--line)}
+
 @media print{
   body{background:#fff}
   .werkzeugleiste{display:none}
@@ -141,10 +154,10 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
   </div>
   <div class="seite" style="justify-content:flex-end">
     <div class="wasserzeichen" aria-hidden="true">
-      <img src="zeichen-flap.svg" alt="">
-      <img src="zeichen-flap.svg" alt="">
-      <img src="zeichen-flap.svg" alt="">
-      <img src="zeichen-flap.svg" alt="">
+      <img src="zeichen.svg" alt="">
+      <img src="zeichen.svg" alt="">
+      <img src="zeichen.svg" alt="">
+      <img src="zeichen.svg" alt="">
     </div>
     <div class="kopf" style="position:relative;z-index:1"><span>Routenwerk</span><span>Seite 02</span></div>
     <div style="position:relative;z-index:1">
@@ -177,8 +190,9 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
         <tr><td class="spez bm">02</td><td>Brand Color</td><td class="mono">08-10</td></tr>
         <tr><td class="spez bm">03</td><td>Brand Typography</td><td class="mono">11-12</td></tr>
         <tr><td class="spez bm">04</td><td>Marken-Anwendung</td><td class="mono">13-14</td></tr>
-        <tr><td class="spez bm">05</td><td>Nutzungsregeln</td><td class="mono">15</td></tr>
-        <tr><td class="spez bm">06</td><td>Assets &amp; Lizenzen</td><td class="mono">16</td></tr>
+        <tr><td class="spez bm">05</td><td>Grafische Elemente</td><td class="mono">15-18</td></tr>
+        <tr><td class="spez bm">06</td><td>Nutzungsregeln</td><td class="mono">19</td></tr>
+        <tr><td class="spez bm">07</td><td>Assets &amp; Lizenzen</td><td class="mono">20</td></tr>
       </table>
     </div>
     <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
@@ -193,15 +207,15 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
       <span class="riesig" style="color:var(--solari)">01</span>
       <div class="titel" style="margin-top:6px">BRAND<br>LOGO</div>
     </div>
-    <img src="zeichen-flap.svg" width="72" style="align-self:flex-end" alt="" aria-hidden="true">
+    <img src="zeichen.svg" width="72" style="align-self:flex-end" alt="" aria-hidden="true">
   </div>
   <div class="seite">
     <div class="kopf"><span>01 · Logo</span><span>Seite 06</span></div>
     <div>
       <h2>1.1 Hauptlogo &amp; Schutzraum</h2>
       <p>Das O von ROUTEN ist die rote Zielmarke mit Pin-Spitze, WERK folgt in Rot. Schutzraum rundum: <strong>1X</strong>, X = Radius der Zielmarke (34.7 Einheiten im Logo-Raster).</p>
-      <div class="logo-feld" style="margin-top:14px;aspect-ratio:3/1.7;padding:14px">
-        <svg viewBox="-36 -110 860 172" xmlns="http://www.w3.org/2000/svg" width="100%" role="img" aria-label="Wortmarke Routenwerk mit Schutzraum-Vermassung: 1X Abstand rundum, X gleich Radius der Zielmarke">
+      <div class="logo-feld" style="margin-top:14px;aspect-ratio:94/25;padding:14px">
+        <svg viewBox="-78 -148 940 250" xmlns="http://www.w3.org/2000/svg" width="100%" role="img" aria-label="Wortmarke Routenwerk mit Schutzraum-Vermassung: 1X Abstand rundum, X gleich Radius der Zielmarke">
         <g stroke="#6F6A60" fill="none">
           <rect x="-30.3" y="-104" width="848.4" height="159.7" stroke-width="3.2" stroke-dasharray="7 8"/>
           <line x1="393.9" y1="-104" x2="393.9" y2="-69.3" stroke-width="2.6"/>
@@ -218,10 +232,10 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
           <line x1="818.1" y1="-39.15" x2="818.1" y2="-9.15" stroke-width="2.6"/>
         </g>
         <g fill="#6F6A60" font-family="'B612 Mono',monospace" font-size="26" text-anchor="middle">
-          <text x="393.9" y="-79">X</text>
-          <text x="393.9" y="45">X</text>
-          <text x="-12.95" y="-48">X</text>
-          <text x="800.75" y="-48">X</text>
+          <text x="393.9" y="-118">X</text>
+          <text x="393.9" y="90">X</text>
+          <text x="-54.3" y="-18">X</text>
+          <text x="842.1" y="-18">X</text>
         </g>
         <g fill="#16130E"><path d="M19.700-25.100L19.700 0L5.400 0L5.400-67L36.500-67Q47.900-67 54.750-61.700Q61.600-56.400 61.600-46.100Q61.600-37.500 56.400-32.650Q51.200-27.800 42.600-26.800Q46.300-25.800 48.750-23.550Q51.200-21.300 53.600-17.400L64.200 0L47.700 0L36.400-19Q34.400-22.400 31.850-23.750Q29.300-25.100 24.900-25.100L19.700-25.100M36-54.300L19.700-54.300L19.700-36.600L36-36.600Q46.600-36.600 46.600-45.400Q46.600-54.300 36-54.300"/><path d="M196.800 1Q182.600 1 175.600-6.400Q168.600-13.800 168.600-29.400L168.600-67L182.900-67L182.900-29.200Q182.900-20.600 186.250-16.700Q189.600-12.800 196.900-12.800Q204.300-12.800 207.550-16.650Q210.800-20.500 210.800-29.200L210.800-67L225.100-67L225.100-29.400Q225.100-13.700 218.150-6.350Q211.200 1 196.800 1"/><path d="M277.600-54.300L277.600 0L263.300 0L263.300-54.300L243.300-54.300L243.300-67L297.600-67L297.600-54.300"/><path d="M365.600-12.700L365.600 0L316.400 0L316.400-67L365.600-67L365.600-54.300L330.700-54.300L330.700-40.200L359.900-40.200L359.900-27.500L330.700-27.500L330.700-12.700"/><path d="M400.700-28.600L400.700 0L386.400 0L386.400-67L400.300-67L424.100-32L430.200-21.500L429.300-37.300L429.300-67L443.600-67L443.600 0L430 0L405.600-35.300L399.600-45.200"/></g>
         <g fill="#C2331F"><circle cx="114.7" cy="-33.5" r="34.7"/><path d="M114.7 20 86.2 -16.2h56.9z"/><path d="M506.100-35.100L497.400 0L478.100 0L462-67L478.500-67L485.600-30.400L488.100-10.100L491.600-28.800L500.300-67L519.200-67L527.800-28.800L531.200-10.100L533.800-30.400L541-67L557.400-67L541.200 0L521.900 0L513.300-35.100L509.700-56.800"/><path d="M625-12.700L625 0L575.800 0L575.800-67L625-67L625-54.300L590.100-54.300L590.100-40.200L619.300-40.200L619.300-27.500L590.100-27.500L590.100-12.700"/><path d="M660.100-25.100L660.100 0L645.800 0L645.800-67L676.900-67Q688.300-67 695.150-61.700Q702-56.400 702-46.100Q702-37.500 696.800-32.650Q691.600-27.800 683-26.800Q686.700-25.800 689.150-23.550Q691.600-21.300 694-17.400L704.600 0L688.100 0L676.800-19Q674.800-22.400 672.250-23.750Q669.700-25.100 665.300-25.100L660.100-25.100M676.400-54.300L660.100-54.300L660.100-36.600L676.400-36.600Q687-36.600 687-45.400Q687-54.300 676.400-54.300"/><path d="M737.600-18.800L737.600 0L723.300 0L723.300-67L737.600-67L737.600-48L737.200-35.400L746.500-46.800L764.600-67L781.400-67L758.100-40.500L782.400 0L765.900 0L748-30.100"/></g>
@@ -230,10 +244,10 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
       <p class="mono" style="margin-top:6px">Logo darf auf keiner Seite näher als 1X an andere Inhalte heranrücken.</p>
 
       <h2 style="margin-top:16px">1.2 Submark (Icon)</h2>
-      <p>Split-Flap-Monogramm: R in dunkler Flap-Kachel mit Fuge, für Favicon, App-Icon und Social-Avatar. Nie als Ersatz für das Hauptlogo.</p>
+      <p>R + Zielmarke: derselbe Ausschnitt aus der Wortmarke, nur aufs Icon-Feld skaliert. Für Favicon, App-Icon und Social-Avatar. Nie als Ersatz für das Hauptlogo.</p>
       <div style="display:flex;align-items:center;gap:16px;margin-top:10px;border:1px solid var(--line);padding:12px 16px">
-        <img src="zeichen-flap.svg" width="46" style="flex-shrink:0" alt="Submark: R-Monogramm in dunkler Flap-Kachel mit Fuge">
-        <span class="mono">zeichen-flap.svg</span>
+        <img src="zeichen.svg" width="46" style="flex-shrink:0" alt="Submark: R und Zielmarke in dunkler Kachel">
+        <span class="mono">zeichen.svg</span>
       </div>
     </div>
     <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
@@ -353,17 +367,17 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
       <span class="riesig" style="color:var(--signal)">04</span>
       <div class="titel" style="margin-top:6px">MARKEN-<br>ANWENDUNG</div>
     </div>
-    <img src="zeichen-flap.svg" width="60" style="align-self:flex-end" alt="" aria-hidden="true">
+    <img src="zeichen.svg" width="60" style="align-self:flex-end" alt="" aria-hidden="true">
     </div>
   <div class="seite">
     <div class="kopf"><span>04 · Anwendung</span><span>Seite 14</span></div>
     <div>
       <h2>4.1 Digitale Touchpoints</h2>
       <div style="border:1px solid var(--line);padding:18px;display:flex;align-items:center;gap:12px">
-        <img src="zeichen-flap.svg" width="24" alt="" aria-hidden="true">
+        <img src="zeichen.svg" width="24" alt="" aria-hidden="true">
         <span class="mono">routenwerk.de</span>
       </div>
-      <p class="mono" style="margin-top:8px">Browsertab · zeichen-flap.svg als Favicon</p>
+      <p class="mono" style="margin-top:8px">Browsertab · zeichen.svg als Favicon</p>
 
       <div style="margin-top:26px;border:1px solid var(--ink);background:var(--papier);padding:22px;aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:space-between">
         <img src="logo.svg" style="width:52%" alt="" aria-hidden="true">
@@ -375,12 +389,87 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
   </div>
 </div>
 
-<!-- SPREAD 8 — Nutzungsregeln + Assets -->
+<!-- SPREAD 8 — Section 05 Cover + Split-Flap/Stempel -->
+<div class="spread">
+  <div class="seite flap" style="align-items:flex-start">
+    <div class="kopf"><span>Section Five</span><span>Seite 15</span></div>
+    <div style="width:100%">
+      <span class="riesig" style="color:var(--solari)">05</span>
+      <div class="titel" style="margin-top:6px">GRAFISCHE<br>ELEMENTE</div>
+    </div>
+    <span class="mono" style="align-self:flex-end">Abgeleitet aus der Website, nicht frei kombinierbar</span>
+  </div>
+  <div class="seite">
+    <div class="kopf"><span>05 · Elemente</span><span>Seite 16</span></div>
+    <div>
+      <h2>5.1 Split-Flap-Tafel</h2>
+      <p>Abflugtafel-Optik für Listen und Vergleiche: helle Kacheln mit horizontaler Falz-Linie, Tinte-Text, Signal-Rot bei Hervorhebung.</p>
+      <div style="margin-top:12px;padding:16px;border:1px solid var(--line)">
+        <span class="flap-kachel">R</span><span class="flap-kachel">O</span><span class="flap-kachel">U</span><span class="flap-kachel">T</span><span class="flap-kachel" style="color:var(--signal)">E</span><span class="flap-kachel">N</span>
+      </div>
+      <p class="mono" style="margin-top:8px">Nutzung: .tafel / .btn-flap, nie mehr als 1-2 Flap-Buttons pro Seite</p>
+
+      <div style="margin-top:12px;display:flex;align-items:center;gap:14px;padding:10px 12px;border:1px solid var(--line)">
+        <svg viewBox="0 0 96 96" width="40" style="flex-shrink:0" role="img" aria-label="Einzelbuchstaben-Kachel: R in dunkler Flap-Kachel, fruehere Submark"><rect x="4" y="4" width="88" height="88" rx="10" fill="#211C15"/><g transform="translate(20.99,74.00) scale(0.7761)"><path d="M19.700-25.100L19.700 0L5.400 0L5.400-67L36.500-67Q47.900-67 54.750-61.700Q61.600-56.400 61.600-46.100Q61.600-37.500 56.400-32.650Q51.200-27.800 42.600-26.800Q46.300-25.800 48.750-23.550Q51.200-21.300 53.600-17.400L64.200 0L47.700 0L36.400-19Q34.400-22.400 31.850-23.750Q29.300-25.100 24.900-25.100L19.700-25.100M36-54.300L19.700-54.300L19.700-36.600L36-36.600Q46.600-36.600 46.600-45.400Q46.600-54.300 36-54.300" fill="#FAF9F5"/></g><line x1="10" y1="48" x2="86" y2="48" stroke="#FAF9F5" stroke-opacity=".28" stroke-width="2.5"/></svg>
+        <span class="mono">Einzelbuchstaben-Kachel (R) · frühere Submark-Lösung, als Design-Referenz erhalten · Original in freigabe/</span>
+      </div>
+
+      <h2 style="margin-top:22px">5.2 Passport-Stempel</h2>
+      <p>Rundstempel-Optik für Vertrauenssignale (Bewertungen, Gütesiegel). Signal-Rot Standard, Stempel-Blau als zweite Variante bei mehreren Stempeln nebeneinander.</p>
+      <div style="margin-top:12px;display:flex;gap:20px;align-items:center">
+        <div class="stempel-demo">Geprüft<br>2026</div>
+        <div class="stempel-demo" style="color:#2E4A6B;border-color:#2E4A6B;transform:rotate(3deg)">Original<br>Route</div>
+      </div>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 9 — Boarding-Pass/Briefmarke + Weitere Muster -->
 <div class="spread">
   <div class="seite">
-    <div class="kopf"><span>05 · Regeln</span><span>Seite 15</span></div>
+    <div class="kopf"><span>05 · Elemente</span><span>Seite 17</span></div>
     <div>
-      <h2>5.1 Do's</h2>
+      <h2>5.3 Boarding-Pass-Lochung</h2>
+      <p>Perforierte Trennlinie zwischen Hauptteil und Abriss-Stub, Barcode-Muster als Fußzeile. Signalisiert „Beleg, Ticket, Nachweis".</p>
+      <div style="margin-top:12px;display:flex;border:1px solid var(--muted)">
+        <div style="flex:2;padding:16px"><span class="mono">RW · 2847</span></div>
+        <div class="perfo-demo"></div>
+        <div style="flex:1;padding:16px;display:flex;align-items:flex-end"><div class="barcode-demo" style="width:100%"></div></div>
+      </div>
+
+      <h2 style="margin-top:22px">5.4 Briefmarken-Rahmen</h2>
+      <p>Foto-Rahmen mit weißem Rand und Schlagschatten, wie eine aufgeklebte Briefmarke. Für Reisefotos in Guides und Testimonials.</p>
+      <div style="margin-top:12px" class="brief-demo">
+        <div style="width:120px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,var(--line) 0 8px,var(--papier) 8px 16px)"></div>
+      </div>
+    </div>
+    <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
+  </div>
+  <div class="seite ink">
+    <div class="kopf"><span>05 · Elemente</span><span>Seite 18</span></div>
+    <div>
+      <h2>5.5 Weitere Muster</h2>
+      <table class="tabelle">
+        <tr><th>Element</th><th>Einsatz</th></tr>
+        <tr><td>Postkarte</td><td>Zitate, Testimonials</td></tr>
+        <tr><td>Gepäckband-Marquee</td><td>Laufender Textstreifen, Trust-Logos</td></tr>
+        <tr><td>Koordinaten-Marker</td><td>Signature-Zeile unter Sektionstiteln</td></tr>
+        <tr><td>Foto-Schraffur</td><td>Platzhalter, bis echtes Foto vorliegt</td></tr>
+      </table>
+      <p class="mono" style="margin-top:14px">Vollständige Muster + Code: technik-patterns.md im MARVIN.WEB-Workspace.</p>
+      <p style="margin-top:14px">Diese Elemente sind Website-Bauteile, keine freien Deko-Assets. Immer im bestehenden Kontext (Karte, Tabelle, Button) verwenden, nie isoliert als Ornament.</p>
+    </div>
+    <div class="fuss"><span>routenwerk.de</span><span>v1.0</span></div>
+  </div>
+</div>
+
+<!-- SPREAD 10 — Nutzungsregeln + Assets -->
+<div class="spread">
+  <div class="seite">
+    <div class="kopf"><span>06 · Regeln</span><span>Seite 19</span></div>
+    <div>
+      <h2>6.1 Do's</h2>
       <ul class="liste check">
         <li>Logo im Schutzraum nutzen (1X rundum)</li>
         <li>Einfarbvariante (logo-mono.svg) für Print</li>
@@ -388,7 +477,7 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
         <li>Fonts selbst hosten, nie über CDN</li>
         <li>Touch-Targets ≥ 44 px bei mobiler Bedienung</li>
       </ul>
-      <h2 style="margin-top:18px;color:var(--ink)">5.2 Don'ts</h2>
+      <h2 style="margin-top:18px;color:var(--ink)">6.2 Don'ts</h2>
       <ul class="liste kreuz">
         <li>Logo unter 40% Kontrast platzieren</li>
         <li>Logo verzerren, drehen oder mit Effekten verändern</li>
@@ -400,18 +489,18 @@ p{font-size:12.5px;line-height:1.55;max-width:46ch}
     <div class="fuss"><span>Routenwerk</span><span>Brand Guide</span></div>
   </div>
   <div class="seite ink">
-    <div class="kopf"><span>06 · Assets</span><span>Seite 16</span></div>
+    <div class="kopf"><span>07 · Assets</span><span>Seite 20</span></div>
     <div>
-      <h2>6.1 Lieferumfang</h2>
+      <h2>7.1 Lieferumfang</h2>
       <table class="tabelle">
         <tr><td>logo.svg</td><td>Standard, Print/Web</td></tr>
         <tr><td>logo-mono.svg</td><td>Einfarbdruck</td></tr>
         <tr><td>logo-invers.svg</td><td>Weiß auf dunkel</td></tr>
-        <tr><td>zeichen-flap.svg</td><td>Icon, Favicon</td></tr>
+        <tr><td>zeichen.svg</td><td>Icon, Favicon</td></tr>
         <tr><td>favicon-16…512.png</td><td>Browsertab, App-Icon</td></tr>
         <tr><td>fonts/ (7 WOFF2-Dateien)</td><td>Webfonts, selbst hosten</td></tr>
       </table>
-      <h2 style="margin-top:18px">6.2 Schriftlizenzen</h2>
+      <h2 style="margin-top:18px">7.2 Schriftlizenzen</h2>
       <p>Cabinet Grotesk &amp; General Sans: Web-Lizenz, selbst gehostet, Print freigegeben. B612 Mono: SIL Open Font License 1.1, frei nutzbar.</p>
       <p class="mono" style="margin-top:14px">Fragen: hallo@routenwerk.de · Design: MARVIN.WEB</p>
     </div>
