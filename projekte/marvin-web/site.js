@@ -74,3 +74,24 @@
     });
   });
 })();
+
+// Designfiles-Popup (Case-Study): nativer <dialog>. Ohne JS oder ohne dialog-Support
+// bleibt der Trigger ein normaler Link und oeffnet das Bild im neuen Tab.
+(function () {
+  var trigger = document.querySelector('.blick-trigger');
+  var dialog = document.getElementById('blick-dialog');
+  if (!trigger || !dialog || typeof dialog.showModal !== 'function') return;
+  trigger.addEventListener('click', function (e) {
+    e.preventDefault();
+    dialog.showModal();
+    document.documentElement.style.overflow = 'hidden'; // Seite hinter dem Popup nicht scrollen
+  });
+  dialog.querySelector('.blick-close').addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (e) {
+    if (e.target === dialog) dialog.close(); // Klick auf den Backdrop
+  });
+  dialog.addEventListener('close', function () {
+    document.documentElement.style.overflow = '';
+    trigger.focus(); // Fokus zurueck zum Ausloeser
+  });
+})();

@@ -402,6 +402,22 @@ summary:hover{color:var(--signal-deep)}
 .design-blick{border:1.5px solid var(--ink);background:var(--white);padding:18px;margin:0}
 .design-blick img{display:block;width:100%;height:auto;border:1px solid var(--line)}
 .design-blick figcaption{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+.blick-trigger{display:block;cursor:zoom-in;text-decoration:none;color:inherit}
+.blick-trigger:hover img{border-color:var(--ink)}
+.blick-trigger:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.blick-hint{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-deep);margin-top:12px}
+
+/* Popup fuer Designfiles: nativer <dialog> */
+.blick-dialog{border:1.5px solid var(--ink);padding:0;width:min(980px,94vw);max-height:88vh;background:var(--paper)}
+.blick-dialog::backdrop{background:rgba(22,20,18,.75)}
+.blick-kopf{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 18px;border-bottom:1.5px solid var(--ink);background:var(--white)}
+.blick-kopf span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.blick-close{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;background:var(--paper);border:1.5px solid var(--ink);color:var(--ink);padding:9px 16px;min-height:40px;cursor:pointer;transition:background .15s,color .15s}
+.blick-close:hover{background:var(--ink);color:var(--paper)}
+.blick-close:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.blick-scroll{overflow-y:auto;max-height:calc(88vh - 64px);overscroll-behavior:contain}
+.blick-scroll:focus-visible{outline:3px solid var(--signal);outline-offset:-3px}
+.blick-scroll img{display:block;width:100%;height:auto}
 
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
