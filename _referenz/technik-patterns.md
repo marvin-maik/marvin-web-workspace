@@ -217,3 +217,19 @@ Und: pdf-parse zaehlt PDF-SEITEN (Spreads), nicht Dokument-Seiten — bei Doppel
 ist die Zahl auf der Website entsprechend zu formulieren ("10 Doppelseiten" / "20 Seiten").
 Code: Scratchpad-Muster pdf-export.js + pdf-split.js (Session 2026-07-14), Quelle
 projekte/routenwerk/handoff/brand-guidelines.html.
+
+## Reveal-Falle bei Grids mit dunklem Gap-Hintergrund (+ Cover-Reveal als Fix)
+Trennlinien-Trick (`gap:1.5px; background:var(--ink)`, Zellen weiss) BEISST sich mit
+Opacity-Scroll-Reveals: solange die Zelle transparent einblendet, scheint der dunkle
+Container durch -> Kacheln wirken wie schwarze Bug-Bloecke (Marvin entdeckt 2026-07-14).
+Fix, der daraus ein Feature macht (Marvins Idee): Kachel selbst bleibt opak, stattdessen
+liegt ein Tinte-Cover (::after, inset:0) drauf und faellt beim Reveal nach unten ab:
+```css
+.zelle{position:relative;overflow:hidden}
+.zelle.rv{opacity:1;transform:none}   /* generischen Fade neutralisieren */
+.zelle.rv::after{content:"";position:absolute;inset:0;background:var(--ink);
+  transition:transform .65s cubic-bezier(.22,1,.36,1);transition-delay:inherit}
+.zelle.rv.in::after{transform:translateY(101%)}
+```
+`transition-delay:inherit` uebernimmt den Stagger, den site.js als Inline-Style setzt.
+Ohne JS/reduced-motion existiert kein .rv -> kein Cover. Code: marvin-web styles.css (.fact).
