@@ -58,9 +58,13 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - LIVE auf Cloudflare Pages (Direct Upload via wrangler, Account comspiele@web.de):
   https://marvin-web.pages.dev
 - Nach jedem Push zusaetzlich deployen (Staging-Kopie, siehe Grundregel):
-  `rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && npx wrangler pages deploy /tmp/mw-deploy --project-name marvin-web --branch main`
+  `rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude 'freigabe' --exclude 'handoff' --exclude 'product-marketing-context.md' --exclude 'DEMO-README.md' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && npx wrangler pages deploy /tmp/mw-deploy --project-name marvin-web --branch main`
   (`_headers`/`_redirects` sind CF-Pages-Konfig und die Ausnahme vom `_`-Praefix — die
   --include-Regeln VOR dem --exclude '_*' lassen genau sie durch.)
+- NACH JEDEM DEPLOY: `ls` der Staging-Kopie gegen die INTERN-Liste pruefen, BEVOR
+  wrangler laeuft (Beinahe-Leak 2026-07-14: marvin-web-Befehl schloss freigabe/ und
+  product-marketing-context.md nicht aus; geleakte Deployment-URL musste geloescht
+  werden via `npx wrangler pages deployment delete <id> --project-name <p> --force`).
 - ROUTENWERK-Demo LIVE (seit 2026-07-12, fuer Shop-Test + Portfolio): https://routenwerk.pages.dev
   `rm -rf /tmp/rw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '_*' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main`
 - Spaeter optional: Git-Integration im CF-Dashboard fuer Auto-Deploy bei Push.
