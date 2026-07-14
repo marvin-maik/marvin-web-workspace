@@ -104,6 +104,11 @@
   var frame = stage.querySelector('.live-frame');
   var knoepfe = document.querySelectorAll('.shot-geraete button');
   var BREITEN = { mac: 1440, tablet: 768, iphone: 375 };
+  // Auf kleinen Screens direkt in der iPhone-Ansicht starten (Mac-Ansicht waere winzig)
+  if (window.innerWidth <= 700) {
+    stage.dataset.device = 'iphone';
+    knoepfe.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.device === 'iphone' ? 'true' : 'false'); });
+  }
   function layout() {
     var breite = BREITEN[stage.dataset.device] || 1440;
     var scale = Math.min(1, stage.clientWidth / breite);

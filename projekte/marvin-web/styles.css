@@ -364,7 +364,9 @@ summary:hover{color:var(--signal-deep)}
 .rv.in{opacity:1;transform:none}
 
 /* Case-Study ROUTENWERK: Browser-Fenster mit scrollbarem Full-Page-Screenshot */
-.shot-window{border:1.5px solid var(--ink);background:var(--white);box-shadow:8px 8px 0 var(--paper-deep);margin-top:52px}
+/* Bewusst schmaler als der Wrap: links und rechts bleibt freie Spur, auf der die
+   eigentliche Seite scrollt — so kommt man am Live-Fenster jederzeit einfach vorbei */
+.shot-window{border:1.5px solid var(--ink);background:var(--white);box-shadow:8px 8px 0 var(--paper-deep);margin-top:52px;max-width:min(920px,90%);margin-left:auto;margin-right:auto}
 .shot-bar{display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--ink);padding:12px 18px}
 .shot-dots{display:flex;gap:6px;flex-shrink:0}
 .shot-dots i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper)}
@@ -376,7 +378,7 @@ summary:hover{color:var(--signal-deep)}
 .shot-geraete button:hover{background:var(--paper-deep)}
 .shot-geraete button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .shot-geraete button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
-.live-stage{position:relative;height:min(700px,75vh);overflow:hidden;background:var(--paper-deep)}
+.live-stage{position:relative;height:min(620px,66vh);overflow:hidden;background:var(--paper-deep)}
 /* Live-Hinweis: sagt dem Nutzer, dass das Fenster bedienbar ist; verschwindet bei Interaktion */
 .live-cue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:9px;white-space:nowrap;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;padding:11px 18px;pointer-events:none;z-index:2;transition:opacity .4s ease}
 .live-cue b{width:9px;height:9px;border-radius:50%;background:var(--signal);animation:cuePuls 1.6s ease-in-out infinite}
@@ -385,8 +387,9 @@ summary:hover{color:var(--signal-deep)}
 .live-frame{display:block;border:0;background:var(--white);transform-origin:0 0}
 .live-stage[data-device="tablet"] .live-frame,
 .live-stage[data-device="iphone"] .live-frame{border-inline:1.5px solid var(--ink);box-sizing:content-box}
-@media(max-width:700px){.live-stage{height:min(540px,66vh)}
+@media(max-width:700px){.live-stage{height:min(460px,56vh)}
   .shot-bar{flex-wrap:wrap}
+  .live-cue{font-size:11px;letter-spacing:.04em;padding:9px 12px;bottom:12px;max-width:calc(100% - 20px)}
 }
 
 /* Eckdaten-Kacheln (Zahlen-Grid) */
