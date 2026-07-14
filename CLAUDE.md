@@ -51,13 +51,16 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
   (Secret als CF-Env-Var). Cloudflare ist eh schon Hoster -> kein neuer Datenempfaenger, kein Cookie.
 
 ## Deployment (Stand Launch 2026-07-10)
+- GRUNDREGEL: Ordner/Dateien mit `_`-Praefix (z.B. `_archiv/`) sowie DEMO-README.md, handoff/,
+  freigabe/ sind INTERN und werden NIE deployed. Deploy deshalb NIE direkt aus dem
+  Projektordner (Leak-Vorfall 2026-07-13), sondern IMMER ueber eine Staging-Kopie.
+  Staging-Ordner vorher loeschen (rsync ohne --delete laesst Altlasten drin).
 - LIVE auf Cloudflare Pages (Direct Upload via wrangler, Account comspiele@web.de):
   https://marvin-web.pages.dev
-- Nach jedem Push zusaetzlich deployen:
-  `npx wrangler pages deploy projekte/marvin-web --project-name marvin-web --branch main`
+- Nach jedem Push zusaetzlich deployen (Staging-Kopie, siehe Grundregel):
+  `rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && npx wrangler pages deploy /tmp/mw-deploy --project-name marvin-web --branch main`
+  (`_headers`/`_redirects` sind CF-Pages-Konfig und die Ausnahme vom `_`-Praefix — die
+  --include-Regeln VOR dem --exclude '_*' lassen genau sie durch.)
 - ROUTENWERK-Demo LIVE (seit 2026-07-12, fuer Shop-Test + Portfolio): https://routenwerk.pages.dev
-  Deploy NIE direkt aus dem Projektordner (DEMO-README.md + handoff/ + freigabe/ sind intern,
-  Leak-Vorfall 2026-07-13; freigabe/ nachtraeglich in Excludes seit 2026-07-13)! Immer ueber
-  Staging-Kopie, /tmp/rw-deploy vorher loeschen (rsync ohne --delete laesst Altlasten drin):
-  `rm -rf /tmp/rw-deploy && rsync -a --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main`
+  `rm -rf /tmp/rw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '_*' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main`
 - Spaeter optional: Git-Integration im CF-Dashboard fuer Auto-Deploy bei Push.
