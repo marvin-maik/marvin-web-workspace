@@ -95,3 +95,30 @@
     trigger.focus(); // Fokus zurueck zum Ausloeser
   });
 })();
+
+// Live-Vorschau (Case-Study): Geraete-Umschalter wie bei Template-Vorschauen.
+// Der iframe bekommt echte Geraete-Breite und wird skaliert, wenn er nicht reinpasst.
+(function () {
+  var stage = document.querySelector('.live-stage');
+  if (!stage) return;
+  var frame = stage.querySelector('.live-frame');
+  var knoepfe = document.querySelectorAll('.shot-geraete button');
+  var BREITEN = { mac: 1440, tablet: 768, iphone: 375 };
+  function layout() {
+    var breite = BREITEN[stage.dataset.device] || 1440;
+    var scale = Math.min(1, stage.clientWidth / breite);
+    frame.style.width = breite + 'px';
+    frame.style.height = Math.ceil(stage.clientHeight / scale) + 'px';
+    frame.style.transform = 'scale(' + scale + ')';
+    frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scale) / 2) + 'px';
+  }
+  knoepfe.forEach(function (b) {
+    b.addEventListener('click', function () {
+      knoepfe.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      stage.dataset.device = b.dataset.device;
+      layout();
+    });
+  });
+  window.addEventListener('resize', layout, { passive: true });
+  layout();
+})();

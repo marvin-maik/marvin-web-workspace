@@ -2,11 +2,13 @@
 # ROUTENWERK ist eine Demo auf pages.dev: X-Robots-Tag noindex, damit die Demo nicht
 # in Google landet und spaeter nicht gegen die Kundendomain rankt (staerker als robots.txt,
 # das nur das Crawlen, nicht das Indexieren bereits verlinkter URLs verhindert).
-# Bewusst ohne CSP (Inline-JS/CSS). HSTS uebers Cloudflare-Dashboard.
+# CSP nur mit frame-ancestors (ersetzt X-Frame-Options): marvin-web darf die Demo als
+# Live-Vorschau einbetten, alle anderen Seiten nicht. Keine weiteren CSP-Direktiven,
+# damit Inline-JS/CSS weiter funktioniert. HSTS uebers Cloudflare-Dashboard.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'self' https://marvin-web.pages.dev
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Robots-Tag: noindex
 

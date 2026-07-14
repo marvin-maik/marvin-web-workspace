@@ -370,11 +370,19 @@ summary:hover{color:var(--signal-deep)}
 .shot-dots i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper)}
 .shot-dots i:first-child{background:var(--signal)}
 .shot-url{flex:1;min-width:0;border:1px solid var(--line);padding:6px 12px;background:var(--paper);color:var(--ink-soft);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.shot-scroll{height:min(560px,68vh);overflow-y:auto;overscroll-behavior:contain;background:var(--paper-deep)}
-@media(max-width:700px){.shot-scroll{height:min(420px,52vh)}}
-.shot-scroll:focus-visible{outline:3px solid var(--signal);outline-offset:-3px}
-.shot-scroll img{display:block;width:100%;height:auto}
 .shot-hint{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding:12px 18px;border-top:1px solid var(--line)}
+.shot-geraete{display:flex;gap:6px;flex-shrink:0;margin-left:auto}
+.shot-geraete button{font-family:var(--mono);font-size:12px;letter-spacing:.06em;background:var(--paper);border:1.5px solid var(--ink);color:var(--ink);padding:8px 13px;min-height:38px;cursor:pointer;transition:background .15s,color .15s}
+.shot-geraete button:hover{background:var(--paper-deep)}
+.shot-geraete button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.shot-geraete button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.live-stage{position:relative;height:min(640px,72vh);overflow:hidden;background:var(--paper-deep)}
+.live-frame{display:block;border:0;background:var(--white);transform-origin:0 0}
+.live-stage[data-device="tablet"] .live-frame,
+.live-stage[data-device="iphone"] .live-frame{border-inline:1.5px solid var(--ink);box-sizing:content-box}
+@media(max-width:700px){.live-stage{height:min(540px,66vh)}
+  .shot-bar{flex-wrap:wrap}
+}
 
 /* Eckdaten-Kacheln (Zahlen-Grid) */
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;border:1.5px solid var(--ink);background:var(--ink);margin-top:56px}

@@ -58,17 +58,22 @@
   <div class="wrap">
     <div class="sec-head"><span class="tag">Die Demo</span><span class="line"></span><span class="aux">routenwerk.pages.dev</span></div>
     <h2 class="h-lg"><span class="satz">Erst ansehen,</span> <span class="satz">dann weiterlesen.</span></h2>
-    <p class="lede">Das Fenster zeigt die komplette Startseite von oben bis unten. Darin scrollen oder die Demo direkt im neuen Tab öffnen und alles anklicken.</p>
+    <p class="lede">Das Fenster ist die echte Demo, live: scrollen, klicken, alles ausprobieren. Und oben rechts umschalten, wie die Seite auf dem Mac, Tablet oder iPhone aussieht.</p>
 
     <div class="shot-window">
       <div class="shot-bar">
         <span class="shot-dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="shot-url">https://routenwerk.pages.dev</span>
+        <div class="shot-geraete" role="group" aria-label="Geräte-Ansicht wechseln">
+          <button type="button" data-device="mac" aria-pressed="true">Mac</button>
+          <button type="button" data-device="tablet" aria-pressed="false">Tablet</button>
+          <button type="button" data-device="iphone" aria-pressed="false">iPhone</button>
+        </div>
       </div>
-      <div class="shot-scroll" tabindex="0" role="region" aria-label="Screenshot der kompletten Routenwerk-Startseite, im Fenster scrollbar">
-        <img src="img/case-routenwerk-voll.webp" alt="Die gesamte Routenwerk-Startseite: dunkler Hero mit Island-Foto, Abflugtafel im Flughafen-Stil, Reise-Guides als Boarding-Pass-Tickets, Beratungs-Angebot, FAQ und Footer mit großer Wortmarke." width="1440" height="5202" loading="lazy">
+      <div class="live-stage" data-device="mac">
+        <iframe class="live-frame" src="https://routenwerk.pages.dev/" title="Live-Demo: die Routenwerk-Website zum Ausprobieren" loading="lazy"></iframe>
       </div>
-      <div class="shot-hint">// Im Fenster scrollen (Maus, Finger oder Pfeiltasten). Der Screenshot ist die echte Seite, Stand 14.07.2026.</div>
+      <div class="shot-hint">// Kein Screenshot: Das ist die echte Website, live im Fenster. Reinklicken und scrollen ausdrücklich erwünscht.</div>
     </div>
 
     <div class="case-ctas">
@@ -214,6 +219,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=5"></script>
+<script src="site.js?v=6"></script>
 </body>
 </html>
