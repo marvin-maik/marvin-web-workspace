@@ -200,3 +200,20 @@ Auch versteckte Zusatz-Karten (Easter Egg hinter der letzten Karte) brauchen ine
 nicht oben liegen — aria-hidden + opacity:0 allein laesst den Link darin fokussierbar.
 Deko-Glyphen im Karten-Content (&#9656; als Routen-Pfeil) in `<span aria-hidden="true">` wickeln.
 Code: projekte/routenwerk/site.js (Rotator-Block: ansage, renderStack) + index.html (.pass-route).
+
+## HTML-zu-PDF-Export (Handouts, Brand-Guidelines)
+NIE `chrome --headless --print-to-pdf` fuer Dokumente mit Media-Queries: der CLI-Weg
+layoutet mit Mini-Default-Viewport, Mobile-Breakpoints (z.B. `.spread{flex-direction:column}`
+bei max-width:760px) greifen und die Seitenumbrueche/Spread-Masse gehen kaputt (Symptom
+2026-07-14: zwei Doppelseiten pro PDF-Seite zusammengequetscht, Format A4 quer stimmte trotzdem).
+Richtig: puppeteer-core + installiertes Chrome, Desktop-Viewport, dann `page.pdf()`:
+`setViewport({width:1440,height:900})` -> `goto(file://..., {waitUntil:'networkidle0'})`
+-> `evaluateHandle('document.fonts.ready')` + kurz warten
+-> `page.pdf({preferCSSPageSize:true, printBackground:true})`.
+Danach IMMER visuell pruefen: JXA/PDFKit splittet in Einzelseiten
+(`PDFDocument.pageAtIndex(i)` -> je ein Mini-PDF), `sips -s format png` rendert sie,
+Seite 1 + letzte Seite ansehen (Umbrueche, INTERN-Block darf nicht drin sein).
+Und: pdf-parse zaehlt PDF-SEITEN (Spreads), nicht Dokument-Seiten — bei Doppelseiten-Layout
+ist die Zahl auf der Website entsprechend zu formulieren ("10 Doppelseiten" / "20 Seiten").
+Code: Scratchpad-Muster pdf-export.js + pdf-split.js (Session 2026-07-14), Quelle
+projekte/routenwerk/handoff/brand-guidelines.html.
