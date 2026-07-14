@@ -1,7 +1,13 @@
 # Security-Header fuer alle Seiten (Cloudflare Pages liest diese Datei beim Deploy).
 # Bewusst ohne CSP: die Seiten haben Inline-JS/CSS, ein strikter CSP wuerde sie brechen.
 # HSTS wird ueber das Cloudflare-Dashboard gesetzt, nicht per Header-Datei.
+#
+# ACHTUNG noindex: Solange das Projekt nur unter marvin-web.pages.dev laeuft, halten wir
+# es bewusst aus dem Google-Index (Wegwerf-URL, kein Ranking darauf aufbauen).
+# BEIM DOMAIN-LAUNCH die naechste Zeile ENTFERNEN, sonst bleibt auch die Live-Domain
+# auf noindex (das _headers gilt fuer alle Hostnamen dieses Pages-Projekts).
 /*
+  X-Robots-Tag: noindex
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY

@@ -23,7 +23,10 @@ Einrichtung: formspree.io -> New Form -> ID kopieren (Format `mabcdefg`). Free: 
 </form>
 ```
 
-Optional Danke-Seite: `<input type="hidden" name="_next" value="https://DOMAIN/danke.html">`
+PFLICHT Danke-Seite (nicht optional): `<input type="hidden" name="_next" value="https://DOMAIN/danke.html">`.
+Ohne `_next` landet der Interessent auf Formsprees Standardseite statt bei dir. `danke.html` im
+Look der Seite bauen (noindex, Reaktionszeit-Versprechen + Spam-Ordner-Hinweis, Telefon fuer
+Dringendes). Vor Domain-Launch die absolute URL swappen. Vorlage: `projekte/marvin-web/danke.html`.
 
 ## 2. Cal.eu (Terminbuchung) — bewusst die EU-Variante von Cal.com
 
@@ -43,9 +46,12 @@ Inline-Embed (laedt externes Script -> nur NACH Consent oder mit Hinweis einsetz
 
 ```html
 <div id="cal-inline" style="width:100%;height:640px;overflow:auto"></div>
-<script src="https://app.cal.com/embed/embed.js" async
+<script src="https://app.cal.eu/embed/embed.js" async
   onload='Cal("inline",{elementOrSelector:"#cal-inline",calLink:"CAL_USERNAME/analyse-30min"})'></script>
 ```
+
+Embed konsequent von **app.cal.eu** laden (nicht app.cal.com), damit es zur EU-Hosting-Begruendung
+oben passt. Der schlichte Link-Button bleibt ohnehin die datensparsame Erstwahl.
 
 ## 3. Google Maps (Anfahrt)
 
@@ -86,10 +92,24 @@ oder Dieter-Hosted-Links im Footer verlinken. Merken: Dieter = Datenschutz, NICH
 <meta property="og:title" content="FIRMA · NUTZENVERSPRECHEN">
 <meta property="og:description" content="WIE META DESCRIPTION">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='90'>&#9632;</text></svg>">
+<meta property="og:url" content="https://DOMAIN/PFAD">
+<meta property="og:site_name" content="FIRMA">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://DOMAIN/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FIRMA, NUTZENVERSPRECHEN">
+<meta name="twitter:card" content="summary_large_image">
+<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs (og:url, og:image, JSON-LD) -> finale Domain; canonical ergaenzen -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23161412'/><rect y='78' width='100' height='22' fill='%23e8440a'/></svg>">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ```
 
-Favicon-Platzhalter vor Launch durch echtes ersetzen. `lang="de"` am html-Tag nicht vergessen.
+Icon-PNGs root-absolut (`/...`), damit die fuer Tiefpfade ausgelieferte 404.html sie findet.
+`og:image`/`og:url` absolut mit pages.dev-URL setzen (nicht relativ — Crawler brauchen absolute
+URLs), beim Domain-Umzug swappen. JSON-LD zusaetzlich vor `</head>` (Abschnitt 8). `lang="de"`
+am html-Tag nicht vergessen.
 
 ## 6. Fonts selbst hosten (DSGVO-Pflicht vor Launch)
 
@@ -102,3 +122,95 @@ Favicon-Platzhalter vor Launch durch echtes ersetzen. `lang="de"` am html-Tag ni
 ```
 
 Google-Fonts-CDN-Links (`fonts.googleapis.com`) duerfen NUR in Mockups vorkommen, nie live.
+
+## 7. OG-Bild + App-Icon generieren (Chrome headless + sips)
+
+Warum echt rendern: resvg (svg-zu-png.mjs) laedt keine Custom-Fonts -> Clash Display fehlt.
+Darum die Bild-Quelle als HTML mit den echten woff2 bauen und mit headless Chrome schiessen.
+Quellen in den Projektordner mit `_`-Praefix legen (`_og-src.html`, `_icon-src.html` -> nie deployed).
+
+OG-Bild = ink-Grund, orange gestrichelte Baseline als Signature (aus styles.css), Wortmarke +
+eine konkrete Headline (kein Floskel-Claim). App-Icon = ink-Quadrat, "M." in Clash Display,
+orange Baseline (konsistent zum Favicon), DECKEND (kein Alpha, iOS legt es auf eine Kachel).
+
+```bash
+cd projekte/<name>
+python3 -m http.server 8791 >/dev/null 2>&1 &     # damit die Schrift laedt
+CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# OG-Bild 1200x630 (2x rendern, dann exakt runterskalieren = schaerfere Kanten)
+"$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+  --window-size=1200,630 --screenshot=/tmp/og-2x.png http://localhost:8791/_og-src.html
+sips -z 630 1200 /tmp/og-2x.png --out img/og-default.png
+# App-Icon: 512er-Quelle -> apple-touch-icon 180 + favicon-32
+"$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
+  --window-size=512,512 --screenshot=/tmp/icon-2x.png http://localhost:8791/_icon-src.html
+sips -z 180 180 /tmp/icon-2x.png --out apple-touch-icon.png
+sips -z 32 32 /tmp/icon-2x.png --out favicon-32.png
+# gegenpruefen (kein Augenmass):
+sips -g pixelWidth -g pixelHeight img/og-default.png apple-touch-icon.png
+```
+
+Danach die Tags aus Abschnitt 5 setzen. Marker-Regel aus den Learnings: synthetische Renders
+haben kein EXIF, aber echte Fotos NIE in den Deploy-Ordner (werden mitveroeffentlicht).
+
+## 8. JSON-LD Schema (Startseite, ProfessionalService/LocalBusiness)
+
+Vor `</head>` der Startseite. NAP (Name/Adresse/Telefon) 1:1 aus dem Impressum, sonst
+straft Google Inkonsistenz ab. Keine erfundenen Geo-Koordinaten (falscher Pin) — Adresse
+reicht, Google geokodiert. Nach dem Einbau valide pruefen (`json.loads`, nie nur grep).
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://DOMAIN/#business",
+  "name": "FIRMA",
+  "description": "KONKRETES NUTZENVERSPRECHEN, keine Floskel.",
+  "url": "https://DOMAIN/",
+  "image": "https://DOMAIN/img/og-default.png",
+  "telephone": "+49 ...",
+  "email": "KONTAKT@DOMAIN",
+  "priceRange": "ab X €",
+  "address": { "@type": "PostalAddress", "streetAddress": "STRASSE HNR",
+    "postalCode": "PLZ", "addressLocality": "ORT", "addressCountry": "DE" },
+  "areaServed": [{ "@type": "City", "name": "ORT" }],
+  "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00", "closes": "18:00" }],
+  "sameAs": ["PROFIL-URLS falls vorhanden (LinkedIn/Instagram) — staerkt die Entitaet fuer AI-Suche"]
+}
+</script>
+```
+
+`sameAs` mit echten Profil-URLs fuellen, sobald vorhanden (wichtig fuer AI-Auffindbarkeit,
+siehe auch die ai-seo-Skill). Volle Vorlage: `projekte/marvin-web/_schema-index.jsonld`.
+
+## 9. Cloudflare Web Analytics (cookielos, kein Consent noetig)
+
+Beste Wahl fuer unseren Stack: kein Cookie, keine US-Uebertragung (Cloudflare ist eh Hoster),
+darum KEIN Consent-Banner noetig. Ohne Zaehler baut man blind. Dashboard bestaetigt selbst:
+"Cloudflare does not track individual visitors."
+
+**WICHTIG (Praxis 2026-07-14): eine `*.pages.dev`-Subdomain ist KEINE Cloudflare-Zone.** Beim
+Hinzufuegen sagt das Dashboard "does not belong to Cloudflare websites" -> es gibt KEINE
+Auto-Einbindung, das Beacon-Snippet ist Pflicht. Auto-Injektion (kein Code) klappt nur bei einer
+echten, orange-proxied Domain (also spaeter auf der Kundendomain). Ablauf:
+Dashboard -> Analytics -> Web analytics -> Add a site -> Hostname eintragen ->
+"use ... which does not belong to Cloudflare websites" -> Snippet + Token kopieren.
+
+Beacon vor `</body>` auf JEDER Seite (Token ist an genau diesen Hostnamen gebunden, misst auf
+localhost bewusst nicht, Daten kommen erst nach Deploy):
+```html
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token":"CF_BEACON_TOKEN"}'></script>
+```
+Token gehoert in den HTML-Code (kein Geheimnis), NICHT zu einer Auto-Injektion doppeln.
+Cookielos, trotzdem als Verarbeitung kurz in die Datenschutzerklaerung (Cloudflare-Abschnitt).
+
+## 10. Uptime-/Deploy-Monitor (UptimeRobot, free)
+
+uptimerobot.com -> Konto -> **Keyword-Monitor** (nicht nur HTTP-Ping): "Keyword exists" mit
+einer Marker-Phrase, die im HTML steht (z.B. der Firmenname oder `<title>`). So schlaegt der
+Monitor auch bei einem kaputten/leeren Deploy an, nicht nur beim Totalausfall. Intervall 5 Min,
+Mail-Alert an Marvins Postfach. Kostenlos bis 50 Monitore. Konto-Aktion Marvin (kein Code).

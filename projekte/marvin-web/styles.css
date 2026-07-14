@@ -450,3 +450,12 @@ summary:hover{color:var(--signal-deep)}
   *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+/* WhatsApp Float-Button (bevorzugter Direktkontakt) */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:0;padding:15px;min-height:52px;box-sizing:border-box;background:var(--signal-deep);color:var(--white);font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:0;text-decoration:none;border:2px solid var(--signal-deep);box-shadow:0 6px 20px rgba(22,20,18,.28);transition:background .15s,box-shadow .15s,transform .15s}
+.wa-float:hover{background:var(--signal-press);border-color:var(--signal-press);box-shadow:0 9px 28px rgba(22,20,18,.38);transform:translateY(-1px)}
+.wa-float:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wa-float__icon{width:26px;height:26px;flex:none}
+.book-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+@media(max-width:520px){.wa-float{right:14px;bottom:14px;padding:12px;gap:0}.wa-float__label{display:none}}
+@media(prefers-reduced-motion:reduce){.wa-float{transition:none}.wa-float:hover{transform:none}}

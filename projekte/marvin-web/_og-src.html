@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face{font-family:'Clash Display';src:url('fonts/clash-display-700.woff2') format('woff2');font-weight:700;font-display:block}
+  @font-face{font-family:'Clash Display';src:url('fonts/clash-display-600.woff2') format('woff2');font-weight:600;font-display:block}
+  :root{
+    --ink:#161412; --paper:#f5f1e8; --paper-deep:#ece7da;
+    --signal:#e8440a; --signal-deep:#b53507; --signal-tint:#FF9B78;
+    --dark-body:#CFC9BA; --dark-muted:#8A8476;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --disp:'Clash Display',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  .card{
+    position:relative;width:1200px;height:630px;background:var(--ink);
+    color:var(--paper);padding:74px 84px;display:flex;flex-direction:column;
+    justify-content:space-between;font-family:var(--disp);
+  }
+  /* Signature: Marvins orange gestrichelte Baseline (aus styles.css) */
+  .card::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:12px;
+    background:
+      repeating-linear-gradient(90deg, var(--signal) 0 3px, transparent 3px 30px) bottom/100% 12px no-repeat,
+      linear-gradient(var(--signal),var(--signal)) bottom/100% 3px no-repeat;
+  }
+  .top{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--disp);font-weight:700;font-size:40px;letter-spacing:-.02em;color:var(--paper)}
+  .logo b{color:var(--signal)}
+  .tag{
+    font-family:var(--mono);font-size:19px;font-weight:500;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--dark-body)
+  }
+  .tag::before{content:"// ";color:var(--signal)}
+  h1{
+    font-family:var(--disp);font-weight:600;font-size:82px;line-height:1.0;
+    letter-spacing:-.02em;color:var(--paper);max-width:15ch
+  }
+  h1 em{font-style:normal;color:var(--signal-tint)}
+  .foot{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+  .chip{
+    font-family:var(--mono);font-size:20px;letter-spacing:.02em;color:var(--ink);
+    background:var(--paper);padding:11px 18px
+  }
+  .chip.line{background:transparent;color:var(--dark-body);border:2px solid var(--dark-muted)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <span class="logo">Marvin<b>.</b>Web</span>
+      <span class="tag">Webdesign · Berlin</span>
+    </div>
+    <h1>Deine Website. <em>Festpreis,</em> in 5 Werktagen.</h1>
+    <div class="foot">
+      <span class="chip">Festpreis ab 990 &euro;</span>
+      <span class="chip line">Texte inklusive</span>
+      <span class="chip line">Kostenlose Analyse</span>
+    </div>
+  </div>
+</body>
+</html>

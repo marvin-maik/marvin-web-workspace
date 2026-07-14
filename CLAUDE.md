@@ -37,10 +37,19 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 - Single-File-Mockups (`index.html`), Hosting GitHub (`marvin-maik/<repo>`) + Cloudflare Pages.
 - PFLICHTDATEIEN je Projekt (Details + Status-Tabelle: `_referenz/pflichtseiten-checkliste.md`):
   404.html (Pfade root-absolut, sonst SPA-Fallback/Soft-404 auf CF Pages; Vorlage routenwerk),
-  _headers mit Security-Headern, Favicon-Serie. Demos auf pages.dev: noindex per _headers.
-  Launch auf finaler Domain: robots.txt + sitemap.xml + canonical/og:image.
+  _headers mit Security-Headern. Favicon-Serie = SVG-data-URI + **echte** `apple-touch-icon.png`
+  (180) + `favicon-32.png`, root-absolut verlinkt (Datei-EXISTENZ pruefen, nicht nur Link —
+  stand lange faelschlich als "vorhanden" drin, real fehlte apple-touch). OG-Bild
+  `img/og-default.png` (1200x630) + og/twitter-Tags je Seite und JSON-LD `ProfessionalService`
+  auf der Startseite gehoeren schon in den BUILD (nicht erst zum Launch), mit absoluter
+  pages.dev-URL + `DOMAIN-SWAP`-Kommentar. Bei Formular-Projekten: `danke.html` (noindex) +
+  Formspree `_next`. Demos auf pages.dev: noindex per _headers.
+  Launch auf finaler Domain: robots.txt + sitemap.xml + canonical + Domain-Swap der absoluten URLs.
   Bei Verkauf: Widerruf inkl. Muster-Widerrufsformular, PAngV-Preise, BFSG-Info.
   KEIN ODR-Link mehr (Plattform seit 07/2025 abgeschaltet).
+- MONITORING nach Launch (Default, still im Hintergrund): Cloudflare Web Analytics (cookielos,
+  kein Consent, im CF-Dashboard aktivieren) + UptimeRobot Keyword-Monitor (prueft Marker-Phrase
+  im HTML -> faengt auch kaputte Deploys). Beides Konto-Aktionen von Marvin. Setup: integrations.md.
 - Formulare Formspree, Buchung Cal.com, Rechtstexte Dieter Datenschutz — Snippets in `_referenz/integrations.md`.
 - Fertige Erkenntnisse/Muster nach Projektende in `_fundus/` ablegen.
 - BOTSCHUTZ PFLICHT auf JEDEM Formular (kein Opt-out): Honeypot (off-screen `.hp-feld`,

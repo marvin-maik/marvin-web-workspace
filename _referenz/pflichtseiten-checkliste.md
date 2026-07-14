@@ -1,13 +1,16 @@
 # Pflichtseiten + Pflichtdateien (statische Projekte, DE)
 
-Stand 2026-07-13. Vollstaendigkeits-Kontrolle vor jedem Launch, KEINE Rechtsberatung:
+Stand 2026-07-14. Vollstaendigkeits-Kontrolle vor jedem Launch, KEINE Rechtsberatung:
 verbindliche Rechtstexte kommen von Dieter Datenschutz / Anwalt. Diese Liste stellt sicher,
 dass nichts fehlt und nichts Totes drinsteht.
 
 ## Rechtsseiten (jede Seite, auch Visitenkarten-Projekte)
 - [ ] Impressum (§ 5 DDG, seit 2024 statt TMG): von jeder Seite in max. 2 Klicks erreichbar (Footer).
 - [ ] Datenschutzerklaerung (Art. 13 DSGVO): ALLE eingesetzten Dienste muessen drinstehen
-      (Formspree, Cal.com, Stripe, MailerLite, Cloudflare als Hoster). Bei Dienst-Wechsel mitpflegen.
+      (Formspree, Cal.com/Cal.eu, Stripe, MailerLite, Cloudflare als Hoster, **WhatsApp** falls
+      als Kontaktkanal verlinkt = Meta, US-Transfer). Bei Dienst-Wechsel mitpflegen. Merke: ein
+      `wa.me`-Link uebertraegt erst beim Klick Daten, aber sobald jemand schreibt, verarbeitest
+      du seine Daten ueber WhatsApp -> gehoert als Kontaktweg in die Erklaerung.
 - [ ] Consent-Banner NUR wenn einwilligungspflichtige Dienste geladen werden (§ 25 TDDDG:
       externe Inhalte, Tracking, Karten). Ohne solche Dienste: weglassen, kein Alibi-Banner.
 - [ ] Bildnachweise, wenn Lizenzen (Stock, CC) es verlangen — im Impressum oder eigener Abschnitt.
@@ -39,7 +42,27 @@ dass nichts fehlt und nichts Totes drinsteht.
       die Datei auch fuer tiefe Pfade wie /a/b/c ausgeliefert wird.
       Vorlage: `projekte/routenwerk/404.html`. Nach Deploy verifizieren: Fantasie-Pfad
       muss Status 404 liefern (curl, nicht Browser-Cache; Edge braucht ein paar Sekunden).
-- [ ] Favicon-Serie: SVG-data-URI-Icon + apple-touch-icon.png (Standard vorhanden).
+- [ ] Favicon-Serie, drei Teile, alle **root-absolut** verlinkt (`/apple-touch-icon.png`),
+      damit auch die fuer Tiefpfade ausgelieferte 404.html sie findet:
+      (1) SVG-data-URI-Icon `rel="icon"` (modern, scharf in jeder Groesse),
+      (2) `apple-touch-icon.png` 180x180, deckend (iOS ignoriert SVG-Favicons am Homescreen —
+          ohne diese Datei bleibt das Homescreen-Icon leer),
+      (3) `favicon-32.png` als Raster-Fallback.
+      **Datei-Existenz pruefen, nicht nur den Link** (`ls apple-touch-icon.png favicon-32.png`):
+      Bis 2026-07-14 stand hier faelschlich "Standard vorhanden", real fehlte die Datei in
+      jedem Projekt. Generierung: `_referenz/integrations.md` Abschnitt "OG-Bild + App-Icon".
+- [ ] **danke.html** bei jedem Projekt MIT Formular: eigene Danke-Seite (noindex, im Look der
+      Seite, Reaktionszeit-Versprechen + Spam-Ordner-Hinweis) statt Formspree-Standardseite;
+      im Formular `<input type="hidden" name="_next" value="https://DOMAIN/danke.html">`.
+      Ohne _next landet der Interessent im emotionalen Hoch-Moment auf einer fremden Seite.
+- [ ] **OG-Bild `img/og-default.png` (1200x630)** + je Seite `og:image`/`og:url`/
+      `og:image:width|height|alt` + `twitter:card=summary_large_image`. NICHT erst zum Launch:
+      sonst zeigt jeder geteilte Link (WhatsApp/Mail/LinkedIn) eine leere Vorschau. Jetzt schon
+      mit absoluter pages.dev-URL setzen, beim Domain-Umzug die absoluten URLs swappen.
+- [ ] **JSON-LD Schema** auf der Startseite (`ProfessionalService`/`LocalBusiness`): NAP
+      (Name/Adresse/Telefon) 1:1 aus dem Impressum, Oeffnungszeiten, Angebot/Preis. Bringt
+      Google Rich Results und macht die Seite in AI-Suchen (ChatGPT, Perplexity) als Entitaet
+      auffindbar. Valide pruefen (`json.loads`), nie nach Augenmass. Vorlage in integrations.md.
 - [ ] **_headers** (Projektwurzel, Cloudflare Pages liest sie beim Deploy):
       ```
       /*
@@ -59,10 +82,28 @@ dass nichts fehlt und nichts Totes drinsteht.
 - [ ] robots.txt mit `Sitemap:`-Zeile (absolute URL).
 - [ ] sitemap.xml: nur indexierbare Seiten, absolute URLs der finalen Domain
       (danke.html, 404.html und noindex-Seiten raus).
-- [ ] Je Seite: canonical, og:url, og:image (1200x630) — die TODO-Kommentare dafuer
-      stehen schon in den Builds, vor Launch aufloesen.
-- [ ] Custom Domain: www-auf-Apex-Redirect (CF-Dashboard/Bulk Redirects), HSTS aktivieren.
+- [ ] Je Seite: canonical ergaenzen; og:url/og:image + JSON-LD stehen schon aus dem Build,
+      aber mit absoluter pages.dev-URL — beim Domain-Umzug auf die finale Domain swappen
+      (im Build steht dafuer ein `DOMAIN-SWAP`-Kommentar). Auch `_next` im Formular umstellen.
+- [ ] Custom Domain: www-auf-Apex-Redirect (CF-Dashboard/Bulk Redirects) als echter
+      **301** (permanent), nicht 302 — sonst wird Linkjuice/Ranking nicht auf die
+      kanonische Domain uebertragen. HSTS aktivieren.
+- [ ] **301-Redirects bei Relaunch/URL-Aenderung**: wenn sich bei einem bestehenden
+      Projekt Pfade aendern (Domain-Wechsel pages.dev -> Kundendomain mit neuer
+      Sitemap-Struktur, Seiten umbenannt/zusammengelegt), alte URL -> neue URL per
+      301 in `_redirects` (Cloudflare-Pages-Syntax: `/alter-pfad /neuer-pfad 301`)
+      weiterleiten. Sonst verlieren indexierte alte URLs Ranking + Nutzer landen auf 404.
 - [ ] Optional, 2 Minuten, wirkt professionell: `/.well-known/security.txt`.
+
+## Betrieb / Monitoring (direkt nach Launch einrichten, dann laeuft es still)
+- [ ] **Analytics: Cloudflare Web Analytics** (cookielos, kein Consent-Banner noetig, keine
+      US-Uebertragung). ACHTUNG: `*.pages.dev` ist keine CF-Zone -> keine Auto-Einbindung,
+      Beacon-Snippet + Token noetig (auf jeder Seite vor `</body>`); Auto-Injektion erst auf
+      der echten Kundendomain. Ohne Zaehler baut man blind. Setup: `_referenz/integrations.md`.
+- [ ] **Uptime-/Deploy-Monitor** (UptimeRobot free, 5-Min-Intervall, Mail-Alert). WICHTIG als
+      **Keyword-Monitor**: prueft, ob eine Marker-Phrase (z.B. der `<title>` oder Firmenname)
+      im HTML steht — faengt so auch einen kaputten/leeren Deploy, nicht nur den Totalausfall.
+      Ein stiller Ausfall ist fuer ein Studio, das Verfuegbarkeit verkauft, peinlich. Setup: integrations.md.
 
 ## Bewusst KEINE Pflicht (nicht aufblasen)
 - webmanifest/PWA, humans.txt, RSS: nur bei echtem Bedarf.
@@ -76,7 +117,13 @@ dass nichts fehlt und nichts Totes drinsteht.
 | noindex (Demo)             | JA (2026-07-14, X-Robots-Tag) | entfaellt (echte Seite)  |
 | robots.txt + sitemap.xml   | vorhanden, via noindex moot   | FEHLT (Gap 5, offen)     |
 | Muster-Widerrufsformular   | FEHLT in Demo-AGB             | entfaellt (kein Shop)    |
-| og:image/canonical         | TODO-Kommentare offen         | pruefen                  |
+| Favicon-Serie (echte Datei)| apple-touch DA+verlinkt, favicon-32 fehlt | JA (2026-07-14: apple-touch-icon.png 180 + favicon-32.png) |
+| og:image (1200x630)        | Unterseiten JA; Startseite 2026-07-14 nachgezogen (Deploy offen) | JA (2026-07-14: og-default.png + og/twitter auf 5 Seiten) |
+| danke.html + _next         | entfaellt (kein Formular hier)| JA (2026-07-14)          |
+| JSON-LD Schema             | FEHLT                         | JA (2026-07-14: ProfessionalService, Startseite) |
+| canonical                  | offen                         | offen (Domain-Swap)      |
+| Analytics (CF Web Analytics)| offen                        | JA (2026-07-14: registriert + Beacon im Code, Daten ab Deploy) |
+| Uptime-Monitor             | offen                         | JA (2026-07-14: UptimeRobot Keyword-Monitor "MARVIN.WEB", 5-Min, live) |
 
 Live verifiziert 2026-07-14 (curl mit Cache-Buster): marvin-web Deploy 97d495ac, routenwerk Deploy fb533d2e.
 - Security-Header (nosniff, Referrer-Policy, X-Frame-Options: DENY, Permissions-Policy) auf beiden Seiten aktiv; /fonts/* immutable, max-age 1 Jahr.

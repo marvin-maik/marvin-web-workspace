@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face{font-family:'Clash Display';src:url('fonts/clash-display-700.woff2') format('woff2');font-weight:700;font-display:block}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:512px;height:512px;overflow:hidden}
+  .icon{
+    position:relative;width:512px;height:512px;background:#161412;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Clash Display',sans-serif;overflow:hidden
+  }
+  .mark{font-weight:700;font-size:340px;line-height:1;color:#f5f1e8;letter-spacing:-.03em;transform:translateY(-14px)}
+  .mark b{color:#e8440a}
+  /* orange Baseline, konsistent zum Favicon */
+  .icon::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;background:#e8440a}
+</style>
+</head>
+<body>
+  <div class="icon"><span class="mark">M<b>.</b></span></div>
+</body>
+</html>
