@@ -68,12 +68,18 @@ dass nichts fehlt und nichts Totes drinsteht.
 - webmanifest/PWA, humans.txt, RSS: nur bei echtem Bedarf.
 - Cookie-Banner ohne einwilligungspflichtige Dienste: weglassen ist die bessere Loesung.
 
-## Status Bestandsprojekte (Stand 2026-07-13)
-| Punkt                      | routenwerk (Demo)        | marvin-web (live)  |
-|----------------------------|--------------------------|--------------------|
-| 404.html                   | JA (2026-07-13)          | FEHLT              |
-| _headers                   | FEHLT                    | FEHLT              |
-| noindex (Demo)             | FEHLT (soll noindex)     | entfaellt (echte Seite) |
-| robots.txt + sitemap.xml   | entfaellt (Demo)         | FEHLT              |
-| Muster-Widerrufsformular   | FEHLT in Demo-AGB        | entfaellt (kein Shop) |
-| og:image/canonical         | TODO-Kommentare offen    | pruefen            |
+## Status Bestandsprojekte (Stand 2026-07-14)
+| Punkt                      | routenwerk (Demo)             | marvin-web (live)        |
+|----------------------------|-------------------------------|--------------------------|
+| 404.html                   | JA (2026-07-13)               | JA (2026-07-14)          |
+| _headers                   | JA (2026-07-14)               | JA (2026-07-14)          |
+| noindex (Demo)             | JA (2026-07-14, X-Robots-Tag) | entfaellt (echte Seite)  |
+| robots.txt + sitemap.xml   | vorhanden, via noindex moot   | FEHLT (Gap 5, offen)     |
+| Muster-Widerrufsformular   | FEHLT in Demo-AGB             | entfaellt (kein Shop)    |
+| og:image/canonical         | TODO-Kommentare offen         | pruefen                  |
+
+Live verifiziert 2026-07-14 (curl mit Cache-Buster): marvin-web Deploy 97d495ac, routenwerk Deploy fb533d2e.
+- Security-Header (nosniff, Referrer-Policy, X-Frame-Options: DENY, Permissions-Policy) auf beiden Seiten aktiv; /fonts/* immutable, max-age 1 Jahr.
+- Tiefer Fantasie-Pfad liefert echten Status 404 + eigene 404-Seite (Soft-404 weg) auf beiden Seiten.
+- routenwerk: X-Robots-Tag noindex auf allen Antworten (auch 404). Leak-Gegenprobe handoff/DEMO-README/freigabe -> alle 404 (nicht deployt, Staging-Excludes greifen).
+- Offen (bewusst nicht Teil dieses Durchgangs): Gap 5 = robots.txt + sitemap.xml fuer marvin-web (Domain-Frage: pages.dev vs. finale Domain vor dem Anlegen klaeren).
