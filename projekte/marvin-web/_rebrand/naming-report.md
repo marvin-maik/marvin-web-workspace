@@ -219,3 +219,45 @@ KLARWERK (Homophon Klärwerk = Kläranlage, einstimmig, Lehrstück: Homophone im
 3. **Telefontest-Woche (Leiblein):** Lass Dich eine Woche von Freunden anrufen und melde Dich mit dem Favoriten. "Guten Tag, Taktfest, Müller hier." Fühlt es sich gut an? Versteht der Anrufer den Namen? Schreibt er ihn beim ersten Hören richtig? Dreimal ja = fertig.
 4. **Optional Absicherung:** anwaltliche Ähnlichkeitsrecherche ~300 bis 600 EUR, DPMA-Wortmarke 290 EUR (Klassen 42 + 35). Erst danach Logo beauftragen, nicht vorher.
 5. **Präsentations-Disziplin (Meyerson/Bell):** Wenn Du Namen anderen zeigst: einer pro Seite, neutrale Typo, laut vorsprechen, IMMER mit Story und Deskriptor ("Websites in 5 Werktagen, zum Festpreis"), positive Reaktionen zuerst. Nie nackt, nie als Liste zum Ankreuzen.
+
+---
+
+## 9. RUNDE 2 (2026-07-15): Marvins Korrektur + Radelglas-Formel
+
+**Marvins Feedback zu Runde 1:** Zielgruppe ist NICHT nur Handwerker (auch Startups, kleine Unternehmen generell), die Werkstatt-Namen waren daneben. Geschmacks-Anker: MARLOU (cool), MARVIN.WEB (ok), und vor allem **Radelglas** (Altglas-Abholung per Fahrrad): wenige Silben, klingt gut, man versteht sofort, was angeboten wird. Ergänzung: Der Name soll das GESAMTPAKET tragen (Website + Performance + Design), nicht nur das Bauen.
+
+**Die Radelglas-Formel (ersetzt die Rats-Regel "Web nie im Namen"):** Kompositum aus zwei vertrauten Bausteinen. Baustein B = die erkennbare Leistung (Web, Seite, Klick). Baustein A = der Charme/die Qualität (Design, Tempo, Person). 2-3 Silben, Telefontest-fest.
+
+**18 Kandidaten konstruiert und per Web-Recherche auf Kollisionen geprüft (Agent, 15.07.2026):**
+
+| Name | Check-Urteil | Befund |
+|---|---|---|
+| **SCHAUSEITE** | FREI WIRKEND (bester Fund) | Echtes Architektur-Wort: die gestaltete, dem Betrachter zugewandte Seite eines Gebäudes. Design + Website in einem Wort. Keine Firma, keine Marke gefunden; schauseite.de steht zum Verkauf. |
+| **PARADESEITE** | FREI WIRKEND | Paradestück + Website. Nichts gefunden; paradeseite.de registriert, aber ungenutzt. 4 Silben (Obergrenze). |
+| **WEBSTÜCK** | FREI WIRKEND | Werkstück-Echo + weben-Doppelboden. Keine Firma/Marke; webstueck.de registriert, aber leer (Inhaber anfragen). |
+| **FEINWEB** | FREI WIRKEND (Domain weg) | fein = Gestaltungsqualität. Keine Firma; feinweb.de vergeben, ungenutzt. Umfeld: feinedesign, Feinschliff Webdesign. |
+| **FLINKWEB** | FREI WIRKEND (Domain weg) | Keine Firma; flinkweb.de bei Strato reserviert. Flink-Lieferdienst-Prägung. |
+| **WEBFRISCH** | FREI WIRKEND (mit Haken) | Keine Firma; webfrisch.de vergeben, ungenutzt. Verwechslungsumfeld: fresch-webdesign, Peter Frisch Webdesign. |
+| KLICKFERTIG | FREI, aber generisch | Wird generisch für Template-/Baukasten-Seiten benutzt: Billig-Beigeschmack, widerspricht "individuell statt Baukasten", kaum schützbar. |
+| MARWEB | TEILWEISE | marweb.de vergeben (ungenutzt), wenig eigenständig, "MAR Design Web GmbH" existiert. |
+| WEBSTATT | TEILWEISE | Ex-Community webstatt.org (2006-2012), webstatt.de leer, Web-Werkstatt-Agenturen im Umfeld. |
+| WORTWEB | TEILWEISE | wortweb.de geparkt "im Kundenauftrag"; web-wort.de und wort-und-design.de machen exakt Text+Web. |
+| WEBWOCHE | TEILWEISE | "Münchner Webwoche" = etabliertes Event; klingt nach Veranstaltung/Magazin. |
+| WEBFIX | TEILWEISE | WebFix Inc. + Webfix Agency (US, gleiche Branche), webfix.de steht zum Verkauf, Reparatur-Assoziation. |
+| KLARSEITE | KLAR BELEGT | klarseite.de = Solo-Webdesigner Holger Nägl, Regensburg, seit 2010. Direkter Wettbewerber. |
+| GLANZSEITE | KLAR BELEGT | glanzseite.de = aktives Webdesign-Angebot (Landingpages für Coaches/Praxen). |
+| WEBSCHLIFF | KLAR BELEGT | Doppelt: webschliff.de (Agentur, sogar "Websites zum Festpreis"!) + webschliff.com (Wien). |
+| KLICKWERK | KLAR BELEGT | Mehrfach: klickwerk.digital (AT), Klickwerk AG (CH), klickwerk-media.de, click-werk.com. |
+| WEBGEMACHT | KLAR BELEGT | webgemacht.de aktiv + WebGemacht (CH, Hosting/Builder/Academy). |
+| VOLLBILD | KLAR BELEGT | SWR-Recherche-Format VOLLBILD + Filmproduktionen. Massive Verwechslung. |
+
+Caveat: DPMA-Register konnte der Agent nicht direkt abfragen (JS-Portal); vor der finalen Entscheidung manuell register.dpma.de (Klassen 42+35) + Handelsregister prüfen.
+
+**Empfehlung Runde 2:**
+1. **SCHAUSEITE**: der einzige Kandidat, der Marvins Design-Ebene wörtlich im Wort trägt (die gestaltete Seite, die man herzeigt) UND die Leistung erkennbar macht (Seite) UND komplett frei wirkt. Story: "Jeder Betrieb hat eine Schauseite. Wir bauen deine." Domain steht zum Verkauf (Preis anfragen), Ausweich: schauseite.berlin, schauseite-websites.de.
+2. **WEBSTÜCK**: das charmanteste Kompositum (Werkstück-Qualität + weben), frei wirkend.
+3. **PARADESEITE**: sauber, aber 4 Silben.
+4. **FEINWEB**: kurz, Design-fein, Domain-Frage.
+Reserve: WEBFRISCH, FLINKWEB. Wackelkandidat: MARWEB (nur falls Personen-Blend gewünscht).
+
+Nervennotiz Wettbewerb: webschliff.de verkauft bereits "Websites zum Festpreis". Positionierung nicht exklusiv, Tempo (5 Werktage) und Texte inklusive bleiben die schärferen Differenzierer.
