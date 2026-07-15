@@ -24,6 +24,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23161412'/><rect y='78' width='100' height='22' fill='%23e8440a'/></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- sameAs ergaenzen, sobald Profile existieren: Zeile "sameAs": ["https://...google-profil", "https://instagram.com/..."] in den JSON-LD-Block unten (nach "founder"-Block). -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,6 +77,44 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet eine Website bei dir?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ein Onepager startet bei 990 Euro, die Business-Site bei 1.990 Euro, jeweils zum Festpreis. Der Preis steht vor Projektstart fest und ändert sich nicht. Alle Details auf der Pakete-Seite." }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert es wirklich?",
+      "acceptedAnswer": { "@type": "Answer", "text": "5 Werktage ab dem Moment, in dem Struktur und Texte freigegeben sind. Die meisten Projekte sind inklusive Vorgespräch nach rund zwei Wochen komplett abgeschlossen." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was brauchst du von mir?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Logo und Fotos falls vorhanden und 30 Minuten für das Analysegespräch. Die Texte schreibe ich, du gibst sie nur frei. Mehr nicht." }
+    },
+    {
+      "@type": "Question",
+      "name": "Was, wenn mir etwas nicht gefällt?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Du gibst Struktur und Texte frei, bevor gebaut wird, und nach der Umsetzung gibt es eine Korrekturrunde. Erst wenn du zufrieden bist, geht die Seite live." }
+    },
+    {
+      "@type": "Question",
+      "name": "Wem gehört die Website am Ende?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dir. Du bekommst deine Seite und deine Domain, ohne Abhängigkeit von einem Baukasten. Das Betreuungs-Abo ist ein Service, kein Käfig." }
+    },
+    {
+      "@type": "Question",
+      "name": "Ich habe schon eine Website. Lohnt sich ein Neustart?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Genau dafür gibt es die kostenlose Analyse. Manchmal reichen gezielte Anpassungen, manchmal ist neu schneller und günstiger. Ich sage dir ehrlich, was Sache ist." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -84,7 +123,7 @@
 
 <div class="meta-row">
   <div class="meta-inner">
-    <span>BERLIN&nbsp;·&nbsp;MO&ndash;FR&nbsp;9&ndash;18&nbsp;UHR</span>
+    <span>BERLIN&nbsp;·&nbsp;MO&ndash;FR&nbsp;9&ndash;18&nbsp;UHR&nbsp;·&nbsp;<a href="tel:+4915906453169">TEL&nbsp;0159&nbsp;06453169</a></span>
     <span><span style="white-space:nowrap">LOKAL/<b id="clock">--:--:--</b>&nbsp;·</span> <a href="#kontakt">KOSTENLOSE ANALYSE IN 2 WERKTAGEN</a></span>
   </div>
 </div>
@@ -279,12 +318,14 @@
         <input type="hidden" name="_subject" value="Anfrage über marvin.web">
         <input type="hidden" name="_next" value="https://marvin-web.pages.dev/danke.html">
         <button class="btn btn-primary" type="submit">Analyse anfragen</button>
+        <p class="form-privacy">Mit dem Absenden verarbeite ich deine Angaben nur, um deine Anfrage zu beantworten. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
       </form>
       <div class="book-card">
         <h3>Lieber direkt?</h3>
-        <p>Am schnellsten erreichst du mich per WhatsApp. Oder buch dir 30 Minuten fürs Analysegespräch, ich rufe pünktlich an.</p>
+        <p>Ruf einfach an oder schreib per WhatsApp. Oder buch dir 30 Minuten fürs Analysegespräch, ich rufe pünktlich an.</p>
         <div class="book-actions">
-          <a href="https://wa.me/4915906453169?text=Hallo%20Marvin%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website." class="btn btn-primary" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+          <a href="tel:+4915906453169" class="btn btn-primary">Anrufen: 0159 06453169</a>
+          <a href="https://wa.me/4915906453169?text=Hallo%20Marvin%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website." class="btn btn-ghost" target="_blank" rel="noopener">Per WhatsApp schreiben</a>
           <a href="https://cal.eu/marvin.web/30min" class="btn btn-ghost" target="_blank" rel="noopener">Termin buchen</a>
         </div>
         <!-- Kontakt-Mail folgt, sobald die finale Adresse feststeht:

@@ -5,12 +5,25 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Rep
 
 | Projekt | Phase | Naechster Schritt | Wartet auf |
 |---|---|---|---|
-| marvin-web (Business-Site, 5 Seiten) | LIVE + DEPLOYED 2026-07-14 (83d69515): OG-Bild + Twitter-Card, apple-touch/favicon-32, JSON-LD, danke.html + _next (CF Clean-URL /danke, Kette landet auf 200), WhatsApp (Float nur Logo + Kontakt-Button), CF Web Analytics Beacon (Token ...cc80, misst ab jetzt), UptimeRobot-Keyword-Monitor "MARVIN.WEB" (Up, 5-Min, Mail an comspiele@web.de); Datenschutz um WhatsApp + CF Web Analytics ergaenzt. Live verifiziert via Deployment-URL. | Offen: Test-Alarm-Mail (Postfach/Spam) pruefen; Formspree-Testsubmit real; Datenschutz fachlich pruefen lassen; Domain + Formspree-AVV; Geraete-Review | Marvin: Test-Mail + Domain-Entscheidung |
+| marvin-web (Business-Site, 5 Seiten) | LIVE + DEPLOYED 2026-07-14 (83d69515): OG-Bild + Twitter-Card, apple-touch/favicon-32, JSON-LD, danke.html + _next (CF Clean-URL /danke, Kette landet auf 200), WhatsApp (Float nur Logo + Kontakt-Button), CF Web Analytics Beacon (Token ...cc80, misst ab jetzt), UptimeRobot-Keyword-Monitor "MARVIN.WEB" (Up, 5-Min, Mail an comspiele@web.de); Datenschutz um WhatsApp + CF Web Analytics ergaenzt. Live verifiziert via Deployment-URL. | Offen: Test-Alarm-Mail (Postfach/Spam) pruefen; Formspree-Testsubmit real; Datenschutz fachlich pruefen lassen; Domain + Formspree-AVV; Geraete-Review; **Blinde-Fleck-To-dos (2026-07-15, Konto-Aktionen):** Google Unternehmensprofil anlegen (lokale Auffindbarkeit + Bewertungen), Instagram/LinkedIn + sameAs im Schema ergaenzen, Profi-Mail auf eigener Domain statt gmail (Impressum + JSON-LD), Formspree-Autoresponder einrichten (Tarif pruefen), Conversion messen (/danke- vs Startseiten-Aufrufe in CF Analytics), "Antwort am selben Tag" gegen Urlaub/Krankheit absichern | Marvin: Test-Mail + Domain-Entscheidung |
 | POPTAIL | Idee | Brief anlegen (brief-builder), Stack: statisch + Shopify | Marvin: Rohmaterial + Prioritaet; Alkoholsteuer/Altersverifikation klaeren |
 | MARLOU (ECHTES Projekt Marvin+Louisa) | PAUSIERT — NICHT BEARBEITEN (Marvins Ansage 2026-07-11) | Ruht, bis Marvin+Louisa es aktiv reaktivieren; Design-Verbesserungen aus ROUTENWERK werden erst DANN zurueckgespielt | Marvin + Louisa |
 | ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Deploy 2026-07-14: Bilder optimiert (2,3 MB -> 429 KB, Perf 98 live), CSP frame-ancestors statt X-Frame-Options (marvin-web darf einbetten), Timeline-Fix beratung.html | Startseiten-og:image + twitter:card DEPLOYED 2026-07-14 (14bcf3f8) -> leere Share-Vorschau gefixt, live verifiziert. Nachkontrolle 2026-07-28: Formular-Test, Customer-Feedback; Insights nach _fundus/; Timeline-Fix bei MARLOU-Reaktivierung zurueckspielen | erledigt |
 
 ## Erledigt / Log
+- 2026-07-15: marvin-web blinde Flecken Teil 2 (lokal, noch NICHT deployed): (1) Click-to-Call
+  site-weit: `tel:`-Link in der Meta-Zeile aller 4 Hauptseiten (index/pakete/ueber-mich/projekte)
+  + "Anrufen: 0159 06453169" als Primaer-CTA im Kontakt-Block (WhatsApp + Termin daneben als Ghost;
+  auf Wunsch zuruecktauschbar). (2) Datenschutz-Hinweis + Link zur Datenschutzerklaerung direkt am
+  Anfrage-Formular. FALLE: `--ink-soft` wird in `.dark-sec` heller ueberschrieben, `.dark-sec p`
+  ist spezifischer als `.form-privacy` -> Hinweis rendert erst mit 1,9:1 (Fail). Fix ueber
+  `.form-card .form-privacy`-Spezifitaet, danach Text 8,3:1 / Link 16,3:1 (Browser gerechnet).
+  (3) FAQPage-JSON-LD: index (6 Fragen) + pakete (5 Fragen), Texte 1:1 aus sichtbarem FAQ; beide
+  Bloecke parsen valide. Hinweis: klassische Google-FAQ-Rich-Results sind seit 2023 auf wenige
+  Seitentypen beschraenkt, der Nutzen liegt jetzt bei AI-/Answer-Engines + Semantik. (4) sameAs-
+  Platzhalter-Kommentar im index-Schema (echte URLs sobald Profile existieren). Browser-verifiziert:
+  Mobil 375px kein Horizontal-Overflow, tel-Link tappbar. OFFEN = Konto-Aktionen Marvin (siehe
+  Status-Zeile). Autoresponder bewusst NICHT gemacht: lebt im Formspree-Dashboard (Login), kein Code.
 - 2026-07-14: DEPLOYED. marvin-web (83d69515) + routenwerk (14bcf3f8) live ueber Staging-Kopie
   (Leak-Kontrolle bestanden, MARLOU bewusst nicht committet/deployt). Commit 9434058 + gepusht.
   Live via Deployment-URL verifiziert: alle Icons/OG/Beacon/Schema/WhatsApp 200 + vorhanden,
