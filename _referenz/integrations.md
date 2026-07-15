@@ -40,6 +40,28 @@ US-Drittempfaenger, kein neues Consent, Mailversand z.B. via Resend) statt Forms
 trotzdem im Look der Seite bauen (noindex, Reaktionszeit-Versprechen + Spam-Ordner-Hinweis, Telefon
 fuer Dringendes). Vor Domain-Launch die absolute URL swappen. Vorlage: `projekte/marvin-web/danke.html`.
 
+### 1b. EMPFOHLENER STANDARD ab eigener Domain: Formular selbst hosten (Cloudflare Pages Function)
+
+Sobald das Projekt auf einer echten Domain bei Cloudflare laeuft, ist das die saubere Loesung statt
+Formspree: kein US-Drittempfaenger, kein neues Consent (Cloudflare ist eh schon Hoster), eigener
+Redirect gratis, serverseitiger Spamschutz. Formspree bleibt nur der Staging-/Baukasten-Notnagel.
+
+Ablauf am Launch-Tag (einmal bauen, dann pro Kunde wiederverwenden):
+1. Domain in Cloudflare + **Email Routing** aktivieren, Marvins Ziel-Postfach verifizieren.
+2. `/functions/kontakt.js` anlegen: POST annehmen, Honeypot (`_gotcha`) UND Zeit-Falle SERVERSEITIG
+   pruefen (staerker als clientseitig in site.js), Felder validieren, dann Mail + 302-Redirect auf `/danke`.
+3. Mailversand, zwei Wege (Entscheidung pro Projekt):
+   - **Weg A (nativ, null Drittanbieter, gratis):** Cloudflare `send_email`-Binding -> Mail an Marvins
+     verifizierte Adresse. Binding im Pages-Dashboard-UI verknuepfen (Pages Functions nutzen KEINE
+     wrangler.toml). Kann NUR an verifizierte Adressen senden -> Absender-Benachrichtigung ja,
+     Kunden-Auto-Antwort NEIN.
+   - **Weg B (flexibler, ein kontrollierter Drittanbieter):** Resend o.ae. (gratis-Kontingent),
+     erlaubt auch Auto-Antwort an den Kunden + HTML. Dann wieder AVV + Datenschutz-Zeile.
+4. Formular-`action` von der Formspree-URL auf `/kontakt` umstellen, Formspree-Hidden-Felder anpassen.
+5. Deliverability: SPF/DKIM/DMARC pruefen (sonst Spam-Ordner), echte Testabsendung.
+6. Danach Formspree stilllegen; Datenschutzerklaerung vereinfachen (Formspree/US-Transfer raus).
+MailChannels-Gratisweg fuer Cloudflare ist seit 08/2024 abgeschaltet, daher Weg A oder B.
+
 ## 2. Cal.eu (Terminbuchung) — bewusst die EU-Variante von Cal.com
 
 Einrichtung: **app.cal.eu** (EU-Hosting, DSGVO-freundlicher als cal.com!) -> Event Type
