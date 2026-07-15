@@ -11,6 +11,13 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Rep
 | ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Deploy 2026-07-14: Bilder optimiert (2,3 MB -> 429 KB, Perf 98 live), CSP frame-ancestors statt X-Frame-Options (marvin-web darf einbetten), Timeline-Fix beratung.html | Startseiten-og:image + twitter:card DEPLOYED 2026-07-14 (14bcf3f8) -> leere Share-Vorschau gefixt, live verifiziert. Nachkontrolle 2026-07-28: Formular-Test, Customer-Feedback; Insights nach _fundus/; Timeline-Fix bei MARLOU-Reaktivierung zurueckspielen | erledigt |
 
 ## Erledigt / Log
+- 2026-07-15: pakete-H1 mobil sauber getrennt, DEPLOYED (49e537e6). Auf Marvins Wunsch statt
+  Schrift-Verkleinerung die groessere H1 behalten und das lange Wort am Silbenrand trennen:
+  Soft-Hyphen `&shy;` nach "Ueber" in pakete.html -> mobil "KEINE UEBER-/RASCHUNGEN". `.page-head h1`
+  Floor 30->37px (Desktop-Skalierung 7,5vw wieder wie im Original), `hyphens:manual` trennt NUR den
+  gesetzten Punkt, `overflow-wrap:anywhere` bleibt Notnagel. Bei 375px verifiziert (pakete bricht
+  wie gewuenscht, ueber-mich "CALLCENTER." ganz, kein Overflow); live: /pakete 200, `&shy;` in der
+  Headline vorhanden, styles.css `clamp(37px,7.5vw,92px)` live.
 - 2026-07-15: kontakt.html DEPLOYED (c0e4f9a8) + qa-polish bestanden. Eigene Kontakt-Seite live,
   Menuepunkt + Footer site-weit, H1-Overflow-Fix (`.page-head h1` clamp(30px,8vw,92px) +
   `overflow-wrap:anywhere`; lange Versalwoerter wie UEBERRASCHUNGEN liefen bei 375px raus, weil
