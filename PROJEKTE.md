@@ -11,6 +11,14 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Rep
 | ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Deploy 2026-07-14: Bilder optimiert (2,3 MB -> 429 KB, Perf 98 live), CSP frame-ancestors statt X-Frame-Options (marvin-web darf einbetten), Timeline-Fix beratung.html | Startseiten-og:image + twitter:card DEPLOYED 2026-07-14 (14bcf3f8) -> leere Share-Vorschau gefixt, live verifiziert. Nachkontrolle 2026-07-28: Formular-Test, Customer-Feedback; Insights nach _fundus/; Timeline-Fix bei MARLOU-Reaktivierung zurueckspielen | erledigt |
 
 ## Erledigt / Log
+- 2026-07-15: H1-Feinschliff + Cache-Konsistenz (lokal, noch NICHT deployed). `.page-head h1` von
+  `hyphens:auto` auf `manual` (styles.css:115): Unterseiten-Ueberschriften trennen deutsche Woerter
+  nicht mehr mit Bindestrich, ganze Woerter brechen um (`overflow-wrap:break-word` bleibt als
+  Overflow-Notnagel). Bei 375px im Browser verifiziert (kontakt „WERKTAG.", ueber-mich „CALLCENTER."
+  ganz, kein Horizontal-Overflow). styles.css-Cache-Version site-weit auf `?v=9` vereinheitlicht
+  (war gemischt: index/404/danke/kontakt/pakete/ueber-mich v=3, projekte/projekt-routenwerk v=8 ->
+  ohne Bump saehe ein wiederkehrender Besucher nach Deploy die alte CSS). impressum/datenschutz
+  nutzen inline `<style>`, nicht betroffen.
 - 2026-07-15: Eigene Kontakt-Seite `kontakt.html` gebaut (lokal, noch NICHT deployed). Entscheidung
   via marketing-council (Hormozi/Brunson/Sutherland + Nachschlag Neil Patel/Arsh Sanwarwala): eigene
   Seite JA, aber als echte Vertrauens- + Conversion-Seite, nicht als nacktes Formular; die inline
