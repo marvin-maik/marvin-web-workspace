@@ -35,6 +35,10 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
 
 ## Technik-Defaults
 - Single-File-Mockups (`index.html`), Hosting GitHub (`marvin-maik/<repo>`) + Cloudflare Pages.
+- PROJEKT-STRUKTUR: HTML-Seiten flach im Projekt-Root lassen (Ordner = URL-Pfad bei CF Pages,
+  also NIE in einen Unterordner packen, sonst brechen Links/canonical/og:url und URLs werden
+  haesslich). Assets in `img/`/`fonts/`/`downloads/`. Generator-/Quellvorlagen (Icon-/OG-/
+  Schema-Src) in `_src/` -> nur Werkzeug, keine Seite; `_`-Praefix = INTERN, wird eh nie deployed.
 - PFLICHTDATEIEN je Projekt (Details + Status-Tabelle: `_referenz/pflichtseiten-checkliste.md`):
   404.html (Pfade root-absolut, sonst SPA-Fallback/Soft-404 auf CF Pages; Vorlage routenwerk),
   _headers mit Security-Headern. Favicon-Serie = SVG-data-URI + **echte** `apple-touch-icon.png`
