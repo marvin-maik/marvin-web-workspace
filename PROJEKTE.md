@@ -11,6 +11,17 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live-Check & Rep
 | ROUTENWERK (Demo-Referenz fuer marvin-web, fiktives Studio) | LIVE+BETREUUNG: routenwerk.pages.dev · Deploy 2026-07-14: Bilder optimiert (2,3 MB -> 429 KB, Perf 98 live), CSP frame-ancestors statt X-Frame-Options (marvin-web darf einbetten), Timeline-Fix beratung.html | Startseiten-og:image + twitter:card DEPLOYED 2026-07-14 (14bcf3f8) -> leere Share-Vorschau gefixt, live verifiziert. Nachkontrolle 2026-07-28: Formular-Test, Customer-Feedback; Insights nach _fundus/; Timeline-Fix bei MARLOU-Reaktivierung zurueckspielen | erledigt |
 
 ## Erledigt / Log
+- 2026-07-15: NAMING-REPORT Rebrand MARVIN.WEB erstellt (projekte/marvin-web/_rebrand/naming-report.md):
+  15 verifizierte Naming-Experten recherchiert (Watkins, Altman, Meyerson, Shore, Placek, Manning,
+  Friedman, Miller, Neumeier, Ries, Airey, Flowers, Bell, Kircher/NOMEN, Leiblein/Namestorm),
+  4 Experten-Raete simuliert (Strategie, Klang/Linguistik, Klartext/Namescape, Deutschland),
+  69 Kandidaten bewertet, Shortlist Top 11: TAKTFEST (Konsens-Sieger), FUENFTAKT, RICHTFEST,
+  WERKTAG, ZUSCHNITT, SATZBAU, KURZERHAND, AUFMASS (strittig: ss/Software-Markt), HANDSCHLAG
+  (strittig: Belegung), FUENFWERK, Wildcard MARVIN MACHT DAS. Strategie-Fundament: ein Wort
+  "fertig", Zag "Betrieb statt Agentur", Deskriptor-Pflicht "Websites in 5 Werktagen, zum
+  Festpreis", Marvin raus aus dem Markennamen (bleibt Absender). OFFEN (Marvin): Favoriten
+  waehlen -> 4-Ebenen-Kollisionscheck (DENIC/DPMA Kl.42+35/Google/Handelsregister) -> Domains
+  sichern -> Telefontest-Woche. KEIN Logo vor dem Check.
 - 2026-07-15: pakete-H1 mobil sauber getrennt, DEPLOYED (49e537e6). Auf Marvins Wunsch statt
   Schrift-Verkleinerung die groessere H1 behalten und das lange Wort am Silbenrand trennen:
   Soft-Hyphen `&shy;` nach "Ueber" in pakete.html -> mobil "KEINE UEBER-/RASCHUNGEN". `.page-head h1`
