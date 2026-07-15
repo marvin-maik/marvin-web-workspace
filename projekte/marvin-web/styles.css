@@ -252,6 +252,8 @@ h1,h2{text-wrap:pretty}
 .cta-band .btn-ghost{background:transparent;color:var(--paper);border-color:var(--paper)}
 .cta-band .btn-ghost:hover{background:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--signal)}
 .cta-band .trust-row{color:var(--dark-muted)}
+.dark-sec .trust-row{color:var(--dark-soft)}
+.dark-sec .trust-row li::before{color:var(--signal-tint)}
 
 /* Ablauf */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--line)}
