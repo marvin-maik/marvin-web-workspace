@@ -112,7 +112,7 @@ nav{background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px
 
 /* Seiten-Kopf (Unterseiten) */
 .page-head{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-.page-head h1{font-size:clamp(44px,7.5vw,92px);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-0.012em;word-spacing:.16em;margin:18px 0 0;overflow-wrap:break-word;hyphens:manual}
+.page-head h1{font-size:clamp(30px,8vw,92px);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-0.012em;word-spacing:.16em;margin:18px 0 0;overflow-wrap:anywhere;hyphens:manual}
 .page-head h1 em{font-style:normal;color:var(--signal)}
 .page-head .rule{margin:26px 0 22px;max-width:520px}
 .page-head .lede{margin-bottom:0}
