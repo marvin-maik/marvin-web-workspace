@@ -5,7 +5,14 @@ Seite nutzen). Platzhalter IMMER in GROSSBUCHSTABEN mit Unterstrich, damit qa-po
 
 ## 1. Formspree (Kontaktformular)
 
-Einrichtung: formspree.io -> New Form -> ID kopieren (Format `mabcdefg`). Free: 50 Mails/Monat.
+Einrichtung: formspree.io -> New Form -> ID kopieren (Format `mabcdefg`).
+
+**Free-Tarif-Grenzen (Stand 2026-07, VOR Einsatz beim Kunden pruefen):** 50 Absendungen/Monat,
+unbegrenzt Formulare, Mail-Benachrichtigung MIT Formspree-Branding, nur einfacher Honeypot-Spamschutz.
+NICHT im Free-Tarif (jeweils kostenpflichtig, ab ca. 15 $/Monat): eigener Danke-Redirect (`_next`,
+siehe unten), Auto-Antwort an den Absender, Datei-Upload, bessere Spam-Filterung, Plugins
+(Google Sheets, Mailchimp, Stripe), API-Zugang. Free -> der Absender landet nach dem Abschicken auf
+Formsprees eigener, gebrandeter Danke-Seite. Das dem Kunden VORHER sagen, nicht als selbstverstaendlich verkaufen.
 
 ```html
 <form action="https://formspree.io/f/FORMSPREE_ID" method="POST">
@@ -23,10 +30,15 @@ Einrichtung: formspree.io -> New Form -> ID kopieren (Format `mabcdefg`). Free: 
 </form>
 ```
 
-PFLICHT Danke-Seite (nicht optional): `<input type="hidden" name="_next" value="https://DOMAIN/danke.html">`.
-Ohne `_next` landet der Interessent auf Formsprees Standardseite statt bei dir. `danke.html` im
-Look der Seite bauen (noindex, Reaktionszeit-Versprechen + Spam-Ordner-Hinweis, Telefon fuer
-Dringendes). Vor Domain-Launch die absolute URL swappen. Vorlage: `projekte/marvin-web/danke.html`.
+Eigene Danke-Seite: `<input type="hidden" name="_next" value="https://DOMAIN/danke.html">`.
+ACHTUNG: Der eigene Redirect ist eine BEZAHL-Funktion (siehe Free-Grenzen oben). Im Free-Tarif
+greift `_next` nicht zuverlaessig -> der Absender landet auf Formsprees gebrandeter Standardseite
+statt auf `danke.html`. Immer per echter Testabsendung pruefen, nicht annehmen. Wenn der eigene
+Redirect Pflicht ist und Free bleiben soll: entweder Formspree-Tarif hochstufen, ODER das Formular
+ueber eine Cloudflare Pages Function selbst verarbeiten (voller Redirect-Kontrolle, kein
+US-Drittempfaenger, kein neues Consent, Mailversand z.B. via Resend) statt Formspree. `danke.html`
+trotzdem im Look der Seite bauen (noindex, Reaktionszeit-Versprechen + Spam-Ordner-Hinweis, Telefon
+fuer Dringendes). Vor Domain-Launch die absolute URL swappen. Vorlage: `projekte/marvin-web/danke.html`.
 
 ## 2. Cal.eu (Terminbuchung) — bewusst die EU-Variante von Cal.com
 
