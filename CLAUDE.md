@@ -9,6 +9,10 @@ Gilt fuer jede Arbeit in diesem Ordner. Kein Opt-out.
   Danach `git push` — Backup-Remote: github.com/marvin-maik/marvin-web-workspace (privat).
 - Erst Struktur-/Token-Plan zeigen, dann Code. Bei Aenderungen gezielt editieren, nie komplett neu generieren.
 - Vor Design-/Copy-Arbeit lesen: `_referenz/hosting-referenz.md` + `projekte/<name>/product-marketing-context.md`.
+- DESIGNAKTE: Vor Design-Arbeit an einem BESTEHENDEN Projekt zuerst `projekte/<name>/_design.md`
+  lesen (As-Built-Nachschlagewerk, Skill `design-md`). Fehlt sie oder ist sie aelter als die
+  letzte styles.css-Aenderung: erst erzeugen/auffrischen. Nach jeder Design-Aenderung im
+  SELBEN Commit mitziehen. styles.css bleibt Quelle der Wahrheit.
 - Vor jedem Build lesen: `_referenz/technik-patterns.md` (kampferprobte Loesungen — nicht neu erfinden).
 - In jeder Design-/Wireframe-Phase: `_fundus/highlight-elemente.md` konsultieren und 1-2
   passende Highlights anbieten (Streusel, nicht Teig). Devise: lieber bewusst dagegen
