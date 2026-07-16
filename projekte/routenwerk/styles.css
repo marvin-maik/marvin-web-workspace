@@ -650,6 +650,22 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   text-decoration:underline;text-underline-offset:3px}
 @media(max-width:640px){.cb-inner{grid-template-columns:1fr}.cb-btn{flex:1}}
 
+/* ---------- Lade-Intro: Split-Flap-Boarding (nur index.html, 1x pro Sitzung) ----------
+   Weiche: Inline-Skript im <head> setzt html.intro-wartet vor dem ersten Paint,
+   site.js baut das Overlay und uebernimmt. Ohne JS existiert nichts davon. */
+html.intro-wartet::before{content:"";position:fixed;inset:0;background:var(--flap);z-index:200}
+.intro{position:fixed;inset:0;z-index:201;background:var(--flap);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+  transition:transform .55s cubic-bezier(.65,0,.35,1)}
+.intro.hebt{transform:translateY(-101%)}
+/* Dunkle Variante der Tafel-Kacheln (Basis: .flaps b, Zeile ~443) */
+.intro .flaps b{color:var(--bg);font-size:clamp(19px,4.6vw,32px);padding:12px 0;
+  border-color:color-mix(in srgb,var(--bg) 14%,var(--flap));
+  background:linear-gradient(var(--flap-hell) 48%,var(--ink) 48% 52%,var(--flap-hell) 52%)}
+.intro-status{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--solari);min-height:1.5em}
+@media(prefers-reduced-motion:reduce){html.intro-wartet::before,.intro{display:none}}
+
 /* Globus: Platzhalter solange externe Inhalte abgelehnt sind */
 .globus-consent{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:10px;text-align:center;padding:24px;background:var(--papier-tief)}

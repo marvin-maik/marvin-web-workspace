@@ -233,3 +233,18 @@ liegt ein Tinte-Cover (::after, inset:0) drauf und faellt beim Reveal nach unten
 ```
 `transition-delay:inherit` uebernimmt den Stagger, den site.js als Inline-Style setzt.
 Ohne JS/reduced-motion existiert kein .rv -> kein Cover. Code: marvin-web styles.css (.fact).
+
+## Lade-Intro (1x pro Sitzung, ohne Flash, ohne Preloader-Falle) — kampferprobt ROUTENWERK
+Drei Bausteine, damit es weder flackert noch die Seite jemals blockiert:
+1. **Weiche als Inline-Skript im `<head>`** (nur auf der Startseite): prueft
+   `sessionStorage` + `prefers-reduced-motion`, setzt `html.intro-wartet` VOR dem
+   ersten Paint und raeumt sich per `setTimeout(4000)` selbst auf, falls site.js
+   nie laedt. `sessionStorage`-Flag sofort setzen (Back-Navigation spielt sonst erneut).
+2. **CSS-Vorhang**: `html.intro-wartet::before{position:fixed;inset:0;background:...;z-index:200}`
+   deckt die Seite ab, bevor JS das Overlay baut. Ohne JS existiert nichts davon.
+   `@media(prefers-reduced-motion:reduce)`: Vorhang + Overlay `display:none`.
+3. **site.js baut das Overlay** (`aria-hidden`, z-index ueber dem Vorhang), entfernt
+   `intro-wartet`, spielt die Animation (~1,5s gesamt), hebt per `transform`-Transition
+   ab und entfernt den Knoten (`transitionend` + Timeout-Fallback).
+Kein Scroll-Lock noetig bei <2s. Kein `localStorage` (DSGVO-schlank, Sitzung reicht).
+Code: routenwerk index.html (head), styles.css (Lade-Intro), site.js (Ende der IIFE).

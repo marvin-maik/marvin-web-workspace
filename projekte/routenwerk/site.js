@@ -506,4 +506,63 @@
     btn.addEventListener("focus", function(){ flip(alt); });
     btn.addEventListener("blur", function(){ flip(basis); });
   });
+
+  /* ---------- Lade-Intro: Split-Flap-Boarding (Weiche: Inline-Skript im <head> von index.html).
+     Ablauf: Kacheln wuerfeln sich zu ROUTENWERK (~0,5s), Status stempelt BOARDING (~0,4s),
+     Tafel hebt nach oben ab (~0,55s). Danach wird das Overlay komplett entfernt. ---------- */
+  (function(){
+    var html = document.documentElement;
+    if (!html.classList.contains("intro-wartet")) return;
+    var WORT = "ROUTENWERK", STATUS = "BOARDING";
+    var overlay = document.createElement("div");
+    overlay.className = "intro";
+    overlay.setAttribute("aria-hidden", "true");
+    var flaps = document.createElement("div");
+    flaps.className = "flaps";
+    for (var i = 0; i < WORT.length; i++){
+      var b = document.createElement("b");
+      b.textContent = FLAP_POOL[Math.floor(Math.random() * FLAP_POOL.length)];
+      flaps.appendChild(b);
+    }
+    var status = document.createElement("div");
+    status.className = "intro-status";
+    overlay.appendChild(flaps);
+    overlay.appendChild(status);
+    document.body.appendChild(overlay);
+    html.classList.remove("intro-wartet"); /* ::before-Vorhang weg, Overlay uebernimmt */
+
+    var kacheln = flaps.querySelectorAll("b"), fertig = 0;
+    kacheln.forEach(function(k, i){
+      var schritte = 4 + (i % 3), n = 0;
+      var iv = setInterval(function(){
+        n++;
+        if (n >= schritte){
+          k.textContent = WORT[i];
+          clearInterval(iv);
+          if (++fertig === kacheln.length) statusStempeln();
+        } else {
+          k.textContent = FLAP_POOL[Math.floor(Math.random() * FLAP_POOL.length)];
+        }
+      }, 55 + i * 7);
+    });
+
+    function statusStempeln(){
+      var n = 0;
+      var iv = setInterval(function(){
+        n++;
+        if (n >= 4){ status.textContent = STATUS; clearInterval(iv); setTimeout(abheben, 380); }
+        else {
+          var s = "";
+          for (var j = 0; j < STATUS.length; j++) s += FLAP_POOL[Math.floor(Math.random() * FLAP_POOL.length)];
+          status.textContent = s;
+        }
+      }, 90);
+    }
+
+    function abheben(){
+      overlay.addEventListener("transitionend", function(){ overlay.remove(); });
+      overlay.classList.add("hebt");
+      setTimeout(function(){ overlay.remove(); }, 1200); /* Fallback, falls transitionend ausbleibt */
+    }
+  })();
 })();
