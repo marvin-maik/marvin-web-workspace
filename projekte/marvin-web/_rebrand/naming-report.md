@@ -261,3 +261,48 @@ Caveat: DPMA-Register konnte der Agent nicht direkt abfragen (JS-Portal); vor de
 Reserve: WEBFRISCH, FLINKWEB. Wackelkandidat: MARWEB (nur falls Personen-Blend gewünscht).
 
 Nervennotiz Wettbewerb: webschliff.de verkauft bereits "Websites zum Festpreis". Positionierung nicht exklusiv, Tempo (5 Werktage) und Texte inklusive bleiben die schärferen Differenzierer.
+
+---
+
+## 10. RUNDE 3 (2026-07-16): Moderne-Linse + drei neue Anläufe
+
+**Marvins Auftrag:** mehr Ideen-Anläufe in der Runde-2-Richtung, moderne Designer als Referenz (The Futur / Chris Do).
+
+### Die Moderne-Linse (recherchiert, Quellen im Chat-Verlauf)
+- **Chris Do / The Futur:** Der Name soll nicht beschreiben, sondern Haltung zeigen und ein Gespräch starten (seine Agentur heißt bewusst "Blind"). Wer wie eine Commodity heißt ("XY Webdesign"), wird wie eine Commodity bepreist: der Name ist das erste Preis-Signal. Eigener Name ist legitim, aber als strategische Entscheidung, nicht als Bequemlichkeits-Default.
+- **Fabian Geyrhalter (FINIEN):** Nie zu deskriptiv; der Name ist das einzige Brand-Element, das man nicht relaunchen kann; kein Komitee-Feedback.
+- **Stilbildende Studios 2024-2026** (Awwwards/Typewolf/Creative Boom): Mouthwash, Locomotive, basement.studio, Studio Feixen, Moby Digg, The Couch, Need, Edit, Zero. Muster: ein kurzes Wort mit Haltung oder trockenem Humor, Kleinschreibung als Stilmittel, Domain als Marke (basement.studio). Altbacken 2026: Web/Design/Media/Digital als Etikett, 2010er-Kunstwort-Fusionen, Handwerksromantik (Werkstatt/Manufaktur/Schmiede).
+- **Auflösung des Spannungspunkts zur Radelglas-Formel:** Marvins Regel (Leistung erkennbar) bleibt gesetzt. Die Moderne-Linse steuert die AUSFÜHRUNG: Leistungs-Baustein unaufdringlich eingebaut (wie das Glas in Radelglas), nicht als Etikett hintendran; Reduktion, Kleinschreibung möglich, trockenes Selbstbewusstsein statt Nostalgie.
+
+### Neue Kandidaten (Anlauf A per Agent, Anläufe B+C inline nach Session-Limit-Abbruch)
+
+**Spitzengruppe neu (Kollisionscheck STEHT NOCH AUS):**
+
+| Name | Silben | Warum |
+|---|---|---|
+| **SICHTSEITE** | 3 | Echter Architektur-/Handwerksbegriff: die Seite, die sichtbar bleibt und deshalb am sorgfältigsten gearbeitet wird. Schauseites cleanere Schwester, Sichtbeton-Ästhetik. Story: "Jeder Betrieb hat eine Sichtseite. Heute ist das die Website." |
+| **WIRKSEITE** | 3 | Die Seite, die wirkt: Wirkung (Design) + Wirksamkeit (Performance). Trägt als einziger Name alle drei Paketteile. "Die wenigsten haben eine Wirkseite." |
+| **WEBANTRITT** | 3 | Antritt = erster offizieller Auftritt UND Sprint-Antritt: Auftritt plus 5-Tage-Tempo in einem Wort. Sportlich-unternehmerisch, The-Futur-nah. |
+| **SCHÖNSEITE** | 3 | Die schöne Seite, von der man sich zeigt; warm, sofort verständlich. Umlaut-Fallback schoenseite. Prüfen gegen das belegte Glanzseite-Umfeld. |
+| **WEBSCHNITT** | 2 | Der gute Schnitt (Mode, Film-Editing): Design-Anspruch modern gedacht, kein Werkstatt-Muff. Kurz, hart, Telefontest-fest. |
+| **WEBWÄRTS** | 2 | Wie vorwärts/himmelwärts: Richtung, Momentum, Performance. Modern-clean, Fallback webwaerts. |
+| **ZEIGSEITE** | 3 | Die Seite, die man gern zeigt; der Imperativ "Zeig!" steckt drin, passt zum Du-Ton. |
+| **WEBGESICHT** | 3 | Gesicht zeigen, Wiedererkennbarkeit, menschlich; passt zum Solo mit Gesicht auf der Seite. |
+
+**Zweite Reihe neu:** Webfenster (Schaufenster + Browserfenster), Netzbühne (Auftritt/Rampenlicht; Corona-Streaming-Projekte prüfen), Webrampe (Rampenlicht + Startrampe), Websicht / Sichtweb (kurz, abstrakter), Prachtseite (selbstbewusster als Paradeseite, Pomp-Grenze), Vorzeigeweb (4 Silben), Glanzauftritt (Auftritt nicht 100% digital eindeutig), Netzansicht (Architektur-Ansicht, nüchtern), Schokoseite (Schokoladenseite, charmant, aber Food-Umfeld vermutlich eng), Webgut (Web + gut/Gut), Webnah (persönlich nah), Webkontur (Design-Umriss), webpur (Reduktion, Kleinschreibung), Seitenweise (Idiom, 4 Silben), Webglanz, Klarweb (Nähe zum belegten klarseite.de bedenken), Webzeug (Werkzeug-Echo, "Zeug" leicht abwertend), Webtakt (Tempo, aber Runde-1-Geruch), Federweb (federleicht, Spinnennetz-Risiko).
+
+**Verworfen mit Grund (Auswahl):** Seitenbühne (= die NEBENbühne), Webansicht (generischer Software-Begriff), Sonnenseite (kein Web-Baustein + belegt), Wirkweb (Wirken = Textilfachbegriff), Klickparade (90er-Chartshow), Marseite (klingt wie Marseille), Blankseite (= leere Seite), Webform (Generikum), Seitwärts (= ausweichend).
+
+### Stand der Gesamt-Shortlist nach 3 Runden (Radelglas + Moderne-Linse)
+1. SCHAUSEITE (Runde 2, Check: frei wirkend, Domain steht zum Verkauf)
+2. SICHTSEITE (neu, ungecheckt)
+3. WIRKSEITE (neu, ungecheckt)
+4. WEBSTÜCK (Runde 2, Check: frei wirkend)
+5. WEBANTRITT (neu, ungecheckt)
+6. SCHÖNSEITE (neu, ungecheckt)
+7. WEBSCHNITT (neu, ungecheckt)
+8. FEINWEB (Runde 2, Check: frei wirkend, Domain inaktiv vergeben)
+9. WEBWÄRTS (neu, ungecheckt)
+10. PARADESEITE (Runde 2, Check: frei wirkend)
+
+**OFFEN:** Web-Kollisionscheck für die neuen Runde-3-Namen (Agenten am 16.07. früh am Session-Limit abgebrochen). Danach wie gehabt: DPMA manuell (Klassen 42+35), Handelsregister, Domains sichern, Telefontest-Woche.
