@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Wireframe LP 3: Speed</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:1100px;margin:0 auto;padding:0 24px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+.wf-note a{color:#777}
+section{border:1px dashed #bbb;margin:28px 0;padding:28px;position:relative}
+.sek{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:14px}
+h1{font-size:40px;line-height:1.1}h2{font-size:28px}h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+.btn{display:inline-block;border:2px solid #333;padding:12px 24px;font-weight:700;
+  text-decoration:none;color:#222;margin:6px 8px 6px 0;background:#fff;cursor:pointer;font-size:16px}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap}.row>*{flex:1;min-width:200px}
+.card{border:1px solid #ccc;padding:18px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
+ul{margin:10px 0 10px 20px;color:#444;max-width:640px}
+.trust{font-size:14px;color:#666;margin-top:14px}
+.fussnote{font-size:13px;color:#777;max-width:640px}
+details{border:1px solid #ccc;padding:14px 18px;margin:10px 0;max-width:720px}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:10px}
+.hinweis{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:#999;border:1px dotted #bbb;padding:8px 10px;margin-top:16px;max-width:640px}
+.balken-zeile{max-width:640px;margin:12px 0}
+.balken-label{font-family:ui-monospace,monospace;font-size:12px;color:#666;margin-bottom:4px}
+.balken{height:26px;background:#e6e6e6;border:1px solid #ccc;position:relative;overflow:hidden}
+.balken i{position:absolute;inset:0 100% 0 0;background:#888;transition:inset 0s}
+.rennen .b-ballast i{inset:0 8% 0 0;transition:inset 4s linear}
+.rennen .b-schlank i{inset:0 8% 0 0;transition:inset 1s ease-out;background:#444}
+@media (prefers-reduced-motion:reduce){.rennen .b-ballast i,.rennen .b-schlank i{transition:none}}
+.zahl{font-size:88px;font-weight:800;line-height:1}
+footer{border-top:1px solid #ddd;padding:20px 0 40px;font-size:14px;color:#777}
+footer a{color:#777}
+</style>
+</head>
+<body>
+<div class="wf-note"><a href="index.html">&larr; Übersicht</a> · Wireframe LP 3: Speed (kalter Ad-Traffic) · kein Menü, ein Ziel</div>
+
+<section>
+  <div class="sek">1 · HERO · die Seite selbst ist der Beweis · Message Match zur Speed-Ad</div>
+  <h1>Diese Seite war fertig, bevor Sie geblinzelt haben.</h1>
+  <p>So fühlt sich eine Website ohne Ballast an. Ihre kann das auch: handgebaut, mit
+  nur dem Code, der wirklich gebraucht wird. Für Handwerksbetriebe, Praxen und
+  Selbstständige.</p>
+  <p>
+    <a class="btn primary" href="https://wa.me/4915906453169">Per WhatsApp schreiben</a>
+    <a class="btn" href="tel:+4915906453169">0159 06453169 anrufen</a>
+  </p>
+  <p class="trust">Festpreis ab 990 &euro; · Texte inklusive · In 5 Werktagen live
+  <br><span class="offen">Annahme: Preise und Versprechen wie marvin-web. Ansprache Sie. Beides bestätigen.</span></p>
+</section>
+
+<section>
+  <div class="sek">2 · PROBLEM · warum viele Seiten langsam sind (Fremdcode-Ballast, KEINE Faktor-Claims)</div>
+  <h2>Ihre Besucher warten nicht auf Ihre Seite. Sie warten auf die Plattform.</h2>
+  <p>Baukästen und Plattformen laden bei jedem Aufruf ihr eigenes System mit: Skripte,
+  Zusatz-Styles, Mess-Code. Auch wenn Ihre Seite nur Öffnungszeiten, Leistungen und
+  eine Telefonnummer zeigt.</p>
+  <p>Auf dem Handy, im Funkloch vor der Baustelle oder im Wartezimmer entscheidet genau
+  dieser Ballast, ob jemand bleibt oder wegtippt.</p>
+</section>
+
+<section>
+  <div class="sek">3 · BEWEIS · nur der Code, der gebraucht wird + Google-Kontext (weich, belegt)</div>
+  <h2>Nur der Code, der gebraucht wird.</h2>
+  <div class="row">
+    <div class="card">
+      <div class="balken-zeile">
+        <div class="balken-label">Seite mit Plattform-Ballast: lädt System + Inhalt</div>
+        <div class="balken b-ballast"><i></i></div>
+      </div>
+      <div class="balken-zeile">
+        <div class="balken-label">Handgebaute Seite: lädt nur Inhalt</div>
+        <div class="balken b-schlank"><i></i></div>
+      </div>
+      <button class="btn" id="start" type="button">Ladebalken-Rennen starten (Demo)</button>
+      <div class="hinweis">Highlight-Kandidat (neues Muster): zwei Balken laufen beim Scrollen los, schematisch, keine Fake-Sekunden. Bei reduzierter Bewegung statisch. Ja / Nein?</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="zahl">98<span style="font-size:32px;color:#888">/100</span></div>
+      <p style="max-width:none"><strong>Google-PageSpeed-Wert eines von mir gebauten Projekts.</strong> Gemessen, nicht versprochen.</p>
+      <p class="fussnote"><span class="offen">Beleg: routenwerk.pages.dev (Perf 98, live gemessen 07/2026). Freigabe, dass das Projekt gezeigt/verlinkt wird? Nach dem Build zusätzlich den Messwert DIESER Seite einsetzen.</span></p>
+    </div>
+  </div>
+  <p>Google misst Ladezeiten und lässt sie ins Ranking einfließen. Der Richtwert: Der
+  Hauptinhalt einer Seite soll in unter 2,5 Sekunden da sein. Schlanke, handgebaute
+  Seiten schaffen das von Haus aus, ohne Tuning-Tricks.</p>
+</section>
+
+<section>
+  <div class="sek">4 · PAKETE · was kostet es konkret (identisch auf allen 3 Ad-LPs)</div>
+  <h2>Ein Preis. Keine Überraschungen.</h2>
+  <div class="row">
+    <div class="card">
+      <h3>Onepager · 990 &euro; einmalig</h3>
+      <ul>
+        <li>Alles Wichtige auf einer Seite</li>
+        <li>Texte inklusive, Sie geben nur frei</li>
+        <li>Mobil optimiert und schnell</li>
+        <li>Kontakt und Anfahrt</li>
+        <li>In 5 Werktagen live</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Business-Site · 1.990 &euro; einmalig</h3>
+      <ul>
+        <li>4 bis 6 Seiten mit klarer Struktur</li>
+        <li>Texte, die für Sie verkaufen</li>
+        <li>Google-Grundlagen von Anfang an</li>
+        <li>Leistungsseiten je Angebot</li>
+      </ul>
+    </div>
+  </div>
+  <p>Dazu auf Wunsch: Betreuung ab 49 Euro im Monat, der erste Monat ist inklusive.</p>
+  <p class="fussnote">Als Kleinunternehmer gemäß &sect; 19 UStG berechne ich keine Umsatzsteuer, die genannten Preise sind Endpreise.</p>
+</section>
+
+<section>
+  <div class="sek">5 · ABLAUF · wie viel Arbeit habe ich damit (identisch auf allen 3 Ad-LPs)</div>
+  <h2>So läuft es ab.</h2>
+  <div class="row">
+    <div class="card"><h3>1. Gespräch</h3><p>30 Minuten, per WhatsApp oder Telefon. Mehr brauche ich von Ihnen nicht, die Texte schreibe ich.</p></div>
+    <div class="card"><h3>2. Freigabe</h3><p>Sie sehen Aufbau und Texte, bevor gebaut wird. Nach der Umsetzung ist eine Korrekturrunde inklusive.</p></div>
+    <div class="card"><h3>3. Live in 5 Werktagen</h3><p>Die Seite geht erst online, wenn Sie sie abgenommen haben.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sek">6 · FAQ · Einwände (Tempo-Frage zuerst)</div>
+  <h2>Die häufigsten Fragen.</h2>
+  <details open>
+    <summary>Bleibt die Seite auch schnell, wenn Inhalte dazukommen?</summary>
+    <p>Ja. Es kommt kein Plattform-System dazu, das mitwachsen muss. Neue Seiten und Bilder
+    baue ich im gleichen schlanken Stil ein, Bilder werden vor dem Einbau komprimiert.</p>
+  </details>
+  <details>
+    <summary>0 Euro Hosting? Wo ist der Haken?</summary>
+    <p>Es gibt keinen versteckten. Das Hosting läuft über Cloudflare Pages und ist für
+    Seiten dieser Größe dauerhaft kostenlos. Was weiterhin kostet: die Domain (5 bis 15
+    Euro im Jahr), die Erstellung (einmalig, Festpreis) und auf Wunsch die Pflege.</p>
+  </details>
+  <details>
+    <summary>Wie ändere ich später Öffnungszeiten oder Texte?</summary>
+    <p>Sie schreiben mir eine WhatsApp, ich ändere es. Kleine Änderungen sind in der
+    Betreuung ab 49 Euro im Monat enthalten. Ohne Betreuung kostet eine Änderungsrunde 90 Euro.</p>
+  </details>
+  <details>
+    <summary>Was passiert mit meiner alten Website und meiner Domain?</summary>
+    <p>Ihre Domain nehmen wir mit, Inhalte übernehme ich aus der alten Seite.
+    <span class="offen">Umzugs-Prozess (Domain-Transfer, Kündigungshilfe) von Marvin definieren.</span></p>
+  </details>
+</section>
+
+<section>
+  <div class="sek">7 · CTA-BAND · was tue ich jetzt (identisch auf allen 3 Ad-LPs)</div>
+  <h2>Testen wir Ihre Seite. Kostenlos.</h2>
+  <p>Schicken Sie mir Ihre Website-Adresse per WhatsApp. Sie bekommen in 2 Werktagen eine
+  kostenlose Ersteinschätzung: wie schnell Ihre Seite wirklich ist und was eine
+  handgebaute kosten würde.</p>
+  <p>
+    <a class="btn primary" href="https://wa.me/4915906453169">Website-Adresse per WhatsApp schicken</a>
+    <a class="btn" href="tel:+4915906453169">0159 06453169 anrufen</a>
+  </p>
+  <p class="trust">Festpreis. Der Code gehört Ihnen.</p>
+  <p><span class="offen">Dieser CTA ist bewusst anders (Speed-Check statt allgemeiner Anfrage). Auf allen 3 LPs vereinheitlichen oder so lassen?</span></p>
+</section>
+
+<footer>
+  [MARKE] · Berlin · <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
+  <br><span class="offen">Pflicht auch auf Ad-LPs. Rechtstexte müssen WhatsApp-Kontakt und eigenes Formular abdecken.</span>
+</footer>
+
+<div class="freigabe">
+  <h2>Freigabe</h2>
+  <p>Pro Sektion Feedback: passt / ändern / weg. Gelbe Stellen sind deine offenen
+  Entscheidungen. Danach bauen wir. Eine Korrekturrunde nach Umsetzung inklusive.</p>
+</div>
+
+<script>
+document.getElementById('start').addEventListener('click',function(){
+  var wrap=document.querySelector('.row');
+  wrap.classList.remove('rennen');
+  void wrap.offsetWidth;
+  wrap.classList.add('rennen');
+});
+</script>
+</body>
+</html>

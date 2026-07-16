@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Wireframe LP 1: Kosten</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:1100px;margin:0 auto;padding:0 24px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+.wf-note a{color:#777}
+section{border:1px dashed #bbb;margin:28px 0;padding:28px;position:relative}
+.sek{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:#999;margin-bottom:14px}
+h1{font-size:40px;line-height:1.1}h2{font-size:28px}h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+.img{background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 10px,#fafafa 10px,#fafafa 20px);
+  border:1px solid #ccc;display:flex;align-items:center;justify-content:center;
+  color:#999;font-family:ui-monospace,monospace;font-size:12px;min-height:180px;position:relative}
+.img::before,.img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top right,transparent 49.6%,#ddd 49.6%,#ddd 50.4%,transparent 50.4%)}
+.img::after{transform:scaleX(-1)}
+.btn{display:inline-block;border:2px solid #333;padding:12px 24px;font-weight:700;
+  text-decoration:none;color:#222;margin:6px 8px 6px 0;background:#fff;cursor:pointer;font-size:16px}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap}.row>*{flex:1;min-width:200px}
+.card{border:1px solid #ccc;padding:18px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:24px;margin:40px 0}
+ul{margin:10px 0 10px 20px;color:#444;max-width:640px}
+.trust{font-size:14px;color:#666;margin-top:14px}
+.zahl{font-size:88px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.fussnote{font-size:13px;color:#777;max-width:640px}
+details{border:1px solid #ccc;padding:14px 18px;margin:10px 0;max-width:720px}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:10px}
+.hinweis{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:#999;border:1px dotted #bbb;padding:8px 10px;margin-top:16px;max-width:640px}
+footer{border-top:1px solid #ddd;padding:20px 0 40px;font-size:14px;color:#777}
+footer a{color:#777}
+</style>
+</head>
+<body>
+<div class="wf-note"><a href="index.html">&larr; Übersicht</a> · Wireframe LP 1: Kosten (kalter Ad-Traffic) · kein Menü, ein Ziel</div>
+
+<section>
+  <div class="sek">1 · HERO · was / für wen / warum jetzt · Message Match zur Kosten-Ad</div>
+  <h1>Sie zahlen jeden Monat für eine Website, die sich nie ändert.</h1>
+  <p>Das geht auch anders: eine handgebaute Website zum einmaligen Festpreis, gehostet
+  ohne Plattform-Monatsgebühr. Für Handwerksbetriebe, Praxen und Selbstständige.</p>
+  <p>
+    <a class="btn primary" href="https://wa.me/4915906453169">Per WhatsApp schreiben</a>
+    <a class="btn" href="tel:+4915906453169">0159 06453169 anrufen</a>
+  </p>
+  <p class="trust">Festpreis ab 990 &euro; · Texte inklusive · In 5 Werktagen live
+  <br><span class="offen">Annahme: Preise und Versprechen wie marvin-web. Bestätigen. Ansprache hier überall Sie, auch entscheiden.</span></p>
+</section>
+
+<section>
+  <div class="sek">2 · PROBLEM · erkennt mein Problem jemand (Abo-Rechnung aufmachen)</div>
+  <h2>Die Rechnung, die niemand aufmacht.</h2>
+  <p>25 Euro im Monat klingen harmlos. In zwei Jahren sind das 600 Euro. Für eine Seite
+  mit Öffnungszeiten, Leistungen und Kontakt, die sich seit dem Start kaum geändert hat.</p>
+  <p>Und aufhören zu zahlen können Sie schlecht: Dann ist die Seite weg.</p>
+  <p class="fussnote">Beispiel: gängiger Baukasten-Tarif für Business-Seiten. Je nach Anbieter und Paket auch mehr.</p>
+</section>
+
+<section>
+  <div class="sek">3 · BEWEIS · warum soll ich das glauben (Beispielrechnung mit Fussnote)</div>
+  <h2>Einmal bezahlen statt jeden Monat.</h2>
+  <div class="row">
+    <div class="card" style="text-align:center">
+      <div class="zahl" id="zahl" data-ziel="552">0</div>
+      <p style="max-width:none"><strong>Euro in zwei Jahren gespart</strong> (Beispielrechnung Praxis-Website)</p>
+      <button class="btn" id="zahl-demo" type="button">Zahl hochzählen (Demo)</button>
+      <div class="hinweis">Highlight-Kandidat (Fundus Nr. 5): Zahl zählt beim Scrollen einmalig hoch, ohne Animation bei reduzierter Bewegung. Ja / Nein?</div>
+    </div>
+    <div class="card">
+      <h3>Was bei mir laufend anfällt</h3>
+      <ul>
+        <li>Plattformkosten: 0 Euro. Das Hosting (Cloudflare Pages) ist für Seiten dieser Größe dauerhaft kostenlos.</li>
+        <li>Ehrlich dazu: Ihre Domain kostet weiter 5 bis 15 Euro im Jahr, wie bei jedem Anbieter.</li>
+        <li>Pflege nur, wenn Sie sie wollen: Betreuung ab 49 Euro im Monat, jederzeit kündbar.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fussnote">Beispielrechnung: Vergleich mit dem Webflow-Premium-Tarif über 24 Monate,
+  Listenpreise Stand 13.05.2026, abgerechnet in US-Dollar, Euro gerundet. Domainkosten fallen
+  in beiden Fällen an und sind nicht eingerechnet.</p>
+</section>
+
+<section>
+  <div class="sek">4 · PAKETE · was kostet es konkret (Festpreis, identisch auf allen 3 Ad-LPs)</div>
+  <h2>Ein Preis. Keine Überraschungen.</h2>
+  <div class="row">
+    <div class="card">
+      <h3>Onepager · 990 &euro; einmalig</h3>
+      <ul>
+        <li>Alles Wichtige auf einer Seite</li>
+        <li>Texte inklusive, Sie geben nur frei</li>
+        <li>Mobil optimiert und schnell</li>
+        <li>Kontakt und Anfahrt</li>
+        <li>In 5 Werktagen live</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Business-Site · 1.990 &euro; einmalig</h3>
+      <ul>
+        <li>4 bis 6 Seiten mit klarer Struktur</li>
+        <li>Texte, die für Sie verkaufen</li>
+        <li>Google-Grundlagen von Anfang an</li>
+        <li>Leistungsseiten je Angebot</li>
+      </ul>
+    </div>
+  </div>
+  <p>Dazu auf Wunsch: Betreuung ab 49 Euro im Monat, der erste Monat ist inklusive.</p>
+  <p class="fussnote">Als Kleinunternehmer gemäß &sect; 19 UStG berechne ich keine Umsatzsteuer, die genannten Preise sind Endpreise.</p>
+</section>
+
+<section>
+  <div class="sek">5 · ABLAUF · wie viel Arbeit habe ich damit (identisch auf allen 3 Ad-LPs)</div>
+  <h2>So läuft es ab.</h2>
+  <div class="row">
+    <div class="card"><h3>1. Gespräch</h3><p>30 Minuten, per WhatsApp oder Telefon. Mehr brauche ich von Ihnen nicht, die Texte schreibe ich.</p></div>
+    <div class="card"><h3>2. Freigabe</h3><p>Sie sehen Aufbau und Texte, bevor gebaut wird. Nach der Umsetzung ist eine Korrekturrunde inklusive.</p></div>
+    <div class="card"><h3>3. Live in 5 Werktagen</h3><p>Die Seite geht erst online, wenn Sie sie abgenommen haben.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sek">6 · FAQ · Einwände auf der Seite beantworten (Reihenfolge je Angle)</div>
+  <h2>Klartext zu den Kosten.</h2>
+  <details open>
+    <summary>0 Euro Hosting? Wo ist der Haken?</summary>
+    <p>Es gibt keinen versteckten. Das Hosting läuft über Cloudflare Pages und ist für
+    Seiten dieser Größe dauerhaft kostenlos. Was weiterhin kostet: die Domain (5 bis 15
+    Euro im Jahr), die Erstellung (einmalig, Festpreis) und auf Wunsch die Pflege
+    (Betreuungspauschale). Das ist die ganze Rechnung.</p>
+  </details>
+  <details>
+    <summary>Wie ändere ich später Öffnungszeiten oder Texte?</summary>
+    <p>Sie schreiben mir eine WhatsApp, ich ändere es. Kleine Änderungen sind in der
+    Betreuung ab 49 Euro im Monat enthalten. Ohne Betreuung kostet eine Änderungsrunde
+    90 Euro. <span class="offen">Umfang und Reaktionszeit der Betreuung definieren.</span></p>
+  </details>
+  <details>
+    <summary>Was passiert mit meiner alten Website und meiner Domain?</summary>
+    <p>Ihre Domain nehmen wir mit, Inhalte übernehme ich aus der alten Seite.
+    <span class="offen">Umzugs-Prozess (Domain-Transfer, Kündigungshilfe) von Marvin definieren, wichtigster offener Einwand.</span></p>
+  </details>
+  <details>
+    <summary>Wem gehört die Seite am Ende?</summary>
+    <p>Ihnen. Komplett: alle Dateien, Texte und Bilder werden Ihnen übergeben. Sie können
+    damit jederzeit zu einem anderen Hoster oder Dienstleister wechseln.
+    <span class="offen">"Steht so im Angebot" als vertragliche Zusage bestätigen.</span></p>
+  </details>
+</section>
+
+<section>
+  <div class="sek">7 · CTA-BAND · was tue ich jetzt (ein Klick, identisch auf allen 3 Ad-LPs)</div>
+  <h2>Schreiben Sie mir, was Sie brauchen.</h2>
+  <p>Sie bekommen eine kostenlose Ersteinschätzung in 2 Werktagen: was Ihre Seite kosten
+  würde und was sie besser kann als die alte.</p>
+  <p>
+    <a class="btn primary" href="https://wa.me/4915906453169">Per WhatsApp schreiben</a>
+    <a class="btn" href="tel:+4915906453169">0159 06453169 anrufen</a>
+  </p>
+  <p class="trust">Festpreis. Der Code gehört Ihnen.</p>
+  <div class="img" style="min-height:110px;max-width:640px">FORMULAR-SLOT (optional): Rückruf-Formular ohne Drittanbieter, kommt erst wenn Zustellweg entschieden ist</div>
+  <p><span class="offen">Formular ja/nein? Wenn ja: Zustellung der Daten klären (Pages Function braucht einen Mail-Weg).</span></p>
+</section>
+
+<footer>
+  [MARKE] · Berlin · <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
+  <br><span class="offen">Pflicht auch auf Ad-LPs. Rechtstexte müssen WhatsApp-Kontakt und eigenes Formular abdecken (Dieter aktualisieren).</span>
+</footer>
+
+<div class="freigabe">
+  <h2>Freigabe</h2>
+  <p>Pro Sektion Feedback: passt / ändern / weg. Gelbe Stellen sind deine offenen
+  Entscheidungen. Danach bauen wir. Eine Korrekturrunde nach Umsetzung inklusive.</p>
+</div>
+
+<script>
+document.getElementById('zahl-demo').addEventListener('click',function(){
+  var el=document.getElementById('zahl'),ziel=+el.dataset.ziel,n=0;
+  var t=setInterval(function(){n+=12;if(n>=ziel){n=ziel;clearInterval(t)}el.textContent=n},30);
+});
+</script>
+</body>
+</html>
