@@ -244,10 +244,24 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
 .about-text p.pull{color:var(--ink)}
 .about-text .who{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:22px}
 
-/* Demo-Projekt-Fenster (design-blick-Rezept) */
-.demo-blick{border:1.5px solid var(--ink);background:var(--white);padding:18px;margin:44px 0 0;box-shadow:8px 8px 0 var(--paper-deep)}
-.demo-blick img{display:block;width:100%;height:auto;border:1px solid var(--line)}
-.demo-blick figcaption{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+/* Geraete-Showcase: Desktop-Browserrahmen + Handy davor (statisch, kein iframe).
+   Zeigt Desktop- UND Mobil-Ansicht des Demo-Projekts nebeneinander. */
+.showcase{position:relative;margin:44px 0 0;max-width:900px}
+.showcase-browser{border:1.5px solid var(--ink);background:var(--white);box-shadow:8px 8px 0 var(--paper-deep)}
+.showcase-bar{display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--ink);padding:11px 16px}
+.showcase-dots{display:flex;gap:6px;flex-shrink:0}
+.showcase-dots i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper)}
+.showcase-dots i:first-child{background:var(--signal)}
+.showcase-url{flex:1;min-width:0;border:1px solid var(--line);padding:6px 12px;background:var(--paper);color:var(--ink-soft);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.showcase-browser>img{display:block;width:100%;height:auto}
+/* Handy davor, unten rechts ueberlappend. Radius = physisches Geraet, kein Design-Radius. */
+.showcase-phone{position:absolute;right:10px;bottom:-22px;width:132px;border:7px solid var(--ink);border-radius:26px;background:var(--ink);box-shadow:6px 6px 0 var(--paper-deep);overflow:hidden;line-height:0}
+.showcase-phone img{display:block;width:100%;height:auto;border-radius:19px}
+.showcase-cap{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:36px;line-height:1.6;max-width:640px}
+@media(max-width:560px){
+  .showcase-phone{width:100px;right:8px;bottom:-16px;border-width:6px}
+  .showcase-cap{margin-top:28px}
+}
 
 /* Eckdaten-Kacheln (facts-Rezept inkl. Tinte-Cover-Reveal, siehe marvin-web) */
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;border:1.5px solid var(--ink);background:var(--ink);margin-top:44px}
@@ -268,6 +282,29 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
 @supports(grid-template-rows:subgrid){
   .fact{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
 }
+
+/* Offer-Stack (Hormozi: Wert stapeln statt Leistungsliste). NUR angebot.html,
+   kalte Ad-LPs bleiben knapp. Anker in .val muessen belegbar sein, nie erfundene Euro. */
+.stack{border:1.5px solid var(--ink);background:var(--white);margin-top:40px}
+.stack-row{display:flex;justify-content:space-between;gap:20px;padding:18px 24px;border-bottom:1px dashed var(--line);align-items:baseline}
+.stack-row:last-of-type{border-bottom:none}
+.stack-row .what{font-weight:600}
+.stack-row .what small{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:4px}
+.stack-row .val{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap;text-align:right}
+.stack-liste .what::before{content:"✓ ";color:var(--signal-deep);font-family:var(--mono);font-weight:900}
+.stack-row.bonus .what::before{content:"+ ";color:var(--signal-deep)}
+.stack-total{background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;gap:20px;padding:18px 24px;font-family:var(--disp);font-weight:700;font-size:19px;align-items:baseline}
+.stack-total .val{color:var(--signal-tint);font-family:var(--disp);white-space:nowrap}
+@media(max-width:560px){
+  .stack-row,.stack-total{flex-direction:column;gap:6px;align-items:flex-start}
+  .stack-row .val{text-align:left}
+}
+
+/* Gruendungsprojekte: der EINE laute Haken (ehrlicher Tausch, echte Verknappung) */
+.gruendung{background:var(--ink);color:var(--paper);padding:28px 30px;margin-top:24px}
+.gruendung .plaetze{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-tint)}
+.gruendung h3{font-size:23px;color:var(--paper);margin:10px 0 8px}
+.gruendung p{color:var(--dark-soft);font-size:15.5px;margin:0;max-width:640px}
 
 /* Garantie-Band am Preis */
 .guarantee-band{border:1.5px solid var(--ink);background:var(--paper-deep);padding:28px 30px;margin-top:24px;display:flex;gap:18px;align-items:flex-start}

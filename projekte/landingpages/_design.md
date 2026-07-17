@@ -93,9 +93,11 @@ mask-Fehlstelle, --signal-deep) als Eigentums-Zusage.
 | `.erledigt` | Status-Badge | Mono uppercase, weiss auf --signal-deep (6,04:1) |
 | `.foot-row` | Footer | Ink-Band, Mono, Underline-Slide-Hover (background-size-Trick) |
 | `.about-grid` / `.pull` / `.who` | Wer-baut-das-Block | Portraet in .duo-Rahmen + Pull-Quote (Clash 28-48px, em = signal-deep) + Mono-Absender |
-| `.demo-blick` | Demo-Projekt-Fenster | Weiss, 1.5px Ink-Border, 8px-Hard-Shadow, Screenshot + Mono-figcaption (ehrlich "Demo-Projekt" gelabelt) |
+| `.showcase` | Geraete-Showcase | Browserrahmen (.showcase-bar mit Dots + URL) + Desktop-Screenshot, davor .showcase-phone (132px, border-radius 26px = physisches Geraet) mit Mobil-Screenshot; STATISCH, bewusst kein iframe |
 | `.facts` / `.fact` | Eckdaten-Kacheln | 1.5px-Ink-Grid mit 1.5px-Stegen, Zahl Clash 38-56px, Label Mono signal-deep; Reveal = Tinte-Cover (::after faellt ab), NIE Opacity-Fade |
-| `.guarantee-band` | Garantie am Preis | paper-deep-Flaeche, 1.5px Ink-Border, Haken-Icon signal-deep, direkt unter .pkg-grid |
+| `.guarantee-band` | Freigabe-Garantie am Preis | paper-deep-Flaeche, 1.5px Ink-Border, Haken-Icon signal-deep, .tag als Garantie-Name, direkt unter .pkg-grid |
+| `.gruendung` | Verknappung (der EINE laute Haken) | Ink-Flaeche, .plaetze Mono in signal-tint, h3 in paper; direkt unter der Garantie |
+| `.stack` / `.stack-row` / `.stack-total` | Hormozi-Offer-Stack | NUR angebot.html: Weiss, 1.5px Ink, dashed Rows, .what fett + small-Nutzen, .val Mono-Anker rechts; .stack-total = Ink-Band mit Preis in signal-tint; mobil einspaltig |
 
 ## Motion
 
@@ -109,8 +111,11 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
 
 1. Jede Sektion beginnt mit `.tag` (// Marker), dann `.h-lg`, dann max. 600px Lede.
 2. Ad-LPs teilen ein Skelett: Hero -> Angle-Problem -> Angle-Beweis -> Wer-baut-das
-   (Sanwarwala-Proof: Portraet + Demo-Fenster + facts, identisch) -> Pakete (+ Garantie-Band
-   am Preis + Startpreis-Absatz) -> Ablauf (identisch) -> FAQ (Reihenfolge je Angle) -> CTA-Band.
+   (Sanwarwala-Proof: Portraet + .showcase + facts, identisch) -> Pakete (+ Freigabe-Garantie
+   + .gruendung + Startpreis-Absatz) -> Ablauf (identisch) -> FAQ (Reihenfolge je Angle) -> CTA-Band.
+7. HORMOZI-PLATZIERUNG: Der volle Wert-Stack (.stack) steht NUR auf angebot.html und dort
+   VOR dem Preis (erst Wert bauen, dann Preis zeigen). Kalte Ad-LPs bleiben knapp: Pakete
+   statt Stack, sonst erschlaegt die Wand den 5-Sekunden-Scan.
 3. Rechen-/Beleg-Inhalte IMMER als .docket (Kopf/Rows/Ink-Fuss), Betraege Mono rechts.
 4. Ein CTA-Paar pro Block: btn-primary (WhatsApp, mit vorbefuelltem ?text= je Angle)
    + btn-ghost (tel:). Darunter immer .trust-row.
@@ -129,6 +134,20 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
   "kein Fremdcode"; Formular spaeter nur als CF Pages Function).
 - Don't: Orange #e8440a nie als Lesetext; Text-Orange ist immer #b53507.
 - Don't: kein zweiter Stempel, kein Stempel ausserhalb eigentum.html.
+- Don't: das Wort "Code" NICHT in Kundentext (Marvin 2026-07-17: klingt nach KI, davon
+  will er sich abgrenzen). Rollen-Schema stattdessen: Eigentum -> "Ihre Website / alle
+  Dateien / die Seite"; Tempo -> "Ballast / das Noetige"; Handwerk -> "von Hand, jede
+  Zeile". "HTML und CSS" ist KEIN Ersatz (fuer Handwerker/Praxen noch mehr Jargon):
+  genau EINE bewusste Nennung in der KI-FAQ (angebot.html) als Kompetenzbeweis.
+- Don't: keine erfundenen Euro-Anker in .stack .val. Nur belegbare Anker
+  ("Schrift-Dienste kosten monatlich", "Baukasten: 330 bis 550 € / 2 Jahre"). Fantasie-
+  Werte sind dasselbe Vertrauensproblem wie Streichpreise.
+- Don't: kein zweiter lauter Dringlichkeits-Hebel. .gruendung ist laut, der Startpreis-
+  Absatz bleibt leise. Kein Streichpreis, kein Countdown, keine Live-Platzzaehler
+  ("noch 2 frei" waere ein Pflege- und Ehrlichkeitsrisiko).
+- Don't: kein Live-iframe der Demo in den Ad-Funnel (geprueft 2026-07-17: routenwerk
+  zieht ca. 350 bis 450 KB, die LP wiegt 66 KB; das Gewicht schlaegt genau das
+  Speed-Versprechen. Das Live-Fenster bleibt auf marvin-web).
 
 ## Abgrenzung / Verworfen
 
@@ -164,6 +183,15 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
   KEINE Streichpreise/Countdown erfinden (PAngV + Vertrauen).
 - Betreuungs-Umfang (Anzahl Aenderungen, Reaktionszeit) und Umzugs-Prozess textlich
   noch duenn (offene Marvin-Entscheidungen aus struktur.md).
+- Gruendungsprojekte: Der konkrete Abzug steht BEWUSST nicht in der Copy (wird im
+  WhatsApp-Gespraech verhandelt). Marvins Wunsch war "50 % Streichpreis", davon abgeraten
+  (halbiert Marge, signalisiert weichen Preis, zweite Dringlichkeit); Gegenvorschlag
+  Referenz-Tausch wurde gebaut. Falls Marvin doch eine feste Zahl will: eine Stelle je Seite.
+- Garantie: gebaut ist die sichere Freigabe-Garantie. Die mutigere Hormozi-Variante
+  ("Sie zahlen erst bei Abnahme") ist bewusst NICHT gesetzt, das ist Marvins
+  Cashflow-Entscheidung (Einzeiler im .guarantee-band).
+- Design-Handout ist als BONUS im Stack gesetzt (Hormozi: Wert draufpacken statt Preis
+  senken). Falls es Upsell bleiben soll: eine Zeile in angebot.html.
 - iOS zeigt im .table-scroll keinen Scrollbalken (bekanntes Muster, Indikator-Rezept
   in technik-patterns.md); Nice-to-have.
 - Count-up/Reveals brauchen einen echten Geraete-Check (Browser-Pane pausiert IO/rAF).
