@@ -220,7 +220,6 @@ summary:hover{color:var(--signal-deep)}
 .dok ol{margin:28px 0 0 24px}
 .dok ol li{margin:14px 0}
 .dok ol li::marker{font-family:var(--mono);color:var(--signal-deep);font-weight:700}
-.erledigt{font-family:var(--mono);font-size:11.5px;color:var(--white);background:var(--signal-deep);padding:3px 10px;letter-spacing:.12em;text-transform:uppercase}
 .dok .eigentum-liste{list-style:none;margin-top:28px;border-top:1px solid var(--line);max-width:760px}
 .dok .eigentum-liste li{padding:12px 0;border-bottom:1px dashed var(--line);display:flex;gap:12px;color:var(--ink-soft)}
 .dok .eigentum-liste li::before{content:"✓";color:var(--signal);font-weight:900;font-family:var(--mono);flex:none}

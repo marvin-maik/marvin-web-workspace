@@ -45,7 +45,7 @@ typography:
     fontFamily: ui-monospace Stack
     size: 12 bis 13px
     letterSpacing: .04 bis .16em
-    use: .tag, .trust-row, .meta-row, docket-Betraege, .fussnote, .tier, .erledigt
+    use: .tag, .trust-row, .meta-row, docket-Betraege, .fussnote, .tier
   scale: "12.5 -> 15 -> 17 -> 19/21 -> 28 -> clamp(32px,4.8vw,60px) [h2] ->
     clamp(34px,7vw,84px) [LP-H1] -> clamp(72px,7vw,110px) [Step-Zahlen]"
   # LP-H1 ist BEWUSST kleiner als marvin-web-Hero (150px): lange Satz-Headlines.
@@ -90,7 +90,6 @@ mask-Fehlstelle, --signal-deep) als Eigentums-Zusage.
 | `.mess` / `.mess-spur i` | Ladebalken-Rennen | Massband-Gradient als Fuellung, scaleX-Transition (Compositor!), Endzustand ist CSS-Default |
 | `.compare` + `.table-scroll` | Vergleichstabelle | 1.5px-Ink-Rahmen, thead paper-deep, overflow-x im Wrapper |
 | `.cta-band` | Abschluss-Band | Ink-Flaeche, h-lg in paper, Ghost-Button invertiert |
-| `.erledigt` | Status-Badge | Mono uppercase, weiss auf --signal-deep (6,04:1) |
 | `.foot-row` | Footer | Ink-Band, Mono, Underline-Slide-Hover (background-size-Trick) |
 | `.about-grid` / `.pull` / `.who` | Wer-baut-das-Block | Portraet in .duo-Rahmen + Pull-Quote (Clash 28-48px, em = signal-deep) + Mono-Absender |
 | `.showcase` | Geraete-Showcase | Browserrahmen (.showcase-bar mit Dots + URL) + Desktop-Screenshot, davor .showcase-phone (132px, border-radius 26px = physisches Geraet) mit Mobil-Screenshot; STATISCH, bewusst kein iframe |
@@ -176,12 +175,15 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 
 - Markenname/Domain offen (Rebrand): [MARKE]-Platzhalter, OG-URLs mit DOMAIN-SWAP,
   Footer-Rechtslinks zeigen auf marvin-web.pages.dev. Kein foot-mark bis Name steht.
-- ERLEDIGT 2026-07-17 (Marvins Korrektur): Die Angebots-Seite wird nach dem ERSTKONTAKT
-  verschickt, NICHT nach dem Gespraech. Das Gespraech ist Schritt 2 und steht noch aus.
-  Copy entsprechend: "Danke fuer Ihre Nachricht", Ablauf-Schritt 1 = Erstkontakt [Erledigt],
-  Schritt 2 = Gespraech, Briefkopf "Naechster Schritt: 30 Minuten Gespraech". Die erfundene
-  Zeile "Gueltig 30 Tage" ist raus (bei Festpreisen vor dem Scoping ohnehin sinnlos).
-  MERKE: Reihenfolge ist Erstkontakt -> Angebots-Seite -> Gespraech -> Freigabe -> Bau.
+- ERLEDIGT 2026-07-17 (Marvin, zweite Korrektur): angebot.html hat MEHRERE Zugaenge und
+  muss deshalb ZUGANGS-NEUTRAL sein. Wege laut Marvin: QR-Code auf der Visitenkarte (nach
+  einem persoenlichen Treffen, also OHNE Nachricht), die Ad (kalt, gar kein Kontakt),
+  das WhatsApp-Profil. Jede Begruessung, die einen Weg unterstellt, ist fuer die anderen
+  falsch. Ich lag zweimal daneben ("Danke fuer das Gespraech", dann "Danke fuer Ihre
+  Nachricht"). REGEL: keine Danksagung fuer eine bestimmte Handlung, kein [Erledigt]-Badge
+  im Ablauf. H1 ist jetzt "Ihre Website, schwarz auf weiss", der Ablauf startet neutral bei
+  Schritt 1 = Gespraech (das steht bei JEDEM Zugang noch aus, auch nach dem Handschlag).
+  Der .erledigt-Baustein ist deshalb ersatzlos entfernt (CSS mit).
 - routenwerk ist seit 2026-07-17 mit Marvins Freigabe SICHTBAR als "Demo-Projekt
   (fiktives Reisebuero als Anschauungsprojekt)" gelabelt (demo-blick + facts-Kachel);
   NIE als Kundenreferenz ausgeben. Ablosen, sobald echte Case Study existiert
