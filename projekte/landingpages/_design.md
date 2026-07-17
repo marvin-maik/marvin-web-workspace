@@ -112,15 +112,21 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
 2. Ad-LPs teilen ein Skelett: Hero -> Angle-Problem -> Angle-Beweis -> Wer-baut-das
    (Sanwarwala-Proof: Portraet + .showcase + facts, identisch) -> Pakete (+ Freigabe-Garantie
    + .gruendung + Startpreis-Absatz) -> Ablauf (identisch) -> FAQ (Reihenfolge je Angle) -> CTA-Band.
-7. HORMOZI-PLATZIERUNG: Der volle Wert-Stack (.stack) steht NUR auf angebot.html und dort
+3. KANAL-VARIANTEN (Marvin 2026-07-17): Der Sinn mehrerer LPs ist die individuelle
+   Verknuepfung je Kanal, NICHT eine neutrale Seite fuer alle. Kalte Seiten variieren nach
+   ANGLE (kosten/eigentum/schnell), warme nach KANAL (karte/whatsapp/angebot). Je Kanal
+   unterscheiden sich NUR: H1, Hero-Sub, CTA-Ueberschrift + Lede, wa.me-Prefill, og:url,
+   title. Der Koerper (Stack, Pakete, Garantie, Gruendung, Vergleich, Ablauf, Eigentum, FAQ)
+   bleibt IDENTISCH und muss bei Aenderungen in allen dreien nachgezogen werden.
+   Neuer Kanal = angebot.html kopieren und genau diese 7 Stellen tauschen.
+4. HORMOZI-PLATZIERUNG: Der volle Wert-Stack (.stack) steht NUR auf angebot.html und dort
    VOR dem Preis (erst Wert bauen, dann Preis zeigen). Kalte Ad-LPs bleiben knapp: Pakete
    statt Stack, sonst erschlaegt die Wand den 5-Sekunden-Scan.
-3. Rechen-/Beleg-Inhalte IMMER als .docket (Kopf/Rows/Ink-Fuss), Betraege Mono rechts.
-4. Ein CTA-Paar pro Block: btn-primary (WhatsApp, mit vorbefuelltem ?text= je Angle)
+5. Rechen-/Beleg-Inhalte IMMER als .docket (Kopf/Rows/Ink-Fuss), Betraege Mono rechts.
+6. Ein CTA-Paar pro Block: btn-primary (WhatsApp, mit vorbefuelltem ?text= je Angle)
    + btn-ghost (tel:). Darunter immer .trust-row.
-5. Seitenrhythmus hell: Papier -> Weiss-Karten; dunkel nur docket-foot, cta-band, footer.
-6. Angebots-Seite = .dok (Body-Klasse): 760px-Spalte, Docket als Briefkopf, ol-Ablauf.
-
+7. Seitenrhythmus hell: Papier -> Weiss-Karten; dunkel nur docket-foot, cta-band, footer.
+8. Angebots-Seite = .dok (Body-Klasse): 760px-Spalte, Docket als Briefkopf, ol-Ablauf.
 ## Do / Don't (projektspezifisch)
 
 - Do: Markenname IMMER als Platzhalter [MARKE] (Rebrand laeuft, Alt-Name ist verboten
@@ -168,7 +174,9 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 | kosten.html | Ad-LP Angle Kosten | 2 Dockets (Abo-Rechnung, Ersparnis mit Count-up 552) |
 | eigentum.html | Ad-LP Angle Eigentum | Selbsttest-Karten, Uebergabe-Liste + .stempel |
 | schnell.html | Ad-LP Angle Speed | .mess Ladebalken-Rennen + PageSpeed-Wert 98/100 |
-| angebot.html | warme Angebots-Seite (WhatsApp-Versand) | .dok, Docket-Briefkopf, .compare, KI-FAQ nur hier |
+| angebot.html | warme Seite, KANAL: generisch (Mail-Signatur, nach Telefonat) | .dok, Docket-Briefkopf, .stack, .compare, KI-FAQ nur hier |
+| karte.html | warme Seite, KANAL: QR auf der Visitenkarte (nach persoenlichem Treffen) | Koerper identisch mit angebot.html; H1 "Schoen, dass wir uns getroffen haben" |
+| whatsapp.html | warme Seite, KANAL: Link im WhatsApp-Business-Profil | Koerper identisch mit angebot.html; CTA "Antworten Sie einfach hier in WhatsApp" |
 | 404.html | Fehlerseite | root-absolute Pfade, Wegweiser auf die 3 Ad-LPs |
 
 ## Known Gaps
