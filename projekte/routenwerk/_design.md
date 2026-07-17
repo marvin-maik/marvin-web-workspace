@@ -138,6 +138,11 @@ opacity+translateY .6s ease, Marquee linear endlos (JS-Dauer, ~13px/s, Hover pau
 hintWippen 1.8s (Scroll-Hinweis). Split-Flap-Buchstaben flippt site.js.
 Reduced Motion: global alles aus (`*{transition:none!important;animation:none!important}`),
 .rv bleibt sichtbar, scroll-behavior auto. Ohne JS ist nichts versteckt.
+Lade-Intro (nur index.html, 1x pro Sitzung, seit 2026-07-16): Submark -> Wortmarke ->
+Zoom durchs Pin-Loch, ~3,8s. Weiche als Inline-Skript im <head> (sessionStorage rwIntro
++ reduced-motion-Ausstieg), CSS-Abschnitt "Lade-Intro" in styles.css, Aufbau + Ablauf
+in site.js (Ende der IIFE, Wortmarken-Pfade 1:1 aus handoff/logo.svg). Ohne JS existiert
+nichts davon; Not-Aus-Timeouts in Weiche (6s) und site.js (7s).
 
 ## Konstruktions-Muster
 
@@ -201,9 +206,9 @@ Reduced Motion: global alles aus (`*{transition:none!important;animation:none!im
 - Tote CSS-Bloecke ohne HTML-Fundstelle: .gcard/.karten/.metaleiste (Guides nutzen
   stattdessen .pass) und .buehne3d/model-viewer (3D-Demos nur in freigabe/).
 - fonts/ibm-plex-mono-400.woff2 liegt im Ordner, hat aber kein @font-face (Altlast).
-- Logo-Animation: 3 Konzepte (Wortmarke/Submark/Flap-Kachel) + Storyboard-Intro
-  (Submark -> Wortmarke -> Zoom durchs Pin-Loch) existieren nur als Sandbox
-  (Scratchpad rw-logo-animation), nichts im Projekt verbaut. Entscheidung offen.
+- Logo-Animation: Storyboard-Intro ist seit 2026-07-16 als Lade-Intro auf index.html
+  verbaut (siehe Motion). Die 3 Einzel-Konzepte (Wortmarke/Submark/Flap-Kachel) liegen
+  weiter als Sandbox im Scratchpad; MP4-Export fuer Social steht noch aus.
 - Dunkel-Kontext-Farben (#8f887b, #353026, #4A443A, #1D1912, #4a443a) sind hardcoded,
   keine Tokens; bei Wiederverwendung entscheiden, ob sie Tokens werden.
 - Foto-Platzhalter (.foto-Schraffur) auf beratung.html + gruppenreisen.html noch

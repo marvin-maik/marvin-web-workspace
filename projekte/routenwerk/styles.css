@@ -356,6 +356,34 @@ footer .mono{color:color-mix(in srgb,var(--bg) 55%,transparent)}
   border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent);padding-top:18px;margin-top:10px}
 .foot-legal a{text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--bg) 35%,transparent)}
 
+/* ---------- Lade-Intro: Submark -> Wortmarke -> Zoom durchs Pin-Loch ----------
+   Nur index.html, 1x pro Sitzung. Weiche: Inline-Skript im <head> setzt
+   html.intro-wartet vor dem ersten Paint, site.js baut das Overlay (.intro-huelle)
+   und uebernimmt. Ohne JS existiert nichts davon, reduced motion steigt in der
+   Weiche aus (hier nur Sicherheitsgurt). */
+html.intro-wartet::before{content:"";position:fixed;inset:0;background:var(--bg);z-index:200}
+.intro-huelle{position:fixed;inset:0;z-index:201}
+.intro-deck{width:100%;height:100%;will-change:transform}
+.intro-wm{overflow:visible}
+.intro-vorhang{fill:var(--bg)}
+.intro-tinte{fill:var(--ink)}
+.intro-rot{fill:var(--signal)}
+.intro-rand{fill:none;stroke:var(--signal);stroke-width:2.5}
+.intro-r{opacity:0;transform:translateY(9px)}
+.intro-lb{opacity:0;transform:translateX(var(--dx,0px));transform-box:fill-box;transform-origin:center}
+.intro-ziel{transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.intro-ping{fill:none;stroke:var(--signal);stroke-width:4;opacity:0;transform-box:fill-box;transform-origin:center}
+.intro-wm.spielt .intro-r{animation:introSetzen .42s cubic-bezier(.2,.9,.35,1) forwards}
+.intro-wm.spielt .intro-ziel{animation:introPop .5s cubic-bezier(.34,1.3,.5,1) .3s forwards}
+.intro-wm.spielt .intro-ping{animation:introPingen 2.4s ease-out .95s infinite}
+.intro-wm.zoomt .intro-ping{animation:none;opacity:0}
+.intro-wm.formt .intro-lb{animation:introSliden .7s cubic-bezier(.25,.8,.3,1) forwards;animation-delay:var(--dl,0s)}
+@keyframes introSetzen{to{opacity:1;transform:none}}
+@keyframes introPop{to{transform:scale(1)}}
+@keyframes introPingen{0%{opacity:.4;transform:scale(1)}42%{opacity:0;transform:scale(2.1)}100%{opacity:0;transform:scale(2.1)}}
+@keyframes introSliden{0%{opacity:0;transform:translateX(var(--dx,0px)) rotate(6deg)}55%{opacity:1}100%{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){html.intro-wartet::before,.intro-huelle{display:none}}
+
 /* ---------- Scroll-Reveals (JS fuegt .rv hinzu; ohne JS nichts versteckt) ---------- */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .rv.sichtbar{opacity:1;transform:none}

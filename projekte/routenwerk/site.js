@@ -506,4 +506,126 @@
     btn.addEventListener("focus", function(){ flip(alt); });
     btn.addEventListener("blur", function(){ flip(basis); });
   });
+
+  /* ---------- Lade-Intro: Submark -> Wortmarke -> Zoom durchs Pin-Loch ----------
+     Nur index.html (Weiche: Inline-Skript im <head> setzt html.intro-wartet, 1x pro
+     Sitzung, nie bei reduced motion). Ablauf: R + Pin stehen mittig (Submark), Pin
+     popped, Standort-Ping; die Buchstaben sliden mit 6-Grad-Tilt auf ihre Wortmarken-
+     Plaetze; schneller Zoom auf den Pin, in dem sich ein transparentes Loch bis
+     Vollbild oeffnet (SVG-Maske, roter Rand blendet aus). Gesamt ~3,8s.
+     Wortmarken-Pfade 1:1 aus handoff/logo.svg (nie aus freigabe/, siehe _design.md). */
+  (function(){
+    var html = document.documentElement;
+    if (!html.classList.contains("intro-wartet")) return;
+    try {
+    var VB = { x: 4.4, y: -69.3, w: 779, h: 90.3 };
+    var PIN_X = 114.7, PIN_Y = -33.5;
+    var R_PFAD = "M19.700-25.100L19.700 0L5.400 0L5.400-67L36.500-67Q47.900-67 54.750-61.700Q61.600-56.400 61.600-46.100Q61.600-37.500 56.400-32.650Q51.200-27.800 42.600-26.800Q46.300-25.800 48.750-23.550Q51.200-21.300 53.600-17.400L64.200 0L47.700 0L36.400-19Q34.400-22.400 31.850-23.750Q29.300-25.100 24.900-25.100L19.700-25.100M36-54.300L19.700-54.300L19.700-36.600L36-36.600Q46.600-36.600 46.600-45.400Q46.600-54.300 36-54.300";
+    var TINTE_LB = [
+      "M196.800 1Q182.600 1 175.600-6.400Q168.600-13.800 168.600-29.400L168.600-67L182.900-67L182.900-29.200Q182.900-20.600 186.250-16.700Q189.600-12.800 196.900-12.800Q204.300-12.800 207.550-16.650Q210.800-20.500 210.800-29.200L210.800-67L225.100-67L225.100-29.400Q225.100-13.700 218.150-6.350Q211.200 1 196.800 1",
+      "M277.600-54.300L277.600 0L263.300 0L263.300-54.300L243.300-54.300L243.300-67L297.600-67L297.600-54.300",
+      "M365.600-12.700L365.600 0L316.400 0L316.400-67L365.600-67L365.600-54.300L330.700-54.300L330.700-40.200L359.900-40.200L359.900-27.500L330.700-27.500L330.700-12.700",
+      "M400.700-28.600L400.700 0L386.400 0L386.400-67L400.300-67L424.100-32L430.200-21.500L429.300-37.300L429.300-67L443.600-67L443.600 0L430 0L405.600-35.300L399.600-45.200"
+    ];
+    var ROT_LB = [
+      "M506.100-35.100L497.400 0L478.100 0L462-67L478.500-67L485.600-30.400L488.100-10.100L491.600-28.800L500.300-67L519.200-67L527.800-28.800L531.200-10.100L533.800-30.400L541-67L557.400-67L541.200 0L521.900 0L513.300-35.100L509.700-56.800",
+      "M625-12.700L625 0L575.800 0L575.800-67L625-67L625-54.300L590.100-54.300L590.100-40.200L619.300-40.200L619.300-27.500L590.100-27.500L590.100-12.700",
+      "M660.100-25.100L660.100 0L645.800 0L645.800-67L676.900-67Q688.300-67 695.150-61.700Q702-56.400 702-46.100Q702-37.500 696.800-32.650Q691.600-27.800 683-26.800Q686.700-25.800 689.150-23.550Q691.600-21.300 694-17.400L704.600 0L688.100 0L676.800-19Q674.800-22.400 672.250-23.750Q669.700-25.100 665.300-25.100L660.100-25.100M676.400-54.300L660.100-54.300L660.100-36.600L676.400-36.600Q687-36.600 687-45.400Q687-54.300 676.400-54.300",
+      "M737.600-18.800L737.600 0L723.300 0L723.300-67L737.600-67L737.600-48L737.200-35.400L746.500-46.800L764.600-67L781.400-67L758.100-40.500L782.400 0L765.900 0L748-30.100"
+    ];
+    function lbs(pfade){
+      return pfade.map(function(d){ return '<path class="intro-lb" d="' + d + '"/>'; }).join("");
+    }
+    var huelle = document.createElement("div");
+    huelle.className = "intro-huelle";
+    huelle.setAttribute("aria-hidden", "true");
+    huelle.innerHTML =
+      '<svg class="intro-deck">' +
+        '<defs><mask id="rwIntroLoch"><rect width="100%" height="100%" fill="#fff"/><circle class="intro-hole" r="0" fill="#000"/></mask></defs>' +
+        '<g mask="url(#rwIntroLoch)">' +
+          '<rect class="intro-vorhang" width="100%" height="100%"/>' +
+          '<svg class="intro-wm" viewBox="' + VB.x + ' ' + VB.y + ' ' + VB.w + ' ' + VB.h + '">' +
+            '<circle class="intro-ping" cx="114.7" cy="-33.5" r="34.7"/>' +
+            '<g class="intro-tinte"><path class="intro-r" d="' + R_PFAD + '"/>' + lbs(TINTE_LB) + '</g>' +
+            '<g class="intro-rot">' + lbs(ROT_LB) +
+              '<g class="intro-ziel"><circle cx="114.7" cy="-33.5" r="34.7"/><path d="M114.7 20 86.2 -16.2h56.9z"/></g>' +
+            '</g>' +
+          '</svg>' +
+        '</g>' +
+        '<circle class="intro-rand" r="0" opacity="0"/>' +
+      '</svg>';
+    document.body.appendChild(huelle);
+    html.classList.remove("intro-wartet"); /* ::before-Vorhang weg, Overlay uebernimmt */
+
+    var deck = huelle.querySelector(".intro-deck");
+    var wm = huelle.querySelector(".intro-wm");
+    var hole = huelle.querySelector(".intro-hole");
+    var rand = huelle.querySelector(".intro-rand");
+
+    /* Wortmarke zentriert einpassen (68vw, mobil 86vw, max 900px) */
+    var W = window.innerWidth, H = window.innerHeight;
+    var wmW = Math.min(W * (W < 640 ? .86 : .68), 900);
+    var wmH = wmW * VB.h / VB.w;
+    var wmX = (W - wmW) / 2, wmY = (H - wmH) / 2;
+    wm.setAttribute("x", wmX); wm.setAttribute("y", wmY);
+    wm.setAttribute("width", wmW); wm.setAttribute("height", wmH);
+    var skal = wmW / VB.w;
+    var pinPx = { x: wmX + (PIN_X - VB.x) * skal, y: wmY + (PIN_Y - VB.y) * skal };
+
+    /* Phase A: R + Pin mittig (Submark-Komposition), Rest folgt beim Recentre */
+    var rpinMitteVB = (5.4 + 150) / 2;
+    var versatz = W / 2 - (wmX + (rpinMitteVB - VB.x) * skal);
+    wm.style.transform = "translateX(" + versatz + "px)";
+
+    /* Buchstaben starten im Pin (--dx = Weg vom Pin zur Endposition) */
+    wm.querySelectorAll(".intro-lb").forEach(function(p, i){
+      var box = p.getBBox();
+      p.style.setProperty("--dx", ((PIN_X - (box.x + box.width / 2)) * skal) + "px");
+      p.style.setProperty("--dl", (i * .05) + "s");
+    });
+
+    /* Skip: Klick oder Escape beendet das Intro sofort (Wiederkehrer mit geblocktem
+       sessionStorage sehen es sonst jedes Mal in voller Laenge) */
+    function ende(){
+      clearTimeout(notaus);
+      document.removeEventListener("keydown", tasteSkip);
+      huelle.remove();
+    }
+    function tasteSkip(e){ if (e.key === "Escape") ende(); }
+    huelle.addEventListener("click", ende);
+    document.addEventListener("keydown", tasteSkip);
+    var notaus = setTimeout(ende, 7000); /* Sicherheitsgurt, falls eine Phase haengt */
+
+    void wm.getBoundingClientRect();
+    wm.classList.add("spielt");
+
+    setTimeout(function(){                       /* Phase B: Tilt-Slide + Recentre */
+      wm.style.transition = "transform .8s cubic-bezier(.22,.8,.3,1)";
+      wm.style.transform = "translateX(0)";
+      wm.classList.add("formt");
+    }, 1250);
+
+    setTimeout(function(){                       /* Phase C: Zoom durchs Loch */
+      var ZOOM = 14, DAUER = 950;
+      wm.classList.add("zoomt");                 /* Ping stoppen, sonst pingt es im Zoom */
+      var dist = Math.hypot(Math.max(pinPx.x, W - pinPx.x), Math.max(pinPx.y, H - pinPx.y));
+      var rEnde = dist / ZOOM + 10;
+      hole.setAttribute("cx", pinPx.x); hole.setAttribute("cy", pinPx.y);
+      rand.setAttribute("cx", pinPx.x); rand.setAttribute("cy", pinPx.y);
+      deck.style.transformOrigin = pinPx.x + "px " + pinPx.y + "px";
+      deck.animate([{ transform: "scale(1)" }, { transform: "scale(" + ZOOM + ")" }],
+        { duration: DAUER, easing: "cubic-bezier(.55,0,.85,.4)", fill: "forwards" });
+      hole.animate([{ r: "0px" }, { r: rEnde + "px" }],
+        { duration: DAUER - 150, delay: 150, easing: "cubic-bezier(.55,0,.85,.4)", fill: "forwards" });
+      rand.animate([{ r: "0px", opacity: .55 }, { r: rEnde + "px", opacity: 0 }],
+        { duration: DAUER - 150, delay: 150, easing: "cubic-bezier(.55,0,.85,.4)", fill: "forwards" });
+      setTimeout(function(){ ende(); }, DAUER + 80);
+    }, 2750);
+    } catch (e) {
+      /* Intro darf die Seite NIE blockieren: Vorhang weg, Overlay weg, weiter */
+      html.classList.remove("intro-wartet");
+      var kaputt = document.querySelector(".intro-huelle");
+      if (kaputt) kaputt.remove();
+    }
+  })();
 })();
