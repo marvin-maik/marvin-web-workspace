@@ -233,3 +233,34 @@ liegt ein Tinte-Cover (::after, inset:0) drauf und faellt beim Reveal nach unten
 ```
 `transition-delay:inherit` uebernimmt den Stagger, den site.js als Inline-Style setzt.
 Ohne JS/reduced-motion existiert kein .rv -> kein Cover. Code: marvin-web styles.css (.fact).
+
+## Kundenschrift aus freier Variable Font (Werkzeug: _tools/schrift/)
+Aus einer OFL-Variable-Font eine angepasste Kundenschrift bauen: Schnitt aus den Achsen
+pinnen -> umbenennen -> auf die gebrauchten Zeichen zuschneiden -> woff2 + OFL.txt.
+Ergebnis (erprobt 2026-07-17): Fraunces 352 KB VF -> 16 KB woff2, 210 Zeichen, deutsche
+Umlaute/ss/Euro/Anfuehrungszeichen komplett, Kerning erhalten, im Browser verifiziert.
+`python3 _tools/schrift/schrift-anpassen.py --basis Fraunces --achsen wght=600,SOFT=30,WONK=1 \
+   --name "Mueller Sans" --stil Bold --ziel projekte/<kunde>/fonts`
+Basis-Schriften liegen in `_tools/schrift/basis/` (aus TypeTuner.html extrahiert):
+Fraunces (opsz,wght,SOFT,WONK), Recursive (MONO,CASL,wght,slnt,CRSV),
+RobotoFlex (13 Achsen). Alle drei SIL OFL 1.1.
+
+FALLEN (alle real aufgetreten):
+- **`subset.Options().name_IDs` wirft die Lizenz raus.** Default behaelt nur nameID 0-6,
+  damit fehlen 13/14 (Lizenztext + URL) = OFL-VERSTOSS in jedem Kundenprojekt.
+  Pflicht: `opt.name_IDs = ["*"]`. Nach dem Bauen IMMER gegenpruefen (nameID 13 da?).
+- **nameIDs 16/17/21/22/25 muessen weg**, sonst zeigt der Font-Dialog zwei Familien
+  (die alte typografische Familie klebt an der neuen Datei).
+- **woff2 braucht `brotli`** (`python3 -m pip install brotli`), sonst weder Lesen noch
+  Schreiben von woff2. fontTools allein reicht nicht.
+- **Reserved Font Name pruefen** (steht in nameID 0, "with Reserved Font Name X"):
+  Fraunces/Recursive/RobotoFlex deklarieren KEINEN -> Umbenennen ist rechtlich nicht
+  Pflicht. Wir tun es trotzdem (Produktversprechen + keine Cache-Kollision).
+- **Clash Display (Fontshare) ist NICHT OFL** und darf nicht veraendert werden.
+  Fuer Kundenschriften immer von OFL-Basis starten.
+- **Nicht auf den Seitentext subsetten**, sondern auf einen Zeichensatz: sonst erzeugt
+  der erste Textwunsch des Kunden Tofu-Kaestchen. `--zeichen deutsch` ist der Default.
+
+COPY-REGEL (Ehrlichkeit): Die angepasste Schrift bleibt selbst OFL, ist also praktisch
+einzigartig, aber nicht juristisch exklusiv. Erlaubt: "fuer Sie angepasst, auf Ihren
+Namen". Verboten: "gehoert exklusiv Ihnen" / "gibt es nur bei Ihnen".
