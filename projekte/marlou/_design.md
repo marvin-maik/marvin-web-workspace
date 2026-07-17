@@ -101,6 +101,7 @@ wiederholt sich in `.caption` (Mono-Leiste unter Fotos) und im Koordinaten-Marqu
 | `.globus-buehne` + `.globus-filter` | Logbuch-Globus (Ueber uns) | Canvas via d3/topojson, Filter-Buttons Mono, aktiv invertiert auf --ink |
 | `.band` / `.band-ink` | Sektions-Baender | papier-tief bzw. ink-invertiert, Buttons/Text via color-mix angepasst |
 | `label` + `input` + `.inline-form` | Formulare | Labels Mono uppercase, Inputs 1px --muted radius 0, Fokus 2px --signal |
+| `.hp-feld` + `.schutz-hinweis` | Botschutz, alle 4 Formulare | Honeypot `_gotcha` off-screen (KEIN aria-hidden am Wrapper) + Zeit-Falle <2,5s in site.js; Muster technik-patterns.md, Referenz routenwerk |
 | `.foot-marke` | Riesen-Wortmarke im Footer | bis 220px, 14% bg auf ink, user-select none |
 | `.skip` + `:focus-visible` | A11y | Skip-Link auf ink, Fokus 2px --signal Offset 3px |
 
@@ -170,8 +171,6 @@ Reveals nur wenn JS `.rv` setzt, ohne JS ist nichts versteckt.
 - Alle 12 Bildflaechen sind Schraffur-Platzhalter ("Foto folgt"), echtes Fotomaterial fehlt.
 - Formular-Platzhalter: Formspree-ID (`FORMSPREE_ID`, kontakt) und drei Newsletter-Forms
   mit `MAILERLITE_FORM_ACTION` (index, guides, gruppenreisen) sind nicht verdrahtet.
-- Botschutz unvollstaendig: Honeypot nur auf kontakt.html, die drei inline-forms haben
-  keinen; Zeit-Falle fehlt komplett in site.js (Workspace-Pflicht).
 - ueber-uns.html laedt d3 + topojson-client von cdn.jsdelivr.net: externer Aussenkontakt,
   vor Launch selbst hosten (DSGVO-Regel wie bei Fonts).
 - Pflichtdateien fehlen: 404.html, _headers, danke.html (noindex), apple-touch-icon.png,

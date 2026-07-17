@@ -285,6 +285,9 @@ textarea{min-height:140px;resize:vertical}
 .inline-form .btn{margin:0}
 .kleingedruckt{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--muted);margin-top:10px}
+/* Botschutz: Honeypot off-screen (KEIN aria-hidden — umschliesst fokussierbares Feld) */
+.hp-feld{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.schutz-hinweis{width:100%;margin-top:8px;color:var(--muted)}
 
 /* ---------- Footer ---------- */
 footer{background:var(--ink);color:var(--bg);padding:64px 0 28px;overflow-x:clip}
