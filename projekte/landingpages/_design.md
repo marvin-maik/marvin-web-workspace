@@ -139,9 +139,13 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
   Dateien / die Seite"; Tempo -> "Ballast / das Noetige"; Handwerk -> "von Hand, jede
   Zeile". "HTML und CSS" ist KEIN Ersatz (fuer Handwerker/Praxen noch mehr Jargon):
   genau EINE bewusste Nennung in der KI-FAQ (angebot.html) als Kompetenzbeweis.
-- Don't: keine erfundenen Euro-Anker in .stack .val. Nur belegbare Anker
-  ("Schrift-Dienste kosten monatlich", "Baukasten: 330 bis 550 € / 2 Jahre"). Fantasie-
-  Werte sind dasselbe Vertrauensproblem wie Streichpreise.
+- Don't: keine erfundenen oder halbwahren Anker in .stack .val. Nur belegbare
+  ("Baukasten: 330 bis 550 € / 2 Jahre", "PageSpeed 98, gemessen"). Fantasie-Werte sind
+  dasselbe Vertrauensproblem wie Streichpreise. GELERNT 2026-07-17 (Marvins Korrektur):
+  "Schrift-Dienste kosten monatlich" war so ein halbwahrer Anker und ist RAUS. Google Fonts
+  sind kostenlos, Schriften kosten nur AUSSERHALB davon. Schriften stehen jetzt als BONUS
+  ("Eine Schrift, die nicht jeder hat": kein Baukasten-Look, ohne Lizenzgrenzen, ohne
+  Seitenaufruf-Limit); der Datenschutz-Vorteil des Selbst-Hostens traegt die DSGVO-Zeile.
 - Don't: kein zweiter lauter Dringlichkeits-Hebel. .gruendung ist laut, der Startpreis-
   Absatz bleibt leise. Kein Streichpreis, kein Countdown, keine Live-Platzzaehler
   ("noch 2 frei" waere ein Pflege- und Ehrlichkeitsrisiko).
@@ -172,8 +176,12 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 
 - Markenname/Domain offen (Rebrand): [MARKE]-Platzhalter, OG-URLs mit DOMAIN-SWAP,
   Footer-Rechtslinks zeigen auf marvin-web.pages.dev. Kein foot-mark bis Name steht.
-- "Gueltig: 30 Tage ab Erhalt" im Angebots-Briefkopf ist Claude-Ergaenzung, nicht
-  freigegebene Wireframe-Copy: von Marvin bestaetigen lassen.
+- ERLEDIGT 2026-07-17 (Marvins Korrektur): Die Angebots-Seite wird nach dem ERSTKONTAKT
+  verschickt, NICHT nach dem Gespraech. Das Gespraech ist Schritt 2 und steht noch aus.
+  Copy entsprechend: "Danke fuer Ihre Nachricht", Ablauf-Schritt 1 = Erstkontakt [Erledigt],
+  Schritt 2 = Gespraech, Briefkopf "Naechster Schritt: 30 Minuten Gespraech". Die erfundene
+  Zeile "Gueltig 30 Tage" ist raus (bei Festpreisen vor dem Scoping ohnehin sinnlos).
+  MERKE: Reihenfolge ist Erstkontakt -> Angebots-Seite -> Gespraech -> Freigabe -> Bau.
 - routenwerk ist seit 2026-07-17 mit Marvins Freigabe SICHTBAR als "Demo-Projekt
   (fiktives Reisebuero als Anschauungsprojekt)" gelabelt (demo-blick + facts-Kachel);
   NIE als Kundenreferenz ausgeben. Ablosen, sobald echte Case Study existiert
