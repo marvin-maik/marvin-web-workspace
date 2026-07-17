@@ -142,7 +142,7 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
 - Don't: das Wort "Code" NICHT in Kundentext (Marvin 2026-07-17: klingt nach KI, davon
   will er sich abgrenzen). Rollen-Schema stattdessen: Eigentum -> "Ihre Website / alle
   Dateien / die Seite"; Tempo -> "Ballast / das Noetige"; Handwerk -> "von Hand, jede
-  Zeile". "HTML und CSS" ist KEIN Ersatz (fuer Handwerker/Praxen noch mehr Jargon):
+  Zeile". "HTML und CSS" ist KEIN Ersatz (fuer die Zielgruppe noch mehr Jargon):
   genau EINE bewusste Nennung in der KI-FAQ (angebot.html) als Kompetenzbeweis.
 - Don't: keine erfundenen oder halbwahren Anker in .stack .val. Nur belegbare
   ("Baukasten: 330 bis 550 € / 2 Jahre", "PageSpeed 98, gemessen"). Fantasie-Werte sind
@@ -226,6 +226,15 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 | Instagram-Bio | instagram.html | fertig (H1-Annahme: Profil zeigt Arbeit) |
 | Visitenkarte (QR) | karte.html | fertig |
 | Fallback (Mail-Signatur, nach Telefonat) | angebot.html | fertig, nicht einer von Marvins 4 Kanaelen, aber die Quelle aller warmen Varianten |
+
+## Zielgruppe (KORRIGIERT, Marvin 2026-07-17)
+
+Start-ups, Selbststaendige und kleine bis mittlere Betriebe. NICHT nur Handwerker,
+das war eine zu enge Uebernahme aus dem Rohmaterial und ist aus Copy + Beispielen
+entfernt (keine Baustellen-/Wartezimmer-/Oeffnungszeiten-Bilder als Zielgruppen-Marker,
+Vergleichstabelle jetzt: Kleiner Betrieb / Firma / Start-up). Bei neuen Sektionen und
+Ads: Bilderwelt neutral-geschaeftlich halten; "das Handwerk gelernt" bleibt als
+Redewendung in der KI-FAQ erlaubt (Craft-Aussage, kein Zielgruppen-Marker).
 
 ## Sprache: verständlich für einen Zehnjährigen (Marvins Regel, 2026-07-17)
 

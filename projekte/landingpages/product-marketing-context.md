@@ -66,11 +66,14 @@ USP (warum hier statt woanders):
 
 ## 2. Zielgruppe
 
-Wer genau (Rolle, Situation): Inhaber von Handwerksbetrieben, Arztpraxen (dort meist:
-Praxisinhaber oder Praxismanagement) und Selbststaendige in Deutschland, deren Website
-weitgehend statisch ist (Visitenkarte, Leistungen, Kontakt, ggf. Portfolio). Typische
-Ist-Situation: zahlen ein Website-Abo (Baukasten oder Agentur-Paket) oder haben eine
-veraltete Seite.
+KORRIGIERT (Marvin, 2026-07-17, verbindlich): **Start-ups, Selbststaendige und kleine
+bis mittlere Betriebe** in Deutschland. NICHT nur Handwerker! Die fruehere Festlegung
+auf "Handwerksbetriebe, Arztpraxen, Selbststaendige" stammte aus dem Positionierungs-
+Rohmaterial und war zu eng; sie darf in Copy und Beispielen nicht mehr auftauchen
+(keine Baustellen-/Wartezimmer-/Oeffnungszeiten-Bilder als Zielgruppen-Marker).
+Gemeinsamer Nenner bleibt: Website ist weitgehend statisch (Visitenkarte, Leistungen,
+Kontakt, erste Firmen-Website), Ist-Situation: Website-Abo (Baukasten/Agentur) oder
+veraltete bzw. noch keine Seite.
 
 Groesster Schmerz / Job-to-be-done (je Traffic-Angle unterschiedlich, siehe Kap. 8):
 - Kosten: monatliche Gebuehren fuer eine Seite, die sich kaum aendert.
