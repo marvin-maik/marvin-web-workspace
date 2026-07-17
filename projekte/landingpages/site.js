@@ -50,15 +50,34 @@
     zaehler.forEach(function(el){ ioZ.observe(el); });
   }
 
-  /* Ladebalken-Rennen (schnell.html): startet einmalig beim Sichtbarwerden.
-     reduced-motion/ohne JS: CSS zeigt den Endzustand statisch. */
+  /* Ladebalken-Rennen: startet einmalig beim Sichtbarwerden, laesst sich danach
+     wiederholen (Marvin: wer es verpasst oder wem es zu schnell ging, sieht es sonst nie).
+     reduced-motion/ohne JS: CSS zeigt den Endzustand statisch, dann gibt es auch
+     keinen Knopf, weil es nichts abzuspielen gibt. */
   var rennen = document.querySelector("[data-rennen]");
   if (rennen && !reduziert && "IntersectionObserver" in window) {
+    rennen.classList.add("armiert");
+
+    var starten = function(){
+      rennen.classList.remove("los");
+      void rennen.offsetWidth;          /* Reflow erzwingen, sonst startet die Transition nicht neu */
+      rennen.classList.add("los");
+    };
+
+    /* Knopf erst per JS einsetzen: ohne JS gibt es keine Animation und damit keinen Knopf */
+    var knopf = document.createElement("button");
+    knopf.type = "button";
+    knopf.className = "mess-neu";
+    knopf.textContent = "Nochmal zeigen";
+    knopf.addEventListener("click", starten);
+    var fuss = rennen.querySelector(".fussnote");
+    if (fuss) rennen.insertBefore(knopf, fuss); else rennen.appendChild(knopf);
+
     var ioR = new IntersectionObserver(function(eintraege){
       eintraege.forEach(function(e){
         if (!e.isIntersecting) return;
         ioR.unobserve(e.target);
-        e.target.classList.add("los");
+        starten();
       });
     }, {threshold:.5});
     ioR.observe(rennen);

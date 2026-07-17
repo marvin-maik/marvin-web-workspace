@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Wireframe v2: warme Seite, Proof vor dem Preis</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:#222;
+  line-height:1.5;max-width:760px;margin:0 auto;padding:0 20px}
+.wf{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:18px}
+section{border:1px dashed #bbb;margin:22px 0;padding:20px;position:relative}
+.sek{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:#999;margin-bottom:10px}
+.pos{position:absolute;top:-10px;right:12px;background:#222;color:#fff;font-family:ui-monospace,monospace;
+  font-size:10px;padding:2px 8px;letter-spacing:.1em}
+h1{font-size:30px;line-height:1.15}h2{font-size:22px}h3{font-size:16px}
+p{color:#444;margin:8px 0}
+.img{background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 10px,#fafafa 10px,#fafafa 20px);
+  border:1px solid #ccc;display:flex;align-items:center;justify-content:center;color:#999;
+  font-family:ui-monospace,monospace;font-size:12px;min-height:100px;margin:10px 0;text-align:center;padding:8px}
+.btn{display:inline-block;border:2px solid #333;padding:11px 20px;font-weight:700;text-decoration:none;
+  color:#222;margin:6px 8px 6px 0;background:#fff;cursor:pointer;font-size:15px;font-family:inherit}
+.btn.primary{background:#333;color:#fff}
+.neu{background:#d9f2d9;padding:2px 6px;font-size:13px;font-weight:700}
+.offen{background:#fff3a3;padding:2px 6px;font-size:13px}
+.weg{background:#f4d4d4;padding:2px 6px;font-size:13px}
+ul,ol{margin:8px 0 8px 20px;color:#444}
+li{margin:4px 0}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:20px;margin:32px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}
+th,td{border:1px solid #ccc;padding:7px 9px;text-align:left}
+th{background:#f4f4f4}
+/* Qualifier-Demo */
+.qz{border:2px solid #333;padding:18px;background:#fafafa}
+.qz-schritt{display:none}.qz-schritt.an{display:block}
+.qz-frage{font-weight:700;font-size:17px;margin-bottom:10px}
+.qz-opt{display:block;width:100%;text-align:left;border:1px solid #999;background:#fff;padding:12px 14px;
+  margin:6px 0;cursor:pointer;font-size:15px;font-family:inherit}
+.qz-opt:hover{border-color:#333;background:#f0f0f0}
+.qz-fort{font-family:ui-monospace,monospace;font-size:11px;color:#888;margin-bottom:10px;letter-spacing:.08em}
+.qz-ergebnis{border-top:2px solid #333;margin-top:14px;padding-top:14px}
+.qz-vorschlag{font-size:20px;font-weight:700;margin:6px 0}
+.mini{font-size:13px;color:#777}
+</style>
+</head>
+<body>
+<div class="wf">Wireframe v2 · warme Seite (karte / whatsapp / instagram / angebot) · Struktur, kein Design</div>
+
+<section style="border-color:#333;border-style:solid;background:#fafafa">
+  <h1>Was sich ändert und warum</h1>
+  <p><strong>Dein Befund, belegt:</strong> Die warme Seite läuft aktuell Hero → Was drin ist → <strong>Preis</strong>.
+  Kein Foto, kein Demo-Fenster, keine Eckdaten, kein Ladebalken. Der Kostenvergleich steht hinter dem Preis.
+  Die kalten Ad-Seiten haben die Proof-Kette, die warmen nicht. Das ist verkehrt herum.</p>
+  <p><strong>Neue Regel für diese Seite:</strong> Der Preis kommt erst, nachdem der Leser vier Mal
+  "aha, verstehe" gedacht hat. Reihenfolge unten: Position 1 bis 5 sind Proof, Position 6 ist der Preis.</p>
+  <p><span class="neu">GRÜN = neu oder verschoben</span> <span class="offen">GELB = deine Entscheidung</span> <span class="weg">ROT = raus</span></p>
+</section>
+
+<section>
+  <span class="pos">POS 1</span>
+  <div class="sek">Hero · nur Versprechen, keine Aufforderung</div>
+  <h1>Schön, dass wir uns getroffen haben.</h1>
+  <p class="mini">(H1 wechselt je Kanal: Visitenkarte / WhatsApp / Instagram / generisch. Rest der Seite identisch.)</p>
+  <p>Was Sie bekommen, was es kostet, wie es abläuft. Alles auf einer Seite. Die Preise unten
+  sind Festpreise, da kommt später nichts dazu.</p>
+  <p><span class="weg">RAUS: Einstiegsfrage / Qualifier.</span> <strong>Marvins Begründung, die sitzt:</strong>
+  Bei Likovo funktioniert das Formular wegen des <strong>Gratis-Entwurfs dahinter</strong>, nicht wegen des Formulars.
+  Vier Fragen gegen etwas Wertvolles ist ein fairer Tausch. Zwei Fragen gegen einen Paket-Vorschlag,
+  den er unten sowieso liest, ist Aufwand ohne Gegenwert. Dazu: eine Interaktions-Aufforderung an
+  Position 1 wäre eine Bitte VOR dem ersten Proof, also genau gegen die Regel dieser Seite.</p>
+</section>
+
+<section>
+  <span class="pos">POS 2</span>
+  <div class="sek">Problem · das kennt er von sich selbst</div>
+  <h2>Ihre Website kostet Sie jeden Monat Geld, und gehört Ihnen trotzdem nicht.</h2>
+  <p>Kurz die drei Schmerzen (Abo, Lock-in, Tempo) in je zwei Zeilen. <span class="neu">NEU auf der warmen Seite</span>,
+  bisher nur auf den Ad-Seiten. Er soll erst nicken, bevor er Zahlen sieht.</p>
+  <p class="mini">Falls die Einstiegsfrage "Baukasten mit Abo" ergab, ist das hier sein Fall. Passt automatisch.</p>
+</section>
+
+<section>
+  <span class="pos">POS 3</span>
+  <div class="sek">Proof 1 · Wer baut das (dein freigegebener Foto-Slot, den ich unterschlagen hatte)</div>
+  <h2>Sie schreiben direkt mit dem, der baut.</h2>
+  <div class="img">FOTO Marvin (stand so in deinem freigegebenen Plan, LP4 Sektion 1)</div>
+  <p><strong>Ich baue Ihre Seite selbst. Von Hand, jede Zeile.</strong> Zwei Sätze wer, plus:
+  kein Ticketsystem, kein Callcenter.</p>
+  <p><span class="neu">War nur auf den Ad-Seiten, kommt jetzt hierher.</span></p>
+</section>
+
+<section>
+  <span class="pos">POS 4</span>
+  <div class="sek">Proof 2 · Arbeit zeigen (Geräte-Showcase)</div>
+  <h2>So sieht das aus, was ich baue.</h2>
+  <div class="img">BROWSER-FENSTER (Desktop-Screenshot) + HANDY davor (Mobil-Ansicht)<br>ehrlich gelabelt: Demo-Projekt</div>
+  <div class="img" style="min-height:60px">4 ECKDATEN: 98/100 PageSpeed · 5 Werktage · 0 € Plattformkosten · 100 % Übergabe</div>
+  <p><span class="neu">War nur auf den Ad-Seiten.</span> <span class="offen">Später: echte Case Study statt Demo, sobald ein Kundenprojekt live ist.</span></p>
+</section>
+
+<section>
+  <span class="pos">POS 5</span>
+  <div class="sek">Proof 3 · Tempo sichtbar machen (das Element, das du gut findest)</div>
+  <h2>Nur das, was gebraucht wird. Kein Ballast.</h2>
+  <div class="img" style="min-height:70px">LADEBALKEN-RENNEN: "mit Plattform-Ballast" vs "handgebaut"<br>(schematisch, keine Fake-Sekunden)</div>
+  <p>Dazu ein Satz Google-Kontext (Richtwert: Hauptinhalt unter 2,5 Sekunden).</p>
+  <p><span class="neu">War nur auf schnell.html, kommt auf alle warmen Seiten.</span></p>
+  <p><span class="neu">NEU (dein Punkt): "Nochmal zeigen"-Knopf.</span> Das Rennen läuft beim Scrollen
+  einmal ab. Wer es verpasst oder wem es zu schnell ging, hat es sonst nie gesehen, und genau
+  dieses Element soll ja der Aha-Moment sein. Knopf erscheint nur, wenn die Animation auch
+  wirklich läuft (kein JS oder reduzierte Bewegung: Balken stehen fertig da, dann braucht es
+  keinen Knopf). <strong>Ist unten schon eingebaut und getestet.</strong></p>
+</section>
+
+<section>
+  <span class="pos">POS 6</span>
+  <div class="sek">Proof 4 · Die Gegenüberstellung (dein Wort: "aha, verstehe, das ist der Mehrwert")</div>
+  <h2>Was Sie sich sparen: die Monatsgebühr.</h2>
+  <table>
+    <tr><th>Beispiel</th><th>Website-Abo*</th><th>Bei mir</th></tr>
+    <tr><td>Handwerksbetrieb</td><td>ca. 331 €</td><td><strong>0 € Plattformkosten</strong></td></tr>
+    <tr><td>Praxis mit Pflege</td><td>ca. 552 €</td><td><strong>0 €, Pflege per Betreuung</strong></td></tr>
+    <tr><td>Selbstständiger</td><td>ca. 331 bis 552 €</td><td><strong>0 € Plattformkosten</strong></td></tr>
+  </table>
+  <p class="mini">*Beispielrechnung, Webflow-Listenpreise Stand 13.05.2026, USD, Euro gerundet.</p>
+  <p><span class="neu">VERSCHOBEN: stand bisher HINTER dem Preis.</span> Gehört davor, es ist Proof.</p>
+</section>
+
+<section>
+  <span class="pos">POS 7</span>
+  <div class="sek">Wert-Stack · "damit Ihre Seite Kunden bringt, nicht nur existiert" (bleibt, du findest ihn gut)</div>
+  <h2>Damit Ihre Seite Kunden bringt, nicht nur existiert.</h2>
+  <ul>
+    <li>Ihre Texte, von mir geschrieben <span class="mini">(sonst Texter-Honorar)</span></li>
+    <li>Aufbau zur Freigabe, bevor gebaut wird <span class="mini">(inklusive)</span></li>
+    <li>Von Hand gebaut, kein Baukasten <span class="mini">(PageSpeed 98, gemessen)</span></li>
+    <li>Barrierefrei nach WCAG 2.1 AA <span class="mini">(sonst teure Nachrüstung)</span></li>
+    <li>Datenschutzfreundlich gebaut <span class="mini">(kein Cookie-Banner nötig)</span></li>
+    <li>0 € Plattformkosten dauerhaft <span class="mini">(Baukasten: 330 bis 550 € / 2 Jahre)</span></li>
+    <li>Komplette Übergabe <span class="mini">(keine Bindung an mich)</span></li>
+    <li>+ Eine Schrift, die für Sie angepasst wird <span class="mini">(Bonus)</span></li>
+    <li>+ Ihr Design-Handout als PDF <span class="mini">(Bonus)</span></li>
+  </ul>
+  <p class="mini">Summenzeile: "Alles zusammen, einmalig: ab 990 €". Das ist die Brücke zum Preis.</p>
+</section>
+
+<section style="border-color:#333;border-width:2px">
+  <span class="pos">POS 8</span>
+  <div class="sek">ERST JETZT: Preis</div>
+  <h2>Ein Preis. Keine Überraschungen.</h2>
+  <p>Onepager 990 € · Business-Site 1.990 € · Shop auf Anfrage · Betreuung ab 49 €/Monat</p>
+  <p>Direkt darunter: <strong>Freigabe-Garantie</strong> (nichts wird gebaut, bevor Sie freigeben)
+  und <strong>Gründungsprojekte</strong> (3 Plätze, reduziert gegen Referenz), dann der Startpreis-Absatz (Steuer).</p>
+  <p class="mini">Der Leser hat jetzt fünf Proof-Sektionen hinter sich. Vorher stand der Preis an Position 2.</p>
+</section>
+
+<section>
+  <span class="pos">POS 9</span>
+  <div class="sek">Ablauf · wie wenig Arbeit er hat</div>
+  <h2>So läuft es ab.</h2>
+  <ol>
+    <li>Gespräch, 30 Minuten (WhatsApp, Telefon oder auf einen Kaffee)</li>
+    <li>Struktur und Texte zur Freigabe, Änderungen kosten hier nichts</li>
+    <li>Bau und eine Korrekturrunde</li>
+    <li>Live in 5 Werktagen, erst nach Ihrer Abnahme</li>
+  </ol>
+</section>
+
+<section>
+  <span class="pos">POS 10</span>
+  <div class="sek">Eigentum + FAQ</div>
+  <h2>Ihre Website. Alle Dateien. Ihre Domain.</h2>
+  <p>Eigentums-Liste, danach FAQ mit 6 Einwänden (inkl. KI-Frage, nur hier).</p>
+</section>
+
+<section>
+  <span class="pos">POS 11</span>
+  <div class="sek">CTA · dieselbe Einstiegsfrage nochmal, für die, die durchgescrollt sind</div>
+  <h2>Schreiben Sie mir, was Sie brauchen.</h2>
+  <p>Die Einstiegsfrage von oben wiederholt sich hier <span class="neu">(NEU)</span>, plus WhatsApp + Anruf.
+  Wer oben nicht geklickt hat, kriegt hier die zweite Chance mit demselben niedrigen Einstieg.</p>
+  <div class="img" style="min-height:50px">Footer: Impressum · Datenschutz (Pflicht)</div>
+</section>
+
+<div class="freigabe">
+  <h2>Deine Entscheidungen</h2>
+  <ol>
+    <li><strong>Reihenfolge:</strong> Passt Proof (1 bis 7) vor Preis (8), oder ist dir das zu lang bis zur Zahl?</li>
+    <li><strong>Einstiegsfrage:</strong> 2 Fragen wie hier, oder lieber 3 (wie bei Likovo: Branche → Status → Ort)?
+    Probier sie oben aus.</li>
+    <li><strong>Terminbuchung:</strong> Likovo bietet am Ende Calendly. Du hast Cal.eu. Als dritten Button dazu,
+    oder bleibt es bei WhatsApp + Anruf? <span class="offen">Cal wäre ein Drittanbieter auf der Seite.</span></li>
+    <li><strong>Gratis-Entwurf</strong> als Hook wie bei Likovo? <span class="offen">Kostet dich Zeit pro Anfrage,
+    ihr Modell rechnet sich über das Monatsabo. Deins nicht.</span></li>
+  </ol>
+  <p>Erst wenn das steht, fasse ich die HTML an. Danach kostet jede Umstellung wieder das Sechsfache,
+  weil sechs Seiten sie tragen.</p>
+</div>
+
+<script>
+var antworten = [], typ = "klein";
+function zeige(n){
+  document.querySelectorAll('.qz-schritt').forEach(function(e){e.classList.toggle('an', e.dataset.s == String(n))});
+}
+document.querySelectorAll('.qz-opt').forEach(function(b){
+  b.addEventListener('click', function(){
+    var schritt = Number(b.closest('.qz-schritt').dataset.s);
+    antworten[schritt - 1] = b.dataset.w;          // je Schritt EIN Wert, kein Anhaengen
+    if (b.dataset.typ) typ = b.dataset.typ;
+    if (schritt === 1) { zeige(2); return; }
+
+    var gross = (typ === "gross");
+    document.getElementById('qz-titel').textContent = gross
+      ? 'Business-Site, 1.990 € Festpreis' : 'Onepager, 990 € Festpreis';
+    document.getElementById('qz-warum').textContent = gross
+      ? 'Weil Sie mehrere Leistungen zeigen wollen: 4 bis 6 Seiten mit klarer Struktur.'
+      : 'Weil alles Wichtige auf eine Seite passt: Leistungen, Kontakt, Anfahrt.';
+    var text = 'Hallo Marvin, ' + antworten[0] + ' und ' + antworten[1] + '. Ich interessiere mich für '
+             + (gross ? 'die Business-Site' : 'den Onepager') + '.';
+    document.getElementById('qz-wa').href = 'https://wa.me/4915906453169?text=' + encodeURIComponent(text);
+    document.getElementById('qz-vorschau').textContent = 'Ihre Nachricht ist schon fertig: „' + text + '“';
+    zeige(3);
+  });
+});
+document.getElementById('qz-reset').addEventListener('click', function(){ antworten = []; typ = "klein"; zeige(1); });
+</script>
+</body>
+</html>

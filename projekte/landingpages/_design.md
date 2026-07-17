@@ -226,3 +226,25 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 | Instagram-Bio | instagram.html | fertig (H1-Annahme: Profil zeigt Arbeit) |
 | Visitenkarte (QR) | karte.html | fertig |
 | Fallback (Mail-Signatur, nach Telefonat) | angebot.html | fertig, nicht einer von Marvins 4 Kanaelen, aber die Quelle aller warmen Varianten |
+
+## Sprache: verständlich für einen Zehnjährigen (Marvins Regel, 2026-07-17)
+
+Kernregel für ALLE Kundentexte: "So simpel, dass es ein Zehnjähriger versteht. Nicht
+kindlich, aber dumbed down." Je mehr der Leser mitdenken muss, desto mehr springen ab,
+weil sie keine Motivation haben, sich reinzudenken. Fachwörter sind Denk-Hürden.
+
+Uebersetzungs-Tabelle (verbindlich, sichtbarer Verkaufstext):
+- Plattform / Plattformkosten -> "monatliche Gebühr", "pro Monat", "der Baukasten"
+- "System / Skripte / Mess-Technik mitladen" -> "der Baukasten schleppt seinen ganzen
+  Werkzeugkasten mit" (Marvins Beispiel-Satz, der zuvor unverstaendlich war)
+- Hosting / Hoster -> "der Platz für Ihre Seite im Netz", "Anbieter"
+- Domain -> "Ihre Internet-Adresse" / "die Adresse" (Domain nur noch in Fussnoten)
+- Ranking -> "zeigt sie weiter oben"; "Hauptinhalt" -> "eine Seite"
+- PageSpeed -> "Tempo-Wert von Google"
+- Fremdcode -> "unnötiger Ballast"; US-Standardserver -> "fremde Server"
+- WCAG 2.1 AA -> "für alle bedienbar, auch für Ältere"; das Kuerzel NUR in Klammern als
+  Kompetenz-Nachweis ("Fachleute nennen das WCAG 2.1 AA"), genau EINMAL (angebot.html).
+
+AUSNAHME: Fussnoten (.fussnote) duerfen praezise/fachlich bleiben (Webflow-Listenpreise,
+Kurs, Stand). Ein Zehnjaehriger liest kein Kleingedrucktes; dort zaehlt Korrektheit.
+Beim naechsten Copy-Change gegenpruefen: grep sichtbaren Text gegen diese Liste.

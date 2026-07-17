@@ -180,6 +180,12 @@ summary:hover{color:var(--signal-deep)}
 [data-rennen].armiert .mess-spur i{transform:scaleX(0)}
 [data-rennen].armiert.los .b-ballast i{transform:scaleX(1);transition:transform 3.2s linear}
 [data-rennen].armiert.los .b-schlank i{transform:scaleX(1);transition:transform .8s ease-out}
+/* "Nochmal zeigen": setzt site.js nur ein, wenn die Animation auch laeuft */
+.mess-neu{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink);
+  background:var(--paper);border:1.5px solid var(--ink);padding:9px 14px;margin-top:14px;
+  cursor:pointer;transition:background .15s,color .15s}
+.mess-neu:hover{background:var(--ink);color:var(--paper)}
+.mess-neu:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
 
 /* Messwert (PageSpeed) */
 .wert{font-family:var(--disp);font-size:clamp(56px,6vw,96px);font-weight:700;letter-spacing:-0.03em;line-height:1}
