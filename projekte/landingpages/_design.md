@@ -177,6 +177,7 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 | angebot.html | warme Seite, KANAL: generisch (Mail-Signatur, nach Telefonat) | .dok, Docket-Briefkopf, .stack, .compare, KI-FAQ nur hier |
 | karte.html | warme Seite, KANAL: QR auf der Visitenkarte (nach persoenlichem Treffen) | Koerper identisch mit angebot.html; H1 "Schoen, dass wir uns getroffen haben" |
 | whatsapp.html | warme Seite, KANAL: Link im WhatsApp-Business-Profil | Koerper identisch mit angebot.html; CTA "Antworten Sie einfach hier in WhatsApp" |
+| instagram.html | warme Seite, KANAL: Link in der Instagram-Bio | Koerper identisch mit angebot.html; H1 "Sie haben die Arbeit gesehen" ANNAHME: Profil zeigt Arbeit. Bei leerem Profil H1 tauschen. |
 | 404.html | Fehlerseite | root-absolute Pfade, Wegweiser auf die 3 Ad-LPs |
 
 ## Known Gaps
@@ -215,3 +216,13 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 - Count-up/Reveals brauchen einen echten Geraete-Check (Browser-Pane pausiert IO/rAF).
 - Ungenutzte geerbte Tokens in :root: --hair, --dark-line, --dark-body (0 Treffer in
   styles.css); beim naechsten Umbau nutzen oder streichen.
+
+## Kanal-Karte (Stand 2026-07-17, Marvins 4 Kanaele)
+
+| Kanal | Seite | Zustand |
+|---|---|---|
+| Social Ad | kosten.html / eigentum.html / schnell.html | je Angle eine; Creative existiert noch nicht, H1 beim Ad-Texten gegenpruefen (Message Match) |
+| WhatsApp-Business-Profil | whatsapp.html | fertig |
+| Instagram-Bio | instagram.html | fertig (H1-Annahme: Profil zeigt Arbeit) |
+| Visitenkarte (QR) | karte.html | fertig |
+| Fallback (Mail-Signatur, nach Telefonat) | angebot.html | fertig, nicht einer von Marvins 4 Kanaelen, aber die Quelle aller warmen Varianten |
