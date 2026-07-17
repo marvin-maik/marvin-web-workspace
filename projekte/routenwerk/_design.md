@@ -24,8 +24,12 @@ colors:
   flap: "#211C15"         # --flap, Klapp-Kachel dunkel, Consent-Banner-Grund, Favicon-Grund
   flap-hell: "#2B251C"    # --flap-hell, Klapp-Kachel oben
   stempel-blau: "#2E4A6B" # --stempel-blau, ZWEITE Grenzstempel-Farbe, nur .stempel.blau. Kein allgemeiner Akzent.
-  # Hardcoded (nur Dunkel-Kontext, nicht als Token): #8f887b + #353026 (Schalter-Schild
-  # auf band-ink), #4A443A + #1D1912 (E-Mail-Input auf band-ink), #4a443a (Postkarten-Text).
+  muted-dunkel: "#8F887B"    # --muted-dunkel, Muted-Text auf dunklem Band (Schalter-Schild, Buehne3d-Schild)
+  line-dunkel: "#353026"     # --line-dunkel, Hairline auf dunklem Band
+  feld-dunkel-bg: "#1D1912"  # --feld-dunkel-bg, E-Mail-Input-Grund auf band-ink
+  feld-dunkel-rand: "#4A443A"# --feld-dunkel-rand, E-Mail-Input-Rand auf band-ink
+  # Hardcoded (bewusst kein Token): #4a443a (Postkarten-Text .pk-links p, Hell-Kontext,
+  # 9.15:1 auf bg). Dunkel-Kontext-Werte sind seit 2026-07-17 Tokens (siehe oben).
   # Kontrastpaare (gerechnet): ink/bg = 17.6:1, bg/signal = 5.3:1 (AA, ::selection),
   # muted/bg = 5.1:1 (AA fuer Meta), signal/bg (Akzent auf hell) = 5.3:1.
 
@@ -205,11 +209,8 @@ nichts davon; Not-Aus-Timeouts in Weiche (6s) und site.js (7s).
   vor echtem Launch selbst hosten (Kommentar in ueber-uns.html).
 - Tote CSS-Bloecke ohne HTML-Fundstelle: .gcard/.karten/.metaleiste (Guides nutzen
   stattdessen .pass) und .buehne3d/model-viewer (3D-Demos nur in freigabe/).
-- fonts/ibm-plex-mono-400.woff2 liegt im Ordner, hat aber kein @font-face (Altlast).
 - Logo-Animation: Storyboard-Intro ist seit 2026-07-16 als Lade-Intro auf index.html
   verbaut (siehe Motion). Die 3 Einzel-Konzepte (Wortmarke/Submark/Flap-Kachel) liegen
   weiter als Sandbox im Scratchpad; MP4-Export fuer Social steht noch aus.
-- Dunkel-Kontext-Farben (#8f887b, #353026, #4A443A, #1D1912, #4a443a) sind hardcoded,
-  keine Tokens; bei Wiederverwendung entscheiden, ob sie Tokens werden.
 - Foto-Platzhalter (.foto-Schraffur) auf beratung.html + gruppenreisen.html noch
   ohne echte Bilder.

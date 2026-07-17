@@ -23,6 +23,10 @@
   --flap:#211C15;            /* Klapp-Kachel dunkel */
   --flap-hell:#2B251C;       /* Klapp-Kachel oben */
   --stempel-blau:#2E4A6B;    /* zweite Grenzstempel-Farbe */
+  --muted-dunkel:#8F887B;    /* Muted-Text auf dunklem Band */
+  --line-dunkel:#353026;     /* Hairline auf dunklem Band */
+  --feld-dunkel-bg:#1D1912;  /* Eingabefeld-Grund auf dunklem Band */
+  --feld-dunkel-rand:#4A443A;/* Eingabefeld-Rand auf dunklem Band */
   --display:'Cabinet Grotesk',sans-serif;
   --body:'General Sans',sans-serif;
   --mono:'B612 Mono',ui-monospace,monospace;
@@ -608,9 +612,9 @@ html.intro-wartet::before{content:"";position:fixed;inset:0;background:var(--bg)
 /* ---------- Check-in-Schalter (Lead Magnet / Warteliste) ---------- */
 .schalter-schild{display:flex;justify-content:space-between;gap:12px;align-items:center;
   font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  color:#8f887b;border-bottom:1px solid #353026;padding-bottom:12px;margin-bottom:18px}
+  color:var(--muted-dunkel);border-bottom:1px solid var(--line-dunkel);padding-bottom:12px;margin-bottom:18px}
 .schalter-schild b{color:var(--solari);font-weight:700}
-.band-ink input[type=email]{border-color:#4A443A;background:#1D1912;color:var(--bg)}
+.band-ink input[type=email]{border-color:var(--feld-dunkel-rand);background:var(--feld-dunkel-bg);color:var(--bg)}
 .band-ink input[type=email]:focus{outline-color:var(--solari)}
 
 /* ---------- Briefmarken-Fotorahmen ---------- */
@@ -642,7 +646,7 @@ html.intro-wartet::before{content:"";position:fixed;inset:0;background:var(--bg)
 /* ---------- 3D-Buehnen (Globus / Flugzeug) ---------- */
 .buehne3d{background:var(--ink);border-radius:6px;position:relative;overflow:hidden;touch-action:pan-y;margin-top:24px}
 .buehne3d .schild{position:absolute;top:14px;left:18px;z-index:2;display:flex;gap:14px;
-  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8f887b}
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-dunkel)}
 .buehne3d .schild b{color:var(--solari);font-weight:700}
 .buehne3d canvas,.buehne3d model-viewer{width:100%;height:540px;display:block;--poster-color:transparent}
 .buehne3d canvas{cursor:grab}
