@@ -1,6 +1,6 @@
 ---
 projekt: landingpages
-stand: 2026-07-16
+stand: 2026-07-17
 quellen: styles.css, kosten.html, design-dossier.md (Richtung A per Marvins Ansage 2026-07-16)
 live: noch nicht live (pages.dev-Projekt noch nicht angelegt, _headers mit noindex vorbereitet)
 description: "Werkstatt-Editorial, geerbt 1:1 von marvin-web (gleicher Absender, gleiche CD):
@@ -92,6 +92,10 @@ mask-Fehlstelle, --signal-deep) als Eigentums-Zusage.
 | `.cta-band` | Abschluss-Band | Ink-Flaeche, h-lg in paper, Ghost-Button invertiert |
 | `.erledigt` | Status-Badge | Mono uppercase, weiss auf --signal-deep (6,04:1) |
 | `.foot-row` | Footer | Ink-Band, Mono, Underline-Slide-Hover (background-size-Trick) |
+| `.about-grid` / `.pull` / `.who` | Wer-baut-das-Block | Portraet in .duo-Rahmen + Pull-Quote (Clash 28-48px, em = signal-deep) + Mono-Absender |
+| `.demo-blick` | Demo-Projekt-Fenster | Weiss, 1.5px Ink-Border, 8px-Hard-Shadow, Screenshot + Mono-figcaption (ehrlich "Demo-Projekt" gelabelt) |
+| `.facts` / `.fact` | Eckdaten-Kacheln | 1.5px-Ink-Grid mit 1.5px-Stegen, Zahl Clash 38-56px, Label Mono signal-deep; Reveal = Tinte-Cover (::after faellt ab), NIE Opacity-Fade |
+| `.guarantee-band` | Garantie am Preis | paper-deep-Flaeche, 1.5px Ink-Border, Haken-Icon signal-deep, direkt unter .pkg-grid |
 
 ## Motion
 
@@ -104,8 +108,9 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
 ## Konstruktions-Muster
 
 1. Jede Sektion beginnt mit `.tag` (// Marker), dann `.h-lg`, dann max. 600px Lede.
-2. Ad-LPs teilen ein Skelett: Hero -> Angle-Problem -> Angle-Beweis -> Pakete ->
-   Ablauf (identisch) -> FAQ (Reihenfolge je Angle) -> CTA-Band. Nur 1 bis 3 variieren.
+2. Ad-LPs teilen ein Skelett: Hero -> Angle-Problem -> Angle-Beweis -> Wer-baut-das
+   (Sanwarwala-Proof: Portraet + Demo-Fenster + facts, identisch) -> Pakete (+ Garantie-Band
+   am Preis + Startpreis-Absatz) -> Ablauf (identisch) -> FAQ (Reihenfolge je Angle) -> CTA-Band.
 3. Rechen-/Beleg-Inhalte IMMER als .docket (Kopf/Rows/Ink-Fuss), Betraege Mono rechts.
 4. Ein CTA-Paar pro Block: btn-primary (WhatsApp, mit vorbefuelltem ?text= je Angle)
    + btn-ghost (tel:). Darunter immer .trust-row.
@@ -150,8 +155,13 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
   Footer-Rechtslinks zeigen auf marvin-web.pages.dev. Kein foot-mark bis Name steht.
 - "Gueltig: 30 Tage ab Erhalt" im Angebots-Briefkopf ist Claude-Ergaenzung, nicht
   freigegebene Wireframe-Copy: von Marvin bestaetigen lassen.
-- PageSpeed 98 stammt von routenwerk (anonymisiert "eines von mir gebauten Projekts");
-  nach Live-Gang eigenen Messwert der LP einsetzen.
+- routenwerk ist seit 2026-07-17 mit Marvins Freigabe SICHTBAR als "Demo-Projekt
+  (fiktives Reisebuero als Anschauungsprojekt)" gelabelt (demo-blick + facts-Kachel);
+  NIE als Kundenreferenz ausgeben. Ablosen, sobald echte Case Study existiert
+  (Aluman wird verkauft statt migriert, Marvin 2026-07-17).
+- Startpreis-Mechanik (Hormozi, ECHTE Urgency): Par. 19 UStG gilt nur in der Startphase,
+  spaeter +19 % USt und Wartezeiten; konkrete Zukunftszahl 1.178 EUR (= 990 x 1,19).
+  KEINE Streichpreise/Countdown erfinden (PAngV + Vertrauen).
 - Betreuungs-Umfang (Anzahl Aenderungen, Reaktionszeit) und Umzugs-Prozess textlich
   noch duenn (offene Marvin-Entscheidungen aus struktur.md).
 - iOS zeigt im .table-scroll keinen Scrollbalken (bekanntes Muster, Indikator-Rezept

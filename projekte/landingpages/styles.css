@@ -233,6 +233,48 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
   transition:background-size .25s ease,color .15s ease}
 .foot-row a:hover{color:var(--paper);background-size:100% 2px}
 
+/* Wer baut das: Portraet + Text (about-Rezept aus marvin-web) */
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center;margin-top:44px}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}}
+.duo{border:1.5px solid var(--ink);background:var(--paper-deep);margin:0}
+.duo img{display:block;width:100%;height:auto}
+.pull{font-family:var(--disp);font-size:clamp(28px,3.8vw,48px);font-weight:600;line-height:1.05;letter-spacing:-0.025em;margin-bottom:24px;color:var(--ink)}
+.pull em{font-style:normal;color:var(--signal-deep)}
+.about-text p{color:var(--ink-soft);margin-bottom:14px;font-size:16.5px}
+.about-text p.pull{color:var(--ink)}
+.about-text .who{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:22px}
+
+/* Demo-Projekt-Fenster (design-blick-Rezept) */
+.demo-blick{border:1.5px solid var(--ink);background:var(--white);padding:18px;margin:44px 0 0;box-shadow:8px 8px 0 var(--paper-deep)}
+.demo-blick img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.demo-blick figcaption{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+
+/* Eckdaten-Kacheln (facts-Rezept inkl. Tinte-Cover-Reveal, siehe marvin-web) */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5px;border:1.5px solid var(--ink);background:var(--ink);margin-top:44px}
+@media(max-width:960px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--white);padding:30px 26px}
+.fact .n{font-family:var(--disp);font-size:clamp(38px,3.8vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1}
+.fact .n small{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--muted);letter-spacing:.04em}
+.fact .l{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);margin-top:12px}
+.fact .s{display:block;font-size:13.5px;color:var(--muted);margin-top:6px}
+.fact{transition:background .2s ease}
+.fact:hover{background:var(--paper)}
+/* Kein Opacity-Fade (dunkler Grid-Hintergrund schiene durch): Tinte-Cover faellt ab */
+.fact{position:relative;overflow:hidden}
+.fact.rv{opacity:1;transform:none}
+.fact.rv::after{content:"";position:absolute;inset:0;background:var(--ink);transition:transform .95s cubic-bezier(.45,0,.12,1);transition-delay:inherit}
+.fact.rv.in::after{transform:translateY(101%)}
+@supports(grid-template-rows:subgrid){
+  .fact{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
+}
+
+/* Garantie-Band am Preis */
+.guarantee-band{border:1.5px solid var(--ink);background:var(--paper-deep);padding:28px 30px;margin-top:24px;display:flex;gap:18px;align-items:flex-start}
+.guarantee-band .ic{font-family:var(--mono);color:var(--signal-deep);font-size:22px;font-weight:700;line-height:1.2}
+.guarantee-band h3{font-size:20px;margin-bottom:6px}
+.guarantee-band p{color:var(--ink-soft);font-size:15.5px;margin:0}
+
 /* Micro-Animations */
 @keyframes drawRule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 .hero .rule{animation:drawRule .9s .25s cubic-bezier(.77,0,.18,1) both}
