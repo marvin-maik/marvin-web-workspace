@@ -67,6 +67,13 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **Responsive-Feinschliff Mobile/Tablet/Desktop** (styles.css v16->v17, alle Seiten). Zwei
+  echte Fehler behoben: (1) About-Porträt blies sich auf Tablet auf volle Breite auf (712px-Riesenfoto)
+  -> about-grid bleibt bis 640px zweispaltig, .duo danach max 300px; (2) Showcase-Bildunterschrift lief
+  hinter das überlappende Handy -> padding-right unter 860px. Plus Tablet-Stufen ergänzt: karten-3
+  (Selbsttest) bleibt dreispaltig bis 620px statt bei 860 zu stapeln; kalte Pakete zweispaltig bis 700
+  statt 900; .dok-Pakete 701-1000 zweispaltig mit Paket 3 über volle Breite (statt Sprung 3sp->1sp).
+  Verifiziert per Browser an allen Breakpoint-Grenzen (390/701/768/1000/1001/1280), 0 Overflow. _design.md mitgezogen.
 - 2026-07-18: og:title-Bug auf 3 Kanal-Seiten gefixt; warme LPs auf `_lp/`-Generator umgestellt (regressionsfrei bewiesen).
 - 2026-07-18: Design-Sync (angebot-Refresh auf alle LPs). Details im PROJEKTE-Log.
 - 2026-07-17: Feinschliff-Runde (Sanwarwala + Hormozi): Proof vor Preis, Offer-Stack auf angebot.

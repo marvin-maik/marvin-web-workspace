@@ -64,9 +64,18 @@ rounded:
   keine (0px ueberall; einzige Ausnahme .stempel 6px, Wireframe-Highlight eigentum.html)
 
 breakpoints:
-  900px (pkg-grid einspaltig; .dok-Pakete erst bei 1000px einspaltig, sonst bricht der
-  Streichpreis in der schmalen 3er-Spalte um, Marvin 2026-07-18), 860px (beweis-duo/karten
-  einspaltig), 560px (steps einspaltig)
+  # Responsive-Feinschliff 2026-07-18 (Tablet-Stufen ergaenzt, damit zw. Handy und Desktop
+  # nichts luftig-leer oder aufgeblasen wirkt; alles verifiziert Mobile/Tablet/Desktop, 0 Overflow):
+  1000/1001px (.dok-Pakete: ab 1001 dreispaltig; 701-1000 ZWEIspaltig mit Paket 3 ueber
+    die volle Breite, so kein einsames Halbfeld und kein Streichpreis-Umbruch in schmaler Spalte)
+  700px (kalte-LP-Pakete UND .dok-Pakete werden erst hier einspaltig; darueber zweispaltig,
+    Spalte bleibt >=321px = Streichpreis einzeilig. Vorher stapelten kalte Pakete schon bei 900)
+  860px (beweis-duo/karten-2 einspaltig; showcase-Bildunterschrift bekommt padding-right 160,
+    damit keine Zeile hinter dem ueberlappenden Handy verschwindet -> 124 unter 560)
+  640px (about-grid gestapelt UND .duo-Portraet auf max 300px gedeckelt; vorher stapelte es
+    schon bei 820 und blies das Hochformat auf volle Breite = 712px-Riesenfoto auf Tablet)
+  620px (karten-3/Selbsttest einspaltig; darueber dreispaltig = drei Fragen nebeneinander)
+  560px (steps einspaltig, docket Label-ueber-Wert, compare als Bon-Muster, stack einspaltig)
 ---
 
 ## Signature-Element
@@ -90,15 +99,15 @@ mask-Fehlstelle, --signal-deep) als Eigentums-Zusage.
 | `.docket` | Auftragszettel/Beleg | Weiss, 1.5px Ink-Border, 8px-Hard-Shadow paper-deep; Head 1.5px-Border, Rows dashed, Foot = Ink-Band |
 | `.docket-foot .gross` | Count-up-Zahl | Clash 700, clamp(34px,5vw,52px), tabular-nums, data-zaehler |
 | `.karte` | Info-Karte | Weiss, 1.5px Ink-Border, Haken-Liste mit dashed Rows |
-| `.pkg-grid` / `.pkg` | Paket-Karten | 1.5px-Ink-Rahmen, Trennsteg 1.5px, .tier Mono, .price Clash 44-60px |
+| `.pkg-grid` / `.pkg` | Paket-Karten | 1.5px-Ink-Rahmen, Trennsteg 1.5px, .tier Mono, .price Clash 44-60px. Kalt (2 Pakete): zweispaltig bis 700px. .dok (3 Pakete): 3sp >=1001, 2sp 701-1000 mit Paket 3 volle Breite (nth-child(3) grid-column 1/-1), 1sp <=700 |
 | `.steps` / `.step .big` | Ablauf | 3 Spalten mit Hairline-Stegen, Zahlen 01-03 als Orange-Stroke (text-stroke), fuellen sich bei .rv.in |
 | `.faq-list details` | FAQ | Hairline-Rows VOLLE Breite (820er-Deckel entfernt 2026-07-18, Referenz-Abgleich mit marvin-web live; gilt fuer ALLE LPs), summary Clash 18-23px, +/x-Marker --signal, Antwort in div.a (760 Lesetext) |
 | `.mess` / `.mess-spur i` | Ladebalken-Rennen | Massband-Gradient als Fuellung, scaleX-Transition (Compositor!), Endzustand ist CSS-Default |
 | `.compare` + `.table-scroll` | Vergleichstabelle | 1.5px-Ink-Rahmen, thead paper-deep, overflow-x im Wrapper |
 | `.cta-band` | Abschluss-Band | Ink-Flaeche, h-lg in paper, Ghost-Button invertiert |
 | `.foot-row` | Footer | Ink-Band, Mono, Underline-Slide-Hover (background-size-Trick) |
-| `.about-grid` / `.pull` / `.who` | Wer-baut-das-Block | Portraet in .duo-Rahmen + Pull-Quote (Clash 28-48px, em = signal-deep) + Mono-Absender |
-| `.showcase` | Geraete-Showcase | Browserrahmen (.showcase-bar mit Dots + URL) + Desktop-Screenshot, davor .showcase-phone (132px, border-radius 26px = physisches Geraet) mit Mobil-Screenshot; STATISCH, bewusst kein iframe |
+| `.about-grid` / `.pull` / `.who` | Wer-baut-das-Block | Portraet in .duo-Rahmen + Pull-Quote (Clash 28-48px, em = signal-deep) + Mono-Absender. Bleibt bis 640px zweispaltig (Portraet + Text nebeneinander), erst darunter gestapelt mit .duo max-width 300px (sonst 712px-Riesenfoto auf Tablet, 2026-07-18 gefixt) |
+| `.showcase` | Geraete-Showcase | Browserrahmen (.showcase-bar mit Dots + URL) + Desktop-Screenshot, davor .showcase-phone (132px, border-radius 26px = physisches Geraet) mit Mobil-Screenshot; STATISCH, bewusst kein iframe. WICHTIG: unter 860px bekommt .showcase-cap padding-right (160/124), sonst haengt das Handy ueber der Bildunterschrift und schneidet Text ab (2026-07-18 gefixt) |
 | `.facts` / `.fact` | Eckdaten-Kacheln | 1.5px-Ink-Grid mit 1.5px-Stegen, Zahl Clash 38-56px, Label Mono signal-deep; Reveal = Tinte-Cover (::after faellt ab), NIE Opacity-Fade |
 | `.guarantee-band` | Freigabe-Garantie am Preis | Ad-LPs: paper-deep-Kasten mit Haken-Icon. Auf .dok seit 2026-07-18 ENTKASTET (Marvins Ansage, Stempel-Variante verworfen): nur .tag + h3 28px + p, 760px, direkt unter .pkg-grid |
 | `.gruendung` | Verknappung (der EINE laute Haken) | Ink-Flaeche, .plaetze Mono in signal-tint, h3 in paper; direkt unter der Garantie |
