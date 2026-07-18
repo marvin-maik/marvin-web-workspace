@@ -33,7 +33,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       (og:url/og:image/JSON-LD/`_next`) → marvinwebdesign.de; canonical je indexierbarer Seite
       (extensionslos — CF liefert `/pfad` ohne `.html`, `.html` macht 308); eigene robots.txt +
       sitemap.xml (nur die 6 indexierbaren Seiten; impressum/datenschutz sind noindex).
-- [ ] **Formular Formspree → CF Pages Function** umstellen (integrations.md 1b) — steht noch aus.
+- [~] **Formular Formspree → CF Pages Function** (integrations.md 1b): Function gebaut in `functions/api/kontakt.js` (serverseitig Honeypot + Zeit-Falle, Validierung, Redirect /danke, eigene Fehlerseite). Versand via **Zoho ZeptoMail (EU)** entschieden (Marvin will Danke-Mail an Kunden; ZeptoMail = gleicher Anbieter wie Mail, kein Fremd-Branding, faktisch gratis). WARTET auf Marvin: ZeptoMail-Konto freischalten (zeptomail.zoho.eu) + Domain verifizieren (DKIM/SPF-Include in CF, EINE SPF-Zeile mergen) + Sendetoken als CF-Env-Var `ZEPTOMAIL_TOKEN` (Pages-Projekt marvin-web, Secret). DANN Flip durch Claude: Formular-`action` → `/api/kontakt`, `_subject`/`_next` raus, `_ts`-Feld + site.js-Zeitstempel rein, Copy „Was danach passiert" (kontakt.html §01) + Datenschutz §4 (Formspree/USA raus, ZeptoMail/EU rein), deploy, echter Test-Submit. Bis Flip bleibt Formspree aktiv (Working Tree unverändert am Formular).
 - [ ] Formspree-Testsubmit real: greift `_next` → /danke im Free-Tarif? (Custom-Redirect ist Bezahl-Feature; sonst Tarif hoch ODER CF Pages Function)
 - [ ] Marvin: Test-Alarm-Mail (UptimeRobot) im Postfach/Spam prüfen; UptimeRobot-Monitor ggf. von pages.dev auf marvinwebdesign.de umhängen.
 - [x] **Logo eingebaut** (2026-07-19, Deploy ff45f0b5): Richtung A (Wortmarke „Signal-Quadrat") als
