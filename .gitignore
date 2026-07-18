@@ -21,3 +21,6 @@ dist/
 
 # geklontes Referenz-Repo (eigenes git)
 _referenz/awesome-design-md/
+
+# node_modules auch als Symlink erfassen (z. B. _logo/node_modules -> _tools/logo/node_modules)
+**/node_modules
