@@ -3,16 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Warme Angebots-Seite: bewusst noindex, wird nur direkt per WhatsApp verschickt -->
-<!-- KANAL: Link im WhatsApp-Business-Profil. Koerper identisch mit angebot.html, nur Hero + CTA + Prefill unterscheiden sich. -->
+{{kanalKommentar}}
 <meta name="robots" content="noindex">
-<title>Websites zum Festpreis · ab 990 €</title>
+<title>{{title}}</title>
 <meta name="description" content="Alles schwarz auf weiß: Pakete ab 990 € Festpreis, Kostenvergleich, Ablauf und Antworten auf die häufigsten Fragen.">
 <!-- DOMAIN-SWAP: absolute URLs beim Anlegen des Cloudflare-Pages-Projekts ersetzen -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Websites zum Festpreis · ab 990 €">
+<meta property="og:title" content="{{ogTitle}}">
 <meta property="og:description" content="Alles schwarz auf weiß: Pakete ab 990 € Festpreis, Kostenvergleich, Ablauf und die häufigsten Fragen.">
-<meta property="og:url" content="https://DOMAIN-SWAP/whatsapp">
+<meta property="og:url" content="https://DOMAIN-SWAP{{ogPath}}">
 <meta property="og:image" content="https://DOMAIN-SWAP/img/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -39,11 +38,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-main">
-      <h1>Websites zum Festpreis, <em>schwarz auf weiß.</em></h1>
+      <h1>{{h1}}</h1>
       <div class="rule" aria-hidden="true"></div>
-      <p class="sub">Was Sie bekommen, was es kostet, wie es abläuft. Alles auf einer Seite,
-      zum in Ruhe lesen. Die Preise unten sind Festpreise, da kommt später nichts dazu.
-      Fragen können Sie mir danach einfach hier in WhatsApp stellen.</p>
+      <p class="sub">{{heroSub}}</p>
       <div class="hero-ctas" style="margin-top:24px">
         <!-- CAL-SWAP: Cal.com-Link fuer 20-Minuten-Gespraech eintragen -->
         <a class="btn btn-primary" href="https://cal.com/CAL-SWAP/20min" target="_blank" rel="noopener">Buch dir ein 20-Minuten-Gespräch jetzt</a>
@@ -282,10 +279,10 @@
 <section class="cta-band">
   <div class="wrap">
     <p class="tag">Der nächste Schritt</p>
-    <h2 class="h-lg">Antworten Sie einfach hier in WhatsApp.</h2>
+    <h2 class="h-lg">{{ctaH2}}</h2>
     <p class="lede">Sagen Sie, welches Paket Sie interessiert. Wir sprechen 20 Minuten. Danach wissen Sie, was Sie bekommen.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://wa.me/4915906453169?text=Hallo%20Marvin%2C%20ich%20habe%20das%20Angebot%20gelesen%20und%20h%C3%A4tte%20eine%20Frage.">In WhatsApp antworten</a>
+      <a class="btn btn-primary" href="https://wa.me/4915906453169?text={{waPrefill}}">In WhatsApp antworten</a>
       <a class="btn btn-ghost" href="tel:+4915906453169">0159 06453169 anrufen</a>
     </div>
     <ul class="trust-row">
