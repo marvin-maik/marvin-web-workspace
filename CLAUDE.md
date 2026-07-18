@@ -8,11 +8,13 @@ einer Referenzdatei (Detail on demand). Findest du dieselbe Regel doppelt, ist d
 
 ## Prozess
 - Neue Projekte laufen nach dem Playbook-Skill `neues-projekt` (Phasen + Freigaben).
-- Status-Board `PROJEKTE.md` bei jedem Phasenwechsel aktualisieren.
+- Arbeitest du an einem BESTEHENDEN Projekt: ZUERST `projekte/<name>/_lotse.md` lesen (Stand, feste
+  Entscheidungen, offene Punkte, was jetzt relevant) — das ist das Projekt-Gehirn. Am Ende mitziehen.
+- Projekt-Stand lebt im `_lotse`; `PROJEKTE.md` ist nur der Einzeiler-Index darauf (bei Phasenwechsel die eine Zeile anpassen).
 - Git: Commit nach jedem Meilenstein (Phase fertig, Version gebaut). Deutsch, praegnant.
   Danach `git push` — Backup-Remote: github.com/marvin-maik/marvin-web-workspace (privat).
 - Erst Struktur-/Token-Plan zeigen, dann Code. Bei Aenderungen gezielt editieren, nie komplett neu generieren.
-- Die `product-marketing-context.md` des Projekts ist die Was-Quelle: immer zuerst lesen.
+- Die `product-marketing-context.md` des Projekts ist die Was-Quelle (Copy/Zielgruppe/Fakten).
 
 ## Anti-Slop (die EINE Quelle, immer gueltig)
 Kanonisch. hosting-referenz.md 9.5 und die Anti-Slop-Memory verweisen hierher, statt zu doppeln.
@@ -29,6 +31,7 @@ Kanonisch. hosting-referenz.md 9.5 und die Anti-Slop-Memory verweisen hierher, s
 ## Quellen-Karte: was wann lesen (jede Regel hat genau ein Zuhause)
 | Wenn du ... | lies + pflege NUR |
 |---|---|
+| an einem Projekt arbeitest (egal was) | ZUERST `projekte/<name>/_lotse.md` (Stand, feste Entscheidungen, offene Punkte, jetzt-relevant); am Ende mitziehen |
 | Design/Copy an einem BESTAND-Projekt machst | `projekte/<name>/_design.md` (fehlt/aelter als styles.css -> Skill `design-md` erzeugen; nach jeder Design-Aenderung im SELBEN Commit mitziehen, styles.css bleibt Quelle der Wahrheit) |
 | baust (jede Seite) | `_referenz/technik-patterns.md` (kampferprobte Loesungen + Botschutz-Code — nicht neu erfinden) |
 | Pflichtseiten + Pflichtdateien pruefst (schon im BUILD, erneut vor Launch) | `_referenz/pflichtseiten-checkliste.md` (404, _headers, Favicon-Serie, OG-Bild, JSON-LD, danke.html, robots/sitemap/canonical, Verkauf/Widerruf/PAngV/BFSG, Monitoring) |

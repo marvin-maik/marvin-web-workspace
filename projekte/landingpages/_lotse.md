@@ -1,0 +1,73 @@
+# landingpages — Lotse (ZUERST lesen)
+
+Das Gehirn dieses Projekts. Vor jeder Arbeit hier zuerst diese Datei lesen: Stand, feste
+Entscheidungen, offene Punkte, was gerade relevant ist. Nach jedem Arbeitsschritt/Phasenwechsel
+kurz mitziehen. Detail-Quellen sind verlinkt, hier steht nur der Wegweiser.
+
+Stand: 2026-07-18 · Phase: **Feinschliff + Design-Freigabe** (gebaut, noch nicht live)
+
+## Was & wo
+- Landingpages fuer Marvins EIGENES Web-Angebot. 3 kalte Ad-LPs (Angles Kosten/Eigentum/Speed,
+  kein Menue, ein CTA) + 1 warme Angebots-Seite + 3 warme Kanal-Varianten (Karte/WhatsApp/Instagram).
+- Was-Quelle (Copy/Zielgruppe/Fakten): `product-marketing-context.md`
+- Design (as-built): `_design.md` (vor Design-Arbeit lesen, danach im selben Commit mitziehen)
+- Positionierungs-Rohmaterial: `_material/positionierung-webflow-vergleich.md` (mit verbindlichen Review-Hinweisen im Kopf)
+- Live: noch nicht (CF-Pages-Projekt noch anzulegen). Dev-Server: launch.json "landingpages" Port 8743.
+
+## Feste Entscheidungen (NICHT neu aufrollen, sind bewusst so)
+- **Zielgruppe**: Start-ups, Selbststaendige, kleine bis mittlere Betriebe. NICHT nur Handwerker,
+  KEINE Handwerker-Bilderwelt (Baustelle/Wartezimmer/Oeffnungszeiten) in Copy oder Ads.
+- **Design erbt das marvin-web-CD 1:1** (Werkstatt-Editorial: Clash Display, Papier #f5f1e8,
+  Orange #e8440a). Nicht mixen, keine neue Richtung erfinden. Marvins Ansage 2026-07-16.
+- **Markenname = Platzhalter `[MARKE]`** (Rebrand von MARVIN.WEB laeuft parallel). Kein Markenname hart eingebaut.
+- **CTA-Strategie: KEIN Formspree, kein Drittanbieter** (Positionierung "kein Fremdcode").
+  WhatsApp-Click (wa.me/4915906453169) + tel:. Formular spaeter via Cloudflare Pages Function.
+- **Positionierung gegen Webflow (verbindlich)**: kein "statisch vs dynamisch"-Performance-Argument
+  (Webflow published selbst statisch); echtes Argument = Fremdcode-Ballast (webflow.js, Telemetrie).
+  "Faktor 2-3 schneller" gestrichen (unbelegt), nutzbar: LCP < 2,5 s. CMS-Vergleich ehrlich
+  (Pflege ueber Betreuungspauschale, statische Seite hat kein CMS). Agentur-Rechnung NIE in
+  Kundenkommunikation. Flux-Zertifikat ist KEIN offizielles Webflow-Zertifikat (Formulierung:
+  Ausbildung/Masterclass). Vibe-Coding nur als Einwandbehandlung. DSGVO-Argument nur fuer Fonts/Skripte.
+- **Fakten fuer Copy** (aus marvin-web live): Onepager 990 EUR, Business-Site 1.990 EUR, Shop auf
+  Anfrage, Betreuung ab 49 EUR/Monat (1. Monat inkl.), PageSpeed 98 (routenwerk) als Speed-Beweis,
+  Kleinunternehmer Par. 19 UStG. Freigabe vor Bau, 1 Korrekturrunde, live erst nach Abnahme.
+- **Warme LPs werden generiert**, nicht von Hand kopiert: `_lp/` (siehe unten).
+
+## Offene Punkte (Stand 2026-07-18)
+- [ ] **Marvin: Design-Freigabe der 7 LPs** (Haupt-Blocker)
+- [ ] Geraete-Check: Count-up/Reveals/Balken auf echtem iPhone+Android (Browser-Pane pausiert IntersectionObserver/rAF, siehe technik-patterns.md)
+- [ ] formaler qa-polish-Lauf ueber alle 7 Seiten
+- [ ] Copy-Inkonsistenzen angleichen: kalte Ad-LPs sagen im Ablauf noch "30 Minuten" vs. 20 auf warm; Hero-CTA "Buch dir" duzt vs. sonst Sie
+- [ ] "Gueltig 30 Tage" im Angebots-Briefkopf ist Claude-Zusatz -> bestaetigen oder raus
+- [ ] Gruendungs-Abzug bewusst ohne feste Zahl (Chat-Verhandlung) -> so lassen?
+- [ ] mutige Garantie ("zahlen erst bei Abnahme") nicht gesetzt = Marvins Cashflow-Entscheidung
+- [ ] Umzugs-Prozess + Betreuungs-Umfang textlich noch duenn
+- [ ] **kalte Ad-LPs (kosten/eigentum/schnell) noch NICHT auf Generator umgestellt** (eigener Master offen)
+- [ ] Vor Deploy: CF-Pages-Projekt anlegen, CAL-SWAP (Cal.com-Link) + DOMAIN-SWAP (absolute URLs), Deploy-Go von Marvin
+- [ ] Ads erst NACH LP-Freigabe texten (Message Match zur H1)
+
+## Was ist JETZT relevant (Phase = Feinschliff/Freigabe)
+- `_design.md` lesen (as-built), bevor irgendwas am Aussehen geaendert wird
+- Warme LP aendern -> ueber `_lp/` generieren (nicht die HTML-Dateien direkt editieren)
+- Geraete-/Verify-Fallen -> `_referenz/technik-patterns.md`
+- Copy/Offer schaerfen -> Skills `cro`, `landing-page-copy`, `offers`; Frameworks Hormozi/Sanwarwala (`_referenz/hosting-referenz.md` 9.3c)
+- Endkontrolle -> Agent `qa-polish`
+- Vor Deploy -> `_referenz/deploy.md` + `_referenz/pflichtseiten-checkliste.md`
+
+## _lp/ Generator (warme Seiten)
+Eine Quelle, vier Ausgaben. Aendere `_lp/warm.master.html` (gemeinsamer Koerper) oder
+`_lp/warm.channels.mjs` (Kanal-Texte), dann `node _lp/build.mjs`. Erzeugt angebot/karte/whatsapp/
+instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften). Kalte LPs folgen noch.
+
+## Altlast / nie anfassen
+- Der alte Arbeitsname **"FutureGrowth" darf NIRGENDS auftauchen** (Dateien, Copy, Ordner, Gespraech).
+- `_material/design-dossier.md` (Richtung B "Beleg und Stempel", IBM Plex + Stempelblau) ist
+  VERWORFEN, liegt nur noch als Abgrenzungs-Doku. Nicht als Referenz nehmen.
+- `freigabe/` enthaelt einen aelteren Build-Stand mit altem Namensschema (lp-kosten, warm-v2 ...).
+  Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
+
+## Log (Neuestes oben)
+- 2026-07-18: og:title-Bug auf 3 Kanal-Seiten gefixt; warme LPs auf `_lp/`-Generator umgestellt (regressionsfrei bewiesen).
+- 2026-07-18: Design-Sync (angebot-Refresh auf alle LPs). Details im PROJEKTE-Log.
+- 2026-07-17: Feinschliff-Runde (Sanwarwala + Hormozi): Proof vor Preis, Offer-Stack auf angebot.
+- 2026-07-16: gebaut, Design = marvin-web-CD 1:1 geerbt (Richtung B ersetzt).
