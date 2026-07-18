@@ -262,10 +262,11 @@ summary:hover{color:var(--signal-deep)}
 /* Pakete: 3 Spalten (angebot hat 3 Pakete), Streichpreis (echter Zukunftspreis),
    einmalig-Zeile, Listen auf einer Hoehe */
 .dok .pkg-grid{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.dok .pkg-grid{grid-template-columns:1fr}}
-.price del{font-size:.5em;color:var(--muted);font-weight:400;margin-right:8px;text-decoration-color:var(--signal-deep)}
+/* 3 Spalten erst ab 1001px: darunter wird der Streichpreis in der schmalen Spalte umgebrochen (Marvin 2026-07-18) */
+@media(max-width:1000px){.dok .pkg-grid{grid-template-columns:1fr}.dok .pkg+.pkg{border-left:none;border-top:1.5px solid var(--ink)}}
+.price del{font-size:.5em;color:var(--muted);font-weight:400;margin-right:8px;text-decoration-color:var(--signal-deep);text-decoration-thickness:2px;white-space:nowrap}
 .pkg .price small{display:block;margin-top:8px}
-@media(min-width:901px){.dok .pkg .price{min-height:82px}}
+@media(min-width:1001px){.dok .pkg .price{min-height:82px}}
 /* Freigabe-Garantie entkastet, NUR .dok (Ad-LPs behalten den Kasten) */
 .dok .guarantee-band{display:block;max-width:760px;padding:0;border:none;background:transparent;margin-top:40px}
 .dok .guarantee-band .tag{margin-bottom:8px}

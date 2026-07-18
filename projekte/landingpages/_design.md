@@ -64,7 +64,9 @@ rounded:
   keine (0px ueberall; einzige Ausnahme .stempel 6px, Wireframe-Highlight eigentum.html)
 
 breakpoints:
-  900px (pkg-grid einspaltig), 860px (beweis-duo/karten einspaltig), 560px (steps einspaltig)
+  900px (pkg-grid einspaltig; .dok-Pakete erst bei 1000px einspaltig, sonst bricht der
+  Streichpreis in der schmalen 3er-Spalte um, Marvin 2026-07-18), 860px (beweis-duo/karten
+  einspaltig), 560px (steps einspaltig)
 ---
 
 ## Signature-Element
