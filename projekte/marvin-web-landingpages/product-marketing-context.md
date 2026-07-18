@@ -1,6 +1,6 @@
-# product-marketing-context.md — landingpages (4 Landingpages, eigenes Web-Angebot)
+# product-marketing-context.md — marvin-web-landingpages (4 Landingpages, eigenes Web-Angebot)
 
-Projekt: landingpages. Der Markenname steht noch nicht fest (Rebrand von MARVIN.WEB
+Projekt: marvin-web-landingpages. Der Markenname steht noch nicht fest (Rebrand von MARVIN.WEB
 laeuft parallel). In aller Copy markenneutral [MARKE] verwenden, KEINEN Markennamen
 hart einbauen. Alt-Namen des Angebots duerfen nirgends auftauchen.
 Stand: 2026-07-16

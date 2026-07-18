@@ -1,5 +1,6 @@
 ---
-projekt: landingpages
+projekt: marvin-web-landingpages
+mutterprojekt: marvin-web  # erbt CD 1:1; Bauteil-Quelle = projekte/marvin-web/styles.css
 stand: 2026-07-18
 quellen: styles.css, kosten.html, design-dossier.md (Richtung A per Marvins Ansage 2026-07-16)
 live: noch nicht live (pages.dev-Projekt noch nicht angelegt, _headers mit noindex vorbereitet)

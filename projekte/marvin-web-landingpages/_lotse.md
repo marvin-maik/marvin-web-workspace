@@ -1,4 +1,4 @@
-# landingpages — Lotse (ZUERST lesen)
+# marvin-web-landingpages — Lotse (ZUERST lesen)
 
 Das Gehirn dieses Projekts. Vor jeder Arbeit hier zuerst diese Datei lesen: Stand, feste
 Entscheidungen, offene Punkte, was gerade relevant ist. Nach jedem Arbeitsschritt/Phasenwechsel
@@ -12,9 +12,14 @@ Stand: 2026-07-18 · Phase: **Feinschliff + Design-Freigabe** (gebaut, noch nich
 - Was-Quelle (Copy/Zielgruppe/Fakten): `product-marketing-context.md`
 - Design (as-built): `_design.md` (vor Design-Arbeit lesen, danach im selben Commit mitziehen)
 - Positionierungs-Rohmaterial: `_material/positionierung-webflow-vergleich.md` (mit verbindlichen Review-Hinweisen im Kopf)
-- Live: noch nicht (CF-Pages-Projekt noch anzulegen). Dev-Server: launch.json "landingpages" Port 8743.
+- Live: noch nicht (CF-Pages-Projekt noch anzulegen). Dev-Server: launch.json "marvin-web-landingpages" Port 8743.
 
 ## Feste Entscheidungen (NICHT neu aufrollen, sind bewusst so)
+- **Ordnername = `marvin-web-landingpages`** (Marvin 2026-07-18): LPs gehoeren zum Mutterprojekt
+  `marvin-web` (eigenes Web-Angebot), nicht zu Kunden. Konvention: LPs sind eine EIGENE Deploy-Einheit
+  (eigenes Repo/CF-Pages, noindex, "stehen fuer sich"), leben aber als benannter Geschwister-Ordner
+  `<mutterprojekt>-landingpages` NEBEN dem Mutterprojekt (nicht verschachtelt, sonst Bruch der
+  "HTML flach im Root"-Regel). Kuenftige LP-Sets analog, z.B. `routenwerk-landingpages`.
 - **Zielgruppe**: Start-ups, Selbststaendige, kleine bis mittlere Betriebe. NICHT nur Handwerker,
   KEINE Handwerker-Bilderwelt (Baustelle/Wartezimmer/Oeffnungszeiten) in Copy oder Ads.
 - **Design erbt das marvin-web-CD 1:1** (Werkstatt-Editorial: Clash Display, Papier #f5f1e8,

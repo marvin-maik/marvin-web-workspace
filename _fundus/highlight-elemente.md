@@ -164,7 +164,7 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
   nicht zusaetzlich zu einem anderen (Anti-Slop: eines pro Seite).
 
 ### 10. Ladebalken-Rennen (Vergleichs-Demo)
-- Gesehen bei: Wireframe landingpages LP3 (Speed-Angle, 2026-07); verwandt mit
+- Gesehen bei: Wireframe marvin-web-landingpages LP3 (Speed-Angle, 2026-07); verwandt mit
   PageSpeed-Balken-Grafiken in Performance-Tools
 - Wirkung: Der Geschwindigkeits-Unterschied wird zuschaubar statt behauptet: zwei Balken
   starten auf Klick, "mit Ballast" vs. "ohne Ballast", einer ist frueher fertig.
@@ -187,7 +187,7 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
 - Wann passend: Handwerk/Technik/Industrie-Zielgruppen, Festpreis-Angebote,
   Datenblatt-Aesthetik. Zaehlt als DAS Signature-Element seiner Seite (nicht mit
   Stempel 5e mischen).
-- Status: Idee aus design-scout-Recherche landingpages (Richtung C), noch nie gebaut.
+- Status: Idee aus design-scout-Recherche marvin-web-landingpages (Richtung C), noch nie gebaut.
 
 ### 12. Bon-Rechnung (Posten-Summen-Block als Beweis-Sektion)
 - Gesehen bei: everlane.com "Transparent Pricing" (Kostenaufschluesselung als
@@ -199,7 +199,7 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
   Count-up der Summe optional via IntersectionObserver (vgl. Muster 5).
 - Wann passend: Preisvergleiche, Ersparnis-Argumente, Festpreis-Kommunikation.
   Kombiniert gut mit Stempel 5e (gleiche Beleg-Welt).
-- Status: Idee aus design-scout-Recherche landingpages (Richtung B), noch nie gebaut.
+- Status: Idee aus design-scout-Recherche marvin-web-landingpages (Richtung B), noch nie gebaut.
 
 ### 13. Featured-Zitat-Band mit Attribution
 - Gesehen bei: saltandwind (EIN Testimonial statt Karussell), tourvia
