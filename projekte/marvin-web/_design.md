@@ -95,7 +95,7 @@ generischer Trenner streuen, sie gehoert zur Headline.
 | `.btn-ghost` | Sekundaer-CTA | paper-Grund, ink-Border; auf dunkel transparent + paper-Border |
 | `.trust-row` | Beleg-Zeile unter CTAs | Mono 12.5px, Haken `::before` in --signal-deep |
 | `.meta-row` | Topbar | ink-Grund, Mono, b in --signal-tint |
-| `.logo` | Wortmarke | Clash 700 21px uppercase, `b` (der Punkt) in --signal |
+| `.logo` | Wortmarke (Logo) | `img/logo.svg` im `<a>`, `.logo img{height:22px;width:auto}`; Tinte-Buchstaben + Orange-Quadrat-Punkt. Alte Text-Regel bleibt als Fallback |
 | `.docket` | Auftragszettel (Hero) | white, 1.5px ink-Border, Schatten 8px 8px 0 --paper-deep, dashed Zeilen, ink-Fuss |
 | `.pkg-grid` / `.pkg.featured` | Preiskarten | 3er-Grid in einem ink-Rahmen, featured invertiert (ink-Grund, dark-*-Serie) |
 | `.stack` / `.stack-total` | Offer-Stack | white Rahmenkarte, dashed Zeilen, Total-Zeile invertiert, Wert in --signal-tint |
@@ -113,7 +113,7 @@ generischer Trenner streuen, sie gehoert zur Headline.
 | `.form-card` / `.book-card` | Kontakt-Duo | Formular auf paper-Karte, Buchung als dark-line-Rahmen im dunklen Band |
 | `.hp-feld` | Honeypot | off-screen, Pflicht in jedem Formular (plus Zeit-Falle in site.js) |
 | `details` / `summary` | FAQ | Hairline-Liste, Plus-Zeichen Mono --signal, dreht bei open 45deg |
-| `.foot-mark` | Riesen-Footer-Marke | Clash 600 clamp(40..150), uppercase, b in --signal |
+| `.foot-mark` | Footer-Marke (Logo invers) | `img/logo-invers.svg`, `.foot-mark img{width:min(660px,88%)}`; Papier-Buchstaben + Orange-Quadrat auf Tinte (früher Riesen-Text) |
 | `.wa-float` | WhatsApp-Button | fixed rechts unten, --signal-deep, einzige weiche Schatten der Site |
 | `.guides` | Spalten-Guides | 3 vertikale 1px Hairlines (--hair, opacity .5) hinter dem Content |
 
@@ -163,9 +163,12 @@ Geschlossene Liste, alles andere ist verboten:
   Tempo/Aktion), weiche Agentur-Looks, Baukasten-Aesthetik, Default-AI-Looks
   (Creme+Serif+Terracotta, Dark+Neon, Lila-Gradient+Glassmorphism).
 - Name final: **MARVIN.WEB bleibt** (Rebrand 2026-07-19 von Marvin beendet, naming-report.md
-  in _rebrand/ ist Archiv). Aktuell noch reine Text-Wortmarke (.logo + .foot-mark, Orange-Punkt);
-  gezeichnetes Logo (Header-SVG + Footer-invers + Favicon-Serie) in Arbeit (logo-designer,
-  Konzepte in freigabe/logo-konzepte.html). Nach Einbau diese Akte mitziehen.
+  in _rebrand/ ist Archiv). **Gezeichnetes Logo eingebaut** (2026-07-19, Deploy ff45f0b5, ersetzt die
+  Text-Wortmarke): Richtung **A** (Wortmarke „Signal-Quadrat", der Punkt = eckiges Orange-Quadrat)
+  als `img/logo.svg` (Header) + `img/logo-invers.svg` (Footer, Papier-Buchstaben auf Tinte); Signet
+  **C** (M.-Kachel) als `img/zeichen.svg` (SVG-Favicon) + PNG-Serie 16/32/180/512. Mono- und
+  Lockup-Varianten liegen in `img/` bereit (nicht Default). Alles echte Pfade (kein `<text>`), Clash-
+  Outlines lizenzkonform (Fontshare FFL). Konzepte: freigabe/logo-konzepte.html; Build re-runbar: `_logo/`.
 
 ## Seiten-Inventar
 
