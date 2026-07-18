@@ -247,7 +247,9 @@ summary:hover{color:var(--signal-deep)}
 @media(max-width:860px){.guides i:nth-child(1),.guides i:nth-child(3){display:none}}
 .dok .hero{position:relative}
 .dok .steps{grid-template-columns:repeat(4,1fr)}
-@media(max-width:900px){.dok .steps{grid-template-columns:repeat(2,1fr)}}
+/* 2x2 auf Tablet: erste Spalte (ungerade Schritte, also 03) ohne linke Kante und buendig links,
+   sonst steht 03 mit Strich versetzt unter 01 (Alt-Bug, 2026-07-18 gefixt) */
+@media(max-width:900px){.dok .steps{grid-template-columns:repeat(2,1fr)}.dok .steps .step:nth-child(odd){border-left:0;padding-left:0}}
 @media(max-width:560px){.dok .steps{grid-template-columns:1fr}}
 .sec-head{display:flex;align-items:baseline;gap:24px;margin-bottom:20px}
 .sec-head .line{flex:1;height:1px;background:var(--line)}
@@ -384,8 +386,10 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
 .stack-total{background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;gap:20px;padding:18px 24px;font-family:var(--disp);font-weight:700;font-size:19px;align-items:baseline}
 .stack-total .val{color:var(--signal-tint);font-family:var(--disp);white-space:nowrap}
 @media(max-width:560px){
-  .stack-row,.stack-total{flex-direction:column;gap:6px;align-items:flex-start}
-  .stack-row .val{text-align:left}
+  /* Stack einspaltig: .val rutscht unter die Beschreibung, aber rechtsbuendig als Wert-Anker
+     (konsistent mit docket/compare-Bon-Muster derselben Seite), statt links als verlorene Zeile */
+  .stack-row,.stack-total{flex-direction:column;gap:4px;align-items:stretch}
+  .stack-row .val{text-align:right}
 }
 
 /* Gruendungsprojekte: der EINE laute Haken (ehrlicher Tausch, echte Verknappung) */

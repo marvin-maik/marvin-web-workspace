@@ -67,6 +67,12 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **Zwei Nachträge aus Marvins Review** (styles.css v17->v18). (1) Ablauf-Bug: im
+  2x2-Tablet-Layout hatte Schritt 03 eine verirrte linke Kante + 28px Einzug, stand versetzt
+  unter 01 -> erste Spalte (ungerade Schritte) jetzt ohne linke Kante, bündig links (Alt-Bug,
+  nicht aus dem v17-Feinschliff). (2) Stack-Werte (.val) rutschen auf dem Handy unter die
+  Beschreibung -> jetzt RECHTSbündig als Wert-Anker (Bon-Muster wie docket/compare) statt links
+  unterzugehen; Marvin: "entscheide selbst". Beide live verifiziert.
 - 2026-07-18: **Responsive-Feinschliff Mobile/Tablet/Desktop** (styles.css v16->v17, alle Seiten). Zwei
   echte Fehler behoben: (1) About-Porträt blies sich auf Tablet auf volle Breite auf (712px-Riesenfoto)
   -> about-grid bleibt bis 640px zweispaltig, .duo danach max 300px; (2) Showcase-Bildunterschrift lief
