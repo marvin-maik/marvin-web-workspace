@@ -79,7 +79,15 @@ dass nichts fehlt und nichts Totes drinsteht.
       nicht in Google landen und spaeter nicht gegen die Kundendomain ranken.
 
 ## Launch auf finaler Domain (zusaetzlich zu oben)
-- [ ] robots.txt mit `Sitemap:`-Zeile (absolute URL).
+- [ ] robots.txt mit `Sitemap:`-Zeile (absolute URL). **CF-Zone-Falle (verifiziert marvin-web
+      2026-07-19):** Auf einer Cloudflare-**Zone** (Custom-Domain) MERGT Cloudflare seine
+      managed/AI-robots.txt mit der deployten Datei — die eigene `Sitemap:`-Zeile + `Allow: /`
+      kommen durch, ABER CF setzt per Default `Disallow: /` fuer AI-Crawler (GPTBot, ClaudeBot,
+      Google-Extended, CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent).
+      Auf `*.pages.dev` (keine Zone) wird nur die deployte Datei ausgeliefert. Also IMMER die
+      Zone-Ausgabe pruefen (`curl https://DOMAIN/robots.txt`), nicht nur die Deployment-URL; und
+      die AI-Crawler-Policy bewusst im CF-Dashboard (AI Crawl Control) entscheiden — Blocken kann
+      der AI-Such-Auffindbarkeit (ChatGPT/Perplexity) widersprechen, die JSON-LD gerade anstrebt.
 - [ ] sitemap.xml: nur indexierbare Seiten, absolute URLs der finalen Domain
       (danke.html, 404.html und noindex-Seiten raus).
 - [ ] Je Seite: canonical ergaenzen; og:url/og:image + JSON-LD stehen schon aus dem Build,
