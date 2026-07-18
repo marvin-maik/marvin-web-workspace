@@ -32,6 +32,10 @@ Stand: 2026-07-18 · Phase: **Feinschliff + Design-Freigabe** (gebaut, noch nich
   Anfrage, Betreuung ab 49 EUR/Monat (1. Monat inkl.), PageSpeed 98 (routenwerk) als Speed-Beweis,
   Kleinunternehmer Par. 19 UStG. Freigabe vor Bau, 1 Korrekturrunde, live erst nach Abnahme.
 - **Warme LPs werden generiert**, nicht von Hand kopiert: `_lp/` (siehe unten).
+- **Alle LPs bleiben noindex** (Marvin 2026-07-18, feste Entscheidung): Sie stehen fuer sich und
+  gehoeren nicht streng zur Hauptseite. Gilt fuer alle 7 LPs + 404 (robots-Meta ist ueberall
+  gesetzt, dazu `_headers` X-Robots-Tag). Der fruehere "am Domain-Launch pruefen"-Vorbehalt in den
+  kalten Ad-LPs ist damit erledigt (Kommentare aktualisiert).
 
 ## Offene Punkte (Stand 2026-07-18)
 - [ ] **Marvin: Design-Freigabe der 7 LPs** (Haupt-Blocker)
@@ -60,13 +64,21 @@ Eine Quelle, vier Ausgaben. Aendere `_lp/warm.master.html` (gemeinsamer Koerper)
 instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften). Kalte LPs folgen noch.
 
 ## Altlast / nie anfassen
-- Der alte Arbeitsname **"FutureGrowth" darf NIRGENDS auftauchen** (Dateien, Copy, Ordner, Gespraech).
+- Der alte Arbeitsname **"FutureGrowth" bleibt aus Marketing/LP-Copy/Marke draussen** (Dateien, Copy,
+  Ordner, Gespraech). AUSNAHME (Marvin 2026-07-18): die Umzugs-Seite `projekte/umzug/` auf der alten
+  Domain nennt ihn ABSICHTLICH ("Aus FutureGrowth ist MARVIN.WEB geworden"), damit Besucher des alten
+  Links den Umzug zuordnen. Also: ueberall verboten AUSSER in dieser einen Abschieds-Notiz.
 - `_material/design-dossier.md` (Richtung B "Beleg und Stempel", IBM Plex + Stempelblau) ist
   VERWORFEN, liegt nur noch als Abgrenzungs-Doku. Nicht als Referenz nehmen.
 - `freigabe/` enthaelt einen aelteren Build-Stand mit altem Namensschema (lp-kosten, warm-v2 ...).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **noindex als feste Entscheidung bestaetigt** (Marvin): alle 7 LPs + 404 bleiben
+  noindex (stehen fuer sich, nicht Teil der Hauptseite). robots-Meta war ueberall schon gesetzt;
+  nur die "am Domain-Launch pruefen"-Kommentare in kosten/eigentum/schnell auf "feste Entscheidung"
+  aktualisiert. Zusatz: neues Schwester-Projekt `projekte/umzug/` (Umzugs-Notiz auf der alten
+  Domain) darf FutureGrowth als EINZIGE Stelle namentlich nennen (Marvins Freigabe), siehe Altlast.
 - 2026-07-18: **Preis-Umbruch auf breiten Desktops gefixt** (styles.css v19->v21). Marvin sah im sehr
   breiten Fenster (file://): Paket-02-Preis "2.368 € 1.990 €" brach zweizeilig um, Paket 01 nicht.
   Ursache exakt gemessen: NICHT die Spaltenbreite, sondern der Karten-Innenraum (~316px); bei >=~1462px

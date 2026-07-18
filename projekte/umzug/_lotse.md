@@ -16,9 +16,13 @@ Stand: 2026-07-18 · Phase: **Gebaut, verifiziert, noch nicht live**
 - Live: noch nicht. Eigenes Mini-Deployment (eigene Domain), Marvins Schritt (siehe unten).
 
 ## Feste Entscheidungen (bewusst so, nicht neu aufrollen)
-- **Der alte Arbeitsname darf NIRGENDS auftauchen** (Datei, Ordner, Copy, Gespraech). Deshalb
-  heisst der Ordner neutral `umzug`, und die Seite nennt den alten Namen nicht. Siehe die
-  Regel im landingpages-Lotse ("Altlast / nie anfassen") und die Anti-Slop-Norm.
+- **Alter Name FutureGrowth = hier die EINE bewusste Ausnahme** (Marvin 2026-07-18): Der Ordner
+  heisst neutral `umzug` (nicht nach dem Alt-Namen). Auf der Seite SELBST wird FutureGrowth aber
+  AUSDRUECKLICH genannt ("Aus FutureGrowth ist MARVIN.WEB geworden"), weil genau das dem Besucher
+  hilft, der von einem alten FutureGrowth-Link kommt: er ordnet den Umzug sofort zu. Die sonst
+  geltende Nirgends-Regel (Marketing/LP-Copy/Marke, siehe landingpages-Lotse "Altlast") bleibt
+  bestehen; diese Abschieds-Notiz ist die dokumentierte Ausnahme. NICHT bei einem kuenftigen
+  Aufraeumen wieder rausstreichen.
 - **Design erbt das marvin-web-CD 1:1** (Werkstatt-Editorial: Clash Display, Papier #f5f1e8,
   Signal-Orange #e8440a). Keine neue Richtung. Bauteile 1:1 aus landingpages/styles.css bzw.
   projekte/marvin-web: `.meta-row`, `.tag`, `.rule` (Maszband-Signature), Button (signal-deep),
