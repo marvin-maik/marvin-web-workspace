@@ -191,7 +191,7 @@ summary:hover{color:var(--signal-deep)}
 .mess-spur i{display:block;height:100%;width:100%;transform-origin:left;background:var(--signal)}
 /* Zeit am Ende der Bahn, Mono, tabellarische Ziffern */
 .mess-zeit{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:15px;font-weight:600;
-  line-height:1.1;color:var(--ink);white-space:nowrap;min-width:58px;text-align:right}
+  line-height:1.1;color:var(--ink);white-space:nowrap;min-width:84px;text-align:right}
 .mess-zeit small{display:block;font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 /* Rennen: Fuellung startet leer, Zeit verborgen; beide fuellen bis 100%, nur die DAUER trennt sie */
 [data-rennen].armiert .mess-spur i{transform:scaleX(0)}
