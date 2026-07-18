@@ -24,7 +24,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   (kein US-Drittempfänger, eigener Redirect, serverseitiger Spamschutz). Domain-Launch erfolgte OHNE die
   Migration — Formular läuft aktuell noch über Formspree. Ablauf: `_referenz/integrations.md` Abschnitt 1b.
 - Kleinunternehmer §19 UStG: Preise sind Endpreise, PAngV-Hinweis an den Preisen, keine USt-IdNr.
-- E-Mail bewusst noch NICHT sichtbar (wartet auf Profi-Domain-Adresse, siehe Zoho-Punkt unten).
+- **Profi-Mail live: info@marvinwebdesign.de** (Zoho Mail, EU-DC). Seit 2026-07-19 überall eingebunden (Impressum, Datenschutz §2 + §7, index-JSON-LD) und sichtbar auf Start- und Kontaktseite; Gmail abgelöst.
 - Monitoring läuft still: CF Web Analytics (Token ...cc80) + UptimeRobot-Keyword "MARVIN.WEB" (5-Min, Mail an comspiele@web.de).
 
 ## Offene Punkte (Stand 2026-07-19)
@@ -40,7 +40,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       Footer-invers + Favicon-Serie), dann Text-Wortmarke `.logo`/`.foot-mark` durch das Logo ersetzen
       (Muster: routenwerk logo.svg/logo-invers.svg). `_design.md` im selben Commit mitziehen.
 - [ ] Datenschutz fachlich prüfen lassen (Dieter); **Formspree-AVV + Cloudflare-DPA real abschließen** (die Erklärung behauptet beide — im jeweiligen Dashboard tatsächlich akzeptieren, sonst Text-Realitäts-Lücke)
-- [ ] **Zoho-Mail scharfstellen:** MX + SPF + DKIM für marvinwebdesign.de in Cloudflare-DNS setzen (aktuell nur TXT-Verify, .zoho.eu = EU-DC, aber KEINE MX → info@ empfängt noch nichts). Danach Test-Mail; DANN Impressum + Datenschutz-Kontaktmail Gmail→info@ umstellen und Datenschutz §7 „externer E-Mail-Dienst" → Zoho (EU, AVV) konkretisieren. Bis dahin bleibt Gmail (Consumer-Gmail = US, kein AVV — bewusst provisorisch).
+- [x] **Zoho-Mail live** (2026-07-19): MX (mx/mx2/mx3.zoho.eu) + SPF (include:zohomail.eu) + DKIM (zmail._domainkey) in Cloudflare gesetzt und öffentlich verifiziert; info@ empfängt. Adresse überall eingebunden, Datenschutz §7 auf „Zoho Mail, EU" konkretisiert. OFFEN dazu: (a) Marvin: Test-Mail von extern an info@ zur finalen Empfangsbestätigung; (b) Formspree-Zieladresse auf info@ (oder Alias kontakt@) umstellen; (c) Zoho-DPA bestätigen/sichern (Datenschutz nennt Zoho als Auftragsverarbeiter); (d) optional DMARC-TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:info@marvinwebdesign.de` in Cloudflare. BIMI bewusst übersprungen (VMC-Zertifikat zu teuer).
 - [ ] **AI-Crawler-Policy (CF-Zone):** Die Zone merged Cloudflares managed robots.txt mit der deployten. Live geprüft (2026-07-19): `search=yes` + `User-agent: * Allow: /` (Google/Bing crawlen), meine `Sitemap:`-Zeile ist drin — SEO ok. ABER CF blockt per Default AI-Crawler (GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent → `Disallow: /`). Entscheidung Marvin: weiter blocken ODER AI-Search-/Reference-Crawler zulassen (CF Dashboard → AI Crawl Control) — die eigene Checkliste nennt AI-Such-Auffindbarkeit (ChatGPT/Perplexity) als Ziel.
 - [ ] Geräte-Review (iPhone + Android)
 - [ ] Konto-Aktionen (Marvin): Google Unternehmensprofil anlegen; Instagram/LinkedIn + sameAs im Schema; Profi-Mail auf eigener Domain (Impressum + JSON-LD); Formspree-Autoresponder (Tarif prüfen); Conversion messen (/danke vs. Startseite in CF Analytics); "Antwort am selben Tag" gegen Urlaub/Krankheit absichern; Search Console + Sitemap einreichen.
@@ -51,6 +51,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Profi-Mail live.** Zoho MX/SPF/DKIM (EU) gesetzt + öffentlich verifiziert; info@marvinwebdesign.de löst Gmail überall ab (Impressum, Datenschutz §2 + §7=Zoho/EU, index-JSON-LD, sichtbare Kontaktzeile auf Start- + Kontaktseite aktiviert). Nur lokal, Redeploy offen. DMARC optional (p=none-Vorlage im Zoho-Punkt), BIMI übersprungen.
 - 2026-07-19: **Domain-Launch-Fix** deployed (1e4bdc50): alle pages.dev-URLs → marvinwebdesign.de, canonical (extensionslos) je Seite, eigene robots.txt + sitemap.xml, `_next` → /danke. Auf Deployment-URL verifiziert (canonical/og korrekt, sitemap 200, /danke 200, Fantasiepfad 404). **Rebrand beendet: MARVIN.WEB ist final** (Marvins Entscheidung), Logo-Konzepte beim logo-designer beauftragt. Datenschutz-DSGVO-Revision der Vorsession mit deployed.
 - 2026-07-18: Datenschutz DSGVO-Vollcheck. Live-Compliance verifiziert (keine Cookies/Storage, nur deklarierte Hosts: eigene Domain + cloudflareinsights + routenwerk-Demo). Erklärung erweitert: Speicherfristen (§3/§4), Freiwilligkeit (§4), WhatsApp-DPF/SCC (§6), neu §7 E-Mail/Telefon, §8-Demo-Wording auf Interaktivität entschärft, neu §11 keine autom. Entscheidung. marvinwebdesign.de läuft per HTTPS.
 - 2026-07-15: kontakt.html live (c0e4f9a8); pakete-H1 mobil sauber getrennt; Rechtstexte §19.
