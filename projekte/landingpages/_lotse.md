@@ -74,6 +74,16 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **Handy im Showcase aufgewertet** (Marvin, styles.css v23->v24). Der simulierte
+  border-radius-Rahmen (.showcase-phone) ist ersetzt durch ein freigestelltes iPhone-Foto-Mockup:
+  Marvin hat das Silhouette-PSD-Mockup mit Photoroom freigestellt (transparent) und einen scharfen
+  routenwerk-Screenshot eingesetzt (Lizenz kommerziell frei, Marvin bestaetigt). Ausgeliefert als
+  `<picture>` AVIF (74KB) + PNG-Fallback (468KB); AVIF via sips erzeugt (kein ImageMagick/PIL da),
+  Qualitaet per avif->png-Check verifiziert. CSS entdekoriert (kein border/radius/bg), 184px,
+  weicher drop-shadow. Auf allen 3 kalten Ad-LPs (kosten/eigentum/schnell). Alter 320px-Screenshot
+  war zu niedrig aufgeloest -> nach _src/mockup/ archiviert. NUR Mobile im Pane verifizierbar
+  (Pane bleibt schmal + zeigt kein AVIF); Desktop-Groesse nach CSS-Logik, Marvin auf echtem Monitor
+  gegenchecken. _design.md mitgezogen.
 - 2026-07-18: **Ladebalken-Rennen (.mess) neu gedacht** (Marvin, styles.css v21->v22). Marvins Ansage:
   (1) Massband-Striche gehoeren in die LEERE Bar, nicht in die Fuellung; (2) BEIDE Bahnen fuellen bis
   100% (beide werden fertig), nur die Dauer trennt sie; (3) am Ende steht die ZEIT. Umgesetzt: Skala

@@ -360,16 +360,18 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
 .showcase-dots i:first-child{background:var(--signal)}
 .showcase-url{flex:1;min-width:0;border:1px solid var(--line);padding:6px 12px;background:var(--paper);color:var(--ink-soft);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .showcase-browser>img{display:block;width:100%;height:auto}
-/* Handy davor, unten rechts ueberlappend. Radius = physisches Geraet, kein Design-Radius. */
-.showcase-phone{position:absolute;right:10px;bottom:-22px;width:132px;border:7px solid var(--ink);border-radius:26px;background:var(--ink);box-shadow:6px 6px 0 var(--paper-deep);overflow:hidden;line-height:0}
-.showcase-phone img{display:block;width:100%;height:auto;border-radius:19px}
+/* Handy davor, unten rechts ueberlappend. Freigestelltes Foto-Mockup (transparentes AVIF/PNG),
+   bringt Geraeterahmen selbst mit -> keine border/radius/background/shadow mehr. */
+.showcase-phone{position:absolute;right:-14px;bottom:-42px;width:184px;line-height:0;
+  filter:drop-shadow(0 10px 20px rgba(22,20,18,.22))}
+.showcase-phone img{display:block;width:100%;height:auto}
 .showcase-cap{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:36px;line-height:1.6;max-width:640px}
 /* Ab hier ragt das ueberlappende Handy in die Bildunterschrift: Text-Spalte rechts freihalten,
    damit keine Zeile hinter dem Geraet verschwindet */
-@media(max-width:860px){.showcase-cap{max-width:none;padding-right:160px}}
+@media(max-width:860px){.showcase-cap{max-width:none;padding-right:176px}}
 @media(max-width:560px){
-  .showcase-phone{width:100px;right:8px;bottom:-16px;border-width:6px}
-  .showcase-cap{margin-top:28px;padding-right:124px}
+  .showcase-phone{width:140px;right:-10px;bottom:-26px}
+  .showcase-cap{margin-top:28px;padding-right:132px}
 }
 
 /* Eckdaten-Kacheln (facts-Rezept inkl. Tinte-Cover-Reveal, siehe marvin-web) */
