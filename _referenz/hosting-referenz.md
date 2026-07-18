@@ -217,6 +217,10 @@ Zwei Quellen, deren Prinzipien als Pruefraster fuer jede Landingpage dienen.
 Briefing-Beispiele: "3-Spalten-Grid, mobil 1 Spalte" / "Token --signal fuer alle CTAs" / "Breakpoint bei 720px" / "semantische Sections, eine h1 pro Seite".
 
 ### 9.5 Anti-Slop-Regeln (verbindlich fuer alle Projekte)
+> Die BINDENDE Regel-Liste lebt jetzt in `CLAUDE.md`, Abschnitt "Anti-Slop" (dort pflegen, damit
+> nichts driftet). Dieser Abschnitt bleibt als Begruendung + Beispiele erhalten, ist aber NICHT
+> normativ: bei Widerspruch gewinnt CLAUDE.md.
+
 Design:
 - KEINE Default-AI-Looks: Creme-Hintergrund + Serif + Terracotta; Dark Mode + Neon-Akzent; Lila/Blau-Gradients mit Glassmorphism
 - Palette und Typo aus der Welt der Zielgruppe herleiten (Beispiel MARVIN.WEB: Arbeitsblau + Signalgelb = Handwerker-Bildsprache), Entscheidung begruenden koennen

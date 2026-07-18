@@ -163,7 +163,45 @@ hier ergaenzen: Name, gesehen bei, Wirkung, robuste Konstruktion, wann passend.
 - ACHTUNG: eigenstaendiges Deko-System. Nur wenn es DAS Signature-Element ist,
   nicht zusaetzlich zu einem anderen (Anti-Slop: eines pro Seite).
 
-### 10. Featured-Zitat-Band mit Attribution
+### 10. Ladebalken-Rennen (Vergleichs-Demo)
+- Gesehen bei: Wireframe landingpages LP3 (Speed-Angle, 2026-07); verwandt mit
+  PageSpeed-Balken-Grafiken in Performance-Tools
+- Wirkung: Der Geschwindigkeits-Unterschied wird zuschaubar statt behauptet: zwei Balken
+  starten auf Klick, "mit Ballast" vs. "ohne Ballast", einer ist frueher fertig.
+- Robuste Konstruktion: zwei divs mit CSS-Transition auf width/transform (scaleX),
+  Start per Klick-Klasse (Button, kein Scroll-Trigger noetig), Dauer-Verhaeltnis
+  hart kodiert (kein Fake-Messwert kommunizieren, Labels ehrlich als Schema).
+  prefers-reduced-motion: Balken statisch mit Endwerten. Kein JS-Framework noetig.
+- Wann passend: wenn "schneller/leichter" das Kernversprechen ist und ein ehrlicher
+  Beleg (echte Messung) daneben steht. Nicht als Deko-Animation ohne Aussage.
+- Status: Wireframe klickbar; nach erstem Build Code in technik-patterns.md.
+
+### 11. Typenschild / Datenplakette (Spec-Plate)
+- Gesehen bei: teenage.engineering (Spec-Tabellen als Produktsprache; Token-Check
+  2026-07-16: Ink #231F20, Grau-Canvas, ein Rot #ED2024), klassische Maschinen-Plaketten
+- Wirkung: Preis/Paket tritt auf wie ein gepruftes Geraet: Werte statt Adjektive
+  (PREIS / DAUER / EIGENTUM als Plaketten-Zeilen). Ersetzt Pricing-Card-Einerlei.
+- Robuste Konstruktion: 1px-Rahmen, 4 "Nieten" als radial-gradient-Punkte in den Ecken
+  (::before/::after oder background mit 4 Positionen), Zeilen als Mono-Tabelle mit
+  Hairlines. Reines CSS, kein Bild.
+- Wann passend: Handwerk/Technik/Industrie-Zielgruppen, Festpreis-Angebote,
+  Datenblatt-Aesthetik. Zaehlt als DAS Signature-Element seiner Seite (nicht mit
+  Stempel 5e mischen).
+- Status: Idee aus design-scout-Recherche landingpages (Richtung C), noch nie gebaut.
+
+### 12. Bon-Rechnung (Posten-Summen-Block als Beweis-Sektion)
+- Gesehen bei: everlane.com "Transparent Pricing" (Kostenaufschluesselung als
+  Vertrauens-Grafik), Kassenbon-Aesthetik
+- Wirkung: Kostenklarheit wird sichtbar: Posten links, Betrag rechts in Mono,
+  gestrichelte Hairlines, Summenzeile fett mit Doppellinie. Rechnung als Argument.
+- Robuste Konstruktion: dl/table, border-bottom:1px dashed je Zeile, Zahlen in
+  Monospace (stehen automatisch tabellarisch), Summe mit border-top:3px double.
+  Count-up der Summe optional via IntersectionObserver (vgl. Muster 5).
+- Wann passend: Preisvergleiche, Ersparnis-Argumente, Festpreis-Kommunikation.
+  Kombiniert gut mit Stempel 5e (gleiche Beleg-Welt).
+- Status: Idee aus design-scout-Recherche landingpages (Richtung B), noch nie gebaut.
+
+### 13. Featured-Zitat-Band mit Attribution
 - Gesehen bei: saltandwind (EIN Testimonial statt Karussell), tourvia
 - MARLOU-Dreh: O-Ton der Gruender mit Ort+Jahr wie ein Logbuch-Eintrag, solange
   keine Kundenstimmen existieren.
