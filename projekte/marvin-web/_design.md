@@ -2,7 +2,7 @@
 projekt: marvin-web
 stand: 2026-07-16
 quellen: styles.css, index.html, product-marketing-context.md (Token-Abschnitt, Richtung "Werkstatt-Editorial")
-live: https://marvin-web.pages.dev
+live: https://marvinwebdesign.de (Fallback: https://marvin-web.pages.dev)
 description: "Werkstatt-Editorial: warmes Werkstatt-Papier (#f5f1e8) als Grund, warme
   fast-schwarze Tinte (#161412), EIN Signal-Orange (#e8440a) als GO-Farbe fuer Marker
   und grosse Typo, als Lesetext immer die dunkle Stufe #b53507. Typo-Kontrast aus Clash
@@ -162,8 +162,10 @@ Geschlossene Liste, alles andere ist verboten:
 - Bewusst verworfen: SaaS-Blau als Akzent (Begruendung im Kontext-Dokument: Orange =
   Tempo/Aktion), weiche Agentur-Looks, Baukasten-Aesthetik, Default-AI-Looks
   (Creme+Serif+Terracotta, Dark+Neon, Lila-Gradient+Glassmorphism).
-- Rebrand-Recherche liegt in _rebrand/naming-report.md; solange kein neuer Name
-  beschlossen ist, gilt die Wortmarke MARVIN.WEB (.logo mit Orange-Punkt).
+- Name final: **MARVIN.WEB bleibt** (Rebrand 2026-07-19 von Marvin beendet, naming-report.md
+  in _rebrand/ ist Archiv). Aktuell noch reine Text-Wortmarke (.logo + .foot-mark, Orange-Punkt);
+  gezeichnetes Logo (Header-SVG + Footer-invers + Favicon-Serie) in Arbeit (logo-designer,
+  Konzepte in freigabe/logo-konzepte.html). Nach Einbau diese Akte mitziehen.
 
 ## Seiten-Inventar
 
@@ -183,8 +185,9 @@ Geschlossene Liste, alles andere ist verboten:
 
 - product-marketing-context.md nennt alte Token-Werte (--muted #7a7466, --hair #c9c2af);
   styles.css ist die Wahrheit (#6d675a, #ded8c8). Kontext-Doku nicht nachgezogen.
-- Demo-Stand pages.dev: canonical, robots.txt, sitemap.xml kommen erst mit dem
-  Domain-Swap (DOMAIN-SWAP-Kommentare im head markieren die Stellen).
+- Domain-Swap erledigt (2026-07-19, Deploy 1e4bdc50): canonical (extensionslos) je Seite,
+  eigene robots.txt + sitemap.xml, alle absoluten URLs auf marvinwebdesign.de. DOMAIN-SWAP-
+  Kommentare aus dem head entfernt.
 - .ref-slot ist ein sichtbarer Platzhalter, bis echte Kundenreferenzen existieren.
 - Kein design-dossier.md im Projektordner; Richtungs-Herkunft nur ueber den
   Token-Abschnitt im Kontext-Dokument belegt.
