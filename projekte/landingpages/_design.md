@@ -1,6 +1,6 @@
 ---
 projekt: landingpages
-stand: 2026-07-17
+stand: 2026-07-18
 quellen: styles.css, kosten.html, design-dossier.md (Richtung A per Marvins Ansage 2026-07-16)
 live: noch nicht live (pages.dev-Projekt noch nicht angelegt, _headers mit noindex vorbereitet)
 description: "Werkstatt-Editorial, geerbt 1:1 von marvin-web (gleicher Absender, gleiche CD):
@@ -49,11 +49,15 @@ typography:
   scale: "12.5 -> 15 -> 17 -> 19/21 -> 28 -> clamp(32px,4.8vw,60px) [h2] ->
     clamp(34px,7vw,84px) [LP-H1] -> clamp(72px,7vw,110px) [Step-Zahlen]"
   # LP-H1 ist BEWUSST kleiner als marvin-web-Hero (150px): lange Satz-Headlines.
-  # Angebots-Seite (.dok): H1 clamp(32px,6vw,64px), Lesespalte 760px.
+  # Angebots-Seite (.dok): H1 clamp(32px,6vw,64px). Seit 2026-07-18 volle
+  # --wrap-Breite (Marvins Ansage). PRINZIP (Referenz-Abgleich marvin-web live):
+  # Listen-Objekte (stack, faq-list, eigentum-liste, compare, pkg-grid) laufen
+  # VOLLE Breite; nur Lesetext ist gedeckelt (ol/guarantee/freie p 760,
+  # Lede 600, Fussnote 620, FAQ-Antwort 760).
 
 spacing:
   base: 4px
-  section: 88px (.sec) / 64px (.dok .sec) / Hero 64-72px
+  section: 88px (.sec, auch .dok seit 2026-07-18) / Hero 64-72px
   card: 28px (.karte) / 40px 32px (.pkg) / 26px 24px (.mess)
 
 rounded:
@@ -86,7 +90,7 @@ mask-Fehlstelle, --signal-deep) als Eigentums-Zusage.
 | `.karte` | Info-Karte | Weiss, 1.5px Ink-Border, Haken-Liste mit dashed Rows |
 | `.pkg-grid` / `.pkg` | Paket-Karten | 1.5px-Ink-Rahmen, Trennsteg 1.5px, .tier Mono, .price Clash 44-60px |
 | `.steps` / `.step .big` | Ablauf | 3 Spalten mit Hairline-Stegen, Zahlen 01-03 als Orange-Stroke (text-stroke), fuellen sich bei .rv.in |
-| `.faq-list details` | FAQ | Hairline-Rows, summary Clash 18-23px, +/x-Marker --signal, Antwort in div.a |
+| `.faq-list details` | FAQ | Hairline-Rows VOLLE Breite (820er-Deckel entfernt 2026-07-18, Referenz-Abgleich mit marvin-web live; gilt fuer ALLE LPs), summary Clash 18-23px, +/x-Marker --signal, Antwort in div.a (760 Lesetext) |
 | `.mess` / `.mess-spur i` | Ladebalken-Rennen | Massband-Gradient als Fuellung, scaleX-Transition (Compositor!), Endzustand ist CSS-Default |
 | `.compare` + `.table-scroll` | Vergleichstabelle | 1.5px-Ink-Rahmen, thead paper-deep, overflow-x im Wrapper |
 | `.cta-band` | Abschluss-Band | Ink-Flaeche, h-lg in paper, Ghost-Button invertiert |
@@ -94,9 +98,12 @@ mask-Fehlstelle, --signal-deep) als Eigentums-Zusage.
 | `.about-grid` / `.pull` / `.who` | Wer-baut-das-Block | Portraet in .duo-Rahmen + Pull-Quote (Clash 28-48px, em = signal-deep) + Mono-Absender |
 | `.showcase` | Geraete-Showcase | Browserrahmen (.showcase-bar mit Dots + URL) + Desktop-Screenshot, davor .showcase-phone (132px, border-radius 26px = physisches Geraet) mit Mobil-Screenshot; STATISCH, bewusst kein iframe |
 | `.facts` / `.fact` | Eckdaten-Kacheln | 1.5px-Ink-Grid mit 1.5px-Stegen, Zahl Clash 38-56px, Label Mono signal-deep; Reveal = Tinte-Cover (::after faellt ab), NIE Opacity-Fade |
-| `.guarantee-band` | Freigabe-Garantie am Preis | paper-deep-Flaeche, 1.5px Ink-Border, Haken-Icon signal-deep, .tag als Garantie-Name, direkt unter .pkg-grid |
+| `.guarantee-band` | Freigabe-Garantie am Preis | Ad-LPs: paper-deep-Kasten mit Haken-Icon. Auf .dok seit 2026-07-18 ENTKASTET (Marvins Ansage, Stempel-Variante verworfen): nur .tag + h3 28px + p, 760px, direkt unter .pkg-grid |
 | `.gruendung` | Verknappung (der EINE laute Haken) | Ink-Flaeche, .plaetze Mono in signal-tint, h3 in paper; direkt unter der Garantie |
-| `.stack` / `.stack-row` / `.stack-total` | Hormozi-Offer-Stack | NUR angebot.html: Weiss, 1.5px Ink, dashed Rows, .what fett + small-Nutzen, .val Mono-Anker rechts; .stack-total = Ink-Band mit Preis in signal-tint; mobil einspaltig |
+| `.stack` / `.stack-row` / `.stack-total` | Hormozi-Offer-Stack | angebot + warme Varianten (karte/whatsapp/instagram), NICHT kalte Ad-LPs: Weiss, 1.5px Ink, dashed Rows, .what fett + small-Nutzen, .val Mono-Anker rechts; .stack-total = Ink-Band mit Preis in signal-tint; IMMER einspaltig (Marvin 2026-07-18, Grid/2-Spalten verworfen), 760px |
+| `.sec-head` | Sektionskopf mit Linie | 1:1 aus marvin-web: .tag + durchziehende Hairline (flex:1) + Mono-.aux rechts; verankert Sektionen auf --wrap. Seit 2026-07-18 auf ALLEN LPs (warm 1:1 wie angebot, kalt als Sektionskoepfe mit optionalem .aux) |
+| `.guides` | Raster-Linien VOLLE SEITE | 1:1 aus marvin-web/Porto (Fundus: "volle Dokumenthoehe, kein Trick, nur Konsequenz"): 3 vertikale Hairlines (--hair, damit erstmals genutzt) auf 25/50/75 Prozent, div direkt unter body (body position:relative noetig!), z-index 0; dunkle Baender und Weiss-Karten decken ab. Gegen den Baukasten-Eindruck (Marvin 2026-07-18). Seit 2026-07-18 auf ALLEN LPs, auch nicht-.dok (guides ist global, body position:relative) |
+| `.hero-grid` / `.hero-side` | Hero zweispaltig | 1:1 aus marvin-web (1.5fr/1fr, gap 56): Intro+CTA links, Docket-Briefkopf rechts; <=900px gestapelt. angebot + warme Varianten; kalte Ad-LPs behalten Einspalten-Hero |
 
 ## Motion
 
@@ -119,14 +126,20 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
    title. Der Koerper (Stack, Pakete, Garantie, Gruendung, Vergleich, Ablauf, Eigentum, FAQ)
    bleibt IDENTISCH und muss bei Aenderungen in allen dreien nachgezogen werden.
    Neuer Kanal = angebot.html kopieren und genau diese 7 Stellen tauschen.
-4. HORMOZI-PLATZIERUNG: Der volle Wert-Stack (.stack) steht NUR auf angebot.html und dort
+4. HORMOZI-PLATZIERUNG: Der volle Wert-Stack (.stack) steht auf angebot.html und den warmen Varianten (karte/whatsapp/instagram) und dort
    VOR dem Preis (erst Wert bauen, dann Preis zeigen). Kalte Ad-LPs bleiben knapp: Pakete
    statt Stack, sonst erschlaegt die Wand den 5-Sekunden-Scan.
 5. Rechen-/Beleg-Inhalte IMMER als .docket (Kopf/Rows/Ink-Fuss), Betraege Mono rechts.
 6. Ein CTA-Paar pro Block: btn-primary (WhatsApp, mit vorbefuelltem ?text= je Angle)
    + btn-ghost (tel:). Darunter immer .trust-row.
 7. Seitenrhythmus hell: Papier -> Weiss-Karten; dunkel nur docket-foot, cta-band, footer.
-8. Angebots-Seite = .dok (Body-Klasse): 760px-Spalte, Docket als Briefkopf, ol-Ablauf.
+8. Angebots-Seite = .dok (Body-Klasse): seit 2026-07-18 volle --wrap-Breite mit
+   sec-head-Linien und hero-grid (Docket als Briefkopf rechts); Text-Bloecke im
+   760px-Lesemass, pkg-grid 3-spaltig (.dok-Override). Ablauf seit 2026-07-18 als
+   .steps mit Riesen-Zahlen 01-04 (4 Spalten via .dok-Override, statt ol;
+   gegen Baukasten-Monotonie). Mobil: Docket
+   Label-ueber-Wert, CTAs volle Breite, .compare als Bon-Muster (Label links,
+   Betrag rechts, data-label-Attribute in den td noetig).
 ## Do / Don't (projektspezifisch)
 
 - Do: Markenname IMMER als Platzhalter [MARKE] (Rebrand laeuft, Alt-Name ist verboten
@@ -174,7 +187,7 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 | kosten.html | Ad-LP Angle Kosten | 2 Dockets (Abo-Rechnung, Ersparnis mit Count-up 552) |
 | eigentum.html | Ad-LP Angle Eigentum | Selbsttest-Karten, Uebergabe-Liste + .stempel |
 | schnell.html | Ad-LP Angle Speed | .mess Ladebalken-Rennen + PageSpeed-Wert 98/100 |
-| angebot.html | warme Seite, KANAL: generisch (Mail-Signatur, nach Telefonat) | .dok, Docket-Briefkopf, .stack, .compare, KI-FAQ nur hier |
+| angebot.html | warme Seite, KANAL: generisch (Mail-Signatur, nach Telefonat) | .dok, Docket-Briefkopf, .stack, .compare, KI-FAQ; Koerper = Vorlage aller warmen Varianten |
 | karte.html | warme Seite, KANAL: QR auf der Visitenkarte (nach persoenlichem Treffen) | Koerper identisch mit angebot.html; H1 "Schoen, dass wir uns getroffen haben" |
 | whatsapp.html | warme Seite, KANAL: Link im WhatsApp-Business-Profil | Koerper identisch mit angebot.html; CTA "Antworten Sie einfach hier in WhatsApp" |
 | instagram.html | warme Seite, KANAL: Link in der Instagram-Bio | Koerper identisch mit angebot.html; H1 "Sie haben die Arbeit gesehen" ANNAHME: Profil zeigt Arbeit. Bei leerem Profil H1 tauschen. |
@@ -182,6 +195,29 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
 
 ## Known Gaps
 
+- SYNC ERLEDIGT (2026-07-18): karte/whatsapp/instagram sind 1:1 auf das neue
+  angebot-Design gezogen (cp angebot.html + nur die 7 Kanal-Stellen getauscht:
+  Kommentar, title, og:url, H1, Hero-Sub, CTA-Band-H2, wa.me-Prefill). Koerper
+  byte-identisch zu angebot (per diff geprueft). Muster 3 wieder erfuellt. Der
+  Hero-CTA ist bei allen der Cal-20-Min-Button (CAL-SWAP offen), der WhatsApp-CTA
+  sitzt im CTA-Band.
+- KALTE AD-LPs visuell aufgefrischt (2026-07-18, Marvins Wahl "visuell mit-auffrischen"):
+  kosten/eigentum/schnell haben jetzt .guides + .sec-head-Sektionslinien + Streichpreise
+  (1.178/2.368) mit "einmalig*"-Fussnote. Bewusst NICHT uebernommen (Muster 4): .stack,
+  .hero-grid, .dok-Body-Klasse, entkastete Garantie. Garantie bleibt Kasten, Angle-Beweise
+  (Rechnung/Selbsttest/Mess) unveraendert.
+- OFFEN Copy-Divergenz Gespraechsdauer: angebot + warme Seiten sagen "20 Minuten"
+  (Ablauf-Schritt, Docket, Hero-CTA), kalte Ad-LPs sagen im Ablauf-Schritt noch
+  "30 Minuten". Bewusst nicht angefasst (kalt = nur visuelle Auffrischung). Bei
+  Bedarf angleichen (eine Stelle je kalter Seite).
+- OFFEN Hero-CTA du/Sie: der angebot-Hero-CTA lautet "Buch dir ein 20-Minuten-Gespraech"
+  (Duzen), der Rest siezt. 1:1 auf die warmen Varianten uebernommen. Wenn angeglichen
+  werden soll: eine Stelle in angebot + den 3 warmen Varianten.
+- STREICHPREIS-ENTSCHEIDUNG (Marvin 2026-07-17): del-Preis 1.178/2.368 vor dem
+  Startpreis, als echter Zukunftspreis (990/1.990 x 1,19). Steht bewusst im
+  Spannungsfeld zur aelteren Kein-Streichpreis-Regel weiter unten; Marvins Ansage
+  sticht. PAngV-Blick vor Launch trotzdem empfohlen (kein frueher verlangter Preis).
+- CAL-SWAP: Hero-CTA verlinkt cal.com/CAL-SWAP/20min, echter Cal.com-Link fehlt noch.
 - Markenname/Domain offen (Rebrand): [MARKE]-Platzhalter, OG-URLs mit DOMAIN-SWAP,
   Footer-Rechtslinks zeigen auf marvin-web.pages.dev. Kein foot-mark bis Name steht.
 - ERLEDIGT 2026-07-17 (Marvin, zweite Korrektur): angebot.html hat MEHRERE Zugaenge und
