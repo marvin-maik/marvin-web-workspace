@@ -284,7 +284,12 @@ summary:hover{color:var(--signal-deep)}
 @media(max-width:700px){.dok .pkg-grid{grid-template-columns:1fr}.dok .pkg+.pkg{border-left:none;border-top:1.5px solid var(--ink)}}
 .price del{font-size:.5em;color:var(--muted);font-weight:400;margin-right:8px;text-decoration-color:var(--signal-deep);text-decoration-thickness:2px;white-space:nowrap}
 .pkg .price small{display:block;margin-top:8px}
-@media(min-width:1001px){.dok .pkg .price{min-height:82px}}
+/* .dok = 3 enge Spalten, NUR >=1001px: Karten-Innenraum ~316px. "2.368 € 1.990 €" braucht bei 60px
+   325px und bricht sonst auf breiten Fenstern (>=~1462px) um. Deshalb Schrift auf 54px deckeln (kalte
+   LPs mit 2 breiten Spalten behalten 60px) + nowrap, "einmalig*" bleibt als Block darunter.
+   WICHTIG nur im 3-Spalten-Modus: auf Handy (1 schmale Spalte ~200px) wuerde nowrap ueberlaufen,
+   dort darf der Preis wie gehabt umbrechen. 2026-07-18 */
+@media(min-width:1001px){.dok .pkg .price{min-height:82px;font-size:clamp(44px,4vw,54px);white-space:nowrap}}
 /* Freigabe-Garantie entkastet, NUR .dok (Ad-LPs behalten den Kasten) */
 .dok .guarantee-band{display:block;max-width:760px;padding:0;border:none;background:transparent;margin-top:40px}
 .dok .guarantee-band .tag{margin-bottom:8px}

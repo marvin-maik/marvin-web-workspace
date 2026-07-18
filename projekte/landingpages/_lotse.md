@@ -67,6 +67,16 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **Preis-Umbruch auf breiten Desktops gefixt** (styles.css v19->v21). Marvin sah im sehr
+  breiten Fenster (file://): Paket-02-Preis "2.368 € 1.990 €" brach zweizeilig um, Paket 01 nicht.
+  Ursache exakt gemessen: NICHT die Spaltenbreite, sondern der Karten-Innenraum (~316px); bei >=~1462px
+  wächst die Schrift auf 60px, "1.990 €" (Extra-Ziffer ggü 990) braucht dann 325px. Tritt erst >1280px
+  auf -> in früheren Tests unsichtbar. Fix: `.dok .pkg .price` im 3-Spalten-Modus (>=1001px) auf
+  clamp(44,4vw,54) + nowrap. WICHTIG: erst versucht global -> Sweep fing sofort eine Regression (nowrap
+  ließ den Preis bei 320px in der schmalen 1-Spalte 13px überlaufen) -> deshalb nowrap NUR >=1001px.
+  Neu verifiziert: 52 Kombinationen 320-2560px, 0 Probleme. Merke: bei Preis-Layout immer die BREITEN
+  Fenster (>=1600px) mittesten, nicht nur bis 1280. LEARNING Cache/file://: Versionsnummer IMMER bumpen,
+  sonst zieht die file://-Ansicht die alte CSS (Marvin sah mehrfach alten Stand).
 - 2026-07-18: **Dichter Breakpoint-Sweep (VW/VH) auf Marvins Wunsch** (styles.css v18->v19). Per iframe
   alle 7 Seiten x 24 Breiten (320-1440px) = 168 Kombinationen geprüft: 0 Layout-Overflow, 0 Randüberlauf.
   Einziger echter Fund: bei 320px ragten die langen Wörter "Überraschungen" (.h-lg) und "Gründungsprojekte"
