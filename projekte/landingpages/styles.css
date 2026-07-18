@@ -180,16 +180,26 @@ summary:hover{color:var(--signal-deep)}
 .mess-zeile{padding:12px 0;border-bottom:1px dashed var(--line)}
 .mess-zeile:last-of-type{border-bottom:none}
 .mess-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted);margin-bottom:10px}
-.mess-spur{height:14px;background:var(--paper-deep);overflow:hidden}
-.mess-spur i{display:block;height:100%;transform-origin:left;
+/* Bahn = Spur + Zeit-Wert nebeneinander */
+.mess-bahn{display:flex;align-items:center;gap:16px}
+/* Spur = die LEERE Bar, traegt jetzt die Massband-Skala (Striche hier, nicht in der Fuellung) */
+.mess-spur{position:relative;flex:1;height:16px;overflow:hidden;
   background:
-    repeating-linear-gradient(90deg, var(--signal-deep) 0 2px, transparent 2px 12px) center/100% 100% no-repeat,
-    linear-gradient(var(--signal),var(--signal)) center/100% 100% no-repeat}
-.b-ballast i{width:92%}
-.b-schlank i{width:26%}
+    repeating-linear-gradient(90deg, var(--muted) 0 1.5px, transparent 1.5px 14px) center/100% 100% no-repeat,
+    linear-gradient(var(--paper-deep),var(--paper-deep)) center/100% 100% no-repeat}
+/* Fuellung = satt Orange, laeuft ueber die Skala; BEIDE Bahnen fuellen bis 100% (beide werden fertig) */
+.mess-spur i{display:block;height:100%;width:100%;transform-origin:left;background:var(--signal)}
+/* Zeit am Ende der Bahn, Mono, tabellarische Ziffern */
+.mess-zeit{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:15px;font-weight:600;
+  line-height:1.1;color:var(--ink);white-space:nowrap;min-width:58px;text-align:right}
+.mess-zeit small{display:block;font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* Rennen: Fuellung startet leer, Zeit verborgen; beide fuellen bis 100%, nur die DAUER trennt sie */
 [data-rennen].armiert .mess-spur i{transform:scaleX(0)}
-[data-rennen].armiert.los .b-ballast i{transform:scaleX(1);transition:transform 3.2s linear}
-[data-rennen].armiert.los .b-schlank i{transform:scaleX(1);transition:transform .8s ease-out}
+[data-rennen].armiert .mess-zeit{opacity:0}
+[data-rennen].armiert.los .b-ballast .mess-spur i{transform:scaleX(1);transition:transform 3.2s linear}
+[data-rennen].armiert.los .b-schlank .mess-spur i{transform:scaleX(1);transition:transform .9s ease-out}
+[data-rennen].armiert.los .b-ballast .mess-zeit{opacity:1;transition:opacity .35s 3.2s}
+[data-rennen].armiert.los .b-schlank .mess-zeit{opacity:1;transition:opacity .35s .9s}
 /* "Nochmal zeigen": setzt site.js nur ein, wenn die Animation auch laeuft */
 .mess-neu{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink);
   background:var(--paper);border:1.5px solid var(--ink);padding:9px 14px;margin-top:14px;

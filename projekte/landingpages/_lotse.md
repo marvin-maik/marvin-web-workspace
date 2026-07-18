@@ -74,6 +74,14 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **Ladebalken-Rennen (.mess) neu gedacht** (Marvin, styles.css v21->v22). Marvins Ansage:
+  (1) Massband-Striche gehoeren in die LEERE Bar, nicht in die Fuellung; (2) BEIDE Bahnen fuellen bis
+  100% (beide werden fertig), nur die Dauer trennt sie; (3) am Ende steht die ZEIT. Umgesetzt: Skala
+  (--muted repeating-gradient) im Track, Fuellung satt --signal, neue `.mess-bahn` (spur flex:1 + Zeit
+  rechts), `.mess-zeit` blendet am Ende jeder Bahn ein (opacity-delay = Dauer). Verifiziert: fillW==spurW
+  (deckt bis zum Ende), Skala im leeren Teil sichtbar, keine Konsolenfehler. OFFEN/BELEG: die Sekunden
+  (3,4 s / 0,8 s) sind als "Beispiel" markiert, Fussnote traegt den belegten Wert (PageSpeed 98). Marvin
+  muss echte Messwerte liefern (dann "Beispiel" raus) oder Beispielwerte bestaetigen. _design.md mitgezogen.
 - 2026-07-18: **noindex als feste Entscheidung bestaetigt** (Marvin): alle 7 LPs + 404 bleiben
   noindex (stehen fuer sich, nicht Teil der Hauptseite). robots-Meta war ueberall schon gesetzt;
   nur die "am Domain-Launch pruefen"-Kommentare in kosten/eigentum/schnell auf "feste Entscheidung"
