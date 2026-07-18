@@ -34,6 +34,10 @@ html{scroll-behavior:smooth}
 ::selection{background:var(--signal);color:var(--white)}
 body{font-family:var(--body);font-weight:400;background:var(--paper);color:var(--ink);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased;position:relative}
 h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.0;letter-spacing:-0.02em}
+/* lange deutsche Komposita (z.B. "Ueberraschungen", "Gruendungsprojekte") duerfen bei sehr
+   schmalen Viewports sauber trennen statt aus der Textspalte zu ragen; greift nur bei Bedarf.
+   .hero h1 ueberschreibt das bewusst mit hyphens:manual + overflow-wrap:anywhere. */
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 h1,h2{text-wrap:pretty}
 .satz{display:inline-block}
 a{color:inherit}

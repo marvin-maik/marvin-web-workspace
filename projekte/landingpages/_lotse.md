@@ -67,6 +67,13 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-18: **Dichter Breakpoint-Sweep (VW/VH) auf Marvins Wunsch** (styles.css v18->v19). Per iframe
+  alle 7 Seiten x 24 Breiten (320-1440px) = 168 Kombinationen geprüft: 0 Layout-Overflow, 0 Randüberlauf.
+  Einziger echter Fund: bei 320px ragten die langen Wörter "Überraschungen" (.h-lg) und "Gründungsprojekte"
+  (.gruendung h3) aus der Textspalte (h2/h3 brechen Wörter nicht). Fix: `h1,h2,h3{overflow-wrap:break-word;
+  hyphens:auto}` -> saubere deutsche Silbentrennung nur bei Bedarf (.hero h1 behält hyphens:manual/anywhere).
+  Nachweislich harmlos: SUMMARY-scrollWidth +8px ist ein flex/gap-Messquirk (kein sichtbarer Überlauf),
+  sr-only 334>1 ist gewollt. CSS nutzt KEINE vh-Einheiten -> Layout ist höhen-unabhängig.
 - 2026-07-18: **Zwei Nachträge aus Marvins Review** (styles.css v17->v18). (1) Ablauf-Bug: im
   2x2-Tablet-Layout hatte Schritt 03 eine verirrte linke Kante + 28px Einzug, stand versetzt
   unter 01 -> erste Spalte (ungerade Schritte) jetzt ohne linke Kante, bündig links (Alt-Bug,

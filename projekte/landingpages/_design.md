@@ -41,6 +41,9 @@ typography:
     fontFamily: System-Stack (-apple-system, Segoe UI, Roboto)
     size: 17px
     lineHeight: 1.55
+  # Alle Ueberschriften (h1,h2,h3): overflow-wrap:break-word + hyphens:auto, damit lange
+  # deutsche Komposita bei <=320px sauber trennen statt aus der Textspalte zu ragen (2026-07-18).
+  # .hero h1 ueberschreibt bewusst mit hyphens:manual + overflow-wrap:anywhere.
   mono:
     fontFamily: ui-monospace Stack
     size: 12 bis 13px
