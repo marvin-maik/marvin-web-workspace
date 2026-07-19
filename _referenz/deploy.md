@@ -31,17 +31,17 @@ Nur beim Deployen lesen (CLAUDE.md verweist hierher).
 
 ## marvin-web (LIVE seit 2026-07-10: https://marvin-web.pages.dev)
 ```
-rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude 'freigabe' --exclude 'handoff' --exclude 'product-marketing-context.md' --exclude 'DEMO-README.md' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && (cd /tmp/mw-deploy && npx wrangler pages deploy . --project-name marvin-web --branch main)
+rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude 'freigabe' --exclude 'handoff' --exclude 'product-marketing-context.md' --exclude 'DEMO-README.md' --exclude '.wrangler' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && (cd /tmp/mw-deploy && npx wrangler pages deploy . --project-name marvin-web --branch main)
 ```
 
 ## routenwerk (Demo LIVE seit 2026-07-12: https://routenwerk.pages.dev)
 ```
-rm -rf /tmp/rw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '_*' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main
+rm -rf /tmp/rw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '_*' --exclude '.wrangler' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main
 ```
 
 ## Neues Projekt: Deploy-Befehl ableiten
 Muster wie oben, Projektnamen tauschen, INTERN-Excludes IMMER uebernehmen (`_*`, `freigabe`,
-`handoff`, `product-marketing-context.md`, `DEMO-README.md`, `.DS_Store`), `_headers`/`_redirects`
-per `--include` davor durchlassen. Deploy-Exclude-Listen sind pro Projekt zu pruefen.
+`handoff`, `product-marketing-context.md`, `DEMO-README.md`, `.wrangler`, `.DS_Store`),
+`_headers`/`_redirects` per `--include` davor durchlassen. Deploy-Exclude-Listen sind pro Projekt zu pruefen.
 
 Spaeter optional: Git-Integration im CF-Dashboard fuer Auto-Deploy bei Push.
