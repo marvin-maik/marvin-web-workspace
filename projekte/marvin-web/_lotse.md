@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy 6b7ae500 (2026-07-19, grosse Geste via Tuner); davor c06267d3 (Bewegung nach unten).
+  (CF Pages, Direct Upload). Letzter Deploy 971b609e (2026-07-19, Fix Doppel-Anim Anker-Links); davor 6b7ae500 (grosse Geste via Tuner).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -53,6 +53,12 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Fix Doppel-Animation bei Anker-Links** (Marvin-Fund): Klick auf `index.html#kontakt` / `#faq` von
+  einer Unterseite loeste Seiten-Uebergang UND Sprung/Scroll zum Abschnitt gleichzeitig aus (Wirrwarr, durch die
+  grosse Geste verstaerkt). Fix: site.js `pageswap`-Guard ruft `e.viewTransition.skipTransition()`, wenn das Ziel
+  einen `#anker` hat -> Anker-Navigationen springen sauber ohne Uebergang, volle Seitenwechsel behalten die Geste.
+  Keine Link-Ziele geaendert. site.js v8->v9 (nur site.js). Deployed 971b609e, verifiziert (Guard live, keine
+  Konsolenfehler). Nicht per Automation fuehlbar (VT feuert nur im sichtbaren Vordergrund-Tab) -> Marvin klickt gegen.
 - 2026-07-19: **Transition = grosse verspielte Geste** (Marvin im Voll-Tuner gewaehlt, "das geil"): alt 0.44s
   (blur19 + translateY 129 + scale .69 + rotate 12deg) / neu 1.16s ease (translateY -129 + scale 1.33 + rotate
   -15deg, von oben herein). Chrome wieder komplett fest verankert: `.meta-row` (mw-meta, NEU - im echten DOM ist

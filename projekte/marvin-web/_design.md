@@ -133,7 +133,9 @@ Geschlossene Liste, alles andere ist verboten:
   (opacity->0 + blur 19px + translateY +129px + scale .69 + rotate 12deg) / neu 1.16s ease (opacity + translateY
   -129px->0 + scale 1.33->1 + rotate -15deg->0, von oben, kein Blur). Chrome steht fest: Anker an `.meta-row` (mw-meta),
   `nav` (mw-nav) und `.wa-float` (mw-wa) -> nur der Inhalt animiert. Fallback: Browser ohne VT navigieren normal;
-  site.js `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss).
+  site.js `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss). site.js `pageswap`-Guard
+  ueberspringt den Uebergang, wenn die Navigation zu einem Anker (`#abschnitt`) springt -> sonst ueberlagern sich
+  Geste und Abschnitts-Sprung (Wirrwarr). Betrifft alle `index.html#kontakt`/`#faq`-Links von Unterseiten.
 - prefers-reduced-motion: globales `transition:none/animation:none`, .rv sofort sichtbar; VT-Pseudos
   zusaetzlich per eigenem @media abgeschaltet.
 

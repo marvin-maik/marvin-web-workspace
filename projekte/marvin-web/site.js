@@ -11,6 +11,17 @@ window.addEventListener('pagereveal', function (e) {
   });
 });
 
+// Springt die Navigation zu einem Anker (#abschnitt), den Seiten-Uebergang UEBERSPRINGEN.
+// Sonst laufen Uebergangs-Geste und Sprung/Scroll zum Abschnitt gleichzeitig -> Wirrwarr.
+// Volle Seitenwechsel ohne Anker behalten den Uebergang.
+window.addEventListener('pageswap', function (e) {
+  if (!e || !e.viewTransition) return;
+  try {
+    var url = e.activation && e.activation.entry && e.activation.entry.url;
+    if (url && new URL(url).hash) e.viewTransition.skipTransition();
+  } catch (_) {}
+});
+
 // Lokale Uhrzeit in der Meta-Zeile (rein dekorativ, kein externer Request)
 (function () {
   var el = document.getElementById('clock');
