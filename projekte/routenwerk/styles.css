@@ -537,16 +537,19 @@ html.intro-wartet::before{content:"";position:fixed;inset:0;background:var(--bg)
 .btn-flap:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--muted)}
 .btn-flap:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 /* Mobil: alle CTAs volle Breite (konsistent gestapelt, kein "zu grosser" Button). Der Flap
-   bleibt 1-zeilig, die Kacheln fuellen die Breite (schmaler statt Umbruch -> keine sinnlosen
-   Brueche). Steht bewusst NACH den Basis-Regeln, damit die Overrides greifen. */
+   bleibt 1-zeilig; die Kacheln bleiben aber KOMPAKT/hoch-schmal wie auf der Abflugtafel + Desktop
+   (frueher auf Buttonbreite gestreckt -> wirkten quadratisch/fremd). Steht bewusst NACH den
+   Basis-Regeln, damit die Overrides greifen. */
 @media(max-width:720px){
-  /* max-width kappt die Streckung im Bereich ~500-720px (Tablet/grosse Phones):
-     auf schmalen Phones weiterhin volle Breite, darueber bleiben die Flap-Kacheln kompakt */
+  /* max-width haelt den Button im Bereich ~500-720px (Tablet/grosse Phones) in Zaum */
   .btn-flap,.btn-sign{width:100%;max-width:440px;box-sizing:border-box;justify-content:center;margin-left:0;margin-right:0}
-  .btn-flap{flex-wrap:nowrap;height:auto;gap:3px;padding:8px 10px 11px}
+  .btn-flap{flex-wrap:nowrap;height:auto;gap:3px;padding:9px 12px}
   .btn-flap::after{display:none}
   .btn-flap .flapbreak{display:none}
-  .btn-flap b{flex:1 1 0;min-width:0;width:auto;font-size:15px}
+  /* Kacheln bleiben kompakt/hoch-schmal wie auf der Abflugtafel + Desktop (NICHT auf die
+     Buttonbreite strecken, sonst wirken sie quadratisch/fremd). Button bleibt volle Breite,
+     die Kachelgruppe sitzt zentriert. */
+  .btn-flap b{flex:0 0 auto;width:1.5ch;min-width:0;font-size:15px;padding:6px 0}
 }
 
 /* Sekundaer-Button: nur EIN Icon — Text links, Abflug-Plane rechts (kein Pfeil) */

@@ -25,6 +25,10 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
 - Läuft und wird betreut. Bei Änderungen: `_design.md` lesen; Deploy über `_referenz/deploy.md` (rw-deploy).
 
 ## Log (Neuestes oben; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: `.btn-flap` mobil korrigiert. Kacheln wurden auf die Buttonbreite gestreckt (flex:1 1 0)
+  → wirkten quadratisch/fremd zur Abflugtafel. Jetzt kompakt/hoch-schmal (flex:0 0 auto, 1.5ch),
+  zentriert im weiterhin vollbreiten Button. Verhaeltnis B/H 0,39 = wie Tafel/Desktop. 320px 1-zeilig,
+  0px Overflow. styles.css?v=54. **Noch nicht deployt** (rw-deploy).
 - 2026-07-19: Abflugtafel mobil neu gedacht (Demo-Case, Homepage). Statt Querscroll mit sichtbarem
   Indikator wird das 4-Spalten-Brett unter 720px zu EINER grossen Flughafen-Tafel: Ink-Rahmen + Kopfband,
   Zeilen mit Trennlinien + Zebra, pro Route oben ZIEL gross + STATUS rechts, unten Detail + Preis.

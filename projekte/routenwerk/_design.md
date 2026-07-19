@@ -100,7 +100,7 @@ das alles zusammenhaelt.
 
 | Selektor | Bauteil | Konstruktion (Kurzform) |
 |---|---|---|
-| `.btn-flap` | Primaer-CTA (max 1-2/Seite) | Split-Flap: Rahmen 1.5px ink, radius 8px, Mono-Kacheln je Buchstabe, Grundlinie ::after; JS flippt data-text/data-alt |
+| `.btn-flap` | Primaer-CTA (max 1-2/Seite) | Split-Flap: Rahmen 1.5px ink, radius 8px, Mono-Kacheln je Buchstabe, Grundlinie ::after; JS flippt data-text/data-alt. Mobil (<720px): Button volle Breite, aber Kacheln bleiben KOMPAKT/hoch-schmal (flex:0 0 auto, 1.5ch) + zentriert — NICHT auf die Breite strecken, sonst wirken sie quadratisch/fremd zur Abflugtafel |
 | `.btn-sign` | Sekundaer-CTA | 2px Border ink, radius 10px, General Sans 600, Abflug-Flugzeug als Masken-Icon ::after; auf Dunkel Border/Text = bg |
 | `.marker` | Sektions-Marker | Mono 12px uppercase, border-top --line, space-between |
 | `.chip` / `.chips` | Fakten-Chips | Mono 11.5px, 1px Border currentColor, eckig |
