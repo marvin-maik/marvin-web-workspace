@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy d86f62e3 (2026-07-19, Page-Transitions); davor 375de9be (Profi-Mail info@).
+  (CF Pages, Direct Upload). Letzter Deploy c234c74b (2026-07-19, Transition langsamer+mehr Blur); davor d86f62e3 (Page-Transitions).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -53,6 +53,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Transition getunt** (Marvin: langsamer + mehr Weichzeichner). Werte: alt .20s->.28s / neu .34s->.46s;
+  Blur alt 3px->8px; neu jetzt mit Fokus-Zug (blur 6px->0), damit der Weichzeichner ueberhaupt sichtbar ist (neue Seite
+  liegt ueber der alten, deren Blur wird sonst verdeckt). styles.css v11->v12 (nur styles.css geaendert). `_design.md`
+  mitgezogen. Deployed **c234c74b**, verifiziert (Werte im Live-CSS, Kernseiten 200). Commit-Historie unten.
 - 2026-07-19: **Page-Transitions eingebaut** (native View Transitions, kein Framework). styles.css:
   `@view-transition{navigation:auto}` + verfeinerter Cross-Dissolve (alt .20s opacity+blur3px / neu .34s
   ease-out), Nav + .wa-float feste Anker via `view-transition-name` (mw-nav/mw-wa), reduced-motion-Abschaltung.
