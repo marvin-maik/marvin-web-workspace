@@ -17,6 +17,8 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
   MERKE: Wechselt die einbettende Domain, muss diese Liste mit — sonst blockt der Browser das iframe.
 
 ## Offene Punkte
+- [ ] deploy.md-rsync um `--exclude '.wrangler'` (+ ggf. `.git`) ergaenzen — lokaler Cache landet sonst
+  im Deploy (bei diesem Deploy manuell entfernt). Betrifft ALLE Projekt-Deploy-Befehle.
 - [ ] **Nachkontrolle 2026-07-28: Formular-Test + Customer-Feedback** (datierter Termin)
 - [ ] Insights nach Projektende → `_fundus/` sichern
 - [ ] Timeline-Fix (beratung.html) bei MARLOU-Reaktivierung dorthin zurückspielen
@@ -25,6 +27,12 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
 - Läuft und wird betreut. Bei Änderungen: `_design.md` lesen; Deploy über `_referenz/deploy.md` (rw-deploy).
 
 ## Log (Neuestes oben; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **DEPLOY LIVE.** Die drei Mobil-Verbesserungen (grosse Abflugtafel, kompakte Split-Flap-
+  Button-Kacheln, mitlaufendes Gepaeckband) sind auf https://routenwerk.pages.dev live. Verifiziert
+  ueber Deployment-URL (4dbbef16) + Produktions-Domain: styles.css?v=55 / site.js?v=51, `bandlauf`
+  vorhanden, Tafel-Overflow 0, Kernseiten 200. Hinweis: `.wrangler/` (lokaler Cache) landete in der
+  Staging-Kopie, vor dem Deploy manuell entfernt → deploy.md-rsync koennte `--exclude '.wrangler'`
+  bekommen (siehe offener Punkt).
 - 2026-07-19: Gepaeckband (Marquee) laeuft jetzt MIT. Vorher statischer Band-Hintergrund, nur Inhalt
   bewegt. Jetzt animiert der repeating-linear-gradient (47px Slats) per `bandlauf` 3.615s
   (= 47px / 13px/s = MARQUEE_PXPS) die background-position nach links -> selbes Tempo wie Koffer +
