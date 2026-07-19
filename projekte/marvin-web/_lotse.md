@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy 3575ff90 (2026-07-19, Transition via Live-Tuner); davor c234c74b (langsamer+mehr Blur).
+  (CF Pages, Direct Upload). Letzter Deploy 65ae3018 (2026-07-19, Nav+Banner laufen mit); davor 3575ff90 (Transition via Tuner).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -53,6 +53,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Nav + Banner laufen jetzt mit** (Marvin-Wunsch): `view-transition-name` vom `nav` entfernt,
+  die ganze Seite bewegt sich als ein Stueck (Kopf slidet/dissolved mit); nur `.wa-float` bleibt fester
+  Floating-Anker (mw-wa). styles.css v13->v14, Tuner-Header-Anker mitgezogen. Deployed 65ae3018, verifiziert
+  (mw-nav weg, mw-wa da, Kernseiten 200).
 - 2026-07-19: **Transition final via Live-Tuner** (`_tools/transition-tuner.html`, neues wiederverwendbares
   Werkzeug mit Reglern + Live-CSS-Ausgabe, `_`-Praefix = nie deployed). Marvin hat live eingestellt:
   langsamer Slide-Dissolve, alt 0.32s cubic-bezier(.4,0,1,1) (blur13px + translateY -33px) / neu 0.90s ease

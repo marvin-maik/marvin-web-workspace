@@ -131,8 +131,8 @@ Geschlossene Liste, alles andere ist verboten:
 - Seiten-Uebergaenge (native View Transitions, `@view-transition{navigation:auto}`): langsamer Slide-Dissolve,
   von Marvin live im Tuner (`_tools/transition-tuner.html`) eingestellt. alt 0.32s cubic-bezier(.4,0,1,1)
   (opacity->0 + blur 13px + translateY -33px) / neu 0.90s ease (opacity + translateY 33px->0, kein Blur).
-  Nur der Inhalt bewegt sich; Nav + .wa-float feste Anker via
-  `view-transition-name` (mw-nav / mw-wa). Fallback: Browser ohne VT navigieren normal;
+  Nav + Banner (meta-row) laufen mit dem Inhalt mit (kein `view-transition-name` mehr am nav, Marvin 2026-07-19);
+  nur `.wa-float` bleibt fester Anker (mw-wa, Floating-Button). Fallback: Browser ohne VT navigieren normal;
   site.js `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss).
 - prefers-reduced-motion: globales `transition:none/animation:none`, .rv sofort sichtbar; VT-Pseudos
   zusaetzlich per eigenem @media abgeschaltet.

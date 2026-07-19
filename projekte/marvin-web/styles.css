@@ -473,8 +473,8 @@ summary:hover{color:var(--signal-deep)}
    ============================================================ */
 @view-transition { navigation: auto; }
 
-/* Sticky-Nav und WhatsApp-Button bleiben fest stehen statt mitzufaden */
-nav      { view-transition-name: mw-nav; }
+/* Nav + Banner (meta-row) laufen jetzt mit dem Seiteninhalt mit (kein Anker am nav).
+   Nur der schwebende WhatsApp-Button bleibt fest stehen (Floating-Button). */
 .wa-float{ view-transition-name: mw-wa; }
 
 /* Von Marvin live im Tuner eingestellt: langsamer Slide-Dissolve.
