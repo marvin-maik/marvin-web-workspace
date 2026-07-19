@@ -466,3 +466,28 @@ summary:hover{color:var(--signal-deep)}
 .book-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
 @media(max-width:520px){.wa-float{right:14px;bottom:14px;padding:12px;gap:0}.wa-float__label{display:none}}
 @media(prefers-reduced-motion:reduce){.wa-float{transition:none}.wa-float:hover{transform:none}}
+
+/* ============================================================
+   PAGE TRANSITIONS  (native View Transitions, progressive enhancement)
+   Browser ohne Support -> ganz normale Navigation, kein Nachteil.
+   ============================================================ */
+@view-transition { navigation: auto; }
+
+/* Sticky-Nav und WhatsApp-Button bleiben fest stehen statt mitzufaden */
+nav      { view-transition-name: mw-nav; }
+.wa-float{ view-transition-name: mw-wa; }
+
+/* Verfeinerter Cross-Dissolve. Weiterhin OHNE Layout-Bewegung (nie Ladefehler-Look):
+   - alte Seite geht zuegig raus und loest sich mit einem Hauch Weichzeichner auf
+   - neue Seite kommt scharf herein und "setzt" sich weich per starkem Ease-out
+   - Nav + WhatsApp-Button stehen fest (siehe oben) */
+::view-transition-old(root){ animation: mw-vt-out .20s cubic-bezier(.4,0,1,1) both; }
+::view-transition-new(root){ animation: mw-vt-in  .34s cubic-bezier(.16,1,.3,1) both; }
+@keyframes mw-vt-out{ to  { opacity:0; filter: blur(3px); } }
+@keyframes mw-vt-in { from{ opacity:0; } }
+
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*){ animation:none !important; }
+}

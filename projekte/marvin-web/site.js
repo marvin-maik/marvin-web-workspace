@@ -1,5 +1,16 @@
 // MARVIN.WEB — gemeinsames Script (Uhr, Mobile-Nav, Scroll-Reveals)
 
+// Ankunft per View Transition: was im ersten Bild sichtbar ist, sofort zeigen -> der
+// Uebergangs-Schnappschuss ist nie "leer" (kein Aufblitzen). Nur bei VT; ohne VT bleibt
+// der klassische Scroll-Reveal beim direkten Laden erhalten.
+window.addEventListener('pagereveal', function (e) {
+  if (!e || !e.viewTransition) return;
+  var vh = window.innerHeight || document.documentElement.clientHeight;
+  document.querySelectorAll('.rv').forEach(function (el) {
+    if (el.getBoundingClientRect().top < vh) { el.style.transitionDelay = '0ms'; el.classList.add('in'); }
+  });
+});
+
 // Lokale Uhrzeit in der Meta-Zeile (rein dekorativ, kein externer Request)
 (function () {
   var el = document.getElementById('clock');

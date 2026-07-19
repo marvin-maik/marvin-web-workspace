@@ -53,6 +53,16 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Page-Transitions eingebaut** (native View Transitions, kein Framework). styles.css:
+  `@view-transition{navigation:auto}` + verfeinerter Cross-Dissolve (alt .20s opacity+blur3px / neu .34s
+  ease-out), Nav + .wa-float feste Anker via `view-transition-name` (mw-nav/mw-wa), reduced-motion-Abschaltung.
+  site.js: `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss). `?v=` gebumpt
+  (styles.css v10->v11, site.js v7->v8, in 8 HTML). `_design.md`-Motion mitgezogen. Marvin-Feedback im Bau:
+  Push/Zoom wirkte wie Ladefehler -> auf reinen, weichen Dissolve zurueck. In Staging verifiziert (Opt-in-Regel
+  als CSSViewTransitionRule erkannt, keine Konsolenfehler). Merke: **VT feuert nur im sichtbaren Vordergrund-Tab**
+  (Chrome skippt bei visibility:hidden), daher nicht per Automation/Preview zeigbar. **DEPLOY AUSSTEHEND**:
+  `wrangler pages deploy` wurde in der Session vom Permission-Classifier geblockt -> von Marvin auszufuehren
+  (Befehl = deploy.md marvin-web-Block, aus /tmp/mw-deploy-CWD wegen functions/). Danach Hash hier nachtragen.
 - 2026-07-19: Case-Study Live-Vorschau, iPhone bekommt echte dvh-Hoehe. iPhone-iframe nicht mehr
   buehnenfuellend, sondern feste Geraetehoehe `HOEHEN.iphone=740` (100dvh im iframe = echte Handyhoehe),
   proportional eingepasst + zentriert (minimal kleiner skaliert). Knopf in site.js: 812=iPhone X, 740=mit
