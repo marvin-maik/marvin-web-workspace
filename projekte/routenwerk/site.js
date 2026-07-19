@@ -395,7 +395,9 @@
         var voll = text.padEnd(breiten[spalte], " ");
         for (var i = 0; i < voll.length; i++){
           var b = document.createElement("b");
-          if (voll[i] === " "){ b.className = "leer"; b.innerHTML = "&nbsp;"; }
+          /* i >= text.length ⇒ reine Auffuell-Kachel am Zeilenende (mobil ausgeblendet),
+             sonst interner Wortabstand wie in "EUER PLAN" (bleibt sichtbar) */
+          if (voll[i] === " "){ b.className = i >= text.length ? "leer pad" : "leer"; b.innerHTML = "&nbsp;"; }
           else b.textContent = voll[i];
           div.appendChild(b);
         }
