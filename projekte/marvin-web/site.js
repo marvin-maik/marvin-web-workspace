@@ -53,6 +53,8 @@
 (function () {
   document.querySelectorAll("form:has([name='_gotcha'])").forEach(function (form) {
     var geladen = Date.now();
+    var tsFeld = form.querySelector("[name='_ts']");
+    if (tsFeld) { tsFeld.value = String(geladen); } // Zeitstempel fuer serverseitige Zeit-Falle
     var MINDEST = 2500; // ms bis zum ersten erlaubten Absenden: schneller = Bot
     form.addEventListener('submit', function (e) {
       var hp = form.querySelector("[name='_gotcha']");

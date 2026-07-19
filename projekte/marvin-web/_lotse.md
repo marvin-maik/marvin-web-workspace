@@ -20,9 +20,9 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   Namen beschreibend (Name + Leistung), siehe [[marvinwebdesign-domain]].
 - **Marvins eigene Marke.** Das Werkstatt-CD (Clash Display, Papier #f5f1e8, Orange #e8440a) ist HIER
   das Original, von dem die Landingpages erben (siehe [[eigene-marke-cd-erben]]).
-- **Formspree ist nur Staging-Notnagel.** Endlösung = Cloudflare Pages Function auf eigener Domain
-  (kein US-Drittempfänger, eigener Redirect, serverseitiger Spamschutz). Domain-Launch erfolgte OHNE die
-  Migration — Formular läuft aktuell noch über Formspree. Ablauf: `_referenz/integrations.md` Abschnitt 1b.
+- **Kontaktformular läuft über eigene CF Pages Function** (`functions/api/kontakt.js`) + Zoho ZeptoMail (EU),
+  seit 2026-07-19 live (Deploy bbdc99e8). Kein US-Drittempfänger mehr, serverseitiger Botschutz, eigener
+  Redirect /danke, Eingangsbestätigung an den Absender. Formspree ist abgelöst (Form kann stillgelegt werden).
 - Kleinunternehmer §19 UStG: Preise sind Endpreise, PAngV-Hinweis an den Preisen, keine USt-IdNr.
 - **Profi-Mail live: info@marvinwebdesign.de** (Zoho Mail, EU-DC). Seit 2026-07-19 überall eingebunden (Impressum, Datenschutz §2 + §7, index-JSON-LD) und sichtbar auf Start- und Kontaktseite; Gmail abgelöst.
 - Monitoring läuft still: CF Web Analytics (Token ...cc80) + UptimeRobot-Keyword "MARVIN.WEB" (5-Min, Mail an comspiele@web.de).
@@ -33,8 +33,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       (og:url/og:image/JSON-LD/`_next`) → marvinwebdesign.de; canonical je indexierbarer Seite
       (extensionslos — CF liefert `/pfad` ohne `.html`, `.html` macht 308); eigene robots.txt +
       sitemap.xml (nur die 6 indexierbaren Seiten; impressum/datenschutz sind noindex).
-- [~] **Formular Formspree → CF Pages Function** (integrations.md 1b): Function gebaut in `functions/api/kontakt.js` (serverseitig Honeypot + Zeit-Falle, Validierung, Redirect /danke, eigene Fehlerseite). Versand via **Zoho ZeptoMail (EU)** entschieden (Marvin will Danke-Mail an Kunden; ZeptoMail = gleicher Anbieter wie Mail, kein Fremd-Branding, faktisch gratis). WARTET auf Marvin: ZeptoMail-Konto freischalten (zeptomail.zoho.eu) + Domain verifizieren (DKIM/SPF-Include in CF, EINE SPF-Zeile mergen) + Sendetoken als CF-Env-Var `ZEPTOMAIL_TOKEN` (Pages-Projekt marvin-web, Secret). DANN Flip durch Claude: Formular-`action` → `/api/kontakt`, `_subject`/`_next` raus, `_ts`-Feld + site.js-Zeitstempel rein, Copy „Was danach passiert" (kontakt.html §01) + Datenschutz §4 (Formspree/USA raus, ZeptoMail/EU rein), deploy, echter Test-Submit. Bis Flip bleibt Formspree aktiv (Working Tree unverändert am Formular).
-- [ ] Formspree-Testsubmit real: greift `_next` → /danke im Free-Tarif? (Custom-Redirect ist Bezahl-Feature; sonst Tarif hoch ODER CF Pages Function)
+- [x] **Formular Formspree → CF Pages Function LIVE** (2026-07-19, Deploy bbdc99e8): `functions/api/kontakt.js` via Zoho ZeptoMail (EU), Domain in ZeptoMail verifiziert (DKIM-TXT `1914953._domainkey` + Bounce-CNAME `bounce-zem`→cluster89.zeptomail.eu, DNS-only). Flip: Formular-`action` → `/api/kontakt`, `_subject`/`_next` raus, `_ts`+site.js-Zeitstempel (Skew-Guard `>=0` in der Function), Datenschutz §4 + Copy §01 angepasst. End-to-end verifiziert: echter Submit → 303 /danke + Mail via ZeptoMail; Honeypot/Zeit-Falle/Validierung greifen; Live-Domain ok. **Deploy-Falle gefixt:** Functions kompilieren nur bei `wrangler pages deploy .` AUS dem Staging-Ordner (CWD), nicht `deploy /tmp/mw-deploy` aus dem Root — deploy.md aktualisiert. OFFEN: (a) Marvin: `ZEPTOMAIL_TOKEN` in CF von **Plaintext → Secret** umstellen (Wert war kurz sichtbar → ggf. Token in ZeptoMail rotieren); (b) 2 Test-Mails in info@ prüfen; (c) Formspree-Form stilllegen; (d) optional DMARC-TXT setzen.
 - [ ] Marvin: Test-Alarm-Mail (UptimeRobot) im Postfach/Spam prüfen; UptimeRobot-Monitor ggf. von pages.dev auf marvinwebdesign.de umhängen.
 - [x] **Logo eingebaut** (2026-07-19, Deploy ff45f0b5): Richtung A (Wortmarke „Signal-Quadrat") als
       `img/logo.svg` (Header) + `img/logo-invers.svg` (Footer), C (M.-Signet) als `img/zeichen.svg`
@@ -49,11 +48,12 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - [ ] Konto-Aktionen (Marvin): Google Unternehmensprofil anlegen; Instagram/LinkedIn + sameAs im Schema; Profi-Mail auf eigener Domain (Impressum + JSON-LD); Formspree-Autoresponder (Tarif prüfen); Conversion messen (/danke vs. Startseite in CF Analytics); "Antwort am selben Tag" gegen Urlaub/Krankheit absichern; Search Console + Sitemap einreichen.
 
 ## Was ist JETZT relevant
-- **Formular-Migration** Formspree → CF Pages Function (`_referenz/integrations.md` 1b) als nächster Technik-Schritt.
+- Kontaktformular-Migration ist LIVE (siehe erledigten Punkt). Offen dort nur: `ZEPTOMAIL_TOKEN` → Secret, 2 Test-Mails in info@ prüfen, Formspree-Form stilllegen.
 - AI-Crawler-Policy im CF-Dashboard entscheiden (siehe offenen Punkt).
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Kontaktformular-Migration live** (bbdc99e8). Formspree abgelöst → eigene CF Pages Function `functions/api/kontakt.js` + Zoho ZeptoMail (EU). ZeptoMail-Domain verifiziert (DKIM-TXT + Bounce-CNAME DNS-only in CF, per dig geprüft), Token als CF-Env-Var. Flip: action /api/kontakt, `_ts`+site.js-Zeitstempel (Function-Skew-Guard), Datenschutz §4 + Copy §01 (kein „keine Empfangsbestätigung"-Widerspruch mehr). E2E verifiziert (Submit→303 /danke + Mail; Honeypot/Zeit-Falle/Validierung greifen). **Deploy-Falle gefixt:** Pages Functions kompilieren nur bei `wrangler pages deploy .` aus dem Staging-CWD (deploy.md aktualisiert). Rest: Token Plaintext→Secret, Formspree stilllegen.
 - 2026-07-19: **Logo live** (ff45f0b5). Text-Wortmarke → gezeichnetes Logo, von Marvin gewählt (A+C, D verworfen): A „Signal-Quadrat" als `img/logo.svg` (Header) + `logo-invers.svg` (Footer), C M.-Signet als SVG-Favicon `img/zeichen.svg` + PNG 16/32/180/512. Header live + alle Assets 200 verifiziert (Footer-Bild lädt, Pane scrollte nicht — Sichtprüfung Footer per Konzept-Sheet). Clash-Outlines lizenzkonform (Fontshare FFL). Nebenfund: W-Glyph-NaN-Bug im geteilten `_tools/logo/text-zu-pfad.mjs` (Guard im `_logo/`, Task-Chip zum Nachziehen). `_design.md` mitgezogen.
 - 2026-07-19: **Profi-Mail live.** Zoho MX/SPF/DKIM (EU) gesetzt + öffentlich verifiziert; info@marvinwebdesign.de löst Gmail überall ab (Impressum, Datenschutz §2 + §7=Zoho/EU, index-JSON-LD, sichtbare Kontaktzeile auf Start- + Kontaktseite aktiviert). Committet 5f47b4a, deployed 375de9be, auf Deployment-URL verifiziert (info@ auf allen Seiten, keine Gmail). DMARC optional (p=none-Vorlage im Zoho-Punkt), BIMI übersprungen.
 - 2026-07-19: **Domain-Launch-Fix** deployed (1e4bdc50): alle pages.dev-URLs → marvinwebdesign.de, canonical (extensionslos) je Seite, eigene robots.txt + sitemap.xml, `_next` → /danke. Auf Deployment-URL verifiziert (canonical/og korrekt, sitemap 200, /danke 200, Fantasiepfad 404). **Rebrand beendet: MARVIN.WEB ist final** (Marvins Entscheidung), Logo-Konzepte beim logo-designer beauftragt. Datenschutz-DSGVO-Revision der Vorsession mit deployed.

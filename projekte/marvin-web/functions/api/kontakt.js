@@ -32,7 +32,7 @@ export async function onRequestPost(context) {
   // Schicht 1: Honeypot gefuellt -> Bot. Still "Erfolg" vortaeuschen, nichts senden.
   if (honeypot) return nach("/danke");
   // Schicht 2: zu schnell abgeschickt (nur pruefen, wenn JS den Zeitstempel gesetzt hat).
-  if (ts && Date.now() - ts < MINDEST_MS) return nach("/danke");
+  if (ts && Date.now() - ts >= 0 && Date.now() - ts < MINDEST_MS) return nach("/danke");
 
   // Pflichtfelder
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
