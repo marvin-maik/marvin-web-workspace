@@ -2,12 +2,11 @@
 # Bewusst ohne CSP: die Seiten haben Inline-JS/CSS, ein strikter CSP wuerde sie brechen.
 # HSTS wird ueber das Cloudflare-Dashboard gesetzt, nicht per Header-Datei.
 #
-# ACHTUNG noindex: Solange das Projekt nur unter marvin-web.pages.dev laeuft, halten wir
-# es bewusst aus dem Google-Index (Wegwerf-URL, kein Ranking darauf aufbauen).
-# BEIM DOMAIN-LAUNCH die naechste Zeile ENTFERNEN, sonst bleibt auch die Live-Domain
-# auf noindex (das _headers gilt fuer alle Hostnamen dieses Pages-Projekts).
+# noindex: seit dem Domain-Launch (2026-07-19) NICHT mehr site-weit — die 6 Business-Seiten
+# sind indexierbar. Seiten, die draussen bleiben (impressum/datenschutz/danke/404/umzug),
+# tragen ihr eigenes <meta name="robots" content="noindex"> im HTML; /umzug zusaetzlich der
+# X-Robots-Tag-Block weiter unten (Landing Page, bleibt IMMER noindex).
 /*
-  X-Robots-Tag: noindex
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY

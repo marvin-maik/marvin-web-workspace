@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy 375de9be (2026-07-19, Profi-Mail info@); davor 1e4bdc50 (Domain-Launch-Fix).
+  (CF Pages, Direct Upload). Letzter Deploy c3c5a4c2 (2026-07-19, Index-Freigabe: site-weites noindex entfernt); davor 375de9be (Profi-Mail info@).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -48,11 +48,21 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - [ ] Konto-Aktionen (Marvin): Google Unternehmensprofil anlegen; Instagram/LinkedIn + sameAs im Schema; Profi-Mail auf eigener Domain (Impressum + JSON-LD); Formspree-Autoresponder (Tarif prüfen); Conversion messen (/danke vs. Startseite in CF Analytics); "Antwort am selben Tag" gegen Urlaub/Krankheit absichern; Search Console + Sitemap einreichen.
 
 ## Was ist JETZT relevant
+- **Indexierung ist AN** (2026-07-19): site-weites noindex weg, die 6 Business-Seiten sind für Google frei. Nächster Schritt (Marvin, Konto): Search Console verifizieren + `sitemap.xml` einreichen / Indexierung anstoßen.
 - Kontaktformular-Migration ist LIVE (siehe erledigten Punkt). Offen dort nur: `ZEPTOMAIL_TOKEN` → Secret, 2 Test-Mails in info@ prüfen, Formspree-Form stilllegen.
 - AI-Crawler-Policy im CF-Dashboard entscheiden (siehe offenen Punkt).
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Index-Freigabe live** (c3c5a4c2). Die beim Domain-Launch vergessene site-weite
+  `X-Robots-Tag: noindex` im `/*`-Block von `_headers` entfernt (Kommentar dazu angepasst) → die 6
+  Business-Seiten sind jetzt indexierbar. Entwarnt: die noindex-Seiten hängen NICHT an der site-weiten
+  Zeile — impressum/datenschutz/danke/404 tragen je ihr eigenes `<meta name="robots" noindex>`, `/umzug`
+  (Landing Page) zusätzlich seinen eigenen `_headers`-Block; alles unangetastet. Live-Domain verifiziert:
+  `curl -I` auf `/` + alle 6 Business-Seiten → kein x-robots-tag; `/umzug` → noindex bleibt;
+  impressum/datenschutz/danke/404 → Meta-noindex bleibt. (Hinweis: `*.pages.dev`-Hash-URLs liefern noindex
+  IMMER — Cloudflare-Plattform, nicht unsere Datei; deshalb hier die Custom-Domain als maßgeblicher Check.)
+  OFFEN (Marvin, Konto): Search Console verifizieren + sitemap einreichen.
 - 2026-07-19: Case-Study Live-Vorschau, iPhone bekommt echte dvh-Hoehe. iPhone-iframe nicht mehr
   buehnenfuellend, sondern feste Geraetehoehe `HOEHEN.iphone=740` (100dvh im iframe = echte Handyhoehe),
   proportional eingepasst + zentriert (minimal kleiner skaliert). Knopf in site.js: 812=iPhone X, 740=mit
