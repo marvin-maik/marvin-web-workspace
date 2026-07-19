@@ -53,6 +53,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: Case-Study Live-Vorschau, iPhone bekommt echte dvh-Hoehe. iPhone-iframe nicht mehr
+  buehnenfuellend, sondern feste Geraetehoehe `HOEHEN.iphone=740` (100dvh im iframe = echte Handyhoehe),
+  proportional eingepasst + zentriert (minimal kleiner skaliert). Knopf in site.js: 812=iPhone X, 740=mit
+  Leiste, 667=SE. Mac/Tablet unveraendert. site.js v6→v7. Live verifiziert (Domain liefert HOEHEN/scaleM).
 - 2026-07-19: **Case-Study Live-Vorschau: iPhone/Tablet zeigen jetzt die echte Mobile-Variante.** Routenwerk
   waehlt Desktop-Coverflow vs. Mobile-Kartenstapel EINMAL beim Laden (matchMedia an 861px, kein change-Listener);
   der Demo-iframe bootete in Mac-Breite und blieb beim Umschalten Desktop. Fix in `site.js`: iframe neu laden,

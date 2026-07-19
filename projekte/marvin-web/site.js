@@ -106,6 +106,11 @@
   var frame = stage.querySelector('.live-frame');
   var knoepfe = document.querySelectorAll('.shot-geraete button');
   var BREITEN = { mac: 1440, tablet: 768, iphone: 375 };
+  // Feste Geraete-Viewporthoehe fuer die iPhone-Ansicht: so wird im iframe 100dvh/100vh = echte
+  // Handy-Hoehe und die Mobile-Layouts sehen aus wie auf einem realen Geraet (uebliche dvh-Proportion),
+  // statt in den kurzen Buehnenausschnitt gestaucht. Dafuer wird die Ansicht minimal kleiner skaliert.
+  // Ein Knopf zum Drehen: 812 = volles iPhone X, 740 = mit Browserleiste, 667 = iPhone SE.
+  var HOEHEN = { iphone: 740 };
   // Routenwerk waehlt Desktop-Coverflow vs. Mobile-Kartenstapel EINMAL beim Laden (matchMedia
   // an der 861px-Grenze, ohne change-Listener). Damit die iPhone-/Tablet-Ansicht wirklich die
   // Mobile-Variante zeigt (statt das Desktop-Layout nur zu quetschen), laden wir den iframe neu,
@@ -121,11 +126,25 @@
   }
   function layout() {
     var breite = BREITEN[stage.dataset.device] || 1440;
-    var scale = Math.min(1, stage.clientWidth / breite);
-    frame.style.width = breite + 'px';
-    frame.style.height = Math.ceil(stage.clientHeight / scale) + 'px';
-    frame.style.transform = 'scale(' + scale + ')';
-    frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scale) / 2) + 'px';
+    var hoehe = HOEHEN[stage.dataset.device];
+    if (hoehe) {
+      // Mobile mit fester dvh-Hoehe: echtes Geraetefenster (Breite x Hoehe) proportional in die
+      // Buehne einpassen und mittig zentrieren. Minimal kleiner skaliert, dafuer echte dvh im iframe.
+      var scaleM = Math.min(stage.clientWidth / breite, stage.clientHeight / hoehe, 1);
+      frame.style.width = breite + 'px';
+      frame.style.height = hoehe + 'px';
+      frame.style.transform = 'scale(' + scaleM + ')';
+      frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scaleM) / 2) + 'px';
+      frame.style.marginTop = Math.max(0, (stage.clientHeight - hoehe * scaleM) / 2) + 'px';
+    } else {
+      // Desktop (Mac): Breite skaliert, Hoehe fuellt die Buehne (Ausschnitt der langen Startseite).
+      var scaleD = Math.min(1, stage.clientWidth / breite);
+      frame.style.width = breite + 'px';
+      frame.style.height = Math.ceil(stage.clientHeight / scaleD) + 'px';
+      frame.style.transform = 'scale(' + scaleD + ')';
+      frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scaleD) / 2) + 'px';
+      frame.style.marginTop = '0px';
+    }
   }
   knoepfe.forEach(function (b) {
     b.addEventListener('click', function () {
