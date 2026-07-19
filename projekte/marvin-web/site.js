@@ -106,6 +106,14 @@
   var frame = stage.querySelector('.live-frame');
   var knoepfe = document.querySelectorAll('.shot-geraete button');
   var BREITEN = { mac: 1440, tablet: 768, iphone: 375 };
+  // Routenwerk waehlt Desktop-Coverflow vs. Mobile-Kartenstapel EINMAL beim Laden (matchMedia
+  // an der 861px-Grenze, ohne change-Listener). Damit die iPhone-/Tablet-Ansicht wirklich die
+  // Mobile-Variante zeigt (statt das Desktop-Layout nur zu quetschen), laden wir den iframe neu,
+  // sobald ein Geraete-Wechsel diese Grenze kreuzt -> die Demo bootet frisch in der richtigen Variante.
+  var GRENZE = 860;
+  function istMobil(dev) { return (BREITEN[dev] || 1440) <= GRENZE; }
+  var geladenMobil = null; // in welcher Variante der iframe zuletzt gebootet hat (null = noch nie geladen)
+  frame.addEventListener('load', function () { geladenMobil = istMobil(stage.dataset.device); });
   // Auf kleinen Screens direkt in der iPhone-Ansicht starten (Mac-Ansicht waere winzig)
   if (window.innerWidth <= 700) {
     stage.dataset.device = 'iphone';
@@ -124,6 +132,11 @@
       knoepfe.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
       stage.dataset.device = b.dataset.device;
       layout();
+      // Wechsel kreuzt die Desktop/Mobile-Grenze? Dann iframe frisch booten lassen (cross-origin-
+      // sicher ueber src-Neuzuweisung; contentWindow.reload() ist bei fremder Origin blockiert).
+      if (geladenMobil !== null && istMobil(stage.dataset.device) !== geladenMobil) {
+        frame.src = frame.src;
+      }
     });
   });
   window.addEventListener('resize', layout, { passive: true });

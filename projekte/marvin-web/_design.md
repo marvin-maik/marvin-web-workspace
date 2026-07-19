@@ -108,7 +108,7 @@ generischer Trenner streuen, sie gehoert zur Headline.
 | `.pains` / `.pain` | Problem-Liste | Zeilen-Grid 56px/1fr/1.2fr, x-Marker Mono --signal-deep |
 | `.case` / `.artefakt` | Case-Karten | white, ink-Rahmen, Artefakt-K-Label --signal-deep |
 | `.duo` / `.pull` | Ueber-mich | Bildrahmen ink-Border; Pull-Quote Clash clamp(28..48), em in --signal-deep |
-| `.shot-window` / `.live-stage` | Live-Browserfenster | ink-Rahmen + Offset-Schatten, Geraete-Buttons aria-pressed, .live-cue Hinweis-Pille |
+| `.shot-window` / `.live-stage` | Live-Browserfenster | ink-Rahmen + Offset-Schatten, Geraete-Buttons aria-pressed, .live-cue Hinweis-Pille; iframe bekommt echte Geraetebreite (mac 1440 / tablet 768 / iphone 375) + wird skaliert; iframe-Reload beim Kreuzen der 860px-Grenze, damit Routenwerk frisch in Desktop- bzw. Mobile-Variante bootet |
 | `.blick-dialog` | Designfiles-Popup | nativer dialog, ink-Border, backdrop rgba(22,20,18,.75) |
 | `.form-card` / `.book-card` | Kontakt-Duo | Formular auf paper-Karte, Buchung als dark-line-Rahmen im dunklen Band |
 | `.hp-feld` | Honeypot | off-screen, Pflicht in jedem Formular (plus Zeit-Falle in site.js) |
