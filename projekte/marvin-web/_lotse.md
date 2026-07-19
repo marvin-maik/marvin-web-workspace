@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy 971b609e (2026-07-19, Fix Doppel-Anim Anker-Links); davor 6b7ae500 (grosse Geste via Tuner).
+  (CF Pages, Direct Upload). Letzter Deploy **d6ad5827** (2026-07-19, danke.html 2-zeilig); davor c8fd8754 (Token-Redeploy) und 971b609e (Fix Doppel-Anim Anker-Links).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -62,7 +62,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   (live lief noch 971b609e mit dem gelöschten Token) → Test lieferte die Fehlerseite; nach dem Redeploy
   Test grün (303 /danke, Mail in info@ + comspiele@web.de). Lehre steht im Formspree-Punkt: **CF Pages
   aktiviert geänderte Env-Vars erst beim nächsten Deploy.** (2) `danke.html`: WhatsApp/Telefon-Zeile auf
-  Marvins Wunsch zweizeilig (` · ` → Komma + `<br>`). Committet; **Deploy dieser HTML-Änderung durch Marvin noch offen.**
+  Marvins Wunsch zweizeilig (` · ` → Komma + `<br>`). Committet und **live via Deploy d6ad5827** (verifiziert: Live-/danke liefert `,<br>oder ruf an`).
 - 2026-07-19: **Aufräum-Check „ist noch was offen": zwei machbare Punkte erledigt.** (1) UptimeRobot-Monitor
   803511381 von `marvin-web.pages.dev` auf `https://marvinwebdesign.de` umgehängt (url + friendlyName via MCP,
   Keyword/Intervall/Codes/Alert-Kontakte unangetastet; per list-monitors bestätigt). (2) W-Glyph-NaN-Bug im
