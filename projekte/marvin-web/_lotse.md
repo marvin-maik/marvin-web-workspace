@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy **d6ad5827** (2026-07-19, danke.html 2-zeilig); davor c8fd8754 (Token-Redeploy) und 971b609e (Fix Doppel-Anim Anker-Links).
+  (CF Pages, Direct Upload). Letzter Deploy **483189da** (2026-07-19, Instagram-sameAs im Schema); davor d6ad5827 (danke.html 2-zeilig) und c8fd8754 (Token-Redeploy).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -44,10 +44,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       `repariereD()` aus `_logo/glyphen-daten.mjs` portiert; gegen Clash Display 700 mit „MARVIN.WEB"
       und „WWWWW" verifiziert, kein NaN im Pfad). Der offene Task-Chip dazu kann weg.
 - [ ] Datenschutz fachlich prüfen lassen (Dieter). **Cloudflare-DPA gilt AUTOMATISCH** (in die Self-Serve Subscription Agreement einbezogen — 2026-07-19 unter Configurations geprüft, kein Klick nötig; optional „Review"-PDF für die Akte sichern). Formspree-AVV ist mit der Stilllegung hinfällig.
-- [x] **Zoho-Mail live** (2026-07-19): MX (mx/mx2/mx3.zoho.eu) + SPF (include:zohomail.eu) + DKIM (zmail._domainkey) in Cloudflare gesetzt und öffentlich verifiziert; info@ empfängt. Adresse überall eingebunden, Datenschutz §7 auf „Zoho Mail, EU" konkretisiert. OFFEN dazu: (a) Marvin: Test-Mail von extern an info@ zur finalen Empfangsbestätigung; (b) hinfällig (Formspree stillgelegt); (c) **Zoho-DPA: KEIN Dashboard-Klick — per Mail an `legal@zohocorp.com` anfordern und Rechenzentrum EU/zoho.eu nennen** (Zoho GDPR-Seite, 2026-07-19 geprüft; fertiger Entwurf an Marvin gegeben, er sendet von info@); (d) **DMARC-TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:info@marvinwebdesign.de` GESETZT** (2026-07-19, von Claude via Chrome in CF-DNS). BIMI bewusst übersprungen (VMC-Zertifikat zu teuer).
+- [x] **Zoho-Mail live** (2026-07-19): MX (mx/mx2/mx3.zoho.eu) + SPF (include:zohomail.eu) + DKIM (zmail._domainkey) in Cloudflare gesetzt und öffentlich verifiziert; info@ empfängt. Adresse überall eingebunden, Datenschutz §7 auf „Zoho Mail, EU" konkretisiert. OFFEN dazu: (a) Marvin: Test-Mail von extern an info@ zur finalen Empfangsbestätigung; (b) hinfällig (Formspree stillgelegt); (c) **Zoho-DPA: kein Dashboard-Klick — per Mail an `legal@zohocorp.com` (EU/zoho.eu) angefordert; Mail von Marvin am 2026-07-19 gesendet, DPA-Rückmeldung abwarten und gegenzeichnen/ablegen**; (d) **DMARC-TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:info@marvinwebdesign.de` GESETZT** (2026-07-19, von Claude via Chrome in CF-DNS). BIMI bewusst übersprungen (VMC-Zertifikat zu teuer).
 - [x] **AI-Crawler-Policy ENTSCHIEDEN (Marvin, 2026-07-19): so lassen, nichts geändert.** Live-Stand: „Managed robots.txt" ist AN → `Content-Signal: search=yes,ai-train=no,use=reference`; Such-/Antwort-Crawler (Google, Bing, Apple, ChatGPT-Browsing, Perplexity) erlaubt, reine Trainings-Crawler (GPTBot, ClaudeBot, CCBot, Google-Extended, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent) per `Disallow: /` geblockt. Ziel (KI-Such-Auffindbarkeit ChatGPT/Perplexity) damit erfüllt, Inhalte vorm Training geschützt. Umschalten ginge über CF Dashboard → AI Crawl Control → „Managed robots.txt" aus.
 - [ ] Geräte-Review (iPhone + Android)
-- [ ] Konto-Aktionen (Marvin): **Search Console + Sitemap = ERLEDIGT** (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten, 2026-07-19). **Instagram-`sameAs` eingebaut** (index.html JSON-LD, `https://www.instagram.com/marvinwebdesign.de/`, 2026-07-19 — Deploy noch offen). Noch offen: Google Unternehmensprofil anlegen (dann in `sameAs` ergänzen); LinkedIn (falls gewünscht); Conversion messen (/danke vs. Startseite in CF Analytics); „Antwort am selben Tag" gegen Urlaub/Krankheit absichern.
+- [ ] Konto-Aktionen (Marvin): **Search Console + Sitemap = ERLEDIGT** (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten, 2026-07-19). **Instagram-`sameAs` LIVE** (index.html JSON-LD, `https://www.instagram.com/marvinwebdesign.de/`, Deploy 483189da, live geprüft auf Domain + Deployment-URL). Noch offen: Google Unternehmensprofil anlegen (dann in `sameAs` ergänzen); LinkedIn (falls gewünscht); Conversion messen (/danke vs. Startseite in CF Analytics); „Antwort am selben Tag" gegen Urlaub/Krankheit absichern.
 
 ## Was ist JETZT relevant
 - Kontaktformular-Migration VOLLSTÄNDIG abgeschlossen: Token als Secret + verifiziert, Formspree-Form stillgelegt (Marvin, 2026-07-19).
@@ -55,6 +55,14 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **sameAs live + Legal-Vollständigkeitscheck.** Instagram-`sameAs` deployt (**483189da**, live
+  auf Domain + Deployment-URL geprüft; Deploy lief diesmal durch → Marvins Allowlist lässt die mw-Segmente
+  jetzt zu). Zoho-DPA-Mail von Marvin gesendet. Legal-Kontrolle gegen `pflichtseiten-checkliste.md` (KEINE
+  Rechtsberatung, Abnahme = Dieter): Impressum vollständig (§5 DDG, §18 MStV, §19 UStG; von allen 6 Seiten
+  verlinkt); Datenschutz nennt alle aktuellen Verarbeiter (Cloudflare/Zoho/ZeptoMail/WhatsApp/Cal.eu),
+  Formspree raus, keine Cookies, cookieloses Analytics, kein Consent-Banner nötig; **kein toter EU-ODR-Link**
+  (seit 20.07.2025 abgeschaltet); DMARC/SPF/DKIM stehen. Offen: Zoho-DPA-Rücklauf gegenzeichnen; für Dieter:
+  Widerruf/AGB in B2C-Kundenverträgen + BFSG-Anwendbarkeit + finale Wort-Abnahme.
 - 2026-07-19: **Nachzügler-Runde per Chrome-Takeover (Marvin eingeloggt, Claude klickt).** Entdeckt: Search
   Console + Sitemap war schon fertig (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten). In CF via
   Chrome erledigt: (a) DMARC-TXT `_dmarc` gesetzt (p=none, rua info@); (b) AI Crawl Control geprüft und auf
