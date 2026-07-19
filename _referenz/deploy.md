@@ -17,10 +17,16 @@ Nur beim Deployen lesen (CLAUDE.md verweist hierher).
 - Falls doch etwas rausging: altes Deployment loeschen mit
   `npx wrangler pages deployment delete <id> --project-name <p> --force` (Hash-URLs bleiben sonst
   ewig erreichbar); geleakte URLs NICHT anpingen (waermt den Edge-Cache).
+- **Pages Functions (`functions/`-Ordner): Deploy MUSS AUS dem Staging-Ordner heraus laufen**
+  (`cd /tmp/mw-deploy && npx wrangler pages deploy . --project-name <p> --branch main`), NICHT
+  `wrangler pages deploy /tmp/mw-deploy` aus dem Workspace-Root. wrangler kompiliert `functions/`
+  relativ zum CWD, nicht zum Pfad-Argument; sonst wird die Function STILL weggelassen (kein Fehler,
+  aber die Route liefert 404/405). Verifiziert marvin-web 2026-07-19 (Kontaktformular-Function).
+  Erfolgs-Marker im Output: `✨ Compiled Worker successfully` + `Uploading Functions bundle`.
 
 ## marvin-web (LIVE seit 2026-07-10: https://marvin-web.pages.dev)
 ```
-rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude 'freigabe' --exclude 'handoff' --exclude 'product-marketing-context.md' --exclude 'DEMO-README.md' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && npx wrangler pages deploy /tmp/mw-deploy --project-name marvin-web --branch main
+rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude 'freigabe' --exclude 'handoff' --exclude 'product-marketing-context.md' --exclude 'DEMO-README.md' --exclude '.DS_Store' projekte/marvin-web/ /tmp/mw-deploy/ && (cd /tmp/mw-deploy && npx wrangler pages deploy . --project-name marvin-web --branch main)
 ```
 
 ## routenwerk (Demo LIVE seit 2026-07-12: https://routenwerk.pages.dev)
