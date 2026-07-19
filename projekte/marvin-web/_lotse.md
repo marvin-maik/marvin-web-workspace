@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy c06267d3 (2026-07-19, Bewegung nach unten); davor 65ae3018 (Nav+Banner laufen mit).
+  (CF Pages, Direct Upload). Letzter Deploy 6b7ae500 (2026-07-19, grosse Geste via Tuner); davor c06267d3 (Bewegung nach unten).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -53,6 +53,13 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Transition = grosse verspielte Geste** (Marvin im Voll-Tuner gewaehlt, "das geil"): alt 0.44s
+  (blur19 + translateY 129 + scale .69 + rotate 12deg) / neu 1.16s ease (translateY -129 + scale 1.33 + rotate
+  -15deg, von oben herein). Chrome wieder komplett fest verankert: `.meta-row` (mw-meta, NEU - im echten DOM ist
+  der Banner ein eigenes Element, muss separat verankert werden, sonst rotiert er am Scroll-Top hinter der Nav)
+  + `nav` (mw-nav) + `.wa-float` (mw-wa). styles.css v15->v16. Deployed 6b7ae500, verifiziert. reduced-motion
+  schaltet die Geste weiterhin komplett ab. NB: bewusst showy, gegen den sonst sachlichen Ton - Marvins Wahl.
+  Voll-Tuner mit allen Reglern: `_tools/transition-tuner.html` (Commit c091828).
 - 2026-07-19: **Bewegungsrichtung gedreht** (Marvin): jetzt nach unten statt hoch. alt translateY -33->+33,
   neu translateY 33->-33 (kommt von oben herab). styles.css v14->v15, Tuner-Vorzeichen mitgedreht. Deployed
   c06267d3, verifiziert.

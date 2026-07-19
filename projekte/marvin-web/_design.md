@@ -128,11 +128,11 @@ Geschlossene Liste, alles andere ist verboten:
 - `drawRule` .9s auf Hero/Page-Head-.rule, `faqIn` .3s, Step-Ziffern-Fuellung .7s.
 - `.fact`-Reveal: Tinte-Cover faellt nach unten (.95s), KEIN Opacity-Fade (schwarzer
   Durchschein-Bug, siehe CSS-Kommentar). `cuePuls` 1.6s infinite nur auf .live-cue b.
-- Seiten-Uebergaenge (native View Transitions, `@view-transition{navigation:auto}`): langsamer Slide-Dissolve,
-  von Marvin live im Tuner (`_tools/transition-tuner.html`) eingestellt. alt 0.32s cubic-bezier(.4,0,1,1)
-  (opacity->0 + blur 13px + translateY +33px, faehrt runter) / neu 0.90s ease (opacity + translateY -33px->0, von oben herab, kein Blur).
-  Nav + Banner (meta-row) laufen mit dem Inhalt mit (kein `view-transition-name` mehr am nav, Marvin 2026-07-19);
-  nur `.wa-float` bleibt fester Anker (mw-wa, Floating-Button). Fallback: Browser ohne VT navigieren normal;
+- Seiten-Uebergaenge (native View Transitions, `@view-transition{navigation:auto}`): grosse, verspielte Geste,
+  von Marvin live im Tuner (`_tools/transition-tuner.html`) eingestellt (2026-07-19). alt 0.44s cubic-bezier(.4,0,1,1)
+  (opacity->0 + blur 19px + translateY +129px + scale .69 + rotate 12deg) / neu 1.16s ease (opacity + translateY
+  -129px->0 + scale 1.33->1 + rotate -15deg->0, von oben, kein Blur). Chrome steht fest: Anker an `.meta-row` (mw-meta),
+  `nav` (mw-nav) und `.wa-float` (mw-wa) -> nur der Inhalt animiert. Fallback: Browser ohne VT navigieren normal;
   site.js `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss).
 - prefers-reduced-motion: globales `transition:none/animation:none`, .rv sofort sichtbar; VT-Pseudos
   zusaetzlich per eigenem @media abgeschaltet.

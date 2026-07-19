@@ -473,18 +473,19 @@ summary:hover{color:var(--signal-deep)}
    ============================================================ */
 @view-transition { navigation: auto; }
 
-/* Nav + Banner (meta-row) laufen jetzt mit dem Seiteninhalt mit (kein Anker am nav).
-   Nur der schwebende WhatsApp-Button bleibt fest stehen (Floating-Button). */
+/* Feste Anker: Nav, Banner (meta-row) und WhatsApp-Button stehen still; nur der Inhalt animiert. */
+.meta-row{ view-transition-name: mw-meta; }
+nav      { view-transition-name: mw-nav; }
 .wa-float{ view-transition-name: mw-wa; }
 
-/* Von Marvin im Tuner eingestellt: langsamer Slide-Dissolve, Bewegung nach UNTEN.
-   - alte Seite verwischt (13px) und faehrt leicht runter
-   - neue Seite kommt scharf von oben herab und setzt sich ueber .9s (ease)
-   - Nav + Banner laufen mit; nur der WhatsApp-Button (.wa-float) bleibt fest */
-::view-transition-old(root){ animation: mw-vt-out 0.32s cubic-bezier(.4,0,1,1) both; }
-::view-transition-new(root){ animation: mw-vt-in  0.90s ease both; }
-@keyframes mw-vt-out{ to  { opacity:0; filter: blur(13px); transform:translateY(33px);  } }
-@keyframes mw-vt-in { from{ opacity:0; filter: blur(0px);  transform:translateY(-33px); } }
+/* Von Marvin im Tuner eingestellt: grosse, verspielte Geste (Slide + Zoom + Drehung + Blur).
+   - alt schrumpft (.69), dreht (+12deg), faellt 129px runter und verwischt (19px)
+   - neu kommt gross (1.33), schraeg (-15deg) von oben (-129px) herein und setzt sich ueber 1.16s
+   - Chrome (Nav / Banner / WhatsApp) steht fest (Anker oben) */
+::view-transition-old(root){ animation: mw-vt-out 0.44s cubic-bezier(.4,0,1,1) both; }
+::view-transition-new(root){ animation: mw-vt-in  1.16s ease both; }
+@keyframes mw-vt-out{ to  { opacity:0; filter: blur(19px); transform:translateY(129px) scale(0.69) rotate(12deg); } }
+@keyframes mw-vt-in { from{ opacity:0; transform:translateY(-129px) scale(1.33) rotate(-15deg); } }
 
 @media (prefers-reduced-motion: reduce){
   ::view-transition-group(*),
