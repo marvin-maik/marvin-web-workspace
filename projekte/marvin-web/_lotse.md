@@ -33,7 +33,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       (og:url/og:image/JSON-LD/`_next`) → marvinwebdesign.de; canonical je indexierbarer Seite
       (extensionslos — CF liefert `/pfad` ohne `.html`, `.html` macht 308); eigene robots.txt +
       sitemap.xml (nur die 6 indexierbaren Seiten; impressum/datenschutz sind noindex).
-- [x] **Formular Formspree → CF Pages Function LIVE** (2026-07-19, Deploy bbdc99e8): `functions/api/kontakt.js` via Zoho ZeptoMail (EU), Domain in ZeptoMail verifiziert (DKIM-TXT `1914953._domainkey` + Bounce-CNAME `bounce-zem`→cluster89.zeptomail.eu, DNS-only). Flip: Formular-`action` → `/api/kontakt`, `_subject`/`_next` raus, `_ts`+site.js-Zeitstempel (Skew-Guard `>=0` in der Function), Datenschutz §4 + Copy §01 angepasst. End-to-end verifiziert: echter Submit → 303 /danke + Mail via ZeptoMail; Honeypot/Zeit-Falle/Validierung greifen; Live-Domain ok. **Deploy-Falle gefixt:** Functions kompilieren nur bei `wrangler pages deploy .` AUS dem Staging-Ordner (CWD), nicht `deploy /tmp/mw-deploy` aus dem Root — deploy.md aktualisiert. OFFEN: (a) Marvin: `ZEPTOMAIL_TOKEN` in CF von **Plaintext → Secret** umstellen (Wert war kurz sichtbar → ggf. Token in ZeptoMail rotieren); (b) 2 Test-Mails in info@ prüfen; (c) Formspree-Form stilllegen; (d) optional DMARC-TXT setzen.
+- [x] **Formular Formspree → CF Pages Function LIVE** (2026-07-19, Deploy bbdc99e8): `functions/api/kontakt.js` via Zoho ZeptoMail (EU), Domain in ZeptoMail verifiziert (DKIM-TXT `1914953._domainkey` + Bounce-CNAME `bounce-zem`→cluster89.zeptomail.eu, DNS-only). Flip: Formular-`action` → `/api/kontakt`, `_subject`/`_next` raus, `_ts`+site.js-Zeitstempel (Skew-Guard `>=0` in der Function), Datenschutz §4 + Copy §01 angepasst. End-to-end verifiziert: echter Submit → 303 /danke + Mail via ZeptoMail; Honeypot/Zeit-Falle/Validierung greifen; Live-Domain ok. **Deploy-Falle gefixt:** Functions kompilieren nur bei `wrangler pages deploy .` AUS dem Staging-Ordner (CWD), nicht `deploy /tmp/mw-deploy` aus dem Root — deploy.md aktualisiert. **Token-Migration ABGESCHLOSSEN (2026-07-19):** Token in ZeptoMail rotiert (alter gelöscht), in CF als **Secret** hinterlegt (Dashboard zeigt „Value encrypted"), Redeploy **c8fd8754** (der alte Deploy 971b609e trug noch den gelöschten Token → Formular war kurz kaputt, bis der Redeploy den neuen Token einbackte — Merke: CF Pages zieht geänderte Vars NUR beim nächsten Deploy). End-to-End verifiziert: echter Submit → 303 /danke + Mail in info@ und comspiele@web.de angekommen (Marvin bestätigt). OFFEN dazu nur noch: (c) Formspree-Form stilllegen; (d) optional DMARC-TXT setzen.
 - [x] **UptimeRobot-Monitor auf marvinwebdesign.de umgehängt** (2026-07-19, url + friendlyName via MCP; Keyword „MARVIN.WEB", 5-Min, 2xx/3xx, Alert-Kontakte unverändert; per list-monitors gegengeprüft). OFFEN: Marvin prüft die Test-Alarm-Mail im Postfach/Spam.
 - [x] **Logo eingebaut** (2026-07-19, Deploy ff45f0b5): Richtung A (Wortmarke „Signal-Quadrat") als
       `img/logo.svg` (Header) + `img/logo-invers.svg` (Footer), C (M.-Signet) als `img/zeichen.svg`
@@ -50,11 +50,19 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - [ ] Konto-Aktionen (Marvin): Google Unternehmensprofil anlegen; Instagram/LinkedIn + sameAs im Schema; Profi-Mail auf eigener Domain (Impressum + JSON-LD); Formspree-Autoresponder (Tarif prüfen); Conversion messen (/danke vs. Startseite in CF Analytics); "Antwort am selben Tag" gegen Urlaub/Krankheit absichern; Search Console + Sitemap einreichen.
 
 ## Was ist JETZT relevant
-- Kontaktformular-Migration ist LIVE (siehe erledigten Punkt). Offen dort nur: `ZEPTOMAIL_TOKEN` → Secret, 2 Test-Mails in info@ prüfen, Formspree-Form stilllegen.
+- Kontaktformular-Migration ist LIVE und Token-Migration abgeschlossen (Secret + verifiziert). Offen dort nur noch: Formspree-Form stilllegen (Marvin).
 - AI-Crawler-Policy im CF-Dashboard entscheiden (siehe offenen Punkt).
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **ZEPTOMAIL_TOKEN sicher rotiert + Danke-Seite 2-zeilig.** (1) Token in ZeptoMail neu
+  erzeugt (alter gelöscht), in CF Pages als **Secret** hinterlegt (Marvin), Redeploy **c8fd8754** von
+  Marvin im Terminal (Deploy-Befehl ist bei Claude classifier-geblockt, mw-Segmente noch nicht in der
+  Allowlist). Zwischenfall: nach dem Setzen der Var, aber VOR dem Redeploy, war das Formular kurz kaputt
+  (live lief noch 971b609e mit dem gelöschten Token) → Test lieferte die Fehlerseite; nach dem Redeploy
+  Test grün (303 /danke, Mail in info@ + comspiele@web.de). Lehre steht im Formspree-Punkt: **CF Pages
+  aktiviert geänderte Env-Vars erst beim nächsten Deploy.** (2) `danke.html`: WhatsApp/Telefon-Zeile auf
+  Marvins Wunsch zweizeilig (` · ` → Komma + `<br>`). Committet; **Deploy dieser HTML-Änderung durch Marvin noch offen.**
 - 2026-07-19: **Aufräum-Check „ist noch was offen": zwei machbare Punkte erledigt.** (1) UptimeRobot-Monitor
   803511381 von `marvin-web.pages.dev` auf `https://marvinwebdesign.de` umgehängt (url + friendlyName via MCP,
   Keyword/Intervall/Codes/Alert-Kontakte unangetastet; per list-monitors bestätigt). (2) W-Glyph-NaN-Bug im
