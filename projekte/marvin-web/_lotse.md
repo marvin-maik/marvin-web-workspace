@@ -25,7 +25,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   Redirect /danke, Eingangsbestätigung an den Absender. Formspree ist abgelöst (Form kann stillgelegt werden).
 - Kleinunternehmer §19 UStG: Preise sind Endpreise, PAngV-Hinweis an den Preisen, keine USt-IdNr.
 - **Profi-Mail live: info@marvinwebdesign.de** (Zoho Mail, EU-DC). Seit 2026-07-19 überall eingebunden (Impressum, Datenschutz §2 + §7, index-JSON-LD) und sichtbar auf Start- und Kontaktseite; Gmail abgelöst.
-- Monitoring läuft still: CF Web Analytics (Token ...cc80) + UptimeRobot-Keyword "MARVIN.WEB" (5-Min, Mail an comspiele@web.de).
+- Monitoring läuft still: CF Web Analytics (Token ...cc80) + UptimeRobot-Keyword "MARVIN.WEB" (5-Min, Mail an comspiele@web.de). **Monitor prüft seit 2026-07-19 marvinwebdesign.de** (vorher pages.dev).
 
 ## Offene Punkte (Stand 2026-07-19)
 - [x] Domain-Entscheidung: **marvinwebdesign.de** (apex + www→apex 301, live).
@@ -34,13 +34,15 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       (extensionslos — CF liefert `/pfad` ohne `.html`, `.html` macht 308); eigene robots.txt +
       sitemap.xml (nur die 6 indexierbaren Seiten; impressum/datenschutz sind noindex).
 - [x] **Formular Formspree → CF Pages Function LIVE** (2026-07-19, Deploy bbdc99e8): `functions/api/kontakt.js` via Zoho ZeptoMail (EU), Domain in ZeptoMail verifiziert (DKIM-TXT `1914953._domainkey` + Bounce-CNAME `bounce-zem`→cluster89.zeptomail.eu, DNS-only). Flip: Formular-`action` → `/api/kontakt`, `_subject`/`_next` raus, `_ts`+site.js-Zeitstempel (Skew-Guard `>=0` in der Function), Datenschutz §4 + Copy §01 angepasst. End-to-end verifiziert: echter Submit → 303 /danke + Mail via ZeptoMail; Honeypot/Zeit-Falle/Validierung greifen; Live-Domain ok. **Deploy-Falle gefixt:** Functions kompilieren nur bei `wrangler pages deploy .` AUS dem Staging-Ordner (CWD), nicht `deploy /tmp/mw-deploy` aus dem Root — deploy.md aktualisiert. OFFEN: (a) Marvin: `ZEPTOMAIL_TOKEN` in CF von **Plaintext → Secret** umstellen (Wert war kurz sichtbar → ggf. Token in ZeptoMail rotieren); (b) 2 Test-Mails in info@ prüfen; (c) Formspree-Form stilllegen; (d) optional DMARC-TXT setzen.
-- [ ] Marvin: Test-Alarm-Mail (UptimeRobot) im Postfach/Spam prüfen; UptimeRobot-Monitor ggf. von pages.dev auf marvinwebdesign.de umhängen.
+- [x] **UptimeRobot-Monitor auf marvinwebdesign.de umgehängt** (2026-07-19, url + friendlyName via MCP; Keyword „MARVIN.WEB", 5-Min, 2xx/3xx, Alert-Kontakte unverändert; per list-monitors gegengeprüft). OFFEN: Marvin prüft die Test-Alarm-Mail im Postfach/Spam.
 - [x] **Logo eingebaut** (2026-07-19, Deploy ff45f0b5): Richtung A (Wortmarke „Signal-Quadrat") als
       `img/logo.svg` (Header) + `img/logo-invers.svg` (Footer), C (M.-Signet) als `img/zeichen.svg`
       SVG-Favicon + PNG 16/32/180/512. `.logo img`/`.foot-mark img`-Regeln, `_design.md` mitgezogen,
       Header live verifiziert. Optional/offen: Footer-Marke ggf. größer (Geschmack, aktuell
-      `min(660px,88%)`); Mono- + Lockup-Assets liegen in `img/` bereit. W-Bug im geteilten
-      `_tools/logo/text-zu-pfad.mjs` → Task-Chip zum Fix.
+      `min(660px,88%)`); Mono- + Lockup-Assets liegen in `img/` bereit. **W-Glyph-NaN-Bug im geteilten
+      `_tools/logo/text-zu-pfad.mjs` gefixt** (2026-07-19: frischer Font pro Glyph + Achsen-Reparatur
+      `repariereD()` aus `_logo/glyphen-daten.mjs` portiert; gegen Clash Display 700 mit „MARVIN.WEB"
+      und „WWWWW" verifiziert, kein NaN im Pfad). Der offene Task-Chip dazu kann weg.
 - [ ] Datenschutz fachlich prüfen lassen (Dieter); **Formspree-AVV + Cloudflare-DPA real abschließen** (die Erklärung behauptet beide — im jeweiligen Dashboard tatsächlich akzeptieren, sonst Text-Realitäts-Lücke)
 - [x] **Zoho-Mail live** (2026-07-19): MX (mx/mx2/mx3.zoho.eu) + SPF (include:zohomail.eu) + DKIM (zmail._domainkey) in Cloudflare gesetzt und öffentlich verifiziert; info@ empfängt. Adresse überall eingebunden, Datenschutz §7 auf „Zoho Mail, EU" konkretisiert. OFFEN dazu: (a) Marvin: Test-Mail von extern an info@ zur finalen Empfangsbestätigung; (b) Formspree-Zieladresse auf info@ (oder Alias kontakt@) umstellen; (c) Zoho-DPA bestätigen/sichern (Datenschutz nennt Zoho als Auftragsverarbeiter); (d) optional DMARC-TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:info@marvinwebdesign.de` in Cloudflare. BIMI bewusst übersprungen (VMC-Zertifikat zu teuer).
 - [ ] **AI-Crawler-Policy (CF-Zone):** Die Zone merged Cloudflares managed robots.txt mit der deployten. Live geprüft (2026-07-19): `search=yes` + `User-agent: * Allow: /` (Google/Bing crawlen), meine `Sitemap:`-Zeile ist drin — SEO ok. ABER CF blockt per Default AI-Crawler (GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent → `Disallow: /`). Entscheidung Marvin: weiter blocken ODER AI-Search-/Reference-Crawler zulassen (CF Dashboard → AI Crawl Control) — die eigene Checkliste nennt AI-Such-Auffindbarkeit (ChatGPT/Perplexity) als Ziel.
@@ -53,6 +55,13 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Aufräum-Check „ist noch was offen": zwei machbare Punkte erledigt.** (1) UptimeRobot-Monitor
+  803511381 von `marvin-web.pages.dev` auf `https://marvinwebdesign.de` umgehängt (url + friendlyName via MCP,
+  Keyword/Intervall/Codes/Alert-Kontakte unangetastet; per list-monitors bestätigt). (2) W-Glyph-NaN-Bug im
+  geteilten `_tools/logo/text-zu-pfad.mjs` behoben: frischer Font pro Glyph + `repariereD()`-Achsenreparatur aus
+  `_logo/glyphen-daten.mjs` portiert; gegen Clash Display 700 mit „MARVIN.WEB" (breite 687) und „WWWWW" getestet,
+  Pfad NaN-frei. Restliche offene Punkte hängen an Marvins Konten/Recht/Postfach (Token→Secret, Formspree
+  stilllegen, DPAs, AI-Crawler-Policy, Search Console, Geräte-Review) — nicht von Claude ausführbar.
 - 2026-07-19: **Fix Doppel-Animation bei Anker-Links** (Marvin-Fund): Klick auf `index.html#kontakt` / `#faq` von
   einer Unterseite loeste Seiten-Uebergang UND Sprung/Scroll zum Abschnitt gleichzeitig aus (Wirrwarr, durch die
   grosse Geste verstaerkt). Fix: site.js `pageswap`-Guard ruft `e.viewTransition.skipTransition()`, wenn das Ziel
