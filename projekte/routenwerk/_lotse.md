@@ -26,10 +26,12 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
 
 ## Log (Neuestes oben; volle Historie in `PROJEKTE-log.md`)
 - 2026-07-19: Abflugtafel mobil neu gedacht (Demo-Case, Homepage). Statt Querscroll mit sichtbarem
-  Indikator wird das 4-Spalten-Brett unter 720px zu gestapelten Boarding-Karten (Ziel gross / Detail /
-  Preis + Status-Chip). `.brett`→Flex-Stapel, `.flapzeile`→Karten-Grid, Trailing-Fuellkacheln (`b.pad`,
-  in site.js markiert) mobil ausgeblendet. 0px Overflow bis 320px verifiziert, Desktop unveraendert.
-  styles.css + site.js geaendert → `?v` auf styles=52/site=51 hochgezogen. **Noch nicht deployt** (rw-deploy).
+  Indikator wird das 4-Spalten-Brett unter 720px zu EINER grossen Flughafen-Tafel: Ink-Rahmen + Kopfband,
+  Zeilen mit Trennlinien + Zebra, pro Route oben ZIEL gross + STATUS rechts, unten Detail + Preis.
+  (Zwischenstand „3 Einzelkarten" auf Marvins Wunsch zur zusammenhaengenden Tafel weiterentwickelt.)
+  `.brett`→Block, `.flapzeile`→2-Zeilen-Grid, Trailing-Fuellkacheln (`b.pad`, in site.js markiert) mobil
+  aus, Guard <=359px. 0px Overflow bis 320px verifiziert, Desktop unveraendert. styles.css (+site.js
+  pad-Logik) → `?v` styles=53/site=51. **Noch nicht deployt** (rw-deploy).
 - 2026-07-19: Live-Vorschau in der Case Study war „offline". Ursache: `frame-ancestors` erlaubte nur
   `marvin-web.pages.dev`, nicht die neue Live-Domain `marvinwebdesign.de` → Browser blockte das iframe.
   `marvinwebdesign.de` in die Allowlist ergänzt, deployt + live verifiziert.
