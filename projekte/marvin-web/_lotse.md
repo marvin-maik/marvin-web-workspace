@@ -43,18 +43,27 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
       `_tools/logo/text-zu-pfad.mjs` gefixt** (2026-07-19: frischer Font pro Glyph + Achsen-Reparatur
       `repariereD()` aus `_logo/glyphen-daten.mjs` portiert; gegen Clash Display 700 mit „MARVIN.WEB"
       und „WWWWW" verifiziert, kein NaN im Pfad). Der offene Task-Chip dazu kann weg.
-- [ ] Datenschutz fachlich prüfen lassen (Dieter); **Formspree-AVV + Cloudflare-DPA real abschließen** (die Erklärung behauptet beide — im jeweiligen Dashboard tatsächlich akzeptieren, sonst Text-Realitäts-Lücke)
-- [x] **Zoho-Mail live** (2026-07-19): MX (mx/mx2/mx3.zoho.eu) + SPF (include:zohomail.eu) + DKIM (zmail._domainkey) in Cloudflare gesetzt und öffentlich verifiziert; info@ empfängt. Adresse überall eingebunden, Datenschutz §7 auf „Zoho Mail, EU" konkretisiert. OFFEN dazu: (a) Marvin: Test-Mail von extern an info@ zur finalen Empfangsbestätigung; (b) Formspree-Zieladresse auf info@ (oder Alias kontakt@) umstellen; (c) Zoho-DPA bestätigen/sichern (Datenschutz nennt Zoho als Auftragsverarbeiter); (d) optional DMARC-TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:info@marvinwebdesign.de` in Cloudflare. BIMI bewusst übersprungen (VMC-Zertifikat zu teuer).
-- [ ] **AI-Crawler-Policy (CF-Zone):** Die Zone merged Cloudflares managed robots.txt mit der deployten. Live geprüft (2026-07-19): `search=yes` + `User-agent: * Allow: /` (Google/Bing crawlen), meine `Sitemap:`-Zeile ist drin — SEO ok. ABER CF blockt per Default AI-Crawler (GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent → `Disallow: /`). Entscheidung Marvin: weiter blocken ODER AI-Search-/Reference-Crawler zulassen (CF Dashboard → AI Crawl Control) — die eigene Checkliste nennt AI-Such-Auffindbarkeit (ChatGPT/Perplexity) als Ziel.
+- [ ] Datenschutz fachlich prüfen lassen (Dieter). **Cloudflare-DPA gilt AUTOMATISCH** (in die Self-Serve Subscription Agreement einbezogen — 2026-07-19 unter Configurations geprüft, kein Klick nötig; optional „Review"-PDF für die Akte sichern). Formspree-AVV ist mit der Stilllegung hinfällig.
+- [x] **Zoho-Mail live** (2026-07-19): MX (mx/mx2/mx3.zoho.eu) + SPF (include:zohomail.eu) + DKIM (zmail._domainkey) in Cloudflare gesetzt und öffentlich verifiziert; info@ empfängt. Adresse überall eingebunden, Datenschutz §7 auf „Zoho Mail, EU" konkretisiert. OFFEN dazu: (a) Marvin: Test-Mail von extern an info@ zur finalen Empfangsbestätigung; (b) hinfällig (Formspree stillgelegt); (c) **Zoho-DPA: KEIN Dashboard-Klick — per Mail an `legal@zohocorp.com` anfordern und Rechenzentrum EU/zoho.eu nennen** (Zoho GDPR-Seite, 2026-07-19 geprüft; fertiger Entwurf an Marvin gegeben, er sendet von info@); (d) **DMARC-TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:info@marvinwebdesign.de` GESETZT** (2026-07-19, von Claude via Chrome in CF-DNS). BIMI bewusst übersprungen (VMC-Zertifikat zu teuer).
+- [x] **AI-Crawler-Policy ENTSCHIEDEN (Marvin, 2026-07-19): so lassen, nichts geändert.** Live-Stand: „Managed robots.txt" ist AN → `Content-Signal: search=yes,ai-train=no,use=reference`; Such-/Antwort-Crawler (Google, Bing, Apple, ChatGPT-Browsing, Perplexity) erlaubt, reine Trainings-Crawler (GPTBot, ClaudeBot, CCBot, Google-Extended, Bytespider, Amazonbot, Applebot-Extended, meta-externalagent) per `Disallow: /` geblockt. Ziel (KI-Such-Auffindbarkeit ChatGPT/Perplexity) damit erfüllt, Inhalte vorm Training geschützt. Umschalten ginge über CF Dashboard → AI Crawl Control → „Managed robots.txt" aus.
 - [ ] Geräte-Review (iPhone + Android)
-- [ ] Konto-Aktionen (Marvin): Google Unternehmensprofil anlegen; Instagram/LinkedIn + sameAs im Schema; Profi-Mail auf eigener Domain (Impressum + JSON-LD); Formspree-Autoresponder (Tarif prüfen); Conversion messen (/danke vs. Startseite in CF Analytics); "Antwort am selben Tag" gegen Urlaub/Krankheit absichern; Search Console + Sitemap einreichen.
+- [ ] Konto-Aktionen (Marvin): **Search Console + Sitemap = ERLEDIGT** (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten, 2026-07-19). **Instagram-`sameAs` eingebaut** (index.html JSON-LD, `https://www.instagram.com/marvinwebdesign.de/`, 2026-07-19 — Deploy noch offen). Noch offen: Google Unternehmensprofil anlegen (dann in `sameAs` ergänzen); LinkedIn (falls gewünscht); Conversion messen (/danke vs. Startseite in CF Analytics); „Antwort am selben Tag" gegen Urlaub/Krankheit absichern.
 
 ## Was ist JETZT relevant
 - Kontaktformular-Migration VOLLSTÄNDIG abgeschlossen: Token als Secret + verifiziert, Formspree-Form stillgelegt (Marvin, 2026-07-19).
-- AI-Crawler-Policy im CF-Dashboard entscheiden (siehe offenen Punkt).
+- Nur-Marvin-Nachzügler übrig: **sameAs-Deploy von index.html** (Instagram drin), Zoho-DPA per Mail an legal@zohocorp.com anfordern, Google Unternehmensprofil, Geräte-Check, Datenschutz-Abnahme (Dieter).
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Nachzügler-Runde per Chrome-Takeover (Marvin eingeloggt, Claude klickt).** Entdeckt: Search
+  Console + Sitemap war schon fertig (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten). In CF via
+  Chrome erledigt: (a) DMARC-TXT `_dmarc` gesetzt (p=none, rua info@); (b) AI Crawl Control geprüft und auf
+  Marvins Entscheidung UNVERÄNDERT gelassen (Managed robots.txt an: KI-Suche erlaubt, Training geblockt);
+  (c) Cloudflare-DPA als automatisch einbezogen bestätigt (Configurations → nichts zu klicken). Zoho-DPA:
+  kein Klick, per Mail an legal@zohocorp.com (EU-DC) anzufordern — Entwurf an Marvin. `sameAs` (Instagram
+  @marvinwebdesign.de, Profil live geprüft) in index.html JSON-LD eingebaut + beide LD-Blöcke validiert —
+  **Deploy noch offen** (nur HTML, kein `?v`-Bump nötig). Formspree stillgelegt (Marvin). Grenzen gewahrt:
+  keine Passwort-/Token-Eingabe, keinen finalen DPA-/Legal-Klick durch Claude.
 - 2026-07-19: **ZEPTOMAIL_TOKEN sicher rotiert + Danke-Seite 2-zeilig.** (1) Token in ZeptoMail neu
   erzeugt (alter gelöscht), in CF Pages als **Secret** hinterlegt (Marvin), Redeploy **c8fd8754** von
   Marvin im Terminal (Deploy-Befehl ist bei Claude classifier-geblockt, mw-Segmente noch nicht in der
