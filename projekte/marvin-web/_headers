@@ -13,5 +13,10 @@
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+# Umzugs-Seite (/umzug): bleibt IMMER noindex, auch nachdem oben die site-weite /*-Zeile
+# beim Domain-Launch entfernt wird. Zusaetzlich zur <meta name="robots" noindex> in umzug.html.
+/umzug
+  X-Robots-Tag: noindex
+
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
