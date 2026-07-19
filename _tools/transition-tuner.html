@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transition-Tuner · MARVIN.WEB</title>
+<style>
+  :root{
+    --ink:#161412; --ink-soft:#4a463f; --paper:#f5f1e8; --paper-deep:#ece7da;
+    --line:#d8d2c2; --signal:#e8440a; --signal-deep:#b53507; --white:#fff; --muted:#6d675a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+  /* ---- feste Chrome (bleibt beim Wechsel stehen, wie auf der echten Seite) ---- */
+  header.topbar{position:sticky;top:0;z-index:10;view-transition-name:mock-nav}
+  .metabar{background:var(--ink);color:var(--paper);font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;padding:7px 24px}
+  .metabar b{color:#FF9B78;font-weight:500}
+  .nav{display:flex;align-items:center;gap:26px;height:60px;padding:0 24px;background:rgba(245,241,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .brand{font-weight:800;letter-spacing:-.02em;font-size:18px}
+  .brand i{color:var(--signal);font-style:normal}
+  .nav .links{display:flex;gap:20px;margin-left:auto;font-size:14px;color:var(--ink-soft);font-family:ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.04em}
+
+  /* ---- Buehne = "root" (nur dieser Bereich wird ueberblendet) ---- */
+  main.stage{padding:56px 24px 120px;max-width:1000px;margin:0 auto}
+  .eyebrow{color:var(--signal-deep);font-family:ui-monospace,Menlo,monospace;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  .eyebrow::before{content:"// "}
+  h1{font-size:clamp(38px,7vw,72px);line-height:.98;letter-spacing:-.03em;text-transform:uppercase;font-weight:800;margin:14px 0 10px}
+  h1 em{color:var(--signal);font-style:normal}
+  .rule{height:9px;max-width:520px;margin:18px 0 26px;background:
+     repeating-linear-gradient(90deg,var(--signal) 0 2px,transparent 2px 22px) 0 0/100% 7px no-repeat,
+     linear-gradient(var(--signal),var(--signal)) 0 100%/100% 2px no-repeat}
+  .lede{color:var(--ink-soft);font-size:18px;max-width:46ch}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--white);border:1.5px solid var(--ink);box-shadow:7px 7px 0 var(--paper-deep);padding:22px}
+  .card .k{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted)}
+  .card .t{font-size:19px;font-weight:600;margin-top:4px;letter-spacing:-.01em}
+
+  .wa{position:fixed;right:20px;bottom:20px;z-index:20;width:52px;height:52px;display:grid;place-items:center;background:var(--signal-deep);color:#fff;border:2px solid var(--signal-deep);box-shadow:0 6px 20px rgba(22,20,18,.28);font-weight:700;view-transition-name:mock-wa}
+
+  /* ---- Regler-Panel (fest, nimmt nicht am Uebergang teil) ---- */
+  .tuner{position:fixed;left:0;right:0;bottom:0;z-index:40;view-transition-name:tuner-panel;
+    background:#141317;color:#f4f4f5;border-top:1px solid #2a2a30;padding:16px 20px 18px;
+    box-shadow:0 -12px 30px rgba(0,0,0,.28)}
+  .tuner .row{display:flex;flex-wrap:wrap;gap:22px 26px;align-items:flex-end;max-width:1200px;margin:0 auto}
+  .ctrl{display:flex;flex-direction:column;gap:6px;min-width:150px}
+  .ctrl label{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#a1a1aa}
+  .ctrl .val{color:#c8ff3d;font-family:ui-monospace,Menlo,monospace;font-weight:600}
+  input[type=range]{width:180px;accent-color:#c8ff3d}
+  select{background:#1f1f25;color:#f4f4f5;border:1px solid #3a3a44;border-radius:6px;padding:6px 8px;font-size:13px}
+  .btns{display:flex;gap:10px;margin-left:auto;align-items:flex-end}
+  button{cursor:pointer;font:inherit;font-size:13.5px;font-weight:600;border-radius:8px;border:1px solid #3a3a44;background:#1f1f25;color:#f4f4f5;padding:10px 14px}
+  button.primary{background:#c8ff3d;color:#161412;border-color:#c8ff3d}
+  button.warn{border-color:#5a3a3a}
+  .out{max-width:1200px;margin:14px auto 0;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  pre{flex:1;min-width:320px;background:#0e0e11;border:1px solid #2a2a30;border-radius:8px;padding:12px 14px;font-size:12.5px;line-height:1.5;color:#d4d4d8;overflow:auto;font-family:ui-monospace,Menlo,monospace}
+  .hint{font-size:12px;color:#8a8a93;margin-top:8px}
+  .hint b{color:#c8ff3d}
+  .note{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:15;background:var(--ink);color:var(--paper);font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:6px 12px;border-radius:20px;opacity:0;transition:opacity .3s}
+  .note.show{opacity:.92}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="metabar">BERLIN&nbsp;·&nbsp;MO-FR 9-18 UHR&nbsp;·&nbsp;<b>TRANSITION-TUNER</b>&nbsp;·&nbsp;live einstellen</div>
+  <div class="nav">
+    <span class="brand">MARVIN<i>.</i>WEB</span>
+    <span class="links"><span>Pakete</span><span>Projekte</span><span>Über mich</span><span>Kontakt</span></span>
+  </div>
+</header>
+
+<div class="note" id="note">gewechselt</div>
+
+<main class="stage" id="stage"><!-- wird per JS gefuellt --></main>
+
+<div class="wa">✆</div>
+
+<div class="tuner">
+  <div class="row">
+    <div class="ctrl"><label>Alt-Dauer <span class="val" id="vOutDur"></span></label><input type="range" id="outDur" min="0.05" max="0.60" step="0.01"></div>
+    <div class="ctrl"><label>Neu-Dauer <span class="val" id="vInDur"></span></label><input type="range" id="inDur" min="0.10" max="0.90" step="0.01"></div>
+    <div class="ctrl"><label>Alt-Weichzeichner <span class="val" id="vOutBlur"></span></label><input type="range" id="outBlur" min="0" max="20" step="1"></div>
+    <div class="ctrl"><label>Neu-Weichzeichner (Fokus-Zug) <span class="val" id="vInBlur"></span></label><input type="range" id="inBlur" min="0" max="20" step="1"></div>
+    <div class="ctrl"><label>Kurve (neu)</label>
+      <select id="ease">
+        <option value="cubic-bezier(.16,1,.3,1)">sehr weich (aktuell)</option>
+        <option value="cubic-bezier(.22,1,.36,1)">weich (Marvin-Standard)</option>
+        <option value="cubic-bezier(.33,1,.68,1)">sanft</option>
+        <option value="ease">ease</option>
+        <option value="linear">linear</option>
+      </select>
+    </div>
+    <div class="ctrl"><label>Bewegung Y <span class="val" id="vOff"></span></label><input type="range" id="off" min="0" max="40" step="1"></div>
+    <div class="btns">
+      <button class="primary" id="swap">⇄ Wechseln</button>
+      <button id="auto">▶ Auto</button>
+      <button id="reset">Auf Live-Werte</button>
+    </div>
+  </div>
+  <div class="out">
+    <pre id="css"></pre>
+    <div>
+      <button id="copy">CSS kopieren</button>
+      <div class="hint">Bewegung Y &gt; 0 wirkt schnell wie ein <b>Ladefehler</b>. Für marvin-web bewusst 0.<br>Wenn die Werte sitzen: sag sie mir, ich baue sie ein und deploye.</div>
+    </div>
+  </div>
+</div>
+
+<!-- hier landen die live erzeugten View-Transition-Regeln -->
+<style id="vt"></style>
+
+<script>
+  var STATES = [
+    { eyebrow:"Seite A · Start", h1a:"Websites, die ", h1em:"Anfragen", h1b:" bringen.",
+      lede:"Klick unten auf Wechseln und stell mit den Reglern ein, wie der Übergang sich anfühlt.",
+      cards:[["Markenauftritt","Nordlicht Kaffee"],["Onlineshop","Halm & Faden"],["Relaunch","Steinmeier Bau"]] },
+    { eyebrow:"Seite B · Pakete", h1a:"Pakete zum ", h1em:"Festpreis", h1b:".",
+      lede:"Dieselbe Mechanik wie auf der echten Seite. Nav und WhatsApp-Button stehen fest.",
+      cards:[["Basis","ab 990 €"],["Business","ab 1.490 €"],["Premium","auf Anfrage"]] }
+  ];
+  var cur = 0;
+  var stage = document.getElementById('stage');
+  function render(){
+    var s = STATES[cur];
+    stage.innerHTML =
+      '<p class="eyebrow">'+s.eyebrow+'</p>'+
+      '<h1>'+s.h1a+'<em>'+s.h1em+'</em>'+s.h1b+'</h1>'+
+      '<div class="rule"></div>'+
+      '<p class="lede">'+s.lede+'</p>'+
+      '<div class="cards">'+s.cards.map(function(c){return '<div class="card"><div class="k">'+c[0]+'</div><div class="t">'+c[1]+'</div></div>';}).join('')+'</div>';
+  }
+
+  var els = {
+    outDur:document.getElementById('outDur'), inDur:document.getElementById('inDur'),
+    outBlur:document.getElementById('outBlur'), inBlur:document.getElementById('inBlur'),
+    ease:document.getElementById('ease'), off:document.getElementById('off')
+  };
+  var LIVE = { outDur:0.28, inDur:0.46, outBlur:8, inBlur:6, ease:"cubic-bezier(.16,1,.3,1)", off:0 };
+  function setValues(v){ els.outDur.value=v.outDur; els.inDur.value=v.inDur; els.outBlur.value=v.outBlur; els.inBlur.value=v.inBlur; els.ease.value=v.ease; els.off.value=v.off; }
+
+  function fmt(n){ return (Math.round(n*100)/100).toFixed(2); }
+  function cssBlock(){
+    var oD=fmt(+els.outDur.value), iD=fmt(+els.inDur.value), oB=+els.outBlur.value, iB=+els.inBlur.value, ez=els.ease.value, off=+els.off.value;
+    var tOut = off>0 ? " transform:translateY(-"+off+"px);" : "";
+    var tIn  = off>0 ? " transform:translateY("+off+"px);"  : "";
+    return {
+      live:
+        "::view-transition-old(root){ animation: t-out "+oD+"s cubic-bezier(.4,0,1,1) both; }\n"+
+        "::view-transition-new(root){ animation: t-in "+iD+"s "+ez+" both; }\n"+
+        "@keyframes t-out{ to  { opacity:0; filter:blur("+oB+"px);"+tOut+" } }\n"+
+        "@keyframes t-in { from{ opacity:0; filter:blur("+iB+"px);"+tIn+" } }\n"+
+        "::view-transition-group(mock-nav),::view-transition-group(mock-wa),::view-transition-group(tuner-panel){ animation-duration:.001s; }",
+      copy:
+        "::view-transition-old(root){ animation: mw-vt-out "+oD+"s cubic-bezier(.4,0,1,1) both; }\n"+
+        "::view-transition-new(root){ animation: mw-vt-in  "+iD+"s "+ez+" both; }\n"+
+        "@keyframes mw-vt-out{ to  { opacity:0; filter: blur("+oB+"px);"+tOut+" } }\n"+
+        "@keyframes mw-vt-in { from{ opacity:0; filter: blur("+iB+"px);"+tIn+" } }"
+    };
+  }
+  var lastCopy = "";
+  function sync(){
+    document.getElementById('vOutDur').textContent = fmt(+els.outDur.value)+"s";
+    document.getElementById('vInDur').textContent  = fmt(+els.inDur.value)+"s";
+    document.getElementById('vOutBlur').textContent= els.outBlur.value+"px";
+    document.getElementById('vInBlur').textContent = els.inBlur.value+"px";
+    document.getElementById('vOff').textContent     = els.off.value+"px";
+    var b = cssBlock();
+    document.getElementById('vt').textContent = b.live;
+    document.getElementById('css').textContent = b.copy;
+    lastCopy = b.copy;
+  }
+
+  function toast(t){ var n=document.getElementById('note'); n.textContent=t; n.classList.add('show'); clearTimeout(n._t); n._t=setTimeout(function(){n.classList.remove('show');},900); }
+  function doSwap(){ cur = 1-cur; render(); }
+  function swap(){
+    sync(); // aktuelle Reglerwerte anwenden
+    if (!document.startViewTransition){ doSwap(); toast("kein VT-Support"); return; }
+    document.startViewTransition(doSwap);
+    toast(cur===0 ? "→ Seite B" : "→ Seite A");
+  }
+
+  Object.keys(els).forEach(function(k){ els[k].addEventListener('input', sync); els[k].addEventListener('change', swap); });
+  document.getElementById('swap').addEventListener('click', swap);
+  document.getElementById('reset').addEventListener('click', function(){ setValues(LIVE); sync(); });
+  document.getElementById('copy').addEventListener('click', function(){ navigator.clipboard && navigator.clipboard.writeText(lastCopy); toast("CSS kopiert"); });
+  var timer=null;
+  document.getElementById('auto').addEventListener('click', function(){
+    if(timer){ clearInterval(timer); timer=null; this.textContent="▶ Auto"; return; }
+    this.textContent="⏸ Auto"; timer=setInterval(swap, (+els.inDur.value + 0.6)*1000);
+  });
+
+  setValues(LIVE); render(); sync();
+</script>
+</body>
+</html>

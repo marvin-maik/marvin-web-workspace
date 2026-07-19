@@ -128,9 +128,10 @@ Geschlossene Liste, alles andere ist verboten:
 - `drawRule` .9s auf Hero/Page-Head-.rule, `faqIn` .3s, Step-Ziffern-Fuellung .7s.
 - `.fact`-Reveal: Tinte-Cover faellt nach unten (.95s), KEIN Opacity-Fade (schwarzer
   Durchschein-Bug, siehe CSS-Kommentar). `cuePuls` 1.6s infinite nur auf .live-cue b.
-- Seiten-Uebergaenge (native View Transitions, `@view-transition{navigation:auto}`): weicher Cross-Dissolve
-  mit Fokus-Zug, alt .28s (opacity->0 + blur 8px) / neu .46s ease-out (opacity + blur 6px->0), KEINE Layout-Bewegung
-  (Bewegung liest als Ladefehler, Marvin 2026-07-19; langsamer + mehr Weichzeichner gewuenscht). Nav + .wa-float feste Anker via
+- Seiten-Uebergaenge (native View Transitions, `@view-transition{navigation:auto}`): langsamer Slide-Dissolve,
+  von Marvin live im Tuner (`_tools/transition-tuner.html`) eingestellt. alt 0.32s cubic-bezier(.4,0,1,1)
+  (opacity->0 + blur 13px + translateY -33px) / neu 0.90s ease (opacity + translateY 33px->0, kein Blur).
+  Nur der Inhalt bewegt sich; Nav + .wa-float feste Anker via
   `view-transition-name` (mw-nav / mw-wa). Fallback: Browser ohne VT navigieren normal;
   site.js `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss).
 - prefers-reduced-motion: globales `transition:none/animation:none`, .rv sofort sichtbar; VT-Pseudos

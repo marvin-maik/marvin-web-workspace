@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy c234c74b (2026-07-19, Transition langsamer+mehr Blur); davor d86f62e3 (Page-Transitions).
+  (CF Pages, Direct Upload). Letzter Deploy 3575ff90 (2026-07-19, Transition via Live-Tuner); davor c234c74b (langsamer+mehr Blur).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -53,6 +53,14 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: **Transition final via Live-Tuner** (`_tools/transition-tuner.html`, neues wiederverwendbares
+  Werkzeug mit Reglern + Live-CSS-Ausgabe, `_`-Praefix = nie deployed). Marvin hat live eingestellt:
+  langsamer Slide-Dissolve, alt 0.32s cubic-bezier(.4,0,1,1) (blur13px + translateY -33px) / neu 0.90s ease
+  (translateY 33px->0, kein Blur). **Bewegung diesmal bewusst DRIN** (33px) — die fruehere No-Movement-Regel
+  bezog sich auf blindes Tuning; live getestet gefaellt der langsame Slide. styles.css v12->v13. Deployed
+  3575ff90, verifiziert (Werte im Live-CSS, Kernseiten 200). Offen: mw-Deploy-Segmente (`rm -rf /tmp/mw-deploy`
+  + mw-rsync) fehlen noch in `~/Documents/.claude/settings.local.json` allow — Marvin traegt selbst nach,
+  Claude darf die eigene Allowlist nicht setzen (Classifier blockt Selbst-Freigabe, korrekt).
 - 2026-07-19: **Transition getunt** (Marvin: langsamer + mehr Weichzeichner). Werte: alt .20s->.28s / neu .34s->.46s;
   Blur alt 3px->8px; neu jetzt mit Fokus-Zug (blur 6px->0), damit der Weichzeichner ueberhaupt sichtbar ist (neue Seite
   liegt ueber der alten, deren Blur wird sonst verdeckt). styles.css v11->v12 (nur styles.css geaendert). `_design.md`
