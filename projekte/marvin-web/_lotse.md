@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy 375de9be (2026-07-19, Profi-Mail info@); davor 1e4bdc50 (Domain-Launch-Fix).
+  (CF Pages, Direct Upload). Letzter Deploy d86f62e3 (2026-07-19, Page-Transitions); davor 375de9be (Profi-Mail info@).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -60,9 +60,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   (styles.css v10->v11, site.js v7->v8, in 8 HTML). `_design.md`-Motion mitgezogen. Marvin-Feedback im Bau:
   Push/Zoom wirkte wie Ladefehler -> auf reinen, weichen Dissolve zurueck. In Staging verifiziert (Opt-in-Regel
   als CSSViewTransitionRule erkannt, keine Konsolenfehler). Merke: **VT feuert nur im sichtbaren Vordergrund-Tab**
-  (Chrome skippt bei visibility:hidden), daher nicht per Automation/Preview zeigbar. **DEPLOY AUSSTEHEND**:
-  `wrangler pages deploy` wurde in der Session vom Permission-Classifier geblockt -> von Marvin auszufuehren
-  (Befehl = deploy.md marvin-web-Block, aus /tmp/mw-deploy-CWD wegen functions/). Danach Hash hier nachtragen.
+  (Chrome skippt bei visibility:hidden), daher nicht per Automation/Preview zeigbar. **Deployed `d86f62e3`**
+  (aus /tmp/mw-deploy-CWD wegen functions/; `Compiled Worker successfully` + Functions bundle ok). Auf Deployment-URL
+  verifiziert: styles.css?v=11 + site.js?v=8 ausgeliefert, `@view-transition` + `pagereveal` im Live-Code, Kernseiten 200,
+  umzug weiter noindex. Commit 866c52a (sauber auf parallele Session gerebast, die nur deploy.md aenderte).
 - 2026-07-19: Case-Study Live-Vorschau, iPhone bekommt echte dvh-Hoehe. iPhone-iframe nicht mehr
   buehnenfuellend, sondern feste Geraetehoehe `HOEHEN.iphone=740` (100dvh im iframe = echte Handyhoehe),
   proportional eingepasst + zentriert (minimal kleiner skaliert). Knopf in site.js: 812=iPhone X, 740=mit
