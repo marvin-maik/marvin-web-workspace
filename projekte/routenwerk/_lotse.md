@@ -25,6 +25,12 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
 - Läuft und wird betreut. Bei Änderungen: `_design.md` lesen; Deploy über `_referenz/deploy.md` (rw-deploy).
 
 ## Log (Neuestes oben; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-19: Gepaeckband (Marquee) laeuft jetzt MIT. Vorher statischer Band-Hintergrund, nur Inhalt
+  bewegt. Jetzt animiert der repeating-linear-gradient (47px Slats) per `bandlauf` 3.615s
+  (= 47px / 13px/s = MARQUEE_PXPS) die background-position nach links -> selbes Tempo wie Koffer +
+  Schrift, wirkt wie ein echtes Foerderband. Verifiziert: Band + Inhalt beide 13,00 px/s. Hover
+  pausiert beides, reduced-motion stoppt beides (globaler *{animation:none}). styles.css?v=55.
+  **Noch nicht deployt** (rw-deploy).
 - 2026-07-19: `.btn-flap` mobil korrigiert. Kacheln wurden auf die Buttonbreite gestreckt (flex:1 1 0)
   → wirkten quadratisch/fremd zur Abflugtafel. Jetzt kompakt/hoch-schmal (flex:0 0 auto, 1.5ch),
   zentriert im weiterhin vollbreiten Button. Verhaeltnis B/H 0,39 = wie Tafel/Desktop. 320px 1-zeilig,

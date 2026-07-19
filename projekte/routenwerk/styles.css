@@ -645,7 +645,14 @@ html.intro-wartet::before{content:"";position:fixed;inset:0;background:var(--bg)
 }
 
 /* ---------- Gepaeckband (Marquee-Umbau) ---------- */
-.marquee{background:repeating-linear-gradient(90deg,transparent 0 46px,var(--line) 46px 47px)}
+/* Das Band laeuft MIT (echtes Foerderband: Koffer liegen auf dem Band, das Band faehrt).
+   Slat-Periode 47px, Tempo 13px/s (= MARQUEE_PXPS in site.js) -> 47/13 = 3.615s pro Periode,
+   Richtung links wie der Inhalt. Bei Aenderung von Slat-Periode oder MARQUEE_PXPS hier mitziehen.
+   prefers-reduced-motion stoppt es ueber den globalen *{animation:none} weiter oben. */
+.marquee{background:repeating-linear-gradient(90deg,transparent 0 46px,var(--line) 46px 47px);
+  animation:bandlauf 3.615s linear infinite}
+@keyframes bandlauf{to{background-position:-47px 0}}
+.marquee:hover{animation-play-state:paused}   /* Band pausiert beim Hover, wie der Inhalt (.marquee-group) */
 .mini-tag{display:inline-block;flex:0 0 auto;background:var(--papier-tief);border:1px solid var(--muted);
   border-radius:4px 12px 4px 4px;padding:4px 10px 4px 18px;font-weight:700;font-size:11px;
   color:var(--ink);position:relative;transform:rotate(-2deg)}
