@@ -151,6 +151,10 @@ Geschlossene Liste, alles andere ist verboten:
 - Do: Auf dunklem Grund die dark-*-Serie und --signal-tint verwenden, nie --muted,
   --ink-soft oder --signal-deep auf --ink.
 - Do: uppercase nur fuer Mono-Labels und Display-Headlines, nie im Body.
+- Do: `.h-lg` deckelt bei `max-width:820px` (gute Zeilenlaenge fuer laengere Headlines). Kurze
+  Headlines, die dadurch grundlos umbrechen, bekommen den Modifier `.h-wide` (`max-width:none`,
+  bleibt am Container-Cap 1200px). Bsp: index FAQ „Alles, was du wissen willst." (Desktop 1 Zeile,
+  Mobil bricht weiterhin natuerlich um). Nicht auf lange Headlines anwenden.
 - Don't: kein border-radius, keine Gradients (ausser den Linien-Tricks von .rule und
   Link-Underline), kein zweiter Akzent, kein reines Schwarz als Flaeche (--ink ist warm).
 - Don't: Formulare nie ohne .hp-feld + Zeit-Falle; Fokus immer 3px --signal Outline.
