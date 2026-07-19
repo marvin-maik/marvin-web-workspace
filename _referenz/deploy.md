@@ -14,6 +14,11 @@ Nur beim Deployen lesen (CLAUDE.md verweist hierher).
   `--include`-Regeln VOR `--exclude '_*'` lassen genau sie durch.
 - Verifikation nach Deploy NIE ueber die Hauptdomain (faengt den alten Edge-Cache), IMMER ueber die
   Deployment-URL `https://<hash>.<projekt>.pages.dev`. styles.css & ersetzte Dateien mit `?v=N` hochziehen.
+- **PFLICHT bei JEDER Aenderung an styles.css/site.js: den `?v=N`-Zaehler in ALLEN HTML hochziehen**
+  (einheitlich, z.B. `perl -pi -e 's/styles\.css\?v=[0-9]+/styles.css?v=N/g' *.html`). Sonst behalten
+  BESTANDSbesucher die alte Datei aus dem Browser-Cache — der Edge kann frisch sein, der Browser holt
+  bei gleicher `?v`-URL nicht neu. 2026-07-19 zweimal vergessen (Logo-CSS + `.h-wide`), erst beim
+  User als „Fix wirkt nicht" sichtbar geworden. Gegenpruefen: `curl -s DOMAIN/ | grep -o 'styles.css?v=[0-9]*'`.
 - Falls doch etwas rausging: altes Deployment loeschen mit
   `npx wrangler pages deployment delete <id> --project-name <p> --force` (Hash-URLs bleiben sonst
   ewig erreichbar); geleakte URLs NICHT anpingen (waermt den Edge-Cache).
