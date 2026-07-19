@@ -130,7 +130,7 @@ Geschlossene Liste, alles andere ist verboten:
   Durchschein-Bug, siehe CSS-Kommentar). `cuePuls` 1.6s infinite nur auf .live-cue b.
 - Seiten-Uebergaenge (native View Transitions, `@view-transition{navigation:auto}`): langsamer Slide-Dissolve,
   von Marvin live im Tuner (`_tools/transition-tuner.html`) eingestellt. alt 0.32s cubic-bezier(.4,0,1,1)
-  (opacity->0 + blur 13px + translateY -33px) / neu 0.90s ease (opacity + translateY 33px->0, kein Blur).
+  (opacity->0 + blur 13px + translateY +33px, faehrt runter) / neu 0.90s ease (opacity + translateY -33px->0, von oben herab, kein Blur).
   Nav + Banner (meta-row) laufen mit dem Inhalt mit (kein `view-transition-name` mehr am nav, Marvin 2026-07-19);
   nur `.wa-float` bleibt fester Anker (mw-wa, Floating-Button). Fallback: Browser ohne VT navigieren normal;
   site.js `pagereveal`-Guard zeigt sichtbare `.rv` sofort (kein leerer Schnappschuss).

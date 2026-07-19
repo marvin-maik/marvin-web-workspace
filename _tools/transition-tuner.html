@@ -142,8 +142,8 @@
   function fmt(n){ return (Math.round(n*100)/100).toFixed(2); }
   function cssBlock(){
     var oD=fmt(+els.outDur.value), iD=fmt(+els.inDur.value), oB=+els.outBlur.value, iB=+els.inBlur.value, ez=els.ease.value, off=+els.off.value;
-    var tOut = off>0 ? " transform:translateY(-"+off+"px);" : "";
-    var tIn  = off>0 ? " transform:translateY("+off+"px);"  : "";
+    var tOut = off>0 ? " transform:translateY("+off+"px);" : "";
+    var tIn  = off>0 ? " transform:translateY(-"+off+"px);"  : "";
     return {
       live:
         "::view-transition-old(root){ animation: t-out "+oD+"s cubic-bezier(.4,0,1,1) both; }\n"+

@@ -477,14 +477,14 @@ summary:hover{color:var(--signal-deep)}
    Nur der schwebende WhatsApp-Button bleibt fest stehen (Floating-Button). */
 .wa-float{ view-transition-name: mw-wa; }
 
-/* Von Marvin live im Tuner eingestellt: langsamer Slide-Dissolve.
-   - alte Seite verwischt (13px) und faehrt leicht hoch
-   - neue Seite kommt scharf von unten herauf und setzt sich ueber .9s (ease)
-   - Nur der Inhalt bewegt sich; Nav + WhatsApp-Button stehen fest (view-transition-name oben) */
+/* Von Marvin im Tuner eingestellt: langsamer Slide-Dissolve, Bewegung nach UNTEN.
+   - alte Seite verwischt (13px) und faehrt leicht runter
+   - neue Seite kommt scharf von oben herab und setzt sich ueber .9s (ease)
+   - Nav + Banner laufen mit; nur der WhatsApp-Button (.wa-float) bleibt fest */
 ::view-transition-old(root){ animation: mw-vt-out 0.32s cubic-bezier(.4,0,1,1) both; }
 ::view-transition-new(root){ animation: mw-vt-in  0.90s ease both; }
-@keyframes mw-vt-out{ to  { opacity:0; filter: blur(13px); transform:translateY(-33px); } }
-@keyframes mw-vt-in { from{ opacity:0; filter: blur(0px);  transform:translateY(33px);  } }
+@keyframes mw-vt-out{ to  { opacity:0; filter: blur(13px); transform:translateY(33px);  } }
+@keyframes mw-vt-in { from{ opacity:0; filter: blur(0px);  transform:translateY(-33px); } }
 
 @media (prefers-reduced-motion: reduce){
   ::view-transition-group(*),
