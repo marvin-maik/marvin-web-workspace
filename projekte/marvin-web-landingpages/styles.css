@@ -372,6 +372,11 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
 @media(max-width:560px){
   .showcase-phone{width:140px;right:-10px;bottom:-26px}
   .showcase-cap{margin-top:28px;padding-right:132px}
+  /* Browser-Leiste eine Stufe kleiner: auf schmalen Screens soll der Screenshot dominieren, nicht das Chrome */
+  .showcase-bar{gap:10px;padding:7px 10px}
+  .showcase-dots{gap:5px}
+  .showcase-dots i{width:8px;height:8px}
+  .showcase-url{padding:4px 9px;font-size:11px}
 }
 
 /* Eckdaten-Kacheln (facts-Rezept inkl. Tinte-Cover-Reveal, siehe marvin-web) */

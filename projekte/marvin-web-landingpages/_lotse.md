@@ -96,6 +96,10 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-20: **Showcase-Browser-Leiste auf Mobile verkleinert** (Marvin: "sieht oben echt gross aus",
+  styles.css v25->v26): unter 560px bar-padding 11/16->7/10, Dots 10->8px, URL 12,5->11px (Hoehe ~56->42px);
+  Desktop unveraendert. ?v ueberall einheitlich auf 26 (styles+site.js, inkl. _lp-Master). Mobil im Pane
+  verifiziert. Live-instagram bleibt auf altem Stand (kein Showcase dort, naechster Deploy nimmt v26 mit).
 - 2026-07-20: **Showcase-Mockup v2 (Button-Fix)**: Marvins neues Photoroom-Bild (1000x750) exakt wie
   v1 zugeschnitten und 1:1 ersetzt: Handy per Alpha-Bbox freigestellt, auf identisches 500x973-Canvas
   gesetzt (Handy-Bbox x31/y42 wie v1, dafuer 1,58x hochskaliert, Quelle war halb so gross wie v1) ->
