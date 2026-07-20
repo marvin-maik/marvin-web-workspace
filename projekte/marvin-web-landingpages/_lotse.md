@@ -36,7 +36,8 @@ Stand: 2026-07-20 · Phase: **TEIL-LIVE** (instagram.html live auf https://marvi
 - **Fakten fuer Copy** (aus marvin-web live): Onepager 990 EUR, Business-Site 1.990 EUR, Shop auf
   Anfrage, Betreuung ab 49 EUR/Monat (1. Monat inkl.), PageSpeed 98 (routenwerk) als Speed-Beweis,
   Kleinunternehmer Par. 19 UStG. Freigabe vor Bau, 1 Korrekturrunde, live erst nach Abnahme.
-- **Warme LPs werden generiert**, nicht von Hand kopiert: `_lp/` (siehe unten).
+- **ALLE 7 LPs werden generiert**, nicht von Hand kopiert: `_lp/` (siehe unten). Seit
+  2026-07-20 auch die kalten Ad-LPs. HTML-Dateien im Root NIE direkt editieren.
 - **Alle LPs bleiben noindex** (Marvin 2026-07-18, feste Entscheidung): Sie stehen fuer sich und
   gehoeren nicht streng zur Hauptseite. Gilt fuer alle 7 LPs + 404 (robots-Meta ist ueberall
   gesetzt, dazu `_headers` X-Robots-Tag). Der fruehere "am Domain-Launch pruefen"-Vorbehalt in den
@@ -63,13 +64,13 @@ Stand: 2026-07-20 · Phase: **TEIL-LIVE** (instagram.html live auf https://marvi
 - [ ] **Marvin: Design-Freigabe der 7 LPs** (Haupt-Blocker)
 - [ ] Geraete-Check: Count-up/Reveals/Balken auf echtem iPhone+Android (Browser-Pane pausiert IntersectionObserver/rAF, siehe technik-patterns.md)
 - [ ] formaler qa-polish-Lauf ueber alle 7 Seiten
-- [ ] Copy-Inkonsistenzen angleichen: kalte Ad-LPs sagen im Ablauf noch "30 Minuten" vs. 20 auf warm; Hero-CTA "Buch dir" duzt vs. sonst Sie
+- [x] Copy-Inkonsistenzen angleichen: seit dem Cal-Swap (2026-07-20) sagen alle 7 Seiten "30 Minuten", Duz-CTA ist raus (geprueft 2026-07-20)
 - [ ] "Gueltig 30 Tage" im Angebots-Briefkopf ist Claude-Zusatz -> bestaetigen oder raus
 - [ ] Gruendungs-Abzug bewusst ohne feste Zahl (Chat-Verhandlung) -> so lassen?
 - [ ] mutige Garantie ("zahlen erst bei Abnahme") nicht gesetzt = Marvins Cashflow-Entscheidung
 - [ ] Umzugs-Prozess + Betreuungs-Umfang textlich noch duenn
-- [ ] **kalte Ad-LPs (kosten/eigentum/schnell) noch NICHT auf Generator umgestellt** (eigener Master offen)
-- [ ] Vor Deploy: CF-Pages-Projekt anlegen, CAL-SWAP (Cal.com-Link) + DOMAIN-SWAP (absolute URLs), Deploy-Go von Marvin
+- [x] **kalte Ad-LPs auf Generator umgestellt** (2026-07-20): `_lp/kalt.master.html` + `_lp/kalt.angles.mjs`, dabei Drift behoben ([MARKE]→MARVIN.WEB 14x, Footer-Rechtslinks →marvinwebdesign.de, DOMAIN-SWAP→marvin-web-lp.pages.dev)
+- [ ] Vor Deploy der restlichen 6 LPs: nur noch Marvins Go (CF-Projekt existiert, CAL/DOMAIN-Swaps sind fest eingebaut; Staging-Kopie nach `_referenz/deploy.md`)
 - [ ] Ads erst NACH LP-Freigabe texten (Message Match zur H1)
 
 ## Was ist JETZT relevant (Phase = Feinschliff/Freigabe)
@@ -80,10 +81,13 @@ Stand: 2026-07-20 · Phase: **TEIL-LIVE** (instagram.html live auf https://marvi
 - Endkontrolle -> Agent `qa-polish`
 - Vor Deploy -> `_referenz/deploy.md` + `_referenz/pflichtseiten-checkliste.md`
 
-## _lp/ Generator (warme Seiten)
-Eine Quelle, vier Ausgaben. Aendere `_lp/warm.master.html` (gemeinsamer Koerper) oder
-`_lp/warm.channels.mjs` (Kanal-Texte), dann `node _lp/build.mjs`. Erzeugt angebot/karte/whatsapp/
-instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften). Kalte LPs folgen noch.
+## _lp/ Generator (ALLE 7 Seiten)
+Zwei Quellen, sieben Ausgaben. Warm: `_lp/warm.master.html` (Koerper) + `_lp/warm.channels.mjs`
+(Kanal-Texte) -> angebot/karte/whatsapp/instagram.html. Kalt: `_lp/kalt.master.html` (Koerper) +
+`_lp/kalt.angles.mjs` (Angle-Texte, inkl. der 2 Angle-Sektionen + FAQ als HTML-Bloecke) ->
+kosten/eigentum/schnell.html. Bauen: `node _lp/build.mjs`. og:title folgt zwingend dem Titel,
+geteilte Bauteile (Meta-Row, Wer-baut-das, Pakete, Ablauf, Footer) koennen nicht mehr driften.
+Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber `_lp/`.
 
 ## Altlast / nie anfassen
 - Der alte Arbeitsname **"FutureGrowth" bleibt aus Marketing/LP-Copy/Marke draussen** (Dateien, Copy,
@@ -96,6 +100,15 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-20: **Kalte Ad-LPs auf den Generator umgestellt** (Marvins Ansage: eine Seite perfekt,
+  Bauteile 1:1 kopieren statt driften lassen). Neu: `_lp/kalt.master.html` + `_lp/kalt.angles.mjs`,
+  `build.mjs` baut jetzt beide Master. Roundtrip bewiesen: warme 4 byte-identisch, kalte 3 aendern
+  sich NUR an den beabsichtigten Stellen: [MARKE]→MARVIN.WEB (14 Stellen, darunter der sichtbare
+  Platzhalter im eigentum-Herotext), Footer-Rechtslinks marvin-web.pages.dev→marvinwebdesign.de,
+  og:url/og:image DOMAIN-SWAP→marvin-web-lp.pages.dev. Browser-Check eigentum: rendert sauber,
+  keine Konsolenfehler. Vorher belegte Drift-Analyse: geteilte Bloecke (Showcase/Pakete/Ablauf/
+  Footer) waren zwischen den 3 kalten Seiten schon fast identisch, Drift sass in Marke/Links/og.
+  _design.md: 4 ueberholte OFFEN-Eintraege auf ERLEDIGT gesetzt (Cal-Swap, 20/30 Min, du/Sie, Marke).
 - 2026-07-20: **Showcase-Browser-Leiste auf Mobile verkleinert** (Marvin: "sieht oben echt gross aus",
   styles.css v25->v26): unter 560px bar-padding 11/16->7/10, Dots 10->8px, URL 12,5->11px (Hoehe ~56->42px);
   Desktop unveraendert. ?v ueberall einheitlich auf 26 (styles+site.js, inkl. _lp-Master). Mobil im Pane

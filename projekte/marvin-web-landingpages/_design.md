@@ -157,8 +157,9 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
    Betrag rechts, data-label-Attribute in den td noetig).
 ## Do / Don't (projektspezifisch)
 
-- Do: Markenname IMMER als Platzhalter [MARKE] (Rebrand laeuft, Alt-Name ist verboten
-  und darf nirgends auftauchen).
+- Do: Markenname MARVIN.WEB fest eingebaut (Rebrand 2026-07-19 beendet; die fruehere
+  [MARKE]-Platzhalter-Regel ist damit Geschichte). Alt-Name bleibt verboten
+  und darf nirgends auftauchen.
 - Do: neue Bauteile zuerst gegen projekte/marvin-web/styles.css pruefen und von dort
   uebernehmen; nur LP-Spezifisches (mess, dok, erledigt, stempel) lebt nur hier.
 - Do: wa.me-Links mit vorbefuelltem Text je Angle (Kosten/Eigentum/Speed-Check/Angebot).
@@ -214,27 +215,27 @@ sipgate-Look (Lila #8642FE + Neon #DEFF00, Anti-Slop), Creme+Serif-Editorial.
   angebot-Design gezogen (cp angebot.html + nur die 7 Kanal-Stellen getauscht:
   Kommentar, title, og:url, H1, Hero-Sub, CTA-Band-H2, wa.me-Prefill). Koerper
   byte-identisch zu angebot (per diff geprueft). Muster 3 wieder erfuellt. Der
-  Hero-CTA ist bei allen der Cal-20-Min-Button (CAL-SWAP offen), der WhatsApp-CTA
-  sitzt im CTA-Band.
+  Hero-CTA ist bei allen der Cal-30-Min-Button, der WhatsApp-CTA sitzt im CTA-Band.
+  Seit 2026-07-18 werden die warmen Seiten GENERIERT (_lp/warm.master.html), seit
+  2026-07-20 auch die kalten (_lp/kalt.master.html + kalt.angles.mjs): Drift in
+  geteilten Bauteilen ist damit strukturell unmoeglich, Hand-cp ist Geschichte.
 - KALTE AD-LPs visuell aufgefrischt (2026-07-18, Marvins Wahl "visuell mit-auffrischen"):
   kosten/eigentum/schnell haben jetzt .guides + .sec-head-Sektionslinien + Streichpreise
   (1.178/2.368) mit "einmalig*"-Fussnote. Bewusst NICHT uebernommen (Muster 4): .stack,
   .hero-grid, .dok-Body-Klasse, entkastete Garantie. Garantie bleibt Kasten, Angle-Beweise
   (Rechnung/Selbsttest/Mess) unveraendert.
-- OFFEN Copy-Divergenz Gespraechsdauer: angebot + warme Seiten sagen "20 Minuten"
-  (Ablauf-Schritt, Docket, Hero-CTA), kalte Ad-LPs sagen im Ablauf-Schritt noch
-  "30 Minuten". Bewusst nicht angefasst (kalt = nur visuelle Auffrischung). Bei
-  Bedarf angleichen (eine Stelle je kalter Seite).
-- OFFEN Hero-CTA du/Sie: der angebot-Hero-CTA lautet "Buch dir ein 20-Minuten-Gespraech"
-  (Duzen), der Rest siezt. 1:1 auf die warmen Varianten uebernommen. Wenn angeglichen
-  werden soll: eine Stelle in angebot + den 3 warmen Varianten.
+- ERLEDIGT 2026-07-20 Copy-Divergenz Gespraechsdauer: alle 7 Seiten sagen einheitlich
+  "30 Minuten" (Cal-Event cal.eu/marvin.web/30min existiert, 20min gab es nicht).
+- ERLEDIGT 2026-07-20 Hero-CTA du/Sie: CTA heisst jetzt ueberall "30-Minuten-Gespräch
+  buchen" (Sie-Form), das Duz-"Buch dir" ist raus.
 - STREICHPREIS-ENTSCHEIDUNG (Marvin 2026-07-17): del-Preis 1.178/2.368 vor dem
   Startpreis, als echter Zukunftspreis (990/1.990 x 1,19). Steht bewusst im
   Spannungsfeld zur aelteren Kein-Streichpreis-Regel weiter unten; Marvins Ansage
   sticht. PAngV-Blick vor Launch trotzdem empfohlen (kein frueher verlangter Preis).
-- CAL-SWAP: Hero-CTA verlinkt cal.com/CAL-SWAP/20min, echter Cal.com-Link fehlt noch.
-- Markenname/Domain offen (Rebrand): [MARKE]-Platzhalter, OG-URLs mit DOMAIN-SWAP,
-  Footer-Rechtslinks zeigen auf marvin-web.pages.dev. Kein foot-mark bis Name steht.
+- ERLEDIGT 2026-07-20 CAL-SWAP: Hero-CTA verlinkt fest cal.eu/marvin.web/30min.
+- ERLEDIGT 2026-07-20 Markenname/Domain: MARVIN.WEB ueberall fest (seit 2026-07-20 auch
+  in den kalten Ad-LPs), OG-URLs fest auf marvin-web-lp.pages.dev, Footer-Rechtslinks
+  auf marvinwebdesign.de. Ein foot-mark (Logo im Footer) ist weiterhin nicht gesetzt.
 - ERLEDIGT 2026-07-17 (Marvin, zweite Korrektur): angebot.html hat MEHRERE Zugaenge und
   muss deshalb ZUGANGS-NEUTRAL sein. Wege laut Marvin: QR-Code auf der Visitenkarte (nach
   einem persoenlichen Treffen, also OHNE Nachricht), die Ad (kalt, gar kein Kontakt),

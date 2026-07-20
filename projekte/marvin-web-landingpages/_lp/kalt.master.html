@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Ad-LP bewusst noindex: steht fuer sich, gehoert nicht zur Hauptseite (Marvin 2026-07-18, feste Entscheidung) -->
 <meta name="robots" content="noindex">
-<title>Schnelle Website ohne Ballast · Festpreis ab 990 €</title>
-<meta name="description" content="Handgebaute Website, die sofort lädt: ohne unnötigen Ballast. Festpreis ab 990 €, 0 € pro Monat.">
+<title>{{title}}</title>
+<meta name="description" content="{{metaDescription}}">
 <!-- Deploy-Einheit: marvin-web-lp.pages.dev (eigenes CF-Pages-Projekt) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Schnelle Website ohne Ballast · Festpreis ab 990 €">
-<meta property="og:description" content="Handgebaute Website, die sofort lädt: ohne unnötigen Ballast. 0 € pro Monat.">
-<meta property="og:url" content="https://marvin-web-lp.pages.dev/schnell">
+<meta property="og:title" content="{{ogTitle}}">
+<meta property="og:description" content="{{ogDescription}}">
+<meta property="og:url" content="https://marvin-web-lp.pages.dev{{ogPath}}">
 <meta property="og:image" content="https://marvin-web-lp.pages.dev/img/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -38,13 +38,11 @@
 <section class="hero">
   <div class="wrap">
     <p class="tag">Websites zum Festpreis</p>
-    <h1>Diese Seite war fertig, <em>bevor Sie geblinzelt haben.</em></h1>
+    <h1>{{h1}}</h1>
     <div class="rule" aria-hidden="true"></div>
-    <p class="sub">So fühlt sich eine Website ohne Ballast an. Ihre kann das auch: handgebaut,
-    mit nur dem, was wirklich gebraucht wird. Für Start-ups, Selbstständige und
-    kleine bis mittlere Betriebe.</p>
+    <p class="sub">{{heroSub}}</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://wa.me/4915906453169?text=Hallo%20Marvin%2C%20bitte%20um%20den%20kostenlosen%20Speed-Check.%20Meine%20Website%3A%20">Website-Adresse per WhatsApp schicken</a>
+      <a class="btn btn-primary" href="https://wa.me/4915906453169?text={{waPrefill}}">{{waCtaLabel}}</a>
       <a class="btn btn-ghost" href="tel:+4915906453169">0159 06453169 anrufen</a>
     </div>
     <ul class="trust-row">
@@ -55,42 +53,7 @@
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head"><span class="tag">Das Problem</span><span class="line"></span><span class="aux">Auf dem Handy</span></div>
-    <h2 class="h-lg">Ihre Besucher warten nicht auf Ihre Seite. Sie warten auf den Baukasten.</h2>
-    <p class="lede">Ein Baukasten schleppt bei jedem Aufruf seinen ganzen Werkzeugkasten mit.
-    Auch dann, wenn auf Ihrer Seite nur steht, was Sie anbieten und wie man Sie erreicht.</p>
-    <p class="lede" style="margin-top:10px">Auf dem Handy, in der Bahn oder zwischen zwei Terminen entscheidet genau dieses
-    Gepäck, ob jemand bleibt oder weitertippt.</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head"><span class="tag">Der Beweis</span><span class="line"></span><span class="aux">Nur das Nötige</span></div>
-    <h2 class="h-lg"><span class="satz">Nur das, was gebraucht wird.</span> <span class="satz">Kein Ballast.</span></h2>
-    <div class="mess" data-rennen data-rv style="max-width:640px;margin-top:44px">
-      <div class="mess-zeile">
-        <p class="mess-label">Seite mit Baukasten-Ballast: lädt viel Extra-Zeug mit</p>
-        <div class="mess-bahn b-ballast">
-          <div class="mess-spur" role="img" aria-label="Ladebalken im Rennen: Seite mit Baukasten-Ballast, lädt langsam"><i></i></div>
-          <b class="mess-zeit">über&nbsp;3&nbsp;s</b>
-        </div>
-      </div>
-      <div class="mess-zeile">
-        <p class="mess-label">Handgebaute Seite: lädt nur den Inhalt</p>
-        <div class="mess-bahn b-schlank">
-          <div class="mess-spur" role="img" aria-label="Ladebalken im Rennen: handgebaute Seite, lädt schnell"><i></i></div>
-          <b class="mess-zeit">unter&nbsp;1&nbsp;s</b>
-        </div>
-      </div>
-      <p class="fussnote" style="margin-top:12px">Richtwerte, keine Laborzahlen. Gemessen: Die Demo-Seite erreicht 98 von 100 im Tempo-Wert von Google.</p>
-    </div>
-    <p class="lede" style="margin-top:32px">Google mag schnelle Seiten und zeigt sie weiter oben. Die Faustregel: Eine Seite soll
-    in unter 2,5 Sekunden da sein. Handgebaute Seiten schaffen das von allein, ohne Tricks.</p>
-  </div>
-</section>
+{{angleSections}}
 
 <section class="sec">
   <div class="wrap">
@@ -209,7 +172,7 @@
       <div class="step" data-rv>
         <p class="big" aria-hidden="true">03</p>
         <h3>Live in 5 Arbeitstagen</h3>
-        <p>Die Seite geht erst online, wenn Sie sie abgenommen haben.</p>
+        <p>Die Seite geht erst online, wenn Sie sie abgenommen haben.{{ablaufZusatz}}</p>
       </div>
     </div>
   </div>
@@ -218,29 +181,9 @@
 <section class="sec">
   <div class="wrap">
     <div class="sec-head"><span class="tag">Häufige Fragen</span><span class="line"></span></div>
-    <h2 class="h-lg">Die häufigsten Fragen.</h2>
+    <h2 class="h-lg">{{faqH2}}</h2>
     <div class="faq-list">
-      <details open>
-        <summary>Bleibt die Seite auch schnell, wenn Inhalte dazukommen?</summary>
-        <div class="a"><p>Ja. Es kommt kein Baukasten-Ballast dazu, der mitwachsen muss. Neue Seiten baue ich im
-        gleichen schlanken Stil ein, und Bilder mache ich vorher kleiner, damit sie schnell laden.</p></div>
-      </details>
-      <details>
-        <summary>Gratis Speicherplatz? Wo ist der Haken?</summary>
-        <div class="a"><p>Es gibt keinen versteckten. Der Platz für Ihre Seite im Netz ist bei so einer Seite
-        dauerhaft gratis. Was weiterhin kostet: Ihre Internet-Adresse (5 bis 15 Euro im Jahr),
-        die Erstellung (einmalig, Festpreis) und auf Wunsch die Pflege.</p></div>
-      </details>
-      <details>
-        <summary>Wie ändere ich später Texte oder Preise auf meiner Seite?</summary>
-        <div class="a"><p>Sie schreiben mir eine WhatsApp, ich ändere es. Kleine Änderungen sind in der
-        Betreuung ab 49 Euro im Monat enthalten. Ohne Betreuung kostet eine Änderungsrunde 90 Euro.</p></div>
-      </details>
-      <details>
-        <summary>Was passiert mit meiner alten Website und meiner Domain?</summary>
-        <div class="a"><p>Ihre Domain nehmen wir mit, Inhalte übernehme ich aus der alten Seite. Beim
-        Kündigen des alten Vertrags helfe ich.</p></div>
-      </details>
+{{faqItems}}
     </div>
   </div>
 </section>
@@ -248,12 +191,10 @@
 <section class="cta-band">
   <div class="wrap">
     <p class="tag">Kontakt</p>
-    <h2 class="h-lg">Testen wir Ihre Seite. Kostenlos.</h2>
-    <p class="lede">Schicken Sie mir Ihre Website-Adresse per WhatsApp. Sie bekommen in 2 Arbeitstagen eine
-    kostenlose Ersteinschätzung: wie schnell Ihre Seite wirklich ist und was eine
-    handgebaute kosten würde.</p>
+    <h2 class="h-lg">{{ctaH2}}</h2>
+    <p class="lede">{{ctaLede}}</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://wa.me/4915906453169?text=Hallo%20Marvin%2C%20bitte%20um%20den%20kostenlosen%20Speed-Check.%20Meine%20Website%3A%20">Website-Adresse per WhatsApp schicken</a>
+      <a class="btn btn-primary" href="https://wa.me/4915906453169?text={{waPrefill}}">{{waCtaLabel}}</a>
       <a class="btn btn-ghost" href="tel:+4915906453169">0159 06453169 anrufen</a>
     </div>
     <ul class="trust-row">
