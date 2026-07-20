@@ -55,13 +55,16 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
-- 2026-07-20: **Live-Viewer-Bug (Case Routenwerk) gefixt, DEPLOY NOCH OFFEN.** Marvins Fund vom
-  Handy: Mac-Ansicht im Geraete-Umschalter zeigte "alles falsch" — der Mac-Modus bekam die
-  hochgerechnete Buehnenhoehe als iframe-Viewport (auf Handys ~1440x1700, Hochkant-Mac).
-  Fix in site.js: HOEHEN.mac=900 -> echtes 16:10 (1440x900) proportional eingepasst wie beim
-  iPhone-Modus; site.js?v=10 in allen HTML. Verifiziert lokal (Mobile 284x177 zentriert,
-  Desktop 845x528). Commit 7e29e05 gepusht. **wrangler-Deploy wurde vom Permission-System
-  geblockt -> Marvin deployt selbst oder gibt die Permission frei** (Befehl in deploy.md).
+- 2026-07-20: **Live-Viewer-Bug (Case Routenwerk) gefixt, DEPLOY WEITER OFFEN.** Zwei Runden:
+  (1) Mac-Modus bekam hochgerechnete Buehnenhoehe als Viewport (Hochkant-Mac) -> HOEHEN.mac=900
+  (echtes 16:10). (2) Marvins zweiter Fund: auf Handy stand das kleine Mac-Fenster (284x177) in
+  einer 455px hohen Buehne = 278px leeres Letterbox-Feld ("skaliert falsch auf mobile"). Fix:
+  layout() setzt die Buehnenhoehe pro Geraet — Formate mit fester Hoehe (Mac/iPhone) SCHRUMPFEN
+  die Buehne auf die tatsaechliche Fensterhoehe (Mac mobil jetzt 178px statt 455px, leerRaum 1px),
+  Tablet fuellt weiter. `stage.style.height=''` -> CSS-Max responsiv neu gelesen. Verifiziert:
+  mobil Mac 284x177/kompakt, Tablet 284x455, iPhone 231x455; Desktop Mac 845x528, alle leerRaum 0.
+  site.js?v=11 in allen HTML. **wrangler-Deploy vom Permission-System geblockt -> Marvin deployt
+  selbst (Befehl unten) oder gibt die Bash-Permission `npx wrangler pages deploy` frei.**
 - 2026-07-20: **„Werktage" → „Arbeitstage" ueberall** (Marvins Entscheidung: rechtlich sind Werktage
   Mo–Sa, Arbeitstage eindeutig Mo–Fr → Wochenende bleibt stiller Puffer). Alle Live-Texte, JSON-LD,
   Schema-FAQ, kontakt.js-Autoreply („innerhalb von einem Arbeitstag") + OG-Bild neu gerendert

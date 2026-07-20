@@ -148,24 +148,32 @@ window.addEventListener('pageswap', function (e) {
     knoepfe.forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.device === 'iphone' ? 'true' : 'false'); });
   }
   function layout() {
+    // Inline-Hoehe zuruecksetzen -> die CSS-Maximalhoehe wird wieder wirksam und responsiv gelesen
+    // (Desktop min(620px,66vh), mobil min(460px,56vh)). Danach setzen wir sie pro Geraet neu.
+    stage.style.height = '';
+    var maxH = stage.clientHeight;
+    var stageW = stage.clientWidth;
     var breite = BREITEN[stage.dataset.device] || 1440;
     var hoehe = HOEHEN[stage.dataset.device];
     if (hoehe) {
-      // Mobile mit fester dvh-Hoehe: echtes Geraetefenster (Breite x Hoehe) proportional in die
-      // Buehne einpassen und mittig zentrieren. Minimal kleiner skaliert, dafuer echte dvh im iframe.
-      var scaleM = Math.min(stage.clientWidth / breite, stage.clientHeight / hoehe, 1);
+      // Geraet mit echtem Format (Mac 1440x900, iPhone 375x740): proportional einpassen, Breite ODER
+      // Hoehe begrenzt. Die Buehne SCHRUMPFT auf die tatsaechliche Fensterhoehe -> kein leeres
+      // Letterbox-Feld mehr (vorher stand z.B. das Mac-Fenster winzig in einer 455px hohen Buehne).
+      var scaleM = Math.min(stageW / breite, maxH / hoehe, 1);
+      stage.style.height = Math.round(hoehe * scaleM) + 'px';
       frame.style.width = breite + 'px';
       frame.style.height = hoehe + 'px';
       frame.style.transform = 'scale(' + scaleM + ')';
-      frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scaleM) / 2) + 'px';
-      frame.style.marginTop = Math.max(0, (stage.clientHeight - hoehe * scaleM) / 2) + 'px';
+      frame.style.marginLeft = Math.max(0, (stageW - breite * scaleM) / 2) + 'px';
+      frame.style.marginTop = '0px';
     } else {
-      // Ohne feste Hoehe (Tablet): Breite skaliert, Hoehe fuellt die Buehne.
-      var scaleD = Math.min(1, stage.clientWidth / breite);
+      // Tablet (kein festes Format): Breite skaliert, Hoehe fuellt die volle Buehne (Ausschnitt).
+      stage.style.height = maxH + 'px';
+      var scaleD = Math.min(1, stageW / breite);
       frame.style.width = breite + 'px';
-      frame.style.height = Math.ceil(stage.clientHeight / scaleD) + 'px';
+      frame.style.height = Math.ceil(maxH / scaleD) + 'px';
       frame.style.transform = 'scale(' + scaleD + ')';
-      frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scaleD) / 2) + 'px';
+      frame.style.marginLeft = Math.max(0, (stageW - breite * scaleD) / 2) + 'px';
       frame.style.marginTop = '0px';
     }
   }
