@@ -42,7 +42,11 @@ Stand: 2026-07-18 · Phase: **Feinschliff + Design-Freigabe** (gebaut, noch nich
   gesetzt, dazu `_headers` X-Robots-Tag). Der fruehere "am Domain-Launch pruefen"-Vorbehalt in den
   kalten Ad-LPs ist damit erledigt (Kommentare aktualisiert).
 
-## Offene Punkte (Stand 2026-07-18)
+## Offene Punkte (Stand 2026-07-20)
+- [ ] **OG-Bild (`img/og-default.png`) traegt noch Platzhalter `[MARKE]` + alten Text „Werktagen"** —
+      vor Launch aus aktualisierter `_src/og.html` neu rendern (Rezept: integrations.md Kap. 7).
+      NB: Die feste Entscheidung „Markenname = Platzhalter" ist seit Rebrand-Ende (MARVIN.WEB final,
+      2026-07-19) ueberholt → beim Launch-Feinschliff Marke einsetzen.
 - [ ] **Marvin: Design-Freigabe der 7 LPs** (Haupt-Blocker)
 - [ ] Geraete-Check: Count-up/Reveals/Balken auf echtem iPhone+Android (Browser-Pane pausiert IntersectionObserver/rAF, siehe technik-patterns.md)
 - [ ] formaler qa-polish-Lauf ueber alle 7 Seiten

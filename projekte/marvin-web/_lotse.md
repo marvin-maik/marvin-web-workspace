@@ -55,6 +55,12 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-20: **„Werktage" → „Arbeitstage" ueberall** (Marvins Entscheidung: rechtlich sind Werktage
+  Mo–Sa, Arbeitstage eindeutig Mo–Fr → Wochenende bleibt stiller Puffer). Alle Live-Texte, JSON-LD,
+  Schema-FAQ, kontakt.js-Autoreply („innerhalb von einem Arbeitstag") + OG-Bild neu gerendert
+  (Rezept integrations.md Kap. 7, verifiziert 1200x630, „Arbeitstagen" im Bild). Archiv (`_rebrand/`)
+  und `freigabe/`-Schnappschuesse bewusst NICHT angefasst. Commit 1341220. **Deploy noch OFFEN**
+  (wartet auf Marvins Go; bis dahin zeigt die Live-Site noch „Werktagen").
 - 2026-07-19: **sameAs live + Legal-Vollständigkeitscheck.** Instagram-`sameAs` deployt (**483189da**, live
   auf Domain + Deployment-URL geprüft; Deploy lief diesmal durch → Marvins Allowlist lässt die mw-Segmente
   jetzt zu). Zoho-DPA-Mail von Marvin gesendet. Legal-Kontrolle gegen `pflichtseiten-checkliste.md` (KEINE
