@@ -128,11 +128,12 @@ window.addEventListener('pageswap', function (e) {
   var frame = stage.querySelector('.live-frame');
   var knoepfe = document.querySelectorAll('.shot-geraete button');
   var BREITEN = { mac: 1440, tablet: 768, iphone: 375 };
-  // Feste Geraete-Viewporthoehe fuer die iPhone-Ansicht: so wird im iframe 100dvh/100vh = echte
-  // Handy-Hoehe und die Mobile-Layouts sehen aus wie auf einem realen Geraet (uebliche dvh-Proportion),
-  // statt in den kurzen Buehnenausschnitt gestaucht. Dafuer wird die Ansicht minimal kleiner skaliert.
-  // Ein Knopf zum Drehen: 812 = volles iPhone X, 740 = mit Browserleiste, 667 = iPhone SE.
-  var HOEHEN = { iphone: 740 };
+  // Feste Geraete-Viewporthoehe: so wird im iframe 100dvh/100vh = echte Geraete-Hoehe und die
+  // Layouts sehen aus wie auf einem realen Geraet, statt in den Buehnenausschnitt gestaucht.
+  // iPhone: 812 = volles iPhone X, 740 = mit Browserleiste, 667 = iPhone SE.
+  // Mac: 1440x900 = echtes 16:10 wie ein Mac-Bildschirm, runterskaliert. Ohne feste Hoehe bekam
+  // der iframe auf Handys die hochgerechnete Buehnenhoehe (~1440x1700, Hochkant-Mac) -> alles falsch.
+  var HOEHEN = { iphone: 740, mac: 900 };
   // Routenwerk waehlt Desktop-Coverflow vs. Mobile-Kartenstapel EINMAL beim Laden (matchMedia
   // an der 861px-Grenze, ohne change-Listener). Damit die iPhone-/Tablet-Ansicht wirklich die
   // Mobile-Variante zeigt (statt das Desktop-Layout nur zu quetschen), laden wir den iframe neu,
@@ -159,7 +160,7 @@ window.addEventListener('pageswap', function (e) {
       frame.style.marginLeft = Math.max(0, (stage.clientWidth - breite * scaleM) / 2) + 'px';
       frame.style.marginTop = Math.max(0, (stage.clientHeight - hoehe * scaleM) / 2) + 'px';
     } else {
-      // Desktop (Mac): Breite skaliert, Hoehe fuellt die Buehne (Ausschnitt der langen Startseite).
+      // Ohne feste Hoehe (Tablet): Breite skaliert, Hoehe fuellt die Buehne.
       var scaleD = Math.min(1, stage.clientWidth / breite);
       frame.style.width = breite + 'px';
       frame.style.height = Math.ceil(stage.clientHeight / scaleD) + 'px';
