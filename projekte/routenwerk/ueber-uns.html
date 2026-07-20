@@ -321,6 +321,55 @@ window.__globusInit = function(){
     return linien;
   }
 
+  /* Labels entzerren: nahe Orte (Vík/Höfn, Tirana/Theth) ueberlappten sich vorher.
+     Jeder Ortsname sucht in fester Reihenfolge den ersten freien Platz um seinen Pin;
+     rueckt er vom Standardplatz ab, zeigt eine gepunktete Fuehrungslinie zum Pin. */
+  var labelBreite = {};
+  function zeichneLabels(sichtbar){
+    ctx.font = "11px 'B612 Mono', monospace";
+    var belegt = sichtbar.map(function(s){ return {x: s.xy[0]-9, y: s.xy[1]-9, w: 18, h: 18}; });
+    function kollidiert(b){
+      for (var i = 0; i < belegt.length; i++){
+        var a = belegt[i];
+        if (b.x < a.x + a.w && a.x < b.x + b.w && b.y < a.y + a.h && a.y < b.y + b.h) return true;
+      }
+      return false;
+    }
+    var VERSATZ = [[11,0],[11,-17],[11,17],[-11,0],[-11,-17],[-11,17],[11,-32],[11,32],[-11,-32],[-11,32],[0,-26],[0,28]];
+    sichtbar.forEach(function(s){
+      var w = labelBreite[s.p.ort] || (labelBreite[s.p.ort] = ctx.measureText(s.p.ort).width);
+      var wahl = null;
+      for (var i = 0; i < VERSATZ.length; i++){
+        var v = VERSATZ[i];
+        var tx = v[0] > 0 ? s.xy[0] + v[0] : (v[0] < 0 ? s.xy[0] + v[0] - w : s.xy[0] - w/2);
+        var box = {x: tx - 2, y: s.xy[1] + v[1] - 8, w: w + 4, h: 14};
+        var imCanvas = box.x >= 2 && box.x + box.w <= W - 2 && box.y >= 2 && box.y + box.h <= H - 2;
+        if (imCanvas && !kollidiert(box)){ wahl = {tx: tx, ty: s.xy[1] + v[1] + 4, box: box, v: v}; break; }
+      }
+      if (!wahl){ /* alles belegt: Standardplatz, ueberlappend besser als unsichtbar */
+        wahl = {tx: s.xy[0] + 11, ty: s.xy[1] + 4, box: {x: s.xy[0] + 9, y: s.xy[1] - 8, w: w + 4, h: 14}, v: [11,0]};
+      }
+      belegt.push(wahl.box);
+      if (wahl.v[1] !== 0){
+        var zielX = wahl.v[0] > 0 ? wahl.box.x : (wahl.v[0] < 0 ? wahl.box.x + wahl.box.w : s.xy[0]);
+        var zielY = wahl.ty - 4;
+        var dx = zielX - s.xy[0], dy = zielY - s.xy[1], d = Math.hypot(dx, dy) || 1;
+        ctx.save();
+        ctx.setLineDash([1.5, 3]);
+        ctx.lineWidth = 1; ctx.strokeStyle = farbe.muted;
+        ctx.beginPath();
+        ctx.moveTo(s.xy[0] + dx/d*8, s.xy[1] + dy/d*8);
+        ctx.lineTo(zielX, zielY);
+        ctx.stroke();
+        ctx.restore();
+      }
+      ctx.lineWidth = 3; ctx.strokeStyle = farbe.bg; ctx.lineJoin = "round";
+      ctx.strokeText(s.p.ort, wahl.tx, wahl.ty);
+      ctx.fillStyle = farbe.ink;
+      ctx.fillText(s.p.ort, wahl.tx, wahl.ty);
+    });
+  }
+
   function zeichnen(){
     ctx.clearRect(0,0,W,H);
     ctx.beginPath(); pfad({type:"Sphere"});
@@ -340,9 +389,11 @@ window.__globusInit = function(){
     });
     ctx.setLineDash([]);
     var zentrum = [-projektion.rotate()[0], -projektion.rotate()[1]];
+    var sichtbar = [];
     aktivePins().forEach(function(p){
       if (d3.geoDistance(p.koord, zentrum) > Math.PI/2) return;
       var xy = projektion(p.koord);
+      sichtbar.push({p: p, xy: xy});
       ctx.beginPath(); ctx.arc(xy[0], xy[1], 6.5, 0, 2*Math.PI);
       if (p.typ === "geplant"){
         ctx.fillStyle = farbe.bg; ctx.fill();
@@ -351,12 +402,11 @@ window.__globusInit = function(){
         ctx.fillStyle = farbe.signal; ctx.fill();
         ctx.lineWidth = 2; ctx.strokeStyle = farbe.bg; ctx.stroke();
       }
-      ctx.font = "11px 'B612 Mono', monospace";
-      ctx.fillStyle = farbe.ink;
-      ctx.fillText(p.ort, xy[0]+11, xy[1]+4);
     });
+    zeichneLabels(sichtbar);
   
     /* Flieger (leicht erhoehte Projektion, hinter der Kugel unsichtbar) */
+
     flugProj.rotate(projektion.rotate()).translate(projektion.translate()).scale(projektion.scale() * 1.07);
     flugBahnen.forEach(function(fb){
       var L = fb.ring.length;
@@ -417,7 +467,7 @@ window.__globusInit = function(){
   canvas.addEventListener("pointercancel", dragEnde);
 
   function zoomen(delta){
-    zoomFaktor = Math.max(.8, Math.min(3.2, zoomFaktor * delta));
+    zoomFaktor = Math.max(.8, Math.min(6.4, zoomFaktor * delta));
     projektion.scale(basisRadius() * zoomFaktor);
     zeichnen();
   }

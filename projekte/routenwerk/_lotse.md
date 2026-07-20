@@ -27,6 +27,12 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
 - Läuft und wird betreut. Bei Änderungen: `_design.md` lesen; Deploy über `_referenz/deploy.md` (rw-deploy).
 
 ## Log (Neuestes oben; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-20: Globus-Labels entzerrt (Marvins Fund: Ortsnamen ueberlappten bei nahen Pins, z.B.
+  Vík/Höfn, Tirana/Theth). Jedes Label sucht jetzt in fester Reihenfolge den ersten freien Platz
+  aus 12 Kandidaten um den Pin (Canvas-Rand zaehlt als belegt -> kein Abschneiden mehr), verschobene
+  Labels bekommen eine gepunktete Fuehrungslinie zum Pin, dazu bg-Halo unter der Schrift. Max-Zoom
+  von 3,2 auf 6,4 verdoppelt. Alles im Inline-Script von ueber-uns.html (kein ?v-Bump noetig).
+  Verifiziert im Browser: Island-Cluster, Jordanien gezoomt, Mobil 375px — alle Labels lesbar.
 - 2026-07-19: **DEPLOY LIVE.** Die drei Mobil-Verbesserungen (grosse Abflugtafel, kompakte Split-Flap-
   Button-Kacheln, mitlaufendes Gepaeckband) sind auf https://routenwerk.pages.dev live. Verifiziert
   ueber Deployment-URL (4dbbef16) + Produktions-Domain: styles.css?v=55 / site.js?v=51, `bandlauf`

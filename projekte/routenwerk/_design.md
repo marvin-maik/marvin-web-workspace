@@ -122,7 +122,7 @@ das alles zusammenhaelt.
 | `.postkarte` | Postkarte (ueber-uns) | aspect-ratio 148/105, Marke + Stempelkreis, Adresslinien |
 | `.briefmarke` + `.bm-fuss` | Foto-Rahmen | weisser Rand, drop-shadow 4px 5px 0 line, Wert-Ecke |
 | `.wegweiser` / `.weg` | Gate-Wegweiser (kontakt, 404) | papier-tief Liste, Gate-Code signal, Pfeil rechts |
-| `.globus-buehne` + `.globus-filter` | Logbuch-Globus (ueber-uns) | Canvas + d3 hinter Consent, Filter-Buttons Mono |
+| `.globus-buehne` + `.globus-filter` | Logbuch-Globus (ueber-uns) | Canvas + d3 hinter Consent, Filter-Buttons Mono. Ortslabels mit Kollisions-Ausweichen (12 Kandidatenplaetze um den Pin, bg-Halo, gepunktete Fuehrungslinie muted bei Versatz), Zoom .8-6.4 |
 | `.schalter-schild` | Check-in-Kopfzeile | Mono-Zeile, b = solari (dunkel) bzw. signal (hell via .band) |
 | `.foto` + `.caption` | Foto-Platzhalter | Schraffur-Streifen, Label-Chip, Caption-Leiste immer drunter |
 | `.hero` | Full-bleed-Hero | min-height 86vh, ink-Grund, Foto + Gradient-Overlay, Marker oben, Inhalt unten |
