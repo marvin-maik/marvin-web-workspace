@@ -100,6 +100,11 @@ Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-20: **Pull-Quote-Umbruch mobil gefixt** (Marvins Review): "Ich baue Ihre Seite selbst.
+  Von Hand, jede Zeile." brach bei 375px mitten im orangen Teilsatz ("... jede | Zeile." =
+  Witwe). Fix: `.pull em` white-space:nowrap, der Teilsatz (156px) rutscht als Ganzes in
+  Zeile 2, passt bis runter zu 320px. Nur kalte LPs betroffen (.pull existiert nur dort).
+  styles.css v28->v29, mobil 375 verifiziert (Zeilen exakt gemessen, kein Ueberlauf).
 - 2026-07-20: **"Wer baut das" in zwei Sektionen geteilt** (Marvins Review: "das sind mind. 2
   sections" - Portraet/About und Routenwerk-Showcase klebten ohne eigenen Kopf aneinander,
   DAS war die Spacing-Kritik). Kalt-Master: neue Sektion "Die Arbeitsprobe" (aux "Demo-Projekt

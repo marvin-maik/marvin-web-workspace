@@ -356,7 +356,9 @@ footer{background:var(--ink);color:var(--paper);padding:36px 0;position:relative
 .duo{border:1.5px solid var(--ink);background:var(--paper-deep);margin:0}
 .duo img{display:block;width:100%;height:auto}
 .pull{font-family:var(--disp);font-size:clamp(28px,3.8vw,48px);font-weight:600;line-height:1.05;letter-spacing:-0.025em;margin-bottom:24px;color:var(--ink)}
-.pull em{font-style:normal;color:var(--signal-deep)}
+/* nowrap: "Von Hand, jede Zeile." bricht sonst mobil mitten im Teilsatz ("... jede | Zeile.")
+   und laesst eine Witwe stehen; der Teilsatz ist schmal genug fuer jede Breite ab 320px */
+.pull em{font-style:normal;color:var(--signal-deep);white-space:nowrap}
 .about-text p{color:var(--ink-soft);margin-bottom:14px;font-size:16.5px}
 .about-text p.pull{color:var(--ink)}
 .about-text .who{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:22px}
