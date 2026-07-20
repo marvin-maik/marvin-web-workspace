@@ -4,7 +4,7 @@ Das Gehirn dieses Projekts. Vor jeder Arbeit hier zuerst diese Datei lesen: Stan
 Entscheidungen, offene Punkte, was gerade relevant ist. Nach jedem Arbeitsschritt/Phasenwechsel
 kurz mitziehen. Detail-Quellen sind verlinkt, hier steht nur der Wegweiser.
 
-Stand: 2026-07-18 · Phase: **Feinschliff + Design-Freigabe** (gebaut, noch nicht live)
+Stand: 2026-07-20 · Phase: **TEIL-LIVE** (instagram.html live auf https://marvin-web-lp.pages.dev/instagram als Bio-Link; restliche 6 LPs weiter in Feinschliff/Freigabe, NICHT deployed)
 
 ## Was & wo
 - Landingpages fuer Marvins EIGENES Web-Angebot. 3 kalte Ad-LPs (Angles Kosten/Eigentum/Speed,
@@ -43,10 +43,23 @@ Stand: 2026-07-18 · Phase: **Feinschliff + Design-Freigabe** (gebaut, noch nich
   kalten Ad-LPs ist damit erledigt (Kommentare aktualisiert).
 
 ## Offene Punkte (Stand 2026-07-20)
-- [ ] **OG-Bild (`img/og-default.png`) traegt noch Platzhalter `[MARKE]` + alten Text „Werktagen"** —
-      vor Launch aus aktualisierter `_src/og.html` neu rendern (Rezept: integrations.md Kap. 7).
-      NB: Die feste Entscheidung „Markenname = Platzhalter" ist seit Rebrand-Ende (MARVIN.WEB final,
-      2026-07-19) ueberholt → beim Launch-Feinschliff Marke einsetzen.
+- [x] OG-Bild neu gerendert (MARVIN.WEB + „Arbeitstagen", 1200x630, 2026-07-20). Markenname ueberall
+      eingesetzt ([MARKE] → MARVIN.WEB in Master/Channels/og.html/404.html; Platzhalter-Entscheidung
+      war seit Rebrand-Ende ueberholt).
+- [x] **instagram.html LIVE** (2026-07-20, Marvins Go): eigenes CF-Pages-Projekt **marvin-web-lp**
+      (Direct Upload, Deploy 56a5f44f), SELEKTIVES Staging `/tmp/mwlp-deploy` (nur instagram.html +
+      404.html + styles.css/site.js + img/fonts + _headers + neue `_redirects` mit `/ /instagram 302`;
+      unfreigegebene LPs + unreferenzierte Photoroom-Arbeitsdatei bewusst draussen). Swaps erledigt:
+      CAL-SWAP → `https://cal.eu/marvin.web/30min` (der 20min-Platzhalter existierte nicht als Event;
+      Copy einheitlich auf „30 Minuten"), DOMAIN-SWAP → marvin-web-lp.pages.dev, Rechtslinks →
+      marvinwebdesign.de. qa-polish gelaufen: P1 (404.html-Platzhalter) gefixt, P2 gefixt (En-Dash
+      Z.253, CTA „30-Minuten-Gespräch buchen" statt Duz-CTA, Meta-Row-Tel-Padding 10→13px Touch-Ziel,
+      ?v einheitlich auf 25 gebumpt). Live verifiziert: 200/302/404 korrekt, noindex-Header, og-Bild,
+      cal.eu-Link. **Offen aus QA (Konto/spaeter):** CF-Web-Analytics-Beacon fuer pages.dev +
+      UptimeRobot-Monitor; Cal.eu-Eventname eindeutschen; P3-Reste (Zahlenrundung 330/331, `·` fuer
+      Screenreader, th scope=row, Inline-Styles).
+- [ ] Spaeter optional: Custom-Subdomain (z.B. start.marvinwebdesign.de) statt pages.dev auf das
+      Projekt legen; og:url/og:image im Master dann mitziehen.
 - [ ] **Marvin: Design-Freigabe der 7 LPs** (Haupt-Blocker)
 - [ ] Geraete-Check: Count-up/Reveals/Balken auf echtem iPhone+Android (Browser-Pane pausiert IntersectionObserver/rAF, siehe technik-patterns.md)
 - [ ] formaler qa-polish-Lauf ueber alle 7 Seiten

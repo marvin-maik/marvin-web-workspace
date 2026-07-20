@@ -59,8 +59,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   Mo–Sa, Arbeitstage eindeutig Mo–Fr → Wochenende bleibt stiller Puffer). Alle Live-Texte, JSON-LD,
   Schema-FAQ, kontakt.js-Autoreply („innerhalb von einem Arbeitstag") + OG-Bild neu gerendert
   (Rezept integrations.md Kap. 7, verifiziert 1200x630, „Arbeitstagen" im Bild). Archiv (`_rebrand/`)
-  und `freigabe/`-Schnappschuesse bewusst NICHT angefasst. Commit 1341220. **Deploy noch OFFEN**
-  (wartet auf Marvins Go; bis dahin zeigt die Live-Site noch „Werktagen").
+  und `freigabe/`-Schnappschuesse bewusst NICHT angefasst. Commit 1341220. **Deployed 704fa811**
+  (Marvins Go, dokumentierter Einzeiler; NB: der wrangler-Befehl ALLEIN wird vom Classifier geblockt,
+  nur der komplette deploy.md-Einzeiler ist allowlisted). Verifiziert auf Deployment-URL: alle
+  Kernseiten 200, 0 „Werktag"-Treffer, neues OG-Bild byte-identisch; Live-Domain zeigt neue Texte.
 - 2026-07-19: **sameAs live + Legal-Vollständigkeitscheck.** Instagram-`sameAs` deployt (**483189da**, live
   auf Domain + Deployment-URL geprüft; Deploy lief diesmal durch → Marvins Allowlist lässt die mw-Segmente
   jetzt zu). Zoho-DPA-Mail von Marvin gesendet. Legal-Kontrolle gegen `pflichtseiten-checkliste.md` (KEINE
