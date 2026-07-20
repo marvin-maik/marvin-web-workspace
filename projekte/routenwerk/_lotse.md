@@ -33,6 +33,8 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
   Labels bekommen eine gepunktete Fuehrungslinie zum Pin, dazu bg-Halo unter der Schrift. Max-Zoom
   von 3,2 auf 6,4 verdoppelt. Alles im Inline-Script von ueber-uns.html (kein ?v-Bump noetig).
   Verifiziert im Browser: Island-Cluster, Jordanien gezoomt, Mobil 375px — alle Labels lesbar.
+  **DEPLOYT + live verifiziert** (Deployment 2e4f22c7 + Prod-Domain; Achtung beim curl-Check:
+  `/ueber-uns.html` antwortet 308 auf die Clean-URL `/ueber-uns`, ohne -L wirkt die Seite leer).
 - 2026-07-19: **DEPLOY LIVE.** Die drei Mobil-Verbesserungen (grosse Abflugtafel, kompakte Split-Flap-
   Button-Kacheln, mitlaufendes Gepaeckband) sind auf https://routenwerk.pages.dev live. Verifiziert
   ueber Deployment-URL (4dbbef16) + Produktions-Domain: styles.css?v=55 / site.js?v=51, `bandlauf`
