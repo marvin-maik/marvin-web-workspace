@@ -96,6 +96,15 @@ instagram.html neu. og:title folgt zwingend dem Titel (kann nicht mehr driften).
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-20: **Showcase-Mockup v2 (Button-Fix)**: Marvins neues Photoroom-Bild (1000x750) exakt wie
+  v1 zugeschnitten und 1:1 ersetzt: Handy per Alpha-Bbox freigestellt, auf identisches 500x973-Canvas
+  gesetzt (Handy-Bbox x31/y42 wie v1, dafuer 1,58x hochskaliert, Quelle war halb so gross wie v1) ->
+  img/showcase-phone-mockup.{png,avif} neu (376KB/49KB, AVIF via sips, Qualitaet per avif->png-Check).
+  Quelle archiviert: _src/mockup/routenwerk-iphone-photoroom-v2-button-fix.png. HTML/CSS unveraendert
+  (kosten/eigentum/schnell). Im Pane verifiziert (mobil). Falls auf echtem Retina zu weich:
+  Photoroom-Export in hoeherer Aufloesung nachfordern. NEBENBEFUND: kalte Ad-LPs tragen noch
+  [MARKE]-Platzhalter (kosten 4x, eigentum 6x, schnell 4x) - der "ueberall eingesetzt"-Eintrag oben
+  galt nur fuer Master/Channels/og/404.
 - 2026-07-18: **Handy im Showcase aufgewertet** (Marvin, styles.css v23->v24). Der simulierte
   border-radius-Rahmen (.showcase-phone) ist ersetzt durch ein freigestelltes iPhone-Foto-Mockup:
   Marvin hat das Silhouette-PSD-Mockup mit Photoroom freigestellt (transparent) und einen scharfen
