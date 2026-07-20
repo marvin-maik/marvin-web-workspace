@@ -102,13 +102,24 @@ export default {
     <div class="sec-head"><span class="tag">Der Selbsttest</span><span class="line"></span><span class="aux">Drei Fragen</span></div>
     <h2 class="h-lg">Machen Sie den Test mit Ihrem Anbieter.</h2>
     <div class="karten-3">
-      <div class="karte" data-rv><h3>Frage 1</h3><p>Können Sie Ihre Website zu einem anderen Anbieter mitnehmen?</p></div>
-      <div class="karte" data-rv><h3>Frage 2</h3><p>Bekommen Sie alle Dateien ausgehändigt, wenn Sie kündigen?</p></div>
-      <div class="karte" data-rv><h3>Frage 3</h3><p>Was bleibt von Ihrer Seite, wenn Sie aufhören zu zahlen?</p></div>
+      <div class="karte" data-rv>
+        <h3>Frage 1</h3>
+        <p>Dürfen Sie mit Ihrer Website zu einem anderen Anbieter umziehen?</p>
+        <p class="antwort">Ehrliche Antwort: <b>oft nein.</b></p>
+      </div>
+      <div class="karte" data-rv>
+        <h3>Frage 2</h3>
+        <p>Bekommen Sie beim Kündigen alle Dateien ausgehändigt?</p>
+        <p class="antwort">Ehrliche Antwort: <b>nur gegen Aufpreis.</b></p>
+      </div>
+      <div class="karte" data-rv>
+        <h3>Frage 3</h3>
+        <p>Was bleibt von Ihrer Seite, wenn Sie nicht mehr zahlen?</p>
+        <p class="antwort">Ehrliche Antwort: <b>oft gar nichts.</b></p>
+      </div>
     </div>
-    <p class="lede" style="margin-top:32px">Bei vielen Baukästen lauten die ehrlichen Antworten: nein, nur gegen Aufpreis, nichts.
-    Dinge wie Ihr Kontaktformular oder Ihre Beiträge lassen sich oft gar nicht mitnehmen.
-    Die Seite, für die Sie jahrelang gezahlt haben, war nie Ihre.</p>
+    <p class="lede" style="margin-top:32px">Dinge wie Ihr Kontaktformular oder Ihre Beiträge lassen sich
+    oft gar nicht mitnehmen. Die Seite, für die Sie jahrelang gezahlt haben, war nie Ihre.</p>
   </div>
 </section>
 

@@ -100,6 +100,17 @@ Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-20: **Selbsttest auf eigentum ueberarbeitet** (Marvins Review: Fragen besser formulieren,
+  Antwort-Satz "nein, nur gegen Aufpreis, nichts" grammatisch unverstaendlich). Die versteckte
+  1:1-Zuordnung Satz->Fragen aufgeloest: jede Karte traegt ihre ehrliche Antwort jetzt SELBST
+  (neues Bauteil .karte .antwort, dashed Trenner + Mono-Label + Wert in signal-deep, siehe
+  _design.md). Fragen gestrafft (u.a. "Duerfen Sie ... umziehen?"), Lede unter den Karten
+  entsprechend gekuerzt. Antworten fluchten ueber alle 3 Karten (flex + min-height), mobil
+  geprueft (375). styles.css v26->v28 (v27 war ein Zwischenstand, Cache-Bump-Regel beachtet).
+  OFFEN aus Marvins Review: "zwischen gewissen Elementen gar kein Spacing" - Messung ueber
+  alle Sektionen (390/1280 per iframe) fand keine 0px-Stelle ausser gewollten Trennlinien-
+  Listen (FAQ); Verdacht war die dichte Selbsttest-Karte (jetzt umgebaut). Marvin fragen,
+  wo genau, falls es noch auftritt.
 - 2026-07-20: **Kalte Ad-LPs auf den Generator umgestellt** (Marvins Ansage: eine Seite perfekt,
   Bauteile 1:1 kopieren statt driften lassen). Neu: `_lp/kalt.master.html` + `_lp/kalt.angles.mjs`,
   `build.mjs` baut jetzt beide Master. Roundtrip bewiesen: warme 4 byte-identisch, kalte 3 aendern

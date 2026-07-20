@@ -120,6 +120,17 @@ img{display:block;width:100%;height:auto}
 .karte ul{list-style:none;margin-top:4px}
 .karte ul li{padding:9px 0;font-size:15px;color:var(--ink-soft);border-bottom:1px dashed var(--line);display:flex;gap:10px}
 .karte ul li:last-child{border-bottom:none}
+/* Selbsttest-Karten (eigentum): ehrliche Antwort als Beleg-Zeile, am Kartenboden verankert,
+   damit die drei Antworten trotz unterschiedlich langer Fragen auf einer Hoehe liegen */
+.karte .antwort{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);
+  font-family:var(--mono);font-size:13.5px;letter-spacing:.02em;color:var(--muted)}
+.karte .antwort b{color:var(--signal-deep);letter-spacing:.04em;display:block;margin-top:2px}
+.karten-3 .karte{display:flex;flex-direction:column}
+.karten-3 .karte p:not(.antwort){margin-bottom:18px}
+/* min-height = Platz fuer 2 Antwortzeilen: so fluchten Trennlinie und Antwort in allen
+   drei Karten, egal wie lang Frage und Antwort sind (nur im 3-Spalten-Layout noetig) */
+.karten-3 .karte .antwort{margin-top:auto;min-height:56px}
+@media(max-width:620px){.karten-3 .karte .antwort{min-height:0}}
 .karte ul li::before{content:"\2713";color:var(--signal);font-weight:900;font-family:var(--mono);flex:none}
 .karten-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
 .karten-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
