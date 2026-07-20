@@ -4,7 +4,7 @@
   "@id": "https://marvinwebdesign.de/#business",
   "name": "MARVIN.WEB",
   "alternateName": "Marvin Müller Webdesign",
-  "description": "Webdesign aus Berlin für kleine Unternehmen: individuelle, selbst gehostete Websites zum Festpreis, live in 5 Werktagen, Texte inklusive.",
+  "description": "Webdesign aus Berlin für kleine Unternehmen: individuelle, selbst gehostete Websites zum Festpreis, live in 5 Arbeitstagen, Texte inklusive.",
   "url": "https://marvinwebdesign.de/",
   "image": "https://marvinwebdesign.de/img/og-default.png",
   "logo": "https://marvinwebdesign.de/apple-touch-icon.png",
@@ -39,7 +39,7 @@
   "makesOffer": {
     "@type": "Offer",
     "name": "Website zum Festpreis",
-    "description": "Individuelle, selbst gehostete Business-Website, live in 5 Werktagen, Texte inklusive.",
+    "description": "Individuelle, selbst gehostete Business-Website, live in 5 Arbeitstagen, Texte inklusive.",
     "priceSpecification": {
       "@type": "PriceSpecification",
       "price": "990",

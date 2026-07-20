@@ -56,7 +56,7 @@ USP (warum hier statt woanders):
    keine Telemetrie, Fonts selbst gehostet (belegt: Kap. 2). Daraus folgt Tempo: LCP < 2,5 s
    als Faustregel, von Haus aus erreichbar.
 4. Aus dem bestehenden Angebot (marvin-web-Kontext): Festpreis, Texte inklusive, in
-   5 Werktagen live, ein Gespraech reicht. >>> Gilt das 1:1 auch fuer dieses Angebot? <<<
+   5 Arbeitstagen live, ein Gespraech reicht. >>> Gilt das 1:1 auch fuer dieses Angebot? <<<
 5. Fundament: Ausbildung ueber die Flux Academy Webflow Masterclass (projektbasiert,
    HTML/CSS, SEO, Barrierefreiheit, Datenschutz, Client-Workflow, Zertifizierungsprojekt
    mit Mentoren-Bewertung). NICHT als "offizielles Webflow-Zertifikat" verkaufen.
@@ -163,7 +163,7 @@ Hormozi Value Equation, Hebel je Sektion:
   Plattformkosten (Hero aller 4 Seiten, je nach Angle gewichtet).
 - Likelihood: Kostenvergleich mit echten Webflow-Listenpreisen (Angebots-Seite),
   Ausbildung + Chou-Zitat, transparenter Ablauf, ggf. routenwerk-Demo.
-- Time Delay: 5 Werktage bis live (falls von Marvin fuer dieses Angebot bestaetigt).
+- Time Delay: 5 Arbeitstage bis live (falls von Marvin fuer dieses Angebot bestaetigt).
 - Effort & Sacrifice: ein Gespraech reicht, Texte inklusive (falls bestaetigt),
   WhatsApp-CTA statt Formular-Huerde, Pflege abgebbar per Betreuungspauschale.
 
@@ -238,7 +238,7 @@ in der Lueckenliste: Vergleichszahlen existieren NUR fuer Webflow).
 - Inhalt: Angebot + Festpreis, Kostenvergleich als Tabelle (NUR Beispiele 1 bis 3,
   ehrliche Fussnote: Webflow-Listenpreise Stand 13.05.2026, USD, EUR gerundet; Domain
   neutral; Pflege per Betreuungspauschale statt Plattformgebuehr), Ablauf (Gespraech,
-  Umsetzung, live; Dauer falls bestaetigt 5 Werktage), FAQ (Einwaende 1 bis 5 aus Kap. 2,
+  Umsetzung, live; Dauer falls bestaetigt 5 Arbeitstage), FAQ (Einwaende 1 bis 5 aus Kap. 2,
   inkl. Vibe-Coding-Frage NUR hier und NUR reaktiv), CTA WhatsApp-Antwort + tel:.
 - Personalisierung (Name/Preis je Empfaenger)? >>> Entscheidung Marvin: eine generische
   Seite oder Varianten je Interessent <<<

@@ -63,7 +63,7 @@ ${textSafe}
   const dankeText =
 `Hallo ${nameSafe},
 
-danke für deine Nachricht, sie ist bei mir angekommen. Ich schaue sie mir persönlich an und melde mich innerhalb von einem Werktag bei dir, direkt von mir und nicht automatisiert.
+danke für deine Nachricht, sie ist bei mir angekommen. Ich schaue sie mir persönlich an und melde mich innerhalb von einem Arbeitstag bei dir, direkt von mir und nicht automatisiert.
 
 Wenn es dringend ist, erreichst du mich am schnellsten telefonisch oder per WhatsApp unter +49 159 06453169.
 
