@@ -133,15 +133,17 @@ Count-up: rAF + setTimeout-Sicherheitsnetz auf Endwert (site.js).
 
 1. Jede Sektion beginnt mit `.tag` (// Marker), dann `.h-lg`, dann max. 600px Lede.
 2. Ad-LPs teilen ein Skelett: Hero -> Angle-Problem -> Angle-Beweis -> Wer-baut-das
-   (Sanwarwala-Proof: Portraet + .showcase + facts, identisch) -> Pakete (+ Freigabe-Garantie
+   (Portraet + About-Text) -> Arbeitsprobe (Sanwarwala-Proof: .showcase + facts; seit
+   2026-07-20 EIGENE Sektion mit Kopf "Die Arbeitsprobe / So sieht handgebaut aus.",
+   Marvins Review: vorher klebten zwei Themen in einer Sektion) -> Pakete (+ Freigabe-Garantie
    + .gruendung + Startpreis-Absatz) -> Ablauf (identisch) -> FAQ (Reihenfolge je Angle) -> CTA-Band.
 3. KANAL-VARIANTEN (Marvin 2026-07-17): Der Sinn mehrerer LPs ist die individuelle
    Verknuepfung je Kanal, NICHT eine neutrale Seite fuer alle. Kalte Seiten variieren nach
    ANGLE (kosten/eigentum/schnell), warme nach KANAL (karte/whatsapp/angebot). Je Kanal
    unterscheiden sich NUR: H1, Hero-Sub, CTA-Ueberschrift + Lede, wa.me-Prefill, og:url,
    title. Der Koerper (Stack, Pakete, Garantie, Gruendung, Vergleich, Ablauf, Eigentum, FAQ)
-   bleibt IDENTISCH und muss bei Aenderungen in allen dreien nachgezogen werden.
-   Neuer Kanal = angebot.html kopieren und genau diese 7 Stellen tauschen.
+   bleibt IDENTISCH; das erzwingt seit 2026-07-18/20 der Generator (_lp/, beide Master).
+   Neuer Kanal = Eintrag in _lp/warm.channels.mjs, neuer Angle = Eintrag in _lp/kalt.angles.mjs.
 4. HORMOZI-PLATZIERUNG: Der volle Wert-Stack (.stack) steht auf angebot.html und den warmen Varianten (karte/whatsapp/instagram) und dort
    VOR dem Preis (erst Wert bauen, dann Preis zeigen). Kalte Ad-LPs bleiben knapp: Pakete
    statt Stack, sonst erschlaegt die Wand den 5-Sekunden-Scan.

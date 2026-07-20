@@ -100,6 +100,12 @@ Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-20: **"Wer baut das" in zwei Sektionen geteilt** (Marvins Review: "das sind mind. 2
+  sections" - Portraet/About und Routenwerk-Showcase klebten ohne eigenen Kopf aneinander,
+  DAS war die Spacing-Kritik). Kalt-Master: neue Sektion "Die Arbeitsprobe" (aux "Demo-Projekt
+  Routenwerk", H2 "So sieht handgebaut aus.") mit .showcase + .facts; "Wer baut das" behaelt
+  nur Portraet + About-Text. Nur kalte 3 betroffen (+7 Zeilen je Seite, warme unveraendert),
+  im Pane verifiziert. Konstruktions-Muster in _design.md nachgezogen (Skelett + Generator-Hinweis).
 - 2026-07-20: **Selbsttest auf eigentum ueberarbeitet** (Marvins Review: Fragen besser formulieren,
   Antwort-Satz "nein, nur gegen Aufpreis, nichts" grammatisch unverstaendlich). Die versteckte
   1:1-Zuordnung Satz->Fragen aufgeloest: jede Karte traegt ihre ehrliche Antwort jetzt SELBST
