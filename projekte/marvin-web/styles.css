@@ -248,6 +248,8 @@ h1,h2{text-wrap:pretty}
 
 /* CTA-Band (Unterseiten: Sanwarwala, ueberall ein naechster Schritt) */
 .cta-band{background:var(--ink);color:var(--paper);padding:72px 0;position:relative;z-index:1}
+/* .tag traegt sonst --ink und waere auf dem Tinte-Grund unsichtbar (Fund 2026-07-21) */
+.cta-band .tag{color:var(--paper)}
 .cta-band .h-lg{color:var(--paper);margin-top:14px}
 .cta-band .lede{color:var(--dark-soft)}
 .cta-band .hero-ctas{margin-top:28px}

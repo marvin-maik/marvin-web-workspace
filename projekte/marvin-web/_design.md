@@ -101,7 +101,7 @@ generischer Trenner streuen, sie gehoert zur Headline.
 | `.stack` / `.stack-total` | Offer-Stack | white Rahmenkarte, dashed Zeilen, Total-Zeile invertiert, Wert in --signal-tint |
 | `.guarantee-band` | Garantie | paper-deep-Grund, ink-Border, Mono-Icon in --signal-deep |
 | `.compare` | Vergleichstabelle | white, ink-Rahmen, thead paper-deep; in `.table-scroll` wickeln |
-| `.dark-sec` / `.cta-band` | dunkle Baender | ink-Grund, Text dark-soft/dark-body, 100px bzw. 72px Padding |
+| `.dark-sec` / `.cta-band` | dunkle Baender | ink-Grund, Text dark-soft/dark-body, 100px bzw. 72px Padding. `.cta-band .tag` explizit paper (v17-Fix: .tag traegt sonst ink und war auf Tinte unsichtbar) |
 | `.steps` / `.step .big` | Ablauf 01-04 | Riesenziffer Clash 600, transparent + 1.5px text-stroke --signal, fuellt sich bei .rv.in |
 | `.values` / `.value` | Werte-Spalten | Hairline-Grid ohne Gap, num in --signal-deep, subgrid-Zeilen |
 | `.facts` / `.fact` | Eckdaten-Kacheln | 1.5px ink-Fugen (Grid-Gap auf ink-Grund), Reveal per Tinte-Cover `::after` |
@@ -194,6 +194,7 @@ Geschlossene Liste, alles andere ist verboten:
 | ueber-mich.html | Person | about-grid mit .duo-Bild und .pull |
 | kontakt.html | Analyse-Anfrage | dark-sec mit form-card (Formspree) + book-card (Cal.com), Botschutz |
 | danke.html | Formular-Ziel | noindex |
+| angebot.html | WhatsApp-LP (nach persoenlichem Gespraech) | noindex, kein Menue (Logo + nav-cta), Hero + Gespraechsnotiz-Docket, .facts-Belege, Pakete/Stack 1:1 von pakete.html, CTA-Band "Du hast meine Nummer schon." |
 | impressum.html / datenschutz.html | Recht | schlicht, page-head |
 | 404.html | Fehlerseite | root-absolute Pfade (CF-Pages-Pflicht), drei Wege weiter |
 

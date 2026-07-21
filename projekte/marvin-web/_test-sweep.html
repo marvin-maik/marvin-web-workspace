@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- INTERNER Test-Harness (nie deployen): misst angebot.html bei vielen Breiten auf Overflow -->
+<html lang="de"><head><meta charset="UTF-8"><title>Sweep</title></head>
+<body>
+<pre id="out">läuft…</pre>
+<iframe id="f" src="angebot.html" style="height:400px;border:0"></iframe>
+<script>
+const widths=[320,340,360,375,390,414,480,560,600,640,700,768,800,820,860,900,960,1000,1024,1100,1200,1280,1366,1440,1600,1680,1920,2200,2560];
+const f=document.getElementById('f'),out=document.getElementById('out');
+const results=[];
+function measure(w){return new Promise(res=>{f.style.width=w+'px';setTimeout(()=>{
+  const d=f.contentDocument, de=d.documentElement;
+  const cw=de.clientWidth, sw=Math.max(de.scrollWidth,d.body.scrollWidth);
+  const bad=[];
+  d.querySelectorAll('body *').forEach(el=>{
+    if(el.closest('.wa-float'))return;
+    const r=el.getBoundingClientRect();
+    if(r.width===0&&r.height===0)return;
+    if(r.right>cw+1||r.left<-1){bad.push(el.tagName.toLowerCase()+'.'+(el.className&&el.className.split?el.className.split(' ')[0]:'')+'  L'+Math.round(r.left)+' R'+Math.round(r.right));}
+  });
+  res({w,cw,sw,over:sw-cw,bad:bad.slice(0,6)});
+},350)})}
+(async()=>{
+  // Reveals erzwingen + Transitions aus, damit Messung stabil ist
+  if(!(f.contentDocument&&f.contentDocument.readyState==='complete'&&f.contentDocument.querySelector('.hero'))){
+    await new Promise(r=>{f.addEventListener('load',r,{once:true})});
+  }
+  const d=f.contentDocument;
+  const st=d.createElement('style');st.textContent='*{transition:none!important;animation:none!important}';d.head.appendChild(st);
+  d.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  for(const w of widths){results.push(await measure(w))}
+  out.textContent=results.map(r=>r.w+'px: over='+r.over+(r.bad.length?('  PROBLEM: '+r.bad.join(' | ')):'  ok')).join('\n');
+  window.__done=results;
+})();
+</script>
+</body></html>

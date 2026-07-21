@@ -50,11 +50,30 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - [ ] Konto-Aktionen (Marvin): **Search Console + Sitemap = ERLEDIGT** (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten, 2026-07-19). **Instagram-`sameAs` LIVE** (index.html JSON-LD, `https://www.instagram.com/marvinwebdesign.de/`, Deploy 483189da, live geprüft auf Domain + Deployment-URL). Noch offen: Google Unternehmensprofil anlegen (dann in `sameAs` ergänzen); LinkedIn (falls gewünscht); Conversion messen (/danke vs. Startseite in CF Analytics); „Antwort am selben Tag" gegen Urlaub/Krankheit absichern.
 
 ## Was ist JETZT relevant
+- **NEU (2026-07-21): WhatsApp-LP `angebot.html`** (noindex, /angebot) wartet auf Marvins Freigabe +
+  Deploy (zusammen mit Nummer-Wechsel-Commit; styles.css v17-Fix betrifft ALLE Seiten -> kompletter
+  Deploy noetig). Details im Log.
 - Kontaktformular-Migration VOLLSTÄNDIG abgeschlossen: Token als Secret + verifiziert, Formspree-Form stillgelegt (Marvin, 2026-07-19).
 - Nur-Marvin-Nachzügler übrig: **sameAs-Deploy von index.html** (Instagram drin), Zoho-DPA per Mail an legal@zohocorp.com anfordern, Google Unternehmensprofil, Geräte-Check, Datenschutz-Abnahme (Dieter).
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-21: **Neue WhatsApp-Landingpage `angebot.html` im Hauptprojekt gebaut** (Marvins Neustart-
+  Entscheidung: die alte whatsapp.html aus `marvin-web-landingpages` war ihm zu schlecht responsive/
+  Design-Drift -> Neubau HIER, erbt styles.css 1:1 statt CSS-Kopie). Zweck: Link zum Hinterlegen bei
+  WhatsApp nach persoenlichem Gespraech -> Proof zuerst (Hormozi/Sanwarwala): Hero "Reden kann jeder.
+  Hier sind die Belege." + Gespraechsnotiz-Docket, .facts-Belege (PageSpeed 98, 0 Baukasten-Skripte,
+  AA, 100% Eigentum) mit "Selbst nachmessen bei Google"-Link, Vorteile (Tempo/Preis/Barrierefreiheit),
+  Pakete + Offer-Stack + Garantie (1:1 pakete.html-Copy), Ablauf, Einwand-FAQ, CTA "Du hast meine
+  Nummer schon." (WhatsApp/Anruf/Cal). Kein Menue (nur Logo + CTA), noindex, NICHT in sitemap.xml.
+  Mobile-first gebaut, dann Sweep 320-2560px (29 Breiten, `_test-sweep.html`, wiederverwendbar): 0
+  Overflow. Zwei Funde dabei gefixt: (1) **styles.css: `.cta-band .tag` war Tinte-auf-Tinte unsichtbar**
+  (betraf auch pakete/projekte/ueber-mich/projekt-routenwerk live!) -> `color:var(--paper)`, v16->v17
+  in allen HTML; (2) "Kleingedrucktes." ragte bei 320px 2px raus -> `Klein&shy;gedrucktes.` (Muster
+  wie "Über&shy;raschungen"), auch auf index.html (gleiche Headline). Desktop 1280/1440 per Screenshot
+  abgenommen. Merke fuers Pane-Testen: scrollTo NUR mit behavior:'instant' (scroll-behavior:smooth
+  + pausierte rAF = Scroll haengt), Reveals per JS forcieren. **Deploy offen** (Marvin, deploy.md).
+  Dev-Server neu: `.claude/launch.json` Workspace-Root, Config "marvin-web" Port 8745.
 - 2026-07-21: **Telefon/WhatsApp-Nummer site-weit gewechselt** auf die neue WhatsApp-Business-Nummer
   **0172 9718102** (+49 172 9718102). Marvins Entscheidung: neue Nummer wird Hauptnummer, alte
   **0159 06453169 komplett raus**. Ersetzt in allen deploybaren Dateien: wa.me-Links + `.wa-float`,

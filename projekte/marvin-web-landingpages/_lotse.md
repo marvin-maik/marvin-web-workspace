@@ -100,6 +100,11 @@ Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-21: **WhatsApp-Rolle abgegeben**: Marvin war mit der LP-Kollektion (Responsive/Design-
+  Uebernahme) unzufrieden -> die Seite fuer den WhatsApp-Anwendungsfall wurde KOMPLETT NEU im
+  Hauptprojekt gebaut: `projekte/marvin-web/angebot.html` (marvinwebdesign.de/angebot, erbt die
+  echte styles.css). Die hiesige whatsapp.html ist fuer diesen Zweck ueberholt; Rest des 7er-Sets
+  unveraendert in Freigabe-Warteschleife.
 - 2026-07-21: **Kontaktnummer in den LPs nachgezogen** (der "site-weit"-Commit 17d7e55 hatte NUR
   projekte/marvin-web umgestellt, die LPs sind eine eigene Deploy-Einheit und blieben auf der alten
   0159 06453169 haengen). Alte Nummer -> neue Hauptnummer **0172 9718102** (Links wa.me/491729718102 +
