@@ -61,7 +61,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - 2026-07-21: **Neue WhatsApp-Landingpage `angebot.html` im Hauptprojekt gebaut** (Marvins Neustart-
   Entscheidung: die alte whatsapp.html aus `marvin-web-landingpages` war ihm zu schlecht responsive/
   Design-Drift -> Neubau HIER, erbt styles.css 1:1 statt CSS-Kopie). Zweck: Link zum Hinterlegen bei
-  WhatsApp nach persoenlichem Gespraech -> Proof zuerst (Hormozi/Sanwarwala): Hero "Reden kann jeder.
+  WhatsApp nach persoenlichem Gespraech. WICHTIG (Marvins Korrektur 2026-07-21): Flow ist QR-Code ->
+  WhatsApp-Business-Profil -> Besucher schreibt ZUERST (Marvin hat NICHT angeschrieben) -> Copy sagt
+  ueberall "schreib mir" / "Per WhatsApp schreiben", NIE "antworte auf meine Nachricht".
+  Proof zuerst (Hormozi/Sanwarwala): Hero "Reden kann jeder.
   Hier sind die Belege." + Gespraechsnotiz-Docket, .facts-Belege (PageSpeed 98, 0 Baukasten-Skripte,
   AA, 100% Eigentum) mit "Selbst nachmessen bei Google"-Link, Vorteile (Tempo/Preis/Barrierefreiheit),
   Pakete + Offer-Stack + Garantie (1:1 pakete.html-Copy), Ablauf, Einwand-FAQ, CTA "Du hast meine
