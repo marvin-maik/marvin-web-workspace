@@ -55,6 +55,15 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-21: **Telefon/WhatsApp-Nummer site-weit gewechselt** auf die neue WhatsApp-Business-Nummer
+  **0172 9718102** (+49 172 9718102). Marvins Entscheidung: neue Nummer wird Hauptnummer, alte
+  **0159 06453169 komplett raus**. Ersetzt in allen deploybaren Dateien: wa.me-Links + `.wa-float`,
+  `tel:`-Anruflinks, Header-Meta-Zeile (`TEL 0172 9718102`), „Anrufen"-Buttons (Start + Kontakt),
+  **Impressum-Telefonzeile** (impressum.html:61 — steckte durch `&nbsp;`-Trennung im ersten Grep versteckt),
+  JSON-LD `telephone` (index), danke.html, Auto-Antwort-Mail + Fehlerseite in `functions/api/kontakt.js`.
+  Per Grep verifiziert: 0 Alt-Treffer, neue Nummer in allen Formaten korrekt (wa.me/491729718102,
+  tel:+491729718102). Kein `?v`-Bump nötig (CSS/JS unverändert). **Deploy noch offen** — Marvin deployt
+  via deploy.md-Einzeiler (Function ist dabei, muss aus dem Staging-CWD laufen). Nummer-Merker: [[marvin-whatsapp-business]].
 - 2026-07-20: **Live-Viewer-Bug (Case Routenwerk) gefixt, DEPLOY WEITER OFFEN.** Zwei Runden:
   (1) Mac-Modus bekam hochgerechnete Buehnenhoehe als Viewport (Hochkant-Mac) -> HOEHEN.mac=900
   (echtes 16:10). (2) Marvins zweiter Fund: auf Handy stand das kleine Mac-Fenster (284x177) in

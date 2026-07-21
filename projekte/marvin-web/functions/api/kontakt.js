@@ -65,7 +65,7 @@ ${textSafe}
 
 danke für deine Nachricht, sie ist bei mir angekommen. Ich schaue sie mir persönlich an und melde mich innerhalb von einem Arbeitstag bei dir, direkt von mir und nicht automatisiert.
 
-Wenn es dringend ist, erreichst du mich am schnellsten telefonisch oder per WhatsApp unter +49 159 06453169.
+Wenn es dringend ist, erreichst du mich am schnellsten telefonisch oder per WhatsApp unter +49 172 9718102.
 
 Viele Grüße
 Marvin
@@ -120,6 +120,6 @@ export function onRequestGet(context) {
 // Kleine, in sich geschlossene Fehlerseite mit direktem Kontaktweg (kein verlorener Lead).
 function fehlerSeite(origin, meldung) {
   const text = meldung || "Beim Absenden ist technisch etwas schiefgelaufen.";
-  const html = `<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Da ist etwas schiefgelaufen · MARVIN.WEB</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f5f1e8;color:#161412;line-height:1.6;margin:0}.w{max-width:560px;margin:0 auto;padding:80px 28px}h1{font-size:30px;letter-spacing:-.02em;margin:0 0 14px}a{color:#b53507;font-weight:600}.b{display:inline-block;margin-top:24px;background:#b53507;color:#fff;text-decoration:none;padding:12px 22px}</style></head><body><div class="w"><h1>Da ist etwas schiefgelaufen.</h1><p>${text} Bitte schreib mir direkt an <a href="mailto:info@marvinwebdesign.de">info@marvinwebdesign.de</a> oder ruf an unter <a href="tel:+4915906453169">+49&nbsp;159&nbsp;06453169</a>. Ich kümmere mich darum.</p><a class="b" href="${origin}/kontakt">Zurück zum Formular</a></div></body></html>`;
+  const html = `<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Da ist etwas schiefgelaufen · MARVIN.WEB</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f5f1e8;color:#161412;line-height:1.6;margin:0}.w{max-width:560px;margin:0 auto;padding:80px 28px}h1{font-size:30px;letter-spacing:-.02em;margin:0 0 14px}a{color:#b53507;font-weight:600}.b{display:inline-block;margin-top:24px;background:#b53507;color:#fff;text-decoration:none;padding:12px 22px}</style></head><body><div class="w"><h1>Da ist etwas schiefgelaufen.</h1><p>${text} Bitte schreib mir direkt an <a href="mailto:info@marvinwebdesign.de">info@marvinwebdesign.de</a> oder ruf an unter <a href="tel:+491729718102">+49&nbsp;172&nbsp;9718102</a>. Ich kümmere mich darum.</p><a class="b" href="${origin}/kontakt">Zurück zum Formular</a></div></body></html>`;
   return new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } });
 }
