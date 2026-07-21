@@ -58,6 +58,16 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-21: **Onepager-Preis 990 -> 790 EUR site-weit** (Marvins Entscheidung: ehrlicher
+  Einstiegspreis solange Referenzen fehlen; steigt spaeter wieder). Ersetzt in index (Meta-Desc,
+  JSON-LD priceRange + makesOffer, FAQ-Schema + sichtbares FAQ, Teaser-Karte, trust-row), pakete
+  (Title/OG/Meta-Desc, Karte), angebot (Meta-Desc, trust-row, Karte), projekt-routenwerk (Stack-val,
+  trust-row), projekte (trust-row). Business 1.990 unveraendert. Plus **"Impressum & Datenschutz
+  inklusive"** in S+M-Listen, Offer-Stack-Zeile und Vergleichstabelle (pakete + angebot; Marvins
+  Wunsch "rechtsrelevante Seiten immer inklusive"). LP-Kollektion: Generator-Quellen auf 790
+  nachgezogen (siehe deren Lotse; dort unkommittet wegen fremdem WIP). Nische: Marvin denkt ueber
+  Nischen-Positionierung nach -> eigene Runde, NICHT nebenbei (feste Zielgruppen-Entscheidung
+  im LP-Lotse waere betroffen). **Deploy weiter offen.**
 - 2026-07-21: **Neue WhatsApp-Landingpage `angebot.html` im Hauptprojekt gebaut** (Marvins Neustart-
   Entscheidung: die alte whatsapp.html aus `marvin-web-landingpages` war ihm zu schlecht responsive/
   Design-Drift -> Neubau HIER, erbt styles.css 1:1 statt CSS-Kopie). Zweck: Link zum Hinterlegen bei

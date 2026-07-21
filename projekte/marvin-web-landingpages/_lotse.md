@@ -33,7 +33,8 @@ Stand: 2026-07-20 · Phase: **TEIL-LIVE** (instagram.html live auf https://marvi
   (Pflege ueber Betreuungspauschale, statische Seite hat kein CMS). Agentur-Rechnung NIE in
   Kundenkommunikation. Flux-Zertifikat ist KEIN offizielles Webflow-Zertifikat (Formulierung:
   Ausbildung/Masterclass). Vibe-Coding nur als Einwandbehandlung. DSGVO-Argument nur fuer Fonts/Skripte.
-- **Fakten fuer Copy** (aus marvin-web live): Onepager 990 EUR, Business-Site 1.990 EUR, Shop auf
+- **Fakten fuer Copy** (aus marvin-web live): Onepager **790 EUR** (Marvins Einstiegspreis-Entscheidung
+  2026-07-21, vorher 990; steigt, sobald Referenzen da sind), Business-Site 1.990 EUR, Shop auf
   Anfrage, Betreuung ab 49 EUR/Monat (1. Monat inkl.), PageSpeed 98 (routenwerk) als Speed-Beweis,
   Kleinunternehmer Par. 19 UStG. Freigabe vor Bau, 1 Korrekturrunde, live erst nach Abnahme.
 - **ALLE 7 LPs werden generiert**, nicht von Hand kopiert: `_lp/` (siehe unten). Seit
@@ -100,6 +101,11 @@ Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-21: **Onepager-Preis 990 -> 790** in den Generator-Quellen (_lp Master + channels/angles)
+  nachgezogen + `node _lp/build.mjs`; Streichpreis-Anker 1.178 EUR bewusst gelassen (Story "regulaerer
+  Preis spaeter", jetzt groesserer Abzug -> bei der LP-Freigabe pruefen, ob der Anker so bleibt).
+  NICHT committet, weil der Arbeitsbaum hier unkommittete WIP-Aenderungen einer anderen Session traegt
+  (styles/site.js/404, neue _breakpoints/_varianten.html) - Preis-Aenderung liegt im selben WIP-Stand.
 - 2026-07-21: **WhatsApp-Rolle abgegeben**: Marvin war mit der LP-Kollektion (Responsive/Design-
   Uebernahme) unzufrieden -> die Seite fuer den WhatsApp-Anwendungsfall wurde KOMPLETT NEU im
   Hauptprojekt gebaut: `projekte/marvin-web/angebot.html` (marvinwebdesign.de/angebot, erbt die
