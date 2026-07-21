@@ -26,7 +26,7 @@ Stand: 2026-07-20 · Phase: **TEIL-LIVE** (instagram.html live auf https://marvi
   Orange #e8440a). Nicht mixen, keine neue Richtung erfinden. Marvins Ansage 2026-07-16.
 - **Markenname = Platzhalter `[MARKE]`** (Rebrand von MARVIN.WEB laeuft parallel). Kein Markenname hart eingebaut.
 - **CTA-Strategie: KEIN Formspree, kein Drittanbieter** (Positionierung "kein Fremdcode").
-  WhatsApp-Click (wa.me/4915906453169) + tel:. Formular spaeter via Cloudflare Pages Function.
+  WhatsApp-Click (wa.me/491729718102) + tel:+491729718102 (Anzeige 0172 9718102). Formular spaeter via Cloudflare Pages Function.
 - **Positionierung gegen Webflow (verbindlich)**: kein "statisch vs dynamisch"-Performance-Argument
   (Webflow published selbst statisch); echtes Argument = Fremdcode-Ballast (webflow.js, Telemetrie).
   "Faktor 2-3 schneller" gestrichen (unbelegt), nutzbar: LCP < 2,5 s. CMS-Vergleich ehrlich
@@ -100,6 +100,14 @@ Die HTML-Dateien im Root sind BUILD-ARTEFAKTE: nie direkt editieren, immer ueber
   Nicht die aktuelle Wahrheit; wird nicht deployed. Kandidat zum Aufraeumen.
 
 ## Log (Neuestes oben)
+- 2026-07-21: **Kontaktnummer in den LPs nachgezogen** (der "site-weit"-Commit 17d7e55 hatte NUR
+  projekte/marvin-web umgestellt, die LPs sind eine eigene Deploy-Einheit und blieben auf der alten
+  0159 06453169 haengen). Alte Nummer -> neue Hauptnummer **0172 9718102** (Links wa.me/491729718102 +
+  tel:+491729718102) in den editierbaren Quellen `_lp/warm.master.html` (3), `_lp/kalt.master.html` (5)
+  und `404.html` (3), dann `node _lp/build.mjs` -> alle 7 LPs neu. `freigabe/` (Altlast, nicht deployed)
+  bewusst NICHT angefasst -> traegt weiter die alte Nummer. Kein ?v-Bump (nur Text, CSS/JS unveraendert).
+  karte.html im Browser gegengecheckt (Meta-Zeile + WhatsApp- + Anruf-Button = neue Nummer). Restliche
+  6 Seiten per grep verifiziert (warm 3 / kalt 5 / 404 3 Treffer je Seite, keine alte Nummer mehr ausser freigabe/).
 - 2026-07-20: **Pull-Quote-Umbruch mobil gefixt** (Marvins Review): "Ich baue Ihre Seite selbst.
   Von Hand, jede Zeile." brach bei 375px mitten im orangen Teilsatz ("... jede | Zeile." =
   Witwe). Fix: `.pull em` white-space:nowrap, der Teilsatz (156px) rutscht als Ganzes in
