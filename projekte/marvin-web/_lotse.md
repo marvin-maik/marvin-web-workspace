@@ -60,6 +60,13 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-21: **angebot-LP: Projekt-Blick eingebaut** (Marvin: "beim Ueberfliegen soll klar sein,
+  dass hier ein Projekt zu entdecken ist"). Freigestelltes iPhone-Mockup mit Routenwerk-Screenshot
+  (`img/showcase-phone-mockup.{avif,png}`, aus der LP-Kollektion kopiert, AVIF 49KB) in der
+  Belege-Sektion: neue Bauteile `.belege-grid`/`.projekt-blick` in styles.css (v17->v18, ?v in
+  allen 9 HTML gebumpt), mobil unter den Facts, ab 901px neben 2x2-Facts, Bild verlinkt auf die
+  Live-Demo. Sweep 31 Breiten 320-2560: 0 Overflow. Mobil + Desktop 1280 per Screenshot abgenommen.
+  **Deploy dieser Runde offen** (v18 + Bild + Preis-Sweep-Nachzuegler, falls noch nicht deployt).
 - 2026-07-21: **KRITISCH-Fix: Live-Domain war auf noindex.** PageSpeed-Fund (SEO 69, "Seite ist
   von Indexierung ausgeschlossen"): das `X-Robots-Tag: noindex` auf `/*` aus der pages.dev-Demo-
   Phase stand seit dem Domain-Launch (10.07.) noch in `_headers` — der Warnkommentar in der Datei

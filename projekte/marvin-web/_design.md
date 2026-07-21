@@ -114,6 +114,7 @@ generischer Trenner streuen, sie gehoert zur Headline.
 | `.hp-feld` | Honeypot | off-screen, Pflicht in jedem Formular (plus Zeit-Falle in site.js) |
 | `details` / `summary` | FAQ | Hairline-Liste, Plus-Zeichen Mono --signal, dreht bei open 45deg |
 | `.foot-mark` | Footer-Marke (Logo invers) | `img/logo-invers.svg`, `.foot-mark img{width:min(660px,88%)}`; Papier-Buchstaben + Orange-Quadrat auf Tinte (früher Riesen-Text) |
+| `.belege-grid` / `.projekt-blick` | Belege + Handy-Mockup (angebot) | mobil: Facts stapeln, Handy zentriert darunter; ab 901px Grid 1fr/300px mit 2x2-Facts. Bild: freigestelltes iPhone `img/showcase-phone-mockup.{avif,png}` (aus LP-Kollektion uebernommen, Photoroom, Lizenz ok), drop-shadow als bewusste Ausnahme (Foto-Objekt, kein UI-Kasten), Link auf routenwerk.pages.dev |
 | `.wa-float` | WhatsApp-Button | fixed rechts unten, --signal-deep, einzige weiche Schatten der Site |
 | `.guides` | Spalten-Guides | 3 vertikale 1px Hairlines (--hair, opacity .5) hinter dem Content |
 
