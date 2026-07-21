@@ -2,12 +2,11 @@
 # Bewusst ohne CSP: die Seiten haben Inline-JS/CSS, ein strikter CSP wuerde sie brechen.
 # HSTS wird ueber das Cloudflare-Dashboard gesetzt, nicht per Header-Datei.
 #
-# ACHTUNG noindex: Solange das Projekt nur unter marvin-web.pages.dev laeuft, halten wir
-# es bewusst aus dem Google-Index (Wegwerf-URL, kein Ranking darauf aufbauen).
-# BEIM DOMAIN-LAUNCH die naechste Zeile ENTFERNEN, sonst bleibt auch die Live-Domain
-# auf noindex (das _headers gilt fuer alle Hostnamen dieses Pages-Projekts).
+# noindex-Historie: Bis 2026-07-21 stand hier X-Robots-Tag: noindex auf /* (Schutz der
+# Wegwerf-URL pages.dev vor dem Domain-Launch). Beim Launch vergessen zu entfernen ->
+# Live-Domain blieb aus dem Google-Index (PageSpeed-Fund 2026-07-21). NICHT wieder einfuehren;
+# pages.dev-Duplikate faengt der canonical auf marvinwebdesign.de ab.
 /*
-  X-Robots-Tag: noindex
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY

@@ -79,6 +79,16 @@ dass nichts fehlt und nichts Totes drinsteht.
       nicht in Google landen und spaeter nicht gegen die Kundendomain ranken.
 
 ## Launch auf finaler Domain (zusaetzlich zu oben)
+- [ ] **noindex ENTFERNEN + live NACHMESSEN (Vorfall marvin-web 2026-07-21):** Das
+      `X-Robots-Tag: noindex` auf `/*` aus der Demo-Phase (siehe oben) gilt fuer ALLE
+      Hostnamen des Pages-Projekts — beim Domain-Launch die Zeile aus `_headers` loeschen,
+      sonst bleibt auch die Live-Domain unsichtbar fuer Google. Ein Kommentar in der Datei
+      reicht NICHT als Erinnerung (wurde beim marvin-web-Launch 2 Tage lang uebersehen,
+      erst per PageSpeed aufgefallen). Darum Pflicht-Gegenprobe nach dem Launch-Deploy:
+      `curl -sI https://DOMAIN/ | grep -i x-robots` muss LEER sein (nur bewusste
+      noindex-Pfade wie /umzug oder /danke duerfen ihn behalten). Danach in der Search
+      Console Indexierung der Startseite anstossen. pages.dev muss danach nicht erneut
+      genoindext werden: canonical zeigt auf die finale Domain.
 - [ ] robots.txt mit `Sitemap:`-Zeile (absolute URL). **CF-Zone-Falle (verifiziert marvin-web
       2026-07-19):** Auf einer Cloudflare-**Zone** (Custom-Domain) MERGT Cloudflare seine
       managed/AI-robots.txt mit der deployten Datei — die eigene `Sitemap:`-Zeile + `Allow: /`

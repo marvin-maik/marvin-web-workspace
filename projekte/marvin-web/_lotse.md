@@ -50,14 +50,26 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - [ ] Konto-Aktionen (Marvin): **Search Console + Sitemap = ERLEDIGT** (Property verifiziert, sitemap.xml „Erfolgreich", 6 Seiten, 2026-07-19). **Instagram-`sameAs` LIVE** (index.html JSON-LD, `https://www.instagram.com/marvinwebdesign.de/`, Deploy 483189da, live geprüft auf Domain + Deployment-URL). Noch offen: Google Unternehmensprofil anlegen (dann in `sameAs` ergänzen); LinkedIn (falls gewünscht); Conversion messen (/danke vs. Startseite in CF Analytics); „Antwort am selben Tag" gegen Urlaub/Krankheit absichern.
 
 ## Was ist JETZT relevant
-- **NEU (2026-07-21): WhatsApp-LP `angebot.html`** (noindex, /angebot) wartet auf Marvins Freigabe +
-  Deploy (zusammen mit Nummer-Wechsel-Commit; styles.css v17-Fix betrifft ALLE Seiten -> kompletter
-  Deploy noetig). Details im Log.
+- **noindex-Vorfall behoben + ALLES deployt (2026-07-21):** Live-Domain war seit Launch per
+  X-Robots-Tag aus dem Google-Index gesperrt (Details im Log). Fix deployt; mitgegangen sind die
+  wartenden Commits: Nummer-Wechsel, Preis 790, styles v17, site.js v11, angebot.html (/angebot,
+  noindex — Marvins Sicht-Freigabe der Live-Seite steht noch aus). Nachzug Marvin: Search Console
+  -> Startseite "Indexierung beantragen".
 - Kontaktformular-Migration VOLLSTÄNDIG abgeschlossen: Token als Secret + verifiziert, Formspree-Form stillgelegt (Marvin, 2026-07-19).
 - Nur-Marvin-Nachzügler übrig: **sameAs-Deploy von index.html** (Instagram drin), Zoho-DPA per Mail an legal@zohocorp.com anfordern, Google Unternehmensprofil, Geräte-Check, Datenschutz-Abnahme (Dieter).
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-21: **KRITISCH-Fix: Live-Domain war auf noindex.** PageSpeed-Fund (SEO 69, "Seite ist
+  von Indexierung ausgeschlossen"): das `X-Robots-Tag: noindex` auf `/*` aus der pages.dev-Demo-
+  Phase stand seit dem Domain-Launch (10.07.) noch in `_headers` — der Warnkommentar in der Datei
+  wurde beim Launch uebersehen, marvinwebdesign.de war dadurch fuer Google gesperrt. Zeile
+  entfernt (/umzug bleibt bewusst noindex). Dauerhaft verankert (Marvins Auftrag "dringend
+  merken"): neuer ERSTER Punkt in `pflichtseiten-checkliste.md` "Launch auf finaler Domain"
+  (noindex loeschen + Pflicht-Gegenprobe `curl -sI | grep -i x-robots` leer) + Memory
+  `launch-noindex-gegenprobe`. Deploy schob zugleich die wartenden Commits live: Nummer-Wechsel
+  0172 9718102, Preis 790, styles.css v17 (.cta-band .tag-Fix), site.js v11 (Live-Viewer),
+  angebot.html (/angebot, noindex). Nachzug: Search Console Startseiten-Indexierung anstossen.
 - 2026-07-21: **Onepager-Preis 990 -> 790 EUR site-weit** (Marvins Entscheidung: ehrlicher
   Einstiegspreis solange Referenzen fehlen; steigt spaeter wieder). Ersetzt in index (Meta-Desc,
   JSON-LD priceRange + makesOffer, FAQ-Schema + sichtbares FAQ, Teaser-Karte, trust-row), pakete
