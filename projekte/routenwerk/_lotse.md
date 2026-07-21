@@ -27,7 +27,15 @@ Stand: 2026-07-18 · Phase: **LIVE + Betreuung**
 - Läuft und wird betreut. Bei Änderungen: `_design.md` lesen; Deploy über `_referenz/deploy.md` (rw-deploy).
 
 ## Log (Neuestes oben; volle Historie in `PROJEKTE-log.md`)
-- 2026-07-20: Globus-Labels entzerrt (Marvins Fund: Ortsnamen ueberlappten bei nahen Pins, z.B.
+- 2026-07-20: **Lade-Intro auf Mobile zentrierter, DEPLOY NOCH OFFEN.** Marvins Fund: das Intro
+  wirkt auf dem Handy "nicht mittig" — Ursache: der Zoom laeuft durch das Pin-Loch des R, und
+  bei 86vw breiter Wortmarke sass der Pin auf ~72px von 375 (weit links), das Portal oeffnete am
+  linken Rand. Fix (Marvins Wahl "kleinster Eingriff"): Wortmarke mobil 86vw -> 68vw, Pin wandert
+  auf ~96px (24px naeher zur Mitte); Wortmarke bleibt zentriert, nur kleiner. Nur der eine Wert in
+  site.js (`wmW = Math.min(W*.68,900)`), site.js?v=52 in allen 11 HTML. Rechnerisch verifiziert;
+  Live-Animation auf 375px im Preview-Pane nicht sauber beobachtbar (Pane friert/cached das Intro,
+  echtes Chrome geht nicht unter ~500px) -> finaler Sicht-Check auf echtem Geraet nach Deploy.
+  **wrangler-Deploy vom Auto-Mode-Klassifizierer geblockt (wie marvin-web) -> Marvin deployt selbst.**
   Vík/Höfn, Tirana/Theth). Jedes Label sucht jetzt in fester Reihenfolge den ersten freien Platz
   aus 12 Kandidaten um den Pin (Canvas-Rand zaehlt als belegt -> kein Abschneiden mehr), verschobene
   Labels bekommen eine gepunktete Fuehrungslinie zum Pin, dazu bg-Halo unter der Schrift. Max-Zoom

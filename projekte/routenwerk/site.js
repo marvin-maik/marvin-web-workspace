@@ -564,9 +564,11 @@
     var hole = huelle.querySelector(".intro-hole");
     var rand = huelle.querySelector(".intro-rand");
 
-    /* Wortmarke zentriert einpassen (68vw, mobil 86vw, max 900px) */
+    /* Wortmarke zentriert einpassen (68vw, max 900px). Mobil bewusst NICHT breiter (frueher 86vw):
+       eine schmalere Wortmarke rueckt den Pin — das Zoom-Zentrum — naeher zur Bildschirmmitte,
+       sonst oeffnet sich das Portal auf schmalen Screens weit am linken Rand. */
     var W = window.innerWidth, H = window.innerHeight;
-    var wmW = Math.min(W * (W < 640 ? .86 : .68), 900);
+    var wmW = Math.min(W * .68, 900);
     var wmH = wmW * VB.h / VB.w;
     var wmX = (W - wmW) / 2, wmY = (H - wmH) / 2;
     wm.setAttribute("x", wmX); wm.setAttribute("y", wmY);
