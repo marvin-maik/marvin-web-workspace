@@ -2,7 +2,7 @@
 
 Das Gehirn dieses Projekts. Nach jedem Meilenstein kurz mitziehen.
 
-Stand: 2026-07-22 · Phase: **Design-Richtung offen (v1 = "AI-Slop"-Kritik, 3 Alternativen zur Wahl)**
+Stand: 2026-07-22 · Phase: **Design-Richtung offen (Favoriten D1/D2, warm+collage nach Recherche)**
 
 ## Was & wo
 - **Spekulations-Case / Kaltakquise**: unaufgefordert gebaute Vorschau fuer die Baeckerei & Konditorei
@@ -69,6 +69,25 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (v1 = "AI-Slop"-Kritik, 3 Al
   Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **2. Design-Feedback + Heritage-Recherche -> D-Runde.** Marvin: C3 hat Charme verloren;
+  gewollt ist verspielt-aber-warm/ruhig, kreuz-und-quer-aber-stimmig (wie Brot voll im Regal),
+  Ebenen mit Tiefe. WEG: falsche Klebestreifen (zu kuenstlich), dicke Streifen, laute rote Flaechen,
+  uebergrosser Hero. Palette: **Brot-/Krustentoene + Weiss (ihre Tueten) als Basis, Rot NUR dezent +
+  als feine Nadelstreifen (Schuerzen-Borduere, nicht dick), Gold als Akzent (Fensterschrift +
+  Goldenes Ticket; Gold-Zahlen gefielen)**. design-scout-Dossier (ab8fa89) eingeholt:
+  Koenigsreferenzen **Zingerman's Deli** (handgemalte Sign-Painter-Welt = verspielt+stimmig durch
+  EINE Hand+EINE Farbwelt), **Rose Bakery** (echte Objekt-Texturen drucken statt Skeuomorphe faken),
+  **Balthazar** (Gold nur in Headern), **Joseph Brot Wien** (Ton). 5 Collage-Regeln: geteilte
+  Grundflaeche + eine Lichtrichtung; Rotation ±2-4°, pro Viewport nur EIN Objekt schief; Tiefe durch
+  Ueberlappung echten Inhalts; gerichteter Schatten (2 gestaffelte box-shadow); Fotorand = weisser
+  Abzugsrand NIE Klebeband. Palette-Sets mit gerechneten Kontrasten (Set1 "Krume&Kruste" #FAF6EF/
+  #2B1D12/#9E2B1E/Gold #C9A24B nur auf #2E2013). Font-Tipp: Fraunces behalten, Caveat -> **Shantell
+  Sans** (frischer, latin-ext), Pinyon nur Zeremonie; Gochi Hand hat KEINE Umlaute. Scout hat
+  `_fundus` Muster #16 ergaenzt (NICHT von hier committen, LP-Strang offen) + agent-memory.
+  -> Gebaut (e8cfe07): **D1 "Warmes Regal"** (Hafer/Krustentoene, Gold-Zahlen auf Krumen-Band,
+  ueberlappende Foto-Collage + Zettel, feiner roter Nadelstreifen, kleiner collagierter Hero
+  Backstube+Brotregal) + **D2 "Weisses Papier"** (Tueten-Weiss, dunkle Gold-Fascia traegt "seit 1906"-
+  Zeremonie, handgemalter Brush-Schwung, EIN Foto gedreht, editorial). Warten auf Marvins Wahl D1/D2/Mix.
 - 2026-07-22: **C3 finale Tuete-Fassung** (f53455e) nach Marvins Feedback zu C1/C2: "Aus der Tuete
   hat am meisten Charme, nur Farben anpassen + rot-weisse Streifen + anderes Hero (Baeckerei +
   Tradition zeigen)". Umgesetzt: Tueten-Charme (getapte Fotos/Stempel/Caveat-Handschrift) behalten,
