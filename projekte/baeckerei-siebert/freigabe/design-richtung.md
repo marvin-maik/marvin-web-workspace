@@ -61,20 +61,31 @@ beweisen, dass Tradition hier Qualitaetsbeweis ist, nicht Nostalgie.
 Anti-Slop-Wache: Creme+Terracotta ist Default-AI-Look UND die Palette beider Templates —
 wir uebernehmen die MECHANIK der Templates, nicht ihre Farben.
 
-### Token-Vorschlag (Herleitung aus der Siebert-Welt, Kontraste beim Build rechnen)
-    --bg:     Mehlweiss, warmes Off-White (Richtung #F7F2E9)
-    --ink:    Krustenbraun, fast schwarz (Richtung #2B2118)
-    --signal: Ladengruen, dunkles Flaschengruen wie alte Berliner Ladenfronten
-              (Richtung #1F4A38) — bewusst KEIN Terracotta
-    --warm:   Krusten-Karamell fuer Flaechen/Illustration (Richtung #C08A4E)
-    --line:   Roggen-Grau (Richtung #D8CFC0)
-Herleitung: Mehl, Kruste, die gruene Ladenfront-Tradition Berliner Handwerksgeschaefte
-mit Goldschrift. Das Gruen unterscheidet uns von jedem AI-Baeckerei-Klon.
+### Tokens (design-scout 2026-07-22: Kontraste GERECHNET, nicht geschaetzt)
+    --bg:          #F7F2E9   Mehlweiss
+    --ink:         #2B2118   Krustenbraun (14.12:1 auf bg, AAA)
+    --signal:      #1F4A38   Ladengruen (8.99:1 auf bg, traegt als Textfarbe, AAA)
+    --signal-deep: #1E3932   tiefes Fascia-Gruen fuer Baender/Footer (11:1+ auf bg)
+    --gold:        #CBA258   Goldocker, NUR auf signal-deep (dort 5.25:1, AA)
+    --warm:        #C08A4E   Karamell, nur Flaechen/Illustration, NIE Text auf hell
+                             (auf Mehlweiss nur 2.70:1!)
+    --muted:       #6B5D4A   (5.72:1 auf bg, AA)
+    --line:        #D8CFC0   Roggen-Hairline
+Herleitung + Realwelt-Beleg (Scout): An echten Ladenfronten um 1900 sass Goldschrift
+IMMER auf der dunklen Fascia, nie auf der Hauswand (UK-Konservierungs-Leitfaeden,
+Berliner Periodenfotos epilog.de 1900-1910). Systembeweis Dunkelgruen+Gold+Creme als
+Food-Marke: Starbucks (House Green #1E3932, Gold strikt als Zeremonien-Farbe).
+CSS-Konvention im Build: --gold existiert nur in Selektoren mit signal-deep-Hintergrund.
 
-Fonts (selbst hosten, DSGVO): Display = Condensed-Caps im Geist historischer
-Ladenbeschriftung (Kandidaten: Oswald oder Anton; Umlaute pruefen!). Body = ruhige
-humanistische Sans (Kandidaten: Source Sans 3 oder Figtree). Ziffern gross und
-praesent (Jahreszahlen sind Hauptdarsteller).
+Fonts (selbst hosten, DSGVO; Subsets per gwfh-API verifiziert, latin-ext = Umlaute ok):
+- Display: **League Gothic** (OFL). Revival von Alternate Gothic No. 1, Morris Fuller
+  Benton, **1903** — die reale Schriftsippe der Ladenschilder exakt aus der Gruenderzeit
+  (Baeckerei: 1906). Bessere Story als Oswald (verbraucht) oder Anton (Plakat-brutal).
+  Achtung Caps-Zeilen: Luft fuer AE/OE/UE ("BAECKEREI"), line-height nicht unter 1.05.
+- Body: **Source Sans 3** (variable) — gleiche Gothic-DNA, `font-variant-numeric:
+  tabular-nums` fuer Jahreszahlen und Oeffnungszeiten (Ziffern sind Hauptdarsteller).
+- Type-Scale mobile-first: 13 / 17 / 24 / 40 / 64 (Hero mobil) -> Desktop 104;
+  Zeitband-Jahreszahl clamp(88px, 22vw, 260px).
 
 ### Signature-Element (genau EINES) + Fundus-Abgleich
 **Das Zeitband 1906-2026**: EIN Sticky-Scrollytelling (Fundus-Muster #1,
@@ -87,6 +98,9 @@ Zweiter Fundus-Kandidat (bewusst als Ergaenzung, kleiner): #5 Stats-Band mit
 Count-up (1906 / 5 Generationen / 2x Feinschmecker / 16 h Sauerteig).
 Bewusst DAGEGEN entschieden: Vorher/Nachher-Slider (#3, kein Vorher-Material),
 Globus (#5b, kein Raum-Thema), zweites Scrollytelling a la Bakeat (Ueberdosis).
+Ergaenzung aus dem Scout-Dossier (LEGO-History-Muster): Jahres-Anker 1906/.../2021/2026
+als klickbare Sprungliste = Zweitweg fuers Zeitband; bei reduced-motion IST diese
+Liste die komplette Darstellung. Storyboard-Demo: `freigabe/storyboard.html`, Szene 03.
 
 ### Sektionsplan (Onepager index.html) mit Animations-Zuordnung
 1. **Hero** — "Berlins aelteste Baeckerei. Seit 1906." + Sofort-Status "Heute geoeffnet
@@ -115,7 +129,42 @@ Botschutz entfaellt vorerst (kein Formular in der Vorschau). noindex Pflicht.
 
 ---
 
-## 3. Entscheidung Marvin
-- [ ] Richtung "Zeit-Haus" so bauen? (Tokens, Signature, Sektionsplan)
-- [ ] Ladengruen als Signalfarbe ok, oder lieber in der Karamell-Welt der Templates bleiben?
+## 3. Referenzen + Zusatz-Muster (design-scout, live verifiziert)
+
+1. **boudinbakery.com/our-story** — SF-Baeckerei seit 1849, gleiche Positionierung
+   ("oldest continuously operating"). Mechanik uebernehmen: Geschichte THEMATISCH statt
+   nur chronologisch erzaehlen und Bildstrategie "Handwerk im Jetzt statt Archivvitrine":
+   **Anke Siebert als lebende 5. Generation zeigen, nicht Gustav als Gemaelde.**
+   Palette NICHT uebernehmen (Creme+Braun = AI-Default-Naehe).
+2. **oefferl.bio** (Wien) — Beweis, dass Sauerteig-Tradition modern-minimal geht:
+   Tradition als Werte-Sektion NACH dem Produkt, Ton "Brote mit Charakter" =
+   unser Klartext-Level 2.
+3. **lego.com/en-us/history** — robusteste lebende Heritage-Timeline: Dekaden-Anker,
+   progressive disclosure. Quelle fuer den Zeitband-Zweitweg (s.o.).
+
+Lehre + PITCH-ARGUMENT: Die Awwwards-praemierten Jubilaeums-Scrollytellings sind fast
+alle TOT (Hema-Quebec offline, Lavazza/120 = 404). Jubilaeums-MICROSITES sterben nach
+dem Jubilaeumsjahr — das Zeitband gehoert in die Hauptseite integriert. Fuer den Pitch:
+"Eine Jubilaeumsseite, die nach 2026 nicht stirbt, sondern zur Geschichte der
+Hauptseite wird."
+
+Neue Konstruktions-Muster (auch im Fundus, Muster 12b):
+- **Ladenfront-Fascia-Baender**: 2-3 Sektionskoepfe als vollflaechige signal-deep-Baender,
+  League-Gothic-Caps in Gold, feine Doppellinie als Schild-Zierkante. Tradition als
+  Material, nicht als Behauptung.
+- **Sortiment als Preistafel** (Fundus #14, Fuehrungspunkte): Fallback, falls die
+  Sortiment-Karten zu Template-nah geraten ("Splitterbroetchen ......... Steinplatte").
+
+Plan B (nur falls Gruen im Kundengespraech faellt): "Backstuben-Protokoll" —
+dokumentarisch, Mono-Zeitstempel der Backnacht (22:00 Sauerteig / 02:30 Ofen an /
+06:00 Ladentuer auf) als Ordnungssystem, signal = dunkles Roggen-Karamell #8A5A28,
+kein Gruen/Gold. Ehrlich: schwaecher, weil es die Touristen-Suchintention
+"aelteste Baeckerei Berlins" schlechter bedient.
+
+---
+
+## 4. Entscheidung Marvin
+- [ ] Richtung "Zeit-Haus" so bauen? (Tokens, Signature, Sektionsplan; Storyboard liegt bei)
+- [ ] Ladengruen + Gold-auf-Gruen ok? (Kontraste gerechnet, Realwelt-Belege im Dossier;
+      Alternative waere Plan B "Backstuben-Protokoll", bewertet: schwaecher)
 - [ ] Bild-Strategie Vorschau: neutrale Platzhalter vs. Alt-Site-Fotos nur im privaten Pitch

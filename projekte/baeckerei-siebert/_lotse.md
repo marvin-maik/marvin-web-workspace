@@ -24,7 +24,9 @@ Stand: 2026-07-22 · Phase: **Design-Richtung (Brief fertig, wartet auf Marvins 
 
 ## Offene Punkte
 - [ ] **Marvin: Design-Richtung freigeben** (`freigabe/design-richtung.md` + `freigabe/storyboard.html`)
-- [ ] design-scout-Dossier (laeuft) in design-richtung.md Abschnitt Referenzen einarbeiten
+- [ ] Hinweis: design-scout hat auch `_fundus/highlight-elemente.md` ergaenzt (Muster 12b
+  Fascia-Baender). Fundus-Datei hat UNVERWANDTE offene Aenderungen aus der LP-Session ->
+  nicht von hier aus committen, gehoert zum anderen Arbeitsstrang
 - [ ] Marvin: Bild-Strategie fuer die Vorschau entscheiden (Platzhalter/eigene Fotos vs. Alt-Site-Fotos
   nur im privaten Pitch zeigen — Rechte!)
 - [ ] Danach: Skill `struktur-wireframe` (Freigabe-Dokument + Lo-Fi-Wireframe), dann Build
