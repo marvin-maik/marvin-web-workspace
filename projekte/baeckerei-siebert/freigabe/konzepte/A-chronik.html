@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Konzept A · Berliner Chronik · Bäckerei Siebert</title>
+<style>
+@font-face{font-family:'Playfair';src:url('fonts/playfair-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Playfair';src:url('fonts/playfair-800.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Playfair';src:url('fonts/playfair-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'SSerif';src:url('fonts/sourceserif-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'SSerif';src:url('fonts/sourceserif-600.woff2') format('woff2');font-weight:600;font-display:swap}
+:root{
+  --paper:#F2EFE7; --paper2:#E9E5D9; --ink:#191714; --ink2:#4A453C;
+  --blut:#7E241A; --line:#241f1a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.62 'SSerif',Georgia,serif}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+.mono{font:600 11px/1.4 ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.18em;text-transform:uppercase}
+
+/* Folio-Zeile */
+.folio{border-bottom:1px solid var(--line);padding:8px 0}
+.folio .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.folio span{font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+
+/* Masthead */
+.mast{text-align:center;padding:26px 0 14px;border-bottom:3px double var(--line)}
+.mast .kicker{font:400 italic 19px/1 'Playfair',serif;color:var(--blut);margin-bottom:8px}
+.mast h1{font:800 clamp(46px,10vw,116px)/.92 'Playfair',serif;letter-spacing:-.01em}
+.mast .unter{margin-top:12px;font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.24em;text-transform:uppercase;color:var(--ink2)}
+.regel-fein{border:0;border-top:1px solid var(--line);margin:0}
+
+/* Aufmacher */
+.aufmacher{padding:34px 0 10px}
+.aufmacher h2{font:800 clamp(30px,5.4vw,60px)/1.04 'Playfair',serif;letter-spacing:-.01em;max-width:15ch}
+.dachzeile{color:var(--blut);margin-bottom:10px}
+.spalten{columns:2;column-gap:34px;column-rule:1px solid #cdc7b8;margin-top:22px}
+.spalten p{margin-bottom:14px;text-align:justify;hyphens:auto}
+.spalten p:first-of-type::first-letter{font:800 66px/.7 'Playfair',serif;float:left;margin:6px 10px 0 0;color:var(--blut)}
+@media(max-width:720px){.spalten{columns:1}}
+
+figure{margin:26px 0}
+figure img{width:100%;border:1px solid var(--line);filter:grayscale(1) contrast(1.06) brightness(1.02)}
+figcaption{font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--ink2);padding-top:7px;border-top:1px solid var(--line);margin-top:7px}
+
+.zitat{border-top:3px double var(--line);border-bottom:3px double var(--line);padding:22px 0;margin:30px 0;text-align:center}
+.zitat p{font:400 italic clamp(22px,3.4vw,34px)/1.28 'Playfair',serif;max-width:24ch;margin:0 auto}
+.zitat cite{display:block;margin-top:12px;font:600 11px/1 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:var(--ink2)}
+
+/* Chronik-Ledger */
+.ressort{border-top:3px double var(--line);margin-top:30px;padding-top:8px}
+.ressort .kopf{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0 16px}
+.ressort .kopf b{font:800 22px/1 'Playfair',serif}
+.ledger .z{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:16px 0;border-top:1px solid #cdc7b8}
+.ledger .z:first-child{border-top:0}
+.ledger .jahr{font:800 clamp(30px,4vw,46px)/.9 'Playfair',serif;color:var(--blut)}
+.ledger .jahr small{display:block;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.12em;color:var(--ink2);margin-top:6px;text-transform:uppercase}
+.ledger h3{font:800 20px/1.2 'Playfair',serif;margin-bottom:5px}
+@media(max-width:560px){.ledger .z{grid-template-columns:1fr;gap:6px}}
+
+/* Warenverzeichnis */
+.waren{border-top:3px double var(--line);margin-top:34px;padding-top:8px}
+.waren-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;margin-top:8px}
+@media(max-width:720px){.waren-grid{grid-template-columns:1fr}}
+.liste .zeile{display:flex;align-items:baseline;gap:8px;padding:8px 0;border-bottom:1px dotted #b7b0a0}
+.liste .zeile b{font-weight:600}
+.liste .fuell{flex:1;border-bottom:1px dotted #b7b0a0;transform:translateY(-4px);min-width:20px}
+.liste .zeile span:last-child{color:var(--ink2);font-size:15px}
+.liste .stern{color:var(--blut)}
+.waren figure img{filter:none}   /* Appetit: hier Farbe */
+
+.schluss{border-top:3px double var(--line);border-bottom:1px solid var(--line);margin-top:36px;padding:30px 0;text-align:center}
+.schluss .mono{color:var(--ink2)}
+.schluss h2{font:800 clamp(26px,4.4vw,44px)/1.05 'Playfair',serif;margin:8px 0 6px}
+.schluss a.btn{display:inline-block;margin-top:14px;font:600 13px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:14px 22px;text-decoration:none}
+.schluss a.btn:hover{background:var(--blut)}
+
+footer{padding:26px 0 46px;font:600 11px/1.7 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--ink)}
+.hinweis{background:var(--ink);color:var(--paper);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:7px}
+</style>
+</head>
+<body>
+<p class="hinweis">Konzept A von 3 · „Berliner Chronik“ · interner Design-Entwurf</p>
+
+<div class="folio"><div class="wrap">
+  <span>No. 120 · Jahrgang MCMVI</span>
+  <span>Berlin · Prenzlauer Berg</span>
+  <span>Schönfließer Straße 12</span>
+</div></div>
+
+<header class="mast"><div class="wrap">
+  <p class="kicker">Berlins älteste Bäckerei</p>
+  <h1>Bäckerei Siebert</h1>
+  <p class="unter">Gegründet 1906 · Fünf Generationen · Täglich von Hand</p>
+</div></header>
+
+<main>
+<section class="aufmacher"><div class="wrap">
+  <p class="dachzeile mono">Die Titelgeschichte</p>
+  <h2>Seit hundertzwanzig Jahren dieselbe Ladentür</h2>
+  <div class="spalten">
+    <p>Als Gustav Siebert im Jahr 1906 seine Backstube in der Schönfließer Straße eröffnete, war der Prenzlauer Berg ein Arbeiterviertel und der Raum, in dem heute die Konditorei steht, das Wohnzimmer der Familie. Großeltern und drei Kinder schliefen neben den Arbeitsgeräten. Umgezogen ist die Bäckerei seitdem nie.</p>
+    <p>Was folgte, liest sich wie ein Zeitstrahl der Berliner Geschichte: Inflation, zwei Weltkriege, die Mangelwirtschaft der DDR, die Wende. In jeder dieser Zeiten wurde an derselben Adresse Brot gebacken, nach denselben Rezepten, mit derselben Zutat, die sich nicht abkürzen lässt: Zeit.</p>
+    <p>Der Sauerteig reift zwölf bis sechzehn Stunden, der Brötchenteig ruht drei. Keine Tiefkühlteiglinge, keine Backmischungen. Zweimal, 2013 und 2017, zählte DER&nbsp;FEINSCHMECKER das Haus zu den besten Bäckern Deutschlands. Im Mai 2026 wählten die Berliner das Roggenmischbrot zum Publikumsliebling.</p>
+  </div>
+  <figure>
+    <img src="../../img/team-brotlaib.jpg" alt="Bäcker der Bäckerei Siebert mit frisch gebackenem Brotlaib">
+    <figcaption>Abbildung 1 · In der Backstube, Schönfließer Straße 12 · fünfte Generation</figcaption>
+  </figure>
+</div></section>
+
+<section><div class="wrap">
+  <div class="zitat">
+    <p>Man steht hier Schlange. Seit hundertzwanzig Jahren.</p>
+    <cite>Über den Andrang am Samstagmorgen</cite>
+  </div>
+</div></section>
+
+<section class="ressort"><div class="wrap">
+  <div class="kopf"><b>Die Chronik</b><span class="mono">Fünf Generationen</span></div>
+  <div class="ledger">
+    <div class="z"><div class="jahr">1906<small>Gustav</small></div><div><h3>Der Anfang</h3><p>Gustav Siebert, Bauernsohn aus Schönfließ in Ostpreußen, eröffnet die Bäckerei. Der Konditorraum ist zugleich Wohnzimmer.</p></div></div>
+    <div class="z"><div class="jahr">1920<small>Albert</small></div><div><h3>Durch die Kriege</h3><p>Albert Siebert bringt das Haus durch Hyperinflation und zwei Weltkriege. Nur durch familiären Verzicht übersteht der Betrieb die schweren Jahre.</p></div></div>
+    <div class="z"><div class="jahr">DDR<small>Bodo</small></div><div><h3>Gegen die Mangelwirtschaft</h3><p>Bodo Siebert hält das private Handwerk am Leben. Butter, Rosinen, Mandeln sind Mangelware, der Verstaatlichungsdruck groß. Die Familie bleibt standhaft.</p></div></div>
+    <div class="z"><div class="jahr">1990<small>Lars &amp; Catrin</small></div><div><h3>Die Rettung der Ost-Schrippe</h3><p>Als billige Aufbackbrötchen den Markt überschwemmen, hält Lars Siebert an der langen Teigführung fest. Das macht die Bäckerei zur Legende im Kiez.</p></div></div>
+    <div class="z"><div class="jahr">2021<small>Dr. Anke</small></div><div><h3>Handwerk und Gegenwart</h3><p>Dr. Anke Siebert übernimmt in fünfter Generation. Die Rezepte bleiben, die Prozesse werden digital, die Kasse bargeldlos.</p></div></div>
+  </div>
+</div></section>
+
+<section class="waren"><div class="wrap">
+  <div class="kopf" style="display:flex;justify-content:space-between;align-items:baseline;padding:6px 0 16px"><b style="font:800 22px/1 'Playfair',serif">Das Warenverzeichnis</b><span class="mono">Täglich frisch</span></div>
+  <div class="waren-grid">
+    <div class="liste">
+      <div class="zeile"><b>Roggenmischbrot</b><span class="fuell"></span><span class="stern">Publikumsliebling 2026</span></div>
+      <div class="zeile"><b>Ost-Schrippe</b><span class="fuell"></span><span>DDR-Rezept, kompakt</span></div>
+      <div class="zeile"><b>Berliner Splitterbrötchen</b><span class="fuell"></span><span>samstags oft früh weg</span></div>
+      <div class="zeile"><b>Vollkornbrot</b><span class="fuell"></span><span>Quellstück, 16 Stunden</span></div>
+      <div class="zeile"><b>Pfannkuchen &amp; Kameruner</b><span class="fuell"></span><span>in siedendem Fett</span></div>
+      <div class="zeile"><b>Mohnzopf</b><span class="fuell"></span><span>der Geheimtipp</span></div>
+      <div class="zeile"><b>Bienenstich, Donauwelle</b><span class="fuell"></span><span>aus der Konditorei</span></div>
+    </div>
+    <figure style="margin:0">
+      <img src="../../img/brotregal.jpg" alt="Volles Brotregal der Bäckerei Siebert">
+      <figcaption>Abbildung 2 · Das Regal am frühen Morgen</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section class="schluss"><div class="wrap">
+  <p class="mono">Geöffnet Dienstag bis Freitag 6 bis 18.30 Uhr, Samstag bis 13.30 Uhr</p>
+  <h2>Am besten probieren Sie selbst</h2>
+  <p style="color:var(--ink2)">Schönfließer Straße 12, Prenzlauer Berg · Montag Ruhetag</p>
+  <a class="btn" href="#">Anfahrt &amp; Zeiten</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Bäckerei &amp; Konditorei Anke Siebert · Schönfließer Straße 12 · 10439 Berlin</span>
+  <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+</div></footer>
+</body>
+</html>

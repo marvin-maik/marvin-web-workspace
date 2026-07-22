@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Drei Design-Richtungen · Bäckerei Siebert</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:16px/1.6 -apple-system,"Segoe UI",Roboto,sans-serif;background:#1c1a17;color:#eee;padding:36px 20px 80px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-size:clamp(24px,4vw,36px);margin-bottom:6px}
+.sub{color:#aaa;max-width:70ch;margin-bottom:8px}
+.sub2{color:#8a8a8a;font-size:14px;max-width:80ch;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.karte{background:#26231f;border:1px solid #38342e;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.karte .shot{aspect-ratio:16/11;overflow:hidden;background:#111;border-bottom:1px solid #38342e}
+.karte .shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.karte .txt{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tag{font:700 11px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#c99;}
+.karte h2{font-size:22px}
+.karte p{color:#bbb;font-size:14.5px}
+.karte .meta{font-size:13px;color:#999;border-top:1px solid #38342e;padding-top:10px;margin-top:auto}
+.karte .meta b{color:#ddd}
+.karte a.btn{display:inline-block;text-align:center;background:#e8a200;color:#1c1a17;font-weight:700;text-decoration:none;padding:12px;border-radius:7px;margin-top:4px}
+.karte a.btn:hover{background:#ffb62a}
+.fuss{margin-top:34px;color:#888;font-size:14px;max-width:80ch}
+.fuss a{color:#e8a200}
+.alt{margin-top:14px;font-size:14px;color:#999}
+.alt a{color:#ccc}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Drei Design-Richtungen zur Auswahl</h1>
+  <p class="sub">Bewusst grundverschieden, damit du am Kontrast festmachen kannst, was zieht und was nicht. Gleiche Inhalte, gleiche Fotos, drei Handschriften.</p>
+  <p class="sub2">Jede Richtung ist als Startseite mit Hero, Geschichte und Sortiment gebaut (noch nicht die vollen sechs Seiten). Die gewählte Richtung wird danach komplett ausgebaut. Klick auf „Öffnen“ zeigt die echte, scrollbare Seite.</p>
+
+  <div class="grid">
+    <div class="karte">
+      <div class="shot"><img src="shot-A.png" alt="Vorschau Konzept A"></div>
+      <div class="txt">
+        <span class="tag">Richtung A</span>
+        <h2>Berliner Chronik</h2>
+        <p>Wie eine Zeitungsseite: Serifen, Spalten, Haarlinien, Schwarzweiß-Fotos. Die 120 Jahre werden erzählt, nicht animiert. Ruhig, seriös, archivwürdig.</p>
+        <p class="meta"><b>Stärke:</b> Tiefe und Glaubwürdigkeit, wirkt wie ein Feuilleton-Porträt. <b>Risiko:</b> textlastig, weniger sofortiger Appetit.</p>
+        <a class="btn" href="A-chronik.html">Öffnen</a>
+      </div>
+    </div>
+
+    <div class="karte">
+      <div class="shot"><img src="shot-B.png" alt="Vorschau Konzept B"></div>
+      <div class="txt">
+        <span class="tag">Richtung B</span>
+        <h2>Ost-Moderne</h2>
+        <p>Plakativ und grafisch: Ziegelrot, Senfgelb, fette breite Grotesk, Farbblöcke, harte Fotoschnitte. Die direkte Antwort auf den Einwand „Traditionsbäckerei gleich verstaubt“.</p>
+        <p class="meta"><b>Stärke:</b> jung, selbstbewusst, fällt auf. <b>Risiko:</b> laut, kann der 120-Jahre-Würde zuwiderlaufen.</p>
+        <a class="btn" href="B-ost-moderne.html">Öffnen</a>
+      </div>
+    </div>
+
+    <div class="karte">
+      <div class="shot"><img src="shot-C.png" alt="Vorschau Konzept C"></div>
+      <div class="txt">
+        <span class="tag">Richtung C</span>
+        <h2>Aus der Tüte</h2>
+        <p>Analog und handgemacht: Kraftpapier, angeklebte Fotos, Gummistempel, Preiszettel, eine warme Serifenschrift. Fühlt sich an wie die Papiertüte vom Bäcker.</p>
+        <p class="meta"><b>Stärke:</b> Wärme und Nähe, emotional. <b>Risiko:</b> gerät ohne Disziplin schnell ins Verspielte.</p>
+        <a class="btn" href="C-tuete.html">Öffnen</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="alt">Zum Vergleich die bisherige Fassung: <a href="../../index.html">aktuelles „Zeit-Haus“ (v1)</a></p>
+  <p class="fuss">Sag mir pro Richtung, was funktioniert und was nicht (Farbe, Schrift, Ton, ein bestimmter Baustein). Wir können auch mischen, etwa den Ernst von A mit dem Appetit von C. Aus deinem Feedback wird die finale Richtung.</p>
+</div>
+</body>
+</html>
