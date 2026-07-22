@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy **edf38d9d** (2026-07-22, Claude: Showcase-Caption bricht an Satzgrenzen); davor 2954efdf (Collage-Desktop + styles v20).
+  (CF Pages, Direct Upload). Letzter Deploy **44b7af34** (2026-07-22, Claude: Mobil-Beleg „Handy zuerst" + styles v21); davor edf38d9d (Caption-Umbruch).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -66,7 +66,8 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
   grosses iPhone als Held + PageSpeed-Marke + 3-Zeilen-Liste (0/AA/100%). Kein Desktop-Bild auf Mobil
   (Marvins Wunsch, spart Laenge). `.showcase*`-CSS entfernt (war nur hier genutzt; `.facts` bleibt fuer
   projekt-routenwerk). styles.css v20->v21. Desktop-Collage unveraendert. Sweep 26 Breiten inkl. 899/900/
-  901: 0 Overflow; 320/375 + Desktop 1280 abgenommen. **Deploy dieser Runde offen.**
+  901: 0 Overflow; 320/375 + Desktop 1280 abgenommen. **DEPLOYT 44b7af34**, live verifiziert (/angebot
+  bm-phone/bm-badge, kein showcase, noindex; projekt-routenwerk .facts weiter 200; _varianten 404).
 - 2026-07-22: **Showcase-Caption-Umbruch (DEPLOYT edf38d9d)** — Marvins Wunsch: die Bildunterschrift
   neben dem Handy (mobil) soll an Satzgrenzen brechen statt ragged. Feste `<br>` je Nebensatz +
   geschuetzter Bindestrich in „Demo&#8209;Projekt". Reines HTML (kein ?v-Bump). Sweep 320-900px: 0
