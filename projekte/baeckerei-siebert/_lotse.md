@@ -50,6 +50,12 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
   ausbildung, besuch + Pflichtseiten im Build.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **Jubilaeum auf August-Phase umgestellt** (Marvins Entscheidung: 31.07.-Frist nicht
+  mehr live erreichbar -> Gutschein-Verkauf als abgeschlossen erzaehlen, Fokus Wochenziehungen +
+  Ticket-Oktober). NEU: sitewide Jubilaeums-Leiste (temporaer, im Build Fascia-Gruen),
+  Gewinner-Losnummern-Block (Site spiegelt IG/FB-Bekanntgaben, Pflege = Betreuungs-Argument),
+  Social als Link-out ohne Meta-Embed (DSGVO). Instagram verifiziert: @baeckerei_siebert
+  (laeuft unter Anke Siebert); Facebook noch unter "Lars Siebert" -> Umbenennung empfehlen.
 - 2026-07-22: **Marvins Vertiefungs-Recherche eingearbeitet** (Kontext 0b + Wireframe + struktur).
   Kern-Claims per WebSearch verifiziert: Goldenes Ticket (Berliner Zeitung) + Publikumsliebling-
   Roggenmischbrot (Baeckerinnung Mai 2026). Zeitband-Stationen KOMPLETT (Gustav/Albert/Bodo/

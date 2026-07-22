@@ -12,6 +12,15 @@ Schwach nur die Tortenfotos; Luecke: aktuelles Aussenfoto der Ladenfront.
 
 ---
 
+## Sitewide-Elemente
+- **Jubilaeums-Leiste** ueber dem Header (temporaer bis Oktober; im Build als Fascia-Gruen-Band):
+  "120 Jahre Siebert: Die Wochenziehungen laufen." -> Link Geschichte/Gewinner. Nach der
+  Ticket-Ziehung im Oktober entfernen.
+- **Social-Strategie (DSGVO)**: Instagram @baeckerei_siebert + Facebook NUR als Link-out
+  (Buttons/Footer), KEINE Meta-Embeds (Tracker = Consent-Pflicht). Gewinner-Bekanntgabe laeuft
+  auf den Kanaelen, die Site spiegelt die Losnummern nativ. Facebook-Seite heisst noch
+  "Baeckerei-Konditorei-Lars-Siebert" -> Umbenennung im Kundengespraech empfehlen.
+
 ## Seiten-Set (6 Inhaltsseiten + Pflicht)
 
 | Seite | Job | Hauptzielgruppe |
@@ -91,10 +100,13 @@ Haus 120", "Heute noch frisches Brot?". Charme entsteht durch Konkretheit, nicht
 4. "Die Waende haengen voller Urkunden" (Job: Qualitaet belegen): FEINSCHMECKER (2013/2017
    explizit, "regelmaessig seit 2004" [VERIFY]), Goldene Brezeln [VERIFY],
    Publikumsliebling-Roggenmischbrot Mai 2026 (Presse-belegt).
-5. "2026 wird dieses Haus 120. Es gibt ein Goldenes Ticket." (Job: der Moment; Presse-belegt
-   Berliner Zeitung): Gutschein 10 Euro im Laden = Losnummer, Verkauf bis 31.07.; ab August
-   woechentliche Preise, Oktober Ziehung Goldenes Ticket (lebenslang taeglich bis 10 Euro
-   gratis). Sektion lebt mit der Aktion (nach 31.07. umbauen auf Gewinner-News).
+5. "2026 wird dieses Haus 120. Ein Goldenes Ticket ist noch im Lostopf." (Presse-belegt;
+   ZUSTAND = AUGUST-PHASE, Marvins Entscheidung 2026-07-22: Gutschein-Frist 31.07. schaffen
+   wir nicht mehr live -> Verkaufsphase als abgeschlossen erzaehlen, Fokus Wochenziehungen
+   Aug-Sep + Ticket-Ziehung Oktober). Dazu GEWINNER-BLOCK: gezogene Losnummern als redaktionell
+   gepflegte Liste auf der Site (Original-Bekanntgabe laeuft auf Instagram/Facebook, Site
+   spiegelt = "offizielles Schwarzes Brett"; Pflege-Frage = Betreuungspaket-Verkaufsargument).
+   Nach Oktober: Umbau auf die Ticket-Geschichte.
    Auszeichnungs-Sektion ergaenzt: Goldene Brezeln, Publikumsliebling-Roggenmischbrot Mai 2026
    (Presse-belegt), "Waende voller Urkunden".
 6. CTA-BAND: "Am besten probieren Sie selbst. Heute bis 18:30 geoeffnet." -> besuch.html
