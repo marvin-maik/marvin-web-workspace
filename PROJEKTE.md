@@ -14,3 +14,4 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 | routenwerk (Demo-Referenz, fiktiv) | LIVE + Betreuung | `projekte/routenwerk/_lotse.md` | Nachkontrolle 2026-07-28 |
 | MARLOU (Marvin + Louisa, eigene Marke) | PAUSIERT, nicht bearbeiten | `projekte/marlou/_lotse.md` | Marvin + Louisa (Reaktivierung) |
 | POPTAIL (Shop, statisch + Shopify) | Idee, noch kein Ordner | — (Brief via `brief-builder` anlegen) | Marvin: Rohmaterial + Prio; Alkoholsteuer/Altersverifikation klären |
+| baeckerei-siebert (Spekulations-Case, Kaltakquise) | Design (Brief fertig) | `projekte/baeckerei-siebert/_lotse.md` | Marvin: Freigabe Design-Richtung (`freigabe/design-richtung.md`) |
