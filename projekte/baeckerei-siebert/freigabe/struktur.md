@@ -4,7 +4,11 @@ Stand: 2026-07-22. Quelle aller Fakten: product-marketing-context.md (Live-Crawl
 Gelb markierte Punkte = offene Kundenfragen, blockieren die Vorschau nicht.
 
 Wireframes: `wireframe.html` (Lo-Fi, alle Seiten) · `wireframe-viewer.html` (alle 3 Breakpoints
-gleichzeitig, Seiten umschaltbar).
+gleichzeitig, Seiten umschaltbar) · `bildkonzept.html` (echte Fotos der Baeckerei, Zuordnung
+pro Sektion; Marvins Entscheidung 2026-07-22: Bestandsfotos kommen in die Vorschau).
+Bild-Befund: Reportage-Serie Backstube in 2600px (stark), 16 Produkt-Freisteller auf Weiss,
+historische Ladenfotos (beantwortet die Frage nach historischem Material: JA, vorhanden).
+Schwach nur die Tortenfotos; Luecke: aktuelles Aussenfoto der Ladenfront.
 
 ---
 

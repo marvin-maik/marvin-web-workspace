@@ -13,8 +13,13 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
 - Design-Dossier + Animationsplan: `freigabe/design-richtung.md`.
 
 ## Feste Entscheidungen (NICHT neu aufrollen)
-- **Spekulations-Case-Schutz**: Vorschau IMMER mit noindex; KEINE Fotos der Alt-Site uebernehmen
-  (Rechte unklar), keine Rechtstexte kopieren. Impressumsdaten nur als Platzhalter.
+- **Spekulations-Case-Schutz**: Vorschau IMMER mit noindex; keine Rechtstexte kopieren.
+  Impressumsdaten nur als Platzhalter.
+- **Bilder (Marvin, 2026-07-22): Die Fotos der Baeckerei kommen in die Vorschau.** Appetit ist
+  Gestaltungsprinzip (Waerme, Geruch, Gefuehl). Vertretbar, weil der Pitch an die Rechteinhaberin
+  selbst geht und die Vorschau bis zum Deal privat/noindex bleibt. NICHT oeffentlich bewerben.
+  Sichtungskopien 800px + Original-URLs (2600px): `_src/bilder-alt/` + MANIFEST.md.
+  Zuordnung pro Seite/Sektion: `freigabe/bildkonzept.html`.
 - Bestellungen laufen laut Alt-Site NUR telefonisch/im Laden -> Vorschau ohne echtes Formular
   (Torten-CTA = Telefon). Formular erst nach Kundengespraech.
 - Referenz-Templates fuer Animationen (Marvin, 2026-07-22): Framer "Luna Rossa" (lunarossa.framer.website)
@@ -27,8 +32,10 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
 - [ ] Hinweis: design-scout hat auch `_fundus/highlight-elemente.md` ergaenzt (Muster 12b
   Fascia-Baender). Fundus-Datei hat UNVERWANDTE offene Aenderungen aus der LP-Session ->
   nicht von hier aus committen, gehoert zum anderen Arbeitsstrang
-- [ ] Marvin: Bild-Strategie fuer die Vorschau entscheiden (Platzhalter/eigene Fotos vs. Alt-Site-Fotos
-  nur im privaten Pitch zeigen — Rechte!)
+- [ ] Build: restliche Alt-Site-Bilder sichten (64a7e-Serie komplett, picture-2600-Serie,
+  P1170491_CMYK vor Web-Einsatz konvertieren) — Liste in MANIFEST.md
+- [ ] Foto-Luecken: aktuelles Ladenfront-Aussenfoto (Besuch + OG-Bild) besorgen; klaeren, ob
+  team-baeckerin.jpg Anke Siebert zeigt; Torten-Mini-Shooting als Upsell notieren
 - [ ] Danach: Skill `struktur-wireframe` (Freigabe-Dokument + Lo-Fi-Wireframe), dann Build
 - [ ] Lueckenliste aus product-marketing-context.md ist fuers KUNDENGESPRAECH (nicht blockierend fuer Vorschau):
   Jubilaeums-Aktion-Details, Du/Sie, Tortenvorlauf, Bewerbungsweg, Englisch-Version
@@ -40,6 +47,12 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
   ausbildung, besuch + Pflichtseiten im Build.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **Bildkonzept erstellt** (`freigabe/bildkonzept.html`). Alt-Site-Bilder inventarisiert
+  (~60 Stueck, cm4all: Original via URL-Suffix `/picture-2600` in 2600px abrufbar, curl -L noetig).
+  Befund: starke Reportage-Serie Backstube ("1903_01_..."), 16 Freisteller auf Weiss, historische
+  Ladenfotos (Laden70er, Siebert5659), Torten schwach. 22 Sichtungskopien 800px + MANIFEST in
+  `_src/bilder-alt/`. Appetit-Prinzipien definiert (Textur gross, warmes Licht bewahren, Haende,
+  EIN Full-bleed-Band pro Seite, Freisteller fuer Hero/Sortiment).
 - 2026-07-22: **Struktur + Wireframes gebaut** (`freigabe/struktur.md`, `freigabe/wireframe.html`,
   `freigabe/wireframe-viewer.html`). Viewer zeigt alle 3 Breakpoints (375/768/1280 als skalierte
   iframes) gleichzeitig, Leiste schaltet alle Seiten synchron um. Gefixt: .row-Flex-Overflow auf
