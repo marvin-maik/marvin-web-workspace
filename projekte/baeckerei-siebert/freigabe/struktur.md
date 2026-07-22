@@ -44,6 +44,12 @@ Accordion mit Bildflaeche (#4, Sortiment ist tafel-, nicht listengetrieben).
 Ansprache (Empfehlung aus Brief, offen beim Kunden): Kiez-Du auf Start/Sortiment/Geschichte/
 Besuch, Sie auf Torten + Ausbildung.
 
+Copy-Prinzip (Marvin, 2026-07-22): Zielmix aus Funnel-Klarheit UND Traditions-Charme.
+Ueberschriften nie Verwaltungsdeutsch ("Der Ort", "Die Familie"), sondern konkret mit Waerme:
+"Immer Schoenfliesser Strasse 12", "Von Gustav bis Anke: fuenf Generationen", "2026 wird dieses
+Haus 120", "Heute noch frisches Brot?". Charme entsteht durch Konkretheit, nicht durch Blumigkeit
+(Anti-Slop bleibt). Jede Seite: EIN klarer CTA + Social-Proof-Zeile (Feinschmecker) am CTA.
+
 ---
 
 ## index.html (Start)
@@ -74,18 +80,22 @@ Besuch, Sie auf Torten + Ausbildung.
 
 1. HERO: "Seit 1906 hinter derselben Ladentuer." Sub: Schoenfliesser Strasse 12, fuenf
    Generationen Familie Siebert.
-2. DER ORT: seit Gruendung dieselbe Adresse. Bild-Slot Ladenfront. [OFFEN: historisches Foto?]
-3. DIE FAMILIE: Generationenliste (= Zeitband-Zweitweg, statisch): Gustav (Gruender) ->
-   [OFFEN: 2./3. Gen] -> Lars (4.) -> Anke (seit 2021, 5.). Bild-Slot: Anke in der Backstube
-   (lebende Generation zeigen, nicht Gemaelde).
-4. DIE AUSZEICHNUNG: DER FEINSCHMECKER 2013 und 2017 unter den besten Baeckern Deutschlands.
-   Alte Originalrezepte, taegliche Herstellung von Hand.
-5. DAS JUBILAEUM: "120 Jahre im Jahr 2026." [OFFEN: Aktion + 10-Euro-Gutschein, Bedingungen]
+2. "Immer Schoenfliesser Strasse 12" (Job: der Ort): seit Gruendung dieselbe Adresse.
+   Bilder: historische Ladenfotos VORHANDEN (Laden70er, Siebert5659; siehe bildkonzept.html).
+3. "Von Gustav bis Anke: fuenf Generationen" (Job: die Familie; = Zeitband-Zweitweg):
+   Gustav (Gruender) -> [OFFEN: 2./3. Gen] -> Lars (4.) -> Anke (seit 2021, 5.).
+   Bild: team-baeckerin.jpg [OFFEN: ist das Anke?].
+4. "Zweimal unter den besten Baeckern Deutschlands" (Job: Qualitaet belegen):
+   DER FEINSCHMECKER 2013 und 2017. Alte Originalrezepte, taeglich von Hand.
+5. "2026 wird dieses Haus 120" (Job: der Moment): [OFFEN: Aktion + 10-Euro-Gutschein]
 6. CTA-BAND: "Am besten probieren Sie selbst. Heute bis 18:30 geoeffnet." -> besuch.html
 
 ## sortiment.html
 
 1. HERO kurz: "Was heute in der Auslage liegt." Sub: alles taeglich von Hand, keine Teiglinge.
+   WICHTIG (Marvin): Alt-Site-Sortimentsseite hat NULL Bilder -> jede Warengruppe bekommt bei
+   uns ein Gruppen-Anker-Bild (Appetit!) + Charme-Unterzeile ("ueber Nacht gereift, morgens im
+   Regal"). Sichtbarster Vorher/Nachher-Punkt fuer den Pitch.
 2. PREISTAFEL BROTE: Roggenmischbrot ... 70 % Roggen, 30 % Weizen · Vollkornbrot ... Quellstueck,
    16 Stunden · Weizen- und Mischbrote · Spezialbrote [OFFEN: Preise online?]
 3. PREISTAFEL BROETCHEN: auf Steinplatten gebacken · Splitterbroetchen ("beliebt bei Kindern") ·
