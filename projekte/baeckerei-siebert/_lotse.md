@@ -2,7 +2,7 @@
 
 Das Gehirn dieses Projekts. Nach jedem Meilenstein kurz mitziehen.
 
-Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin vor)**
+Stand: 2026-07-22 · Phase: **QA (Build v1 fertig, qa-polish laeuft)**
 
 ## Was & wo
 - **Spekulations-Case / Kaltakquise**: unaufgefordert gebaute Vorschau fuer die Baeckerei & Konditorei
@@ -45,11 +45,24 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
 - [ ] Pitch-Material (Anschreiben/QR-Flow wie angebot-LP) erst NACH fertiger Vorschau
 
 ## Was ist JETZT relevant
-- Warten auf Marvins Freigabe: Design-Richtung + Struktur/Wireframes. Bis dahin NICHT bauen.
-- Seiten-Set (festgelegt im Wireframe, 6 Seiten): index, geschichte, sortiment, torten,
-  ausbildung, besuch + Pflichtseiten im Build.
+- Build v1 steht (Commit fa6fe59). QA-Befunde abarbeiten, dann Marvins Sicht-Check im echten
+  Browser (Dev-Server: preview_start "siebert", Port 8793, serve-nocache).
+- Danach: Staging-Deploy (Cloudflare Pages, noindex aktiv) + Pitch-Material.
+- Vor Kunden-Launch LIVE pruefen: Google-Sterne, "Feinschmecker seit 2004", OePNV-Fussweg,
+  Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **BUILD v1** (fa6fe59). 6 Seiten + 404/_headers(noindex)/Rechts-Platzhalter,
+  Tokens wie freigegeben, League Gothic + Source Sans 3 self-hosted (Umlaute per fontTools
+  verifiziert), 22 Bilder web-optimiert + EXIF-frei (JPEG-Segment-Stripper, neues Pattern in
+  technik-patterns.md), OG-Bild + Icon-Serie per Chrome-headless-Rezept, JSON-LD Bakery valide.
+  Verifiziert: alle 9 Seiten 200, 0 Overflow-X auf 375 (alle Seiten), Zeitband-Scrolly auf 1280
+  gemessen (sticky + 6 Stationen + Punkte korrekt), Count-up mit Tausenderpunkt, Status-Chip
+  rechnet Sommerzeiten korrekt ("bis 16:30" am Mi im Sommerfenster). NEU in site.js:
+  Scroll-Sweep als Sicherheitsnetz falls IntersectionObserver haengt (Pane-Macke bestaetigt:
+  IO friert nach programmatischem Scroll ein, Sweep-Fallback macht Reveals trotzdem).
+  Hero-Freisteller als Fotoabzug-Look gerahmt (weisser Studiogrund wirkte sonst als Rechteck).
+  Dev-Server: launch.json "siebert" (serve-nocache, 8793). design-md + qa-polish delegiert.
 - 2026-07-22: **Jubilaeum auf August-Phase umgestellt** (Marvins Entscheidung: 31.07.-Frist nicht
   mehr live erreichbar -> Gutschein-Verkauf als abgeschlossen erzaehlen, Fokus Wochenziehungen +
   Ticket-Oktober). NEU: sitewide Jubilaeums-Leiste (temporaer, im Build Fascia-Gruen),
