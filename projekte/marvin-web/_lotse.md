@@ -60,13 +60,16 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
-- 2026-07-22: **iOS-Schatten-Fix Mobil (DEPLOYT d73bd7d2, styles v22)** — Marvins iPhone: der
-  `drop-shadow` hinterm Handy rendert falsch. Ursache: Filter lag auf der `.bm-phone`-FIGUR, die
-  zugleich die absolut positionierte `.bm-badge` traegt -> iOS Safari macht daraus einen Rechteck-
-  Kasten. Filter jetzt direkt auf `.bm-phone img` (folgt der Silhouette). Beide Bilder haben Alpha
-  (AVIF+PNG geprueft), war NICHT der Alpha-Verlust. Im Chromium-Pane korrekt; **iOS von Marvin
-  gegenzupruefen** (Pane ist Chromium, iOS-Bug dort nicht reproduzierbar). Falls es doch bleibt:
-  naechster Schritt AVIF-Source des Handys droppen (iOS AVIF+filter-Glitch) oder Schatten als ::after.
+- 2026-07-22: **iOS-Schatten-Fix Mobil, 2. Runde (styles v23)** — v22 (Filter aufs Bild) reichte NICHT:
+  Marvins iPhone zeigte den Schatten „manchmal da, manchmal nicht" + Rechteck-Rand -> der iOS-Safari-Bug
+  ist `drop-shadow` auf einem AVIF-Bild (flackert/rendert als Kasten). Loesung: **kein filter mehr aufs
+  Bild**, Schatten stattdessen als `.bm-phone::before` (solide Flaeche, border-radius, `blur(22px)`,
+  hinter dem Bild via z-index). `blur()` auf solider Flaeche ist iOS-stabil; AVIF bleibt klein (49KB, wird
+  ohne Filter sauber gerendert). `.bm-badge` z-index:2 (ueber dem Bild). Im Pane korrekt, Sweep 18 Breiten
+  0 Overflow. **iOS erneut von Marvin gegenzupruefen.** (v22-Zwischenschritt bleibt im Git-Log.)
+- 2026-07-22: **iOS-Schatten-Fix Mobil, 1. Versuch (DEPLOYT d73bd7d2, styles v22)** — Filter von der
+  `.bm-phone`-FIGUR aufs `.bm-phone img` verlegt (Container+abs-Kind war Verdacht Nr. 1). Hat den
+  AVIF-Flacker-Bug NICHT geloest -> siehe v23 oben. Beide Bilder haben Alpha (war nicht Alpha-Verlust).
 - 2026-07-22: **angebot-LP Mobil-Beleg neu = „Handy zuerst"** (Marvins Wahl aus 3 Mobil-Varianten,
   intern gerendert in `_varianten-mobile.html`: gestapelt / Geraete-Umschalter / Handy-first). Der
   ueberlappende `.showcase` + die 4 Fakten-Kacheln sind auf Mobil RAUS, ersetzt durch `.beleg-mobil`:

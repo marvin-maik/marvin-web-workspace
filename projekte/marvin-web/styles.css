@@ -427,13 +427,16 @@ summary:hover{color:var(--signal-deep)}
    PageSpeed-Marke, restliche Werte als kompakte Liste. Kein Desktop-Bild (spart Laenge). */
 .beleg-mobil{margin-top:44px}
 .bm-hero{position:relative;text-align:center}
-.bm-phone{position:relative;width:min(200px,58%);margin:0 auto;line-height:0}
-/* Schatten DIREKT aufs Bild (folgt der freigestellten Silhouette). NICHT auf die .bm-phone-Figur:
-   die traegt die absolut positionierte .bm-badge, und iOS Safari rendert filter+abs-Kind auf einem
-   Container als Rechteck-Kasten statt der Handy-Form (Marvins iPhone-Fund 2026-07-22). */
-.bm-phone img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 26px rgba(22,20,18,.3))}
+.bm-phone{position:relative;z-index:0;width:min(200px,58%);margin:0 auto;line-height:0}
+/* Schatten als weich geblurtes Element HINTER dem Handy (kein filter aufs Bild!).
+   Grund: iOS Safari rendert drop-shadow auf einem AVIF-Bild mal als Silhouette, mal als
+   Rechteck-Kasten (Marvins iPhone-Fund 2026-07-22, „manchmal da, manchmal nicht"). Ein
+   blur() auf einer soliden Flaeche ist dagegen ueberall stabil und haelt das kleine AVIF. */
+.bm-phone::before{content:"";position:absolute;left:7%;right:7%;top:6%;bottom:1%;z-index:-1;
+  background:rgba(22,20,18,.32);border-radius:30px;filter:blur(22px);transform:translateY(16px)}
+.bm-phone img{display:block;width:100%;height:auto;position:relative;z-index:1}
 /* Marke haengt an der oberen rechten Ecke des Handys (an der Figur verankert, nicht am Hero) */
-.bm-badge{position:absolute;top:14px;right:-18px;background:var(--ink);color:var(--paper);
+.bm-badge{position:absolute;top:14px;right:-18px;z-index:2;background:var(--ink);color:var(--paper);
   font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-align:left;padding:9px 13px;line-height:1.15}
 .bm-badge b{display:block;font-family:var(--disp);font-weight:700;font-size:22px;color:var(--signal-tint);letter-spacing:-.02em;margin-top:2px}
 .bm-badge b small{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--dark-soft)}
