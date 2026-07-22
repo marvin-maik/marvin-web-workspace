@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy **08891393** (2026-07-21, Marvin im Terminal: noindex-Fix + Nummer + Preis 790 + angebot.html, live verifiziert); davor 483189da (Instagram-sameAs).
+  (CF Pages, Direct Upload). Letzter Deploy **2954efdf** (2026-07-22, Claude via deploy.md: Collage-Desktop + styles v20, live verifiziert); davor 08891393 (noindex-Fix + Nummer + Preis 790 + angebot.html).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -60,6 +60,12 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-22: **DEPLOYT (Hash 2954efdf)** — Collage + v20 + alle Runden dieser Session live. Von Claude
+  via deploy.md-Einzeiler (Staging + Leak-Check: keine Leaks, `_varianten-desktop.html`/`_test-sweep.html`
+  live 404). Functions-Bundle mit hoch (Kontaktformular). Verifiziert auf Deployment-URL UND Live-Domain:
+  `/angebot` 200 + noindex-Meta + styles v20 + `class="collage"` + 790 EUR; nicht in sitemap; Belege-Bilder
+  200; Kernseiten + Rechtsseiten 200; **Gegenprobe noindex-Vorfall:** /angebot noindex, Startseite
+  indexierbar (kein robots-meta, kein x-robots-tag). Siehe [[launch-noindex-gegenprobe]].
 - 2026-07-22: **angebot-LP Desktop-Beleg = Diagonale Collage** (Marvins Wahl aus 5 Varianten, die ich
   in `_varianten-desktop.html` intern gerendert habe: Pruefprotokoll/Zahlenwand/Collage/Messgeraet/
   dunkle Galerie). Collage `#belege .collage` NUR ab 901px, ersetzt showcase+facts; mobil komplett
