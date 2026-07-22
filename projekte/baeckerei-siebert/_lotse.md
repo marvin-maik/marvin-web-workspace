@@ -69,6 +69,14 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (v1 = "AI-Slop"-Kritik, 3 Al
   Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **C3 finale Tuete-Fassung** (f53455e) nach Marvins Feedback zu C1/C2: "Aus der Tuete
+  hat am meisten Charme, nur Farben anpassen + rot-weisse Streifen + anderes Hero (Baeckerei +
+  Tradition zeigen)". Umgesetzt: Tueten-Charme (getapte Fotos/Stempel/Caveat-Handschrift) behalten,
+  Palette auf echtes kraeftiges Rot #C4171C + Weiss + Creme + Gold; **rot-weisse Baeckerei-Markise**
+  mit Bogenkante (repeating-linear-gradient + radial-scallop) oben + duenne Streifen-Divider +
+  Streifen im CTA; Hero jetzt grosses Backstuben-Foto (team-brotlaib) + kleines getaptes
+  historisches Ladenfoto (laden-70er, "derselbe Laden, frueher") + Wappen-Siegel. overflow-x:clip
+  als Gurt fuer die rotierten/absoluten Hero-Fotos (0 Overflow verifiziert). = aktueller Favorit.
 - 2026-07-22: **Marvin waehlt Richtung C** + liefert die ECHTE Markenidentitaet (Google/Fotos):
   kraeftiges Baeckerei-Rot + Gold, Loewen-Brezel-Wappen mit Krone, verschnoerkelte Schreibschrift,
   weinrote Markise mit Goldschrift, rote Papiertueten mit Original-Copy ("fuer Sie im Prenzlauer
