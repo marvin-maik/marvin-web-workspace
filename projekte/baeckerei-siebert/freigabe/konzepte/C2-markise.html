@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Konzept C2 · Die Markise · Bäckerei Siebert</title>
+<style>
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-900.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-600italic.woff2') format('woff2');font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:'Caveat';src:url('fonts/caveat-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Pinyon';src:url('fonts/pinyon.woff2') format('woff2');font-weight:400;font-display:swap}
+:root{
+  --wine:#7C2A28; --wine-d:#5E1F1D; --gold:#C29A44; --gold-l:#E4C87C;
+  --bg:#EEE4CD; --paper:#F8F0DE; --ink:#2A2018; --ink2:#685440; --line:#D8C6A0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{color:var(--ink);font:400 18px/1.62 'Fraunces',Georgia,serif;
+  background-color:var(--bg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.script{font-family:'Pinyon',cursive;font-weight:400;line-height:.9}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+.mono{font:600 11px/1.4 ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.18em;text-transform:uppercase}
+.hinweis{background:var(--ink);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.crest{width:100%;height:auto;display:block}
+
+/* Markise (Streifen + Bogenkante) */
+.markise{background:var(--wine);position:relative;
+  background-image:repeating-linear-gradient(90deg,var(--wine) 0 44px,var(--wine-d) 44px 88px)}
+.markise .wrap{position:relative;z-index:2;display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;padding:20px 24px 22px}
+.markise::after{content:"";position:absolute;left:0;right:0;bottom:-17px;height:18px;z-index:1;
+  background:radial-gradient(circle at 22px -2px,var(--wine) 0 21px,transparent 22px);
+  background-size:44px 20px;background-repeat:repeat-x}
+.marke{display:flex;align-items:center;gap:14px;text-decoration:none}
+.marke .crest{width:50px}
+.marke .txt b{display:block;font-family:'Pinyon',cursive;font-weight:400;font-size:38px;color:var(--gold-l);line-height:.8}
+.marke .txt small{font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#EAD9BE}
+nav{display:flex;gap:4px 20px;flex-wrap:wrap;margin-left:auto}
+nav a{color:#F1E4CB;text-decoration:none;font-weight:600;font-size:16px;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:var(--gold-l)}
+
+/* Hero: Schaufenster */
+.hero{padding:52px 0 42px}
+.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:42px;align-items:center}
+@media(max-width:840px){.hero .wrap{grid-template-columns:1fr;gap:30px}}
+.fenster{background:var(--wine);border:10px solid var(--paper);box-shadow:0 16px 40px rgba(40,24,16,.3);padding:44px 34px;text-align:center;position:relative}
+.fenster::before{content:"";position:absolute;inset:6px;border:1px solid rgba(226,200,124,.5)}
+.fenster .script{font-size:clamp(46px,8vw,78px);color:var(--gold-l)}
+.fenster .zusatz{font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#EAD9BE;margin-top:14px}
+.fenster .est{font-family:'Fraunces',serif;font-weight:900;font-size:22px;color:var(--paper);margin-top:6px}
+.hero-r p.lead{font-size:20px;color:var(--ink2);margin-bottom:18px}
+.hero-r h1{font-weight:900;font-size:clamp(34px,5vw,52px);line-height:1.02;margin-bottom:14px}
+.hero-r h1 em{font-family:'Pinyon',cursive;font-style:normal;font-weight:400;color:var(--wine);font-size:1.3em}
+.kauf{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;font-weight:600;font-size:16px;text-decoration:none;padding:13px 24px;border-radius:2px}
+.btn.fill{background:var(--wine);color:var(--paper)}
+.btn.fill:hover{background:var(--wine-d)}
+.btn.line{border:2px solid var(--ink);color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--bg)}
+
+/* Band */
+.band{background:var(--wine);color:var(--paper);padding:18px 0;
+  background-image:repeating-linear-gradient(90deg,var(--wine) 0 44px,var(--wine-d) 44px 88px)}
+.band .wrap{display:flex;gap:12px 34px;flex-wrap:wrap;justify-content:center;align-items:baseline}
+.band span{font-weight:600;font-size:16px}
+.band b{font-weight:900;font-size:23px;color:var(--gold-l)}
+
+/* Foto */
+.foto{position:relative;background:#fff;padding:11px 11px 12px;box-shadow:0 12px 28px rgba(40,24,16,.26)}
+.foto img{width:100%;display:block}
+
+/* Chronik */
+.chronik{padding:56px 0 44px}
+.chronik h2{font-weight:900;font-size:clamp(30px,5vw,50px);text-align:center}
+.chronik .sub{text-align:center;font-family:'Pinyon',cursive;font-size:34px;color:var(--wine);margin:0 0 30px}
+.reihe{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);background:var(--paper);border-radius:3px;overflow:hidden}
+@media(max-width:860px){.reihe{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.reihe{grid-template-columns:1fr}}
+.reihe .z{padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reihe .z b{font-weight:900;font-size:30px;color:var(--wine);display:block;line-height:.9}
+.reihe .z em{font-family:'Caveat',cursive;font-style:normal;font-weight:600;font-size:18px;color:var(--gold);display:block;margin:2px 0 8px}
+.reihe .z p{font-size:15px;line-height:1.4}
+
+/* Sortiment */
+.sort{padding:10px 0 56px}
+.sort .wrap{display:grid;grid-template-columns:.82fr 1fr;gap:36px;align-items:center}
+@media(max-width:820px){.sort .wrap{grid-template-columns:1fr}}
+.karte-preis{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--wine);border-radius:3px;padding:28px 30px;box-shadow:0 12px 30px rgba(40,24,16,.14)}
+.karte-preis h2{font-weight:900;font-size:clamp(24px,3.6vw,36px)}
+.karte-preis .sub{font-family:'Caveat',cursive;font-weight:600;font-size:20px;color:var(--wine);margin-bottom:14px}
+.pz{display:flex;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px dotted var(--line)}
+.pz b{font-weight:600;font-size:18px}
+.pz .f{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:20px}
+.pz span:last-child{color:var(--ink2);font-size:14px}
+.pz .best{color:var(--wine);font-weight:600}
+
+/* CTA */
+.cta{padding:0 0 60px;text-align:center}
+.cta .box{background:var(--wine);color:var(--paper);padding:44px 30px;max-width:680px;margin:0 auto;position:relative;
+  background-image:repeating-linear-gradient(90deg,var(--wine) 0 50px,var(--wine-d) 50px 100px);box-shadow:0 16px 38px rgba(40,24,16,.26)}
+.cta .box .crest{width:60px;margin:0 auto 8px}
+.cta .k{font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:var(--gold-l)}
+.cta h2{font-weight:900;font-size:clamp(28px,4.6vw,44px)}
+.cta .tel{display:inline-block;font-weight:900;font-size:clamp(30px,5.4vw,54px);color:var(--gold-l);text-decoration:none;margin-top:4px}
+.cta p{margin-top:8px;opacity:.94}
+
+footer{background:var(--ink);color:#E9DcC2;padding:40px 0 46px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:15px}
+footer .script{font-size:34px;color:var(--gold-l);margin-bottom:4px}
+footer .mono{color:var(--gold-l);margin-bottom:6px}
+footer a{color:#E9DcC2;font-weight:600}
+</style>
+</head>
+<body>
+<p class="hinweis">Konzept C2 · „Die Markise“ · weinrote Markise, Gold, Fenster-Schrift · interner Entwurf</p>
+
+<!-- Wappen-Definition -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="wappen">
+  <g fill="var(--gold)">
+    <path d="M64 46 L57 18 L84 36 L100 12 L116 36 L143 18 L136 46 Z"/>
+    <circle cx="57" cy="16" r="6"/><circle cx="100" cy="10" r="6"/><circle cx="143" cy="16" r="6"/>
+    <rect x="59" y="46" width="82" height="9" rx="2"/>
+  </g>
+  <g stroke="var(--gold)" stroke-width="7" stroke-linecap="round">
+    <line x1="48" y1="152" x2="152" y2="84"/><line x1="152" y1="152" x2="48" y2="84"/>
+  </g>
+  <g fill="var(--gold)"><circle cx="48" cy="152" r="10"/><circle cx="152" cy="152" r="10"/><circle cx="48" cy="84" r="10"/><circle cx="152" cy="84" r="10"/></g>
+  <circle cx="100" cy="116" r="55" fill="var(--paper)" stroke="var(--wine)" stroke-width="5"/>
+  <g fill="none" stroke="var(--wine)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M124 96 C124 78 106 72 92 84 C82 92 82 108 92 118 C100 126 108 132 116 138"/>
+    <path d="M76 96 C76 78 94 72 108 84 C118 92 118 108 108 118 C100 126 92 132 84 138"/>
+    <path d="M84 138 C92 143 108 143 116 138"/>
+  </g>
+  <path d="M40 182 H160 L150 208 H50 Z" fill="var(--wine)"/>
+  <text x="100" y="201" text-anchor="middle" font-family="Fraunces,serif" font-weight="900" font-size="21" fill="var(--paper)" letter-spacing="2">SIEBERT</text>
+  <text x="100" y="226" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="var(--wine)" letter-spacing="3">SEIT 1906</text>
+</g>
+</defs></svg>
+
+<div class="markise"><div class="wrap">
+  <a class="marke" href="#">
+    <svg class="crest" viewBox="0 0 200 232" style="--wine:#7C2A28;--paper:#7C2A28;--gold:#E4C87C" aria-label="Wappen Siebert"><use href="#wappen"/></svg>
+    <span class="txt"><b>Siebert</b><small>Bäckerei &amp; Konditorei</small></span>
+  </a>
+  <nav><a>Start</a><a>Geschichte</a><a>Sortiment</a><a>Torten</a><a>Ausbildung</a><a>Besuch</a></nav>
+</div></div>
+
+<section class="hero"><div class="wrap">
+  <div class="fenster">
+    <p class="script">Bäckerei &amp; Café Siebert</p>
+    <p class="zusatz">Älteste Bäckerei in Berlin</p>
+    <p class="est">seit 1906</p>
+  </div>
+  <div class="hero-r">
+    <p class="lead">Schönfließer Straße 12, Prenzlauer Berg.</p>
+    <h1>Handwerk in <em>fünfter</em> Generation.</h1>
+    <p>Ausschließlich eigene Herstellung, nach alten Rezepten auf Steinplatten gebacken. Ohne Tiefkühlteig, ohne Backmischung.</p>
+    <div class="kauf"><a class="btn fill" href="#">Ins Sortiment</a><a class="btn line" href="#">Anfahrt &amp; Zeiten</a></div>
+  </div>
+</div></section>
+
+<div class="band"><div class="wrap">
+  <span><b>1906</b> gegründet</span>
+  <span><b>5</b> Generationen</span>
+  <span><b>16h</b> Sauerteig</span>
+  <span><b>2&times;</b> DER FEINSCHMECKER</span>
+</div></div>
+
+<section class="chronik"><div class="wrap">
+  <h2>Von Gustav bis Anke</h2>
+  <p class="sub">fünf Generationen</p>
+  <div class="reihe">
+    <div class="z"><b>1906</b><em>Gustav</em><p>Gründung in der Schönfließer Straße.</p></div>
+    <div class="z"><b>1920</b><em>Albert</em><p>Durch Inflation und zwei Weltkriege.</p></div>
+    <div class="z"><b>DDR</b><em>Bodo</em><p>Handwerk gegen die Mangelwirtschaft.</p></div>
+    <div class="z"><b>1990</b><em>Lars &amp; Catrin</em><p>Die Ost-Schrippe wird gerettet.</p></div>
+    <div class="z"><b>2021</b><em>Dr. Anke</em><p>Fünfte Generation, gleiche Rezepte.</p></div>
+  </div>
+</div></section>
+
+<section class="sort"><div class="wrap">
+  <div class="karte-preis">
+    <h2>Was heute in der Auslage liegt</h2>
+    <p class="sub">alles täglich von Hand gebacken</p>
+    <div class="pz"><b>Roggenmischbrot</b><span class="f"></span><span class="best">Publikumsliebling 2026</span></div>
+    <div class="pz"><b>Ost-Schrippe</b><span class="f"></span><span>DDR-Rezept, kompakt</span></div>
+    <div class="pz"><b>Splitterbrötchen</b><span class="f"></span><span>samstags früh weg</span></div>
+    <div class="pz"><b>Pfannkuchen &amp; Kameruner</b><span class="f"></span><span>in siedendem Fett</span></div>
+    <div class="pz"><b>Mohnzopf</b><span class="f"></span><span>der Geheimtipp</span></div>
+    <div class="pz"><b>Bienenstich, Donauwelle</b><span class="f"></span><span>aus der Konditorei</span></div>
+  </div>
+  <figure class="foto" style="transform:rotate(-1.4deg)"><img src="../../img/team-brotlaib.jpg" alt="Bäcker mit frisch gebackenem Brotlaib in der Backstube"></figure>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <div class="box">
+    <svg class="crest" viewBox="0 0 200 232" style="--wine:#7C2A28;--paper:#7C2A28;--gold:#E4C87C" aria-hidden="true"><use href="#wappen"/></svg>
+    <p class="k">Torten auf Bestellung</p>
+    <h2>Wir backen das für Sie</h2>
+    <a class="tel" href="tel:+49304457576">030 44 57 576</a>
+    <p>Bestellung im Geschäft oder telefonisch.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><p class="script">Siebert</p>Bäckerei &amp; Konditorei Anke Siebert<br>Schönfließer Straße 12, 10439 Berlin</div>
+  <div><p class="mono">Zeiten</p>Di–Fr 6–18.30 · Sa bis 13.30<br>Mo Ruhetag</div>
+  <div><p class="mono">Kontakt</p><a href="tel:+49304457576">030 44 57 576</a><br><a href="#">Instagram</a> · <a href="#">Facebook</a></div>
+</div></footer>
+</body>
+</html>
