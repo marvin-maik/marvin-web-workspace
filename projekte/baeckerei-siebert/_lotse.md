@@ -2,7 +2,7 @@
 
 Das Gehirn dieses Projekts. Nach jedem Meilenstein kurz mitziehen.
 
-Stand: 2026-07-22 · Phase: **QA (Build v1 fertig, qa-polish laeuft)**
+Stand: 2026-07-22 · Phase: **Design-Richtung offen (v1 = "AI-Slop"-Kritik, 3 Alternativen zur Wahl)**
 
 ## Was & wo
 - **Spekulations-Case / Kaltakquise**: unaufgefordert gebaute Vorschau fuer die Baeckerei & Konditorei
@@ -45,13 +45,31 @@ Stand: 2026-07-22 · Phase: **QA (Build v1 fertig, qa-polish laeuft)**
 - [ ] Pitch-Material (Anschreiben/QR-Flow wie angebot-LP) erst NACH fertiger Vorschau
 
 ## Was ist JETZT relevant
-- Build v1 steht (Commit fa6fe59). QA-Befunde abarbeiten, dann Marvins Sicht-Check im echten
-  Browser (Dev-Server: preview_start "siebert", Port 8793, serve-nocache).
-- Danach: Staging-Deploy (Cloudflare Pages, noindex aktiv) + Pitch-Material.
+- **Marvin hat v1 ("Zeit-Haus") als zu generisch/AI-Slop kritisiert** (Weg des geringsten
+  Widerstands: Condensed-Caps + warmes Off-White + Sticky-Timeline = ausgetretener Premium-Pfad).
+  3 grundverschiedene Alternativen gebaut, warten auf Marvins Feedback:
+  `freigabe/konzepte/uebersicht.html` (Hub) -> A-chronik / B-ost-moderne / C-tuete.
+  A = Zeitungs-Broadsheet (Playfair/Source Serif, Spalten, s/w). B = Ost-Moderne Poster
+  (Archivo, Ziegelrot/Senf, Farbbloecke). C = Aus der Tuete (Fraunces, Kraftpapier, Stempel,
+  getapte Fotos). Jeweils nur Hero+Geschichte+Sortiment; Gewinner wird voll ausgebaut.
+  Konzept-Fonts in konzepte/fonts/ (nicht die Build-fonts/).
+- Danach: gewaehlte/gemischte Richtung ausbauen, QA-Fixes einarbeiten, Staging-Deploy, Pitch.
+- **QA v1 offen (a8f690bc-Bericht, gilt sinngemaess fuer die Gewinner-Richtung):**
+  BLOCKER Fokus-Outline-Selektor `.auf-deep :focus-visible` (Deszendent trifft nie ->
+  Gold-Fokus auf dunklen Flaechen fehlt, 1.24:1); WICHTIG `.tz span:last-child` schlaegt
+  `.tz .neu` (Publikumsliebling-Zeile grau statt gruen); scroll-padding-top fehlt (Sticky);
+  Schritt-Nr #C08A4E nur 2.70:1; Nav-Touch-Targets; Bilder gross (brotregal 490 KB, sortiment
+  ohne lazy); Zeiten-Tabellen ohne scope; freigabe/ + context-md beim Deploy exkludieren.
 - Vor Kunden-Launch LIVE pruefen: Google-Sterne, "Feinschmecker seit 2004", OePNV-Fussweg,
   Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **3 alternative Design-Richtungen** (2999e1f) nach Marvins Slop-Kritik an v1.
+  Je Konzept-Startseite (Hero+Geschichte+Sortiment) mit echten Fotos + echter Copy, bewusst
+  maximal verschieden: A Berliner Chronik (Zeitung), B Ost-Moderne (Plakat), C Aus der Tuete
+  (Kraftpapier/analog). 12 Konzept-Fonts geladen (Playfair/Source Serif/Archivo/Fraunces).
+  Uebersicht-Hub mit Screenshot-Thumbs + Stärke/Risiko je Richtung. Headless verifiziert.
+  qa-polish-Bericht zu v1 eingegangen (Befunde im Abschnitt "Was ist JETZT relevant").
 - 2026-07-22: **BUILD v1** (fa6fe59). 6 Seiten + 404/_headers(noindex)/Rechts-Platzhalter,
   Tokens wie freigegeben, League Gothic + Source Sans 3 self-hosted (Umlaute per fontTools
   verifiziert), 22 Bilder web-optimiert + EXIF-frei (JPEG-Segment-Stripper, neues Pattern in
