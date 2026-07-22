@@ -86,7 +86,9 @@ dass nichts fehlt und nichts Totes drinsteht.
       reicht NICHT als Erinnerung (wurde beim marvin-web-Launch 2 Tage lang uebersehen,
       erst per PageSpeed aufgefallen). Darum Pflicht-Gegenprobe nach dem Launch-Deploy:
       `curl -sI https://DOMAIN/ | grep -i x-robots` muss LEER sein (nur bewusste
-      noindex-Pfade wie /umzug oder /danke duerfen ihn behalten). Danach in der Search
+      noindex-Pfade wie /umzug oder /danke duerfen ihn behalten. NB: Hash-Deployment-URLs
+      `<hash>.*.pages.dev` zeigen IMMER noindex — setzt CF Pages automatisch fuer Previews,
+      kein Fehler; die Gegenprobe gilt der Live-Domain). Danach in der Search
       Console Indexierung der Startseite anstossen. pages.dev muss danach nicht erneut
       genoindext werden: canonical zeigt auf die finale Domain.
 - [ ] robots.txt mit `Sitemap:`-Zeile (absolute URL). **CF-Zone-Falle (verifiziert marvin-web

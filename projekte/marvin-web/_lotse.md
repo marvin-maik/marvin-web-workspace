@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy **483189da** (2026-07-19, Instagram-sameAs im Schema); davor d6ad5827 (danke.html 2-zeilig) und c8fd8754 (Token-Redeploy).
+  (CF Pages, Direct Upload). Letzter Deploy **08891393** (2026-07-21, Marvin im Terminal: noindex-Fix + Nummer + Preis 790 + angebot.html, live verifiziert); davor 483189da (Instagram-sameAs).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
