@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- INTERNE Vergleichsseite (nie deployen): 3 MOBILE Varianten der Belege-Sektion.
+     Jede in einem festen 375px-Handyrahmen; CSS ohne Viewport-Media-Queries, damit die
+     Mobil-Optik unabhaengig von der Fensterbreite sichtbar ist. Eigene m1-/m2-/m3-Klassen
+     (keine Kollision mit den echten .showcase/.facts-Regeln in styles.css). -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belege-Sektion — 3 Mobil-Varianten</title>
+<link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20">
+<style>
+  body{background:#e7e1d3}
+  .lab{max-width:1240px;margin:0 auto;padding:48px 28px 0}
+  .lab h1{font-family:var(--disp);font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:-.01em}
+  .lab p.intro{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;max-width:720px}
+  .grid{display:flex;gap:36px;flex-wrap:wrap;justify-content:center;padding:36px 28px 80px;align-items:flex-start}
+  .col{width:375px;flex:0 0 375px}
+  .col-head{display:flex;gap:16px;align-items:baseline;margin-bottom:16px;min-height:96px}
+  .col-num{font-family:var(--disp);font-weight:700;font-size:44px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--signal);flex-shrink:0}
+  .col-head h2{font-family:var(--disp);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:-.01em}
+  .col-head p{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+  /* Handyrahmen: 375px Viewport-Slab */
+  .pf{width:375px;background:var(--paper);border:1.5px solid var(--ink);box-shadow:10px 10px 0 rgba(22,20,18,.10)}
+  .pf-inner{padding:26px 28px 34px}
+  .sec-tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .sec-tag::before{content:"// ";color:var(--signal-deep)}
+  .sec-h{font-family:var(--disp);font-weight:700;font-size:30px;line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin:12px 0 18px}
+
+  /* ============ M1 — SAUBER GESTAPELT ============ */
+  .m1-browser{border:1.5px solid var(--ink);background:#fff;box-shadow:6px 6px 0 var(--paper-deep)}
+  .m1-bar{display:flex;gap:5px;padding:7px 11px;border-bottom:1.5px solid var(--ink)}
+  .m1-bar i{width:8px;height:8px;border:1.5px solid var(--ink);border-radius:50%}
+  .m1-bar i:first-child{background:var(--signal)}
+  .m1-browser>img{display:block;width:100%;height:auto}
+  .m1-phone{width:148px;margin:24px auto 0;filter:drop-shadow(0 8px 18px rgba(22,20,18,.22))}
+  .m1-phone img{display:block;width:100%;height:auto}
+  .m1-cap{font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--muted);margin:20px auto 0;text-align:center;max-width:270px}
+  .m1-facts{margin-top:26px;border:1.5px solid var(--ink);background:var(--ink);display:grid;gap:1.5px}
+  .m1-fc{background:#fff;padding:18px 20px}
+  .m1-fc .n{font-family:var(--disp);font-weight:700;font-size:34px;line-height:1;letter-spacing:-.02em}
+  .m1-fc .n small{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400}
+  .m1-fc .l{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-deep);margin-top:8px}
+  .m1-fc .s{display:block;font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+
+  /* ============ M2 — GERAETE-UMSCHALTER ============ */
+  .m2 input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .m2-tabs{display:flex;border:1.5px solid var(--ink)}
+  .m2-tabs label{flex:1;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px;cursor:pointer;color:var(--ink);transition:background .15s,color .15s}
+  .m2-tabs label+label{border-left:1.5px solid var(--ink)}
+  .m2-stage{border:1.5px solid var(--ink);border-top:none;background:#fff;position:relative}
+  .m2-view{display:none}
+  .m2-view>img{display:block;width:100%;height:auto}
+  .m2-view.mobile{background:var(--paper-deep);padding:20px 0;text-align:center}
+  .m2-view.mobile img{width:150px;margin:0 auto;filter:drop-shadow(0 8px 16px rgba(22,20,18,.2))}
+  #m2d:checked~.m2-tabs label[for=m2d],#m2m:checked~.m2-tabs label[for=m2m]{background:var(--ink);color:var(--paper)}
+  #m2d:checked~.m2-stage .m2-view.desktop{display:block}
+  #m2m:checked~.m2-stage .m2-view.mobile{display:block}
+  .m2-cap{font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--muted);margin-top:18px}
+  .m2-proof{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:1.5px;border:1.5px solid var(--ink);background:var(--ink)}
+  .m2-p{background:#fff;padding:15px 16px}
+  .m2-p b{font-family:var(--disp);font-weight:700;font-size:26px;line-height:1;letter-spacing:-.02em;display:block}
+  .m2-p b small{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+  .m2-p span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--signal-deep);margin-top:7px}
+
+  /* ============ M3 — HANDY ZUERST ============ */
+  .m3-hero{text-align:center;position:relative}
+  .m3-phone{width:206px;margin:0 auto;filter:drop-shadow(0 14px 26px rgba(22,20,18,.3))}
+  .m3-phone img{display:block;width:100%;height:auto}
+  .m3-badge{position:absolute;top:8px;right:6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;background:var(--ink);color:var(--paper);padding:8px 13px;text-align:left;line-height:1.2}
+  .m3-badge b{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--signal-tint);display:block}
+  .m3-cap{font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--muted);text-align:center;max-width:280px;margin:22px auto 0}
+  .m3-desktop{margin-top:22px;border:1.5px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--paper-deep)}
+  .m3-dbar{display:flex;gap:5px;padding:6px 10px;border-bottom:1.5px solid var(--ink)}
+  .m3-dbar i{width:7px;height:7px;border:1.5px solid var(--ink);border-radius:50%}
+  .m3-dbar i:first-child{background:var(--signal)}
+  .m3-desktop>img{display:block;width:100%;height:auto}
+  .m3-dlabel{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:10px}
+  .m3-proof{margin-top:24px}
+  .m3-pr{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line)}
+  .m3-pr:last-child{border-bottom:none}
+  .m3-pr b{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--signal-deep);min-width:66px;line-height:1}
+  .m3-pr b small{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400}
+  .m3-pr span{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<div class="lab">
+  <h1>Belege-Sektion · 3 Mobil-Varianten</h1>
+  <p class="intro">Nur Handy-Ansicht (Desktop bleibt die Collage). Jede Variante steht in einem 375px-Rahmen, so wie sie am Telefon aussieht. Bei Nr. 2 kannst du die Tabs „Desktop / Handy" wirklich antippen. Sag mir eine Nummer, dann baue ich sie in angebot.html ein.</p>
+</div>
+
+<div class="grid">
+
+  <!-- M1 -->
+  <div class="col">
+    <div class="col-head"><span class="col-num">01</span><div><h2>Sauber gestapelt</h2><p>Kein Überlappen mehr. Browser, Handy zentriert darunter, Text mittig in voller Breite, dann die Zahlen. Am ruhigsten und am besten lesbar.</p></div></div>
+    <div class="pf"><div class="pf-inner">
+      <span class="sec-tag">Nachgemessen statt behauptet</span>
+      <h3 class="sec-h">Glaub mir nicht. Prüf es nach.</h3>
+      <div class="m1-browser">
+        <div class="m1-bar"><i></i><i></i><i></i></div>
+        <img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559">
+      </div>
+      <figure class="m1-phone"><picture><source srcset="img/showcase-phone-mockup.avif" type="image/avif"><img src="img/showcase-phone-mockup.png" alt="" width="620" height="1207"></picture></figure>
+      <p class="m1-cap">Demo-Projekt ROUTENWERK auf Desktop und Handy, von mir von Hand gebaut. Unten live ausprobieren.</p>
+      <div class="m1-facts">
+        <div class="m1-fc"><span class="n">98<small>/100</small></span><span class="l">Google PageSpeed</span><span class="s">Demo-Projekt, mobil gemessen</span></div>
+        <div class="m1-fc"><span class="n">0</span><span class="l">Baukasten-Skripte</span><span class="s">kein Fremdcode, der bremst</span></div>
+        <div class="m1-fc"><span class="n">AA</span><span class="l">Kontrast-Niveau (WCAG)</span><span class="s">gerechnet, nicht geschätzt</span></div>
+        <div class="m1-fc"><span class="n">100<small>%</small></span><span class="l">Dein Eigentum</span><span class="s">Seite und Domain gehören dir</span></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- M2 -->
+  <div class="col">
+    <div class="col-head"><span class="col-num">02</span><div><h2>Geräte-Umschalter</h2><p>Ein Rahmen, Tabs Desktop / Handy, zeigt eine Ansicht. Antippen wechselt. Platzsparend und interaktiv, wie die echte Case-Study.</p></div></div>
+    <div class="pf"><div class="pf-inner">
+      <span class="sec-tag">Nachgemessen statt behauptet</span>
+      <h3 class="sec-h">Glaub mir nicht. Prüf es nach.</h3>
+      <div class="m2">
+        <input type="radio" name="m2" id="m2d" checked>
+        <input type="radio" name="m2" id="m2m">
+        <div class="m2-tabs"><label for="m2d">Desktop</label><label for="m2m">Handy</label></div>
+        <div class="m2-stage">
+          <div class="m2-view desktop"><img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559"></div>
+          <div class="m2-view mobile"><picture><source srcset="img/showcase-phone-mockup.avif" type="image/avif"><img src="img/showcase-phone-mockup.png" alt="" width="620" height="1207"></picture></div>
+        </div>
+      </div>
+      <p class="m2-cap">Demo-Projekt ROUTENWERK, live nachprüfbar. Tipp oben auf Desktop oder Handy.</p>
+      <div class="m2-proof">
+        <div class="m2-p"><b>98<small>/100</small></b><span>Google PageSpeed</span></div>
+        <div class="m2-p"><b>0</b><span>Baukasten-Skripte</span></div>
+        <div class="m2-p"><b>AA</b><span>Kontrast WCAG</span></div>
+        <div class="m2-p"><b>100%</b><span>Dein Eigentum</span></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- M3 -->
+  <div class="col">
+    <div class="col-head"><span class="col-num">03</span><div><h2>Handy zuerst</h2><p>Der Besucher ist am Handy: die Mobil-Ansicht groß als Held, Desktop nur als kleine Miniatur, Zahlen kompakt als Liste. Mobile-native gedacht.</p></div></div>
+    <div class="pf"><div class="pf-inner">
+      <span class="sec-tag">Nachgemessen statt behauptet</span>
+      <h3 class="sec-h">Glaub mir nicht. Prüf es nach.</h3>
+      <div class="m3-hero">
+        <figure class="m3-phone"><picture><source srcset="img/showcase-phone-mockup.avif" type="image/avif"><img src="img/showcase-phone-mockup.png" alt="" width="620" height="1207"></picture></figure>
+        <span class="m3-badge">PageSpeed<b>98/100</b></span>
+      </div>
+      <p class="m3-cap">So lädt Routenwerk auf dem Handy. Von mir von Hand gebaut, live ausprobieren.</p>
+      <div class="m3-desktop">
+        <div class="m3-dbar"><i></i><i></i><i></i></div>
+        <img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559">
+      </div>
+      <p class="m3-dlabel">Dieselbe Seite auf dem Desktop</p>
+      <div class="m3-proof">
+        <div class="m3-pr"><b>0</b><span>Baukasten-Skripte, kein Fremdcode</span></div>
+        <div class="m3-pr"><b>AA</b><span>Kontrast-Niveau, WCAG gerechnet</span></div>
+        <div class="m3-pr"><b>100%</b><span>Seite und Domain: deins</span></div>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+</body>
+</html>
