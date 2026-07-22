@@ -93,6 +93,73 @@ Stand: 2026-07-22 (Quelle: Live-Crawl baeckerei-siebert.de, Start + alle Unterse
 
 ---
 
+## 0b. Vertiefungs-Recherche (Marvin + Verifikation, 2026-07-22)
+
+Quellenlage je Punkt markiert: [ALT-SITE] = belegt auf baeckerei-siebert.de ·
+[PRESSE-OK] = per WebSearch gegen Presse verifiziert · [VERIFY] = plausibel, vor
+Launch/Pitch nochmal pruefen (Quelle: Marvins Sekundaer-Recherche).
+
+### Die fuenf Generationen (Zeitband-Futter, komplett!)
+1. **Gustav Siebert** (1906, Gruender): Bauernsohn aus Schoenfliess in Ostpreussen ->
+   eroeffnet in der SCHOENFLIESSER Strasse [VERIFY, schoene Namens-Pointe]. Der heutige
+   Konditorraum war damals Wohnzimmer der Familie, Grosseltern + 3 Kinder schliefen neben
+   den Arbeitsgeraeten [VERIFY].
+2. **Albert Siebert** (2. Gen): fuehrt den Betrieb durch Hyperinflation und beide
+   Weltkriege [VERIFY].
+3. **Bodo Siebert** (3. Gen, DDR): haelt das private Handwerk gegen Mangelwirtschaft
+   (Butter/Rosinen/Mandeln Mangelware) und Verstaatlichungsdruck [VERIFY].
+4. **Lars Siebert** (4. Gen, ab Wendezeit, bis 2021): mit Ehefrau Catrin, fast 30 Jahre.
+   "Schrippen-Retter": haelt gegen Aufbackbroetchen an traditioneller Teigfuehrung fest
+   (Broetchenteig ruht ~3 h, Brotteig ueber Nacht). Kultstatus der "Ost-Schrippe" [VERIFY].
+5. **Dr. Anke Siebert** (5. Gen, seit 2021): promovierte Wirtschaftsingenieurin, fuehrt
+   mit Lebenspartner Ulrich Kienzl; digitalisiert Prozesse, bargeldloses Zahlen [VERIFY].
+
+### Jubilaeums-Aktion 2026 (der Pitch-Moment, PRESSE-OK im Kern)
+- Berliner Zeitung berichtet: 120 Jahre, Verlosung eines **"Goldenen Tickets"** (Vorbild
+  Charlie und die Schokoladenfabrik): lebenslang an jedem Oeffnungstag Backwaren bis 10 Euro
+  gratis. Fest am 10. Juni 2026 war der Auftakt. [PRESSE-OK]
+- Mechanik [VERIFY im Detail]: 10-Euro-Wertgutschein im Laden kaufen (= Losnummer,
+  Gutschein 3 Jahre einloesbar), Verkauf bis 31.07.2026; ab August woechentlich 120 Preise
+  (Aug-Sep); Hauptpreis-Ziehung Oktober; Gewinner online (Facebook/Instagram).
+- WICHTIG fuers Timing: Gutschein-Frist endet 31.07.2026 = in DIESER Woche+1. Die
+  groesste Aktion der Firmengeschichte hat KEINE Webseite (Jubilaeumsseite leer).
+
+### Auszeichnungen (mehr als gedacht)
+- DER FEINSCHMECKER: regelmaessig seit 2004 unter den besten Baeckern [VERIFY];
+  2013 + 2017 explizit [ALT-SITE].
+- **Roggenmischbrot = "Publikumsliebling" der ersten oeffentlichen Brotwahl der
+  Baeckerinnung Berlin, Mai 2026** (Schoenhauser Allee Arcaden) [PRESSE-OK] — frischeste
+  Auszeichnung, gehoert an die Preistafel!
+- Goldene Brezeln der Innung mehrfach; 100-Punkte-Brotpruefungen; B.Z.-Leserwahl
+  Lieblingsbaeckerei [VERIFY]. Die Ladenwaende haengen voller Urkunden [VERIFY].
+
+### Social Proof (Zahlen vor Build LIVE pruefen, aendern sich)
+- Google: 4,7/5 bei 1.800+ Bewertungen [VERIFY] · Tripadvisor 4,5 (Travelers' Choice)
+  [VERIFY] · Facebook 4,8 [VERIFY].
+- An starken Samstagen weit ueber 5.000 Schrippen/Backwaren [VERIFY, Tagesspiegel/Kurier].
+- Beruehmte Schlange auf dem Gehweg, samstags 20-45 min [VERIFY]. Einwand -> Beweis drehen:
+  "Man steht hier Schlange. Seit 120 Jahren."
+
+### Produkt-Schaetze fuer Copy/Preistafel
+- **Ost-Schrippe**: DDR-Rezept, kompakter/schwerer, kruemelt kaum, ohne kuenstliche
+  Triebmittel [VERIFY]
+- **Kameruner** (Fettgebaeck ohne Loch), Pfannkuchen von Hand ausgehoben, in siedendem
+  Fett, manuell mit Pflaumenmus/Marmelade gespritzt [VERIFY]
+- Mohnzopf = Geheimtipp der Stammkunden [VERIFY]; Splitterbroetchen + Pfannkuchen
+  samstags oft frueh ausverkauft [VERIFY] -> ehrliche Knappheit als Conversion-Element
+- Preise bewusst bodenstaendig trotz Kultstatus [VERIFY]
+
+### Anfahrt (Luecke OePNV GESCHLOSSEN)
+- S+U Schoenhauser Allee (U2, S41/S42 Ring, S8), Ausgang Richtung Arnimplatz/
+  Schivelbeiner Str., 5-7 min zu Fuss; Tram M1/M13 Schoenhauser Allee/Bornholmer Str.
+  [VERIFY, aber risikoarm — vor Build auf Karte gegenpruefen]
+- Timing-Tipp: Di-Fr spaeter Vormittag (10:30-12:30) fast ohne Schlange [VERIFY]
+
+### WIDERSPRUCH zur Alt-Site (im Kundengespraech klaeren)
+- Alt-Site: "Fruehstueckslokal-Funktion, Kaffee vor Ort". Recherche: KEIN klassischer
+  Sitzbereich, Fokus Strassenverkauf. -> Bis zur Klaerung auf der neuen Site NICHT mit
+  Fruehstueck/Sitzplaetzen werben.
+
 ## 1. Produkt / Leistung
 Was, in 2 Sätzen: Handwerksbäckerei und Konditorei im Prenzlauer Berg, seit 1906 am selben
 Standort und laut eigener Aussage die älteste Bäckerei Berlins, in 5. Generation

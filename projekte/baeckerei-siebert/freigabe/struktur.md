@@ -63,11 +63,13 @@ Haus 120", "Heute noch frisches Brot?". Charme entsteht durch Konkretheit, nicht
    - CTA: "Unser Sortiment" (primaer), "Anfahrt & Zeiten"
    - Bild-Slot: Brot-Freisteller, handschriftliche Annotation "Sauerteig. 16 Stunden."
 2. **ZAHLENBAND** (Job: Beleg statt Behauptung; Count-up) — 1906 gegruendet · 5 Generationen ·
-   2x DER FEINSCHMECKER · 16 h Sauerteigreife
-3. **ZEITBAND 1906-2026** (SIGNATURE, Job: die 120 Jahre erlebbar; Sticky-Wechsler)
-   - Stationen: 1906 Gustav Siebert eroeffnet · [OFFEN: 2./3. Generation, Namen + Jahre]
-     · 1990er Lars Siebert, vierte Generation · 2021 Anke Siebert uebernimmt in fuenfter
-     Generation · 2026 "120 Jahre. Ein Ort. Eine Familie." -> Link geschichte.html
+   16 h Sauerteigreife · 5.000 Schrippen an starken Samstagen [VERIFY]
+3. **ZEITBAND 1906-2026** (SIGNATURE; Stationen KOMPLETT dank Recherche 2026-07-22,
+   Presse-belegt, im Kundengespraech bestaetigen)
+   - 1906 Gustav (aus Schoenfliess/Ostpreussen -> Schoenfliesser Strasse; Konditorraum war
+     Wohnzimmer) · 1920er Albert (Inflation, Weltkriege) · DDR Bodo (Mangelwirtschaft,
+     Verstaatlichungsdruck) · 1990 Lars + Catrin (Ost-Schrippen-Retter) · 2021 Dr. Anke
+     Siebert · 2026 "120 Jahre. Und ein Goldenes Ticket." -> Link geschichte.html
 4. **SORTIMENT-TEASER** (Job: "gibt es mein Brot?"; Preistafel-Auszug, 6 Zeilen) -> sortiment.html
 5. **HANDWERK "Unsere wichtigste Zutat ist Zeit"** (Job: Einwand "verstaubt/teuer" entkraeften;
    echte Sequenz, nummeriert 01-03): Abends angesetzt / 12 bis 16 Stunden Reife / Morgens von
@@ -82,12 +84,19 @@ Haus 120", "Heute noch frisches Brot?". Charme entsteht durch Konkretheit, nicht
    Generationen Familie Siebert.
 2. "Immer Schoenfliesser Strasse 12" (Job: der Ort): seit Gruendung dieselbe Adresse.
    Bilder: historische Ladenfotos VORHANDEN (Laden70er, Siebert5659; siehe bildkonzept.html).
-3. "Von Gustav bis Anke: fuenf Generationen" (Job: die Familie; = Zeitband-Zweitweg):
-   Gustav (Gruender) -> [OFFEN: 2./3. Gen] -> Lars (4.) -> Anke (seit 2021, 5.).
-   Bild: team-baeckerin.jpg [OFFEN: ist das Anke?].
-4. "Zweimal unter den besten Baeckern Deutschlands" (Job: Qualitaet belegen):
-   DER FEINSCHMECKER 2013 und 2017. Alte Originalrezepte, taeglich von Hand.
-5. "2026 wird dieses Haus 120" (Job: der Moment): [OFFEN: Aktion + 10-Euro-Gutschein]
+3. "Von Gustav bis Anke: fuenf Generationen" (Job: die Familie; = Zeitband-Zweitweg,
+   KOMPLETT): Gustav (1906, aus Schoenfliess) -> Albert (Weltkriege) -> Bodo (DDR) ->
+   Lars + Catrin (Wende, Ost-Schrippen-Retter, bis 2021) -> Dr. Anke Siebert (mit Ulrich
+   Kienzl). Presse-belegt, beim Kunden bestaetigen. Bild: team-baeckerin.jpg [OFFEN: Anke?].
+4. "Die Waende haengen voller Urkunden" (Job: Qualitaet belegen): FEINSCHMECKER (2013/2017
+   explizit, "regelmaessig seit 2004" [VERIFY]), Goldene Brezeln [VERIFY],
+   Publikumsliebling-Roggenmischbrot Mai 2026 (Presse-belegt).
+5. "2026 wird dieses Haus 120. Es gibt ein Goldenes Ticket." (Job: der Moment; Presse-belegt
+   Berliner Zeitung): Gutschein 10 Euro im Laden = Losnummer, Verkauf bis 31.07.; ab August
+   woechentliche Preise, Oktober Ziehung Goldenes Ticket (lebenslang taeglich bis 10 Euro
+   gratis). Sektion lebt mit der Aktion (nach 31.07. umbauen auf Gewinner-News).
+   Auszeichnungs-Sektion ergaenzt: Goldene Brezeln, Publikumsliebling-Roggenmischbrot Mai 2026
+   (Presse-belegt), "Waende voller Urkunden".
 6. CTA-BAND: "Am besten probieren Sie selbst. Heute bis 18:30 geoeffnet." -> besuch.html
 
 ## sortiment.html
@@ -96,14 +105,18 @@ Haus 120", "Heute noch frisches Brot?". Charme entsteht durch Konkretheit, nicht
    WICHTIG (Marvin): Alt-Site-Sortimentsseite hat NULL Bilder -> jede Warengruppe bekommt bei
    uns ein Gruppen-Anker-Bild (Appetit!) + Charme-Unterzeile ("ueber Nacht gereift, morgens im
    Regal"). Sichtbarster Vorher/Nachher-Punkt fuer den Pitch.
-2. PREISTAFEL BROTE: Roggenmischbrot ... 70 % Roggen, 30 % Weizen · Vollkornbrot ... Quellstueck,
-   16 Stunden · Weizen- und Mischbrote · Spezialbrote [OFFEN: Preise online?]
-3. PREISTAFEL BROETCHEN: auf Steinplatten gebacken · Splitterbroetchen ("beliebt bei Kindern") ·
-   Koernersorten (Mohn, Sesam, Kuerbis, Sonnenblume) · Croissants (Butter, Wuerstchen) ·
-   Kaese-, Dinkelsprossenbroetchen · belegte Broetchen (Mett, Ei, Kaese, Salami, Schinken)
-4. PREISTAFEL KUCHEN & FEINGEBAECK: Pfannkuchen · Spritzkuchen · Streuselkuchen · Obstplunder ·
-   Apfelzimtschnecke · Bienenstich · Donauwelle
-5. SAISONALES + VOR ORT: Weihnachten/Ostern/Silvester; Fruehstueck und Kaffee im Laden.
+2. PREISTAFEL BROTE: Roggenmischbrot ... "Publikumsliebling der Berliner Brotwahl 2026"
+   (Presse-belegt!) · Vollkornbrot ... Quellstueck, 16 Stunden · Weizen- und Mischbrote ·
+   Spezialbrote [OFFEN: Preise online?]
+3. PREISTAFEL BROETCHEN: **Ost-Schrippe** (DDR-Rezept, kompakt, kruemelt kaum [VERIFY Name auf
+   der Tafel]) · Splitterbroetchen ... "samstags oft vor Mittag weg" (ehrliche Knappheit als
+   Conversion-Element) · Koernersorten · Croissants · Kaese-/Dinkelsprossenbroetchen
+   (Steinplatten) · belegte Broetchen
+4. PREISTAFEL KUCHEN & FEINGEBAECK: Pfannkuchen (von Hand gespritzt, siedendes Fett) ·
+   **Kameruner** + Spritzkuchen ("Fettgebaeck wie vor 50 Jahren") · **Mohnzopf** ("Geheimtipp
+   der Stammkunden") · Streuselkuchen/Obstplunder/Apfelzimtschnecke · Bienenstich, Donauwelle
+5. SAISONALES: Weihnachten/Ostern/Silvester. Fruehstueck/Kaffee RAUS bis Widerspruch geklaert
+   (Alt-Site sagt Fruehstueckslokal, Recherche sagt reiner Strassenverkauf; siehe Kontext 0b).
 6. CTA-BAND: Torten-Verweis + Status-Chip.
 
 ## torten.html (Sie-Ansprache)
@@ -131,7 +144,10 @@ Haus 120", "Heute noch frisches Brot?". Charme entsteht durch Konkretheit, nicht
 2. OEFFNUNGSZEITEN-TAFEL: Mo geschlossen · Di-Fr 6:00-18:30 · Sa 6:00-13:30 · So/Feiertag
    geschlossen. SOMMER-BLOCK (20.07.-15.08.2026): Di-Fr nur bis 16:30. (Mechanik fuer
    Sonderzeiten vorsehen, [OFFEN: wer pflegt kuenftig?])
-3. ANFAHRT: Karten-Slot OHNE Google-Embed (integrations.md-Loesung). [OFFEN: OePNV/Parken]
+3. ANFAHRT: Karten-Slot OHNE Google-Embed (integrations.md-Loesung). OePNV GELOEST (Recherche,
+   vor Build auf Karte gegenpruefen): S+U Schoenhauser Allee (U2/S41/S42/S8), 5-7 min Fussweg
+   ueber Schivelbeiner Str.; Tram M1/M13. Dazu Schlangen-Charme-Zeile ("Samstags steht man hier
+   Schlange, seit 120 Jahren") + Timing-Tipp Di-Fr spaeter Vormittag. [OFFEN: Parken]
 4. KONTAKT: Telefon, E-Mail, Adresse. Kein Formular (Bestellweg laut Alt-Site).
 
 ---

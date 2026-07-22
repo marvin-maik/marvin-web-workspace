@@ -37,8 +37,11 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
 - [ ] Foto-Luecken: aktuelles Ladenfront-Aussenfoto (Besuch + OG-Bild) besorgen; klaeren, ob
   team-baeckerin.jpg Anke Siebert zeigt; Torten-Mini-Shooting als Upsell notieren
 - [ ] Danach: Skill `struktur-wireframe` (Freigabe-Dokument + Lo-Fi-Wireframe), dann Build
-- [ ] Lueckenliste aus product-marketing-context.md ist fuers KUNDENGESPRAECH (nicht blockierend fuer Vorschau):
-  Jubilaeums-Aktion-Details, Du/Sie, Tortenvorlauf, Bewerbungsweg, Englisch-Version
+- [ ] Lueckenliste fuers KUNDENGESPRAECH ist GESCHRUMPFT (Marvins Recherche 2026-07-22, Kontext
+  Abschnitt 0b): Generationen + Jubilaeums-Mechanik + OePNV jetzt Presse-belegt, nur noch
+  BESTAETIGEN. Weiter offen: Du/Sie, Tortenvorlauf, Bewerbungsweg, Englisch, Preise online,
+  Fruehstuecks-WIDERSPRUCH (Alt-Site vs. Recherche), "Ost-Schrippe" als Tafel-Name
+- [ ] Vor Build LIVE pruefen: Google-Sterne (4,7), "Feinschmecker seit 2004", OePNV-Fussweg
 - [ ] Pitch-Material (Anschreiben/QR-Flow wie angebot-LP) erst NACH fertiger Vorschau
 
 ## Was ist JETZT relevant
@@ -47,6 +50,14 @@ Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin
   ausbildung, besuch + Pflichtseiten im Build.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **Marvins Vertiefungs-Recherche eingearbeitet** (Kontext 0b + Wireframe + struktur).
+  Kern-Claims per WebSearch verifiziert: Goldenes Ticket (Berliner Zeitung) + Publikumsliebling-
+  Roggenmischbrot (Baeckerinnung Mai 2026). Zeitband-Stationen KOMPLETT (Gustav/Albert/Bodo/
+  Lars+Catrin/Dr. Anke), Jubilaeums-Sektion konkret (Gutschein bis 31.07., Goldenes Ticket
+  Oktober — Sektion muss mit der Aktion mitleben!), Zahlenband neu (5.000 Samstags-Schrippen),
+  Preistafel-Schaetze (Ost-Schrippe, Kameruner, Mohnzopf, Knappheits-Zeile Splitterbroetchen),
+  OePNV geloest. NEU entdeckter WIDERSPRUCH: Fruehstueck vor Ort (Alt-Site) vs. reiner
+  Strassenverkauf (Presse) -> nicht mit Fruehstueck werben bis geklaert.
 - 2026-07-22: **Bildkonzept erstellt** (`freigabe/bildkonzept.html`). Alt-Site-Bilder inventarisiert
   (~60 Stueck, cm4all: Original via URL-Suffix `/picture-2600` in 2600px abrufbar, curl -L noetig).
   Befund: starke Reportage-Serie Backstube ("1903_01_..."), 16 Freisteller auf Weiss, historische
