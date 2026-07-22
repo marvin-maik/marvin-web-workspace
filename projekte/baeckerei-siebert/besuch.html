@@ -16,20 +16,23 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Bäckerei Siebert, Berlins älteste Bäckerei, seit 1906">
 <meta name="twitter:card" content="summary_large_image">
-<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs -> finale Domain; canonical ergaenzen -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231E3932'/><rect y='80' width='100' height='7' fill='%23CBA258'/><rect y='91' width='100' height='9' fill='%23CBA258'/><text x='50' y='72' font-family='Impact,Arial Narrow,sans-serif' font-size='64' fill='%23CBA258' text-anchor='middle'>S</text></svg>">
+<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs (og:url, og:image, JSON-LD) -> finale Domain; canonical ergaenzen -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23B4241C'/><text x='50' y='72' font-family='Georgia,serif' font-size='66' font-weight='bold' fill='%23E4D6BE' text-anchor='middle'>S</text></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
-<a class="uebersprung" href="#inhalt">Zum Inhalt springen</a>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
 <div class="jubi">120 Jahre Siebert: Die Wochenziehungen laufen. <a href="geschichte.html#jubilaeum">Gewinne &amp; Losnummern</a></div>
 
 <header class="kopf">
   <div class="wrap kopf-in">
-    <a class="marke" href="index.html">Siebert<small>Bäckerei &amp; Konditorei · seit 1906</small></a>
+    <a class="marke" href="index.html">
+      <img class="logo" src="img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert" width="52" height="52">
+      <span class="txt"><b>SIEBERT</b><small>Bäckerei &amp; Konditorei</small></span>
+    </a>
     <nav class="haupt" aria-label="Hauptnavigation">
       <a href="index.html">Start</a>
       <a href="geschichte.html">Geschichte</a>
@@ -41,17 +44,18 @@
     <span class="status" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
   </div>
 </header>
+<div class="nadel" role="presentation"></div>
 
 <main id="inhalt">
 
 <section class="hero" style="padding-bottom:clamp(26px,4vw,44px)">
   <div class="wrap">
     <p class="label" data-rv>Besuch</p>
-    <h1 class="disp" data-rv>Kommen Sie vorbei</h1>
-    <div class="chips" data-rv data-d=".1s">
-      <span class="chip gruen" style="font-size:16px" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
+    <h1 class="disp" data-rv data-d=".06s">Kommen Sie vorbei</h1>
+    <div class="chips" data-rv data-d=".12s">
+      <span class="chip rot" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
     </div>
-    <p class="lead" style="margin-top:14px" data-rv data-d=".16s">Schönfließer Straße 12, 10439 Berlin. Prenzlauer Berg, am Arnimplatz.</p>
+    <p class="lead" style="margin-top:14px" data-rv data-d=".18s">Schönfließer Straße 12, 10439 Berlin. Prenzlauer Berg, am Arnimplatz.</p>
   </div>
 </section>
 
@@ -59,11 +63,15 @@
   <div class="wrap">
     <h2 class="disp" data-rv>Öffnungszeiten</h2>
     <table class="zeiten" style="margin-top:20px" data-rv>
-      <tr><th>Tag</th><th>Zeit</th></tr>
-      <tr><td>Montag</td><td>Ruhetag</td></tr>
-      <tr><td>Dienstag bis Freitag</td><td>6:00 – 18:30</td></tr>
-      <tr><td>Samstag</td><td>6:00 – 13:30</td></tr>
-      <tr><td>Sonntag / Feiertag</td><td>geschlossen</td></tr>
+      <thead>
+        <tr><th scope="col">Tag</th><th scope="col">Zeit</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Montag</th><td>Ruhetag</td></tr>
+        <tr><th scope="row">Dienstag bis Freitag</th><td>6:00 – 18:30</td></tr>
+        <tr><th scope="row">Samstag</th><td>6:00 – 13:30</td></tr>
+        <tr><th scope="row">Sonntag / Feiertag</th><td>geschlossen</td></tr>
+      </tbody>
     </table>
     <div class="sommer" data-rv data-d=".1s"><b>Sommer, 20.07. – 15.08.:</b> Dienstag bis Freitag nur bis 16:30.</div>
     <p class="mut" style="margin-top:16px;max-width:34em" data-rv data-d=".16s">Samstags steht man hier Schlange, seit 120 Jahren. Wer es eilig hat: Dienstag bis Freitag am späten Vormittag ist kaum etwas los. Splitterbrötchen und Pfannkuchen sind am Wochenende oft früh weg.</p>
@@ -73,38 +81,39 @@
 <section>
   <div class="wrap">
     <h2 class="disp" data-rv>Anfahrt</h2>
-    <div class="karten zweier" style="margin-top:26px">
+    <div class="karten zwei" style="margin-top:26px">
       <div class="karte" data-rv>
         <h3>Mit Bahn und Tram</h3>
         <p><b>S+U Schönhauser Allee</b> (U2, Ringbahn S41/S42, S8): Ausgang Richtung Arnimplatz, über die Schivelbeiner Straße sind es 5 bis 7 Minuten zu Fuß.</p>
         <p style="margin-top:8px"><b>Tram M1/M13</b> bis Schönhauser Allee/Bornholmer Straße.</p>
-        <p style="margin-top:16px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=B%C3%A4ckerei+Siebert+Sch%C3%B6nflie%C3%9Fer+Stra%C3%9Fe+12+10439+Berlin" target="_blank" rel="noopener">Route in Google Maps planen</a></p>
+        <p style="margin-top:16px"><a class="btn line" href="https://www.google.com/maps/search/?api=1&amp;query=B%C3%A4ckerei+Siebert+Sch%C3%B6nflie%C3%9Fer+Stra%C3%9Fe+12+10439+Berlin" target="_blank" rel="noopener">Route in Google Maps planen</a></p>
         <p class="mut" style="font-size:13.5px;margin-top:8px">Der Link öffnet Google Maps erst beim Klick, vorher fließen keine Daten.</p>
       </div>
-      <div class="karte" data-rv data-d=".12s">
+      <div class="karte" data-rv data-d=".1s">
         <h3>Kontakt</h3>
-        <p>Telefon: <a href="tel:+49304457576"><b>030 44 57 576</b></a><br>E-Mail: <a href="mailto:info@baeckerei-siebert.de">info@baeckerei-siebert.de</a></p>
+        <p>Telefon: <a class="tel" href="tel:+49304457576" style="font-size:22px">030 44 57 576</a></p>
+        <p style="margin-top:6px">E-Mail: <a href="mailto:info@baeckerei-siebert.de">info@baeckerei-siebert.de</a></p>
         <p style="margin-top:10px">Bestellungen nehmen wir telefonisch oder im Laden entgegen.</p>
-        <div class="maske" style="margin-top:14px" data-rv data-d=".12s"><img src="img/team-gaerkoerbe.jpg" alt="Bäcker knetet Teig neben Gärkörben in der Backstube" width="900" height="1200" style="aspect-ratio:4/3;object-fit:cover" loading="lazy"></div>
+        <div class="bild maske" data-rv data-d=".1s" style="margin-top:16px"><img src="img/team-gaerkoerbe.jpg" alt="Bäcker knetet Teig neben aufgereihten Gärkörben in der Backstube" width="900" height="1350" loading="lazy"></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="fascia" style="text-align:center">
+<section class="fascia auf-dunkel" style="text-align:center">
   <div class="wrap" data-rv>
     <h2 class="disp">Bis gleich an der Theke</h2>
-    <p class="lead" style="margin:10px auto 0"><span data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span> · Schönfließer Straße 12</p>
+    <p style="margin:12px auto 0"><span data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span> · Schönfließer Straße 12</p>
   </div>
 </section>
 
 </main>
 
-<footer class="fuss">
+<footer class="fuss auf-dunkel">
   <div class="wrap">
     <div class="fuss-grid">
       <div>
-        <p class="label">Adresse</p>
+        <img class="logo" src="img/siebert-logo.svg" alt="" aria-hidden="true" width="58" height="58">
         <p>Bäckerei &amp; Konditorei Anke Siebert<br>Schönfließer Straße 12<br>10439 Berlin, Prenzlauer Berg</p>
       </div>
       <div>
@@ -130,6 +139,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=1"></script>
+<script src="site.js?v=2"></script>
 </body>
 </html>

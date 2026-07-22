@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ausbildung · Bäckerei Siebert · Bäcker/in und Fachverkäufer/in in Berlin</title>
 <meta name="description" content="Ausbildung mit Sonntag und Montag frei, unbefristetem Vertrag danach, Weihnachts- und Urlaubsgeld. Bäcker/in oder Fachverkäufer/in in Berlins ältester Bäckerei.">
-<meta property="og:title" content="Ausbildung · Bäckerei Siebert">
-<meta property="og:description" content="Sonntag und Montag frei, unbefristeter Vertrag nach der Ausbildung. Bäcker/in oder Fachverkäufer/in.">
+<meta property="og:title" content="Ausbildung · Bäckerei Siebert · Bäcker/in und Fachverkäufer/in">
+<meta property="og:description" content="Sonntag und Montag frei, unbefristeter Vertrag nach der Ausbildung, Weihnachts- und Urlaubsgeld. Ausbildung in Berlins ältester Bäckerei.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://baeckerei-siebert-vorschau.pages.dev/ausbildung.html">
 <meta property="og:site_name" content="Bäckerei &amp; Konditorei Siebert">
@@ -16,20 +16,23 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Bäckerei Siebert, Berlins älteste Bäckerei, seit 1906">
 <meta name="twitter:card" content="summary_large_image">
-<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs -> finale Domain; canonical ergaenzen -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231E3932'/><rect y='80' width='100' height='7' fill='%23CBA258'/><rect y='91' width='100' height='9' fill='%23CBA258'/><text x='50' y='72' font-family='Impact,Arial Narrow,sans-serif' font-size='64' fill='%23CBA258' text-anchor='middle'>S</text></svg>">
+<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs (og:url, og:image) -> finale Domain; canonical ergaenzen -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23B4241C'/><text x='50' y='72' font-family='Georgia,serif' font-size='66' font-weight='bold' fill='%23E4D6BE' text-anchor='middle'>S</text></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
-<a class="uebersprung" href="#inhalt">Zum Inhalt springen</a>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
 <div class="jubi">120 Jahre Siebert: Die Wochenziehungen laufen. <a href="geschichte.html#jubilaeum">Gewinne &amp; Losnummern</a></div>
 
 <header class="kopf">
   <div class="wrap kopf-in">
-    <a class="marke" href="index.html">Siebert<small>Bäckerei &amp; Konditorei · seit 1906</small></a>
+    <a class="marke" href="index.html">
+      <img class="logo" src="img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert" width="52" height="52">
+      <span class="txt"><b>SIEBERT</b><small>Bäckerei &amp; Konditorei</small></span>
+    </a>
     <nav class="haupt" aria-label="Hauptnavigation">
       <a href="index.html">Start</a>
       <a href="geschichte.html">Geschichte</a>
@@ -41,6 +44,7 @@
     <span class="status" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
   </div>
 </header>
+<div class="nadel" role="presentation"></div>
 
 <main id="inhalt">
 
@@ -48,31 +52,31 @@
   <div class="wrap hero-grid">
     <div>
       <p class="label" data-rv>Ausbildung</p>
-      <h1 class="disp" data-rv><span class="satz">Ausbildung, bei der Sonntag</span> <span class="satz">und Montag frei sind</span></h1>
-      <p class="lead" data-rv data-d=".1s">Lernen Sie das Bäckerhandwerk in der ältesten familiengeführten Bäckerei Berlins. Unbefristeter Vertrag nach der Ausbildung.</p>
-      <div class="cta-zeile" data-rv data-d=".2s">
-        <a class="btn voll" href="tel:+49304457576">Anrufen: 030 44 57 576</a>
+      <h1 class="disp" data-rv data-d=".06s">Ausbildung, bei der Sonntag und Montag frei sind</h1>
+      <p class="lead" data-rv data-d=".12s">Lernen Sie das Bäckerhandwerk in der ältesten familiengeführten Bäckerei Berlins. Unbefristeter Vertrag nach der Ausbildung.</p>
+      <div class="cta-zeile" data-rv data-d=".18s">
+        <a class="btn fill" href="tel:+49304457576">Anrufen: 030 44 57 576</a>
       </div>
     </div>
-    <div class="maske" style="border:1.5px solid var(--line);border-radius:6px" data-rv data-d=".15s">
-      <img src="img/team-muetze.jpg" alt="Junger Bäcker mit Mütze arbeitet konzentriert am Teigtisch" width="900" height="1200" style="aspect-ratio:4/5;object-fit:cover">
-    </div>
+    <figure class="bild hero-foto" data-rv data-d=".1s">
+      <img src="img/team-muetze.jpg" alt="Junger Bäcker mit Mütze bei der Arbeit am Teigtisch" width="900" height="1350">
+    </figure>
   </div>
 </section>
 
 <section class="eng">
   <div class="wrap">
     <h2 class="disp" data-rv>Zwei Wege in die Backstube</h2>
-    <div class="karten zweier" style="margin-top:26px">
+    <div class="karten zwei" style="margin-top:26px">
       <div class="karte" data-rv>
         <h3>Bäcker/in</h3>
         <p>Backwaren von Hand herstellen, Umgang mit Rohstoffen, Arbeit in der Backstube. Gut, wenn Sie gern früh anfangen und mit Mengen rechnen können.</p>
-        <div class="maske" data-rv><img src="img/schlingen-formen.jpg" alt="Hände formen Teigschlingen auf dem Holztisch" width="1000" height="667" loading="lazy"></div>
+        <div class="bild maske" data-rv><img src="img/schlingen-formen.jpg" alt="Hände formen Teigschlingen auf dem bemehlten Holztisch" width="1000" height="666" loading="lazy"></div>
       </div>
-      <div class="karte" data-rv data-d=".12s">
+      <div class="karte" data-rv data-d=".1s">
         <h3>Fachverkäufer/in</h3>
         <p>Warenkunde, Beratung, Warenpräsentation und Snacks. Gut, wenn Sie Freude am Umgang mit Menschen haben.</p>
-        <div class="maske" data-rv data-d=".12s"><img src="img/team-brotlaib.jpg" alt="Bäcker präsentiert einen frisch gebackenen Brotlaib" width="900" height="1200" style="aspect-ratio:4/3;object-fit:cover" loading="lazy"></div>
+        <div class="bild maske" data-rv data-d=".1s"><img src="img/team-brotlaib.jpg" alt="Bäcker präsentiert einen frisch gebackenen Brotlaib" width="900" height="1350" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -92,22 +96,26 @@
   </div>
 </section>
 
-<section class="fascia" style="text-align:center">
-  <div class="wrap" data-rv>
-    <p class="label auf-deep">Bewerbung</p>
-    <h2 class="disp">Interesse?</h2>
-    <p class="lead" style="margin:12px auto 6px">Rufen Sie an oder kommen Sie im Laden vorbei.</p>
-    <p style="margin:8px 0 0"><a class="tel" href="tel:+49304457576">030 44 57 576</a></p>
+<section class="cta-warm">
+  <div class="wrap">
+    <div class="box" data-rv>
+      <div class="nadel" role="presentation"></div>
+      <img class="logo" src="img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert" width="60" height="60">
+      <p class="k">Bewerbung</p>
+      <h2 class="disp">Interesse?</h2>
+      <p class="mut" style="max-width:34em;margin:10px auto 4px">Rufen Sie an oder kommen Sie im Laden vorbei.</p>
+      <a class="tel" href="tel:+49304457576">030 44 57 576</a>
+    </div>
   </div>
 </section>
 
 </main>
 
-<footer class="fuss">
+<footer class="fuss auf-dunkel">
   <div class="wrap">
     <div class="fuss-grid">
       <div>
-        <p class="label">Adresse</p>
+        <img class="logo" src="img/siebert-logo.svg" alt="" aria-hidden="true" width="58" height="58">
         <p>Bäckerei &amp; Konditorei Anke Siebert<br>Schönfließer Straße 12<br>10439 Berlin, Prenzlauer Berg</p>
       </div>
       <div>
@@ -133,6 +141,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=1"></script>
+<script src="site.js?v=2"></script>
 </body>
 </html>

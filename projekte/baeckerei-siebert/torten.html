@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Torten auf Bestellung · Bäckerei Siebert · Hochzeit, Geburtstag, Firmenfeier</title>
 <meta name="description" content="Frankfurter Kranz, Schwarzwälder, Hochzeitstorten nach Absprache. Gebacken wie seit 1906. Bestellung telefonisch: 030 4457576.">
-<meta property="og:title" content="Torten auf Bestellung · Bäckerei Siebert">
-<meta property="og:description" content="Frankfurter Kranz, Schwarzwälder, Hochzeitstorten nach Absprache. Bestellung telefonisch.">
+<meta property="og:title" content="Torten auf Bestellung · Bäckerei Siebert · Seit 1906">
+<meta property="og:description" content="Frankfurter Kranz, Schwarzwälder, Hochzeitstorten nach Absprache. Gebacken wie seit 1906. Bestellung telefonisch: 030 4457576.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://baeckerei-siebert-vorschau.pages.dev/torten.html">
 <meta property="og:site_name" content="Bäckerei &amp; Konditorei Siebert">
@@ -16,20 +16,23 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Bäckerei Siebert, Berlins älteste Bäckerei, seit 1906">
 <meta name="twitter:card" content="summary_large_image">
-<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs -> finale Domain; canonical ergaenzen -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231E3932'/><rect y='80' width='100' height='7' fill='%23CBA258'/><rect y='91' width='100' height='9' fill='%23CBA258'/><text x='50' y='72' font-family='Impact,Arial Narrow,sans-serif' font-size='64' fill='%23CBA258' text-anchor='middle'>S</text></svg>">
+<!-- DOMAIN-SWAP vor Launch: absolute pages.dev-URLs (og:url, og:image, JSON-LD) -> finale Domain; canonical ergaenzen -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23B4241C'/><text x='50' y='72' font-family='Georgia,serif' font-size='66' font-weight='bold' fill='%23E4D6BE' text-anchor='middle'>S</text></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
-<a class="uebersprung" href="#inhalt">Zum Inhalt springen</a>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
 <div class="jubi">120 Jahre Siebert: Die Wochenziehungen laufen. <a href="geschichte.html#jubilaeum">Gewinne &amp; Losnummern</a></div>
 
 <header class="kopf">
   <div class="wrap kopf-in">
-    <a class="marke" href="index.html">Siebert<small>Bäckerei &amp; Konditorei · seit 1906</small></a>
+    <a class="marke" href="index.html">
+      <img class="logo" src="img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert" width="52" height="52">
+      <span class="txt"><b>SIEBERT</b><small>Bäckerei &amp; Konditorei</small></span>
+    </a>
     <nav class="haupt" aria-label="Hauptnavigation">
       <a href="index.html">Start</a>
       <a href="geschichte.html">Geschichte</a>
@@ -41,80 +44,86 @@
     <span class="status" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
   </div>
 </header>
+<div class="nadel" role="presentation"></div>
 
 <main id="inhalt">
 
-<section class="hero" style="padding-bottom:clamp(26px,4vw,44px)">
+<section>
   <div class="wrap">
     <p class="label" data-rv>Torten auf Bestellung</p>
-    <h1 class="disp" data-rv><span class="satz">Torten mit Vorlauf.</span> <span class="satz">Gebacken wie seit 1906.</span></h1>
-    <p class="lead" data-rv data-d=".1s">Frankfurter Kranz, Schwarzwälder, Aprikosentorte und Kreationen nach Absprache.</p>
-  </div>
-</section>
-
-<section class="eng">
-  <div class="wrap">
-    <h2 class="disp" data-rv>Wofür wir backen</h2>
-    <div class="karten" style="margin-top:26px">
-      <div class="karte" data-rv>
-        <h3>Hochzeit</h3>
-        <p class="mut">Mehrstöckig nach Absprache.</p>
-        <div class="maske" data-rv><img src="img/torte-hochzeit.jpg" alt="Mehrstöckige Hochzeitstorte mit Marzipanrosen" width="800" height="600" loading="lazy"></div>
-      </div>
-      <div class="karte" data-rv data-d=".12s">
-        <h3>Geburtstag</h3>
-        <p class="mut">Vom Klassiker bis zur Wunschtorte.</p>
-        <div class="maske" data-rv data-d=".12s"><img src="img/torte-kranz.jpg" alt="Frankfurter Kranz mit Krokant und Kirschen" width="800" height="600" loading="lazy"></div>
-      </div>
-      <div class="karte" data-rv data-d=".24s">
-        <h3>Firmenfeier</h3>
-        <p class="mut">Auch größere Mengen, rechtzeitig bestellt.</p>
-        <div class="maske" data-rv data-d=".24s"><img src="img/torte-schwarzwaelder.jpg" alt="Schwarzwälder Kirschtorte mit Schokoraspeln" width="800" height="600" loading="lazy"></div>
-      </div>
-    </div>
+    <h1 class="disp" data-rv data-d=".06s">Torten mit Vorlauf. Gebacken wie seit 1906.</h1>
+    <p class="lead" data-rv data-d=".12s">Frankfurter Kranz, Schwarzwälder, Aprikosentorte und Kreationen nach Absprache.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="label" data-rv>Ablauf</p>
-    <h2 class="disp" data-rv>So bestellen Sie</h2>
-    <div class="schritte" style="margin-top:30px">
-      <div class="schritt" data-rv>
-        <span class="nr" aria-hidden="true">01</span>
-        <h3>Anrufen</h3>
-        <p><a href="tel:+49304457576"><b>030 44 57 576</b></a>, zu den Ladenzeiten. Oder direkt im Geschäft.</p>
+    <p class="label" data-rv>Anlässe</p>
+    <h2 class="disp" data-rv>Wofür wir Torten backen</h2>
+    <div class="karten" style="margin-top:28px">
+      <div class="karte" data-rv>
+        <h3>Hochzeit</h3>
+        <p class="mut">Mehrstöckig nach Absprache.</p>
+        <figure class="bild maske" data-rv><img src="img/torte-hochzeit.jpg" alt="Mehrstöckige Hochzeitstorte der Bäckerei Siebert" width="800" height="600" loading="lazy"></figure>
       </div>
-      <div class="schritt" data-rv data-d=".12s">
-        <span class="nr" aria-hidden="true">02</span>
-        <h3>Besprechen</h3>
-        <p>Größe, Geschmack, Abholtermin. Je früher, desto sicherer der Wunschtermin.</p>
+      <div class="karte" data-rv data-d=".1s">
+        <h3>Geburtstag</h3>
+        <p class="mut">Vom Klassiker bis zur Wunschtorte.</p>
+        <figure class="bild maske" data-rv data-d=".1s"><img src="img/torte-kranz.jpg" alt="Frankfurter Kranz mit Krokant, klassische Geburtstagstorte" width="800" height="600" loading="lazy"></figure>
       </div>
-      <div class="schritt" data-rv data-d=".24s">
-        <span class="nr" aria-hidden="true">03</span>
-        <h3>Abholen</h3>
-        <p>Im Laden, Schönfließer Straße 12. Frisch aus der eigenen Konditorei.</p>
+      <div class="karte" data-rv data-d=".2s">
+        <h3>Firmenfeier</h3>
+        <p class="mut">Auch größere Mengen, rechtzeitig bestellt.</p>
+        <figure class="bild maske" data-rv data-d=".2s"><img src="img/torte-schwarzwaelder.jpg" alt="Schwarzwälder Kirschtorte mit Sahne und Schokoraspeln" width="800" height="496" loading="lazy"></figure>
       </div>
     </div>
   </div>
 </section>
 
-<section class="fascia" style="text-align:center">
-  <div class="wrap" data-rv>
-    <p class="label auf-deep">Bestellung telefonisch</p>
-    <h2 class="disp">Wir backen das für Sie</h2>
-    <p style="margin:14px 0 6px"><a class="tel" href="tel:+49304457576">030 44 57 576</a></p>
-    <p class="lead" style="margin:0 auto;max-width:34em">Di bis Fr 6:00 bis 18:30, Sa bis 13:30. Mehrfach von DER&nbsp;FEINSCHMECKER unter die besten Bäcker Deutschlands gewählt.</p>
+<section style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <p class="label" data-rv>Ablauf</p>
+    <h2 class="disp" data-rv>In drei Schritten zur Torte</h2>
+    <div class="schritte" style="margin-top:32px">
+      <div class="schritt" data-rv>
+        <span class="nr" aria-hidden="true">01</span>
+        <h3>Anrufen</h3>
+        <p class="mut">Zu den Ladenzeiten anrufen oder im Geschäft vorbeikommen. <a href="tel:+49304457576" style="color:var(--red);font-weight:700">030 44 57 576</a></p>
+      </div>
+      <div class="schritt" data-rv data-d=".1s">
+        <span class="nr" aria-hidden="true">02</span>
+        <h3>Besprechen</h3>
+        <p class="mut">Größe, Geschmack und Abholtermin klären wir gemeinsam. Je früher Sie bestellen, desto sicherer der Wunschtermin.</p>
+      </div>
+      <div class="schritt" data-rv data-d=".2s">
+        <span class="nr" aria-hidden="true">03</span>
+        <h3>Abholen</h3>
+        <p class="mut">Im Laden, Schönfließer Straße 12, frisch aus der eigenen Konditorei.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-warm">
+  <div class="wrap">
+    <div class="box" data-rv>
+      <div class="nadel" role="presentation"></div>
+      <img class="logo" src="img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert" width="60" height="60">
+      <p class="k">Bestellung telefonisch</p>
+      <h2 class="disp">Wir backen das für Sie</h2>
+      <a class="tel" href="tel:+49304457576">030 44 57 576</a>
+      <p class="mut" style="max-width:34em;margin:8px auto 0">Di bis Fr 6:00 bis 18:30, Sa bis 13:30. Mehrfach von DER&nbsp;FEINSCHMECKER unter die besten Bäcker Deutschlands gewählt.</p>
+    </div>
   </div>
 </section>
 
 </main>
 
-<footer class="fuss">
+<footer class="fuss auf-dunkel">
   <div class="wrap">
     <div class="fuss-grid">
       <div>
-        <p class="label">Adresse</p>
+        <img class="logo" src="img/siebert-logo.svg" alt="" aria-hidden="true" width="58" height="58">
         <p>Bäckerei &amp; Konditorei Anke Siebert<br>Schönfließer Straße 12<br>10439 Berlin, Prenzlauer Berg</p>
       </div>
       <div>
@@ -140,6 +149,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=1"></script>
+<script src="site.js?v=2"></script>
 </body>
 </html>
