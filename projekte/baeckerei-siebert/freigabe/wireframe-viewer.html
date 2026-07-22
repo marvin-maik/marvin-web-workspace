@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Wireframe-Viewer: Bäckerei Siebert (3 Breakpoints)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:#e9e7e2;color:#222;padding:20px 16px 40px}
+h1{font-size:20px;margin-bottom:4px}
+.mono{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#888}
+.leiste{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 22px;position:sticky;top:0;background:#e9e7e2;padding:10px 0;z-index:5;border-bottom:1px solid #ccc}
+.leiste button{border:2px solid #333;background:#fff;padding:9px 16px;font-weight:700;font-size:14px;cursor:pointer}
+.leiste button[aria-pressed="true"]{background:#333;color:#fff}
+.leiste button:focus-visible{outline:3px solid #999;outline-offset:2px}
+.buehne{display:flex;gap:26px;align-items:flex-start;overflow-x:auto;padding-bottom:16px}
+.geraet{flex:0 0 auto}
+.geraet .kopf{font-family:ui-monospace,monospace;font-size:12px;color:#555;margin-bottom:8px;display:flex;justify-content:space-between;gap:12px}
+.rahmen{background:#fff;border:2px solid #333;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+iframe{border:0;display:block;background:#fff;transform-origin:top left}
+/* Skalierung: echte Geraetebreite, per transform auf Buehnenbreite gebracht */
+.m .rahmen{width:calc(375px * .8);height:calc(812px * .8)}
+.m iframe{width:375px;height:812px;transform:scale(.8)}
+.t .rahmen{width:calc(768px * .62);height:calc(1024px * .62)}
+.t iframe{width:768px;height:1024px;transform:scale(.62)}
+.d .rahmen{width:calc(1280px * .55);height:calc(860px * .55)}
+.d iframe{width:1280px;height:860px;transform:scale(.55)}
+.hinweis{margin-top:14px;font-size:13px;color:#666;max-width:720px}
+</style>
+</head>
+<body>
+<h1>Bäckerei Siebert · Wireframe in drei Breakpoints</h1>
+<p class="mono">Lo-Fi zur Freigabe · in jedem Gerät kann unabhängig gescrollt werden</p>
+
+<div class="leiste" role="group" aria-label="Seite wählen">
+  <button type="button" data-p="start" aria-pressed="true">Start</button>
+  <button type="button" data-p="geschichte" aria-pressed="false">Geschichte</button>
+  <button type="button" data-p="sortiment" aria-pressed="false">Sortiment</button>
+  <button type="button" data-p="torten" aria-pressed="false">Torten</button>
+  <button type="button" data-p="ausbildung" aria-pressed="false">Ausbildung</button>
+  <button type="button" data-p="besuch" aria-pressed="false">Besuch</button>
+</div>
+
+<div class="buehne">
+  <div class="geraet m">
+    <div class="kopf"><span>MOBILE</span><span>375 × 812 · 80 %</span></div>
+    <div class="rahmen"><iframe src="wireframe.html#start" title="Wireframe Mobile 375px"></iframe></div>
+  </div>
+  <div class="geraet t">
+    <div class="kopf"><span>TABLET</span><span>768 × 1024 · 62 %</span></div>
+    <div class="rahmen"><iframe src="wireframe.html#start" title="Wireframe Tablet 768px"></iframe></div>
+  </div>
+  <div class="geraet d">
+    <div class="kopf"><span>DESKTOP</span><span>1280 × 860 · 55 %</span></div>
+    <div class="rahmen"><iframe src="wireframe.html#start" title="Wireframe Desktop 1280px"></iframe></div>
+  </div>
+</div>
+
+<p class="hinweis">Navigation funktioniert auch IN den Geräten (Links wechseln dann nur dieses eine
+Gerät). Die Leiste oben schaltet alle drei gleichzeitig. Graustufen sind Absicht: Hier werden
+Aufbau und Texte freigegeben, das Design kommt aus den Tokens der design-richtung.md.</p>
+
+<script>
+(function(){
+  var frames = document.querySelectorAll('iframe');
+  var knoepfe = document.querySelectorAll('.leiste button');
+  knoepfe.forEach(function(b){
+    b.addEventListener('click', function(){
+      frames.forEach(function(f){ f.src = 'wireframe.html#' + b.dataset.p; });
+      knoepfe.forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+    });
+  });
+})();
+</script>
+</body>
+</html>

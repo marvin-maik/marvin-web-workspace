@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Wireframe: Bäckerei Siebert (Lo-Fi, zur Freigabe)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:#fff;color:#222;line-height:1.5}
+.shell{max-width:1100px;margin:0 auto;padding:0 16px}
+.wf-note{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#999;border-bottom:1px solid #ddd;padding:8px 0;margin-bottom:14px}
+section{border:1px dashed #bbb;margin:22px 0;padding:22px 18px;position:relative}
+.job{font-family:ui-monospace,monospace;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#888;background:#f2f2f2;display:inline-block;padding:3px 8px;margin-bottom:14px}
+h1{font-size:clamp(26px,5.5vw,40px);line-height:1.12;text-wrap:balance}
+h2{font-size:clamp(21px,3.5vw,28px);line-height:1.2}
+h3{font-size:18px}
+p{color:#444;max-width:640px;margin:10px 0}
+.sub{font-size:17px}
+.img{background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 10px,#fafafa 10px,#fafafa 20px);border:1px solid #ccc;display:flex;align-items:center;justify-content:center;color:#999;font-family:ui-monospace,monospace;font-size:12px;min-height:160px;position:relative;text-align:center;padding:8px}
+.img::before,.img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent 49.6%,#ddd 49.6%,#ddd 50.4%,transparent 50.4%)}
+.img::after{transform:scaleX(-1)}
+.img span{position:relative;z-index:1;background:#fff;padding:2px 6px}
+.btn{display:inline-block;border:2px solid #333;padding:11px 20px;font-weight:700;text-decoration:none;color:#222;margin:6px 8px 6px 0;background:#fff;cursor:pointer;font-size:15px}
+.btn.primary{background:#333;color:#fff}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.row>*{flex:1 1 220px;min-width:0}
+.card{border:1px solid #ccc;padding:16px}
+.offen{background:#fff3a3;padding:2px 6px;font-size:14px}
+.freigabe{background:#f4f4f4;border:2px solid #333;padding:20px;margin:32px 0}
+.chip{display:inline-block;border:1px solid #333;padding:6px 12px;font-weight:700;font-size:14px;margin:8px 8px 0 0}
+.mono{font-family:ui-monospace,monospace;font-size:12px;color:#777}
+
+/* Header/Nav */
+header.site{border-bottom:2px solid #222;padding:14px 0}
+header.site .shell{display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:17px;letter-spacing:.02em}
+nav.haupt{display:flex;gap:2px 14px;flex-wrap:wrap}
+nav.haupt a{color:#222;text-decoration:none;font-size:14.5px;padding:6px 2px;border-bottom:2px solid transparent}
+nav.haupt a[aria-current="page"]{border-bottom-color:#222;font-weight:700}
+nav.haupt a:hover,nav.haupt a:focus-visible{border-bottom-color:#999;outline:none}
+.status{margin-left:auto;font-size:13px;border:1px solid #222;padding:5px 10px;font-weight:700;white-space:nowrap}
+
+/* Zahlenband */
+.zahlen{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center}
+.zahlen b{display:block;font-size:clamp(24px,4vw,40px);font-family:ui-monospace,monospace}
+.zahlen small{font-family:ui-monospace,monospace;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#777}
+
+/* Zeitband (Wireframe: Klick-Mechanik angedeutet) */
+.zb{border:1px solid #ccc;padding:18px;display:flex;gap:18px;align-items:center;min-height:170px}
+.zb .jahr{font-family:ui-monospace,monospace;font-weight:800;font-size:clamp(34px,8vw,64px);flex:0 0 auto}
+.zb .inhalt{flex:1}
+.zb-punkte{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.zb-punkte button{width:34px;height:24px;border:1px solid #666;background:#fff;cursor:pointer;font-family:ui-monospace,monospace;font-size:10px}
+.zb-punkte button[aria-current="true"]{background:#333;color:#fff}
+.zb-punkte button:focus-visible{outline:2px solid #333;outline-offset:2px}
+
+/* Preistafel */
+.tafel{max-width:640px}
+.tafel .zeile{display:flex;align-items:baseline;gap:8px;padding:7px 0;border-bottom:1px dotted transparent}
+.tafel .zeile .fuell{flex:1;border-bottom:2px dotted #bbb;transform:translateY(-4px)}
+.tafel .zeile b{font-size:15.5px}
+.tafel .zeile span{color:#666;font-size:14px;text-align:right}
+
+/* Prozess */
+.schritt{display:flex;gap:14px;margin:14px 0;align-items:flex-start}
+.schritt .nr{font-family:ui-monospace,monospace;font-weight:800;font-size:18px;border:2px solid #333;padding:4px 8px}
+
+/* Zeiten-Tafel */
+table.zeiten{border-collapse:collapse;width:100%;max-width:520px}
+table.zeiten td,table.zeiten th{border:1px solid #ccc;padding:9px 12px;text-align:left;font-size:15px}
+table.zeiten th{background:#f2f2f2;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+
+/* CTA-Band (im Build: Fascia-Band gruen/gold) */
+.band{background:#e8e8e8;border:1px solid #999;border-top:3px double #666;border-bottom:3px double #666;text-align:center;padding:26px 16px}
+.band .tel{font-size:clamp(22px,4vw,34px);font-weight:800;font-family:ui-monospace,monospace;display:block;margin:8px 0}
+
+footer.site{border-top:2px solid #222;padding:20px 0 40px;margin-top:30px}
+footer.site .shell{display:flex;gap:16px 40px;flex-wrap:wrap;font-size:14px;color:#555}
+
+/* Seiten-Umschaltung */
+.seite{display:none}
+.seite:target{display:block}
+.no-js-hinweis{display:none}
+
+/* Breakpoints: 375 (Basis) / ~768 / ~1100 */
+@media (max-width:700px){
+  .zahlen{grid-template-columns:repeat(2,1fr)}
+  .zb{flex-direction:column;align-items:flex-start}
+  .status{margin-left:0}
+}
+@media (min-width:1000px){
+  .hero-split{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="shell">
+    <span class="logo">Bäckerei &amp; Konditorei Siebert</span>
+    <nav class="haupt" aria-label="Hauptnavigation">
+      <a href="#start" data-p="start">Start</a>
+      <a href="#geschichte" data-p="geschichte">Geschichte</a>
+      <a href="#sortiment" data-p="sortiment">Sortiment</a>
+      <a href="#torten" data-p="torten">Torten</a>
+      <a href="#ausbildung" data-p="ausbildung">Ausbildung</a>
+      <a href="#besuch" data-p="besuch">Besuch</a>
+    </nav>
+    <span class="status">Heute geöffnet bis 18:30</span>
+  </div>
+</header>
+
+<div class="shell">
+<p class="wf-note">Wireframe · Lo-Fi zur Freigabe · Graustufen sind Absicht, das Design kommt aus den freigegebenen Tokens · Gelb = offene Kundenfrage</p>
+</div>
+
+<!-- ======================= START ======================= -->
+<main class="seite" id="start">
+<div class="shell">
+
+<section>
+  <span class="job">Hero · Job: 5-Sekunden-Klarheit + Message-Match "älteste Bäckerei Berlins"</span>
+  <div class="hero-split">
+    <div>
+      <h1>Berlins älteste Bäckerei. Seit 1906. Immer Schönfließer Straße 12.</h1>
+      <p class="sub">Handwerk in fünfter Generation im Prenzlauer Berg. Ohne Tiefkühlteiglinge,
+      ohne Backmischungen. Unsere Sauerteige reifen 12 bis 16 Stunden.</p>
+      <span class="chip">Heute geöffnet bis 18:30</span>
+      <span class="chip">Prenzlauer Berg</span>
+      <div style="margin-top:14px">
+        <a class="btn primary" href="#sortiment" data-p="sortiment">Unser Sortiment</a>
+        <a class="btn" href="#besuch" data-p="besuch">Anfahrt &amp; Zeiten</a>
+      </div>
+    </div>
+    <div class="img" style="min-height:230px"><span>BILD: Brot-Freisteller, handschriftliche Notiz "Sauerteig. 16 Stunden."</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="job">Zahlenband · Job: Beleg statt Behauptung · Build: Count-up beim Insichtkommen</span>
+  <div class="zahlen">
+    <div><b>1906</b><small>gegründet</small></div>
+    <div><b>5</b><small>Generationen</small></div>
+    <div><b>2×</b><small>DER FEINSCHMECKER</small></div>
+    <div><b>16 h</b><small>Sauerteigreife</small></div>
+  </div>
+</section>
+
+<section>
+  <span class="job">Zeitband 1906–2026 · SIGNATURE · Build: Sticky-Scrollytelling, hier klickbar angedeutet</span>
+  <h2>Hundertzwanzig Jahre, ein Haus</h2>
+  <div class="zb">
+    <div class="jahr" id="zb-jahr">1906</div>
+    <div class="inhalt">
+      <p id="zb-text">Gustav Siebert eröffnet die Bäckerei in der Schönfließer Straße 12.</p>
+      <div class="img" style="min-height:90px"><span>BILD zur Station</span></div>
+    </div>
+  </div>
+  <div class="zb-punkte" role="tablist" aria-label="Stationen"></div>
+  <p style="margin-top:12px"><span class="offen">OFFEN (Kunde): Namen und Jahre der 2. und 3. Generation</span></p>
+  <a class="btn" href="#geschichte" data-p="geschichte">Die ganze Geschichte</a>
+</section>
+
+<section>
+  <span class="job">Sortiment-Teaser · Job: "Gibt es mein Brot?" · Mechanik: Preistafel wie hinter der Theke</span>
+  <h2>Was heute in der Auslage liegt</h2>
+  <div class="tafel">
+    <div class="zeile"><b>Roggenmischbrot</b><span class="fuell"></span><span>70 % Roggen, 30 % Weizen</span></div>
+    <div class="zeile"><b>Vollkornbrot</b><span class="fuell"></span><span>Quellstück, 16 Stunden</span></div>
+    <div class="zeile"><b>Brötchen</b><span class="fuell"></span><span>auf Steinplatten gebacken</span></div>
+    <div class="zeile"><b>Berliner Splitterbrötchen</b><span class="fuell"></span><span>beliebt bei Kindern</span></div>
+    <div class="zeile"><b>Spritzkuchen</b><span class="fuell"></span><span>Konditorei-Klassiker</span></div>
+    <div class="zeile"><b>Bienenstich</b><span class="fuell"></span><span>nach Originalrezept</span></div>
+  </div>
+  <a class="btn" href="#sortiment" data-p="sortiment">Das ganze Sortiment</a>
+</section>
+
+<section>
+  <span class="job">Handwerk · Job: Einwand "verstaubt/teuer" entkräften · echte Sequenz, darum nummeriert</span>
+  <h2>Unsere wichtigste Zutat ist Zeit</h2>
+  <div class="schritt"><span class="nr">01</span><p><b>Abends angesetzt.</b> Sauerteig aus Mehl, Wasser und Zeit. Keine Fertigmischung im Haus.</p></div>
+  <div class="schritt"><span class="nr">02</span><p><b>12 bis 16 Stunden Reife.</b> Über Nacht entwickeln sich Geschmack und Bekömmlichkeit. Quellstücke für Vollkorn: rund 16 Stunden.</p></div>
+  <div class="schritt"><span class="nr">03</span><p><b>Morgens von Hand.</b> Nach alten Originalrezepten, jeden Tag. Rohstoffe fast ausschließlich aus Berlin und Brandenburg.</p></div>
+  <div class="img" style="min-height:120px"><span>BILD: Backstube bei Nacht / Hände im Teig (Build: Slide-in)</span></div>
+</section>
+
+<section class="band">
+  <span class="job">CTA-Band · Job: Vorbesteller · Build: grünes Fascia-Band mit Goldschrift</span>
+  <h2>Torten für Hochzeit, Geburtstag, Firmenfeier</h2>
+  <span class="tel">030 4457576</span>
+  <p style="margin:0 auto;max-width:520px">Bestellung telefonisch oder im Laden. 2013 und 2017 von DER FEINSCHMECKER unter die besten Bäcker Deutschlands gewählt.</p>
+  <a class="btn" href="#torten" data-p="torten">Mehr zu Torten</a>
+</section>
+
+<section>
+  <span class="job">Besuch kompakt · Job: Zeiten + Weg ohne Klick</span>
+  <div class="row">
+    <div>
+      <h3>Öffnungszeiten</h3>
+      <table class="zeiten">
+        <tr><td>Montag</td><td>Ruhetag</td></tr>
+        <tr><td>Di bis Fr</td><td>6:00 bis 18:30</td></tr>
+        <tr><td>Samstag</td><td>6:00 bis 13:30</td></tr>
+        <tr><td>So / Feiertag</td><td>geschlossen</td></tr>
+      </table>
+      <p><span class="offen">Sommer 20.07. bis 15.08.: Di bis Fr nur bis 16:30 (Mechanik für Sonderzeiten)</span></p>
+    </div>
+    <div>
+      <h3>Hierher</h3>
+      <p>Schönfließer Straße 12, 10439 Berlin<br>Prenzlauer Berg</p>
+      <div class="img" style="min-height:110px"><span>KARTE ohne Google-Embed</span></div>
+      <a class="btn" href="#besuch" data-p="besuch">Anfahrt &amp; Kontakt</a>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<!-- ======================= GESCHICHTE ======================= -->
+<main class="seite" id="geschichte">
+<div class="shell">
+
+<section>
+  <span class="job">Hero · Job: Ort + Kontinuität</span>
+  <h1>Seit 1906 hinter derselben Ladentür</h1>
+  <p class="sub">Fünf Generationen Familie Siebert. Eine Adresse: Schönfließer Straße 12, Prenzlauer Berg.</p>
+</section>
+
+<section>
+  <span class="job">Der Ort · thematisch statt chronologisch (Boudin-Mechanik)</span>
+  <h2>Der Ort</h2>
+  <p>Seit der Gründung wurde hier nie umgezogen, nie neu eröffnet, nie unterbrochen. Das Geschäft, in dem Sie heute Brot kaufen, ist dasselbe wie 1906.</p>
+  <div class="img"><span>BILD: Ladenfront heute · <b>OFFEN: historisches Foto vorhanden?</b></span></div>
+</section>
+
+<section>
+  <span class="job">Die Familie · Generationenliste = statischer Zweitweg zum Zeitband</span>
+  <h2>Die Familie</h2>
+  <div class="row">
+    <div class="card"><b>1906</b><p>Gustav Siebert, Gründer</p></div>
+    <div class="card"><b><span class="offen">OFFEN: 2. und 3. Generation</span></b><p>Namen und Jahre beim Kunden erfragen</p></div>
+    <div class="card"><b>1990er</b><p>Lars Siebert, vierte Generation</p></div>
+    <div class="card"><b>Seit 2021</b><p>Anke Siebert, fünfte Generation</p></div>
+  </div>
+  <div class="img" style="margin-top:14px"><span>BILD: Anke Siebert in der Backstube (lebende Generation zeigen, kein Gemälde)</span></div>
+</section>
+
+<section>
+  <span class="job">Die Auszeichnung · Job: Qualität belegen</span>
+  <h2>Die Auszeichnung</h2>
+  <p>2013 und 2017 wählte DER FEINSCHMECKER die Bäckerei unter die besten Bäcker Deutschlands. Gebacken wird nach alten Originalrezepten, täglich von Hand.</p>
+</section>
+
+<section>
+  <span class="job">Das Jubiläum · Job: der Moment 2026</span>
+  <h2>120 Jahre im Jahr 2026</h2>
+  <p><span class="offen">OFFEN: Jubiläums-Aktion und 10-Euro-Gutschein, Zeitraum und Bedingungen beim Kunden klären</span></p>
+</section>
+
+<section class="band">
+  <span class="job">CTA-Band</span>
+  <h2>Am besten probieren Sie selbst</h2>
+  <p>Heute bis 18:30 geöffnet.</p>
+  <a class="btn primary" href="#besuch" data-p="besuch">Anfahrt &amp; Zeiten</a>
+</section>
+
+</div>
+</main>
+
+<!-- ======================= SORTIMENT ======================= -->
+<main class="seite" id="sortiment">
+<div class="shell">
+
+<section>
+  <span class="job">Hero kurz</span>
+  <h1>Was heute in der Auslage liegt</h1>
+  <p class="sub">Alles täglich von Hand. Keine Tiefkühlteiglinge, keine Backvormischungen.</p>
+  <p><span class="offen">OFFEN: Sollen Preise online stehen?</span></p>
+</section>
+
+<section>
+  <span class="job">Preistafel Brote · Mechanik wie die Tafel hinter der Theke (Fundus #14)</span>
+  <h2>Brote</h2>
+  <div class="tafel">
+    <div class="zeile"><b>Roggenmischbrot</b><span class="fuell"></span><span>70 % Roggen, 30 % Weizen</span></div>
+    <div class="zeile"><b>Vollkornbrot</b><span class="fuell"></span><span>Quellstück, rund 16 Stunden</span></div>
+    <div class="zeile"><b>Weizen- und Mischbrote</b><span class="fuell"></span><span>täglich wechselnd</span></div>
+    <div class="zeile"><b>Spezialbrote</b><span class="fuell"></span><span>nach Saison</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="job">Preistafel Brötchen</span>
+  <h2>Brötchen</h2>
+  <div class="tafel">
+    <div class="zeile"><b>Brötchen</b><span class="fuell"></span><span>auf Steinplatten gebacken</span></div>
+    <div class="zeile"><b>Berliner Splitterbrötchen</b><span class="fuell"></span><span>beliebt bei Kindern</span></div>
+    <div class="zeile"><b>Körnersorten</b><span class="fuell"></span><span>Mohn, Sesam, Kürbis, Sonnenblume</span></div>
+    <div class="zeile"><b>Croissants</b><span class="fuell"></span><span>Butter oder Würstchen</span></div>
+    <div class="zeile"><b>Käse- und Dinkelsprossenbrötchen</b><span class="fuell"></span><span></span></div>
+    <div class="zeile"><b>Belegte Brötchen und Baguettes</b><span class="fuell"></span><span>Mett, Ei, Käse, Salami, Schinken</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="job">Preistafel Kuchen &amp; Feingebäck</span>
+  <h2>Kuchen &amp; Feingebäck</h2>
+  <div class="tafel">
+    <div class="zeile"><b>Pfannkuchen</b><span class="fuell"></span><span></span></div>
+    <div class="zeile"><b>Spritzkuchen</b><span class="fuell"></span><span></span></div>
+    <div class="zeile"><b>Streuselkuchen</b><span class="fuell"></span><span></span></div>
+    <div class="zeile"><b>Obstplunder, Apfelzimtschnecke</b><span class="fuell"></span><span></span></div>
+    <div class="zeile"><b>Bienenstich, Donauwelle</b><span class="fuell"></span><span></span></div>
+  </div>
+  <div class="img" style="min-height:120px;margin-top:12px"><span>BILD: Auslage / Theke</span></div>
+</section>
+
+<section>
+  <span class="job">Saisonales + vor Ort</span>
+  <h2>Saisonal und vor Ort</h2>
+  <p>Zu Weihnachten, Ostern und Silvester backen wir die Klassiker der Saison. Im Laden gibt es Frühstück und Kaffee.</p>
+</section>
+
+<section class="band">
+  <span class="job">CTA-Band</span>
+  <h2>Torten bestellen Sie telefonisch</h2>
+  <span class="tel">030 4457576</span>
+  <a class="btn" href="#torten" data-p="torten">Torten ansehen</a>
+</section>
+
+</div>
+</main>
+
+<!-- ======================= TORTEN ======================= -->
+<main class="seite" id="torten">
+<div class="shell">
+
+<section>
+  <span class="job">Hero · Sie-Ansprache</span>
+  <h1>Torten mit Vorlauf. Gebacken wie seit 1906.</h1>
+  <p class="sub">Frankfurter Kranz, Schwarzwälder, Aprikosentorte und Kreationen nach Absprache.</p>
+</section>
+
+<section>
+  <span class="job">Anlässe</span>
+  <h2>Wofür wir backen</h2>
+  <div class="row">
+    <div class="card"><h3>Hochzeit</h3><p>Mehrstöckig nach Absprache.</p><div class="img" style="min-height:90px"><span>BILD</span></div></div>
+    <div class="card"><h3>Geburtstag</h3><p>Vom Klassiker bis zur Wunschtorte.</p><div class="img" style="min-height:90px"><span>BILD</span></div></div>
+    <div class="card"><h3>Firmenfeier</h3><p>Auch größere Mengen, rechtzeitig bestellt.</p><div class="img" style="min-height:90px"><span>BILD</span></div></div>
+  </div>
+</section>
+
+<section>
+  <span class="job">Ablauf · echte Sequenz</span>
+  <h2>So bestellen Sie</h2>
+  <div class="schritt"><span class="nr">01</span><p><b>Anrufen:</b> 030 4457576, zu den Ladenzeiten. Oder direkt im Geschäft.</p></div>
+  <div class="schritt"><span class="nr">02</span><p><b>Besprechen:</b> Größe, Geschmack, Abholtermin. <span class="offen">OFFEN: Vorlaufzeit je Tortenart</span></p></div>
+  <div class="schritt"><span class="nr">03</span><p><b>Abholen:</b> im Laden, Schönfließer Straße 12. <span class="offen">OFFEN: Lieferung möglich?</span></p></div>
+</section>
+
+<section class="band">
+  <span class="job">CTA-Band · Build: Fascia</span>
+  <h2>Bestellung telefonisch</h2>
+  <span class="tel">030 4457576</span>
+  <p>Di bis Fr 6:00 bis 18:30, Sa bis 13:30. 2013 und 2017 von DER FEINSCHMECKER ausgezeichnet.</p>
+</section>
+
+</div>
+</main>
+
+<!-- ======================= AUSBILDUNG ======================= -->
+<main class="seite" id="ausbildung">
+<div class="shell">
+
+<section>
+  <span class="job">Hero · stärkster Benefit zuerst · <span class="offen">OFFEN: Sie oder Du für Azubis?</span></span>
+  <h1>Ausbildung, bei der Sonntag und Montag frei sind</h1>
+  <p class="sub">Lernen Sie das Bäckerhandwerk in der ältesten familiengeführten Bäckerei Berlins. Unbefristeter Vertrag nach der Ausbildung.</p>
+</section>
+
+<section>
+  <span class="job">Zwei Berufe</span>
+  <h2>Zwei Wege in die Backstube</h2>
+  <div class="row">
+    <div class="card"><h3>Bäcker/in</h3><p>Backwaren von Hand herstellen, Umgang mit Rohstoffen, Arbeit in der Backstube. Gut, wenn Sie gern früh anfangen und mit Mengen rechnen können.</p></div>
+    <div class="card"><h3>Fachverkäufer/in</h3><p>Warenkunde, Beratung, Warenpräsentation und Snacks. Gut, wenn Sie Freude am Umgang mit Menschen haben.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="job">Benefits · alle belegt (Alt-Site)</span>
+  <h2>Was der Betrieb bietet</h2>
+  <div class="row">
+    <div class="card"><p>5-Tage-Woche, Sonntag und Montag frei</p></div>
+    <div class="card"><p>Unbefristeter Vertrag nach der Ausbildung</p></div>
+    <div class="card"><p>Weihnachts- und Urlaubsgeld, Prämien</p></div>
+    <div class="card"><p>Kostenlose Verpflegung, Mitarbeiterrabatt</p></div>
+    <div class="card"><p>Verkürzung der Ausbildung möglich</p></div>
+    <div class="card"><p>Mitarbeiterevents, Entwicklungsmöglichkeiten</p></div>
+  </div>
+</section>
+
+<section class="band">
+  <span class="job">Bewerbung · <span class="offen">OFFEN: Bewerbungsweg + Ansprechperson</span></span>
+  <h2>Interesse?</h2>
+  <p>Rufen Sie an oder kommen Sie im Laden vorbei.</p>
+  <span class="tel">030 4457576</span>
+</section>
+
+</div>
+</main>
+
+<!-- ======================= BESUCH ======================= -->
+<main class="seite" id="besuch">
+<div class="shell">
+
+<section>
+  <span class="job">Hero kurz + Status groß</span>
+  <h1>Besuch</h1>
+  <span class="chip" style="font-size:17px">Heute geöffnet bis 18:30</span>
+  <p class="sub">Schönfließer Straße 12, 10439 Berlin, Prenzlauer Berg</p>
+</section>
+
+<section>
+  <span class="job">Öffnungszeiten · Sonderzeiten-Mechanik vorsehen</span>
+  <h2>Öffnungszeiten</h2>
+  <table class="zeiten">
+    <tr><th>Tag</th><th>Zeit</th></tr>
+    <tr><td>Montag</td><td>Ruhetag</td></tr>
+    <tr><td>Dienstag bis Freitag</td><td>6:00 bis 18:30</td></tr>
+    <tr><td>Samstag</td><td>6:00 bis 13:30</td></tr>
+    <tr><td>Sonntag / Feiertag</td><td>geschlossen</td></tr>
+  </table>
+  <p style="margin-top:10px"><b>Sommer, 20.07. bis 15.08.:</b> Dienstag bis Freitag nur bis 16:30.</p>
+  <p><span class="offen">OFFEN: Wer pflegt Sonderzeiten künftig (Website + Google)?</span></p>
+</section>
+
+<section>
+  <span class="job">Anfahrt · Karte ohne Google-Embed (DSGVO)</span>
+  <h2>Anfahrt</h2>
+  <div class="img" style="min-height:180px"><span>KARTE ohne Google-Embed (Lösung aus integrations.md)</span></div>
+  <p><span class="offen">OFFEN: ÖPNV-Stationen und Parkhinweise</span></p>
+</section>
+
+<section>
+  <span class="job">Kontakt · bewusst KEIN Formular (Bestellweg laut Alt-Site)</span>
+  <h2>Kontakt</h2>
+  <p>Telefon: 030 4457576<br>E-Mail: info@baeckerei-siebert.de</p>
+  <p>Bestellungen nehmen wir telefonisch oder im Laden entgegen.</p>
+</section>
+
+</div>
+</main>
+
+<div class="shell">
+<div class="freigabe">
+  <h3>Freigabe</h3>
+  <p>Was du jetzt tust: pro Seite und Sektion Feedback geben (Aufbau + Texte, nicht Farben,
+  die kommen aus den Design-Tokens). Danach bauen wir. Eine Korrekturrunde nach Umsetzung
+  ist inklusive, weitere kosten extra.</p>
+</div>
+</div>
+
+<footer class="site">
+  <div class="shell">
+    <span><b>Bäckerei &amp; Konditorei Anke Siebert</b><br>Schönfließer Straße 12, 10439 Berlin</span>
+    <span>030 4457576<br>info@baeckerei-siebert.de</span>
+    <span>Impressum · Datenschutz<br><span class="mono">(Pflichtseiten im Build)</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Seiten-Umschaltung: :target braucht einen Start-Fallback */
+  function zeige(){
+    var h = location.hash.replace('#','') || 'start';
+    if(!document.getElementById(h)) h = 'start';
+    document.querySelectorAll('.seite').forEach(function(s){ s.style.display = s.id===h ? 'block':'none'; });
+    document.querySelectorAll('nav.haupt a').forEach(function(a){
+      if(a.dataset.p===h){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
+    });
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', zeige);
+  zeige();
+
+  /* Zeitband: Klick-Mechanik angedeutet */
+  var stationen = [
+    {j:'1906', t:'Gustav Siebert eröffnet die Bäckerei in der Schönfließer Straße 12.'},
+    {j:'19??', t:'Zweite und dritte Generation. Namen und Jahre klären wir mit der Familie.'},
+    {j:'1990er', t:'Lars Siebert führt den Betrieb in vierter Generation.'},
+    {j:'2021', t:'Anke Siebert übernimmt in fünfter Generation.'},
+    {j:'2026', t:'120 Jahre. Ein Ort. Eine Familie.'}
+  ];
+  var wrap = document.querySelector('.zb-punkte');
+  if(wrap){
+    stationen.forEach(function(s,i){
+      var b = document.createElement('button');
+      b.type='button'; b.textContent=s.j.slice(0,4);
+      b.setAttribute('aria-label','Station '+s.j);
+      b.addEventListener('click', function(){
+        document.getElementById('zb-jahr').textContent = s.j;
+        document.getElementById('zb-text').textContent = s.t;
+        wrap.querySelectorAll('button').forEach(function(x,xi){ x.setAttribute('aria-current', xi===i?'true':'false'); });
+      });
+      wrap.appendChild(b);
+    });
+    wrap.querySelector('button').setAttribute('aria-current','true');
+  }
+})();
+</script>
+<noscript><style>.seite{display:block}</style></noscript>
+</body>
+</html>

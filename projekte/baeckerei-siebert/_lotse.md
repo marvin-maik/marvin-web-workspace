@@ -2,7 +2,7 @@
 
 Das Gehirn dieses Projekts. Nach jedem Meilenstein kurz mitziehen.
 
-Stand: 2026-07-22 · Phase: **Design-Richtung (Brief fertig, wartet auf Marvins Freigabe)**
+Stand: 2026-07-22 · Phase: **Freigabe (Struktur + Design-Richtung liegen Marvin vor)**
 
 ## Was & wo
 - **Spekulations-Case / Kaltakquise**: unaufgefordert gebaute Vorschau fuer die Baeckerei & Konditorei
@@ -35,9 +35,19 @@ Stand: 2026-07-22 · Phase: **Design-Richtung (Brief fertig, wartet auf Marvins 
 - [ ] Pitch-Material (Anschreiben/QR-Flow wie angebot-LP) erst NACH fertiger Vorschau
 
 ## Was ist JETZT relevant
-- Warten auf Marvins Freigabe der Design-Richtung. Bis dahin NICHT bauen.
+- Warten auf Marvins Freigabe: Design-Richtung + Struktur/Wireframes. Bis dahin NICHT bauen.
+- Seiten-Set (festgelegt im Wireframe, 6 Seiten): index, geschichte, sortiment, torten,
+  ausbildung, besuch + Pflichtseiten im Build.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **Struktur + Wireframes gebaut** (`freigabe/struktur.md`, `freigabe/wireframe.html`,
+  `freigabe/wireframe-viewer.html`). Viewer zeigt alle 3 Breakpoints (375/768/1280 als skalierte
+  iframes) gleichzeitig, Leiste schaltet alle Seiten synchron um. Gefixt: .row-Flex-Overflow auf
+  375 (flex-basis 220 statt basis 0 + min-width). Verifiziert: Live-Messung 375 ohne Overflow-X,
+  Headless-Renders Viewer/Geschichte-1280/Ausbildung-768. MERKE: Chrome headless erzwingt
+  Mindest-Fensterbreite (~500px) und croppt Screenshots bei --window-size=375 -> schmale
+  Breakpoints headless NICHT direkt screenshotten, stattdessen iframe-Konstruktion (Viewer)
+  oder Live-Messung im Browser.
 - 2026-07-22: **Scroll-Storyboard gebaut + verifiziert** (`freigabe/storyboard.html`): 9 Szenen mit
   Animations-Spezifikation und echten Vanilla-Mini-Demos (Fade-up, Count-up, Sticky-Zeitband,
   Slide-in, Zoom-out-Reveal, Marquee). Funktional geprueft per JS (Zeitband: alle 5 Stationen
