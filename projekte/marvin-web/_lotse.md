@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy **44b7af34** (2026-07-22, Claude: Mobil-Beleg „Handy zuerst" + styles v21); davor edf38d9d (Caption-Umbruch).
+  (CF Pages, Direct Upload). Letzter Deploy **d73bd7d2** (2026-07-22, Claude: iOS-Schatten-Fix mobil, styles v22); davor 44b7af34 (Mobil „Handy zuerst").
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -60,6 +60,13 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-22: **iOS-Schatten-Fix Mobil (DEPLOYT d73bd7d2, styles v22)** — Marvins iPhone: der
+  `drop-shadow` hinterm Handy rendert falsch. Ursache: Filter lag auf der `.bm-phone`-FIGUR, die
+  zugleich die absolut positionierte `.bm-badge` traegt -> iOS Safari macht daraus einen Rechteck-
+  Kasten. Filter jetzt direkt auf `.bm-phone img` (folgt der Silhouette). Beide Bilder haben Alpha
+  (AVIF+PNG geprueft), war NICHT der Alpha-Verlust. Im Chromium-Pane korrekt; **iOS von Marvin
+  gegenzupruefen** (Pane ist Chromium, iOS-Bug dort nicht reproduzierbar). Falls es doch bleibt:
+  naechster Schritt AVIF-Source des Handys droppen (iOS AVIF+filter-Glitch) oder Schatten als ::after.
 - 2026-07-22: **angebot-LP Mobil-Beleg neu = „Handy zuerst"** (Marvins Wahl aus 3 Mobil-Varianten,
   intern gerendert in `_varianten-mobile.html`: gestapelt / Geraete-Umschalter / Handy-first). Der
   ueberlappende `.showcase` + die 4 Fakten-Kacheln sind auf Mobil RAUS, ersetzt durch `.beleg-mobil`:
