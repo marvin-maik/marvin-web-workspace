@@ -13,6 +13,11 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (v1 = "AI-Slop"-Kritik, 3 Al
 - Design-Dossier + Animationsplan: `freigabe/design-richtung.md`.
 
 ## Feste Entscheidungen (NICHT neu aufrollen)
+- **Design-Richtung = C ("Aus der Tuete"), mit dem ECHTEN Marken-Look** (Marvin 2026-07-22):
+  Baeckerei-Rot + Gold + Loewen-Brezel-Wappen + Schreibschrift, NICHT das v1-"Zeit-Haus"
+  (Gruen/League Gothic) und NICHT die kraftbraune C-Urfassung. Marke ist bewusst "authentisch
+  unperfekt". Feinentscheid C1 vs C2 vs Mix steht noch aus. ECHTES Wappen + neue Ladenfront-/
+  Team-Fotos vom Kunden besorgen (SVG-Wappen ist nur Platzhalter).
 - **Spekulations-Case-Schutz**: Vorschau IMMER mit noindex; keine Rechtstexte kopieren.
   Impressumsdaten nur als Platzhalter.
 - **Bilder (Marvin, 2026-07-22): Die Fotos der Baeckerei kommen in die Vorschau.** Appetit ist
@@ -64,6 +69,18 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (v1 = "AI-Slop"-Kritik, 3 Al
   Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **Marvin waehlt Richtung C** + liefert die ECHTE Markenidentitaet (Google/Fotos):
+  kraeftiges Baeckerei-Rot + Gold, Loewen-Brezel-Wappen mit Krone, verschnoerkelte Schreibschrift,
+  weinrote Markise mit Goldschrift, rote Papiertueten mit Original-Copy ("fuer Sie im Prenzlauer
+  Berg", "Bestellung im Geschaeft oder unter 4457576", "ausschliesslich eigene Herstellung...
+  auf Steinplatten gebacken"). Wichtig: Marke ist "authentisch unperfekt", NICHT durchgestylt.
+  -> 2 C-Varianten gebaut (457e1ae): **C1 "weisse Tuete"** (Cremeweiss, Rot-Druck, Tueten-Aufdruck-
+  Block mit Original-Copy, Wappen, Caveat-Handschrift-Akzente, Pinyon-Script "seit 1906") +
+  **C2 "Markise"** (weinrote Streifen-Markise mit Bogenkante, goldene Pinyon-Fensterschrift
+  "Baeckerei & Cafe Siebert", waermer). Wappen als SVG nachempfunden (Krone/Brezel/gekreuzte
+  Schieber/Banner) -> ECHTES Wappen des Kunden bei Uebergabe einsetzen. Neue Fonts:
+  Caveat (Handschrift, Preisschilder), Pinyon Script (Fenster-Gold). Uebersicht-Hub hebt C1/C2
+  hervor. Empfehlung an Marvin: C1 als Startpunkt (naeher an Tuete+Logo), C2s Markise als Option.
 - 2026-07-22: **3 alternative Design-Richtungen** (2999e1f) nach Marvins Slop-Kritik an v1.
   Je Konzept-Startseite (Hero+Geschichte+Sortiment) mit echten Fotos + echter Copy, bewusst
   maximal verschieden: A Berliner Chronik (Zeitung), B Ost-Moderne (Plakat), C Aus der Tuete
