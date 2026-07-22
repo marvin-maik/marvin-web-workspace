@@ -423,40 +423,29 @@ summary:hover{color:var(--signal-deep)}
   .fact{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
 }
 
-/* Geraete-Showcase (angebot, portiert aus der LP-Kollektion): Desktop-Browserrahmen + Handy
-   davor (statisch, kein iframe). Zeigt Desktop- UND Mobil-Ansicht des Demo-Projekts. */
-.showcase{position:relative;margin:56px 0 0;max-width:900px}
-.showcase-browser{border:1.5px solid var(--ink);background:var(--white);box-shadow:8px 8px 0 var(--paper-deep)}
-.showcase-bar{display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--ink);padding:11px 16px}
-.showcase-dots{display:flex;gap:6px;flex-shrink:0}
-.showcase-dots i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper)}
-.showcase-dots i:first-child{background:var(--signal)}
-.showcase-url{flex:1;min-width:0;border:1px solid var(--line);padding:6px 12px;background:var(--paper);color:var(--ink-soft);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.showcase-browser>img{display:block;width:100%;height:auto}
-/* Handy davor, unten rechts ueberlappend. Freigestelltes Foto-Mockup (transparentes AVIF/PNG),
-   bringt Geraeterahmen selbst mit -> keine border/radius/background/shadow mehr. */
-.showcase-phone{position:absolute;right:-14px;bottom:-42px;width:184px;line-height:0;
-  filter:drop-shadow(0 10px 20px rgba(22,20,18,.22))}
-.showcase-phone img{display:block;width:100%;height:auto}
-.showcase-cap{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:36px;line-height:1.6;max-width:640px}
-/* Ab hier ragt das ueberlappende Handy in die Bildunterschrift: Text-Spalte rechts freihalten,
-   damit keine Zeile hinter dem Geraet verschwindet */
-@media(max-width:860px){.showcase-cap{max-width:none;padding-right:176px}}
-@media(max-width:560px){
-  .showcase-phone{width:140px;right:-10px;bottom:-26px}
-  .showcase-cap{margin-top:28px;padding-right:132px}
-  /* Browser-Leiste eine Stufe kleiner: auf schmalen Screens soll der Screenshot dominieren, nicht das Chrome */
-  .showcase-bar{gap:10px;padding:7px 10px}
-  .showcase-dots{gap:5px}
-  .showcase-dots i{width:8px;height:8px}
-  .showcase-url{padding:4px 9px;font-size:11px}
-}
+/* Belege MOBIL (angebot, <901px): Handy-first. Grosses freigestelltes iPhone als Held mit
+   PageSpeed-Marke, restliche Werte als kompakte Liste. Kein Desktop-Bild (spart Laenge). */
+.beleg-mobil{margin-top:44px}
+.bm-hero{position:relative;text-align:center}
+.bm-phone{position:relative;width:min(200px,58%);margin:0 auto;line-height:0;
+  filter:drop-shadow(0 14px 26px rgba(22,20,18,.3))}
+.bm-phone img{display:block;width:100%;height:auto}
+/* Marke haengt an der oberen rechten Ecke des Handys (an der Figur verankert, nicht am Hero) */
+.bm-badge{position:absolute;top:14px;right:-18px;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-align:left;padding:9px 13px;line-height:1.15}
+.bm-badge b{display:block;font-family:var(--disp);font-weight:700;font-size:22px;color:var(--signal-tint);letter-spacing:-.02em;margin-top:2px}
+.bm-badge b small{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--dark-soft)}
+.bm-cap{font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--muted);text-align:center;max-width:300px;margin:24px auto 0}
+.bm-proof{margin-top:26px;border-top:1px solid var(--line)}
+.bm-pr{display:flex;align-items:baseline;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line)}
+.bm-pr b{font-family:var(--disp);font-weight:700;font-size:26px;line-height:1;color:var(--signal-deep);min-width:64px;flex-shrink:0}
+.bm-pr span{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;color:var(--ink-soft);line-height:1.4}
 
-/* Diagonale Collage (angebot Belege) — NUR Desktop (>=901px). Mobil bleibt showcase+facts.
-   Alles unter #belege gescopt: .showcase/.facts existieren auch auf anderen Seiten. */
+/* Diagonale Collage (angebot Belege) — NUR Desktop (>=901px); mobil zeigt .beleg-mobil.
+   Alles unter #belege gescopt (.facts existiert auch auf projekt-routenwerk). */
 #belege .collage{display:none}
 @media(min-width:901px){
-  #belege .showcase,#belege .facts{display:none}
+  #belege .beleg-mobil{display:none}
   #belege .collage{display:block;position:relative;margin-top:56px;min-height:480px}
   /* Riesen-Outline-Ziffer als Grafik hinter allem (grosse Typo -> --signal erlaubt) */
   #belege .collage-deko{position:absolute;top:-46px;left:-8px;z-index:0;pointer-events:none;

@@ -21,7 +21,7 @@
 <meta name="theme-color" content="#161412">
 <link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20">
+<link rel="stylesheet" href="styles.css?v=21">
 <link rel="icon" type="image/svg+xml" href="/img/zeichen.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -88,33 +88,26 @@
     <div class="sec-head"><span class="tag">Nachgemessen statt behauptet</span><span class="line"></span><span class="aux">Quelle: Google PageSpeed</span></div>
     <h2 class="h-lg"><span class="satz">Glaub mir nicht.</span> <span class="satz">Prüf es nach.</span></h2>
     <p class="lede">Die Zahlen kommen aus Googles eigenem Ladezeit-Test, gemessen am Demo-Projekt Routenwerk. Genau so eine Seite bekommst du: von Hand gebaut, ohne Baukasten-Ballast.</p>
-    <div class="showcase">
-      <div class="showcase-browser">
-        <div class="showcase-bar">
-          <span class="showcase-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="showcase-url">routenwerk.pages.dev</span>
-        </div>
-        <img src="img/demo-routenwerk.jpg" alt="Desktop-Ansicht des Demo-Projekts Routenwerk: dunkles Bergfoto mit großer Headline" loading="lazy" width="1040" height="559">
+    <!-- Nur Mobil (<901px): Handy-first. Mobil-Ansicht gross als Held, PageSpeed als Marke,
+         restliche Belege als kompakte Liste. Kein Desktop-Bild hier (spart Laenge). -->
+    <div class="beleg-mobil">
+      <div class="bm-hero">
+        <figure class="bm-phone">
+          <picture>
+            <source srcset="img/showcase-phone-mockup.avif" type="image/avif">
+            <img src="img/showcase-phone-mockup.png" alt="Das Demo-Projekt Routenwerk auf einem iPhone" loading="lazy" width="620" height="1207">
+          </picture>
+          <span class="bm-badge">Google PageSpeed<b>98<small>/100</small></b></span>
+        </figure>
       </div>
-      <div class="showcase-phone">
-        <picture>
-          <source srcset="img/showcase-phone-mockup.avif" type="image/avif">
-          <img src="img/showcase-phone-mockup.png" alt="Dieselbe Seite auf dem Handy" loading="lazy" width="620" height="1207">
-        </picture>
+      <p class="bm-cap">So lädt Routenwerk auf dem Handy. Von mir von Hand gebaut, unten kannst du es live ausprobieren.</p>
+      <div class="bm-proof">
+        <div class="bm-pr"><b>0</b><span>Baukasten-Skripte, kein Fremdcode der bremst</span></div>
+        <div class="bm-pr"><b>AA</b><span>Kontrast-Niveau, WCAG gerechnet</span></div>
+        <div class="bm-pr"><b>100%</b><span>Seite und Domain: gehören dir</span></div>
       </div>
-      <p class="showcase-cap">Dasselbe Projekt auf Desktop und Handy.<br>
-      Demo&#8209;Projekt ROUTENWERK<br>
-      (ein fiktives Reisebüro als Anschauungsstück),<br>
-      von mir von Hand gebaut.<br>
-      Unten kannst du es live ausprobieren.</p>
     </div>
-    <div class="facts">
-      <div class="fact"><span class="n">98<small>/100</small></span><span class="l">Google PageSpeed</span><span class="s">Demo-Projekt Routenwerk, mobil gemessen</span></div>
-      <div class="fact"><span class="n">0</span><span class="l">Baukasten-Skripte</span><span class="s">kein Fremdcode, der deine Seite bremst</span></div>
-      <div class="fact"><span class="n">AA</span><span class="l">Kontrast-Niveau (WCAG)</span><span class="s">gerechnet, nicht geschätzt</span></div>
-      <div class="fact"><span class="n">100<small>%</small></span><span class="l">Dein Eigentum</span><span class="s">Seite und Domain gehören dir</span></div>
-    </div>
-    <!-- Nur Desktop (>=901px): Diagonale Collage ersetzt showcase+facts. Mobil bleibt beides sichtbar. -->
+    <!-- Nur Desktop (>=901px): Diagonale Collage. -->
     <div class="collage" aria-label="Demo-Projekt Routenwerk auf Desktop und Handy, nachgemessene Werte">
       <span class="collage-deko" aria-hidden="true">98</span>
       <div class="collage-browser">

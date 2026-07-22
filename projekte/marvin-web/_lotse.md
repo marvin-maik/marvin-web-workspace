@@ -60,6 +60,13 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-22: **angebot-LP Mobil-Beleg neu = „Handy zuerst"** (Marvins Wahl aus 3 Mobil-Varianten,
+  intern gerendert in `_varianten-mobile.html`: gestapelt / Geraete-Umschalter / Handy-first). Der
+  ueberlappende `.showcase` + die 4 Fakten-Kacheln sind auf Mobil RAUS, ersetzt durch `.beleg-mobil`:
+  grosses iPhone als Held + PageSpeed-Marke + 3-Zeilen-Liste (0/AA/100%). Kein Desktop-Bild auf Mobil
+  (Marvins Wunsch, spart Laenge). `.showcase*`-CSS entfernt (war nur hier genutzt; `.facts` bleibt fuer
+  projekt-routenwerk). styles.css v20->v21. Desktop-Collage unveraendert. Sweep 26 Breiten inkl. 899/900/
+  901: 0 Overflow; 320/375 + Desktop 1280 abgenommen. **Deploy dieser Runde offen.**
 - 2026-07-22: **Showcase-Caption-Umbruch (DEPLOYT edf38d9d)** — Marvins Wunsch: die Bildunterschrift
   neben dem Handy (mobil) soll an Satzgrenzen brechen statt ragged. Feste `<br>` je Nebensatz +
   geschuetzter Bindestrich in „Demo&#8209;Projekt". Reines HTML (kein ?v-Bump). Sweep 320-900px: 0
