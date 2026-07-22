@@ -20,6 +20,10 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (Favoriten D1/D2, warm+colla
   Team-Fotos vom Kunden besorgen (SVG-Wappen ist nur Platzhalter).
 - **Spekulations-Case-Schutz**: Vorschau IMMER mit noindex; keine Rechtstexte kopieren.
   Impressumsdaten nur als Platzhalter.
+- **Echtes Logo vorhanden (Marvin, 2026-07-22):** `freigabe/konzepte/siebert-logo.svg` (762x762,
+  ~205KB, Vollfarbe: rote Loewen #b42222, Krone, Brezel im Schild, "SIEBERT"). In D1b eingesetzt
+  (Header/Tueten-Block/CTA/Footer als <img>). Ersetzt die SVG-Nachempfindung. Fuer den Build:
+  auch nach `img/` + ggf. optimieren (SVGO), da 205KB und mehrfach referenziert.
 - **Bilder (Marvin, 2026-07-22): Die Fotos der Baeckerei kommen in die Vorschau.** Appetit ist
   Gestaltungsprinzip (Waerme, Geruch, Gefuehl). Vertretbar, weil der Pitch an die Rechteinhaberin
   selbst geht und die Vorschau bis zum Deal privat/noindex bleibt. NICHT oeffentlich bewerben.
@@ -69,6 +73,12 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (Favoriten D1/D2, warm+colla
   Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **D1b** (e2209e9) = D1 mit Marvins Wuenschen: echtes Wappen (siebert-logo.svg) statt
+  SVG-Nachempfindung, MEHR ROT (grosse rote Autoritaets-Zeile "Berlins *aelteste* Baeckerei" mit
+  feinem rotem Unterstrich als Qualitaetssignal ggue. anderen Baeckereien; "seit 1906" (Script +
+  Brot-Schild) rot; CTA-Telefonnummer rot), kleiner roter Hand-Pfeil von "frisch aus dem Ofen" zum
+  Brot. Zwei Hero-Fotos + Handschrift + Gold-Zahlenband bleiben. = aktueller Favorit. Offen:
+  D1b-Vollausbau vs. noch D2-Elemente einmischen (Gold-Fascia).
 - 2026-07-22: **2. Design-Feedback + Heritage-Recherche -> D-Runde.** Marvin: C3 hat Charme verloren;
   gewollt ist verspielt-aber-warm/ruhig, kreuz-und-quer-aber-stimmig (wie Brot voll im Regal),
   Ebenen mit Tiefe. WEG: falsche Klebestreifen (zu kuenstlich), dicke Streifen, laute rote Flaechen,
