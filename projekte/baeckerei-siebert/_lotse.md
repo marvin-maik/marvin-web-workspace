@@ -2,7 +2,7 @@
 
 Das Gehirn dieses Projekts. Nach jedem Meilenstein kurz mitziehen.
 
-Stand: 2026-07-22 · Phase: **Design-Richtung offen (Favoriten D1/D2, warm+collage nach Recherche)**
+Stand: 2026-07-22 · Phase: **BUILD v2 fertig (D1b "Warmes Regal"), QA laeuft**
 
 ## Was & wo
 - **Spekulations-Case / Kaltakquise**: unaufgefordert gebaute Vorschau fuer die Baeckerei & Konditorei
@@ -54,25 +54,30 @@ Stand: 2026-07-22 · Phase: **Design-Richtung offen (Favoriten D1/D2, warm+colla
 - [ ] Pitch-Material (Anschreiben/QR-Flow wie angebot-LP) erst NACH fertiger Vorschau
 
 ## Was ist JETZT relevant
-- **Marvin hat v1 ("Zeit-Haus") als zu generisch/AI-Slop kritisiert** (Weg des geringsten
-  Widerstands: Condensed-Caps + warmes Off-White + Sticky-Timeline = ausgetretener Premium-Pfad).
-  3 grundverschiedene Alternativen gebaut, warten auf Marvins Feedback:
-  `freigabe/konzepte/uebersicht.html` (Hub) -> A-chronik / B-ost-moderne / C-tuete.
-  A = Zeitungs-Broadsheet (Playfair/Source Serif, Spalten, s/w). B = Ost-Moderne Poster
-  (Archivo, Ziegelrot/Senf, Farbbloecke). C = Aus der Tuete (Fraunces, Kraftpapier, Stempel,
-  getapte Fotos). Jeweils nur Hero+Geschichte+Sortiment; Gewinner wird voll ausgebaut.
-  Konzept-Fonts in konzepte/fonts/ (nicht die Build-fonts/).
-- Danach: gewaehlte/gemischte Richtung ausbauen, QA-Fixes einarbeiten, Staging-Deploy, Pitch.
-- **QA v1 offen (a8f690bc-Bericht, gilt sinngemaess fuer die Gewinner-Richtung):**
-  BLOCKER Fokus-Outline-Selektor `.auf-deep :focus-visible` (Deszendent trifft nie ->
-  Gold-Fokus auf dunklen Flaechen fehlt, 1.24:1); WICHTIG `.tz span:last-child` schlaegt
-  `.tz .neu` (Publikumsliebling-Zeile grau statt gruen); scroll-padding-top fehlt (Sticky);
-  Schritt-Nr #C08A4E nur 2.70:1; Nav-Touch-Targets; Bilder gross (brotregal 490 KB, sortiment
-  ohne lazy); Zeiten-Tabellen ohne scope; freigabe/ + context-md beim Deploy exkludieren.
-- Vor Kunden-Launch LIVE pruefen: Google-Sterne, "Feinschmecker seit 2004", OePNV-Fussweg,
-  Ost-Schrippe-Naming, Fruehstuecks-Widerspruch, Foto-Freigabe + Bild von Anke Siebert.
+- **BUILD v2 steht** (Commit 2e484d1): alle 6 Seiten + Pflichtseiten im Design "Warmes Regal" (D1b),
+  echtes Wappen (img/siebert-logo.svg), Design-System in styles.css. Dev-Server: `python3 -m http.server`
+  im Projektordner (kein launch.json-Eintrag noetig). qa-polish + design-md laufen -> Befunde einarbeiten.
+- Danach: Marvins Sicht-Check, dann Staging-Deploy (Cloudflare Pages, noindex bleibt) + Pitch.
+- Vor Kunden-Launch offen: echte Rechtstexte, aktuelles Ladenfront-Foto, Preise-auf-Tafel (ja/nein),
+  Fruehstuecks-Widerspruch, Ost-Schrippe-Naming, Google-Sterne/Feinschmecker-Zahl live pruefen.
+- Design-Historie (v1 Zeit-Haus verworfen, Konzepte A/B/C, C1/C2/C3, D1/D2, Sieger D1b) steht im
+  Log unten + `freigabe/konzepte/uebersicht.html`. QA-v1-Befunde sind mit dem v2-Neubau groesstenteils
+  gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **BUILD v2 komplett** (2e484d1) im Design D1b "Warmes Regal". Marvin: D1b ist der
+  Gewinner, plus Feinschliffe (Strichlinie unter "aelteste" weg, doppeltes 1906 entschlackt,
+  2. Eyebrow raus) + echtes Wappen geliefert (siebert-logo.svg). Umgesetzt: canonical styles.css
+  + site.js als Design-System; Start-Seite als Referenz; die 5 Unterseiten per Workflow
+  (5 Build- + 5 Verify-Agenten, 0 Fehler) auf dem System neu gebaut; Pflichtseiten (404/impressum/
+  datenschutz) + OG-Bild + Favicon-Serie im neuen Look; alte v1-Fonts (League Gothic/Source Sans 3)
+  entfernt. Auszeichnungs-Zahl recherchiert: Feinschmecker 2x (2013/2017) belegt, keine "6x"-Zahl
+  erfindbar -> Zahlenband bleibt "2x DER FEINSCHMECKER", Goldene Brezel/Publikumsliebling auf
+  Geschichte-Seite. WICHTIGER FIX + neues Pattern: img-Attribute width/height hebeln CSS aspect-ratio
+  aus -> `img{height:auto}` global noetig (sonst Bilder in natuerlicher Hoehe statt Band/4:3).
+  Verifiziert im Browser: alle 6 Seiten 0 Overflow (Desktop+375), Zeitband-Scrolly mappt, Reveals
+  feuern, Count-up 1906/5/16/2, Status-Logik korrekt, je 1 h1, Nav-aria-current, keine Konsolenfehler,
+  Bild-Ratios korrekt. qa-polish + design-md delegiert.
 - 2026-07-22: **D1b** (e2209e9) = D1 mit Marvins Wuenschen: echtes Wappen (siebert-logo.svg) statt
   SVG-Nachempfindung, MEHR ROT (grosse rote Autoritaets-Zeile "Berlins *aelteste* Baeckerei" mit
   feinem rotem Unterstrich als Qualitaetssignal ggue. anderen Baeckereien; "seit 1906" (Script +
