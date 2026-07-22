@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- INTERNE Vergleichsseite (nie deployen): 5 Desktop-Varianten der Belege-Sektion.
+     Laedt styles.css nur fuer die Tokens/Basis; jede Variante hat eigenes gescoptes CSS. -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belege-Sektion — 5 Desktop-Varianten</title>
+<link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=20">
+<style>
+  body{background:var(--paper)}
+  .v-kopf{max-width:var(--wrap);margin:0 auto;padding:64px 28px 0;display:flex;gap:24px;align-items:baseline}
+  .v-num{font-family:var(--disp);font-weight:700;font-size:clamp(40px,5vw,72px);color:transparent;-webkit-text-stroke:1.5px var(--signal);line-height:1;flex-shrink:0}
+  .v-kopf h2{font-family:var(--disp);font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:-.01em}
+  .v-kopf p{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:6px;line-height:1.5;max-width:640px}
+  .v-buehne{padding:40px 0 72px;border-bottom:1px dashed var(--line)}
+  .v-buehne .wrap{padding-top:8px}
+  /* Facts-Overrides fuer die Vorschau: kein Reveal-Cover (das braucht site.js) */
+  .fact.rv{opacity:1;transform:none}
+
+  /* ============ V1 PRUEFPROTOKOLL ============ */
+  .pruef{border:1.5px solid var(--ink);background:var(--white);box-shadow:8px 8px 0 var(--paper-deep)}
+  .pruef-head{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:13px 22px}
+  .pruef-head b{color:var(--signal-tint);font-weight:500}
+  .pruef-body{display:grid;grid-template-columns:1fr 300px}
+  .pruef-tab{border-right:1.5px solid var(--ink)}
+  .pruef-zeile{display:grid;grid-template-columns:1fr auto 150px;align-items:center;gap:20px;padding:22px 26px;border-bottom:1px dashed var(--line)}
+  .pruef-zeile:last-child{border-bottom:none}
+  .pruef-zeile .mg{font-size:15.5px;font-weight:600}
+  .pruef-zeile .wert{font-family:var(--disp);font-weight:700;font-size:38px;line-height:1;color:var(--signal-deep);text-align:right;letter-spacing:-.02em}
+  .pruef-zeile .wert span{font-family:var(--mono);font-size:13px;color:var(--muted);font-weight:400}
+  .pruef-zeile .meth{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .pruef-obj{display:flex;flex-direction:column;justify-content:center;padding:26px;margin:0}
+  .pruef-obj img{width:100%;height:auto;border:1.5px solid var(--ink);display:block}
+  .pruef-obj figcaption{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-deep);margin-top:14px}
+  .pruef-obj .btn{margin-top:16px;text-align:center;font-size:14px;padding:12px 20px}
+
+  /* ============ V2 ZAHLENWAND ============ */
+  .wand{display:grid;grid-template-columns:1.05fr .95fr;gap:0;border:1.5px solid var(--ink);background:var(--white)}
+  .wand-links{padding:44px 40px;display:flex;flex-direction:column;border-right:1.5px solid var(--ink)}
+  .wand-haupt{line-height:.82}
+  .wand-haupt .gr{font-family:var(--disp);font-weight:700;font-size:clamp(120px,15vw,210px);letter-spacing:-.04em;color:var(--signal)}
+  .wand-haupt .von{font-family:var(--disp);font-weight:600;font-size:40px;color:var(--ink);margin-left:6px}
+  .wand-haupt .lbl{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:18px}
+  .wand-neben{margin-top:auto;padding-top:32px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:0}
+  .wand-neben .wz{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .wand-neben .wz:last-child{border-bottom:none}
+  .wand-neben .wz b{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--signal-deep);min-width:70px}
+  .wand-neben .wz span{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .wand-bild{margin:0;position:relative;overflow:hidden;background:var(--paper-deep)}
+  .wand-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top}
+
+  /* ============ V3 DIAGONALE COLLAGE ============ */
+  .collage{position:relative;padding:30px 0 40px;min-height:520px}
+  .collage-deko{position:absolute;top:-30px;left:-10px;font-family:var(--disp);font-weight:700;font-size:340px;line-height:.7;color:transparent;-webkit-text-stroke:2px var(--signal);opacity:.5;z-index:0;pointer-events:none;letter-spacing:-.04em}
+  .collage-browser{position:relative;z-index:1;width:64%;margin-left:auto;border:1.5px solid var(--ink);background:var(--white);box-shadow:14px 14px 0 var(--paper-deep);transform:rotate(-1.4deg)}
+  .collage-bar{display:flex;gap:6px;padding:11px 16px;border-bottom:1.5px solid var(--ink)}
+  .collage-bar i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%}
+  .collage-bar i:first-child{background:var(--signal)}
+  .collage-browser>img{display:block;width:100%;height:auto}
+  .collage-phone{position:absolute;left:2%;bottom:34px;width:190px;z-index:2;filter:drop-shadow(0 12px 24px rgba(22,20,18,.28));transform:rotate(2deg)}
+  .collage-phone img{width:100%;height:auto;display:block}
+  .collage-tags{position:absolute;left:20%;top:20px;z-index:3;display:flex;flex-direction:column;gap:10px}
+  .collage-tags span{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.08em;padding:9px 15px;align-self:flex-start}
+  .collage-tags span b{color:var(--signal-tint);font-weight:500}
+
+  /* ============ V4 MESSGERAET ============ */
+  .messung{border:1.5px solid var(--ink);background:var(--white);padding:40px 40px 34px;display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:center}
+  .mess-kopf{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px}
+  .mess-kopf .mnum{font-family:var(--disp);font-weight:700;font-size:64px;line-height:.9;color:var(--signal);letter-spacing:-.03em}
+  .mess-kopf .mnum small{font-family:var(--mono);font-size:16px;color:var(--muted);font-weight:400}
+  .mess-track{position:relative;height:26px;background:
+      repeating-linear-gradient(90deg,var(--muted) 0 1px,transparent 1px 10%) left/100% 8px no-repeat,
+      var(--paper-deep);border:1.5px solid var(--ink)}
+  .mess-fill{position:absolute;left:0;top:0;bottom:0;width:98%;background:var(--signal)}
+  .mess-skala{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+  .mess-mini{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .mess-mini div{background:var(--white);padding:16px 18px}
+  .mess-mini b{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--signal-deep)}
+  .mess-mini span{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .mess-bild{margin:0}
+  .mess-bild img{width:100%;height:auto;border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--paper-deep);display:block}
+  .mess-bild figcaption{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+
+  /* ============ V5 DUNKLE GALERIE ============ */
+  .galerie{background:var(--ink);color:var(--paper);padding:60px;display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;position:relative}
+  .galerie::before{content:"";position:absolute;inset:0;background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 40px);pointer-events:none}
+  .gal-text{position:relative;z-index:1}
+  .gal-text .tag{color:var(--paper)}
+  .gal-text h3{font-family:var(--disp);font-weight:700;font-size:34px;line-height:1.02;margin:14px 0 26px;text-transform:uppercase;letter-spacing:-.01em}
+  .gal-text .gliste{list-style:none}
+  .gal-text .gliste li{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px dashed var(--dark-line);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--dark-body)}
+  .gal-text .gliste li b{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--signal-tint);min-width:64px;text-transform:none;letter-spacing:0}
+  .gal-bild{margin:0;position:relative;z-index:1}
+  .gal-bild .gframe{border:1.5px solid var(--dark-line);box-shadow:0 24px 50px rgba(0,0,0,.4)}
+  .gal-bild .gbar{display:flex;gap:6px;padding:11px 16px;border-bottom:1.5px solid var(--dark-line);background:#211e1a}
+  .gal-bild .gbar i{width:9px;height:9px;border-radius:50%;background:var(--dark-line)}
+  .gal-bild .gbar i:first-child{background:var(--signal)}
+  .gal-bild .gframe>img{display:block;width:100%;height:auto}
+  .gal-bild figcaption{font-family:var(--mono);font-size:11.5px;color:var(--dark-muted);margin-top:16px;letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<div class="v-kopf" style="padding-top:48px">
+  <div>
+    <h2 style="font-size:22px">Belege-Sektion · 5 Desktop-Varianten</h2>
+    <p>Nur Desktop. Mobil bleibt beim aktuellen Showcase. Assets: echter Routenwerk-Screenshot + Werte aus dem Gespräch. Such dir eine Nummer aus, dann baue ich genau die in angebot.html ein.</p>
+  </div>
+</div>
+
+<!-- V1 -->
+<div class="v-kopf"><span class="v-num">01</span><div><h2>Prüfprotokoll</h2><p>Nüchternes Mess-Datenblatt. Der Screenshot ist nur noch das kleine „Prüfobjekt“ rechts, die Werte stehen als Laborzeilen. Am weitesten weg vom Browserfenster, sehr „Betrieb statt Agentur“.</p></div></div>
+<div class="v-buehne"><div class="wrap">
+  <div class="pruef">
+    <div class="pruef-head"><span>Prüfprotokoll № 002</span><b>Objekt: routenwerk.pages.dev</b></div>
+    <div class="pruef-body">
+      <div class="pruef-tab">
+        <div class="pruef-zeile"><span class="mg">Ladezeit (Google PageSpeed)</span><span class="wert">98<span>/100</span></span><span class="meth">mobil gemessen</span></div>
+        <div class="pruef-zeile"><span class="mg">Baukasten-Skripte</span><span class="wert">0</span><span class="meth">kein Fremdcode</span></div>
+        <div class="pruef-zeile"><span class="mg">Kontrast-Niveau</span><span class="wert">AA</span><span class="meth">WCAG, gerechnet</span></div>
+        <div class="pruef-zeile"><span class="mg">Eigentum</span><span class="wert">100<span>%</span></span><span class="meth">Seite + Domain</span></div>
+      </div>
+      <figure class="pruef-obj">
+        <img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559">
+        <figcaption>Prüfobjekt · Anschauungsstück</figcaption>
+        <a href="#" class="btn btn-primary">Live-Demo öffnen</a>
+      </figure>
+    </div>
+  </div>
+</div></div>
+
+<!-- V2 -->
+<div class="v-kopf"><span class="v-num">02</span><div><h2>Zahlenwand</h2><p>Die 98 wird zum Plakat. Editorial-Typo dominiert links, die anderen drei Werte darunter, der Screenshot füllt randbündig die rechte Hälfte. Selbstbewusst, wenig Erklärung.</p></div></div>
+<div class="v-buehne"><div class="wrap">
+  <div class="wand">
+    <div class="wand-links">
+      <div class="wand-haupt"><span class="gr">98</span><span class="von">/100</span><span class="lbl">Google PageSpeed · mobil gemessen</span></div>
+      <div class="wand-neben">
+        <div class="wz"><b>0</b><span>Baukasten-Skripte</span></div>
+        <div class="wz"><b>AA</b><span>Kontrast-Niveau, WCAG</span></div>
+        <div class="wz"><b>100%</b><span>Dein Eigentum</span></div>
+      </div>
+    </div>
+    <figure class="wand-bild"><img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559"></figure>
+  </div>
+</div></div>
+
+<!-- V3 -->
+<div class="v-kopf"><span class="v-num">03</span><div><h2>Diagonale Collage</h2><p>Überlappende Ebenen: leicht gekipptes Browserfenster, davor das Handy, eine riesige Outline-98 dahinter, Mono-Marker davor. Bewusst gewagt und dynamisch, der einzige leichte Bruch mit der strengen Orthogonale.</p></div></div>
+<div class="v-buehne"><div class="wrap">
+  <div class="collage">
+    <span class="collage-deko" aria-hidden="true">98</span>
+    <div class="collage-browser">
+      <div class="collage-bar"><i></i><i></i><i></i></div>
+      <img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559">
+    </div>
+    <div class="collage-phone">
+      <picture><source srcset="img/showcase-phone-mockup.avif" type="image/avif"><img src="img/showcase-phone-mockup.png" alt="" width="620" height="1207"></picture>
+    </div>
+    <div class="collage-tags">
+      <span><b>0</b> Baukasten-Skripte</span>
+      <span><b>AA</b> Kontrast WCAG</span>
+      <span><b>100%</b> dein Eigentum</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- V4 -->
+<div class="v-kopf"><span class="v-num">04</span><div><h2>Messgerät</h2><p>Das Messen selbst wird zum Motiv. Ein Massband-Balken füllt sich bis 98, darunter drei kleinere Messwerte, rechts der Screenshot als Beleg. Greift die Signature-Linie der Seite auf.</p></div></div>
+<div class="v-buehne"><div class="wrap">
+  <div class="messung">
+    <div class="mess-haupt">
+      <div class="mess-kopf"><span class="tag">Google PageSpeed</span><span class="mnum">98<small> /100</small></span></div>
+      <div class="mess-track"><span class="mess-fill"></span></div>
+      <div class="mess-skala"><span>0</span><span>50</span><span>90</span><span>100</span></div>
+      <div class="mess-mini">
+        <div><b>0</b><span>Baukasten-Skripte</span></div>
+        <div><b>AA</b><span>Kontrast WCAG</span></div>
+        <div><b>100%</b><span>Dein Eigentum</span></div>
+      </div>
+    </div>
+    <figure class="mess-bild">
+      <img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559">
+      <figcaption>Demo-Projekt Routenwerk, live nachprüfbar.</figcaption>
+    </figure>
+  </div>
+</div></div>
+
+<!-- V5 -->
+<div class="v-kopf"><span class="v-num">05</span><div><h2>Dunkle Galerie</h2><p>Full-Bleed-Tinte: das Projekt leuchtet auf dunklem Grund wie ein Ausstellungsstück. Werte als helle Mono-Liste links, gerahmter Screenshot rechts. Nutzt den Hell-Dunkel-Takt der Seite als Bühne.</p></div></div>
+<div class="v-buehne" style="padding-bottom:40px"><div class="galerie">
+  <div class="gal-text">
+    <span class="tag">Die Arbeitsprobe</span>
+    <h3>Routenwerk, live nachprüfbar.</h3>
+    <ul class="gliste">
+      <li><b>98</b> Google PageSpeed, mobil</li>
+      <li><b>0</b> Baukasten-Skripte</li>
+      <li><b>AA</b> Kontrast-Niveau, WCAG</li>
+      <li><b>100%</b> Seite und Domain: deins</li>
+    </ul>
+  </div>
+  <figure class="gal-bild">
+    <div class="gframe">
+      <div class="gbar"><i></i><i></i><i></i></div>
+      <img src="img/demo-routenwerk.jpg" alt="" width="1040" height="559">
+    </div>
+    <figcaption>Demo-Projekt ROUTENWERK · von Hand gebaut · routenwerk.pages.dev</figcaption>
+  </figure>
+</div></div>
+
+</body>
+</html>

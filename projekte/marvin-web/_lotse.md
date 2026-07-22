@@ -60,6 +60,15 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-22: **angebot-LP Desktop-Beleg = Diagonale Collage** (Marvins Wahl aus 5 Varianten, die ich
+  in `_varianten-desktop.html` intern gerendert habe: Pruefprotokoll/Zahlenwand/Collage/Messgeraet/
+  dunkle Galerie). Collage `#belege .collage` NUR ab 901px, ersetzt showcase+facts; mobil komplett
+  unveraendert (showcase+facts). Gekipptes Fenster + iPhone davor + Riesen-Outline-98 + 4 Mono-Beleg-
+  Chips. Bewusster leichter Bruch mit der Orthogonale, von Marvin abgesegnet. styles.css v19->v20
+  (Collage-Regeln alle `#belege`-gescopt, da .showcase/.facts auch anderswo). Sweep 30 Breiten inkl.
+  Umschaltgrenze 899/900/901: 0 Overflow; mobil 375 + Desktop 1280 abgenommen. `_varianten-desktop.html`
+  bleibt als internes Muster liegen (die 4 nicht gewaehlten Richtungen koennten spaeter auf projekte/
+  pakete wandern). **Deploy offen.**
 - 2026-07-22: **angebot-LP: Projekt-Blick v2 = LP-Showcase portiert** (Marvins Review: einzelnes
   Handy neben den Facts "sieht verloren aus", Wunsch: auf grossen Screens Desktop mit zeigen).
   `.showcase*`-Bauteil 1:1 aus der LP-Kollektion uebernommen (Browserfenster mit Desktop-Screenshot

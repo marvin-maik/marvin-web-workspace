@@ -21,7 +21,7 @@
 <meta name="theme-color" content="#161412">
 <link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=20">
 <link rel="icon" type="image/svg+xml" href="/img/zeichen.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -110,6 +110,26 @@
       <div class="fact"><span class="n">0</span><span class="l">Baukasten-Skripte</span><span class="s">kein Fremdcode, der deine Seite bremst</span></div>
       <div class="fact"><span class="n">AA</span><span class="l">Kontrast-Niveau (WCAG)</span><span class="s">gerechnet, nicht geschätzt</span></div>
       <div class="fact"><span class="n">100<small>%</small></span><span class="l">Dein Eigentum</span><span class="s">Seite und Domain gehören dir</span></div>
+    </div>
+    <!-- Nur Desktop (>=901px): Diagonale Collage ersetzt showcase+facts. Mobil bleibt beides sichtbar. -->
+    <div class="collage" aria-label="Demo-Projekt Routenwerk auf Desktop und Handy, nachgemessene Werte">
+      <span class="collage-deko" aria-hidden="true">98</span>
+      <div class="collage-browser">
+        <div class="collage-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="img/demo-routenwerk.jpg" alt="Desktop-Ansicht des Demo-Projekts Routenwerk: dunkles Bergfoto mit großer Headline" loading="lazy" width="1040" height="559">
+      </div>
+      <div class="collage-phone" aria-hidden="true">
+        <picture>
+          <source srcset="img/showcase-phone-mockup.avif" type="image/avif">
+          <img src="img/showcase-phone-mockup.png" alt="" loading="lazy" width="620" height="1207">
+        </picture>
+      </div>
+      <div class="collage-tags">
+        <span><b>98<small>/100</small></b> Google PageSpeed</span>
+        <span><b>0</b> Baukasten-Skripte</span>
+        <span><b>AA</b> Kontrast, WCAG</span>
+        <span><b>100%</b> Dein Eigentum</span>
+      </div>
     </div>
     <div class="case-ctas">
       <a href="https://routenwerk.pages.dev" class="btn btn-primary" target="_blank" rel="noopener">Live-Demo öffnen</a>

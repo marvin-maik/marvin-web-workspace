@@ -452,6 +452,37 @@ summary:hover{color:var(--signal-deep)}
   .showcase-url{padding:4px 9px;font-size:11px}
 }
 
+/* Diagonale Collage (angebot Belege) — NUR Desktop (>=901px). Mobil bleibt showcase+facts.
+   Alles unter #belege gescopt: .showcase/.facts existieren auch auf anderen Seiten. */
+#belege .collage{display:none}
+@media(min-width:901px){
+  #belege .showcase,#belege .facts{display:none}
+  #belege .collage{display:block;position:relative;margin-top:56px;min-height:480px}
+  /* Riesen-Outline-Ziffer als Grafik hinter allem (grosse Typo -> --signal erlaubt) */
+  #belege .collage-deko{position:absolute;top:-46px;left:-8px;z-index:0;pointer-events:none;
+    font-family:var(--disp);font-weight:700;font-size:clamp(240px,26vw,360px);line-height:.7;
+    letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px var(--signal);opacity:.5}
+  /* Browserfenster rechts, leicht gekippt, harter Offset-Schatten */
+  #belege .collage-browser{position:relative;z-index:1;width:64%;margin-left:auto;
+    border:1.5px solid var(--ink);background:var(--white);box-shadow:14px 14px 0 var(--paper-deep);
+    transform:rotate(-1.4deg)}
+  #belege .collage-bar{display:flex;gap:6px;padding:11px 16px;border-bottom:1.5px solid var(--ink)}
+  #belege .collage-bar i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%}
+  #belege .collage-bar i:first-child{background:var(--signal)}
+  #belege .collage-browser>img{display:block;width:100%;height:auto}
+  /* Handy davor, unten links, leicht gegengekippt (freigestelltes Foto -> drop-shadow ok) */
+  #belege .collage-phone{position:absolute;left:2%;bottom:30px;width:min(190px,15vw);z-index:2;
+    filter:drop-shadow(0 12px 24px rgba(22,20,18,.28));transform:rotate(2deg)}
+  #belege .collage-phone img{display:block;width:100%;height:auto}
+  /* Mono-Marker als Beleg-Chips, gestapelt links oben ueber der Ziffer */
+  #belege .collage-tags{position:absolute;left:17%;top:6px;z-index:3;display:flex;flex-direction:column;
+    gap:10px;align-items:flex-start;max-width:60%}
+  #belege .collage-tags span{background:var(--ink);color:var(--paper);font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.06em;padding:9px 15px;white-space:nowrap}
+  #belege .collage-tags b{color:var(--signal-tint);font-weight:600;margin-right:7px}
+  #belege .collage-tags b small{font-size:10px;font-weight:400}
+}
+
 /* CTA-Zeile unter Case-Bloecken */
 .case-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
 /* Unter dem zentrierten Live-Fenster: Buttons + Trust-Zeile auf der Fenster-Achse
