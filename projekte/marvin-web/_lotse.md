@@ -60,6 +60,13 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-22: **angebot-LP: Projekt-Blick v2 = LP-Showcase portiert** (Marvins Review: einzelnes
+  Handy neben den Facts "sieht verloren aus", Wunsch: auf grossen Screens Desktop mit zeigen).
+  `.showcase*`-Bauteil 1:1 aus der LP-Kollektion uebernommen (Browserfenster mit Desktop-Screenshot
+  `img/demo-routenwerk.jpg` neu kopiert + ueberlappendes iPhone), Facts wieder volle Breite,
+  `.belege-grid`/`.projekt-blick` (v18) restlos entfernt. styles.css v18->v19, ?v ueberall.
+  Sweep 32 Breiten 320-2560: 0 Overflow; mobil 375 + Desktop 1280 per Screenshot abgenommen.
+  **Deploy offen.**
 - 2026-07-21: **angebot-LP: Projekt-Blick eingebaut** (Marvin: "beim Ueberfliegen soll klar sein,
   dass hier ein Projekt zu entdecken ist"). Freigestelltes iPhone-Mockup mit Routenwerk-Screenshot
   (`img/showcase-phone-mockup.{avif,png}`, aus der LP-Kollektion kopiert, AVIF 49KB) in der

@@ -423,20 +423,33 @@ summary:hover{color:var(--signal-deep)}
   .fact{display:grid;grid-template-rows:subgrid;grid-row:span 3;align-content:start}
 }
 
-/* Belege-Sektion (angebot): Eckdaten + Projekt-Blick. Mobil untereinander (Facts stapeln
-   wie gewohnt, Handy-Mockup zentriert darunter), ab 901px nebeneinander mit 2x2-Facts. */
-.belege-grid{margin-top:56px}
-.belege-grid .facts{margin-top:0}
-.projekt-blick{margin:44px 0 0;text-align:center}
-.projekt-blick a{display:inline-block}
-.projekt-blick a:focus-visible{outline:3px solid var(--signal);outline-offset:6px}
-.projekt-blick img{width:min(240px,68vw);height:auto;filter:drop-shadow(12px 16px 26px rgba(22,20,18,.3));transition:transform .25s ease}
-.projekt-blick a:hover img{transform:translateY(-4px)}
-.projekt-blick figcaption{font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--muted);margin:16px auto 0;max-width:280px}
-@media(min-width:901px){
-  .belege-grid{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:center}
-  .belege-grid .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .projekt-blick{margin-top:0}
+/* Geraete-Showcase (angebot, portiert aus der LP-Kollektion): Desktop-Browserrahmen + Handy
+   davor (statisch, kein iframe). Zeigt Desktop- UND Mobil-Ansicht des Demo-Projekts. */
+.showcase{position:relative;margin:56px 0 0;max-width:900px}
+.showcase-browser{border:1.5px solid var(--ink);background:var(--white);box-shadow:8px 8px 0 var(--paper-deep)}
+.showcase-bar{display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--ink);padding:11px 16px}
+.showcase-dots{display:flex;gap:6px;flex-shrink:0}
+.showcase-dots i{width:10px;height:10px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper)}
+.showcase-dots i:first-child{background:var(--signal)}
+.showcase-url{flex:1;min-width:0;border:1px solid var(--line);padding:6px 12px;background:var(--paper);color:var(--ink-soft);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.showcase-browser>img{display:block;width:100%;height:auto}
+/* Handy davor, unten rechts ueberlappend. Freigestelltes Foto-Mockup (transparentes AVIF/PNG),
+   bringt Geraeterahmen selbst mit -> keine border/radius/background/shadow mehr. */
+.showcase-phone{position:absolute;right:-14px;bottom:-42px;width:184px;line-height:0;
+  filter:drop-shadow(0 10px 20px rgba(22,20,18,.22))}
+.showcase-phone img{display:block;width:100%;height:auto}
+.showcase-cap{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:36px;line-height:1.6;max-width:640px}
+/* Ab hier ragt das ueberlappende Handy in die Bildunterschrift: Text-Spalte rechts freihalten,
+   damit keine Zeile hinter dem Geraet verschwindet */
+@media(max-width:860px){.showcase-cap{max-width:none;padding-right:176px}}
+@media(max-width:560px){
+  .showcase-phone{width:140px;right:-10px;bottom:-26px}
+  .showcase-cap{margin-top:28px;padding-right:132px}
+  /* Browser-Leiste eine Stufe kleiner: auf schmalen Screens soll der Screenshot dominieren, nicht das Chrome */
+  .showcase-bar{gap:10px;padding:7px 10px}
+  .showcase-dots{gap:5px}
+  .showcase-dots i{width:8px;height:8px}
+  .showcase-url{padding:4px 9px;font-size:11px}
 }
 
 /* CTA-Zeile unter Case-Bloecken */
