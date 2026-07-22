@@ -23,7 +23,8 @@ Stand: 2026-07-22 · Phase: **Design-Richtung (Brief fertig, wartet auf Marvins 
   nie kapern; sticky + IntersectionObserver stattdessen).
 
 ## Offene Punkte
-- [ ] **Marvin: Design-Richtung freigeben** (`freigabe/design-richtung.md`: Tokens, Signature, Sektionsplan)
+- [ ] **Marvin: Design-Richtung freigeben** (`freigabe/design-richtung.md` + `freigabe/storyboard.html`)
+- [ ] design-scout-Dossier (laeuft) in design-richtung.md Abschnitt Referenzen einarbeiten
 - [ ] Marvin: Bild-Strategie fuer die Vorschau entscheiden (Platzhalter/eigene Fotos vs. Alt-Site-Fotos
   nur im privaten Pitch zeigen — Rechte!)
 - [ ] Danach: Skill `struktur-wireframe` (Freigabe-Dokument + Lo-Fi-Wireframe), dann Build
@@ -35,6 +36,13 @@ Stand: 2026-07-22 · Phase: **Design-Richtung (Brief fertig, wartet auf Marvins 
 - Warten auf Marvins Freigabe der Design-Richtung. Bis dahin NICHT bauen.
 
 ## Log (Neuestes oben)
+- 2026-07-22: **Scroll-Storyboard gebaut + verifiziert** (`freigabe/storyboard.html`): 9 Szenen mit
+  Animations-Spezifikation und echten Vanilla-Mini-Demos (Fade-up, Count-up, Sticky-Zeitband,
+  Slide-in, Zoom-out-Reveal, Marquee). Funktional geprueft per JS (Zeitband: alle 5 Stationen
+  mappen korrekt, Punkte klickbar mit aria-current; 375px ohne Overflow-X, Buehne stapelt) +
+  Chrome-headless-Vollrender. MERKE Pane-Macke bestaetigt: file://-Renders im Preview-Pane sind
+  statische Snapshots, nach Scroll kein Repaint + rAF eingefroren -> Sicht-Checks per Chrome
+  headless machen (wie hier), nicht im Pane jagen. design-scout fuer Zusatz-Inspiration laeuft.
 - 2026-07-22: Projekt angelegt. Brief via brief-builder aus Live-Crawl der Alt-Site (alle Unterseiten).
   Framer-Templates Luna Rossa + Bakeat im Browser ausgelesen (DOM-Analyse der Animationsmechanik,
   Sektionsaufbau, Typo/Farben) -> `freigabe/design-richtung.md`. Wartet auf: Design-Freigabe Marvin.
