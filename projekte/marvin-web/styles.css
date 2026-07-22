@@ -427,9 +427,11 @@ summary:hover{color:var(--signal-deep)}
    PageSpeed-Marke, restliche Werte als kompakte Liste. Kein Desktop-Bild (spart Laenge). */
 .beleg-mobil{margin-top:44px}
 .bm-hero{position:relative;text-align:center}
-.bm-phone{position:relative;width:min(200px,58%);margin:0 auto;line-height:0;
-  filter:drop-shadow(0 14px 26px rgba(22,20,18,.3))}
-.bm-phone img{display:block;width:100%;height:auto}
+.bm-phone{position:relative;width:min(200px,58%);margin:0 auto;line-height:0}
+/* Schatten DIREKT aufs Bild (folgt der freigestellten Silhouette). NICHT auf die .bm-phone-Figur:
+   die traegt die absolut positionierte .bm-badge, und iOS Safari rendert filter+abs-Kind auf einem
+   Container als Rechteck-Kasten statt der Handy-Form (Marvins iPhone-Fund 2026-07-22). */
+.bm-phone img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 26px rgba(22,20,18,.3))}
 /* Marke haengt an der oberen rechten Ecke des Handys (an der Figur verankert, nicht am Hero) */
 .bm-badge{position:absolute;top:14px;right:-18px;background:var(--ink);color:var(--paper);
   font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-align:left;padding:9px 13px;line-height:1.15}
