@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Konzept D1b · Warmes Regal, mehr Rot + echtes Logo · Bäckerei Siebert</title>
+<style>
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-900.woff2') format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-600italic.woff2') format('woff2');font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:'Caveat';src:url('fonts/caveat-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Caveat';src:url('fonts/caveat-700.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Pinyon';src:url('fonts/pinyon.woff2') format('woff2');font-weight:400;font-display:swap}
+:root{
+  --oat:#EADFC9; --paper:#FBF6EB; --white:#fff;
+  --crust:#A9752F; --crust-d:#6B4A28; --crumb:#43301D;
+  --ink:#33271A; --ink2:#786246;
+  --red:#B4241C; --gold:#B98F3A; --gold-l:#D8AE52; --line:#D9C7A3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{color:var(--ink);font:400 18px/1.62 'Fraunces',Georgia,serif;overflow-x:clip;
+  background-color:var(--oat);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%}
+.wrap{max-width:1090px;margin:0 auto;padding:0 24px}
+.script{font-family:'Pinyon',cursive;font-weight:400;line-height:.85}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+.mono{font:600 11px/1.4 ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.18em;text-transform:uppercase}
+.hinweis{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.crest{width:100%;height:auto;display:block}
+.logo{display:block;height:auto}
+.marke .logo{width:54px}
+.tuete .logo{width:158px;margin:0 auto 8px}
+.cta .logo{width:64px;margin:20px auto 2px}
+footer .logo{width:60px;margin-bottom:8px}
+/* Grosse Autoritaets-Zeile "Berlins aelteste Baeckerei" */
+.alt-banner{font-weight:900;font-size:clamp(22px,3.3vw,34px);line-height:1.02;letter-spacing:-.01em;color:var(--red);margin-bottom:4px}
+.alt-banner .xx{font-style:italic;position:relative;white-space:nowrap}
+.alt-banner .xx::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:6px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 6px)}
+.ort{font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
+/* Pfeil-Callout zum Brot */
+.collage .c-pfeil{position:absolute;right:20%;bottom:6%;width:66px;z-index:3;color:var(--red);transform:rotate(4deg)}
+
+/* feiner roter Nadelstreifen (Schürzen-Bordüre) */
+.nadel{height:5px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px)}
+
+/* Foto, aufgelegt (Schatten + leichte Drehung, KEIN Klebeband) */
+.bild{background:var(--white);padding:9px 9px 11px;border-radius:2px;box-shadow:0 14px 30px rgba(50,35,20,.22),0 3px 8px rgba(50,35,20,.12)}
+.bild img{width:100%;display:block;border-radius:1px}
+.bild figcaption{font-family:'Caveat',cursive;font-weight:600;font-size:16px;color:var(--ink2);text-align:center;padding-top:6px}
+
+/* Kopf */
+header .wrap{display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;padding:16px 24px 14px}
+.marke{display:flex;align-items:center;gap:13px;text-decoration:none}
+.marke .crest{width:48px}
+.marke .txt b{display:block;font-weight:900;font-size:24px;letter-spacing:.02em;line-height:.92;color:var(--crust-d)}
+.marke .txt small{font-family:'Caveat',cursive;font-weight:600;font-size:16px;color:var(--ink2)}
+nav{display:flex;gap:4px 20px;flex-wrap:wrap;margin-left:auto}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:16px;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:var(--red)}
+
+/* Hero: kleine Collage */
+.hero{padding:40px 0 46px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:44px}}
+.hero .kicker{color:var(--red);font-weight:600;letter-spacing:.02em;margin-bottom:10px}
+.hero h1{font-weight:900;font-size:clamp(40px,6.4vw,72px);line-height:.98;letter-spacing:-.01em}
+.hero h1 .s{font-family:'Pinyon',cursive;font-weight:400;color:var(--red);font-size:1.2em;display:inline-block;line-height:.62}
+.hero p.lead{font-size:19px;margin-top:16px;color:var(--ink2);max-width:34ch}
+.hero .kauf{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;font-weight:600;font-size:16px;text-decoration:none;padding:13px 24px;border-radius:3px}
+.btn.fill{background:var(--crust-d);color:var(--paper)}
+.btn.fill:hover{background:var(--crumb)}
+.btn.line{border:2px solid var(--ink);color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--oat)}
+/* Collage */
+.collage{position:relative;min-height:380px}
+.collage .c-haupt{position:relative;width:76%;margin-left:auto;transform:rotate(2deg);z-index:1}
+.collage .c-klein{position:absolute;left:0;bottom:2%;width:44%;transform:rotate(-5deg);z-index:2}
+.collage .c-tag{position:absolute;right:2%;top:-4%;z-index:3;background:var(--red);color:#F7EFDE;font-family:'Pinyon',cursive;font-size:30px;line-height:.8;padding:12px 16px 14px;border-radius:2px;box-shadow:0 8px 18px rgba(50,35,20,.25);transform:rotate(5deg)}
+.collage .c-notiz{position:absolute;right:4%;bottom:-4%;z-index:3;font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:var(--crust-d);transform:rotate(-3deg)}
+@media(max-width:860px){.collage{min-height:340px}.collage .c-haupt{width:72%}.collage .c-klein{width:46%}}
+
+/* Zahlen (Gold, warm) */
+.zahlen{background:var(--crumb);color:var(--paper);padding:26px 0}
+.zahlen .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 12px;text-align:center}
+@media(max-width:640px){.zahlen .wrap{grid-template-columns:repeat(2,1fr)}}
+.zahlen b{display:block;font-weight:900;font-size:clamp(34px,4.6vw,54px);line-height:1;color:var(--gold-l)}
+.zahlen small{display:block;margin-top:7px;font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.11em;text-transform:uppercase;color:#D9C7A3}
+
+/* Tüten-Aufdruck (weisse Tüte) */
+.tuete{padding:54px 0 46px}
+.tuete .blatt{background:var(--white);border-radius:3px;max-width:600px;margin:0 auto;padding:36px 34px 32px;text-align:center;box-shadow:0 16px 36px rgba(50,35,20,.16);transform:rotate(-1deg);position:relative}
+.tuete .blatt::before{content:"";position:absolute;left:14px;right:14px;top:14px;bottom:14px;border:1px solid var(--line);border-radius:2px;pointer-events:none}
+.tuete .crest{width:84px;margin:0 auto 6px}
+.tuete .wort{font-weight:900;font-size:clamp(38px,6.2vw,58px);color:var(--red);letter-spacing:.05em;line-height:1}
+.tuete .fuer{font-family:'Caveat',cursive;font-weight:600;font-size:23px;color:var(--ink2);margin:0 0 16px}
+.tuete .liste{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:12px 0;display:grid;gap:6px}
+.tuete .liste p{font-weight:600;font-size:15.5px}
+.tuete .best{color:var(--crust-d);font-weight:600;margin-top:6px}
+
+/* Chronik: aufgelegte Zettel, ueberlappend */
+.chronik{padding:6px 0 58px}
+.chronik h2{font-weight:900;font-size:clamp(30px,5vw,50px);text-align:center;margin-bottom:2px}
+.chronik .sub{text-align:center;font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:var(--red);margin-bottom:38px}
+.zettel{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 0}
+.z{background:var(--paper);border-radius:2px;padding:18px 18px 20px;width:210px;margin:0 -8px;box-shadow:0 12px 26px rgba(50,35,20,.16);position:relative}
+.z:nth-child(1){transform:rotate(-3deg)}.z:nth-child(2){transform:rotate(1.5deg);z-index:2}
+.z:nth-child(3){transform:rotate(-1deg);z-index:3}.z:nth-child(4){transform:rotate(2.5deg);z-index:2}
+.z:nth-child(5){transform:rotate(-2deg)}
+.z::before{content:"";position:absolute;left:16px;right:16px;top:10px;height:3px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px)}
+.z b{font-weight:900;font-size:30px;color:var(--crust-d);line-height:.9;display:block;margin-top:8px}
+.z em{font-family:'Caveat',cursive;font-style:normal;font-weight:600;color:var(--gold);font-size:18px;display:block;margin:0 0 8px}
+.z p{font-size:15px;line-height:1.42}
+
+/* Sortiment */
+.sort{padding:8px 0 56px}
+.sort .wrap{display:grid;grid-template-columns:1fr .8fr;gap:40px;align-items:center}
+@media(max-width:820px){.sort .wrap{grid-template-columns:1fr}}
+.karte-preis{background:var(--paper);border-radius:3px;padding:28px 30px;box-shadow:0 14px 32px rgba(50,35,20,.14);transform:rotate(-.6deg);border-top:4px solid var(--crust)}
+.karte-preis h2{font-weight:900;font-size:clamp(26px,4vw,38px)}
+.karte-preis .sub{font-family:'Caveat',cursive;font-weight:600;font-size:20px;color:var(--red);margin-bottom:16px}
+.pz{display:flex;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px dotted var(--line)}
+.pz b{font-weight:600;font-size:18px}
+.pz .f{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:20px}
+.pz span:last-child{color:var(--ink2);font-size:14px}
+.pz .best{color:var(--crust-d);font-weight:600}
+.sort .bild{transform:rotate(1.6deg)}
+
+/* CTA: warm, ruhig (Mix alt+neu) */
+.cta{padding:4px 0 56px;text-align:center}
+.cta .box{background:var(--paper);border:1px solid var(--line);border-radius:4px;max-width:660px;margin:0 auto;padding:0 30px 40px;box-shadow:0 14px 32px rgba(50,35,20,.12);overflow:hidden}
+.cta .box .nadel{margin:0 -30px 26px}
+.cta .box .crest{width:56px;margin:22px auto 4px}
+.cta .k{font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:var(--red)}
+.cta h2{font-weight:900;font-size:clamp(28px,4.6vw,44px);margin:2px 0}
+.cta .tel{display:inline-block;font-weight:900;font-size:clamp(30px,5.2vw,52px);color:var(--red);text-decoration:none;margin-top:6px}
+.cta p{color:var(--ink2);margin-top:8px}
+
+footer{background:var(--crumb);color:#E4D6BE;padding:40px 0 46px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:15px}
+footer .crest{width:54px;margin-bottom:8px}
+footer .mono{color:var(--gold-l);margin-bottom:6px}
+footer a{color:#E4D6BE;font-weight:600}
+</style>
+</head>
+<body>
+<p class="hinweis">Konzept D1b · „Warmes Regal“, mehr Rot + echtes Wappen · interner Entwurf</p>
+
+<!-- Wappen -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="wappen">
+  <g fill="var(--gold)">
+    <path d="M64 46 L57 18 L84 36 L100 12 L116 36 L143 18 L136 46 Z"/>
+    <circle cx="57" cy="16" r="6"/><circle cx="100" cy="10" r="6"/><circle cx="143" cy="16" r="6"/>
+    <rect x="59" y="46" width="82" height="9" rx="2"/>
+  </g>
+  <g stroke="var(--gold)" stroke-width="7" stroke-linecap="round">
+    <line x1="48" y1="152" x2="152" y2="84"/><line x1="152" y1="152" x2="48" y2="84"/>
+  </g>
+  <g fill="var(--gold)"><circle cx="48" cy="152" r="10"/><circle cx="152" cy="152" r="10"/><circle cx="48" cy="84" r="10"/><circle cx="152" cy="84" r="10"/></g>
+  <circle cx="100" cy="116" r="55" fill="var(--paper)" stroke="var(--crust)" stroke-width="5"/>
+  <g fill="none" stroke="var(--red)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M124 96 C124 78 106 72 92 84 C82 92 82 108 92 118 C100 126 108 132 116 138"/>
+    <path d="M76 96 C76 78 94 72 108 84 C118 92 118 108 108 118 C100 126 92 132 84 138"/>
+    <path d="M84 138 C92 143 108 143 116 138"/>
+  </g>
+  <path d="M40 182 H160 L150 208 H50 Z" fill="var(--crust)"/>
+  <text x="100" y="201" text-anchor="middle" font-family="Fraunces,serif" font-weight="900" font-size="21" fill="var(--paper)" letter-spacing="2">SIEBERT</text>
+  <text x="100" y="226" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="var(--crust-d)" letter-spacing="3">SEIT 1906</text>
+</g>
+</defs></svg>
+
+<header><div class="wrap">
+  <a class="marke" href="#">
+    <img class="logo" src="siebert-logo.svg" alt="Wappen der Bäckerei Siebert">
+    <span class="txt"><b>SIEBERT</b><small>Bäckerei &amp; Konditorei seit 1906</small></span>
+  </a>
+  <nav><a>Start</a><a>Geschichte</a><a>Sortiment</a><a>Torten</a><a>Ausbildung</a><a>Besuch</a></nav>
+</div></header>
+<div class="nadel" role="presentation"></div>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="alt-banner">Berlins <span class="xx">älteste</span> Bäckerei</p>
+    <p class="ort">Prenzlauer Berg · seit 1906</p>
+    <h1>Echtes Brot, <span class="s">seit 1906</span></h1>
+    <p class="lead">Fünf Generationen an einem Ort. Ausschließlich eigene Herstellung, nach alten Rezepten auf Steinplatten gebacken.</p>
+    <div class="kauf"><a class="btn fill" href="#">Ins Sortiment</a><a class="btn line" href="#">Anfahrt &amp; Zeiten</a></div>
+  </div>
+  <div class="collage">
+    <span class="c-notiz">frisch aus dem Ofen</span>
+    <svg class="c-pfeil" viewBox="0 0 66 60" aria-hidden="true"><path d="M6 54 C16 34 30 18 52 12" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M39 9 L55 9 L52 26" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="c-tag script">seit<br>1906</span>
+    <figure class="bild c-haupt"><img src="../../img/brotregal.jpg" alt="Volles Brotregal der Bäckerei Siebert"></figure>
+    <figure class="bild c-klein"><img src="../../img/team-brotlaib.jpg" alt="Bäcker mit frisch gebackenem Brot"><figcaption>fünfte Generation</figcaption></figure>
+  </div>
+</div></section>
+
+<div class="zahlen"><div class="wrap">
+  <div><b>1906</b><small>gegründet</small></div>
+  <div><b>5</b><small>Generationen</small></div>
+  <div><b>16 h</b><small>Sauerteig</small></div>
+  <div><b>2&times;</b><small>DER FEINSCHMECKER</small></div>
+</div></div>
+
+<section class="tuete"><div class="wrap">
+  <div class="blatt">
+    <img class="logo" src="siebert-logo.svg" alt="Wappen der Bäckerei Siebert">
+    <p class="fuer">für Sie im Prenzlauer Berg</p>
+    <div class="liste">
+      <p>Ausschließlich eigene Herstellung hier in unserer Bäckerei</p>
+      <p>Nach alten Rezepten auf Steinplatten gebacken</p>
+      <p>Handwerkliche Gebäckkunst · Qualität und Vielfalt seit Generationen</p>
+    </div>
+    <p class="best">Bestellung im Geschäft oder unter 44 57 576</p>
+  </div>
+</div></section>
+
+<section class="chronik"><div class="wrap">
+  <h2>Von Gustav bis Anke</h2>
+  <p class="sub">fünf Generationen an einem Ort</p>
+  <div class="zettel">
+    <div class="z"><b>1906</b><em>Gustav</em><p>Gründung in der Schönfließer Straße. Der Laden ist zugleich Wohnzimmer.</p></div>
+    <div class="z"><b>1920</b><em>Albert</em><p>Durch Inflation und zwei Weltkriege.</p></div>
+    <div class="z"><b>DDR</b><em>Bodo</em><p>Handwerk gegen die Mangelwirtschaft.</p></div>
+    <div class="z"><b>1990</b><em>Lars &amp; Catrin</em><p>Die Ost-Schrippe wird gerettet.</p></div>
+    <div class="z"><b>2021</b><em>Dr. Anke</em><p>Fünfte Generation, gleiche Rezepte.</p></div>
+  </div>
+</div></section>
+
+<section class="sort"><div class="wrap">
+  <div class="karte-preis">
+    <h2>Was heute in der Auslage liegt</h2>
+    <p class="sub">alles täglich von Hand gebacken</p>
+    <div class="pz"><b>Roggenmischbrot</b><span class="f"></span><span class="best">Publikumsliebling 2026</span></div>
+    <div class="pz"><b>Ost-Schrippe</b><span class="f"></span><span>DDR-Rezept, kompakt</span></div>
+    <div class="pz"><b>Splitterbrötchen</b><span class="f"></span><span>samstags früh weg</span></div>
+    <div class="pz"><b>Pfannkuchen &amp; Kameruner</b><span class="f"></span><span>in siedendem Fett</span></div>
+    <div class="pz"><b>Mohnzopf</b><span class="f"></span><span>der Geheimtipp</span></div>
+    <div class="pz"><b>Bienenstich, Donauwelle</b><span class="f"></span><span>aus der Konditorei</span></div>
+  </div>
+  <figure class="bild"><img src="../../img/schlingen-hand.jpg" alt="Hand formt Brötchenschlingen"><figcaption>von Hand geschlungen</figcaption></figure>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <div class="box">
+    <div class="nadel" role="presentation"></div>
+    <img class="logo" src="siebert-logo.svg" alt="Wappen der Bäckerei Siebert">
+    <p class="k">Torten auf Bestellung</p>
+    <h2>Wir backen das für Sie</h2>
+    <a class="tel" href="tel:+49304457576">030 44 57 576</a>
+    <p>Hochzeit, Geburtstag, Firmenfeier. Bestellung im Geschäft oder telefonisch.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><img class="logo" src="siebert-logo.svg" alt="" aria-hidden="true"><br>Bäckerei &amp; Konditorei Anke Siebert<br>Schönfließer Straße 12, 10439 Berlin</div>
+  <div><p class="mono">Zeiten</p>Di–Fr 6–18.30 · Sa bis 13.30<br>Mo Ruhetag</div>
+  <div><p class="mono">Kontakt</p><a href="tel:+49304457576">030 44 57 576</a><br><a href="#">Instagram</a> · <a href="#">Facebook</a></div>
+</div></footer>
+</body>
+</html>
