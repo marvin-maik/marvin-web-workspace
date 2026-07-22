@@ -8,7 +8,7 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 ## Was & wo
 - Business-Site, 6 Seiten + Rechtsseiten. **Marvins eigene Marke** (das Studio selbst).
 - Live: https://marvinwebdesign.de (Custom-Domain, apex; www→apex 301) + Fallback https://marvin-web.pages.dev
-  (CF Pages, Direct Upload). Letzter Deploy **2954efdf** (2026-07-22, Claude via deploy.md: Collage-Desktop + styles v20, live verifiziert); davor 08891393 (noindex-Fix + Nummer + Preis 790 + angebot.html).
+  (CF Pages, Direct Upload). Letzter Deploy **edf38d9d** (2026-07-22, Claude: Showcase-Caption bricht an Satzgrenzen); davor 2954efdf (Collage-Desktop + styles v20).
 - Was-Quelle: `product-marketing-context.md` · Design (as-built): `_design.md`
 - Deploy: `_referenz/deploy.md` (Staging-Kopie + Leak-Check, kein Direkt-Deploy aus dem Projektordner).
 - Logo: **eingebaut** (2026-07-19, A Wortmarke + C Signet). Assets in `img/`, Konzepte in `freigabe/logo-konzepte.html`.
@@ -60,6 +60,10 @@ Stand: 2026-07-19 · Phase: **LIVE** (Domain marvinwebdesign.de gelauncht)
 - Design-Arbeit: `_design.md` lesen, styles.css bleibt Quelle der Wahrheit.
 
 ## Log (Neuestes oben, Kurzform; volle Historie in `PROJEKTE-log.md`)
+- 2026-07-22: **Showcase-Caption-Umbruch (DEPLOYT edf38d9d)** — Marvins Wunsch: die Bildunterschrift
+  neben dem Handy (mobil) soll an Satzgrenzen brechen statt ragged. Feste `<br>` je Nebensatz +
+  geschuetzter Bindestrich in „Demo&#8209;Projekt". Reines HTML (kein ?v-Bump). Sweep 320-900px: 0
+  Overflow, kein Text unterm Handy; bei 768 genau 5 Klausel-Zeilen. Live verifiziert (/angebot noindex).
 - 2026-07-22: **DEPLOYT (Hash 2954efdf)** — Collage + v20 + alle Runden dieser Session live. Von Claude
   via deploy.md-Einzeiler (Staging + Leak-Check: keine Leaks, `_varianten-desktop.html`/`_test-sweep.html`
   live 404). Functions-Bundle mit hoch (Kontaktformular). Verifiziert auf Deployment-URL UND Live-Domain:
