@@ -1,0 +1,232 @@
+/* ============================================================
+   Baeckerei & Konditorei Siebert · "Zeit-Haus" · v1
+   Tokens aus freigabe/design-richtung.md (Kontraste gerechnet)
+   ============================================================ */
+
+@font-face{font-family:'League Gothic';src:url('fonts/league-gothic.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Source Sans 3';src:url('fonts/source-sans-3-regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Source Sans 3';src:url('fonts/source-sans-3-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Source Sans 3';src:url('fonts/source-sans-3-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --bg:#F7F2E9;          /* Mehlweiss */
+  --ink:#2B2118;         /* Krustenbraun · 14.12:1 auf bg */
+  --signal:#1F4A38;      /* Ladengruen · 8.99:1 auf bg */
+  --deep:#1E3932;        /* Fascia-Gruen (Baender/Footer) */
+  --gold:#CBA258;        /* NUR auf --deep (5.25:1 dort) */
+  --warm:#C08A4E;        /* Karamell, nur Flaechen/Deko */
+  --muted:#6B5D4A;       /* 5.72:1 auf bg */
+  --line:#D8CFC0;        /* Roggen-Hairline */
+  --hell:#FDFBF6;        /* Karten auf bg */
+  --disp:'League Gothic',Impact,'Arial Narrow',sans-serif;
+  --sans:'Source Sans 3',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --wrap:1180px;
+  --pad:clamp(18px,4vw,32px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--gold);color:var(--deep)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
+
+/* ---------- Typo ---------- */
+.disp{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:1.06;letter-spacing:.012em;word-spacing:.12em;text-wrap:balance;hyphens:manual}
+h1.disp{font-size:clamp(52px,9.6vw,118px)}
+h2.disp{font-size:clamp(34px,5.4vw,64px)}
+.satz{display:inline-block}
+h1,h2,h3{text-wrap:pretty}
+.lead{font-size:clamp(17px,2.2vw,20px);max-width:34em;color:var(--ink)}
+.mut{color:var(--muted)}
+.label{font:600 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.label.auf-deep{color:var(--gold)}
+.zahl,.tafel-note,.zeiten td:last-child{font-variant-numeric:tabular-nums}
+
+/* ---------- Jubilaeums-Leiste (temporaer bis Okt 2026) ---------- */
+.jubi{background:var(--deep);color:var(--gold);text-align:center;font:600 14px/1.45 var(--sans);padding:9px 14px;border-bottom:2px solid var(--gold)}
+.jubi a{color:var(--gold);text-underline-offset:3px}
+.jubi a:hover{color:#fff}
+
+/* ---------- Header ---------- */
+header.kopf{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1.5px solid var(--ink)}
+.kopf-in{display:flex;align-items:center;gap:8px 22px;flex-wrap:wrap;padding-block:12px}
+.marke{font-family:var(--disp);text-transform:uppercase;font-size:24px;letter-spacing:.03em;text-decoration:none;line-height:1}
+.marke small{display:block;font:600 10.5px/1 var(--sans);letter-spacing:.18em;color:var(--signal);margin-top:3px}
+nav.haupt{display:flex;gap:2px 18px;flex-wrap:wrap}
+nav.haupt a{font:600 15px/1 var(--sans);text-decoration:none;padding:8px 2px;background:linear-gradient(var(--signal),var(--signal)) left bottom/0 2px no-repeat;transition:background-size .25s}
+nav.haupt a:hover,nav.haupt a:focus-visible{background-size:100% 2px}
+nav.haupt a[aria-current="page"]{background-size:100% 2px;color:var(--signal)}
+.status{margin-left:auto;font:600 13.5px/1.2 var(--sans);border:1.5px solid var(--signal);color:var(--signal);padding:7px 12px;border-radius:3px;white-space:nowrap}
+.status.zu{border-color:var(--muted);color:var(--muted)}
+
+/* ---------- Buttons / Fokus ---------- */
+.btn{display:inline-block;font:600 16px/1 var(--sans);text-decoration:none;padding:14px 24px;border:2px solid var(--signal);color:var(--signal);border-radius:3px;background:transparent;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 3px 0 var(--signal)}
+.btn.voll{background:var(--signal);color:var(--hell)}
+.btn.auf-deep{border-color:var(--gold);color:var(--gold)}
+.btn.auf-deep:hover{box-shadow:0 3px 0 var(--gold)}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+.auf-deep :focus-visible,.jubi a:focus-visible{outline-color:var(--gold)}
+
+/* ---------- Sektionen ---------- */
+section{padding-block:clamp(52px,9vw,104px)}
+section.eng{padding-block:clamp(34px,6vw,64px)}
+
+/* Fascia-Band (Ladenschild-Logik: Gold NUR auf deep) */
+.fascia{background:var(--deep);color:var(--hell);border-block:3px double var(--gold)}
+.fascia .disp,.fascia h2{color:var(--gold)}
+.fascia .lead{color:#EDE6D6}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(40px,7vw,88px)}
+.hero-grid{display:grid;gap:34px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.chip{font:600 14px/1.2 var(--sans);border:1.5px solid var(--ink);padding:7px 12px;border-radius:3px}
+.chip.gruen{border-color:var(--signal);color:var(--signal)}
+.cta-zeile{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-bild{position:relative}
+.hero-bild img{background:#fff;border:1px solid var(--line);padding:10px 10px 44px;box-shadow:0 16px 34px rgba(43,33,24,.2);transform:rotate(-4deg);border-radius:2px}
+.notiz{position:absolute;right:4%;bottom:-6%;font:italic 600 clamp(15px,1.8vw,19px)/1.3 Georgia,'Times New Roman',serif;color:var(--signal);transform:rotate(-5deg);background:var(--bg);padding:2px 6px}
+.notiz::before{content:"\2196\00a0"}
+
+/* ---------- Zahlenband ---------- */
+.zahlen{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 14px;text-align:center}
+@media(min-width:760px){.zahlen{grid-template-columns:repeat(4,1fr)}}
+.zahlen .zahl{font-family:var(--disp);font-size:clamp(44px,6.5vw,76px);line-height:1;color:var(--signal)}
+.zahlen .zahl sub{font-size:.45em;vertical-align:baseline}
+.zahlen small{display:block;margin-top:8px;font:600 11.5px/1.45 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- Zeitband (SIGNATURE) ---------- */
+.zeitband{background:var(--deep);color:var(--hell);border-block:3px double var(--gold);padding:0}
+.zb-track{position:relative}
+.zb-buehne{padding-block:clamp(44px,7vw,72px)}
+.zb-grid{display:grid;gap:26px;align-items:center}
+.zb-jahr{font-family:var(--disp);font-size:clamp(88px,21vw,250px);line-height:.9;color:var(--gold);letter-spacing:.01em}
+.zb-text{font-size:clamp(17px,2vw,21px);max-width:26em;color:#EDE6D6;min-height:5.2em}
+.zb-bild{border:1.5px solid var(--gold);border-radius:6px;overflow:hidden;max-width:520px}
+.zb-bild img{aspect-ratio:16/10;object-fit:cover}
+.zb-punkte{display:flex;gap:10px;flex-wrap:wrap;padding-block:0 26px}
+.zb-punkte button{font:600 13px/1 var(--sans);letter-spacing:.05em;background:transparent;color:#EDE6D6;border:1.5px solid #5E7A6C;border-radius:3px;padding:8px 12px;cursor:pointer}
+.zb-punkte button[aria-current="true"]{background:var(--gold);border-color:var(--gold);color:var(--deep)}
+.zb-punkte button:hover{border-color:var(--gold)}
+@media(min-width:960px){
+  .zb-grid{grid-template-columns:1fr 1fr}
+}
+/* Scrolly-Modus: site.js setzt .scrolly NUR bei Desktop + Motion erlaubt.
+   Default (kein JS / mobil / reduced-motion): Buehne aus, statische Liste sichtbar. */
+.zeitband .zb-buehne{display:none}
+.zeitband.scrolly .zb-buehne{display:block}
+.zeitband.scrolly .zb-liste{display:none}
+@media(min-width:960px){
+  .zeitband.scrolly{height:420vh}
+  .zeitband.scrolly .zb-track{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+}
+.zb-liste{display:grid;gap:0;border-top:1px solid #4A6558}
+.zb-liste .st{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid #4A6558}
+.zb-liste .st b{font-family:var(--disp);font-size:clamp(26px,4vw,40px);line-height:1;color:var(--gold);min-width:3.2ch}
+
+/* ---------- Preistafel ---------- */
+.tafel{max-width:680px}
+.tafel-gruppe{margin-bottom:clamp(34px,5vw,54px)}
+.tafel-sub{font:600 12.5px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin:4px 0 16px}
+.tz{display:flex;align-items:baseline;gap:10px;padding:9px 0}
+.tz b{font-weight:700;font-size:17.5px}
+.tz .punkte{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:34px}
+.tz span:last-child{color:var(--muted);font-size:15.5px;text-align:right;max-width:52%}
+.tz .neu{color:var(--signal);font-weight:600}
+
+/* ---------- Anker-Bild + Appetit-Band ---------- */
+.anker{border:1.5px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:20px}
+.anker img{aspect-ratio:21/9;object-fit:cover}
+.appetit{padding:0;border-block:1.5px solid var(--ink)}
+.appetit img{aspect-ratio:21/8;object-fit:cover}
+@media(max-width:700px){.appetit img{aspect-ratio:4/3}.anker img{aspect-ratio:16/10}}
+
+/* Reveal-Masken (Zoom-out) */
+.maske{overflow:hidden}
+.maske img{transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.js-motion .maske.rv img{transform:scale(1.14)}
+.js-motion .maske.rv.in img{transform:scale(1)}
+
+/* ---------- Handwerk-Schritte ---------- */
+.schritte{display:grid;gap:30px}
+@media(min-width:860px){.schritte{grid-template-columns:repeat(3,1fr)}}
+.schritt .nr{font-family:var(--disp);font-size:44px;line-height:1;color:var(--warm)}
+.schritt h3{font-size:19px;margin:10px 0 6px}
+.schritt .maske{border-radius:6px;margin-top:14px;border:1.5px solid var(--line)}
+.schritt img{aspect-ratio:4/3;object-fit:cover}
+
+/* ---------- Karten ---------- */
+.karten{display:grid;gap:16px}
+@media(min-width:700px){.karten{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:700px){.karten.zweier{grid-template-columns:repeat(2,1fr)}}
+.karte{background:var(--hell);border:1.5px solid var(--line);border-radius:6px;padding:22px;transition:transform .18s,box-shadow .18s}
+.karte:hover{transform:translateY(-3px);box-shadow:0 4px 0 var(--line)}
+.karte h3{font-size:19px;margin-bottom:6px}
+.karte .maske{border-radius:4px;margin-top:14px}
+.karte img{aspect-ratio:4/3;object-fit:cover}
+.benefits{display:grid;gap:12px}
+@media(min-width:700px){.benefits{grid-template-columns:repeat(3,1fr)}}
+.benefits .karte{padding:16px 18px;font-weight:600}
+.benefits .karte:first-child{border-color:var(--signal);color:var(--signal)}
+
+/* ---------- Marquee ---------- */
+.marquee{overflow:hidden;white-space:nowrap;border-block:1.5px solid var(--ink);padding:13px 0;background:var(--hell)}
+.marquee .lauf{display:inline-block;font-family:var(--disp);font-size:clamp(20px,2.6vw,30px);text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.js-motion .marquee .lauf{animation:lauf 28s linear infinite}
+.marquee:hover .lauf{animation-play-state:paused}
+.marquee i{font-style:normal;color:var(--warm);margin:0 .55em}
+@keyframes lauf{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- Zeiten ---------- */
+table.zeiten{border-collapse:collapse;width:100%;max-width:560px}
+.zeiten th,.zeiten td{text-align:left;padding:11px 14px;border:1px solid var(--line);font-size:16px}
+.zeiten th{font:600 12px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--hell)}
+.zeiten tr.heute td{background:var(--hell);font-weight:700;color:var(--signal)}
+.sommer{border:1.5px solid var(--warm);border-radius:6px;background:var(--hell);padding:14px 18px;max-width:560px;margin-top:14px}
+
+/* ---------- Gewinner-Block ---------- */
+.gewinner{background:var(--hell);border:1.5px solid var(--line);border-radius:6px;padding:20px;font-variant-numeric:tabular-nums}
+.gewinner .woche{display:flex;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px dotted var(--line)}
+.gewinner .woche:last-child{border-bottom:none}
+.gewinner .woche b{font-family:var(--disp);font-size:22px;color:var(--signal);white-space:nowrap}
+
+/* ---------- CTA-Band / Telefon ---------- */
+.tel{font-family:var(--disp);font-size:clamp(38px,6vw,68px);letter-spacing:.04em;color:var(--gold);text-decoration:none;display:inline-block;line-height:1.1}
+.tel:hover{color:#fff}
+.fascia .sozial{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+/* ---------- Footer ---------- */
+footer.fuss{background:var(--deep);color:#EDE6D6;border-top:3px double var(--gold);padding-block:44px 26px;font-size:15px}
+.fuss-grid{display:grid;gap:26px}
+@media(min-width:760px){.fuss-grid{grid-template-columns:repeat(4,1fr)}}
+.fuss a{color:#EDE6D6;text-underline-offset:3px}
+.fuss a:hover{color:var(--gold)}
+.fuss .label{color:var(--gold);margin-bottom:8px}
+.fuss-marke{font-family:var(--disp);text-transform:uppercase;font-size:clamp(34px,7vw,64px);color:var(--gold);line-height:1;margin-top:34px;white-space:nowrap}
+.fuss-unten{display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:14px;padding-top:16px;border-top:1px solid #4A6558;font-size:13.5px;color:#C9C0AE}
+
+/* ---------- Reveals (JS setzt .rv, .in beim Insichtkommen) ---------- */
+.js-motion .rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .7s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+.js-motion .rv.in{opacity:1;transform:none}
+.js-motion .rv.links{transform:translateX(70px)}
+.js-motion .rv.links.in{transform:none}
+.js-motion .maske.rv{opacity:1;transform:none}  /* Maske nutzt nur den Bild-Zoom */
+
+/* ---------- Kleinkram ---------- */
+.offen-hinweis{background:#F1E7CF;border:1px solid var(--warm);border-radius:4px;padding:3px 8px;font-size:13.5px;color:#6B4F23}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.uebersprung{position:absolute;left:-9999px;top:0;background:var(--deep);color:var(--gold);padding:10px 16px;z-index:100}
+.uebersprung:focus{left:8px;top:8px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js-motion .rv,.js-motion .rv.links{opacity:1;transform:none;transition:none}
+  .js-motion .maske img{transform:none !important;transition:none}
+  .js-motion .marquee .lauf{animation:none}
+  .btn,.karte{transition:none}
+}

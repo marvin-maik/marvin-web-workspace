@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8745", "--directory", "projekte/marvin-web"],
       "port": 8745
+    },
+    {
+      "name": "siebert",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["_referenz/serve-nocache.py", "8793", "projekte/baeckerei-siebert"],
+      "port": 8793
     }
   ]
 }

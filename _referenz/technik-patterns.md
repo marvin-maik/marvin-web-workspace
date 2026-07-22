@@ -93,10 +93,14 @@ Personen-Fotos (Kundenfeedback: unangenehm).
 
 1. Crop: `sips -c <hoehe> <breite> --cropOffset <y> <x> original.jpg --out out.jpg`
 2. Resize: `sips --resampleWidth 900 out.jpg --out out.jpg`
-3. **EXIF strippen — ACHTUNG: sips schleppt EXIF sogar durch PNG-Roundtrips mit!**
-   Zuverlaessig nur via AppKit-Reencode (osascript JXA):
-   NSImage -> TIFFRepresentation -> NSBitmapImageRep -> representationUsingType JPEG.
-   Check: `strings bild.jpg | grep -i "snapseed\|GPS\|20..:"`
+3. **EXIF strippen — ACHTUNG: sips schleppt EXIF sogar durch PNG-Roundtrips mit,
+   und auch der AppKit-Reencode (JXA, NSImage->TIFF->JPEG) traegt APP1/APP13 weiter**
+   (verifiziert baeckerei-siebert 2026-07-22: nach Reencode weiterhin 0xE1+0xED-Segmente).
+   Zuverlaessig: JPEG-Segmente direkt droppen (Python, stdlib): Segmente parsen
+   (Marker 0xFF..; Laenge big-endian), alle APP1-APP15 (0xE1-0xEF) verwerfen, APP0/JFIF
+   behalten, ab 0xDA (SOS) unveraendert kopieren. ~15 Zeilen, Muster im
+   baeckerei-siebert-Log 2026-07-22. Check danach per Segment-Liste (nur 0xE0/0xC*/0xDB
+   uebrig), NICHT per strings-grep (Zufallstreffer in Bilddaten).
 4. Originale NIE im Deploy-Ordner lassen (werden mitveroeffentlicht, inkl. Metadaten) —
    nach `_fundus/fotos/`.
 
