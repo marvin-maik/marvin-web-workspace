@@ -2,7 +2,7 @@
 
 Das Gehirn dieses Projekts. Nach jedem Meilenstein kurz mitziehen.
 
-Stand: 2026-07-22 · Phase: **BUILD v2 fertig (D1b "Warmes Regal"), QA laeuft**
+Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") -> wartet auf Marvins Sicht-Check**
 
 ## Was & wo
 - **Spekulations-Case / Kaltakquise**: unaufgefordert gebaute Vorschau fuer die Baeckerei & Konditorei
@@ -65,6 +65,14 @@ Stand: 2026-07-22 · Phase: **BUILD v2 fertig (D1b "Warmes Regal"), QA laeuft**
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **QA v2 + Designakte** (8659ac3 / 8042b69). design-md-Agent hat `_design.md` auf
+  "Warmes Regal" neu geschrieben (205 Z., Hex/Fonts gegen styles.css verifiziert). qa-polish-Agent
+  am Session-Limit abgebrochen, aber Kernbefund geliefert + selbst-QA gemacht: BLOCKER Fokusring
+  Rot auf Krume 1.91:1 -> jetzt Gold-l 6.01:1 auf jubi/zeitband/fascia/footer/zahlenband;
+  Generationen-Namen `.z em` Gold-auf-hell 2.76:1 -> Krustenbraun 7.39:1; `--ink2` #786246 4.37:1
+  -> #6A5030 5.67:1 (AA). Verifiziert: Fokus-Outline live gold auf dunkel, alle 9 Seiten 1x h1 /
+  0 doppelte IDs, JSON-LD valide, reduced-motion vorhanden, Status-Logik am Tageswechsel korrekt
+  (Sommerzeit "bis 16:30"). Kontraste alle gerechnet, nicht geschaetzt.
 - 2026-07-22: **BUILD v2 komplett** (2e484d1) im Design D1b "Warmes Regal". Marvin: D1b ist der
   Gewinner, plus Feinschliffe (Strichlinie unter "aelteste" weg, doppeltes 1906 entschlackt,
   2. Eyebrow raus) + echtes Wappen geliefert (siebert-logo.svg). Umgesetzt: canonical styles.css
