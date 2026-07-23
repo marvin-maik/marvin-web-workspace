@@ -19,7 +19,7 @@
   --crust-d:#6B4A28;  /* tiefes Krustenbraun */
   --crumb:#43301D;    /* Krume-dunkel, Bänder/Footer */
   --ink:#33271A;      /* Textfarbe */
-  --ink2:#786246;     /* gedämpft */
+  --ink2:#6A5030;     /* gedämpft, AA auf oat (5.67:1) und paper */
   --red:#B4241C;      /* Marken-Rot, Akzent */
   --red-d:#8E1A14;
   --gold:#B98F3A;     /* Gold, NUR auf Dunkel */
@@ -63,7 +63,8 @@ a{color:inherit}
 .btn.gold{border:2px solid var(--gold-l);color:var(--gold-l);background:transparent}
 .btn.gold:hover{background:var(--gold-l);color:var(--crumb)}
 :focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:2px}
-.auf-dunkel :focus-visible{outline-color:var(--gold-l)}
+/* Fokusring auf dunklen Flaechen in Gold (Rot auf Krume nur 1.91:1) */
+.auf-dunkel :focus-visible,.jubi :focus-visible,.zeitband :focus-visible,.fascia :focus-visible,footer.fuss :focus-visible,.zahlen-band :focus-visible{outline-color:var(--gold-l)}
 
 /* ---------- Jubiläums-Leiste (temporär bis Okt 2026) ---------- */
 .jubi{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 13.5px/1.5 var(--disp);padding:8px 14px;border-bottom:1px solid var(--gold)}
@@ -208,7 +209,7 @@ h2.disp{font-size:clamp(30px,5vw,50px)}
 .z:nth-child(5n+4){transform:rotate(2.5deg);z-index:2}
 .z:nth-child(5n){transform:rotate(-2deg)}
 .z b{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--crust-d);line-height:.9;display:block}
-.z em{font-family:var(--hand);font-style:normal;font-weight:600;color:var(--gold);font-size:18px;display:block;margin:0 0 8px}
+.z em{font-family:var(--hand);font-style:normal;font-weight:600;color:var(--crust-d);font-size:18px;display:block;margin:0 0 8px}
 .z p{font-size:15px;line-height:1.42}
 /* Generationen-Liste (Geschichte, ruhig, nicht rotiert) */
 .gen-liste .z{width:auto;margin:0;transform:none;box-shadow:none;border:1px solid var(--line);border-top:4px solid var(--red)}
