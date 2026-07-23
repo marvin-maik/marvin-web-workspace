@@ -234,6 +234,17 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Zeitband-Regression aus dem Perf-Pass gefixt** (Marvin per Element-Auswahl: "where
+  are the images for each year"). Der srcset-Umbau hatte dem Zeitband-Bild (index, `.zb-bild img`)
+  ein STATISCHES gen-1906-srcset gegeben; site.js tauscht dort aber pro Station nur `src` — und
+  steht ein srcset, IGNORIERT der Browser den src-Wechsel -> alle Jahre zeigten das 1906er-Foto
+  (alt-Text wechselte, Bild nicht). Fix in site.js setze(): srcset wird aus st.img abgeleitet
+  mitgetauscht (`X-720.webp 720w, X 1400w`); alle 6 data-bild-Werte haben ihre -720.webp (inkl.
+  zoepfe-blech fuer 2026). site.js?v=6 gebumpt (6 Seiten). Live verifiziert @911px: Station 2026
+  -> src UND srcset wechseln synchron (Pane-Scroll-Klemme verhinderte Test der Zwischenstationen,
+  gleicher Codepfad). MERKE fuers naechste Mal: **JS-getauschte Bilder duerfen kein statisches
+  srcset im HTML bekommen** — vor srcset-Umbauten `grep "\.src\s*=" site.js`. Geschichte-Modal ist
+  sauber (JS-only-src ohne HTML-srcset). Commit d016a18, deployed (0e2d4c21), noindex ok.
 - 2026-07-23: **Performance-Pass komplett: PSI mobil 78 -> ~90-100, LIVE (?v=6)** (Marvin "wtf/
   immernoch scheisse" auf Zwischenmessungen — 21:41 mass den alten Edge-Stand vor JEDEM Deploy,
   22:07 den Zwischen-Deploy ohne Font-Fix). Drei Hebel, je per Lighthouse (CF, mobil-emuliert)
