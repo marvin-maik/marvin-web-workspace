@@ -108,7 +108,8 @@
       function setze(i){
         if(i===aktiv)return; aktiv=i; var st=stationen[i];
         jahrEl.textContent=st.j; textEl.textContent=st.t;
-        if(st.img&&bildEl&&bildEl.getAttribute("src")!==st.img){bildEl.src=st.img;bildEl.alt=st.alt;}
+        /* srcset MIT tauschen: steht ein altes srcset, ignoriert der Browser den src-Wechsel */
+        if(st.img&&bildEl&&bildEl.getAttribute("src")!==st.img){bildEl.srcset=st.img.replace(/\.jpg$/,"-720.webp")+" 720w, "+st.img+" 1400w";bildEl.src=st.img;bildEl.alt=st.alt;}
         punkte.forEach(function(b,bi){b.setAttribute("aria-current",bi===i?"true":"false");});
         live.textContent="Station "+(i+1)+" von "+stationen.length+": "+st.j;
       }
