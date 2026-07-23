@@ -640,4 +640,6 @@ body.modal-offen{overflow:hidden}
   .tz b{font-size:19.5px}
   .tz>span:last-child{font-size:16.5px}
   .sortiment-split{grid-template-columns:560px 1fr}
+  /* Saison-Spotlight: Buehne gedeckelt + zentriert, sonst klebt die Gruppe links im breiten Band */
+  .saison.tabs-an .saison-stage{max-width:980px;margin-inline:auto}
 }

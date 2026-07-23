@@ -234,6 +234,10 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Saison-Spotlight in der Gross-Stufe zentriert (?v=9)** (Marvin per Element-Auswahl
+  am Breitbild: "ggf sollte das center oder?"). Textspalte ist 1fr -> Gruppe klebte links im dunklen
+  Band, Leerraum rechts. Fix NUR im >=1600-Block: `.saison.tabs-an .saison-stage{max-width:980px;
+  margin-inline:auto}`. Verifiziert @1920 (980px, 150/150 Luft) + @1280 (unveraendert 1034, 28/28).
 - 2026-07-23: **Gross-Monitor-Stufe >=1600px LIVE (?v=8)** (Marvins Bedenken: Kundin hat Office-
   Monitor, Pitch evtl. dort). REIN ADDITIVER @media-Block am Ende von styles.css: wrap 1090->1280,
   Typo +10-15% (h1 82/h2 57/lead 22/body 19/Tafel 19.5), Sektions-Padding 104, sortiment-split 560.
