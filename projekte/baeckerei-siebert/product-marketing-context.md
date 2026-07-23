@@ -99,20 +99,27 @@ Quellenlage je Punkt markiert: [ALT-SITE] = belegt auf baeckerei-siebert.de ·
 [PRESSE-OK] = per WebSearch gegen Presse verifiziert · [VERIFY] = plausibel, vor
 Launch/Pitch nochmal pruefen (Quelle: Marvins Sekundaer-Recherche).
 
-### Die fuenf Generationen (Zeitband-Futter, komplett!)
-1. **Gustav Siebert** (1906, Gruender): Bauernsohn aus Schoenfliess in Ostpreussen ->
-   eroeffnet in der SCHOENFLIESSER Strasse [VERIFY, schoene Namens-Pointe]. Der heutige
-   Konditorraum war damals Wohnzimmer der Familie, Grosseltern + 3 Kinder schliefen neben
-   den Arbeitsgeraeten [VERIFY].
-2. **Albert Siebert** (2. Gen): fuehrt den Betrieb durch Hyperinflation und beide
-   Weltkriege [VERIFY].
-3. **Bodo Siebert** (3. Gen, DDR): haelt das private Handwerk gegen Mangelwirtschaft
-   (Butter/Rosinen/Mandeln Mangelware) und Verstaatlichungsdruck [VERIFY].
-4. **Lars Siebert** (4. Gen, ab Wendezeit, bis 2021): mit Ehefrau Catrin, fast 30 Jahre.
-   "Schrippen-Retter": haelt gegen Aufbackbroetchen an traditioneller Teigfuehrung fest
-   (Broetchenteig ruht ~3 h, Brotteig ueber Nacht). Kultstatus der "Ost-Schrippe" [VERIFY].
-5. **Dr. Anke Siebert** (5. Gen, seit 2021): promovierte Wirtschaftsingenieurin, fuehrt
-   mit Lebenspartner Ulrich Kienzl; digitalisiert Prozesse, bargeldloses Zahlen [VERIFY].
+### Die fuenf Generationen (Zeitband-Futter, KORRIGIERT 2026-07-23 mit Marvins Quellen:
+### museum-digital, tagesspiegel, bz-berlin, genussnetzwerk)
+1. **Gustav Siebert** (1865-1929, Gruender): aus Ostpreussen -> eroeffnet 1906 in der
+   Schoenfliesser Strasse. Fuehrt das Haus durch Kaiserreich + Ersten Weltkrieg. **Stirbt 1929**
+   (museum-digital, Lebensdaten 1865-1929) [PRESSE-OK].
+2. **Otto Siebert** (1897-1968, 2. Gen): **NEFFE** des Gruenders (NICHT "Albert"!), uebernimmt
+   nach Gustavs Tod 1929. Fuehrt durch Zweiten Weltkrieg + Nachkriegszeit, Familie schlaeft
+   im Konditorraum, weigert sich zu verstaatlichen. Uebergibt Anfang 1960er an Sohn Bodo.
+   [PRESSE-OK, museum-digital]. ACHTUNG: Presse (B.Z.) beschriftet das 1936er-Jubilaeumsfoto
+   faelschlich mit "Gustav" — unmoeglich, da Gustav 1929 tot; zu sehen sind Otto + der
+   3-jaehrige Bodo (geb. 1934). Vorhandenes Foto `img/laden-front-historisch.jpg` zeigt die
+   Fein-Baeckerei mit Schaufenster-Schild "Otto Siebert Baeckermeister".
+3. **Bodo Siebert** (geb. 1934, 3. Gen, ca. 1960er-1990, DDR): haelt das private Handwerk
+   gegen Mangelwirtschaft (Butter/Rosinen/Mandeln Mangelware) bis zum Mauerfall [PRESSE-OK].
+4. **Lars Siebert** (4. Gen, 1990-2021): uebernimmt direkt nach der Wende. Bewahrt die
+   DDR-Originalrezepte (Schrippen, Splitterbroetchen), macht den Laden zur Kult-Institution.
+   (Ehefrau Catrin in aelterer Presse genannt; die neue Quelle nennt nur Lars -> auf der Site
+   "Lars Siebert".) [PRESSE-OK].
+5. **Dr. Anke Siebert** (5. Gen, seit 2021): promovierte **Wirtschafts- und Umweltwissenschaftlerin**
+   (KORR., frueher faelschlich "Wirtschaftsingenieurin"), uebernimmt von Vater Lars; Lebenspartner
+   Ulrich Kienzl; digitalisiert, bargeldloses Zahlen [PRESSE-OK].
 
 ### Jubilaeums-Aktion 2026 (der Pitch-Moment, PRESSE-OK im Kern)
 - Berliner Zeitung berichtet: 120 Jahre, Verlosung eines **"Goldenen Tickets"** (Vorbild
