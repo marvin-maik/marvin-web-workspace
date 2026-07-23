@@ -238,3 +238,13 @@ Echtes Logo: `img/siebert-logo.svg` (Kundenwappen, rote Loewen/Krone/Brezel; ers
   am Ofen, Marvins Wahl 2026-07-23; ersetzt haende-kneten) — thematisch rund/dampfend, aber KEINE
   fertigen frittierten Berliner -> echtes Pfannkuchen-Produktfoto bleibt der Wunsch.
 - Kein Dark-Mode, keine Print-Styles (bewusst offen).
+
+## Gross-Monitor-Stufe (2026-07-23)
+`@media (min-width:1600px)` am ENDE von styles.css, REIN ADDITIV (unter 1600px aendert sich nichts):
+--wrap 1090->1280, body 18->19, h1.disp 72->82, h2.disp 50->57, .lead 20->22 (38ch), .alt-banner 34->38,
+.zahlen b 44->50, .zb-jahr 180->200, .zb-text 21->23, .tafel-sub 20->22, .tz b 17.5->19.5,
+.tz-Notiz 15->16.5, .sortiment-split-Bildspalte 520->560. Klassen-Paddings (.zahlen-band padding:0 etc.)
+gewinnen weiter per Spezifitaet gegen das section-Padding (104px). Anlass: Kundin hat Office-Monitor;
+Ricks-Fluid-System (alles rem + Root-Formel) bewusst NICHT uebernommen (px-Refactor), als Option notiert.
+Verifiziert @1920 (wrap 1280 zentriert, Werte greifen, 0 Overflow, Originalbilder gewaehlt) + Regression
+@1280 (wrap 1090, h1 72, body 18 = alt, 0 Overflow).

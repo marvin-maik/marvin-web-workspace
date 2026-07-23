@@ -621,3 +621,23 @@ footer.fuss{background:var(--crumb);color:#D9C9AC;padding-block:42px 30px;font-s
 .gm-txt .rolle{display:block;color:var(--ink2);font-size:14px;margin-bottom:12px}
 .gm-txt p{font-size:15.5px;line-height:1.52}
 body.modal-offen{overflow:hidden}
+
+/* ===== Gross-Monitor-Stufe (>=1600px): mehr Buehne bei gleichen Proportionen.
+   REIN ADDITIV — unter 1600px bleibt alles unveraendert. Klassen-Paddings
+   (.zahlen-band, .fascia usw.) gewinnen weiter per Spezifitaet gegen section. ===== */
+@media (min-width:1600px){
+  :root{--wrap:1280px}
+  body{font-size:19px}
+  section{padding-block:104px}
+  h1.disp,.hero h1{font-size:82px}
+  h2.disp{font-size:57px}
+  .lead{font-size:22px;max-width:38ch}
+  .alt-banner{font-size:38px}
+  .zahlen b{font-size:50px}
+  .zb-jahr{font-size:200px}
+  .zb-text{font-size:23px}
+  .tafel-sub{font-size:22px}
+  .tz b{font-size:19.5px}
+  .tz>span:last-child{font-size:16.5px}
+  .sortiment-split{grid-template-columns:560px 1fr}
+}
