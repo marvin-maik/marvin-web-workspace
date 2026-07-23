@@ -1,6 +1,6 @@
 ---
 projekt: baeckerei-siebert
-stand: 2026-07-22
+stand: 2026-07-23
 quellen: styles.css (Quelle der Wahrheit), index.html, site.js, freigabe/konzepte/uebersicht.html + design-richtung.md (Richtung "Warmes Regal" D1b)
 live: noch nicht live (Vorschau baeckerei-siebert-vorschau.pages.dev, noindex Pflicht)
 description: "Warmes Regal (D1b): Hafer-Warmweiss-Grund (--oat) mit Krustenbraun-Tinte,
@@ -108,7 +108,10 @@ Nie einen Smooth-Scroll-Wrapper davorsetzen; natives Scrollen bleibt unangetaste
 | `.anker` | Breitbild | aspect-ratio 21/9 (mobil 16/10) |
 | `.schritte` / `.schritt .nr` | Handwerk-Sequenz | 01/02/03 Fraunces-900 46px in --crust (echte Sequenz, daher legitim) |
 | `.karte` / `.karten(.zwei)` | Karte | bg --paper, 1px --line, radius 3px, weicher Schatten; benefits erste Karte in --red |
-| `.zettel` / `.z` | Chronik-Zettel | --paper, border-top 4px --red, ueberlappt (margin -8px) + nth-child-Rotation; `.gen-liste` ruhig, nicht rotiert |
+| `.zettel` / `.z` | Chronik-Zettel | --paper, border-top 4px --red, ueberlappt (margin -8px) + nth-child-Rotation (gen-liste auf geschichte durch `.iv` ersetzt) |
+| `.iv` / `.gen` / `.medaille` | Fuenf-Generationen-Index | Mobil: `<details name=fam>`-Akkordeon (Medaillon + Jahr/Name, .inhalt = Foto+`.rolle-in`+Fakten). Desktop (`html:not(.no-js)` + hover:hover): schlanker Zeilen-Index (Jahr Fraunces clamp 34-50, Name Shantell --red, Verwandtschaft rechts --ink2), roter Nadelstreifen-Wipe via clip-path. `data-*` je Generation (jahr/voll/rolle/daten/img/zeitbild) speist Schwebe+Modal aus dem DOM |
+| `.schwebe` / `.rahmen/.fotos/.cap` | frei schwebendes Foto (Desktop) | position:fixed Fotoabzug (--white-Rahmen, rotate -3.5deg), 5 Fotos gestapelt opacity-Crossfade; folgt Cursor mit rAF-Lerp bzw. heftet bei :focus an feste Stelle; nur mit Zeiger, kein CLS |
+| `.gen-modal` / `.gm-*` | Detail-Modal (Desktop-Klick) | role=dialog/aria-modal, Backdrop rgba(--crumb), .gm-box --paper max 560px; grosses Foto (Zeitbild-Tag) + Jahr/Name/Verwandtschaft + Fakten; Fokus-Falle, Esc, Backdrop-Klick, `body.modal-offen` sperrt Scroll |
 | `.tuete` | weisser Tueten-Aufdruck | --white-Blatt, Logo mittig, Original-Copy, Liste zwischen Hairlines |
 | `table.zeiten` / `.sommer` | Oeffnungszeiten | 1px --line-Zellen, `tr.heute` fett in --red; Sommer-Box 1.5px --crust |
 | `.gewinner` | Wochenziehungs-Block | tabular-nums, Zeilen dotted, Los-Nr in --red-Display |
@@ -130,6 +133,9 @@ Geschlossene Liste, alles via `.js-motion` auf html (site.js, entfaellt bei redu
 - Marquee `.lauf`: translateX-Loop 30s linear, Hover pausiert.
 - Mikro: Buttons transform+box-shadow .16s; Nav-Unterstrich border-bottom-color.
 - Zeitband-Scrolly (nur min-width:900 + Motion, s.o.).
+- Generationen-Schwebefoto (site.js, nur hover:hover + min-width:820): rAF-Lerp folgt Cursor
+  (Faktor .16), Foto-Crossfade .35s, Nadelstreifen-Wipe clip-path .55s; reduced-motion = Snap
+  ohne Nachlauf/Zoom, Modal ohne gmIn-Animation. Desktop-only Foto-Preload gegen Erst-Hover-Flackern.
 Reduced-Motion: alles statisch (Reveals sichtbar, kein Zoom, kein Marquee, keine Button-
 Transition, scroll-behavior auto); Zahlen zeigen sofort den Zielwert.
 
@@ -179,7 +185,7 @@ Gewaehlt: "Warmes Regal" (D1b, "mehr Rot"), nach mehreren Feedback-Runden aus 9 
 | Datei | Zweck | Besonderheit |
 |---|---|---|
 | index.html | Start/Onepager | Collage-Hero, Zahlenband, Zeitband (Signature), Preistafel, Handwerk-Schritte, Tueten-Aufdruck, CTA-warm, JSON-LD Bakery |
-| geschichte.html | 120 Jahre, 5 Generationen | Chronik-Zettel (.zettel/.gen-liste), .gewinner-Block, Anker #jubilaeum |
+| geschichte.html | 120 Jahre, 5 Generationen | Fuenf-Generationen-Index (.iv: Akkordeon mobil / Schwebe-Foto + Klick-Modal Desktop), .gewinner-Block, Anker #jubilaeum |
 | sortiment.html | Sortiment | Preistafel-Muster (.tafel, Fuehrungspunkte) |
 | torten.html | Torten auf Bestellung | CTA = Telefon (.tel), keine Formulare |
 | ausbildung.html | Ausbildung | .benefits, erste Karte (So+Mo frei) in --red |

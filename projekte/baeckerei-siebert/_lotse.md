@@ -54,8 +54,14 @@ Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") ->
   nicht von hier aus committen, gehoert zum anderen Arbeitsstrang
 - [ ] Build: restliche Alt-Site-Bilder sichten (64a7e-Serie komplett, picture-2600-Serie,
   P1170491_CMYK vor Web-Einsatz konvertieren) — Liste in MANIFEST.md
-- [ ] **Marvin: verfeinerte Variante C freigeben** -> danach in live geschichte.html bauen.
-  C gewaehlt + Mechanik praezisiert (Marvin 2026-07-23): Mobil bleibt Akkordeon (freigegeben),
+- [x] **Variante C freigegeben + LIVE in geschichte.html verdrahtet** (Marvin "go", 2026-07-23).
+  Komponente in styles.css (`.iv`/`.gen`/`.medaille`/`.schwebe`/`.gen-modal`) + site.js (2. IIFE)
+  portiert, statisches `<details>`-Akkordeon = No-JS/Mobile-Basis, Desktop-Upgrade hinter
+  `html:not(.no-js)` + `@media hover:hover`. Reicher belegter Text je Generation (Verwandtschaft +
+  Lebensdaten + Fakten) in data-* + `.inhalt`. _design.md mitgezogen. Verifiziert: Modal-Logik +
+  Preload (JS-State), Mobile-/Desktop-Look (headless-Render), keine Konsolenfehler, node --check ok.
+  Alte `.zettel gen-liste` ersetzt; grosse Anke-Schlussfigur bleibt. Historie zur Mechanik:
+  Mobil bleibt Akkordeon (freigegeben),
   jetzt mit REICHEREM Text je Generation (Verwandtschaft + Lebensdaten + belegte Fakten).
   Desktop = Chronik-Index (Zeilen Jahr+Name+Verwandtschaft) + FREI SCHWEBENDES Foto (folgt
   Cursor, wechselt pro Zeile); roter Nadelstreifen-Wipe waechst in der Breite. NEU: KLICK auf

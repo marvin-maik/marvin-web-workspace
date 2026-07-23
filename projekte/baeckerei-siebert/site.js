@@ -119,3 +119,56 @@
     }
   }
 })();
+
+/* Fuenf Generationen: frei schwebendes Foto (Cursor/Fokus) + Detail-Modal, nur Desktop mit Zeiger */
+(function(){
+  var iv=document.querySelector(".iv"); if(!iv) return;
+  var schwebe=iv.querySelector(".schwebe");
+  var fotos=schwebe?Array.prototype.slice.call(schwebe.querySelectorAll(".fotos img")):[];
+  var cap=schwebe?schwebe.querySelector(".cap"):null;
+  var dets=Array.prototype.slice.call(iv.querySelectorAll("details.gen"));
+  var modal=iv.querySelector(".gen-modal");
+  var mq=matchMedia("(hover:hover) and (min-width:820px)");
+  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var cur=-1,tx=0,ty=0,cx=0,cy=0,raf=null,live=false,offX=195;
+
+  /* nur Desktop: Generationen-Fotos vorab in den Cache holen (kein Erst-Hover-Flackern; mobil sparsam) */
+  if(mq.matches) dets.forEach(function(d){ var pre=new Image(); pre.src=d.getAttribute("data-img"); });
+
+  function daten(d){return {
+    jahr:d.getAttribute("data-jahr"), voll:d.getAttribute("data-voll"),
+    name:(d.querySelector("summary .name")||{}).textContent||"",
+    rolle:d.getAttribute("data-rolle"), dat:d.getAttribute("data-daten"),
+    img:d.getAttribute("data-img"), zeit:d.hasAttribute("data-zeitbild"),
+    lang:(d.querySelector(".inhalt p")||{}).textContent||""};}
+
+  function swap(i){ if(!schwebe) return;
+    if(i!==cur){ cur=i; fotos.forEach(function(im,di){im.classList.toggle("zeig",di===i);});
+      var g=daten(dets[i]); cap.textContent=g.jahr+" · "+g.name; }
+    schwebe.classList.add("an"); }
+  function weg(){ if(!schwebe) return; schwebe.classList.remove("an"); cur=-1; live=false; if(raf){cancelAnimationFrame(raf);raf=null;} }
+  function loop(){ var e=reduce?1:0.16; cx+=(tx-cx)*e; cy+=(ty-cy)*e; schwebe.style.left=cx+"px"; schwebe.style.top=cy+"px"; if(live) raf=requestAnimationFrame(loop); }
+  function starte(){ if(!live){ live=true; loop(); } }
+  function ziel(px,py,snap){ var w=schwebe.offsetWidth||300,half=w/2; if(px+half>innerWidth-8)px=px-2*offX; if(px-half<8)px=half+8; tx=px; ty=Math.max(half*0.4+8,Math.min(py,innerHeight-8)); if(snap){cx=tx;cy=ty;schwebe.style.left=cx+"px";schwebe.style.top=cy+"px";} }
+
+  var gm=modal?{img:modal.querySelector(".gm-bild img"),zb:modal.querySelector(".gm-bild .zb"),x:modal.querySelector(".gm-x"),jahr:modal.querySelector(".gm-txt .jahr"),name:modal.querySelector(".gm-txt .name"),rolle:modal.querySelector(".gm-txt .rolle"),p:modal.querySelector(".gm-txt p")}:null;
+  var lastFocus=null;
+  function onKey(e){ if(e.key==="Escape"){e.preventDefault();closeM();} else if(e.key==="Tab"){e.preventDefault();gm.x.focus();} }
+  function openM(i,trigger){ if(!modal) return; var g=daten(dets[i]);
+    gm.img.src=g.img; gm.img.alt=g.voll; gm.jahr.textContent=g.jahr; gm.name.textContent=g.voll;
+    gm.rolle.textContent=g.rolle+" · "+g.dat; gm.p.textContent=g.lang; gm.zb.hidden=!g.zeit;
+    lastFocus=trigger||document.activeElement; weg(); modal.hidden=false; document.body.classList.add("modal-offen");
+    document.addEventListener("keydown",onKey); gm.x.focus(); }
+  function closeM(){ if(!modal||modal.hidden) return; modal.hidden=true; document.body.classList.remove("modal-offen"); document.removeEventListener("keydown",onKey); if(lastFocus&&lastFocus.focus)lastFocus.focus(); }
+  if(modal) modal.addEventListener("click",function(e){ if(e.target.hasAttribute("data-close")) closeM(); });
+
+  dets.forEach(function(d,i){
+    var s=d.querySelector("summary"); if(!s) return;
+    s.addEventListener("mouseenter",function(ev){ if(!mq.matches) return; ziel(ev.clientX+offX,ev.clientY,!live); swap(i); starte(); });
+    s.addEventListener("focus",function(){ if(!mq.matches) return; var r=s.getBoundingClientRect(); ziel(r.right+offX,r.top+r.height/2,true); swap(i); });
+    s.addEventListener("click",function(e){ if(mq.matches){ e.preventDefault(); openM(i,s); } });
+  });
+  iv.addEventListener("mousemove",function(e){ if(!mq.matches) return; ziel(e.clientX+offX,e.clientY,reduce); });
+  iv.addEventListener("mouseleave",function(){ if(mq.matches && modal && modal.hidden) weg(); });
+  iv.addEventListener("focusout",function(e){ if(mq.matches && modal && modal.hidden && !iv.contains(e.relatedTarget)) weg(); });
+})();
