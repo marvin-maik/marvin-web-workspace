@@ -106,18 +106,18 @@
 <p class="viewer-kopf">Intern · Baustein „Fünf Generationen“ · 3 Varianten zur Auswahl · mobile-first</p>
 <div class="vtitel">
   <h1>„Von Gustav bis Anke“ · drei Wege</h1>
-  <p>Der Familien-Block der Geschichte-Seite in drei Mechaniken. Alle mobile-first (bei ca. 375px zuerst gedacht) und für Bilder gebaut. Wo kein echtes Porträt vorliegt (nur noch Gustav), steht ein Monogramm-Medaillon; echte Fotos rutschen später an dieselbe Stelle. „Zeitbild“ = vorhandenes historisches Foto (Otto/Bodo/Lars).</p>
+  <p>Der Familien-Block der Geschichte-Seite in drei Mechaniken. Alle mobile-first (bei ca. 375px zuerst gedacht) und für Bilder gebaut. Jetzt liegt für jede Generation ein echtes Foto vor: das 30-Jahr-Jubiläum 1936 mit „Inhaber Otto Siebert“, der DDR-Verkauf, das aktuelle Team. „Zeitbild“ = historisches Foto, ohne Tag = aktuelles.</p>
 </div>
 
 <main id="app"></main>
 
 <script>
 var GENS = [
-  {ini:'G', jahr:'1906', name:'Gustav', text:'Der Gründer aus Ostpreußen. Er eröffnet 1906 und führt das Haus durch Kaiserreich und Ersten Weltkrieg.', img:null},
-  {ini:'O', jahr:'1929', name:'Otto', text:'Gustavs Neffe. Er übernimmt nach dessen Tod 1929 und hält den Betrieb durch Krieg und Nachkriegszeit.', img:'../../img/laden-front-historisch.jpg', zeitbild:true},
-  {ini:'B', jahr:'DDR', name:'Bodo', text:'Hält das Handwerk gegen die Mangelwirtschaft. Butter, Rosinen und Mandeln sind Mangelware.', img:'../../img/laden-70er.jpg', zeitbild:true},
-  {ini:'L', jahr:'1990', name:'Lars', text:'Übernimmt nach der Wende. Er bewahrt die Ost-Rezepte und macht den Laden zur Kult-Institution. Bis 2021.', img:'../../img/laden-theke.jpg', zeitbild:true},
-  {ini:'A', jahr:'2021', name:'Dr. Anke Siebert', text:'Promovierte Wirtschafts- und Umweltwissenschaftlerin, fünfte Generation.', img:'../../img/team-baeckerin.jpg'}
+  {ini:'G', jahr:'1906', name:'Gustav', text:'Der Gründer aus Ostpreußen. Er eröffnet 1906 und führt das Haus durch Kaiserreich und Ersten Weltkrieg.', img:'../../img/gen-1906.jpg', zeitbild:true},
+  {ini:'O', jahr:'1929', name:'Otto', text:'Gustavs Neffe. Er übernimmt nach dessen Tod 1929 und hält den Betrieb durch Krieg und Nachkriegszeit.', img:'../../img/gen-1929-otto.jpg', zeitbild:true},
+  {ini:'B', jahr:'DDR', name:'Bodo', text:'Hält das Handwerk gegen die Mangelwirtschaft. Butter, Rosinen und Mandeln sind Mangelware.', img:'../../img/gen-ddr-bodo.jpg', zeitbild:true},
+  {ini:'L', jahr:'1990', name:'Lars', text:'Übernimmt nach der Wende. Er bewahrt die Ost-Rezepte und macht den Laden zur Kult-Institution. Bis 2021.', img:'../../img/gen-1990-lars.jpg', zeitbild:true},
+  {ini:'A', jahr:'2021', name:'Dr. Anke Siebert', text:'Promovierte Wirtschafts- und Umweltwissenschaftlerin, fünfte Generation.', img:'../../img/gen-2021-anke.jpg'}
 ];
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function medaille(g,size){var m=size?(' style="--m:'+size+'px"'):'';
