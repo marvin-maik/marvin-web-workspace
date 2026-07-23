@@ -17,9 +17,13 @@ Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") ->
   1. Gustav (1865-1929, Gruender 1906) 2. **Otto Siebert (1897-1968, NEFFE, ab 1929 nach Gustavs
   Tod)** — NICHT "Albert" (das war ein Fehler frueher Recherche) 3. Bodo (geb. 1934, DDR) 4. Lars
   (1990-2021, ohne "Catrin" auf der Site) 5. Dr. Anke (seit 2021, Wirtschafts- UND Umweltwissenschaftlerin).
-  B.Z. beschriftet das 1936er-Foto faelschlich mit "Gustav" (unmoeglich, 1929 tot). Neues echtes
-  Foto `img/laden-front-historisch.jpg` = Fein-Baeckerei-Front mit Schild "Otto Siebert Baeckermeister".
+  B.Z. beschriftet das 1936er-Foto faelschlich mit "Gustav" (unmoeglich, 1929 tot).
   Details: product-marketing-context.md Abschnitt 0b.
+- **Ein echtes Foto pro Generation eingebaut (Marvin 2026-07-23, Commit 60d7ca8):** `img/gen-1906.jpg`
+  (Fein-Baeckerei-Front), `gen-1929-otto.jpg` (30-Jahr-Jubilaeum 1936, "Inhaber Otto Siebert"),
+  `gen-ddr-bodo.jpg` (DDR-Verkauf), `gen-1990-lars.jpg` (Theke Wende-Zeit), `gen-2021-anke.jpg`
+  (aktuelles Team Anke). Verwendet in index (Zeitband + Hero), geschichte (Der Ort + Familien-Foto),
+  familie-varianten (alle 3 Varianten). `laden-front-historisch.jpg` dadurch entfernt.
 - **Design-Richtung = C ("Aus der Tuete"), mit dem ECHTEN Marken-Look** (Marvin 2026-07-22):
   Baeckerei-Rot + Gold + Loewen-Brezel-Wappen + Schreibschrift, NICHT das v1-"Zeit-Haus"
   (Gruen/League Gothic) und NICHT die kraftbraune C-Urfassung. Marke ist bewusst "authentisch
@@ -50,8 +54,10 @@ Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") ->
   nicht von hier aus committen, gehoert zum anderen Arbeitsstrang
 - [ ] Build: restliche Alt-Site-Bilder sichten (64a7e-Serie komplett, picture-2600-Serie,
   P1170491_CMYK vor Web-Einsatz konvertieren) — Liste in MANIFEST.md
-- [ ] Foto-Luecken: aktuelles Ladenfront-Aussenfoto (Besuch + OG-Bild) besorgen; klaeren, ob
-  team-baeckerin.jpg Anke Siebert zeigt; Torten-Mini-Shooting als Upsell notieren
+- [ ] **Marvin: Generationen-Variante waehlen** (A Zeitleiste / B Foto-Karten / C interaktiv in
+  `freigabe/konzepte/familie-varianten.html`) -> danach in live geschichte.html bauen
+- [ ] Foto-Luecken: aktuelles Ladenfront-Aussenfoto (Besuch + OG-Bild) besorgen; Torten-Mini-
+  Shooting als Upsell notieren (Generationen-Fotos jetzt komplett echt, s.o.)
 - [ ] Danach: Skill `struktur-wireframe` (Freigabe-Dokument + Lo-Fi-Wireframe), dann Build
 - [ ] Lueckenliste fuers KUNDENGESPRAECH ist GESCHRUMPFT (Marvins Recherche 2026-07-22, Kontext
   Abschnitt 0b): Generationen + Jubilaeums-Mechanik + OePNV jetzt Presse-belegt, nur noch
