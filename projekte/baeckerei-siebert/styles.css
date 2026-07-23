@@ -10,6 +10,8 @@
 @font-face{font-family:'Shantell';src:url('fonts/shantell-600.woff2') format('woff2');font-weight:600;font-display:swap}
 @font-face{font-family:'Shantell';src:url('fonts/shantell-700.woff2') format('woff2');font-weight:700;font-display:swap}
 @font-face{font-family:'Pinyon';src:url('fonts/pinyon.woff2') format('woff2');font-weight:400;font-display:swap}
+/* Metrik-angepasste Georgia: Font-Swap ohne Layout-Shift (Werte aus fraunces-400 berechnet) */
+@font-face{font-family:'Fraunces-fb';src:local('Georgia');size-adjust:105.95%;ascent-override:92.31%;descent-override:24.07%;line-gap-override:0%}
 
 :root{
   --oat:#EADFC9;      /* Hafer-Warmweiß, Grundfläche */
@@ -25,7 +27,7 @@
   --gold:#B98F3A;     /* Gold, NUR auf Dunkel */
   --gold-l:#D8AE52;
   --line:#D9C7A3;     /* Roggen-Hairline */
-  --disp:'Fraunces',Georgia,serif;
+  --disp:'Fraunces','Fraunces-fb',Georgia,serif;
   --hand:'Shantell',cursive;
   --script:'Pinyon',cursive;
   --wrap:1090px;

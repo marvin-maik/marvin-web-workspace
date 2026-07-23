@@ -234,6 +234,37 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Performance-Pass komplett: PSI mobil 78 -> ~90-100, LIVE (?v=6)** (Marvin "wtf/
+  immernoch scheisse" auf Zwischenmessungen — 21:41 mass den alten Edge-Stand vor JEDEM Deploy,
+  22:07 den Zwischen-Deploy ohne Font-Fix). Drei Hebel, je per Lighthouse (CF, mobil-emuliert)
+  verifiziert: (1) **srcset/sizes sitewide**: 21 Varianten `img/*-720.webp` (WebP q82, 7-101 KB;
+  JPEG-720er-Zwischenschritt geloescht), `sizes` pro Layout-Kontext, Original-JPEG bleibt src-
+  Fallback + grosse w-Stufe; fetchpriority="high" auf die 3 mobil sichtbaren LCP-Bilder (sortiment
+  brotregal, index c-haupt, ausbildung hero). (2) **CLS 0,132 -> ~0,01**: Hauptursache war der
+  no-js-Erstpaint (Mobilnav offen), site.js klappte sie spaeter zu -> <main> ruckte hoch. Fix:
+  Inline-`<script>document.documentElement.classList.remove("no-js")</script>` nach viewport-meta in
+  allen 9 HTML (js-motion bleibt BEWUSST in site.js — sonst weisse Seite, wenn site.js nicht laedt).
+  (3) **Font-Swap ohne Preload-Kosten**: 3 Fraunces-Preloads probiert -> LCP +1,5s (Konkurrenz zum
+  LCP-Bild), wieder raus. Stattdessen metrik-angepasste Fallback-Face `'Fraunces-fb'` = local(Georgia)
+  mit size-adjust:105.95% / ascent-override:92.31% / descent-override:24.07% (per fontTools aus
+  fraunces-400.woff2 vs. Georgia.ttf, deutsche Buchstabenfrequenz gewichtet), in --disp vor Georgia.
+  styles.css-Bump **?v=6** sitewide. Endstand Lighthouse: FCP ~1,1s, CLS 0,002-0,019, LCP 1,6-3,8s
+  bimodal = kalter/warmer CF-Edge beim LCP-Bild (Element stabil brotregal-720.webp, srcset greift),
+  Score 88-100 je Edge-Wuerfel. Bewusst NICHT gejagt: ~100 KiB "623px-statt-720px"-Rundung +
+  Shantell-Miniswap 0,008. SEO 66 BLEIBT (noindex-Absicht bis Deal). MERKE: nach Deploy NIE sofort
+  ueber Prod-URL messen (alter Edge) -> Deployment-Hash-URL. Committet zusammen mit dem .wg-Strang
+  der Parallel-Session (Commit war mir uebertragen).
+- 2026-07-23: **Sinneinheiten-Nachschlag: uebersehene Stellen** (Marvin am Handy: Sommer-Notiz
+  besuch + Benefits-Karten ausbildung brachen unschoen). In .wg gruppiert: besuch Sommer-Hinweis
+  ("Sommer, 20.07. – 15.08.: / Dienstag bis Freitag nur bis 16:30.") + Bahn-Absatz (S+U-Name,
+  U/S-Klammer, "5 bis 7 Minuten zu Fuss."), ausbildung alle 6 Benefits-Karten + CTA-mut, dazu
+  Zeiten-mut sortiment/torten ("Di bis Fr 6:00 bis 18:30, / Sa bis 13:30.") und index-Besuch-Karte
+  (S+U/Fussweg/Tram). Nur HTML -> KEIN ?v-Bump noetig. Verifiziert live @320+@375: 0 Overflow,
+  keine .wg bricht intern, Karten/Notiz brechen an der Sinnkante. DEPLOYED (03db8e08), noindex ok.
+  NICHT committet: PARALLELE Session baut gerade WebP-Migration (-720.webp) + Font-Preloads +
+  no-js-Script in DIESELBEN HTML-Dateien (unfertig/uncommitted) — Commit dem Perf-Strang
+  ueberlassen, .wg-Nachschlag faehrt dort mit. Deploy-Stand war konsistent (21 webp referenziert
+  = 21 vorhanden, Bilder-Check 0 broken).
 - 2026-07-23: **Zeilenumbrueche nach Sinneinheiten, sitewide** (Marvin am Staging-Screenshot:
   "check all breakpoints, wrap better", mit konkreten Wunsch-Umbruechen). Loesung statt fester
   `<br>`: Utility `.wg{display:inline-block}` in styles.css — haelt eine Wortgruppe zusammen,
@@ -262,7 +293,7 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   (createImageBitmap-Sweep), brotregal laedt mit 1360x907 = Attribut-Match, Sichtcheck Sortiment ok
   (Pane-Scroll fror ein = bekannte Macke). KEIN ?v-Bump noetig (styles/site unveraendert). PSI-Kontext:
   SEO 66 = noindex-Absicht; CLS 0,133 (Font-Swap) + Render-Blocking offen, falls Marvin >90 will.
-  NOCH NICHT deployed — CF-Staging zeigt weiter die dicken Bilder, bis neu deployt wird (Rezept s.u.).
+  (Deploy kam im Anschluss, s. Eintrag darueber.)
 - 2026-07-23: **Breakpoint-Abnahme ALLER Seiten + STAGING-DEPLOY auf Cloudflare Pages** (Marvin:
   "Pruefe alle Seiten auf alle Breakpoints, Home zuletzt, dann Cloudflare frei"). Alle 9 Seiten
   (ausbildung/besuch/geschichte/sortiment/torten/404/impressum/datenschutz/index) live @375/768/1280
