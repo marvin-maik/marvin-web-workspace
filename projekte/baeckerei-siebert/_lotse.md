@@ -245,9 +245,10 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   Verifiziert live @320/375/768/1280: 0 Overflow ueberall, keine Gruppe muss intern brechen,
   geschichte-Lead bricht exakt wie von Marvin gewuenscht ("Fuenf Generationen Familie Siebert. /
   Eine Adresse: Schoenfliesser Strasse 12, / Prenzlauer Berg."), sortiment-Lead + Subs ebenso.
-  Design-Regel als Konstruktions-Muster 8 in _design.md. **DEPLOY OFFEN:** wrangler-Aufruf vom
-  Permission-Classifier blockiert — Staging-Kopie liegt geleakcheckt bereit, Marvin muss den
-  Deploy-Befehl aus deploy.md selbst ausfuehren (zieht dann auch die Bild-Diaet mit hoch).
+  Design-Regel als Konstruktions-Muster 8 in _design.md. DEPLOYED (ce2b055d): Prod liefert v=5
+  + noindex, .wg live; Bild-Diaet damit auch auf Staging. MERKE: Marvins eigener Deploy-Versuch
+  davor (6f32b4b0) lud einen ALTEN Stand hoch — vermutlich aus einem Checkout ohne b13dea9;
+  vor Deploys von anderer Maschine erst `git pull`.
 - 2026-07-23: **Bild-Diaet: JEDES ausgelieferte Bild < 200 KB** (Marvin nach PageSpeed-Report Mobil 78,
   LCP 4,6s, "1.324 KiB Einsparung"): alle 18 Dateien > 195 KB in `img/` per Pillow neu encodiert
   (progressive, EXIF-frei, adaptiv q80->q60; Skript-Muster im Scratchpad `shrink.py`). Nur 2 mussten
