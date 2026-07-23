@@ -234,6 +234,12 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Besuch-Karte (index): Button-Abstand mobil gefixt** (Marvin-Screenshot: "was hier
+  mit dem spacing" — "Route planen"/"Alles zum Besuch" klebten gestapelt aneinander). Ursache: zwei
+  inline-block-.btn in einem <p> -> beim Umbruch kein vertikaler Abstand. Fix: Wrapper auf bestehende
+  `.cta-zeile` (flex, gap 12, wrap) getauscht. Sweep nach demselben Muster: nur noch geschichte
+  `.jub-kanaele` (2 Gold-Buttons) — dort safe (white-space:nowrap, passt bis 320). Verifiziert @375
+  (gestapelt, 12px Luft, 0 Overflow) + Desktop (nebeneinander, gap 12). Commit 65acb24, deployed.
 - 2026-07-23: **Zeitband-Regression aus dem Perf-Pass gefixt** (Marvin per Element-Auswahl: "where
   are the images for each year"). Der srcset-Umbau hatte dem Zeitband-Bild (index, `.zb-bild img`)
   ein STATISCHES gen-1906-srcset gegeben; site.js tauscht dort aber pro Station nur `src` — und
