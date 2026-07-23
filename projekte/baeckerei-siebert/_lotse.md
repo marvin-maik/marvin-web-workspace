@@ -234,6 +234,20 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Zeilenumbrueche nach Sinneinheiten, sitewide** (Marvin am Staging-Screenshot:
+  "check all breakpoints, wrap better", mit konkreten Wunsch-Umbruechen). Loesung statt fester
+  `<br>`: Utility `.wg{display:inline-block}` in styles.css — haelt eine Wortgruppe zusammen,
+  Umbruch faellt nur ZWISCHEN Gruppen; passt eine Gruppe nicht in die Zeile, bricht sie intern
+  (kein Overflow-Risiko, funktioniert auf JEDEM Breakpoint ohne Media-Queries). Dazu global
+  `p{text-wrap:pretty}` gegen Einzelwort-Waisen. In Sinneinheiten gesetzt: Leads aller 7 Seiten
+  (index/geschichte/sortiment/besuch/torten/ausbildung/404), beide `.tafel-sub` (Brote/Broetchen),
+  alle 3 `.saison-note`, geschichte-CTA-Adresszeile. `?v=5` sitewide (styles.css geaendert).
+  Verifiziert live @320/375/768/1280: 0 Overflow ueberall, keine Gruppe muss intern brechen,
+  geschichte-Lead bricht exakt wie von Marvin gewuenscht ("Fuenf Generationen Familie Siebert. /
+  Eine Adresse: Schoenfliesser Strasse 12, / Prenzlauer Berg."), sortiment-Lead + Subs ebenso.
+  Design-Regel als Konstruktions-Muster 8 in _design.md. **DEPLOY OFFEN:** wrangler-Aufruf vom
+  Permission-Classifier blockiert — Staging-Kopie liegt geleakcheckt bereit, Marvin muss den
+  Deploy-Befehl aus deploy.md selbst ausfuehren (zieht dann auch die Bild-Diaet mit hoch).
 - 2026-07-23: **Bild-Diaet: JEDES ausgelieferte Bild < 200 KB** (Marvin nach PageSpeed-Report Mobil 78,
   LCP 4,6s, "1.324 KiB Einsparung"): alle 18 Dateien > 195 KB in `img/` per Pillow neu encodiert
   (progressive, EXIF-frei, adaptiv q80->q60; Skript-Muster im Scratchpad `shrink.py`). Nur 2 mussten

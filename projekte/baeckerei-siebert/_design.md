@@ -164,6 +164,12 @@ Transition, scroll-behavior auto); Zahlen zeigen sofort den Zielwert.
 5. Tiefe kommt aus Schatten + Drehung, NIE aus Klebeband/Washi/Markise (verworfen).
 6. Zahlen/Preise/Jahre immer tabular-nums; Status-Texte nur ueber [data-status] aus site.js.
 7. Headlines nur zwischen ganzen Woertern umbrechen (text-wrap balance, Marvins Regel).
+8. Fliesstext bricht nach SINNEINHEITEN (Marvins Regel 2026-07-23): global `p{text-wrap:pretty}`
+   (keine Einzelwort-Waisen) + Utility `.wg{display:inline-block}` um zusammengehoerige
+   Wortgruppen in Leads/`.tafel-sub`/`.saison-note` (alle 7 Seiten). `.wg` bricht nur ZWISCHEN
+   Gruppen; passt eine Gruppe nicht in die Zeile (320px), bricht sie intern -> kein Overflow.
+   Beispiel geschichte-Lead: "Fuenf Generationen Familie Siebert. / Eine Adresse:
+   Schoenfliesser Strasse 12, / Prenzlauer Berg." Neue Copy: Sinneinheiten gleich in .wg setzen.
 
 ## Do / Don't (projektspezifisch)
 

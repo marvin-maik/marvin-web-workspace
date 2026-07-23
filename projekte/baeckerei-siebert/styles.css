@@ -116,6 +116,8 @@ h1.disp{font-size:clamp(40px,6.4vw,72px)}
 h2.disp{font-size:clamp(30px,5vw,50px)}
 .lead{font-size:clamp(17px,2.1vw,20px);color:var(--ink2);max-width:36ch}
 .mut{color:var(--ink2)}
+p{text-wrap:pretty}                                        /* Browser darf Umbrueche vorausschauend setzen: keine Einzelwort-Waisen */
+.wg{display:inline-block}                                  /* Sinneinheit: Umbruch nur ZWISCHEN .wg-Gruppen; passt eine Gruppe nicht in die Zeile, bricht sie intern (kein Overflow) */
 
 /* Autoritäts-Zeile "Berlins älteste Bäckerei" (ohne Unterstrich) */
 .alt-banner{font-family:var(--disp);font-weight:900;font-size:clamp(22px,3.3vw,34px);line-height:1.02;letter-spacing:-.01em;color:var(--red);margin-bottom:12px}
