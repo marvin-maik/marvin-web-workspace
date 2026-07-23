@@ -285,7 +285,7 @@ p{text-wrap:pretty}                                        /* Browser darf Umbru
 .sortiment-split .anker img{aspect-ratio:16/9;object-position:50% 50%}
 @media(min-width:1000px){
   .sortiment-split{grid-template-columns:520px 1fr;align-items:center}
-  .sortiment-split .anker img{aspect-ratio:3/4;object-position:50% 60%}
+  .sortiment-split .anker img{aspect-ratio:4/3;object-position:50% 60%}
 }
 
 /* ---------- Sortiment: Editorial-Split (Foto neben Tafel ab Desktop) ---------- */
