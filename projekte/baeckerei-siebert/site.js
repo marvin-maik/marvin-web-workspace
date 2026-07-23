@@ -172,3 +172,45 @@
   iv.addEventListener("mouseleave",function(){ if(mq.matches && modal && modal.hidden) weg(); });
   iv.addEventListener("focusout",function(e){ if(mq.matches && modal && modal.hidden && !iv.contains(e.relatedTarget)) weg(); });
 })();
+
+/* ---------- Saison-Tabs: Datums-Default + barrierefreies Tab-Pattern (sortiment.html) ---------- */
+(function(){
+  var sec=document.querySelector(".saison"); if(!sec) return;
+  var tabs=Array.prototype.slice.call(sec.querySelectorAll('[role="tab"]'));
+  var panels=Array.prototype.slice.call(sec.querySelectorAll('[role="tabpanel"]'));
+  var fotos=Array.prototype.slice.call(sec.querySelectorAll('.saison-foto'));
+  if(tabs.length<2||!panels.length) return;
+
+  /* Fotos aller Panels vorladen -> kein Aufploppen beim Wechsel */
+  panels.forEach(function(p){ var im=p.querySelector("img"); if(im){ var pre=new Image(); pre.src=im.currentSrc||im.src; } });
+
+  /* Datums-Logik: welche Saison ist jetzt relevant? (Monat, plus Silvester-Feintuning Ende Dez) */
+  var t=new Date(), mo=t.getMonth(), dy=t.getDate();
+  var jetzt = (mo===11&&dy>=27) ? "silvester"
+            : (mo===0)          ? "silvester"
+            : (mo>=1&&mo<=3)    ? "ostern"          /* Feb bis Apr */
+            :                     "weihnachten";   /* Mai bis Dez(26.): naechstes grosses Fest */
+
+  /* "Als Naechstes"-Tag nur im relevanten Panel */
+  panels.forEach(function(p){ var tag=p.querySelector(".saison-tag"); if(tag) tag.hidden=(p.dataset.saison!==jetzt); });
+
+  function aktivieren(key,fokus){
+    tabs.forEach(function(tb){ var on=tb.dataset.saison===key; tb.setAttribute("aria-selected",on?"true":"false"); tb.tabIndex=on?0:-1; if(on&&fokus)tb.focus(); });
+    panels.forEach(function(p){ p.classList.toggle("aktiv",p.dataset.saison===key); });
+    fotos.forEach(function(f){ f.classList.toggle("aktiv",f.dataset.saison===key); });
+  }
+  tabs.forEach(function(tb,i){
+    tb.addEventListener("click",function(){ aktivieren(tb.dataset.saison); });
+    tb.addEventListener("keydown",function(e){
+      var n=tabs.length, go=-1;
+      if(e.key==="ArrowRight"||e.key==="ArrowDown") go=(i+1)%n;
+      else if(e.key==="ArrowLeft"||e.key==="ArrowUp") go=(i-1+n)%n;
+      else if(e.key==="Home") go=0;
+      else if(e.key==="End") go=n-1;
+      if(go>-1){ e.preventDefault(); aktivieren(tabs[go].dataset.saison,true); }
+    });
+  });
+
+  sec.classList.add("tabs-an");   /* aktiviert die Tab-Darstellung; ohne diese Klasse alles gestapelt */
+  aktivieren(jetzt);              /* Datums-Default: relevante Saison offen */
+})();

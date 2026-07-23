@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Info-Zahlen · Variante 4 in vier Hintergründen · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen der Vergleichsseite (NICHT Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1280px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(26px,4vw,40px)}
+.vtitel p{color:var(--ink2);max-width:76ch;margin-top:8px}
+.vnote{max-width:1280px;margin:18px auto 0;padding:14px 18px;background:var(--paper);border-left:3px solid var(--red);border-radius:2px;color:var(--ink);font-size:14.5px;line-height:1.55}
+.vnote b{font-weight:700}
+.vkopf{max-width:1280px;margin:0 auto;padding:34px var(--pad) 4px}
+.vbadge{display:inline-flex;align-items:center;gap:8px;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--crust-d);padding:6px 10px;border-radius:3px;margin-bottom:10px}
+.vkopf h2{font-family:var(--disp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.02}
+.vkopf .bg{display:inline-block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--crust-d);border:1px solid var(--line);border-radius:3px;padding:5px 9px;margin-left:8px;vertical-align:middle}
+.vkopf .warum{max-width:78ch;color:var(--ink2);font-size:15px;margin:8px 0 2px}
+.vkopf .fuellt{font-family:var(--hand);font-weight:600;color:var(--red);font-size:15px;margin-top:4px}
+.vtrenn{border:0;border-top:1px dashed var(--line);max-width:1280px;margin:56px auto 0}
+.vfuss{max-width:1280px;margin:0 auto;padding:40px var(--pad) 70px;color:var(--ink2);font-size:14.5px;line-height:1.6}
+.vfuss b{color:var(--ink)}
+.simrahmen{margin-top:14px}
+
+/* Sprite (versteckt, nicht display:none -> sonst rendern <use> nicht zuverlässig) */
+.svg-sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* =====================================================================
+   Gemeinsame Sterne-Komponente. 5 Sterne, Teilfüllung über --pct-Breite
+   des oberen Layers. Farbe kommt über die Modifier-Klasse (gold/rot/creme),
+   fill/stroke am <svg> (vererbt über die <use>-Shadow-Grenze).
+   ===================================================================== */
+.stars{position:relative;display:inline-block;line-height:0;width:112px;height:21px;vertical-align:middle}
+.stars .leer{position:absolute;inset:0;width:112px;height:21px}
+.stars .vollwrap{position:absolute;inset:0;overflow:hidden;width:var(--pct,94%)}
+.stars .vollwrap svg{width:112px;height:21px;display:block}
+.stars.gold .leer{fill:none;stroke:var(--gold);stroke-width:1.3}
+.stars.gold .vollwrap svg{fill:var(--gold-l)}
+.stars.rot .leer{fill:none;stroke:var(--red-d);stroke-width:1.3}
+.stars.rot .vollwrap svg{fill:var(--red)}
+.stars.creme .leer{fill:none;stroke:#F1E7CF;stroke-width:1.3}
+.stars.creme .vollwrap svg{fill:#FFF6E6}
+
+.zband{width:100%;overflow:hidden}
+.zband .wrap{max-width:1090px;margin:0 auto;padding-inline:var(--pad)}
+/* wiederkehrende V3-Karte (Papier, rote Oberkante, gerichteter Schatten) */
+.karte-fakt{position:relative;background:var(--paper);border-top:4px solid var(--red);border-radius:2px;
+            padding:20px 16px 18px;text-align:center;box-shadow:5px 11px 22px rgba(43,33,26,.26)}
+.karte-fakt b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.6vw,44px);line-height:.92;color:var(--red);font-variant-numeric:tabular-nums}
+.karte-fakt small{display:block;margin-top:7px;font:600 11.5px/1.35 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--crust-d)}
+
+/* ---------------------------------------------------------------------
+   4A — „Warme Wand" · Hintergrund OAT (hell/beige).
+   Vier weiße V3-Karten wie an eine warme Wand geheftet; die Trust-Zeile
+   sitzt auf EINER dunklen Gold-Plakette (so bleibt Gold auf dunklem Grund).
+   --------------------------------------------------------------------- */
+.zv4a{background:var(--oat);padding:clamp(40px,5vw,60px) 0}
+.zv4a .reihe{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 16px;place-items:center}
+@media(min-width:760px){.zv4a .reihe{grid-template-columns:repeat(4,1fr)}}
+.zv4a .karte-fakt{width:min(200px,100%)}
+.zv4a .karte-fakt:nth-child(1){transform:rotate(-2.2deg)}
+.zv4a .karte-fakt:nth-child(2){transform:rotate(1.5deg)}
+.zv4a .karte-fakt:nth-child(3){transform:rotate(-1deg)}
+.zv4a .karte-fakt:nth-child(4){transform:rotate(2.3deg)}
+.zv4a .plakette{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;
+                margin:30px auto 0;max-width:760px;background:var(--crumb);border:1px solid var(--gold);
+                border-radius:4px;padding:16px 22px;box-shadow:0 10px 24px rgba(43,33,26,.20)}
+.zv4a .rating{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 11px}
+.zv4a .rating .wert{font-family:var(--disp);font-weight:900;font-size:28px;color:var(--gold-l);line-height:1;font-variant-numeric:tabular-nums}
+.zv4a .rating .q{font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#D9C7A3}
+.zv4a .rating .q b{color:#EFE2CC}
+.zv4a .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--gold);border-radius:3px;padding:7px 11px;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#EFE2CC}
+.zv4a .chip b{font-family:var(--disp);font-weight:900;color:var(--gold-l);text-transform:none;font-size:12px}
+
+/* ---------------------------------------------------------------------
+   4B — „Rotes Plakat" · Hintergrund ROT (Marken-Rot).
+   Zahlen groß in Creme wie ein Aushang; die Bewertung sitzt als EINE
+   weiße V3-Karte (Ticket) darauf und poppt. Alles Creme-auf-Rot = AA.
+   --------------------------------------------------------------------- */
+.zv4b{background:var(--red);color:#FBF6EB;padding:clamp(40px,5vw,60px) 0;
+      border-block:1px solid rgba(255,246,230,.5);box-shadow:inset 0 5px 0 -4px rgba(255,246,230,.5),inset 0 -5px 0 -4px rgba(255,246,230,.5)}
+.zv4b .reihe{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 12px;align-items:start}
+@media(min-width:820px){.zv4b .reihe{grid-template-columns:repeat(4,1fr)}}
+.zv4b .fakt{text-align:center}
+.zv4b .fakt b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(42px,6vw,64px);line-height:.9;color:#FFF6E6;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.zv4b .fakt small{display:block;margin-top:8px;font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase;color:#F4E4D6}
+.zv4b .unten{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 22px;margin-top:34px}
+.zv4b .ticket{background:var(--white);border-top:4px solid var(--crust-d);border-radius:2px;
+              padding:14px 20px;box-shadow:6px 12px 26px rgba(60,10,8,.32);transform:rotate(-1.8deg);
+              display:inline-flex;align-items:center;gap:12px}
+.zv4b .ticket .wert{font-family:var(--disp);font-weight:900;font-size:26px;color:var(--red);line-height:1;font-variant-numeric:tabular-nums}
+.zv4b .ticket .q{font:600 10px/1.35 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--crust-d)}
+.zv4b .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid rgba(255,246,230,.7);border-radius:3px;padding:8px 12px;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#FBF6EB}
+.zv4b .chip b{font-family:var(--disp);font-weight:900;color:#FFF;text-transform:none;font-size:12px}
+
+/* ---------------------------------------------------------------------
+   4C — „Kassenbon" · Hintergrund PAPER (fast weiß, hell).
+   Die Fakten als aufgeschlagener Bon: Führungspunkte links Nutzen /
+   rechts Wert, Summenstrich, unten die Google-Zeile. Vollständig hell,
+   Sterne in Rot (Rot ist die Signalfarbe auf hell) — kein dunkles Element.
+   --------------------------------------------------------------------- */
+.zv4c{background:var(--paper);padding:clamp(40px,5vw,62px) 0}
+.zv4c .bon{max-width:430px;margin:0 auto;background:var(--white);border-top:4px solid var(--red);border-radius:2px;
+           padding:26px 26px 22px;box-shadow:6px 13px 28px rgba(43,33,26,.16);transform:rotate(-1.1deg)}
+.zv4c .bon-kopf{font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);text-align:center;padding-bottom:14px;margin-bottom:6px;border-bottom:1.5px dashed var(--line)}
+.zv4c .zeile{display:flex;align-items:baseline;gap:10px;padding:9px 0}
+.zv4c .zeile .lab{font:600 12px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--crust-d)}
+.zv4c .zeile .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-.32em)}
+.zv4c .zeile .val{font-family:var(--disp);font-weight:900;font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.zv4c .zeile .val.rot{color:var(--red)}
+.zv4c .summe{margin-top:10px;padding-top:15px;border-top:3px double var(--ink);
+             display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.zv4c .summe .lab{font:600 11px/1.3 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--crust-d)}
+.zv4c .rating{display:inline-flex;align-items:center;gap:10px}
+.zv4c .rating .wert{font-family:var(--disp);font-weight:900;font-size:24px;color:var(--red);line-height:1;font-variant-numeric:tabular-nums}
+.zv4c .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.zv4c .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--crust-d);border-radius:3px;padding:7px 12px;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--crust-d)}
+.zv4c .chip b{font-family:var(--disp);font-weight:900;color:var(--red);text-transform:none;font-size:12px}
+
+/* ---------------------------------------------------------------------
+   4D — „Split-Regal" · Hintergrund GETEILT (oben Oat, unten Crumb).
+   Die weißen Karten überlappen die Naht (Tiefe/Regalbrett); die Trust-
+   Zeile liegt auf der dunklen Hälfte, wo Gold zu Hause ist. Überraschung:
+   hell UND dunkel in EINEM Band, Karten sitzen auf der Kante.
+   --------------------------------------------------------------------- */
+.zv4d{background:linear-gradient(var(--oat) 0 var(--split,56%),var(--crumb) var(--split,56%) 100%);padding:clamp(40px,5vw,56px) 0 clamp(30px,4vw,46px)}
+.zv4d .reihe{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;place-items:center}
+@media(min-width:760px){.zv4d .reihe{grid-template-columns:repeat(4,1fr)}}
+.zv4d .karte-fakt{width:min(200px,100%)}
+.zv4d .karte-fakt:nth-child(1){transform:rotate(-2deg)}
+.zv4d .karte-fakt:nth-child(2){transform:rotate(1.4deg)}
+.zv4d .karte-fakt:nth-child(3){transform:rotate(-1.1deg)}
+.zv4d .karte-fakt:nth-child(4){transform:rotate(2deg)}
+.zv4d .trust{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 24px;margin-top:clamp(26px,4vw,40px)}
+.zv4d .rating{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 11px}
+.zv4d .rating .wert{font-family:var(--disp);font-weight:900;font-size:28px;color:var(--gold-l);line-height:1;font-variant-numeric:tabular-nums}
+.zv4d .rating .q{font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#D9C7A3}
+.zv4d .rating .q b{color:#EFE2CC}
+.zv4d .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--gold);border-radius:3px;padding:7px 11px;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#EFE2CC}
+.zv4d .chip b{font-family:var(--disp);font-weight:900;color:var(--gold-l);text-transform:none;font-size:12px}
+
+.toconf{display:block;text-align:center;font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-top:16px}
+.zv4a .toconf,.zv4d .toconf{color:#B98F3A}
+.zv4b .toconf{color:#F4E4D6}
+</style>
+</head>
+<body>
+
+<svg class="svg-sprite" aria-hidden="true"><defs>
+  <path id="st" d="M10.5 1.5 12.95 7.6 19.5 8.05 14.5 12.25 16.1 18.6 10.5 15.1 4.9 18.6 6.5 12.25 1.5 8.05 8.05 7.6Z"/>
+</defs></svg>
+
+<div class="viewer-kopf">Intern · noindex · Variante 4 in vier Hintergründen · Bäckerei Siebert</div>
+
+<div class="vtitel">
+  <h1>Variante 4 — vier Hintergründe</h1>
+  <p>Vier ganz unterschiedliche Fassungen der Trust-Variante, jede mit eigenem Hintergrund (nicht mehr alles Braun) und den Papierkarten aus Variante 3 eingewoben. Jede zeigt dieselben Fakten (1906 · 5 · 16 · 2×) plus die Google-Bewertung und Auszeichnungen als direkten Vertrauensbeleg.</p>
+  <div class="vnote">
+    <b>Ein Gestaltungsgesetz, das hier zur Idee wird:</b> Das Design-System erlaubt <b>Gold nur auf dunklem Grund</b> (auf hell wird es unlesbar). Auf den hellen Varianten stehen die Sterne deshalb entweder in <b>Rot</b> (die Signalfarbe auf hell) oder auf einer kleinen <b>dunklen Gold-Insel</b> (Plakette / dunkle Bandhälfte). Der Google-Wert <b>4,7</b> und die Anzahl der Bewertungen sind noch <b>vor Launch live zu bestätigen</b> (steht so im Lotse).
+  </div>
+</div>
+
+<!-- ============================== 4A ============================== -->
+<div class="vkopf">
+  <span class="vbadge">4A</span>
+  <h2>Warme Wand<span class="bg">Grund: Oat / beige</span></h2>
+  <p class="warum">Die vier Papierkarten aus V3 hängen wie Aushänge an einer warmen Wand, Zahlen in Rot. Die Bewertung sitzt darunter auf einer einzigen dunklen Gold-Plakette — so bleibt Gold sauber auf dunklem Grund, und der Trust-Block hat ein klares Zuhause. Hell, freundlich, die Karten sind der Star.</p>
+  <p class="fuellt">Charakter: hell, freundlich, Karten im Vordergrund</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv4a" aria-label="Zahlen mit Bewertung – Warme Wand">
+    <div class="wrap">
+      <div class="reihe">
+        <div class="karte-fakt"><b>1906</b><small>gegründet</small></div>
+        <div class="karte-fakt"><b>5</b><small>Generationen</small></div>
+        <div class="karte-fakt"><b>16</b><small>Std. Sauerteig</small></div>
+        <div class="karte-fakt"><b>2×</b><small>Feinschmecker</small></div>
+      </div>
+      <div class="plakette">
+        <span class="rating" aria-label="4,7 von 5 Sternen bei Google">
+          <span class="wert">4,7</span>
+          <span class="stars gold" style="--pct:94%" aria-hidden="true">
+            <svg class="leer" viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg>
+            <span class="vollwrap"><svg viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg></span>
+          </span>
+          <span class="q"><b>Google</b> · Bewertungen</span>
+        </span>
+        <span class="chip"><b>Goldenes Ticket</b> Berliner Zeitung</span>
+        <span class="chip"><b>Publikumsliebling</b> 2026</span>
+      </div>
+      <span class="toconf">Google-Wert 4,7 · vor Launch live bestätigen</span>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== 4B ============================== -->
+<div class="vkopf">
+  <span class="vbadge">4B</span>
+  <h2>Rotes Plakat<span class="bg">Grund: Marken-Rot</span></h2>
+  <p class="warum">Voll auf die Marke: roter Grund, Zahlen groß in Creme wie ein Bäckerei-Aushang. Die Google-Bewertung kommt als knackig weißes Ticket (V3-Karte) darauf und poppt sofort. Das mutigste, lauteste Signal — Rot ist die Hausfarbe.</p>
+  <p class="fuellt">Charakter: mutig, Marke laut, Aushang</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv4b" aria-label="Zahlen mit Bewertung – Rotes Plakat">
+    <div class="wrap">
+      <div class="reihe">
+        <div class="fakt"><b>1906</b><small>gegründet</small></div>
+        <div class="fakt"><b>5</b><small>Generationen</small></div>
+        <div class="fakt"><b>16</b><small>Stunden Sauerteig</small></div>
+        <div class="fakt"><b>2×</b><small>Der Feinschmecker</small></div>
+      </div>
+      <div class="unten">
+        <span class="ticket">
+          <span class="wert">4,7</span>
+          <span class="stars rot" style="--pct:94%" aria-hidden="true">
+            <svg class="leer" viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg>
+            <span class="vollwrap"><svg viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg></span>
+          </span>
+          <span class="q">Google<br>Bewertungen</span>
+        </span>
+        <span class="chip"><b>Goldenes Ticket</b> Berliner Zeitung</span>
+        <span class="chip"><b>Publikumsliebling</b> 2026</span>
+      </div>
+      <span class="toconf">Google-Wert 4,7 · vor Launch live bestätigen</span>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== 4C ============================== -->
+<div class="vkopf">
+  <span class="vbadge">4C</span>
+  <h2>Kassenbon<span class="bg">Grund: Papier / fast weiß</span></h2>
+  <p class="warum">Die Fakten als aufgeschlagener Bon: Nutzen links, Wert rechts, verbunden durch Führungspunkte, darunter ein Summenstrich und die Google-Zeile. Vollständig hell und ruhig, die Sterne in Rot — die einzige Fassung ganz ohne dunkles Element. Editorial und unerwartet.</p>
+  <p class="fuellt">Charakter: ruhig, editorial, Beleg statt Behauptung</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv4c" aria-label="Zahlen mit Bewertung – Kassenbon">
+    <div class="wrap">
+      <div class="bon">
+        <p class="bon-kopf">Bäckerei Siebert · seit 1906</p>
+        <div class="zeile"><span class="lab">Gegründet</span><span class="dots"></span><span class="val">1906</span></div>
+        <div class="zeile"><span class="lab">Generationen</span><span class="dots"></span><span class="val">5</span></div>
+        <div class="zeile"><span class="lab">Stunden Sauerteig</span><span class="dots"></span><span class="val">16</span></div>
+        <div class="zeile"><span class="lab">Der Feinschmecker</span><span class="dots"></span><span class="val rot">2×</span></div>
+        <div class="summe">
+          <span class="lab">Google</span>
+          <span class="rating" aria-label="4,7 von 5 Sternen bei Google">
+            <span class="stars rot" style="--pct:94%" aria-hidden="true">
+              <svg class="leer" viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg>
+              <span class="vollwrap"><svg viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg></span>
+            </span>
+            <span class="wert">4,7</span>
+          </span>
+        </div>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>Goldenes Ticket</b> Berliner Zeitung</span>
+        <span class="chip"><b>Publikumsliebling</b> 2026 · Roggenmischbrot</span>
+      </div>
+      <span class="toconf">Google-Wert 4,7 · vor Launch live bestätigen</span>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== 4D ============================== -->
+<div class="vkopf">
+  <span class="vbadge">4D</span>
+  <h2>Split-Regal<span class="bg">Grund: geteilt — Oat + Crumb</span></h2>
+  <p class="warum">Die Überraschung: ein Band, zwei Gründe. Oben hell, unten dunkel. Die weißen Karten sitzen auf der Naht wie auf einem Regalbrett (echte Tiefe), die Trust-Zeile liegt auf der dunklen Hälfte, wo Gold hingehört. Vereint deine Karten-Liebe mit sauberem Gold — hell und dunkel zugleich.</p>
+  <p class="fuellt">Charakter: überraschend, Tiefe, hell+dunkel in einem</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv4d" aria-label="Zahlen mit Bewertung – Split-Regal">
+    <div class="wrap">
+      <div class="reihe">
+        <div class="karte-fakt"><b>1906</b><small>gegründet</small></div>
+        <div class="karte-fakt"><b>5</b><small>Generationen</small></div>
+        <div class="karte-fakt"><b>16</b><small>Std. Sauerteig</small></div>
+        <div class="karte-fakt"><b>2×</b><small>Feinschmecker</small></div>
+      </div>
+      <div class="trust">
+        <span class="rating" aria-label="4,7 von 5 Sternen bei Google">
+          <span class="wert">4,7</span>
+          <span class="stars gold" style="--pct:94%" aria-hidden="true">
+            <svg class="leer" viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg>
+            <span class="vollwrap"><svg viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg></span>
+          </span>
+          <span class="q"><b>Google</b> · Bewertungen</span>
+        </span>
+        <span class="chip"><b>Goldenes Ticket</b> Berliner Zeitung</span>
+        <span class="chip"><b>Publikumsliebling</b> 2026</span>
+      </div>
+      <span class="toconf">Google-Wert 4,7 · vor Launch live bestätigen</span>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<div class="vfuss">
+  <p><b>Alle vier</b> weben die Papierkarten aus V3 ein und tragen denselben Trust-Beleg, nur der Hintergrund und die Haltung wechseln: <b>4A</b> hell/beige mit Gold-Plakette, <b>4B</b> laut auf Marken-Rot, <b>4C</b> ganz hell als Kassenbon, <b>4D</b> geteilt hell/dunkel mit Karten auf der Naht. Sag mir, welche Richtung dich am meisten kitzelt — dann baue ich sie fein aus (Feinschliff Rotation/Abstände/Foto-Option) und portiere sie mit sauberem Selektor in die echte Seite. Mischen geht auch: z. B. 4D-Split mit dem Bon-Gedanken aus 4C.</p>
+</div>
+
+</body>
+</html>

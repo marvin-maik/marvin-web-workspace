@@ -39,6 +39,14 @@ rm -rf /tmp/mw-deploy && rsync -a --include '_headers' --include '_redirects' --
 rm -rf /tmp/rw-deploy && rsync -a --include '_headers' --include '_redirects' --exclude 'DEMO-README.md' --exclude 'handoff' --exclude 'freigabe' --exclude '_*' --exclude '.wrangler' --exclude '.DS_Store' projekte/routenwerk/ /tmp/rw-deploy/ && npx wrangler pages deploy /tmp/rw-deploy --project-name routenwerk --branch main
 ```
 
+## baeckerei-siebert (Staging LIVE seit 2026-07-23, noindex: https://baeckerei-siebert.pages.dev)
+```
+rm -rf /tmp/bs-deploy && rsync -a --include '_headers' --include '_redirects' --exclude '_*' --exclude 'freigabe' --exclude 'handoff' --exclude 'product-marketing-context.md' --exclude 'DEMO-README.md' --exclude '.wrangler' --exclude '.DS_Store' projekte/baeckerei-siebert/ /tmp/bs-deploy/ && (cd /tmp/bs-deploy && npx wrangler pages deploy . --project-name baeckerei-siebert --branch main)
+```
+Spekulations-Case: noindex kommt aus `_headers` (X-Robots-Tag) und BLEIBT bis zum Deal. URL nicht
+oeffentlich streuen. Gegenprobe per GET (nicht HEAD, liefert auf pages.dev irrefuehrende Header):
+`curl -s -D - -o /dev/null https://baeckerei-siebert.pages.dev/ | grep -i x-robots-tag`
+
 ## Neues Projekt: Deploy-Befehl ableiten
 Muster wie oben, Projektnamen tauschen, INTERN-Excludes IMMER uebernehmen (`_*`, `freigabe`,
 `handoff`, `product-marketing-context.md`, `DEMO-README.md`, `.wrangler`, `.DS_Store`),

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Info-Zahlen · 4D Split-Regal, finales Award-Set · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1280px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.6vw,38px)}
+.vtitel p{color:var(--ink2);max-width:76ch;margin-top:8px}
+.vnote{max-width:1280px;margin:16px auto 0;padding:14px 18px;background:var(--paper);border-left:3px solid var(--red);border-radius:2px;color:var(--ink);font-size:14.5px;line-height:1.55}
+.vnote b{font-weight:700}
+.vfuss{max-width:1280px;margin:0 auto;padding:34px var(--pad) 70px;color:var(--ink2);font-size:14.5px;line-height:1.6}
+.vfuss b{color:var(--ink)}
+.svg-sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* Kontext-Attrappe: heller Abschluss der Section darüber */
+.kontext-oben{background:var(--oat);text-align:center;padding:34px var(--pad) 8px;font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+/* Kontext-Attrappe: die folgende dunkle Section (Zeitband) */
+.kontext-unten{background:var(--crumb);border-top:2px solid var(--gold);color:#D9C7A3;text-align:center;padding:26px var(--pad) 40px;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+.kontext-unten b{display:block;font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:0;text-transform:none;color:var(--gold-l);margin-top:6px}
+
+/* Sterne-Komponente (SVG-Sprite, Teilfüllung über --pct) */
+.stars{position:relative;display:inline-block;line-height:0;width:112px;height:21px;vertical-align:middle}
+.stars .leer{position:absolute;inset:0;width:112px;height:21px;fill:none;stroke:var(--gold);stroke-width:1.3}
+.stars .vollwrap{position:absolute;inset:0;overflow:hidden;width:var(--pct,94%)}
+.stars .vollwrap svg{width:112px;height:21px;display:block;fill:var(--gold-l)}
+
+/* wiederverwendete V3-Karte */
+.karte-fakt{position:relative;background:var(--paper);border-top:4px solid var(--red);border-radius:2px;
+            padding:18px 16px 18px;text-align:center;box-shadow:5px 11px 22px rgba(43,33,26,.26)}
+.karte-fakt b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.6vw,44px);line-height:.92;color:var(--red);font-variant-numeric:tabular-nums}
+.karte-fakt small{display:block;margin-top:7px;font:600 11.5px/1.35 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--crust-d)}
+.karte-fakt .hand{display:block;font-family:var(--hand);font-weight:600;font-size:15px;color:var(--red);margin-top:3px}
+
+/* =====================================================================
+   4D FINAL — „Split-Regal": heller Grund oben, ECHTER dunkler Block unten
+   (statt Gradient -> Naht sitzt exakt). Karten überlappen die Kante
+   (negativer Rand + z-index = Regalbrett-Tiefe). Trust + Awards auf dem
+   Dunkel, wo Gold hingehört. Übergang in die folgende dunkle Section nahtlos.
+   ===================================================================== */
+.zband{width:100%;overflow:hidden}
+.zband .wrap{max-width:1090px;margin:0 auto;padding-inline:var(--pad)}
+.zv4d2{background:var(--crumb);padding:0}  /* globales section-Padding aus styles.css neutralisieren */
+.zv4d2 .hell{background:var(--oat);padding-top:clamp(40px,5vw,56px)}
+.zv4d2 .reihe{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;place-items:center;margin-bottom:clamp(-60px,-5vw,-40px)}
+@media(min-width:760px){.zv4d2 .reihe{grid-template-columns:repeat(4,1fr)}}
+.zv4d2 .karte-fakt{width:min(200px,100%)}
+.zv4d2 .karte-fakt:nth-child(1){transform:rotate(-2deg)}
+.zv4d2 .karte-fakt:nth-child(2){transform:rotate(1.4deg)}
+.zv4d2 .karte-fakt:nth-child(3){transform:rotate(-1.1deg)}
+.zv4d2 .karte-fakt:nth-child(4){transform:rotate(2deg)}
+
+.zv4d2 .dunkel{position:relative;z-index:1;background:var(--crumb);color:#EFE2CC;
+               margin-top:clamp(-52px,-6vw,-64px);
+               padding:clamp(74px,9vw,96px) 0 clamp(30px,4vw,44px)}
+.zv4d2 .rating{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px 12px}
+.zv4d2 .rating-zeile{text-align:center}
+.zv4d2 .rating .wert{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--gold-l);line-height:1;font-variant-numeric:tabular-nums}
+.zv4d2 .rating .q{font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#D9C7A3}
+.zv4d2 .rating .q b{color:#EFE2CC}
+.zv4d2 .awards{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;
+               margin-top:20px;padding-top:20px;border-top:1px solid rgba(216,174,82,.28)}
+.zv4d2 .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--gold);border-radius:3px;
+             padding:8px 12px;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#EFE2CC}
+.zv4d2 .chip b{font-family:var(--disp);font-weight:900;color:var(--gold-l);text-transform:none;font-size:12px;letter-spacing:.01em}
+.zv4d2 .toconf{display:block;text-align:center;font:600 10px/1.5 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:#B98F3A;margin-top:18px}
+</style>
+</head>
+<body>
+
+<svg class="svg-sprite" aria-hidden="true"><defs>
+  <path id="st" d="M10.5 1.5 12.95 7.6 19.5 8.05 14.5 12.25 16.1 18.6 10.5 15.1 4.9 18.6 6.5 12.25 1.5 8.05 8.05 7.6Z"/>
+</defs></svg>
+
+<div class="viewer-kopf">Intern · noindex · 4D Split-Regal · finales Award-Set · Bäckerei Siebert</div>
+
+<div class="vtitel">
+  <h1>4D „Split-Regal" — ausgebaut</h1>
+  <p>Deine Wahl, mit dem finalen Auszeichnungs-Set. Das Goldene Ticket ist raus (das war die Jubiläums-Verlosung, keine Prämierung), dafür drei echte Auszeichnungen auf der dunklen Hälfte. Oben und unten je ein Streifen Nachbar-Section, damit du den nahtlosen Übergang ins Braune siehst.</p>
+  <div class="vnote">
+    <b>Live zu bestätigen vor Launch:</b> Google-Wert 4,7 + Anzahl, „Goldene Brezel der Innung" und „100-Punkte-Brotprüfung" (in der Quelle als [zu bestätigen] markiert). Feinschmecker 2013/2017 und Publikumsliebling 2026 sind belegt.
+  </div>
+</div>
+
+<!-- Streifen: Abschluss der hellen Section darüber -->
+<div class="kontext-oben">↑ Ende der hellen Section (Hero) · heller Grund</div>
+
+<!-- ================= 4D FINAL ================= -->
+<section class="zband zv4d2" aria-label="Zahlen, Bewertung und Auszeichnungen">
+  <div class="hell">
+    <div class="wrap">
+      <div class="reihe">
+        <div class="karte-fakt"><b>1906</b><small>gegründet</small></div>
+        <div class="karte-fakt"><b>5</b><small>Generationen</small></div>
+        <div class="karte-fakt"><b>16</b><small>Std. Sauerteig</small></div>
+        <div class="karte-fakt"><b>2×</b><small>Der Feinschmecker</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="dunkel">
+    <div class="wrap">
+      <div class="rating-zeile">
+        <span class="rating" aria-label="4,7 von 5 Sternen bei Google">
+          <span class="wert">4,7</span>
+          <span class="stars" style="--pct:94%" aria-hidden="true">
+            <svg class="leer" viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg>
+            <span class="vollwrap"><svg viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg></span>
+          </span>
+          <span class="q"><b>Google</b> · Bewertungen</span>
+        </span>
+      </div>
+      <div class="awards">
+        <span class="chip"><b>Publikumsliebling</b> 2026 · Roggenmischbrot</span>
+        <span class="chip"><b>Goldene Brezel</b> der Innung</span>
+        <span class="chip"><b>100 Punkte</b> Brotprüfung</span>
+      </div>
+      <span class="toconf">Google 4,7 · Goldene Brezel · 100-Punkte-Prüfung — vor Launch live bestätigen</span>
+    </div>
+  </div>
+</section>
+
+<!-- Streifen: die folgende dunkle Section (Zeitband) -->
+<div class="kontext-unten">↓ folgende Section · dunkel · nahtloser Übergang<b>Hundertzwanzig Jahre, ein Haus</b></div>
+
+<div class="vfuss">
+  <p><b>Warum der Übergang funktioniert:</b> Die untere Hälfte ist echtes Krumen-Braun (`--crumb`) — dieselbe Farbe wie das Zeitband darunter. Der Übergang verschwindet, das Auszeichnungs-Band und die Chronik lesen sich wie eine dunkle Einheit. <b>Nächster Schritt nach deinem OK:</b> Ich portiere das mit einem sauber benannten Selektor (nicht `.z`) in die echte `styles.css`, löse damit die alte `.z`-Kollision, teste 375/768/1280 und ziehe `_design.md` mit. Die drei zu bestätigenden Punkte markiere ich im Code als Platzhalter, bis du sie live geprüft hast.</p>
+</div>
+
+</body>
+</html>

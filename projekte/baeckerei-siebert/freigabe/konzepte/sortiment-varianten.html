@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Sortiment · 3 Layout-Konzepte für große Screens · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen der Vergleichsseite (NICHT Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1280px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(26px,4vw,40px)}
+.vtitel p{color:var(--ink2);max-width:74ch;margin-top:8px}
+.vkopf{max-width:1280px;margin:0 auto;padding:34px var(--pad) 4px}
+.vbadge{display:inline-flex;align-items:center;gap:8px;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);padding:6px 10px;border-radius:3px;margin-bottom:10px}
+.vkopf h2{font-family:var(--disp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.02}
+.vkopf .warum{max-width:74ch;color:var(--ink2);font-size:15px;margin:8px 0 2px}
+.vkopf .fuellt{font-family:var(--hand);font-weight:600;color:var(--red);font-size:15px;margin-top:4px}
+.vtrenn{border:0;border-top:1px dashed var(--line);max-width:1280px;margin:56px auto 0}
+.vfuss{max-width:1280px;margin:0 auto;padding:40px var(--pad) 70px;color:var(--ink2);font-size:14.5px}
+
+/* =====================================================================
+   KONZEPT 1 — „Editorial-Split": Foto + Tafel nebeneinander, alternierend
+   ===================================================================== */
+.c1{max-width:1280px;margin:0 auto;padding:8px var(--pad) 0}
+.c1-group{display:grid;gap:clamp(24px,3.4vw,52px);align-items:center;margin-top:26px}
+.c1-group + .c1-group{margin-top:clamp(40px,5vw,72px)}
+@media(min-width:1024px){
+  .c1-group{grid-template-columns:1fr 1fr}
+  .c1-group.rechts .c1-foto{order:2}
+  /* Desktop: Notiz-Spalte darf die volle Zeilenbreite nehmen -> lange Notizen bleiben 1-zeilig.
+     Hoehere Spezifitaet (.c1 davor), damit die Basisregel (max-width:58%) nicht per Quellreihenfolge gewinnt. */
+  .c1 .c1-list .tz span:last-child{max-width:none}
+}
+.c1-foto{border-radius:2px}
+.c1-foto img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.c1-kopf h3{font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.01em}
+.c1-kopf .sub{font-family:var(--hand);font-weight:600;font-size:20px;color:var(--red);margin:4px 0 16px}
+.c1-list .tz{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dotted var(--line)}
+.c1-list .tz b{font-weight:700;font-size:17.5px}
+.c1-list .tz .f{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:20px}
+.c1-list .tz span:last-child{color:var(--ink2);font-size:15px;text-align:right;max-width:58%;text-wrap:balance}
+.c1-list .tz .best{color:var(--red);font-weight:600}
+/* Award-Notiz responsiv: volle Fassung auf Desktop/Tablet (1-zeilig), Kurzfassung nur auf schmalem Handy */
+.c1-list .nz-kurz{display:none}
+@media(max-width:639px){.c1-list .nz-voll{display:none}.c1-list .nz-kurz{display:inline}}
+
+/* =====================================================================
+   KONZEPT 2 — „Auslage-Raster": Kachel-Schaukasten, wächst mit dem Screen
+   ===================================================================== */
+.c2{max-width:1280px;margin:0 auto;padding:8px var(--pad) 0}
+.c2-cat{grid-column:1/-1;display:flex;align-items:baseline;gap:16px;margin:28px 0 2px}
+.c2-cat:first-child{margin-top:20px}
+.c2-cat h3{font-family:var(--disp);font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1;white-space:nowrap}
+.c2-cat .sub{font-family:var(--hand);font-weight:600;font-size:18px;color:var(--red)}
+.c2-cat .rule{flex:1;height:0;border-bottom:2px solid var(--line)}
+.c2-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
+.c2-tile{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:3px;padding:16px 18px 18px;box-shadow:4px 8px 18px rgba(50,35,20,.09);display:flex;flex-direction:column;gap:5px}
+.c2-tile b{font-weight:700;font-size:17px;line-height:1.2}
+.c2-tile .note{color:var(--ink2);font-size:14.5px;line-height:1.4}
+.c2-tile .best{display:inline-block;align-self:flex-start;margin-top:auto;font:600 12px/1 ui-monospace,monospace;letter-spacing:.04em;color:var(--red);border:1px solid var(--red);border-radius:2px;padding:5px 8px}
+/* Foto-Kacheln */
+.c2-foto{position:relative;border-radius:3px;overflow:hidden;box-shadow:6px 12px 26px rgba(50,35,20,.16);min-height:200px}
+.c2-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c2-foto figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(40,28,15,.82));color:var(--paper);font-family:var(--hand);font-weight:600;font-size:16px;padding:26px 16px 12px}
+.c2-foto.gross{grid-column:span 2;grid-row:span 2}
+.c2-frei{background:var(--oat);border:1px dashed var(--line);border-radius:3px;display:grid;place-items:center;padding:12px;text-align:center}
+.c2-frei img{max-height:150px;width:auto;filter:drop-shadow(3px 8px 12px rgba(50,35,20,.24))}
+.c2-frei figcaption{font-family:var(--hand);font-weight:600;font-size:15px;color:var(--crust-d);margin-top:8px}
+@media(max-width:520px){.c2-foto.gross{grid-column:span 1;grid-row:auto;min-height:220px}}
+
+/* =====================================================================
+   KONZEPT 3 — „Wandtafel": dunkle, randlose Menütafel, dreispaltig
+   ===================================================================== */
+.c3{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold);margin-top:8px}
+.c3-strip{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.c3-strip img{width:100%;height:clamp(150px,20vw,280px);object-fit:cover;display:block}
+.c3-inner{max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,64px) var(--pad)}
+.c3-head{text-align:center;margin-bottom:clamp(28px,4vw,44px)}
+.c3-head .label{color:var(--gold-l);font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase}
+.c3-head h3{font-family:var(--disp);font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;margin-top:8px;color:var(--paper)}
+.c3-board{display:grid;gap:clamp(28px,3.4vw,48px)}
+@media(min-width:820px){.c3-board{grid-template-columns:repeat(3,1fr)}}
+.c3-cat > h4{font-family:var(--script);font-weight:400;font-size:clamp(30px,3.4vw,40px);line-height:.9;color:var(--gold-l);margin-bottom:2px}
+.c3-cat .sub{font-family:var(--hand);font-weight:600;font-size:15px;color:#C9B79C;margin-bottom:12px;display:block}
+.c3-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px dotted #5A452E}
+.c3-row b{font-weight:700;font-size:16.5px;color:#EFE2CC}
+.c3-row .note{color:#C9B79C;font-size:13.5px;text-align:right;max-width:52%}
+.c3-row .best{color:var(--gold-l);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="viewer-kopf">Vergleichsblatt · intern · noindex · Sortiment auf großen Screens</div>
+
+<div class="vtitel">
+  <h1>Sortiment auf großen Screens — 3 Konzepte</h1>
+  <p>Ausgangslage: auf 1728&nbsp;px füllt die Preistafel nur 680&nbsp;px und klebt links, rechts bleibt ein totes Drittel. „Voll breit ziehen“ wäre falsch (Führungspunkte über 1700&nbsp;px lesen sich schlecht). Drei Wege, die Breite bewusst zu nutzen — jeweils die <b>Brote/Brötchen/Kuchen</b> mit echtem Inhalt. Mobil bleibt bei allen dreien alles gestapelt wie jetzt.</p>
+</div>
+
+<!-- ============================== KONZEPT 1 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Konzept 1</span>
+  <h2>Editorial-Split</h2>
+  <p class="warum">Foto und Tafel stehen nebeneinander, die Seiten wechseln pro Gruppe (Foto links → rechts → links). Die Menü-Tafel mit Führungspunkten bleibt erhalten und lesbar-schmal; das Foto füllt die zweite Spalte. Ruhig, redaktionell, premium — dasselbe 1fr/1fr-Muster wie im Hero und Zeitband.</p>
+  <p class="fuellt">Breite gefüllt durch: großes Foto neben der Liste</p>
+</div>
+<div class="c1">
+
+  <div class="c1-group">
+    <figure class="c1-foto bild maske"><img src="../../img/brotregal.jpg" alt="Volles Brotregal der Bäckerei Siebert" width="1600" height="1067"></figure>
+    <div>
+      <div class="c1-kopf"><h3>Brote</h3><p class="sub">über Nacht gereift, morgens im Regal</p></div>
+      <div class="c1-list">
+        <div class="tz"><b>Roggenmischbrot</b><span class="f"></span><span class="best"><span class="nz-voll">Publikumsliebling der Berliner Brotwahl 2026</span><span class="nz-kurz">Publikumsliebling 2026</span></span></div>
+        <div class="tz"><b>Vollkornbrot</b><span class="f"></span><span>Quellstück, rund 16 Stunden</span></div>
+        <div class="tz"><b>Weizen- und Mischbrote</b><span class="f"></span><span>täglich wechselnd</span></div>
+        <div class="tz"><b>Spezialbrote</b><span class="f"></span><span>nach Saison</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c1-group rechts">
+    <figure class="c1-foto bild maske"><img src="../../img/schlingen-hand.jpg" alt="Bäckerin schlingt Brötchen von Hand" width="1600" height="1066"></figure>
+    <div>
+      <div class="c1-kopf"><h3>Brötchen</h3><p class="sub">auf Steinplatten gebacken, von Hand geschlungen</p></div>
+      <div class="c1-list">
+        <div class="tz"><b>Ost-Schrippe</b><span class="f"></span><span>DDR-Rezept, kompakt, krümelt kaum</span></div>
+        <div class="tz"><b>Berliner Splitterbrötchen</b><span class="f"></span><span>samstags oft vor Mittag weg</span></div>
+        <div class="tz"><b>Körnersorten</b><span class="f"></span><span>Mohn, Sesam, Kürbis, Sonnenblume</span></div>
+        <div class="tz"><b>Croissants</b><span class="f"></span><span>Butter oder Würstchen</span></div>
+        <div class="tz"><b>Käse- und Dinkelsprossenbrötchen</b><span class="f"></span><span>frisch von der Steinplatte</span></div>
+        <div class="tz"><b>Belegte Brötchen und Baguettes</b><span class="f"></span><span>Mett, Ei, Käse, Salami, Schinken</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== KONZEPT 2 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Konzept 2</span>
+  <h2>Auslage-Raster</h2>
+  <p class="warum">Das Sortiment wird zum Schaukasten: jede Sorte eine kleine Karte (Name + Notiz), keine langen Führungspunkte. Freisteller-Gebäck und ein Regal-Foto sind als Feature-Kacheln eingewoben. Das Raster füllt jede Breite (auto-fill) und wächst echt mit dem Screen — auf 1728&nbsp;px vier Spalten, auf dem Laptop drei, mobil eine.</p>
+  <p class="fuellt">Breite gefüllt durch: mitwachsendes Kachel-Raster</p>
+</div>
+<div class="c2">
+  <div class="c2-grid">
+
+    <div class="c2-cat"><h3>Brote</h3><span class="sub">über Nacht gereift</span><span class="rule"></span></div>
+    <figure class="c2-foto gross"><img src="../../img/brotregal.jpg" alt="Volles Brotregal der Bäckerei Siebert"><figcaption>Morgens frisch im Regal</figcaption></figure>
+    <div class="c2-tile"><b>Roggenmischbrot</b><span class="note">Kräftig, saftig, lange frisch.</span><span class="best">Publikumsliebling 2026</span></div>
+    <div class="c2-tile"><b>Vollkornbrot</b><span class="note">Quellstück, rund 16 Stunden Reife.</span></div>
+    <div class="c2-tile"><b>Weizen- und Mischbrote</b><span class="note">Täglich wechselnd.</span></div>
+    <div class="c2-tile"><b>Spezialbrote</b><span class="note">Nach Saison.</span></div>
+
+    <div class="c2-cat"><h3>Brötchen</h3><span class="sub">von Hand geschlungen</span><span class="rule"></span></div>
+    <figure class="c2-frei"><img src="../../img/freisteller-broetchen.jpg" alt="Frische Brötchen der Bäckerei Siebert"><figcaption>Von der Steinplatte</figcaption></figure>
+    <div class="c2-tile"><b>Ost-Schrippe</b><span class="note">DDR-Rezept, kompakt, krümelt kaum.</span></div>
+    <div class="c2-tile"><b>Berliner Splitterbrötchen</b><span class="note">Samstags oft vor Mittag weg.</span></div>
+    <div class="c2-tile"><b>Körnersorten</b><span class="note">Mohn, Sesam, Kürbis, Sonnenblume.</span></div>
+    <div class="c2-tile"><b>Croissants</b><span class="note">Butter oder Würstchen.</span></div>
+    <div class="c2-tile"><b>Käse- und Dinkelsprossenbrötchen</b><span class="note">Frisch von der Steinplatte.</span></div>
+    <div class="c2-tile"><b>Belegte Brötchen &amp; Baguettes</b><span class="note">Mett, Ei, Käse, Salami, Schinken.</span></div>
+
+    <div class="c2-cat"><h3>Kuchen &amp; Feingebäck</h3><span class="sub">eigene Konditorei</span><span class="rule"></span></div>
+    <figure class="c2-frei"><img src="../../img/freisteller-schnecke.jpg" alt="Apfelzimtschnecke der Bäckerei Siebert"><figcaption>Aus der eigenen Konditorei</figcaption></figure>
+    <div class="c2-tile"><b>Pfannkuchen</b><span class="note">Von Hand gespritzt, in siedendem Fett gebacken.</span></div>
+    <div class="c2-tile"><b>Kameruner, Spritzkuchen</b><span class="note">Fettgebäck wie vor 50 Jahren.</span></div>
+    <div class="c2-tile"><b>Mohnzopf</b><span class="note">Der Geheimtipp der Stammkunden.</span></div>
+    <div class="c2-tile"><b>Streuselkuchen, Obstplunder, Apfelzimtschnecke</b><span class="note">Täglich frisch.</span></div>
+    <div class="c2-tile"><b>Bienenstich, Donauwelle</b><span class="note">Nach Originalrezept.</span></div>
+
+  </div>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== KONZEPT 3 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Konzept 3</span>
+  <h2>Wandtafel</h2>
+  <p class="warum">Eine randlose, dunkle Menütafel — wie das Preisschild an der Ladenwand. Gold auf Krume, drei Kategorie-Spalten nebeneinander, oben ein randloser Foto-Streifen. Nutzt die volle Breite über den Full-Bleed und die Dreispaltigkeit, hält jede Zeile trotzdem kurz. Baut auf die vorhandene Fascia-/Zeitband-Sprache auf.</p>
+  <p class="fuellt">Breite gefüllt durch: randloses dunkles Band + 3 Spalten</p>
+</div>
+<div class="c3">
+  <div class="c3-strip">
+    <img src="../../img/brotregal.jpg" alt="Brotregal der Bäckerei Siebert">
+    <img src="../../img/schlingen-hand.jpg" alt="Brötchen von Hand geschlungen">
+  </div>
+  <div class="c3-inner">
+    <div class="c3-head">
+      <span class="label">Sortiment</span>
+      <h3>Was heute in der Auslage liegt</h3>
+    </div>
+    <div class="c3-board">
+
+      <div class="c3-cat">
+        <h4>Brote</h4><span class="sub">über Nacht gereift</span>
+        <div class="c3-row"><b>Roggenmischbrot</b><span class="best">Liebling 2026</span></div>
+        <div class="c3-row"><b>Vollkornbrot</b><span class="note">Quellstück, ~16 Std</span></div>
+        <div class="c3-row"><b>Weizen- &amp; Mischbrote</b><span class="note">täglich wechselnd</span></div>
+        <div class="c3-row"><b>Spezialbrote</b><span class="note">nach Saison</span></div>
+      </div>
+
+      <div class="c3-cat">
+        <h4>Brötchen</h4><span class="sub">von Hand geschlungen</span>
+        <div class="c3-row"><b>Ost-Schrippe</b><span class="note">DDR-Rezept, kompakt</span></div>
+        <div class="c3-row"><b>Splitterbrötchen</b><span class="note">Sa oft vor Mittag weg</span></div>
+        <div class="c3-row"><b>Körnersorten</b><span class="note">Mohn, Sesam, Kürbis</span></div>
+        <div class="c3-row"><b>Croissants</b><span class="note">Butter oder Würstchen</span></div>
+        <div class="c3-row"><b>Käse- &amp; Dinkelsprossen</b><span class="note">von der Steinplatte</span></div>
+        <div class="c3-row"><b>Belegte Brötchen</b><span class="note">Mett, Ei, Käse, Salami</span></div>
+      </div>
+
+      <div class="c3-cat">
+        <h4>Kuchen &amp; Feingebäck</h4><span class="sub">eigene Konditorei</span>
+        <div class="c3-row"><b>Pfannkuchen</b><span class="note">von Hand gespritzt</span></div>
+        <div class="c3-row"><b>Kameruner, Spritzkuchen</b><span class="note">wie vor 50 Jahren</span></div>
+        <div class="c3-row"><b>Mohnzopf</b><span class="note">der Geheimtipp</span></div>
+        <div class="c3-row"><b>Streuselkuchen, Plunder</b><span class="note">täglich frisch</span></div>
+        <div class="c3-row"><b>Bienenstich, Donauwelle</b><span class="note">nach Originalrezept</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="vfuss">
+  <p><b>Mein Tipp:</b> Konzept&nbsp;1 (Editorial-Split) ist der sicherste Griff — behält die vertraute Preistafel, wirkt sofort gewollt, minimales Risiko. Konzept&nbsp;2 (Auslage-Raster) ist am appetitlichsten und am ehesten „width&nbsp;=&nbsp;grow“, verliert aber den Menü-Charme. Konzept&nbsp;3 (Wandtafel) ist am eigenständigsten und nutzt die Fotos am stärksten, ist aber ein Stimmungsbruch (dunkel mitten in der hellen Seite). Sag, welches — dann baue ich es in die echte <code>sortiment.html</code>.</p>
+</div>
+
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js-motion');</script>
+</body>
+</html>

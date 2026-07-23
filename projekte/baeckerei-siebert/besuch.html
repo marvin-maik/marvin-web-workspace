@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23B4241C'/><text x='50' y='72' font-family='Georgia,serif' font-size='66' font-weight='bold' fill='%23E4D6BE' text-anchor='middle'>S</text></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -52,32 +52,46 @@
 <main id="inhalt">
 
 <section class="hero" style="padding-bottom:clamp(26px,4vw,44px)">
-  <div class="wrap">
-    <p class="label" data-rv>Besuch</p>
-    <h1 class="disp" data-rv data-d=".06s">Kommen Sie vorbei</h1>
-    <div class="chips" data-rv data-d=".12s">
-      <span class="chip rot" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
+  <div class="wrap hero-split">
+    <div class="hero-split-text">
+      <p class="label" data-rv>Besuch</p>
+      <h1 class="disp" data-rv data-d=".06s">Kommen Sie vorbei</h1>
+      <div class="chips" data-rv data-d=".12s">
+        <span class="chip rot" data-status>Di–Fr 6:00–18:30 · Sa bis 13:30</span>
+      </div>
+      <p class="lead" style="margin-top:14px" data-rv data-d=".18s">Schönfließer Straße 12, 10439 Berlin. Prenzlauer Berg, am Arnimplatz.</p>
     </div>
-    <p class="lead" style="margin-top:14px" data-rv data-d=".18s">Schönfließer Straße 12, 10439 Berlin. Prenzlauer Berg, am Arnimplatz.</p>
+    <div class="hero-split-foto" data-rv data-d=".12s" aria-hidden="true">
+      <div class="bild hero-foto"><img src="img/team-gaerkoerbe.jpg" alt="" width="900" height="1350"></div>
+    </div>
   </div>
 </section>
 
 <section class="eng">
   <div class="wrap">
     <h2 class="disp" data-rv>Öffnungszeiten</h2>
-    <table class="zeiten" style="margin-top:20px" data-rv>
-      <thead>
-        <tr><th scope="col">Tag</th><th scope="col">Zeit</th></tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">Montag</th><td>Ruhetag</td></tr>
-        <tr><th scope="row">Dienstag bis Freitag</th><td>6:00 – 18:30</td></tr>
-        <tr><th scope="row">Samstag</th><td>6:00 – 13:30</td></tr>
-        <tr><th scope="row">Sonntag / Feiertag</th><td>geschlossen</td></tr>
-      </tbody>
-    </table>
-    <div class="sommer" data-rv data-d=".1s"><b>Sommer, 20.07. – 15.08.:</b> Dienstag bis Freitag nur bis 16:30.</div>
-    <p class="mut" style="margin-top:16px;max-width:34em" data-rv data-d=".16s">Samstags steht man hier Schlange, seit 120 Jahren. Wer es eilig hat: Dienstag bis Freitag am späten Vormittag ist kaum etwas los. Splitterbrötchen und Pfannkuchen sind am Wochenende oft früh weg.</p>
+    <div class="zeiten-split">
+      <div class="zeiten-panel" data-rv>
+        <div class="nadel" role="presentation"></div>
+        <div class="zeiten-panel-in">
+          <table class="zeiten">
+            <thead>
+              <tr><th scope="col">Tag</th><th scope="col">Zeit</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Montag</th><td>Ruhetag</td></tr>
+              <tr><th scope="row">Dienstag bis Freitag</th><td>6:00 – 18:30</td></tr>
+              <tr><th scope="row">Samstag</th><td>6:00 – 13:30</td></tr>
+              <tr><th scope="row">Sonntag / Feiertag</th><td>geschlossen</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="zeiten-neben">
+        <div class="sommer" data-rv data-d=".1s"><b>Sommer, 20.07. – 15.08.:</b> Dienstag bis Freitag nur bis 16:30.</div>
+        <p class="mut" style="margin-top:16px;max-width:34em" data-rv data-d=".16s">Samstags steht man hier Schlange, seit 120 Jahren. Wer es eilig hat: Dienstag bis Freitag am späten Vormittag ist kaum etwas los. Splitterbrötchen und Pfannkuchen sind am Wochenende oft früh weg.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -97,7 +111,7 @@
         <p>Telefon: <a class="tel" href="tel:+49304457576" style="font-size:22px">030 44 57 576</a></p>
         <p style="margin-top:6px">E-Mail: <a href="mailto:info@baeckerei-siebert.de">info@baeckerei-siebert.de</a></p>
         <p style="margin-top:10px">Bestellungen nehmen wir telefonisch oder im Laden entgegen.</p>
-        <div class="bild maske" data-rv data-d=".1s" style="margin-top:16px"><img src="img/team-gaerkoerbe.jpg" alt="Bäcker knetet Teig neben aufgereihten Gärkörben in der Backstube" width="900" height="1350" loading="lazy"></div>
+        <div class="bild maske kontakt-foto" data-rv data-d=".1s" style="margin-top:16px"><img src="img/team-gaerkoerbe.jpg" alt="Bäcker knetet Teig neben aufgereihten Gärkörben in der Backstube" width="900" height="1350" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -142,6 +156,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=2"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>

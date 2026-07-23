@@ -39,6 +39,7 @@ body{color:var(--ink);font:400 18px/1.62 var(--disp);overflow-x:clip;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
+a[href^="tel:"]{white-space:nowrap} /* Telefonnummern nie intern umbrechen */
 ::selection{background:var(--red);color:var(--paper)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
 
@@ -68,7 +69,7 @@ a{color:inherit}
 
 /* ---------- Jubiläums-Leiste (temporär bis Okt 2026) ---------- */
 .jubi{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 13.5px/1.5 var(--disp);padding:8px 14px;border-bottom:1px solid var(--gold)}
-.jubi a{color:var(--gold-l);font-weight:700;text-underline-offset:3px}
+.jubi a{color:var(--gold-l);font-weight:700;text-underline-offset:3px;white-space:nowrap}
 .jubi a:hover{color:#fff}
 
 /* ---------- Header ---------- */
@@ -129,6 +130,17 @@ h2.disp{font-size:clamp(30px,5vw,50px)}
 .js-motion .maske.rv img{transform:scale(1.12)}
 .js-motion .maske.rv.in img{transform:scale(1)}
 
+/* Zwei Fotos nebeneinander, beide leicht gekippt, mit Abstand — wie abgelegt */
+.brezel-collage{margin-top:34px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;justify-content:center}
+.brezel-collage .bild{margin:0;transform:rotate(-2.5deg)}
+.brezel-collage .neben{transform:rotate(3deg);margin-top:22px}
+@media (max-width:560px){
+  /* Mobil kompakter: Nebenfoto hakt sich unten in die Ecke, überlappt leicht */
+  .brezel-collage{gap:0;justify-content:center}
+  .brezel-collage .bild{max-width:74%;transform:rotate(-2deg);position:relative;z-index:1}
+  .brezel-collage .neben{max-width:58%;margin:-18px 4% 0 auto;transform:rotate(3deg);position:relative;z-index:2}
+}
+
 /* ---------- Hero ---------- */
 .hero{padding-block:clamp(30px,5vw,46px)}
 .hero-grid{display:grid;gap:40px;align-items:center}
@@ -149,17 +161,59 @@ h2.disp{font-size:clamp(30px,5vw,50px)}
 .collage .c-notiz{position:absolute;right:4%;bottom:-4%;z-index:3;font-family:var(--hand);font-weight:600;font-size:22px;color:var(--crust-d);transform:rotate(-3deg)}
 .collage .c-pfeil{position:absolute;right:20%;bottom:6%;width:66px;z-index:3;color:var(--red);transform:rotate(4deg)}
 @media(max-width:880px){.collage{min-height:330px}.collage .c-haupt{width:72%}.collage .c-klein{width:46%}}
+@media(max-width:639px){.collage .c-klein{bottom:20px}}  /* Phone: Polaroid ein Mueh hoeher (statt 2% ~7px) */
+/* 640-879 (eine Spalte, Foto schon gross): das gedrehte Hauptfoto ragt unten rechts ueber die
+   Collage-Box hinaus -> Notiz/Pfeil bekommen einen reservierten Streifen UNTER dem Foto,
+   statt per Prozent-Anker auf dem dunklen Brotfoto zu landen. */
+@media(min-width:640px) and (max-width:879px){
+  .collage{padding-bottom:72px}
+  .collage .c-notiz{bottom:8px}
+  .collage .c-pfeil{bottom:78px}
+}
 
 /* Einzel-Foto neben Hero (Unterseiten) */
 .hero-foto{transform:rotate(1.6deg)}
+/* Phone: gedeckelte, zentrierte Karte im 1:1-Crop (spart Hoehe ggue. 2:3-Portraet) */
+@media(max-width:639px){.hero-foto{max-width:clamp(280px,80vw,380px);margin-inline:auto}.hero-foto img{aspect-ratio:1/1;object-fit:cover;object-position:center 15%}}
+/* Tablet: schon zweispaltig, Portraet fuellt seine Spalte (Desktop-Grid ab 880 bleibt) */
+@media(min-width:640px) and (max-width:879px){.hero-solo{grid-template-columns:1.05fr .95fr}.hero-solo .hero-foto{max-width:none;margin:0}}
 
-/* ---------- Zahlen-Band (Gold auf Dunkel) ---------- */
-.zahlen-band{background:var(--crumb);color:var(--paper)}
-.zahlen{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 12px;text-align:center}
-@media(max-width:640px){.zahlen{grid-template-columns:repeat(2,1fr)}}
-.zahlen .z{padding:4px}
-.zahlen b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(34px,4.6vw,54px);line-height:1;color:var(--gold-l);font-variant-numeric:tabular-nums}
-.zahlen small{display:block;margin-top:7px;font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.11em;text-transform:uppercase;color:#D9C7A3}
+/* ---------- Zahlen-Band 4D "Split-Regal" ----------
+   Heller Karten-Block (.zb-hell, Oat) ueber echtem Dunkelblock (.zb-dunkel, Crumb).
+   padding:0 hebt das globale section-Padding auf -> .zb-hell stoesst buendig an den
+   Hero (Oat) oben, .zb-dunkel buendig an das Zeitband (Crumb) unten (nahtloser Uebergang).
+   Karten heissen .zk (NICHT .z) -> keine Kollision mit den Chronik-Zetteln.
+   Gold nur auf der dunklen Haelfte; auf den hellen Karten ist Rot die Signalfarbe. */
+.zahlen-band{background:var(--crumb);color:#EFE2CC;padding:0;overflow:hidden}
+.zb-hell{background:var(--oat);padding-top:clamp(40px,5vw,56px)}
+/* Mobil (2 Reihen): KEIN Straddle -> Karten ganz auf Oat, Naht sauber darunter.
+   Overlap (Regalbrett) erst ab 760px, wo alle 4 Karten in EINER Reihe liegen. */
+.zahlen{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;place-items:center;margin-bottom:18px}
+@media(min-width:760px){.zahlen{grid-template-columns:repeat(4,1fr);margin-bottom:clamp(-60px,-5vw,-40px)}}
+/* Papier-Karte (aus V3), rote Oberkante, gerichteter Schatten, knappe Rotation */
+.zahlen .zk{position:relative;background:var(--paper);border-top:4px solid var(--red);border-radius:2px;width:min(200px,100%);padding:18px 16px;text-align:center;box-shadow:5px 11px 22px rgba(43,33,26,.26)}
+.zahlen .zk:nth-child(1){transform:rotate(-2deg)}
+.zahlen .zk:nth-child(2){transform:rotate(1.4deg)}
+.zahlen .zk:nth-child(3){transform:rotate(-1.1deg)}
+.zahlen .zk:nth-child(4){transform:rotate(2deg)}
+.zahlen b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(30px,3.6vw,44px);line-height:.92;color:var(--red);font-variant-numeric:tabular-nums}
+.zahlen small{display:block;margin-top:7px;font:600 11.5px/1.35 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--crust-d)}
+/* Dunkle Haelfte: Bewertung + Auszeichnungen (Gold zu Hause) */
+.zb-dunkel{position:relative;z-index:1;background:var(--crumb);color:#EFE2CC;padding:clamp(34px,6vw,44px) 0 clamp(30px,4vw,44px)}
+@media(min-width:760px){.zb-dunkel{padding-top:clamp(74px,9vw,96px)}}  /* Desktop: mehr Kopf-Padding, um den Karten-Overlap zu ueberdecken */
+.zb-rating{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px 12px;text-align:center}
+.zb-rating .wert{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--gold-l);line-height:1;font-variant-numeric:tabular-nums}
+.zb-rating .q{font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#D9C7A3}
+.zb-rating .q b{color:#EFE2CC}
+.zb-stars{position:relative;display:inline-block;line-height:0;width:112px;height:21px;vertical-align:middle}
+.zb-stars .leer{position:absolute;inset:0;width:112px;height:21px;fill:none;stroke:var(--gold);stroke-width:1.3}
+.zb-stars .vollwrap{position:absolute;inset:0;overflow:hidden;width:var(--pct,94%)}   /* Breite = Bewertungsanteil */
+.zb-stars .vollwrap svg{width:112px;height:21px;display:block;fill:var(--gold-l)}
+.zb-awards{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(216,174,82,.28)}
+.zb-chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--gold);border-radius:3px;padding:8px 12px;font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#EFE2CC}
+.zb-chip b{font-family:var(--disp);font-weight:900;color:var(--gold-l);text-transform:none;font-size:12px;letter-spacing:.01em}
+.zb-conf{display:block;text-align:center;font:600 10px/1.5 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;color:#B98F3A;margin-top:18px}
+.zb-sprite{position:absolute;width:0;height:0;overflow:hidden}
 
 /* ---------- Zeitband (SIGNATURE) ---------- */
 .zeitband{background:var(--crumb);color:var(--paper);border-block:2px solid var(--gold);padding:0}
@@ -186,19 +240,69 @@ h2.disp{font-size:clamp(30px,5vw,50px)}
 .zb-liste .st{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:baseline;padding:18px 0;border-bottom:1px solid #5A452E}
 .zb-liste .st b{font-family:var(--disp);font-weight:900;font-size:clamp(28px,4vw,44px);line-height:1;color:var(--gold-l);min-width:3.4ch}
 .zb-liste .st em{font-family:var(--hand);font-style:normal;font-weight:600;color:#C9B79C;display:block;margin-bottom:4px}
+.zb-liste .st .wer{display:block;font:600 11.5px/1.4 ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#C9B79C;margin:2px 0 4px}
+/* Mobil/Tablet (<900, ohne Scrolly): Geschichte nur als kompakte Jahres-Leiter — die ganze
+   Story lebt auf geschichte.html ("Die ganze Geschichte"-Button drunter). No-JS-Desktop
+   behaelt die Langtexte. */
+@media(max-width:899px){
+  .zb-liste .st p{display:none}
+  .zb-liste .st{padding:13px 0;gap:16px}
+  .zb-liste .st em{margin-bottom:0;font-size:17px}
+  .zb-liste .st b{font-size:clamp(26px,4vw,34px)}
+}
 
 /* ---------- Preistafel ---------- */
 .tafel{max-width:680px}
 .tafel-gruppe{margin-bottom:clamp(32px,5vw,50px)}
 .tafel-sub{font-family:var(--hand);font-weight:600;font-size:20px;color:var(--red);margin:2px 0 14px}
-.tz{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dotted var(--line)}
-.tz b{font-weight:700;font-size:17.5px}
-.tz .f{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:20px}
-.tz span:last-child{color:var(--ink2);font-size:15px;text-align:right;max-width:54%}
+/* Speisekarte-Zeile. Mobil GESTAPELT (Name -> Beschreibung linksbuendig darunter): ruhig
+   lesbar, keine kollidierenden Spalten. Der zweispaltige Fuehrungslinien-Look kehrt ab 640px
+   zurueck, wo Name + Notiz zuverlaessig in EINE Zeile passen (Seam deckt sich mit .nz/.anker). */
+.tz{padding:11px 0;border-bottom:1px dotted var(--line)}
+.tz b{display:block;font-weight:700;font-size:17.5px;line-height:1.28}
+.tz .f{display:none}
+.tz>span:last-child{display:block;color:var(--ink2);font-size:15px;line-height:1.45;margin-top:3px}  /* >: nur die Notiz-Spalte, nicht die geschachtelten .nz-* */
+.tz>span:last-child:empty{display:none}
 .tz .best{color:var(--red);font-weight:600}
+@media(min-width:640px){
+  .tz{display:flex;align-items:baseline;gap:10px;padding:9px 0}
+  .tz b{display:inline;line-height:1.2}
+  .tz .f{display:block;flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:20px}
+  .tz>span:last-child{display:inline;text-align:right;max-width:54%;margin-top:0}
+}
 .anker{border-radius:2px;margin-bottom:20px}
 .anker img{aspect-ratio:21/9;object-fit:cover}
 @media(max-width:640px){.anker img{aspect-ratio:16/10}}
+/* Sortiment-Teaser (index): Hochformat-Foto links, Preistafel rechts (ab 760px);
+   darunter gestapelt. Das hohe "Wand aus Brot"-Bild bekommt so einen Partner. */
+.sortiment-split{margin-top:22px;display:grid;gap:clamp(24px,4vw,44px)}
+.sortiment-split .anker{margin-bottom:0}
+/* Mobil & Tablet: kompaktes 16:9-Band (volle Breite). Ab Desktop: Hochformat 3:4 im Split. */
+.sortiment-split .anker img{aspect-ratio:16/9;object-position:50% 50%}
+@media(min-width:1000px){
+  .sortiment-split{grid-template-columns:520px 1fr;align-items:center}
+  .sortiment-split .anker img{aspect-ratio:3/4;object-position:50% 60%}
+}
+
+/* ---------- Sortiment: Editorial-Split (Foto neben Tafel ab Desktop) ---------- */
+/* Gestapelt bis 1024px (= wie Tablet/Mobil bisher). Ab 1024px Foto | Tafel zweispaltig,
+   Seiten wechseln pro Gruppe (.foto-rechts). Nur .tafel-gruppe-Kontext -> Startseite unberuehrt. */
+.tafel-text{min-width:0}                                  /* Grid-Kind darf schrumpfen */
+.tz>span:last-child{text-wrap:balance}                    /* gleichmaessige Umbrueche der Notiz */
+.tz .nz-kurz{display:none}                                /* Award-Notiz: Kurzform nur schmales Handy */
+@media(max-width:639px){.tz .nz-voll{display:none}.tz .nz-kurz{display:inline}}
+@media(min-width:1024px){
+  /* Liste bekommt die breitere Spalte (1.1fr), Foto die schmalere (0.9fr) -> lange Notiz 1-zeilig.
+     Bei foto-rechts Spalten spiegeln, damit die LISTE immer die breite Spalte behaelt. */
+  .tafel-gruppe{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(28px,3.4vw,52px);align-items:center;margin-bottom:clamp(48px,6vw,80px)}
+  .tafel-gruppe.foto-rechts{grid-template-columns:1.1fr 0.9fr}
+  .tafel-gruppe.foto-rechts .tafel-foto{order:2}
+  .tafel-gruppe .tafel-foto{margin-bottom:0}
+  .tafel-gruppe .tafel-foto img{aspect-ratio:4/3}
+  .tafel-gruppe .tafel{max-width:none;margin-top:0}       /* Liste fuellt ihre Spalte */
+  /* Notiz-Spalte volle Zeilenbreite -> lange Notizen 1-zeilig; Praefix schlaegt Basis 54% */
+  .tafel-gruppe .tz>span:last-child{max-width:none}
+}
 
 /* ---------- Handwerk-Schritte ---------- */
 .schritte{display:grid;gap:28px}
@@ -235,14 +339,6 @@ h2.disp{font-size:clamp(30px,5vw,50px)}
 /* Generationen-Liste (Geschichte, ruhig, nicht rotiert) */
 .gen-liste .z{width:auto;margin:0;transform:none;box-shadow:none;border:1px solid var(--line);border-top:4px solid var(--red)}
 
-/* ---------- Tüten-Aufdruck (weiße Tüte) ---------- */
-.tuete .blatt{background:var(--white);border-radius:2px;max-width:600px;margin:0 auto;padding:36px 34px 30px;text-align:center;box-shadow:0 16px 36px rgba(50,35,20,.14);border:1px solid var(--line)}
-.tuete .logo{width:150px;margin:0 auto 6px}
-.tuete .fuer{font-family:var(--hand);font-weight:600;font-size:22px;color:var(--ink2);margin:0 0 16px}
-.tuete .liste{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:12px 0;display:grid;gap:6px}
-.tuete .liste p{font-weight:600;font-size:15.5px}
-.tuete .best{color:var(--red);font-weight:600;margin-top:6px}
-
 /* ---------- Öffnungszeiten ---------- */
 table.zeiten{border-collapse:collapse;width:100%;max-width:540px}
 .zeiten th,.zeiten td{text-align:left;padding:11px 14px;border:1px solid var(--line);font-size:16px}
@@ -250,17 +346,157 @@ table.zeiten{border-collapse:collapse;width:100%;max-width:540px}
 .zeiten tr.heute td{background:var(--paper);font-weight:700;color:var(--red)}
 .sommer{border:1.5px solid var(--crust);border-radius:3px;background:var(--paper);padding:14px 18px;max-width:540px;margin-top:14px}
 
+/* ---------- Besuch: Desktop-Layout „Türschild“ (Variante A) ----------
+   Alles Neue greift NUR ab 960px; darunter Rückfall auf den mobilen
+   Einspalter (unverändert). Selektoren existieren nur auf besuch.html. */
+.hero-split-foto{display:none}            /* Hero-Foto erst als Desktop-Aside */
+.zeiten-split{margin-top:20px}            /* ersetzt das frühere table-margin */
+.zeiten-panel > .nadel{display:none}      /* Panel-Streifen nur auf Desktop */
+@media(min-width:960px){
+  /* Hero: Text | Foto */
+  .hero-split{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(30px,4.5vw,60px);align-items:center}
+  .hero-split-foto{display:block;width:100%;max-width:400px;margin-left:auto}
+  .hero-split-foto .bild img{aspect-ratio:3/4;object-fit:cover;object-position:center 42%}
+  /* Öffnungszeiten (Türschild) | Nebeninfos */
+  .zeiten-split{display:grid;grid-template-columns:minmax(0,520px) 1fr;gap:clamp(28px,4vw,54px);align-items:start;margin-top:26px}
+  .zeiten-panel{background:var(--paper);border:1px solid var(--line);border-radius:3px;box-shadow:4px 8px 18px rgba(50,35,20,.09);overflow:hidden}
+  .zeiten-panel > .nadel{display:block}
+  .zeiten-panel-in{padding:10px 22px 16px}
+  .zeiten-panel table.zeiten{max-width:none;width:100%;margin:0}
+  .zeiten-panel .zeiten th,.zeiten-panel .zeiten td{border:0;border-bottom:1px solid var(--line)}
+  .zeiten-panel .zeiten thead th{background:transparent;padding-top:6px}
+  .zeiten-panel .zeiten tbody tr:last-child th,.zeiten-panel .zeiten tbody tr:last-child td{border-bottom:0}
+  .zeiten-panel .zeiten th[scope=row]{padding-left:0}
+  .zeiten-panel .zeiten td{padding-right:0;text-align:right;font-variant-numeric:tabular-nums}
+  .zeiten-neben .sommer{margin-top:0}
+  .kontakt-foto{display:none}             /* Foto lebt auf Desktop im Hero (kein Duplikat) */
+}
+
 /* ---------- Gewinner-Block (Jubiläum) ---------- */
 .gewinner{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:20px;color:var(--ink);font-variant-numeric:tabular-nums}
 .gewinner .w{display:flex;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px dotted var(--line)}
 .gewinner .w:last-child{border-bottom:none}
 .gewinner .w b{font-family:var(--disp);font-weight:900;font-size:20px;color:var(--red);white-space:nowrap}
 
+/* ---------- Jubiläum: Goldenes Ticket + Ziehungs-Kalender (TEMPORÄR bis Okt 2026) ----------
+   geschichte.html #jubilaeum. Ticket = Gold-Fläche auf --crumb mit dunkler Tinte (Blickfang +
+   Symbol "noch im Lostopf", KEIN Pflegefeld). Darunter weiße Wochen-Zettel (roter Nadelstreifen)
+   = zeigt WANN gezogen wird + 120 Preise/Woche, aktive Woche rot. KEINE Losnummern auf der Seite,
+   die laufen über Instagram. Gold nur auf dem dunklen Band, Rot auf den hellen Karten.
+   Klasse .jub (nicht .jubi -> das ist das sitewide Banner). */
+.jub{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold);overflow:hidden}
+.jub-top{text-align:center}
+.jub .label{color:var(--gold-l)}
+.jub-cer{font-family:var(--script);font-weight:400;font-size:clamp(30px,5vw,52px);line-height:.9;color:var(--gold-l);margin:6px 0 6px}
+.jub h2{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.4vw,38px);line-height:1.05;color:var(--paper);letter-spacing:-.01em;text-wrap:balance;max-width:22ch;margin:0 auto}
+/* das Ticket */
+.jub-ticket{display:flex;text-align:left;max-width:600px;margin:clamp(30px,4vw,44px) auto 0;background:linear-gradient(135deg,#E9C86D 0%,#D8AE52 46%,#C29A41 100%);color:var(--crumb);border-radius:7px;box-shadow:0 2px 0 rgba(255,255,255,.28) inset,0 22px 44px rgba(0,0,0,.42),0 6px 14px rgba(0,0,0,.3);transform:rotate(-1.2deg)}
+.jub-main{flex:1 1 auto;padding:clamp(22px,3.4vw,32px) clamp(22px,3.4vw,30px);min-width:0}
+.jub-seal{display:block;width:46px;height:46px;background:rgba(67,48,29,.1);border-radius:50%;padding:5px;box-shadow:inset 0 0 0 1px rgba(67,48,29,.35);margin-bottom:14px}
+.jub-seal img{width:100%;height:100%;object-fit:contain;display:block}
+.jub-adm{font:600 10.5px/1 ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;color:rgba(67,48,29,.72)}
+.jub-name{font-family:var(--script);font-weight:400;font-size:clamp(34px,5.4vw,52px);line-height:.86;color:var(--crumb);margin:8px 0 6px}
+.jub-prize{font-family:var(--disp);font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1.2;color:var(--crumb);max-width:26ch}
+.jub-sub{font-size:13.5px;line-height:1.5;color:rgba(67,48,29,.82);margin-top:8px;max-width:30ch}
+.jub-stub{flex:0 0 auto;width:118px;position:relative;padding:clamp(20px,3vw,26px) 16px;display:flex;flex-direction:column;justify-content:center;text-align:center;border-left:2px dashed rgba(67,48,29,.5)}
+.jub-stub::before,.jub-stub::after{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--crumb)}
+.jub-stub::before{top:-8px}
+.jub-stub::after{bottom:-8px}
+.jub-stub .m{font:600 9px/1.3 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(67,48,29,.72)}
+.jub-losnr{font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:.06em;color:var(--crumb);margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.jub-stub .zieh{font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(67,48,29,.62);margin-top:10px}
+@media(max-width:479px){
+  .jub-ticket{flex-direction:column;transform:none}
+  .jub-stub{width:auto;border-left:0;border-top:2px dashed rgba(67,48,29,.5);flex-direction:row;justify-content:space-between;align-items:center;text-align:left;gap:10px}
+  .jub-stub::before,.jub-stub::after{top:-8px;bottom:auto;left:auto}
+  .jub-stub::before{left:-8px}
+  .jub-stub::after{right:-8px}
+  .jub-losnr{margin:2px 0}
+  .jub-stub .zieh{margin-top:0}
+}
+.jub-plan{text-align:center;font-size:clamp(16px,2vw,18px);line-height:1.6;color:#EFE2CC;max-width:60ch;margin:clamp(30px,4vw,44px) auto 0}
+/* Woche-für-Woche: Ziehungs-Kalender (zeigt WANN, keine Nummern) */
+.jub-kal{margin-top:clamp(34px,5vw,48px);padding-top:clamp(28px,4vw,36px);border-top:1px solid #5A452E}
+.jub-kal-h{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.jub-kal-h b{font-family:var(--disp);font-weight:900;font-size:clamp(20px,2.4vw,26px);color:var(--paper)}
+.jub-kal-h span{font:600 11px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+.jub-mon{display:flex;align-items:baseline;gap:12px;margin:clamp(20px,3vw,26px) 0 12px}
+.jub-mon b{font-family:var(--disp);font-weight:900;font-size:16px;color:var(--gold-l)}
+.jub-mon span{font:600 10.5px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#C9B79C}
+.jub-mon::after{content:"";flex:1 1 auto;height:1px;background:#5A452E}
+.jub-weeks{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:620px){.jub-weeks{grid-template-columns:repeat(4,1fr)}}
+.jub-wo{position:relative;border:1px solid var(--line);border-radius:3px;padding:15px 15px 16px;background:var(--paper);box-shadow:3px 6px 14px rgba(0,0,0,.22);overflow:hidden}
+.jub-wo::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px);opacity:.5}
+.jub-wo .n{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1;color:var(--ink)}
+.jub-wo .p{display:block;font:600 10.5px/1.3 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-top:8px}
+.jub-wo.jetzt{border-color:var(--red);box-shadow:0 0 0 1px var(--red),3px 6px 14px rgba(180,36,28,.16)}
+.jub-wo.jetzt::before{opacity:1}
+.jub-tag{display:inline-block;font:600 9px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);border-radius:2px;padding:4px 7px;margin-bottom:9px}
+/* Abschluss: Instagram-Verweis (keine Nummern auf der Seite) */
+.jub-foot{margin-top:clamp(28px,4vw,36px);padding-top:clamp(24px,3vw,30px);border-top:1px solid #5A452E;display:grid;gap:16px}
+.jub-say{color:#EFE2CC;font-size:16px;line-height:1.55;max-width:48ch}
+.jub-say b{color:var(--gold-l);font-weight:600}
+.jub-kanaele{white-space:nowrap}
+@media(min-width:720px){.jub-foot{grid-template-columns:1fr auto;align-items:center;gap:30px}}
+
 /* ---------- Fascia (dunkles Band, Gold-Zeremonie) ---------- */
 .fascia{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold)}
 .fascia .label{color:var(--gold-l)}
 .fascia .lead{color:inherit}
 .fascia .zeile{font-family:var(--script);font-size:clamp(30px,5vw,50px);color:var(--gold-l);text-align:center;line-height:.9}
+
+/* ---------- Saison-Spotlight als Tabs (Fascia-Familie, Datums-Default via site.js) ----------
+   Progressive Enhancement: ohne aktive Tabs (site.js setzt .saison.tabs-an) sind alle 3 Panels
+   gestapelt sichtbar und die Tabs aus -> kein toter Button, wenn JS fehlt/scheitert. */
+.saison-cer{font-family:var(--script);font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:.9;color:var(--gold-l);margin:0 0 clamp(16px,2.4vw,22px)}
+
+/* Tabs: ohne JS aus (kein toter Button), mit .tabs-an sichtbar. Stehen UNTER der Notiz -> Abstand oben. */
+.saison-tabs{display:none}
+.saison.tabs-an .saison-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:clamp(22px,3vw,30px) 0 0}
+.saison-chip{font:600 14.5px/1 var(--disp);cursor:pointer;background:transparent;border:1px solid var(--gold);border-radius:3px;padding:10px 16px;color:var(--gold-l);transition:background .16s,color .16s}
+.saison-chip:hover{background:rgba(216,174,82,.14)}
+.saison-chip[aria-selected="true"]{background:var(--gold-l);color:var(--crumb);border-color:var(--gold-l)}
+
+/* Foto je Saison. Ratio je Breakpoint: mobil 16/10, Tablet 3/2, Desktop schlankes Hochformat 2/3. */
+.saison-foto{margin:0 0 clamp(14px,2.5vw,20px)}
+.saison-foto img{aspect-ratio:16/10;object-fit:cover;object-position:50% 42%}
+@media(min-width:640px){.saison-foto img{aspect-ratio:3/2}}
+
+/* Text-Panel. Ohne .tabs-an (No-JS) alle gestapelt + je Saison getrennt; mit .tabs-an nur das aktive. */
+.saison-panel{margin:0}
+.saison:not(.tabs-an) .saison-panel{margin-bottom:clamp(34px,5vw,56px)}
+.saison.tabs-an .saison-foto{display:none}
+.saison.tabs-an .saison-foto.aktiv{display:block}
+.saison.tabs-an .saison-panel{display:none}
+.saison.tabs-an .saison-panel.aktiv{display:block}
+@media(prefers-reduced-motion:no-preference){
+  .saison.tabs-an .saison-panel.aktiv{animation:saisonEin .45s cubic-bezier(.16,1,.3,1) both}
+}
+@keyframes saisonEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Desktop: Foto links, rechts die Gruppe [Titel oben, aktiver Text, Tabs unten], vertikal mittig
+   zum Foto. Zeilen 1fr/Titel/Text/Tabs/1fr -> die beiden 1fr-Spacer zentrieren die Gruppe; das Foto
+   spannt alle Zeilen und gibt die Hoehe vor. Nur wenn JS die Tabs aktiviert hat (.tabs-an). */
+@media(min-width:960px){
+  .saison-foto{width:clamp(240px,26vw,320px)}
+  .saison-foto img{aspect-ratio:2/3;object-position:50% 38%}
+  .saison.tabs-an .saison-stage{
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr);
+    grid-template-rows:1fr auto auto auto 1fr;
+    column-gap:clamp(28px,4vw,52px);
+  }
+  .saison.tabs-an .saison-foto.aktiv{grid-column:1;grid-row:1 / -1;align-self:center;margin:0}
+  .saison.tabs-an .saison-cer{grid-column:2;grid-row:2;align-self:start;margin:0 0 clamp(12px,1.6vw,18px)}
+  .saison.tabs-an .saison-panel.aktiv{grid-column:2;grid-row:3;align-self:start;margin:0}
+  .saison.tabs-an .saison-tabs{grid-column:2;grid-row:4;align-self:start;margin:clamp(18px,2.4vw,26px) 0 0}
+}
+.saison-tag{display:inline-block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--crumb);background:var(--gold-l);border-radius:2px;padding:5px 9px;margin-bottom:14px}
+.saison-tag[hidden]{display:none}
+.saison-label{font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin:0 0 2px}
+.saison-back{font-family:var(--disp);font-weight:900;font-size:clamp(34px,5vw,54px);line-height:1;color:var(--paper);margin:2px 0 12px}
+.saison-note{color:#EFE2CC;font-size:16.5px;line-height:1.6;max-width:42ch}
 
 /* ---------- CTA (warm, ruhig) ---------- */
 .cta-warm{text-align:center}

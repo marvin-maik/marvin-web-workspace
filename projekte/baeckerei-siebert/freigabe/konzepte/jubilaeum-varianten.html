@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Jubiläum · 3 Design-Varianten für die Sektion „Das Jubiläum" · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen der Vergleichsseite (NICHT Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1280px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(26px,4vw,40px)}
+.vtitel p{color:var(--ink2);max-width:78ch;margin-top:8px}
+.vnote{max-width:1280px;margin:18px auto 0;padding:14px 18px;background:var(--paper);border-left:3px solid var(--red);border-radius:2px;color:var(--ink);font-size:14.5px;line-height:1.55}
+.vnote b{font-weight:700}
+.vkopf{max-width:1280px;margin:0 auto;padding:34px var(--pad) 4px}
+.vbadge{display:inline-flex;align-items:center;gap:8px;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);padding:6px 10px;border-radius:3px;margin-bottom:10px}
+.vkopf h2{font-family:var(--disp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.02}
+.vkopf .warum{max-width:78ch;color:var(--ink2);font-size:15px;margin:8px 0 2px}
+.vkopf .fuellt{font-family:var(--hand);font-weight:600;color:var(--red);font-size:15px;margin-top:4px}
+.vtrenn{border:0;border-top:1px dashed var(--line);max-width:1280px;margin:56px auto 0}
+.vfuss{max-width:1280px;margin:0 auto;padding:40px var(--pad) 70px;color:var(--ink2);font-size:14.5px;line-height:1.6}
+.vfuss b{color:var(--ink)}
+
+/* =====================================================================
+   VARIANTE 1 — „Der Jubiläums-Fahrplan"
+   Dunkles Fascia-Band. Das Jubiläumsjahr als ehrlicher 3-Phasen-Ablauf
+   (Verkauf abgeschlossen -> Wochenziehungen -> Goldenes Ticket im Oktober),
+   mit „als Nächstes"-Marker. Gold lebt nur hier, auf dem dunklen Grund.
+   Nummerierte Marker sind legitim, weil es eine ECHTE Sequenz ist.
+   Abschluss: Instagram-Verweis (keine Nummern auf der Website).
+   ===================================================================== */
+.j1{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold)}
+.j1-inner{max-width:1120px;margin:0 auto;padding:clamp(40px,6vw,72px) var(--pad)}
+.j1 .label{color:var(--gold-l)}
+.j1 h2{font-family:var(--disp);font-weight:900;font-size:clamp(28px,4.4vw,46px);line-height:1.02;color:var(--paper);letter-spacing:-.01em;text-wrap:balance;margin-top:8px;max-width:20ch}
+.j1-lead{color:#EFE2CC;font-size:clamp(17px,2.1vw,20px);line-height:1.6;max-width:62ch;margin:16px 0 clamp(30px,4vw,44px)}
+/* Schiene (mobil vertikal) */
+.j1-rail{position:relative;display:grid;gap:0}
+.j1-step{position:relative;display:grid;grid-template-columns:40px 1fr;gap:0 18px;padding-bottom:30px}
+.j1-step:last-child{padding-bottom:0}
+/* vertikaler Verbinder (mobil) – dotted Gold-Haarlinie */
+.j1-step::before{content:"";position:absolute;left:19px;top:44px;bottom:-2px;width:1px;background:repeating-linear-gradient(var(--gold) 0 3px,transparent 3px 8px);opacity:.6}
+.j1-step:last-child::before{display:none}
+.j1-dot{width:40px;height:40px;border-radius:50%;display:grid;place-content:center;font-family:var(--disp);font-weight:900;font-size:17px;color:var(--gold-l);background:var(--crumb);border:1px solid var(--gold);box-shadow:inset 0 0 0 3px rgba(67,48,29,1);position:relative;z-index:1}
+.j1-step.ist-ziel .j1-dot{border:0;background:var(--white);padding:5px;box-shadow:0 6px 16px rgba(0,0,0,.35),inset 0 0 0 2px var(--gold-l)}
+.j1-step.ist-ziel .j1-dot img{width:100%;height:100%;object-fit:contain;display:block}
+.j1-when{font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l);margin-top:2px}
+.j1-title{font-family:var(--disp);font-weight:900;font-size:clamp(20px,2.4vw,26px);line-height:1.05;color:var(--paper);margin:5px 0 6px}
+.j1-step.ist-ziel .j1-title{color:var(--gold-l)}
+.j1-note{color:#EFE2CC;font-size:15.5px;line-height:1.55;max-width:34ch}
+.j1-chip{display:inline-block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;padding:5px 9px;margin-top:10px}
+.j1-chip.fertig{color:#C9B79C;border:1px solid #5A452E}
+.j1-chip.jetzt{color:var(--crumb);background:var(--gold-l)}
+.j1-chip.kommt{color:var(--gold-l);border:1px solid var(--gold)}
+/* Desktop: waagerechte Schiene */
+@media(min-width:820px){
+  .j1-rail{grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,44px)}
+  .j1-rail::before{content:"";position:absolute;top:19px;left:16.66%;right:16.66%;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 4px,transparent 4px 9px);opacity:.55}
+  .j1-step{grid-template-columns:1fr;gap:0;padding-bottom:0}
+  .j1-step::before{display:none}
+  .j1-note{max-width:30ch}
+}
+/* Fuß: Instagram-Verweis statt Nummernliste */
+.j1-foot{margin-top:clamp(34px,5vw,52px);padding-top:clamp(26px,4vw,34px);border-top:1px solid #5A452E;display:grid;gap:16px}
+.j1-foot .follow{color:#EFE2CC;font-size:16px;line-height:1.55;max-width:48ch}
+.j1-foot .follow b{color:var(--gold-l);font-weight:600}
+.j1-kanaele{white-space:nowrap}
+@media(min-width:720px){.j1-foot{grid-template-columns:1fr auto;align-items:center;gap:30px}}
+
+/* =====================================================================
+   VARIANTE 2 — „Das Goldene Ticket"
+   Ein großes goldenes Ticket als Objekt (Gold-Fläche auf dunklem Grund,
+   dunkle Krume-Tinte darauf = literal + hoher Kontrast). Perforierter
+   Abriss-Stub mit „Nr. ——" (noch im Lostopf, als SYMBOL, nicht als Feld
+   zum Nachtragen). Ziehungsplan als Beleg, dann Instagram-Verweis.
+   ===================================================================== */
+.j2{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold);overflow:hidden}
+.j2-inner{max-width:1040px;margin:0 auto;padding:clamp(40px,6vw,72px) var(--pad);text-align:center}
+.j2 .label{color:var(--gold-l)}
+.j2-cer{font-family:var(--script);font-weight:400;font-size:clamp(30px,5vw,52px);line-height:.9;color:var(--gold-l);margin:6px 0 6px}
+.j2 h2{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.4vw,38px);line-height:1.05;color:var(--paper);letter-spacing:-.01em;text-wrap:balance;max-width:22ch;margin:0 auto}
+/* das Ticket */
+.j2-ticket{display:flex;text-align:left;max-width:600px;margin:clamp(30px,4vw,44px) auto 0;background:linear-gradient(135deg,#E9C86D 0%,#D8AE52 46%,#C29A41 100%);color:var(--crumb);border-radius:7px;box-shadow:0 2px 0 rgba(255,255,255,.28) inset,0 22px 44px rgba(0,0,0,.42),0 6px 14px rgba(0,0,0,.3);transform:rotate(-1.2deg)}
+.j2-main{flex:1 1 auto;padding:clamp(22px,3.4vw,32px) clamp(22px,3.4vw,30px);min-width:0}
+.j2-seal{display:block;width:46px;height:46px;background:rgba(67,48,29,.1);border-radius:50%;padding:5px;box-shadow:inset 0 0 0 1px rgba(67,48,29,.35);margin-bottom:14px}
+.j2-seal img{width:100%;height:100%;object-fit:contain;display:block}
+.j2-adm{font:600 10.5px/1 ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;color:rgba(67,48,29,.72)}
+.j2-name{font-family:var(--script);font-weight:400;font-size:clamp(34px,5.4vw,52px);line-height:.86;color:var(--crumb);margin:8px 0 6px}
+.j2-prize{font-family:var(--disp);font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1.2;color:var(--crumb);max-width:26ch}
+.j2-sub{font-size:13.5px;line-height:1.5;color:rgba(67,48,29,.82);margin-top:8px;max-width:30ch}
+/* Abriss-Stub mit Perforation */
+.j2-stub{flex:0 0 auto;width:118px;position:relative;padding:clamp(20px,3vw,26px) 16px;display:flex;flex-direction:column;justify-content:center;text-align:center;border-left:2px dashed rgba(67,48,29,.5)}
+.j2-stub::before,.j2-stub::after{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--crumb)}
+.j2-stub::before{top:-8px}
+.j2-stub::after{bottom:-8px}
+.j2-stub .m{font:600 9px/1.3 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(67,48,29,.72)}
+.j2-losnr{font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:.06em;color:var(--crumb);margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.j2-stub .zieh{font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(67,48,29,.62);margin-top:10px}
+@media(max-width:479px){
+  .j2-ticket{flex-direction:column;transform:none}
+  .j2-stub{width:auto;border-left:0;border-top:2px dashed rgba(67,48,29,.5);flex-direction:row;justify-content:space-between;align-items:center;text-align:left;gap:10px}
+  .j2-stub::before,.j2-stub::after{top:-8px;bottom:auto;left:auto}
+  .j2-stub::before{left:-8px}
+  .j2-stub::after{right:-8px}
+  .j2-losnr{margin:2px 0}
+  .j2-stub .zieh{margin-top:0}
+}
+/* Beleg + Instagram-Verweis unter dem Ticket */
+.j2-plan{font-size:clamp(16px,2vw,18px);line-height:1.6;color:#EFE2CC;max-width:60ch;margin:clamp(32px,4vw,46px) auto 0}
+.j2-say{color:#EFE2CC;font-size:15.5px;line-height:1.6;max-width:52ch;margin:16px auto 0}
+.j2-say b{color:var(--gold-l);font-weight:600}
+.j2-kanaele{margin-top:22px}
+
+/* =====================================================================
+   VARIANTE 3 — „Das Fenster-Plakat"
+   Bewusst hell und ruhig (Kontrast zu den zwei dunklen). Ein Schaufenster-
+   Aushang: ein Gold-Siegel oben, die Aktion in wenigen Zeilen, Instagram-
+   Verweis, fertig. Keine Nummernpflege. Rot ist die einzige Signalfarbe;
+   Gold lebt nur im dunklen Siegel-Disc. Die simpelste der drei.
+   ===================================================================== */
+.j3{background:var(--oat);border-block:1px solid var(--line);position:relative}
+.j3::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px)}
+.j3-inner{max-width:680px;margin:0 auto;padding:clamp(50px,7vw,90px) var(--pad);text-align:center}
+/* das eine Gold-Element: Siegel auf dunklem Disc (Gold nur auf Krume) */
+.j3-seal{width:90px;height:90px;margin:0 auto 22px;border-radius:50%;background:var(--crumb);display:grid;place-content:center;line-height:1;box-shadow:inset 0 0 0 2px var(--gold),0 10px 22px rgba(50,35,20,.2)}
+.j3-seal b{font-family:var(--disp);font-weight:900;font-size:34px;line-height:.82;color:var(--gold-l)}
+.j3-seal small{display:block;font:600 8px/1 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-top:4px}
+.j3 .label{color:var(--red)}
+.j3 h2{font-family:var(--disp);font-weight:900;font-size:clamp(28px,4.6vw,48px);line-height:1.03;color:var(--ink);letter-spacing:-.01em;text-wrap:balance;max-width:18ch;margin:10px auto 0}
+.j3-lead{color:var(--ink);font-size:clamp(17px,2.1vw,20px);line-height:1.62;max-width:54ch;margin:18px auto 0}
+.j3-nadel{width:64px;height:5px;margin:clamp(26px,4vw,36px) auto;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px)}
+.j3-follow{color:var(--ink);font-size:16px;line-height:1.55;max-width:46ch;margin:0 auto}
+.j3-kanaele{margin-top:18px}
+</style>
+</head>
+<body>
+
+<div class="viewer-kopf">Intern · noindex · nutzt echtes styles.css · 3 Varianten für die Sektion „Das Jubiläum" (geschichte.html)</div>
+
+<div class="vtitel">
+  <h1>„Das Jubiläum" — drei Design-Varianten</h1>
+  <p>Gleiche Sektion, gleicher Kern, drei bewusst verschiedene Auftritte. Alles system-treu:
+  Gold nur auf dunklem Grund, Rot als einzige Signalfarbe auf Hell, keine Gedankenstriche,
+  keine erfundenen Zahlen. Such dir eine Richtung aus (oder mische), dann baue ich sie live in
+  <b>geschichte.html</b> + <code>styles.css</code>.</p>
+</div>
+
+<div class="vnote">
+  <b>Neu gedacht (dein Einwand, richtig):</b> Die Website führt <b>keine Losnummern</b>. Das Nachpflegen
+  Woche für Woche ist genau der Aufwand, den Instagram überflüssig macht, dort laufen die Ziehungen.
+  Die Sektion erklärt nur noch die Aktion und schickt zum Folgen. Alle drei Varianten enden deshalb mit
+  einem klaren Instagram/Facebook-Verweis statt einer Nummernliste. Das „Nr. ——" auf dem Ticket in
+  Variante 2 bleibt nur als Symbol (noch im Lostopf), nicht als Feld zum Nachtragen.
+</div>
+
+<!-- ============================================================ VARIANTE 1 -->
+<div class="vkopf">
+  <span class="vbadge">Variante 1</span>
+  <h2>Der Jubiläums-Fahrplan</h2>
+  <p class="warum">Das Jubiläumsjahr als ehrlicher Ablauf in drei Phasen: Verkauf (abgeschlossen)
+  → Wochenziehungen (August/September) → Goldenes Ticket (Oktober). Ein „als Nächstes"-Marker
+  zeigt, wo wir gerade stehen. Beantwortet sofort „wann passiert was".</p>
+  <p class="fuellt">Signature: die Phasen-Schiene mit Status. Nummern sind legitim (echte Sequenz).</p>
+</div>
+
+<section class="j1">
+  <div class="j1-inner">
+    <p class="label">Das Jubiläum</p>
+    <h2>2026 wird dieses Haus 120. Ein Goldenes Ticket ist noch im Lostopf.</h2>
+    <p class="j1-lead">Der Verkauf der Jubiläumsgutscheine lief bis Ende Juli. Jetzt wird gezogen:
+    von August bis September jede Woche 120 Preise, im Oktober der Hauptpreis, das Goldene Ticket.
+    Es bedeutet ein Leben lang an jedem Öffnungstag Backwaren bis 10 Euro gratis.</p>
+
+    <div class="j1-rail">
+      <div class="j1-step">
+        <span class="j1-dot">1</span>
+        <div>
+          <p class="j1-when">bis Ende Juli</p>
+          <p class="j1-title">Verkauf der Gutscheine</p>
+          <p class="j1-note">Jeder Jubiläumsgutschein ist ein Los. Die Ausgabe ist gelaufen.</p>
+          <span class="j1-chip fertig">abgeschlossen</span>
+        </div>
+      </div>
+      <div class="j1-step">
+        <span class="j1-dot">2</span>
+        <div>
+          <p class="j1-when">August &amp; September</p>
+          <p class="j1-title">Die Wochenziehungen</p>
+          <p class="j1-note">Jede Woche 120 Preise. Gezogen wird öffentlich auf Instagram.</p>
+          <span class="j1-chip jetzt">als Nächstes</span>
+        </div>
+      </div>
+      <div class="j1-step ist-ziel">
+        <span class="j1-dot"><img src="../../img/siebert-logo.svg" alt=""></span>
+        <div>
+          <p class="j1-when">Oktober · Hauptpreis</p>
+          <p class="j1-title">Das Goldene Ticket</p>
+          <p class="j1-note">Ein Leben lang an jedem Öffnungstag Backwaren bis 10 Euro gratis.</p>
+          <span class="j1-chip kommt">Ziehung im Oktober</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="j1-foot">
+      <p class="follow">Jede Ziehung geben wir <b>zuerst auf Instagram und Facebook</b> bekannt.
+      Folgen und keine Nummer verpassen.</p>
+      <p class="j1-kanaele">
+        <a class="btn gold" href="https://www.instagram.com/baeckerei_siebert/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn gold" href="https://www.facebook.com/B%C3%A4ckerei-Konditorei-Lars-Siebert-261205881439705" target="_blank" rel="noopener" style="margin-left:8px">Facebook</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="vtrenn">
+
+<!-- ============================================================ VARIANTE 2 -->
+<div class="vkopf">
+  <span class="vbadge">Variante 2</span>
+  <h2>Das Goldene Ticket</h2>
+  <p class="warum">Der emotionale Aufhänger als greifbares Objekt: ein goldenes Ticket mit
+  perforiertem Abriss. Die Losnummer steht noch aus („Nr. ——", noch im Lostopf) und bleibt ein
+  Symbol, kein Pflege-Feld. Der Ziehungsplan steht als Beleg darunter. Ein Element, maximale Wirkung.</p>
+  <p class="fuellt">Signature: das Ticket selbst. Gold als Fläche auf Dunkel, dunkle Tinte darauf.</p>
+</div>
+
+<section class="j2">
+  <div class="j2-inner">
+    <p class="label">Das Jubiläum · 120 Jahre</p>
+    <p class="j2-cer">Noch im Lostopf</p>
+    <h2>2026 wird dieses Haus 120.</h2>
+
+    <div class="j2-ticket">
+      <div class="j2-main">
+        <span class="j2-seal"><img src="../../img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert"></span>
+        <p class="j2-adm">Jubiläums-Ziehung · Ein Los</p>
+        <p class="j2-name">Das Goldene Ticket</p>
+        <p class="j2-prize">Ein Leben lang gratis</p>
+        <p class="j2-sub">An jedem Öffnungstag Backwaren bis 10 Euro gratis, so lange es die Bäckerei gibt.</p>
+      </div>
+      <div class="j2-stub">
+        <span class="m">Losnummer</span>
+        <span class="j2-losnr">— — —</span>
+        <span class="zieh">Ziehung<br>Oktober</span>
+      </div>
+    </div>
+
+    <p class="j2-plan">Der Verkauf der Jubiläumsgutscheine lief bis Ende Juli. Jetzt wird gezogen:
+    von August bis September jede Woche 120 Preise, im Oktober der Hauptpreis.</p>
+    <p class="j2-say">Jede Ziehung geben wir <b>zuerst auf Instagram und Facebook</b> bekannt.
+    Folgen und keine Nummer verpassen.</p>
+
+    <p class="j2-kanaele">
+      <a class="btn gold" href="https://www.instagram.com/baeckerei_siebert/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn gold" href="https://www.facebook.com/B%C3%A4ckerei-Konditorei-Lars-Siebert-261205881439705" target="_blank" rel="noopener" style="margin-left:8px">Facebook</a>
+    </p>
+  </div>
+</section>
+
+<hr class="vtrenn">
+
+<!-- ============================================================ VARIANTE 3 -->
+<div class="vkopf">
+  <span class="vbadge">Variante 3</span>
+  <h2>Das Fenster-Plakat</h2>
+  <p class="warum">Bewusst hell und ruhig (Kontrast zu den zwei dunklen). Ein Schaufenster-Aushang:
+  ein Gold-Siegel, die Aktion in wenigen Zeilen, Instagram-Verweis, fertig. Keine Nummernpflege,
+  keine Deko-Kaskade. Die simpelste der drei.</p>
+  <p class="fuellt">Signature: das Gold-Siegel auf dem hellen Plakat. Typografie trägt, kaum Deko.</p>
+</div>
+
+<section class="j3">
+  <div class="j3-inner">
+    <div class="j3-seal"><b>120</b><small>Jahre · 2026</small></div>
+    <p class="label">Das Jubiläum</p>
+    <h2>2026 wird dieses Haus 120. Ein Goldenes Ticket ist noch im Lostopf.</h2>
+    <p class="j3-lead">Der Verkauf der Jubiläumsgutscheine lief bis Ende Juli. Von August bis
+    September wird jede Woche gezogen, im Oktober fällt der Hauptpreis: das Goldene Ticket, ein
+    Leben lang an jedem Öffnungstag Backwaren bis 10 Euro gratis.</p>
+    <div class="j3-nadel" role="presentation"></div>
+    <p class="j3-follow">Jede Ziehung geben wir zuerst auf Instagram und Facebook bekannt.
+    Folgen und keine Nummer verpassen.</p>
+    <p class="j3-kanaele">
+      <a class="btn fill" href="https://www.instagram.com/baeckerei_siebert/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn line" href="https://www.facebook.com/B%C3%A4ckerei-Konditorei-Lars-Siebert-261205881439705" target="_blank" rel="noopener" style="margin-left:8px">Facebook</a>
+    </p>
+  </div>
+</section>
+
+<hr class="vtrenn">
+
+<div class="vfuss">
+  <p><b>Wie geht es weiter?</b> Sag mir die Richtung (V1 Fahrplan / V2 Goldenes Ticket / V3
+  Fenster-Plakat), gern auch gemischt. Dann portiere ich den Gewinner in <b>styles.css</b> mit
+  eigenem Namespace (<code>.jubi-*</code>) und verdrahte ihn live in <b>geschichte.html</b>
+  (ersetzt das aktuelle Fascia-Band); <code>_design.md</code> ziehe ich im selben Commit mit.</p>
+  <p style="margin-top:10px">Bei Anke bestätigen: der grobe Ziehungs-Ablauf (Verkauf bis Juli,
+  Wochenziehungen August/September, Hauptpreis Oktober) und dass die Bekanntgabe der gezogenen
+  Nummern über Instagram und Facebook läuft, nicht über die Website.</p>
+</div>
+
+</body>
+</html>

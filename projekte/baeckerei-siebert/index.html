@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23B4241C'/><text x='50' y='72' font-family='Georgia,serif' font-size='66' font-weight='bold' fill='%23E4D6BE' text-anchor='middle'>S</text></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=4">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org","@type":"Bakery","@id":"https://baeckerei-siebert-vorschau.pages.dev/#business",
@@ -89,12 +89,35 @@
   </div>
 </section>
 
-<section class="zahlen-band eng" aria-label="Zahlen und Fakten">
-  <div class="wrap zahlen" data-rv>
-    <div class="z"><b data-ziel="1906" data-start="1800">1906</b><small>gegründet</small></div>
-    <div class="z"><b data-ziel="5">5</b><small>Generationen</small></div>
-    <div class="z"><b data-ziel="16">16</b><small>Stunden Sauerteig</small></div>
-    <div class="z"><b data-ziel="2">2</b><small>× DER FEINSCHMECKER</small></div>
+<section class="zahlen-band" aria-label="Zahlen, Bewertung und Auszeichnungen">
+  <svg class="zb-sprite" aria-hidden="true"><defs>
+    <path id="st" d="M10.5 1.5 12.95 7.6 19.5 8.05 14.5 12.25 16.1 18.6 10.5 15.1 4.9 18.6 6.5 12.25 1.5 8.05 8.05 7.6Z"/>
+  </defs></svg>
+  <div class="zb-hell">
+    <div class="wrap zahlen" data-rv>
+      <div class="zk"><b data-ziel="1906" data-start="1800">1906</b><small>gegründet</small></div>
+      <div class="zk"><b data-ziel="5">5</b><small>Generationen</small></div>
+      <div class="zk"><b data-ziel="16">16</b><small>Std. Sauerteig</small></div>
+      <div class="zk"><b><span data-ziel="2">2</span>×</b><small>Der Feinschmecker</small></div>
+    </div>
+  </div>
+  <div class="zb-dunkel">
+    <div class="wrap" data-rv data-d=".08s">
+      <div class="zb-rating" aria-label="Google-Bewertung: 4,7 von 5 Sternen">
+        <span class="wert">4,7</span>
+        <span class="zb-stars" style="--pct:94%" aria-hidden="true">
+          <svg class="leer" viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg>
+          <span class="vollwrap"><svg viewBox="0 0 112 21"><use href="#st" x="0"/><use href="#st" x="23"/><use href="#st" x="46"/><use href="#st" x="69"/><use href="#st" x="92"/></svg></span>
+        </span>
+        <span class="q"><b>Google</b> · Bewertungen</span>
+      </div>
+      <div class="zb-awards">
+        <span class="zb-chip"><b>Publikumsliebling</b> 2026 · Roggenmischbrot</span>
+        <span class="zb-chip"><b>Goldene Brezel</b> der Innung</span>
+        <span class="zb-chip"><b>100 Punkte</b> Brotprüfung</span>
+      </div>
+      <!-- TODO vor Launch live bestaetigen: Google-Wert 4,7 + Anzahl, Goldene Brezel, 100-Punkte-Pruefung -->
+    </div>
   </div>
 </section>
 
@@ -113,11 +136,11 @@
     </div>
     <div class="wrap">
       <ol class="zb-liste">
-        <li class="st" data-jahr="1906" data-bild="img/gen-1906.jpg" data-alt="Die Fein-Bäckerei in den frühen Jahren"><b aria-hidden="true">1906</b><div><em>Gustav</em><p>Gustav Siebert, aus Ostpreußen, eröffnet 1906 in der Schönfließer Straße. Er führt das Haus durch Kaiserreich und Ersten Weltkrieg.</p></div></li>
-        <li class="st" data-jahr="1929" data-bild="img/gen-1929-otto.jpg" data-alt="30-Jahr-Jubiläum 1936, im Fenster Inhaber Otto Siebert und Gustav Siebert"><b aria-hidden="true">1929</b><div><em>Otto</em><p>Nach Gustavs Tod übernimmt sein Neffe Otto Siebert. Er hält den Betrieb durch den Zweiten Weltkrieg und die Nachkriegszeit, als die Familie im Konditorraum schläft.</p></div></li>
-        <li class="st" data-jahr="DDR" data-bild="img/gen-ddr-bodo.jpg" data-alt="Verkauf in der Bäckerei zu DDR-Zeiten"><b aria-hidden="true">DDR</b><div><em>Bodo</em><p>Bodo Siebert verteidigt das private Handwerk gegen Mangelwirtschaft und Verstaatlichungsdruck.</p></div></li>
-        <li class="st" data-jahr="1990" data-bild="img/gen-1990-lars.jpg" data-alt="Blick in den Laden mit voller Auslage"><b aria-hidden="true">1990</b><div><em>Lars</em><p>Lars Siebert übernimmt nach der Wende. Er bewahrt die Ost-Rezepte und macht den Laden zur Kult-Institution.</p></div></li>
-        <li class="st" data-jahr="2021" data-bild="img/gen-2021-anke.jpg" data-alt="Dr. Anke Siebert mit ihrem Partner in der Bäckerei"><b aria-hidden="true">2021</b><div><em>Dr. Anke</em><p>Dr. Anke Siebert, promovierte Wirtschafts- und Umweltwissenschaftlerin, übernimmt in fünfter Generation.</p></div></li>
+        <li class="st" data-jahr="1906" data-bild="img/gen-1906.jpg" data-alt="Die Fein-Bäckerei in den frühen Jahren"><b aria-hidden="true">1906</b><div><em>Gustav</em><span class="wer">Der Gründer</span><p>Gustav Siebert, aus Ostpreußen, eröffnet 1906 in der Schönfließer Straße. Er führt das Haus durch Kaiserreich und Ersten Weltkrieg.</p></div></li>
+        <li class="st" data-jahr="1929" data-bild="img/gen-1929-otto.jpg" data-alt="30-Jahr-Jubiläum 1936, im Fenster Inhaber Otto Siebert und Gustav Siebert"><b aria-hidden="true">1929</b><div><em>Otto</em><span class="wer">Gustavs Neffe</span><p>Nach Gustavs Tod übernimmt sein Neffe Otto Siebert. Er hält den Betrieb durch den Zweiten Weltkrieg und die Nachkriegszeit, als die Familie im Konditorraum schläft.</p></div></li>
+        <li class="st" data-jahr="DDR" data-bild="img/gen-ddr-bodo.jpg" data-alt="Verkauf in der Bäckerei zu DDR-Zeiten"><b aria-hidden="true">DDR</b><div><em>Bodo</em><span class="wer">Ottos Sohn</span><p>Bodo Siebert verteidigt das private Handwerk gegen Mangelwirtschaft und Verstaatlichungsdruck.</p></div></li>
+        <li class="st" data-jahr="1990" data-bild="img/gen-1990-lars.jpg" data-alt="Blick in den Laden mit voller Auslage"><b aria-hidden="true">1990</b><div><em>Lars</em><span class="wer">Bodos Sohn</span><p>Lars Siebert übernimmt nach der Wende. Er bewahrt die Ost-Rezepte und macht den Laden zur Kult-Institution.</p></div></li>
+        <li class="st" data-jahr="2021" data-bild="img/gen-2021-anke.jpg" data-alt="Dr. Anke Siebert mit ihrem Partner in der Bäckerei"><b aria-hidden="true">2021</b><div><em>Dr. Anke</em><span class="wer">Lars’ Tochter</span><p>Dr. Anke Siebert, promovierte Wirtschafts- und Umweltwissenschaftlerin, übernimmt in fünfter Generation.</p></div></li>
         <li class="st" data-jahr="2026" data-bild="img/zoepfe-blech.jpg" data-alt="Geflochtene Hefezöpfe auf dunklem Blech"><b aria-hidden="true">2026</b><div><em>heute</em><p>120 Jahre. Und ein Goldenes Ticket im Lostopf.</p></div></li>
       </ol>
       <p style="padding-bottom:34px"><a class="btn gold" href="geschichte.html">Die ganze Geschichte</a></p>
@@ -129,15 +152,19 @@
   <div class="wrap">
     <p class="label" data-rv>Sortiment</p>
     <h2 class="disp" data-rv>Was heute in der Auslage liegt</h2>
-    <div class="anker maske bild" data-rv style="margin-top:22px;max-width:900px"><img src="img/brotregal.jpg" alt="Brotregal voller frisch gebackener Laibe" width="1600" height="1067" loading="lazy"></div>
-    <div class="tafel" style="margin-top:24px">
-      <div class="tz" data-rv><b>Roggenmischbrot</b><span class="f"></span><span class="best">Publikumsliebling der Berliner Brotwahl 2026</span></div>
-      <div class="tz" data-rv data-d=".05s"><b>Ost-Schrippe</b><span class="f"></span><span>DDR-Rezept, kompakt, krümelt kaum</span></div>
-      <div class="tz" data-rv data-d=".1s"><b>Berliner Splitterbrötchen</b><span class="f"></span><span>samstags oft vor Mittag weg</span></div>
-      <div class="tz" data-rv data-d=".15s"><b>Pfannkuchen &amp; Kameruner</b><span class="f"></span><span>in siedendem Fett gebacken</span></div>
-      <div class="tz" data-rv data-d=".2s"><b>Bienenstich, Mohnzopf</b><span class="f"></span><span>aus der eigenen Konditorei</span></div>
+    <div class="sortiment-split">
+      <div class="anker maske bild" data-rv><img src="img/auslage-regal.jpg" alt="Volle Brotregale der Bäckerei Siebert: Regal über Regal mit verschiedenen Brotsorten, frisch gebacken" width="1120" height="1680" loading="lazy"></div>
+      <div>
+        <div class="tafel">
+          <div class="tz" data-rv><b>Roggenmischbrot</b><span class="f"></span><span class="best">Publikumsliebling der Berliner Brotwahl 2026</span></div>
+          <div class="tz" data-rv data-d=".05s"><b>Ost-Schrippe</b><span class="f"></span><span>DDR-Rezept, kompakt, krümelt kaum</span></div>
+          <div class="tz" data-rv data-d=".1s"><b>Berliner Splitterbrötchen</b><span class="f"></span><span>samstags oft vor Mittag weg</span></div>
+          <div class="tz" data-rv data-d=".15s"><b>Pfannkuchen &amp; Kameruner</b><span class="f"></span><span>in siedendem Fett gebacken</span></div>
+          <div class="tz" data-rv data-d=".2s"><b>Bienenstich, Mohnzopf</b><span class="f"></span><span>aus der eigenen Konditorei</span></div>
+        </div>
+        <p style="margin-top:22px" data-rv><a class="btn dark" href="sortiment.html">Das ganze Sortiment</a></p>
+      </div>
     </div>
-    <p style="margin-top:22px" data-rv><a class="btn dark" href="sortiment.html">Das ganze Sortiment</a></p>
   </div>
 </section>
 
@@ -164,21 +191,6 @@
         <p class="mut">Nach alten Originalrezepten, jeden Tag. Rohstoffe fast ausschließlich aus Berlin und Brandenburg.</p>
         <div class="bild maske" data-rv data-d=".2s"><img src="img/brotschieber.jpg" alt="Bäcker schiebt Brot mit dem Holzschieber in den Ofen" width="1200" height="800" loading="lazy"></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="tuete">
-  <div class="wrap">
-    <div class="blatt" data-rv>
-      <img class="logo" src="img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert" width="150" height="150">
-      <p class="fuer">für Sie im Prenzlauer Berg</p>
-      <div class="liste">
-        <p>Ausschließlich eigene Herstellung hier in unserer Bäckerei</p>
-        <p>Nach alten Rezepten auf Steinplatten gebacken</p>
-        <p>Handwerkliche Gebäckkunst · Qualität und Vielfalt seit Generationen</p>
-      </div>
-      <p class="best">Bestellung im Geschäft oder unter 44 57 576</p>
     </div>
   </div>
 </section>
@@ -256,6 +268,6 @@
   </div>
 </footer>
 
-<script src="site.js?v=2"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Jubiläum · Zusammenführung V2-Ticket + Woche-für-Woche · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen (NICHT Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1080px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.6vw,36px)}
+.vnote{max-width:1080px;margin:16px auto 4px;padding:14px 18px;background:var(--paper);border-left:3px solid var(--red);border-radius:2px;color:var(--ink);font-size:14.5px;line-height:1.55}
+.vnote b{font-weight:700}
+.vfuss{max-width:1080px;margin:0 auto;padding:36px var(--pad) 64px;color:var(--ink2);font-size:14.5px;line-height:1.6}
+.vfuss b{color:var(--ink)}
+
+/* =====================================================================
+   JUBILÄUM — Zusammenführung: V2-Ticket (Blickfang) + Woche-für-Woche (V3).
+   Dunkles Band. Oben das goldene Ticket, darunter der Ziehungs-Rhythmus
+   als Kalender (zeigt WANN, nicht die Nummern), Abschluss Instagram.
+   Gold nur auf dem dunklen Grund. Namespace .jf-*.
+   ===================================================================== */
+.jf{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold);overflow:hidden}
+.jf-inner{max-width:1040px;margin:0 auto;padding:clamp(40px,6vw,72px) var(--pad)}
+.jf-top{text-align:center}
+.jf .label{color:var(--gold-l)}
+.jf-cer{font-family:var(--script);font-weight:400;font-size:clamp(30px,5vw,52px);line-height:.9;color:var(--gold-l);margin:6px 0 6px}
+.jf h2{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.4vw,38px);line-height:1.05;color:var(--paper);letter-spacing:-.01em;text-wrap:balance;max-width:22ch;margin:0 auto}
+
+/* ---- das Ticket (aus V2, unverändert) ---- */
+.jf-ticket{display:flex;text-align:left;max-width:600px;margin:clamp(30px,4vw,44px) auto 0;background:linear-gradient(135deg,#E9C86D 0%,#D8AE52 46%,#C29A41 100%);color:var(--crumb);border-radius:7px;box-shadow:0 2px 0 rgba(255,255,255,.28) inset,0 22px 44px rgba(0,0,0,.42),0 6px 14px rgba(0,0,0,.3);transform:rotate(-1.2deg)}
+.jf-main{flex:1 1 auto;padding:clamp(22px,3.4vw,32px) clamp(22px,3.4vw,30px);min-width:0}
+.jf-seal{display:block;width:46px;height:46px;background:rgba(67,48,29,.1);border-radius:50%;padding:5px;box-shadow:inset 0 0 0 1px rgba(67,48,29,.35);margin-bottom:14px}
+.jf-seal img{width:100%;height:100%;object-fit:contain;display:block}
+.jf-adm{font:600 10.5px/1 ui-monospace,monospace;letter-spacing:.22em;text-transform:uppercase;color:rgba(67,48,29,.72)}
+.jf-name{font-family:var(--script);font-weight:400;font-size:clamp(34px,5.4vw,52px);line-height:.86;color:var(--crumb);margin:8px 0 6px}
+.jf-prize{font-family:var(--disp);font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1.2;color:var(--crumb);max-width:26ch}
+.jf-sub{font-size:13.5px;line-height:1.5;color:rgba(67,48,29,.82);margin-top:8px;max-width:30ch}
+.jf-stub{flex:0 0 auto;width:118px;position:relative;padding:clamp(20px,3vw,26px) 16px;display:flex;flex-direction:column;justify-content:center;text-align:center;border-left:2px dashed rgba(67,48,29,.5)}
+.jf-stub::before,.jf-stub::after{content:"";position:absolute;left:-9px;width:16px;height:16px;border-radius:50%;background:var(--crumb)}
+.jf-stub::before{top:-8px}
+.jf-stub::after{bottom:-8px}
+.jf-stub .m{font:600 9px/1.3 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(67,48,29,.72)}
+.jf-losnr{font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:.06em;color:var(--crumb);margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.jf-stub .zieh{font:600 10px/1.3 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(67,48,29,.62);margin-top:10px}
+@media(max-width:479px){
+  .jf-ticket{flex-direction:column;transform:none}
+  .jf-stub{width:auto;border-left:0;border-top:2px dashed rgba(67,48,29,.5);flex-direction:row;justify-content:space-between;align-items:center;text-align:left;gap:10px}
+  .jf-stub::before,.jf-stub::after{top:-8px;bottom:auto;left:auto}
+  .jf-stub::before{left:-8px}
+  .jf-stub::after{right:-8px}
+  .jf-losnr{margin:2px 0}
+  .jf-stub .zieh{margin-top:0}
+}
+.jf-plan{text-align:center;font-size:clamp(16px,2vw,18px);line-height:1.6;color:#EFE2CC;max-width:60ch;margin:clamp(30px,4vw,44px) auto 0}
+
+/* ---- Woche-für-Woche: Ziehungs-Kalender (zeigt WANN, keine Nummern) ---- */
+.jf-kal{margin-top:clamp(34px,5vw,48px);padding-top:clamp(28px,4vw,36px);border-top:1px solid #5A452E}
+.jf-kal-h{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.jf-kal-h b{font-family:var(--disp);font-weight:900;font-size:clamp(20px,2.4vw,26px);color:var(--paper)}
+.jf-kal-h span{font:600 11px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+.jf-mon{display:flex;align-items:baseline;gap:12px;margin:clamp(20px,3vw,26px) 0 12px}
+.jf-mon b{font-family:var(--disp);font-weight:900;font-size:16px;color:var(--gold-l)}
+.jf-mon span{font:600 10.5px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#C9B79C}
+.jf-mon::after{content:"";flex:1 1 auto;height:1px;background:#5A452E}
+.jf-weeks{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:620px){.jf-weeks{grid-template-columns:repeat(4,1fr)}}
+.jf-wo{position:relative;border:1px solid var(--line);border-radius:3px;padding:15px 15px 16px;background:var(--paper);box-shadow:3px 6px 14px rgba(0,0,0,.22);overflow:hidden}
+/* roter Nadelstreifen oben (Schürzen-Zierkante, wie V3) – Signature-Reuse */
+.jf-wo::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px);opacity:.5}
+.jf-wo .n{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(17px,2vw,20px);line-height:1;color:var(--ink)}
+.jf-wo .p{display:block;font:600 10.5px/1.3 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-top:8px}
+.jf-wo.jetzt{border-color:var(--red);box-shadow:0 0 0 1px var(--red),3px 6px 14px rgba(180,36,28,.16)}
+.jf-wo.jetzt::before{opacity:1}
+.jf-tag{display:inline-block;font:600 9px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);border-radius:2px;padding:4px 7px;margin-bottom:9px}
+
+/* ---- Abschluss: Instagram-Verweis ---- */
+.jf-foot{margin-top:clamp(28px,4vw,36px);padding-top:clamp(24px,3vw,30px);border-top:1px solid #5A452E;display:grid;gap:16px}
+.jf-say{color:#EFE2CC;font-size:16px;line-height:1.55;max-width:48ch}
+.jf-say b{color:var(--gold-l);font-weight:600}
+.jf-kanaele{white-space:nowrap}
+@media(min-width:720px){.jf-foot{grid-template-columns:1fr auto;align-items:center;gap:30px}}
+</style>
+</head>
+<body>
+
+<div class="viewer-kopf">Intern · noindex · nutzt echtes styles.css · Zusammenführung V2-Ticket + Woche-für-Woche</div>
+
+<div class="vtitel">
+  <h1>Jubiläum — Ticket oben, Woche für Woche darunter</h1>
+</div>
+
+<div class="vnote">
+  <b>Dein Wunsch umgesetzt:</b> das goldene Ticket aus Variante 2 als Blickfang, darunter der
+  Woche-für-Woche-Rhythmus aus Variante 3 statt des flachen Gewinner-Blocks. <b>Wichtig:</b> der
+  Kalender zeigt nur, WANN gezogen wird (und dass es jede Woche 120 Preise gibt) und welche Woche
+  als Nächstes dran ist. Er ist <b>kein Feld zum Nachtragen von Losnummern</b>, die laufen über
+  Instagram. So bleibt das Woche-für-Woche-Gefühl, ohne wöchentliche Pflegearbeit.
+</div>
+
+<section class="jf">
+  <div class="jf-inner">
+    <div class="jf-top">
+      <p class="label">Das Jubiläum · 120 Jahre</p>
+      <p class="jf-cer">Noch im Lostopf</p>
+      <h2>2026 wird dieses Haus 120.</h2>
+
+      <div class="jf-ticket">
+        <div class="jf-main">
+          <span class="jf-seal"><img src="../../img/siebert-logo.svg" alt="Wappen der Bäckerei Siebert"></span>
+          <p class="jf-adm">Jubiläums-Ziehung · Ein Los</p>
+          <p class="jf-name">Das Goldene Ticket</p>
+          <p class="jf-prize">Ein Leben lang gratis</p>
+          <p class="jf-sub">An jedem Öffnungstag Backwaren bis 10 Euro gratis, so lange es die Bäckerei gibt.</p>
+        </div>
+        <div class="jf-stub">
+          <span class="m">Losnummer</span>
+          <span class="jf-losnr">— — —</span>
+          <span class="zieh">Ziehung<br>Oktober</span>
+        </div>
+      </div>
+
+      <p class="jf-plan">Der Verkauf der Jubiläumsgutscheine lief bis Ende Juli. Jetzt wird gezogen:
+      von August bis September jede Woche 120 Preise, im Oktober der Hauptpreis.</p>
+    </div>
+
+    <div class="jf-kal">
+      <div class="jf-kal-h"><b>Der Ziehungs-Sommer</b><span>jede Woche 120 Preise</span></div>
+
+      <div class="jf-mon"><b>August</b><span>Woche für Woche</span></div>
+      <div class="jf-weeks">
+        <div class="jf-wo jetzt"><span class="jf-tag">als Nächstes</span><span class="n">Woche 1</span><span class="p">120 Preise</span></div>
+        <div class="jf-wo"><span class="n">Woche 2</span><span class="p">120 Preise</span></div>
+        <div class="jf-wo"><span class="n">Woche 3</span><span class="p">120 Preise</span></div>
+        <div class="jf-wo"><span class="n">Woche 4</span><span class="p">120 Preise</span></div>
+      </div>
+
+      <div class="jf-mon"><b>September</b><span>Woche für Woche</span></div>
+      <div class="jf-weeks">
+        <div class="jf-wo"><span class="n">Woche 5</span><span class="p">120 Preise</span></div>
+        <div class="jf-wo"><span class="n">Woche 6</span><span class="p">120 Preise</span></div>
+        <div class="jf-wo"><span class="n">Woche 7</span><span class="p">120 Preise</span></div>
+        <div class="jf-wo"><span class="n">Woche 8</span><span class="p">120 Preise</span></div>
+      </div>
+    </div>
+
+    <div class="jf-foot">
+      <p class="jf-say">Jede Ziehung geben wir <b>zuerst auf Instagram und Facebook</b> bekannt.
+      Folgen und keine Nummer verpassen.</p>
+      <p class="jf-kanaele">
+        <a class="btn gold" href="https://www.instagram.com/baeckerei_siebert/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn gold" href="https://www.facebook.com/B%C3%A4ckerei-Konditorei-Lars-Siebert-261205881439705" target="_blank" rel="noopener" style="margin-left:8px">Facebook</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="vfuss">
+  <p><b>Passt die Richtung?</b> Wenn ja, portiere ich das mit eigenem Namespace (<code>.jubi-*</code>)
+  in <b>styles.css</b> und verdrahte es live in <b>geschichte.html</b> (ersetzt das aktuelle
+  Fascia-Band); <code>_design.md</code> ziehe ich im selben Commit mit.</p>
+  <p style="margin-top:10px">Bei Anke bestätigen: die genaue Wochenzahl (hier 8 als Platzhalter,
+  passt sich an) und dass die gezogenen Nummern über Instagram/Facebook laufen.</p>
+</div>
+
+</body>
+</html>

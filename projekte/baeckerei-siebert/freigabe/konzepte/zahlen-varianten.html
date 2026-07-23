@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Info-Zahlen · Design-Varianten für das Zahlenband · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen der Vergleichsseite (NICHT Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1280px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(26px,4vw,40px)}
+.vtitel p{color:var(--ink2);max-width:74ch;margin-top:8px}
+.vnote{max-width:1280px;margin:18px auto 0;padding:14px 18px;background:var(--paper);border-left:3px solid var(--red);border-radius:2px;color:var(--ink);font-size:14.5px;line-height:1.55}
+.vnote b{font-weight:700}
+.vnote code{font:600 13px ui-monospace,monospace;background:#EADFC9;padding:1px 5px;border-radius:2px}
+.vkopf{max-width:1280px;margin:0 auto;padding:34px var(--pad) 4px}
+.vbadge{display:inline-flex;align-items:center;gap:8px;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);padding:6px 10px;border-radius:3px;margin-bottom:10px}
+.vbadge.gold{background:var(--crust-d)}
+.vkopf h2{font-family:var(--disp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.02}
+.vkopf .warum{max-width:78ch;color:var(--ink2);font-size:15px;margin:8px 0 2px}
+.vkopf .fuellt{font-family:var(--hand);font-weight:600;color:var(--red);font-size:15px;margin-top:4px}
+.vtrenn{border:0;border-top:1px dashed var(--line);max-width:1280px;margin:56px auto 0}
+.vfuss{max-width:1280px;margin:0 auto;padding:40px var(--pad) 70px;color:var(--ink2);font-size:14.5px;line-height:1.6}
+.vfuss b{color:var(--ink)}
+.vfuss ul{margin:10px 0 0 0;padding-left:18px}
+.vfuss li{margin:5px 0}
+.simrahmen{margin-top:14px}
+
+/* =====================================================================
+   Basis für alle vier: das echte dunkle Band (--crumb), volle Breite.
+   WICHTIG: Zellen-Klasse heißt .zc (NICHT .z) — .z ist im Design-System
+   schon als Chronik-Zettel belegt; genau diese Kollision ist der Bug,
+   den wir hier auflösen. Namespaced = kein Erben von fremdem Look.
+   Nummern immer Fraunces-900 + tabular-nums, Gold nur auf Dunkel.
+   ===================================================================== */
+.zband{background:var(--crumb);color:#EFE2CC;overflow:hidden}
+.zband .wrap{max-width:1090px;margin:0 auto;padding-inline:var(--pad)}
+
+/* ---------------------------------------------------------------------
+   VARIANTE 1 — „Gravur": sauber, gold auf dunkel, feine Schild-Zierkante.
+   --------------------------------------------------------------------- */
+.zv1{border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+     box-shadow:inset 0 4px 0 -3px var(--gold),inset 0 -4px 0 -3px var(--gold)}
+.zv1 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+@media(min-width:640px){.zv1 .grid{grid-template-columns:repeat(4,1fr)}}
+.zv1 .zc{text-align:center;padding:clamp(30px,5vw,52px) 10px;border-left:1px solid rgba(216,174,82,.24)}
+.zv1 .zc:nth-child(odd){border-left:0}
+.zv1 .zc:nth-child(3),.zv1 .zc:nth-child(4){border-top:1px solid rgba(216,174,82,.24)}
+@media(min-width:640px){
+  .zv1 .zc{border-left:1px solid rgba(216,174,82,.24);border-top:0}
+  .zv1 .zc:nth-child(4n+1){border-left:0}
+}
+.zv1 b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(40px,5.4vw,62px);line-height:.95;color:var(--gold-l);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.zv1 small{display:block;margin-top:10px;font:600 11px/1.45 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#D9C7A3}
+
+/* ---------------------------------------------------------------------
+   VARIANTE 2 — „Prägung": jede Zahl auf einer geprägten Gold-Medaille.
+   --------------------------------------------------------------------- */
+.zv2 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(22px,4vw,34px);
+           padding:clamp(38px,5vw,58px) 0}
+@media(min-width:700px){.zv2 .grid{grid-template-columns:repeat(4,1fr)}}
+.zv2 .zc{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.zv2 .muenze{display:grid;place-items:center;width:clamp(104px,15vw,134px);aspect-ratio:1;
+             border-radius:50%;border:1.5px solid var(--gold);
+             box-shadow:inset 0 0 0 5px var(--crumb),inset 0 0 0 6px rgba(216,174,82,.55)}
+.zv2 b{font-family:var(--disp);font-weight:900;font-size:clamp(26px,3.4vw,36px);line-height:1;
+       color:var(--gold-l);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.zv2 small{font:600 11px/1.45 ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase;color:#D9C7A3;max-width:16ch}
+
+/* ---------------------------------------------------------------------
+   VARIANTE 3 — „Preisschild": die warmen Zettel, aber diszipliniert.
+   = der Look, der aktuell (versehentlich) live ist, richtig gebaut:
+   Labels lesbar (Kontrast-Bug behoben), EINE Lichtrichtung, Rotation
+   knapp budgetiert (±2,5°), gerichteter Doppelschatten, rote Oberkante.
+   --------------------------------------------------------------------- */
+.zv3 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 16px;
+           padding:clamp(40px,5vw,58px) 0;place-items:center}
+@media(min-width:700px){.zv3 .grid{grid-template-columns:repeat(4,1fr)}}
+.zv3 .zc{position:relative;background:var(--paper);border-top:4px solid var(--red);border-radius:2px;
+        width:min(210px,100%);padding:20px 18px 18px;text-align:center;
+        box-shadow:5px 11px 22px rgba(43,33,26,.30)}      /* Licht oben-links -> Schatten unten-rechts */
+.zv3 .zc:nth-child(1){transform:rotate(-2.2deg)}
+.zv3 .zc:nth-child(2){transform:rotate(1.6deg)}
+.zv3 .zc:nth-child(3){transform:rotate(-1.2deg)}
+.zv3 .zc:nth-child(4){transform:rotate(2.4deg)}
+.zv3 b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(34px,4vw,44px);line-height:.92;
+       color:var(--crust-d);font-variant-numeric:tabular-nums}
+.zv3 small{display:block;margin-top:8px;font:600 12px/1.35 ui-monospace,monospace;letter-spacing:.1em;
+           text-transform:uppercase;color:var(--crust-d)}       /* Kontrast-Fix: dunkel statt tan */
+.zv3 .hand{display:block;font-family:var(--hand);font-weight:600;font-size:16px;color:var(--red);margin-top:2px}
+
+/* ---------------------------------------------------------------------
+   VARIANTE 4 — „Mit Vertrauen": Gravur-Basis + Trust-Zeile.
+   --------------------------------------------------------------------- */
+.zv4{border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+     box-shadow:inset 0 4px 0 -3px var(--gold),inset 0 -4px 0 -3px var(--gold)}
+.zv4 .fakten{display:grid;grid-template-columns:repeat(2,1fr);gap:0;padding-top:8px}
+@media(min-width:640px){.zv4 .fakten{grid-template-columns:repeat(4,1fr)}}
+.zv4 .fakten .zc{text-align:center;padding:clamp(28px,4.4vw,44px) 10px;border-left:1px solid rgba(216,174,82,.24)}
+.zv4 .fakten .zc:nth-child(odd){border-left:0}
+.zv4 .fakten .zc:nth-child(3),.zv4 .fakten .zc:nth-child(4){border-top:1px solid rgba(216,174,82,.24)}
+@media(min-width:640px){
+  .zv4 .fakten .zc{border-left:1px solid rgba(216,174,82,.24);border-top:0}
+  .zv4 .fakten .zc:nth-child(4n+1){border-left:0}
+}
+.zv4 .fakten b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(38px,5vw,56px);line-height:.95;color:var(--gold-l);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.zv4 .fakten small{display:block;margin-top:9px;font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#D9C7A3}
+/* Trust-Zeile */
+.zv4 .trust{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;
+            padding:22px var(--pad) 30px;border-top:1px solid rgba(216,174,82,.30);margin-top:4px}
+.zv4 .rating{display:inline-flex;align-items:center;gap:12px}
+.zv4 .rating .wert{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--gold-l);line-height:1;font-variant-numeric:tabular-nums}
+.zv4 .stars{position:relative;display:inline-block;line-height:0;width:118px;height:22px}
+/* fill/stroke am <svg> (nicht am <path>): vererbt über die <use>-Shadow-Grenze */
+.zv4 .stars .leer{position:absolute;inset:0;width:118px;height:22px;fill:none;stroke:var(--gold);stroke-width:1.3}
+.zv4 .stars .vollwrap{position:absolute;inset:0;overflow:hidden;width:94%}  /* Breite = Bewertungsanteil 4,7/5 */
+.zv4 .stars .vollwrap svg{width:118px;height:22px;display:block;fill:var(--gold-l)}
+.zv4 .rating .quelle{font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#D9C7A3}
+.zv4 .rating .quelle b{color:#EFE2CC}
+.zv4 .chip{display:inline-flex;align-items:baseline;gap:8px;border:1px solid var(--gold);border-radius:3px;
+           padding:8px 13px;font:600 11px/1.3 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#EFE2CC}
+.zv4 .chip b{font-family:var(--disp);font-weight:900;letter-spacing:.02em;color:var(--gold-l);text-transform:none;font-size:13px}
+.zv4 .toconf{display:block;text-align:center;font:600 10px/1.4 ui-monospace,monospace;letter-spacing:.1em;
+             text-transform:uppercase;color:#B98F3A;padding:0 var(--pad) 22px}
+</style>
+</head>
+<body>
+
+<div class="viewer-kopf">Intern · noindex · Design-Varianten Info-Zahlen · Bäckerei Siebert</div>
+
+<div class="vtitel">
+  <h1>Das Zahlenband — vier Wege</h1>
+  <p>Der dunkle Fakten-Streifen unter dem Hero. Drei Stil-Ideen für die Zahlen (1906 · 5 · 16 · 2) plus eine vierte, die zusätzlich die Google-Bewertung und die Auszeichnung als direkten Vertrauensbeleg aufnimmt. Alle nutzen das echte Design-System (styles.css), Gold nur auf dunklem Grund, Ziffern in Fraunces mit Tabellenziffern.</p>
+
+  <div class="vnote">
+    <b>Warum das gerade nötig ist:</b> Im Live-Build kollidieren zwei gleichnamige CSS-Klassen — die Chronik-Zettel und die Zahlen-Zellen heißen beide <code>.z</code>. Dadurch erben die Statistik-Zahlen versehentlich den weißen Zettel-Look, <b>und die Labels stehen tan auf weißem Papier (Kontrast bricht)</b>. Das ist der Zustand auf deinem Screenshot. Jede Variante hier räumt das auf: entweder zurück auf sauberes Gold-auf-Dunkel (V1/V2/V4) oder der Zettel-Look absichtlich und mit lesbaren Labels (V3). Die Zellen heißen hier bewusst <code>.zc</code>, damit nichts Fremdes durchschlägt.
+  </div>
+</div>
+
+<!-- ============================== VARIANTE 1 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Variante 1</span>
+  <h2>Gravur</h2>
+  <p class="warum">Die design-systemtreue Fassung: Ziffern in Gold direkt ins dunkle Band graviert, dünne Gold-Haarlinien trennen die vier Fakten, oben und unten eine doppelte Zierlinie wie die Kante eines Ladenschilds. Ruhig, editorial, hält dem Zeitband (dem einen Signature-Element) den Rücken frei. Meine Empfehlung als Basis.</p>
+  <p class="fuellt">Charakter: sauber, klassisch, zurückhaltend</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv1" aria-label="Zahlen und Fakten – Variante Gravur">
+    <div class="wrap">
+      <div class="grid">
+        <div class="zc"><b>1906</b><small>gegründet</small></div>
+        <div class="zc"><b>5</b><small>Generationen</small></div>
+        <div class="zc"><b>16</b><small>Stunden Sauerteig</small></div>
+        <div class="zc"><b>2×</b><small>DER FEINSCHMECKER</small></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== VARIANTE 2 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Variante 2</span>
+  <h2>Prägung</h2>
+  <p class="warum">Jede Zahl sitzt auf einer geprägten Gold-Medaille mit doppelter Münzkante. Das spielt bewusst mit der Auszeichnungs-Welt des Hauses (2× Der Feinschmecker, Goldenes Ticket) und macht aus den Fakten kleine Ehrenzeichen. Wärmer und selbstbewusster als V1, aber ein Tick lauter — die runden Medaillen ziehen Blick.</p>
+  <p class="fuellt">Charakter: heritage, Auszeichnung, selbstbewusst</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv2" aria-label="Zahlen und Fakten – Variante Prägung">
+    <div class="wrap">
+      <div class="grid">
+        <div class="zc"><span class="muenze"><b>1906</b></span><small>gegründet</small></div>
+        <div class="zc"><span class="muenze"><b>5</b></span><small>Generationen</small></div>
+        <div class="zc"><span class="muenze"><b>16</b></span><small>Stunden Sauerteig</small></div>
+        <div class="zc"><span class="muenze"><b>2×</b></span><small>Der Feinschmecker</small></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== VARIANTE 3 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Variante 3</span>
+  <h2>Preisschild</h2>
+  <p class="warum">Die warmen Papierzettel, die aktuell (versehentlich) live sind — hier aber absichtlich und richtig gebaut: EINE Lichtrichtung, alle Schatten fallen gleich, Rotation knapp budgetiert (±2,5°), echter gerichteter Schatten, rote Oberkante als Fotoabzug-Rand. <b>Kontrast-Fix:</b> Labels stehen dunkel auf dem Papier, dazu ein handschriftliches Detail in Shantell. Behält die Wärme deines jetzigen Stands, ohne den Bug.</p>
+  <p class="fuellt">Charakter: warm, handgemacht, Marktstand</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv3" aria-label="Zahlen und Fakten – Variante Preisschild">
+    <div class="wrap">
+      <div class="grid">
+        <div class="zc"><b>1906</b><small>gegründet</small></div>
+        <div class="zc"><b>5</b><small>Generationen</small><span class="hand">eine Familie</span></div>
+        <div class="zc"><b>16</b><small>Std. Sauerteig</small><span class="hand">über Nacht</span></div>
+        <div class="zc"><b>2×</b><small>Feinschmecker</small></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== VARIANTE 4 ============================== -->
+<div class="vkopf">
+  <span class="vbadge gold">Variante 4 · mit Trust</span>
+  <h2>Mit Vertrauen</h2>
+  <p class="warum">Gravur-Basis, aber eine zweite Zeile trägt echten Vertrauensbeleg: die Google-Bewertung mit echten SVG-Sternen (kein Emoji) und die Auszeichnungen als schlanke Gold-Chips. So steht neben den Fakten sofort ein Beweis von außen — das stärkste Signal, das eine Bäckerei ohne Testimonials hat. Die Trust-Zeile lässt sich genauso unter V2 oder V3 hängen.</p>
+  <p class="fuellt">Charakter: Fakten + Fremdbeweis, direktes Vertrauen</p>
+</div>
+<div class="simrahmen">
+  <section class="zband zv4" aria-label="Zahlen und Fakten mit Bewertung – Variante Mit Vertrauen">
+    <div class="wrap">
+      <div class="fakten">
+        <div class="zc"><b>1906</b><small>gegründet</small></div>
+        <div class="zc"><b>5</b><small>Generationen</small></div>
+        <div class="zc"><b>16</b><small>Stunden Sauerteig</small></div>
+        <div class="zc"><b>2×</b><small>DER FEINSCHMECKER</small></div>
+      </div>
+    </div>
+    <div class="trust">
+      <span class="rating" aria-label="4,7 von 5 Sternen bei Google">
+        <span class="wert">4,7</span>
+        <span class="stars" aria-hidden="true">
+          <svg class="leer" viewBox="0 0 118 22"><defs><path id="st" d="M11 1.7 13.55 8.1 20.4 8.55 15.15 12.95 16.85 19.6 11 15.9 5.15 19.6 6.85 12.95 1.6 8.55 8.45 8.1Z"/></defs><use href="#st" x="0"/><use href="#st" x="24"/><use href="#st" x="48"/><use href="#st" x="72"/><use href="#st" x="96"/></svg>
+          <span class="vollwrap"><svg viewBox="0 0 118 22"><use href="#st" x="0"/><use href="#st" x="24"/><use href="#st" x="48"/><use href="#st" x="72"/><use href="#st" x="96"/></svg></span>
+        </span>
+        <span class="quelle"><b>Google</b> · Bewertungen</span>
+      </span>
+      <span class="chip"><b>Goldenes Ticket</b> Berliner Zeitung</span>
+      <span class="chip"><b>Publikumsliebling</b> 2026 · Roggenmischbrot</span>
+    </div>
+    <span class="toconf">Google-Wert 4,7 und Anzahl vor Launch live bestätigen</span>
+  </section>
+</div>
+
+<hr class="vtrenn">
+
+<div class="vfuss">
+  <p><b>Empfehlung:</b> <b>V1 „Gravur"</b> als saubere Basis — sie stellt die Gold-auf-Dunkel-Disziplin wieder her und lässt dem Zeitband die Bühne. Wenn dir die Wärme deines jetzigen Stands wichtig ist, ist <b>V3 „Preisschild"</b> derselbe Look, nur ohne den Kontrast-Bug. <b>V4</b> ist keine vierte Konkurrenz, sondern die Trust-Erweiterung — sag mir, unter welche Basis (V1/V2/V3) die Bewertungszeile soll.</p>
+  <ul>
+    <li><b>Zahlen sind alle belegt:</b> 1906, 5 Generationen, 16 Std. Sauerteig, 2× Der Feinschmecker (2013 &amp; 2017). Das „2×" habe ich in allen Varianten sichtbar gemacht, damit die Auszeichnung als Zahl zählt.</li>
+    <li><b>Google-Bewertung noch offen:</b> Laut Lotse ist 4,7 zu bestätigen — die Sterne rendern datengetrieben über die Breite des Gold-Layers, der echte Wert (und die Anzahl der Bewertungen) kommt beim Live-Check rein.</li>
+    <li><b>Nach deiner Wahl:</b> Ich portiere die Gewinner-Variante in die echte <code>styles.css</code> (eigener, klar benannter Selektor statt <code>.z</code>, damit die Kollision endgültig weg ist), teste 375/768/1280 und ziehe <code>_design.md</code> im selben Commit mit.</li>
+  </ul>
+</div>
+
+</body>
+</html>

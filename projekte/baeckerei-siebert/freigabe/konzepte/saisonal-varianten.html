@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Saisonal · 3 Design-Varianten für den Saison-Bereich · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen der Vergleichsseite (NICHT Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:1280px;margin:0 auto;padding:26px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(26px,4vw,40px)}
+.vtitel p{color:var(--ink2);max-width:74ch;margin-top:8px}
+.vnote{max-width:1280px;margin:18px auto 0;padding:14px 18px;background:var(--paper);border-left:3px solid var(--red);border-radius:2px;color:var(--ink);font-size:14.5px;line-height:1.5}
+.vnote b{font-weight:700}
+.vkopf{max-width:1280px;margin:0 auto;padding:34px var(--pad) 4px}
+.vbadge{display:inline-flex;align-items:center;gap:8px;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);padding:6px 10px;border-radius:3px;margin-bottom:10px}
+.vkopf h2{font-family:var(--disp);font-weight:900;font-size:clamp(22px,3vw,32px);line-height:1.02}
+.vkopf .warum{max-width:74ch;color:var(--ink2);font-size:15px;margin:8px 0 2px}
+.vkopf .fuellt{font-family:var(--hand);font-weight:600;color:var(--red);font-size:15px;margin-top:4px}
+.vtrenn{border:0;border-top:1px dashed var(--line);max-width:1280px;margin:56px auto 0}
+.vfuss{max-width:1280px;margin:0 auto;padding:40px var(--pad) 70px;color:var(--ink2);font-size:14.5px}
+.vfuss b{color:var(--ink)}
+
+/* =====================================================================
+   VARIANTE 1 — „Jahreslauf": drei gleichrangige Saison-Karten (Almanach)
+   Hell, rein typografisch, roter Nadelstreifen als Schürzen-Zierkante oben.
+   ===================================================================== */
+.s1{max-width:1080px;margin:0 auto;padding:8px var(--pad) 0}
+.s1-intro{max-width:52ch;margin:0 0 26px}
+.s1-intro .lead{max-width:none}
+.s1-grid{display:grid;gap:16px}
+@media(min-width:760px){.s1-grid{grid-template-columns:repeat(3,1fr)}}
+.s1-karte{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:26px 24px 24px;box-shadow:4px 8px 18px rgba(50,35,20,.09);overflow:hidden}
+/* Nadelstreifen (Schürzen-Borduere) als feine Zierkante oben – Signature-Reuse, nie dick */
+.s1-karte::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px)}
+.s1-fest{font-family:var(--hand);font-weight:600;font-size:15px;color:var(--red)}
+.s1-monat{display:block;font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-top:6px}
+.s1-back{font-family:var(--disp);font-weight:900;font-size:clamp(26px,3vw,32px);line-height:1.02;letter-spacing:-.01em;margin:14px 0 8px}
+.s1-note{color:var(--ink);font-size:15.5px;line-height:1.55}
+
+/* =====================================================================
+   VARIANTE 2 — „Zur Saison aus dem Ofen": dunkles Fascia-Spotlight + Foto.
+   Full-bleed --crumb-Band (Höhepunkt/Rhythmus), EINE Saison groß, die
+   anderen zwei als Gold-Chips. Gold lebt nur hier, auf dunklem Grund.
+   ===================================================================== */
+.s2{background:var(--crumb);color:#EFE2CC;border-block:2px solid var(--gold);margin-top:8px}
+.s2-inner{max-width:1120px;margin:0 auto;padding:clamp(36px,5vw,60px) var(--pad);display:grid;gap:clamp(24px,4vw,48px);align-items:center}
+.s2-foto .bild{background:var(--white)}
+/* Foto-Ratio je Breakpoint (Marvin 2026-07-23): mobil wie die Speisekarte-Bilder,
+   Tablet Querformat (= Nativ-Ratio 3:2 des Fotos, kein Crop), Desktop schlankes
+   Hochformat + enger gesetzt, damit es nicht mehr dominiert. */
+.s2-foto img{aspect-ratio:16/10;object-fit:cover;object-position:50% 42%}   /* mobil */
+@media(min-width:640px){.s2-foto img{aspect-ratio:3/2}}                     /* Tablet: Querformat */
+@media(min-width:960px){
+  .s2-inner{grid-template-columns:auto 1fr}
+  .s2-foto{width:clamp(240px,26vw,320px)}                                  /* Desktop: kontrolliert klein */
+  .s2-foto img{aspect-ratio:2/3;object-position:50% 38%}                   /* Desktop: 2:3 Hochformat */
+}
+.s2-cer{font-family:var(--script);font-size:clamp(30px,4.4vw,46px);line-height:.9;color:var(--gold-l)}
+.s2-label{font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:4px}
+.s2-back{font-family:var(--disp);font-weight:900;font-size:clamp(34px,5vw,54px);line-height:1;color:var(--paper);margin:2px 0 12px}
+.s2-note{color:#EFE2CC;font-size:16.5px;line-height:1.6;max-width:42ch}
+.s2-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid #5A452E}
+.s2-chip{display:inline-flex;align-items:baseline;gap:8px;border:1px solid var(--gold);border-radius:3px;padding:8px 12px;font-size:14px;color:#EFE2CC}
+.s2-chip b{font-family:var(--disp);font-weight:900;color:var(--gold-l)}
+.s2-chip .m{font:600 10px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#C9B79C}
+.s2-tag{display:inline-block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--crumb);background:var(--gold-l);border-radius:2px;padding:5px 9px;margin-bottom:14px}
+
+/* =====================================================================
+   VARIANTE 3 — „Der Bäcker-Kalender": STATISCHES Jahresband, 3 Stationen.
+   Motiv-Reim zum Signature-Zeitband, aber 1 Jahr statt 120 und ohne
+   Scroll/Sticky (kein zweites Scrollytelling). Mobil = vertikaler Ledger.
+   ===================================================================== */
+.s3{max-width:1180px;margin:0 auto;padding:8px var(--pad) 0}
+.s3-band{margin-top:30px}
+/* Mobil: vertikale Liste (wie zb-liste-Fallback) */
+.s3-stop{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:18px 0;border-top:1px dotted var(--line)}
+.s3-stop:first-child{border-top:0}
+.s3-dot{width:14px;height:14px;border-radius:50%;background:var(--red);margin-top:6px;box-shadow:0 0 0 4px rgba(180,36,28,.14)}
+.s3-monat{font:600 11px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.s3-fest{font-family:var(--hand);font-weight:600;font-size:16px;color:var(--red);margin-top:2px}
+.s3-back{font-family:var(--disp);font-weight:900;font-size:clamp(22px,2.6vw,28px);line-height:1.05;margin:6px 0 4px}
+.s3-note{color:var(--ink);font-size:15px;line-height:1.5}
+/* Desktop: echtes horizontales Jahresband */
+@media(min-width:820px){
+  .s3-band{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:46px}
+  /* die Jahres-Linie */
+  .s3-band::before{content:"";position:absolute;top:8px;left:6%;right:6%;height:2px;background:var(--line)}
+  /* zarte Jahres-Enden als Beschriftung */
+  .s3-ends{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+  .s3-stop{display:block;border-top:0;padding:0;text-align:center}
+  .s3-dot{width:16px;height:16px;margin:0 auto 16px;position:relative;z-index:1}
+  .s3-note{max-width:26ch;margin:0 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="viewer-kopf">Vergleichsblatt · intern · noindex · Saison-Bereich (Sortiment-Seite)</div>
+
+<div class="vtitel">
+  <h1>Der Saison-Bereich: 3 Design-Varianten</h1>
+  <p>Aktuell steht auf der Sortiment-Seite nur eine Zeile: „Zu Weihnachten, Ostern und Silvester backen wir die Klassiker der Saison.“ Das ist zu dünn für einen eigenen Abschnitt. Drei Wege, aus den drei festen Terminen im Bäckerjahr einen Baustein zu machen, der zur Seite passt. Mobil bleibt bei allen dreien alles gestapelt.</p>
+</div>
+
+<div class="vnote">
+  <b>Hinweis fürs Blatt:</b> Belegt (aus der Alt-Site) ist bisher nur, <i>dass</i> zu Weihnachten, Ostern und Silvester saisonal gebacken wird. Die konkreten Gebäcke (Christstollen, Osterzopf, Berliner Pfannkuchen) sind naheliegende, aber noch nicht bestätigte Beispiele, bei Anke abzuklären. Die Silvester-Notiz („von Hand gespritzt, in siedendem Fett gebacken“) ist Original-Copy zum Pfannkuchen.
+</div>
+
+<!-- ============================== VARIANTE 1 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Variante 1</span>
+  <h2>Jahreslauf</h2>
+  <p class="warum">Drei gleichrangige Karten nebeneinander, eine je Fest, chronologisch durch das Jahr. Rein typografisch (keine Bilder, kein Icon), ruhig und redaktionell wie ein Almanach. Feiner roter Nadelstreifen als Zierkante oben, dasselbe Schürzen-Motiv wie sonst auf der Seite. Immer gültig, kein Pflege-Aufwand, kein dynamischer Teil.</p>
+  <p class="fuellt">Charakter: ruhig, sicher, wartungsfrei</p>
+</div>
+<div class="s1">
+  <div class="s1-intro">
+    <p class="lead">Das Bäckerjahr hat feste Termine. Zu diesen kommen die Klassiker der Saison ins Regal.</p>
+  </div>
+  <div class="s1-grid">
+
+    <div class="s1-karte">
+      <p class="s1-fest">Frühjahr · Ostern</p>
+      <span class="s1-monat">März / April</span>
+      <p class="s1-back">Osterzopf</p>
+      <p class="s1-note">Hefezopf, von Hand geflochten, wie er zu Ostern gehört.</p>
+    </div>
+
+    <div class="s1-karte">
+      <p class="s1-fest">Advent · Weihnachten</p>
+      <span class="s1-monat">November / Dezember</span>
+      <p class="s1-back">Christstollen</p>
+      <p class="s1-note">Schwer und buttrig, dick mit Puderzucker. Ab der Adventszeit im Laden.</p>
+    </div>
+
+    <div class="s1-karte">
+      <p class="s1-fest">Jahreswechsel · Silvester</p>
+      <span class="s1-monat">Dezember / Januar</span>
+      <p class="s1-back">Berliner Pfannkuchen</p>
+      <p class="s1-note">Von Hand gespritzt, in siedendem Fett gebacken.</p>
+    </div>
+
+  </div>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== VARIANTE 2 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Variante 2</span>
+  <h2>Zur Saison aus dem Ofen</h2>
+  <p class="warum">Ein dunkles Band mit Goldschrift (dieselbe Fascia-Sprache wie Zahlenband und Footer) rhythmisiert die helle Seite. Eine Saison steht groß und mit Foto im Fokus (das nächste anstehende Fest), die anderen zwei als kleine Gold-Chips daneben. Am appetitlichsten und mit klarer Hierarchie. Preis: der Fokus-Teil will pro Saison einmal umgestellt werden (von Hand oder per kleiner Datums-Logik).</p>
+  <p class="fuellt">Charakter: warm, fokussiert, ein Höhepunkt</p>
+</div>
+<div class="s2">
+  <div class="s2-inner">
+    <figure class="s2-foto bild maske"><img src="../../img/brotschieber.jpg" alt="Bäcker zieht frisches Gebäck mit dem Brotschieber aus dem Steinofen" width="1200" height="800" loading="lazy"></figure>
+    <div>
+      <span class="s2-tag">Als Nächstes</span>
+      <p class="s2-cer">Zur Saison</p>
+      <p class="s2-label">Advent · Weihnachten</p>
+      <p class="s2-back">Christstollen</p>
+      <p class="s2-note">Schwer und buttrig, dick mit Puderzucker. Ab der Adventszeit frisch aus dem Steinofen.</p>
+      <div class="s2-chips">
+        <span class="s2-chip"><b>Osterzopf</b><span class="m">Ostern</span></span>
+        <span class="s2-chip"><b>Berliner</b><span class="m">Silvester</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="vtrenn">
+
+<!-- ============================== VARIANTE 3 ============================== -->
+<div class="vkopf">
+  <span class="vbadge">Variante 3</span>
+  <h2>Der Bäcker-Kalender</h2>
+  <p class="warum">Die drei Feste sitzen als Stationen auf einem Jahresband, links nach rechts durchs Jahr. Ein bewusster Motiv-Reim auf das große Zeitband (1906-2026), aber kleiner: ein Jahr statt 120, <b>komplett statisch</b>, kein Sticky, kein Scroll-Effekt, damit das Zeitband das eine Signature-Element bleibt. Nutzt die Breite großer Screens elegant; mobil klappt es zu einer vertikalen Liste.</p>
+  <p class="fuellt">Charakter: eigenständig, clever, füllt die Breite</p>
+</div>
+<div class="s3">
+  <div class="s3-band">
+    <div class="s3-ends" aria-hidden="true"><span>Frühjahr</span><span>Jahresende</span></div>
+
+    <div class="s3-stop">
+      <span class="s3-dot" aria-hidden="true"></span>
+      <div>
+        <p class="s3-monat">März / April</p>
+        <p class="s3-fest">Ostern</p>
+        <p class="s3-back">Osterzopf</p>
+        <p class="s3-note">Hefezopf, von Hand geflochten.</p>
+      </div>
+    </div>
+
+    <div class="s3-stop">
+      <span class="s3-dot" aria-hidden="true"></span>
+      <div>
+        <p class="s3-monat">November / Dezember</p>
+        <p class="s3-fest">Weihnachten</p>
+        <p class="s3-back">Christstollen</p>
+        <p class="s3-note">Schwer, buttrig, mit Puderzucker.</p>
+      </div>
+    </div>
+
+    <div class="s3-stop">
+      <span class="s3-dot" aria-hidden="true"></span>
+      <div>
+        <p class="s3-monat">Dezember / Januar</p>
+        <p class="s3-fest">Silvester</p>
+        <p class="s3-back">Berliner Pfannkuchen</p>
+        <p class="s3-note">Von Hand gespritzt, in siedendem Fett gebacken.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="vfuss">
+  <p><b>Mein Tipp:</b> Variante&nbsp;1 (Jahreslauf) ist der sicherste Griff: immer gültig, wartungsfrei, passt sofort zwischen Sortiment und CTA. Variante&nbsp;2 (Zur Saison aus dem Ofen) ist am stärksten und appetitlichsten, kostet aber eine Umstellung pro Saison. Variante&nbsp;3 (Bäcker-Kalender) ist am eigenständigsten und nutzt die Breite am besten, steht dem Zeitband motivisch aber am nächsten. Sag, welche, dann baue ich sie in die echte <code>sortiment.html</code> (ersetzt den heutigen Einzeiler).</p>
+</div>
+
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js-motion');</script>
+</body>
+</html>

@@ -14,4 +14,4 @@ Phasen: Brief -> Design -> Freigabe -> Build -> QA -> Launch -> Live+Betreuung
 | routenwerk (Demo-Referenz, fiktiv) | LIVE + Betreuung | `projekte/routenwerk/_lotse.md` | Nachkontrolle 2026-07-28 |
 | MARLOU (Marvin + Louisa, eigene Marke) | PAUSIERT, nicht bearbeiten | `projekte/marlou/_lotse.md` | Marvin + Louisa (Reaktivierung) |
 | POPTAIL (Shop, statisch + Shopify) | Idee, noch kein Ordner | — (Brief via `brief-builder` anlegen) | Marvin: Rohmaterial + Prio; Alkoholsteuer/Altersverifikation klären |
-| baeckerei-siebert (Spekulations-Case, Kaltakquise) | QA (Build v2 "Warmes Regal") | `projekte/baeckerei-siebert/_lotse.md` | QA-Befunde, dann Marvin: Sicht-Check + Staging-Deploy |
+| baeckerei-siebert (Spekulations-Case, Kaltakquise) | STAGING LIVE (noindex): baeckerei-siebert.pages.dev | `projekte/baeckerei-siebert/_lotse.md` | Pitch-Material; offene [zu bestaetigen]-Punkte bei Anke |
