@@ -234,6 +234,14 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Gross-Monitor-Stufe >=1600px LIVE (?v=8)** (Marvins Bedenken: Kundin hat Office-
+  Monitor, Pitch evtl. dort). REIN ADDITIVER @media-Block am Ende von styles.css: wrap 1090->1280,
+  Typo +10-15% (h1 82/h2 57/lead 22/body 19/Tafel 19.5), Sektions-Padding 104, sortiment-split 560.
+  Unter 1600px NULL Aenderung (Regression @1280 verifiziert: exakt alte Werte). @1920 verifiziert:
+  wrap zentriert 1280, 0 Overflow, Bilder waehlen Originale (scharf). Detailwerte in _design.md
+  ("Gross-Monitor-Stufe"). Ricks-Fluid-System (alles rem + Root-vw-Formel, Caps, zoom-sicher via
+  rem-Anteil) recherchiert + als Nach-Pitch-Option notiert: braucht px->rem-Refactor der ganzen
+  styles.css + volle Abnahme; fuer Neuprojekte als Standard erwaegen (technik-patterns). Commit e3d0399.
 - 2026-07-23: **Besuch-Karte (index): Button-Abstand mobil gefixt** (Marvin-Screenshot: "was hier
   mit dem spacing" — "Route planen"/"Alles zum Besuch" klebten gestapelt aneinander). Ursache: zwei
   inline-block-.btn in einem <p> -> beim Umbruch kein vertikaler Abstand. Fix: Wrapper auf bestehende
