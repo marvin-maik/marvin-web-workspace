@@ -234,6 +234,20 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Bild-Diaet: JEDES ausgelieferte Bild < 200 KB** (Marvin nach PageSpeed-Report Mobil 78,
+  LCP 4,6s, "1.324 KiB Einsparung"): alle 18 Dateien > 195 KB in `img/` per Pillow neu encodiert
+  (progressive, EXIF-frei, adaptiv q80->q60; Skript-Muster im Scratchpad `shrink.py`). Nur 2 mussten
+  zusaetzlich skaliert werden: brotregal.jpg 1600->1360px (489->185 KB, war mit 501 KB der LCP-Bremser)
+  + auslage-regal.jpg 1120->1000px (238->176 KB, q68 statt Notnagel-q60 nachgebessert); width/height-
+  Attribute in index.html (2x) + sortiment.html (1x) nachgezogen. Rest unveraendert in den Massen
+  (gen-Serie, schlingen-hand, zoepfe-blech, goldene-brezel-gruppe, team-*, laden-*, broetchen-blech
+  usw., auch die 4 aktuell unreferenzierten, weil img/ komplett deployed wird). Groesste verbleibende
+  Datei: haende-kneten.jpg 192 KB. Originale gesichert im Session-Scratchpad `img-backup/` (fluechtig;
+  echte Quellen weiter in `_src/`). Verifiziert: alle 16 referenzierten JPEGs dekodieren im Browser
+  (createImageBitmap-Sweep), brotregal laedt mit 1360x907 = Attribut-Match, Sichtcheck Sortiment ok
+  (Pane-Scroll fror ein = bekannte Macke). KEIN ?v-Bump noetig (styles/site unveraendert). PSI-Kontext:
+  SEO 66 = noindex-Absicht; CLS 0,133 (Font-Swap) + Render-Blocking offen, falls Marvin >90 will.
+  NOCH NICHT deployed — CF-Staging zeigt weiter die dicken Bilder, bis neu deployt wird (Rezept s.u.).
 - 2026-07-23: **Breakpoint-Abnahme ALLER Seiten + STAGING-DEPLOY auf Cloudflare Pages** (Marvin:
   "Pruefe alle Seiten auf alle Breakpoints, Home zuletzt, dann Cloudflare frei"). Alle 9 Seiten
   (ausbildung/besuch/geschichte/sortiment/torten/404/impressum/datenschutz/index) live @375/768/1280
