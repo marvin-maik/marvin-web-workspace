@@ -65,41 +65,62 @@
 .fk-txt p{font-size:14px;line-height:1.4}
 
 /* ============================================================
-   VARIANTE C — Interaktiv: Akkordeon (mobil) / Hover-Panel (Desktop)
+   VARIANTE C — Chronik-Index: Akkordeon (mobil) / Schwebe-Foto (Desktop)
    ============================================================ */
-.iv{margin-top:26px}
-/* mobil: Akkordeon aus <details> */
+.iv{margin-top:26px;position:relative}
+.iv-hint{display:none}
+/* --- mobil: Akkordeon aus <details> (bleibt wie freigegeben) --- */
 .iv details{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:3px;margin-bottom:10px;overflow:hidden}
-.iv summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 16px}
+.iv summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 16px;position:relative}
 .iv summary::-webkit-details-marker{display:none}
 .iv summary .jahr{font-family:var(--disp);font-weight:900;font-size:24px;color:var(--crust-d);line-height:.9}
 .iv summary .name{font-family:var(--hand);font-weight:600;font-size:17px;color:var(--red)}
+.iv summary .rolle{display:none}
 .iv summary .chev{margin-left:auto;color:var(--crust);transition:transform .2s}
 .iv details[open] summary .chev{transform:rotate(90deg)}
 .iv .inhalt{display:grid;gap:14px;padding:0 16px 18px}
-.iv .inhalt .bild{margin:0}
+.iv .inhalt figure{margin:0}
 .iv .inhalt img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2px}
-.iv .inhalt .mono{aspect-ratio:16/10;border-radius:2px;display:grid;place-content:center;color:var(--gold-l);font-family:var(--disp);font-weight:900;font-size:56px;background:radial-gradient(120% 120% at 30% 20%,#5b4022,var(--crust-d))}
 .iv .inhalt p{font-size:15px;line-height:1.45}
 .iv .zb{font-family:var(--hand);font-weight:600;font-size:14px;color:var(--ink2)}
-/* Desktop: Liste links, ein Bild-Panel rechts (Hover/Fokus wechselt) */
-@media(min-width:820px){
-  .iv{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}
-  .iv .liste{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
-  .iv details{border:0;border-bottom:1px solid var(--line);border-radius:0;margin:0;background:transparent}
-  .iv details summary{padding:16px 6px}
-  .iv details.aktiv summary{background:var(--paper)}
-  .iv details summary .chev{display:none}
-  .iv .inhalt{display:none !important}
-  .iv .panel{position:sticky;top:20px;background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:6px 12px 26px rgba(50,35,20,.12)}
-  .iv .panel .pbild img,.iv .panel .pbild .mono{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-  .iv .panel .mono{aspect-ratio:4/3;display:grid;place-content:center;color:var(--gold-l);font-family:var(--disp);font-weight:900;font-size:90px;background:radial-gradient(120% 120% at 30% 20%,#5b4022,var(--crust-d))}
-  .iv .panel .ptxt{padding:18px 20px 22px}
-  .iv .panel .ptxt .jahr{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--crust-d);line-height:.9}
-  .iv .panel .ptxt .name{font-family:var(--hand);font-weight:600;font-size:20px;color:var(--red);display:block;margin:2px 0 8px}
+.schwebe{display:none}
+/* --- Desktop mit Zeiger: schlanker Zeilen-Index + frei schwebendes Foto --- */
+@media (hover:hover) and (min-width:820px){
+  .iv-hint{display:block;font-family:var(--hand);font-weight:600;color:var(--ink2);font-size:15px;margin:0 0 6px;text-align:right}
+  .iv .liste{border-top:1px solid var(--line)}
+  .iv details{border:0;border-bottom:1px solid var(--line);border-radius:0;margin:0;background:transparent;overflow:visible}
+  .iv details .inhalt{display:none !important}
+  .iv summary .medaille,.iv summary .chev{display:none}
+  .iv summary{gap:20px;padding:18px 6px 20px;align-items:baseline;transition:padding-left .35s cubic-bezier(.22,1,.36,1)}
+  .iv summary .ztext{display:flex;align-items:baseline;gap:16px}
+  .iv summary .jahr{font-size:clamp(34px,4.4vw,50px);transition:color .3s}
+  .iv summary .name{font-size:clamp(19px,2.3vw,25px)}
+  .iv summary .rolle{display:block;margin-left:auto;align-self:center;color:var(--ink2);font-size:14px;letter-spacing:.02em}
+  /* roter Nadelstreifen waechst in der Breite (clip-path, kein Verschmieren) */
+  .iv summary::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:5px;
+    background:repeating-linear-gradient(90deg,var(--red) 0 1.5px,transparent 1.5px 7px);
+    clip-path:inset(0 100% 0 0);transition:clip-path .55s cubic-bezier(.22,1,.36,1)}
+  .iv details:hover summary::after,.iv summary:focus-visible::after{clip-path:inset(0 0 0 0)}
+  .iv details:hover summary,.iv details:focus-within summary{padding-left:22px}
+  .iv details:hover .jahr,.iv details:focus-within .jahr{color:var(--red)}
+  .iv summary:focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:2px}
+  /* das frei schwebende Foto (Fotoabzug-Look, folgt Cursor / haengt bei Fokus an) */
+  .schwebe{display:block;position:fixed;top:0;left:0;z-index:60;width:clamp(250px,23vw,330px);margin:0;
+    pointer-events:none;opacity:0;visibility:hidden;
+    transform:translate(-50%,-50%) rotate(-3.5deg) scale(.94);
+    transition:opacity .28s ease,transform .45s cubic-bezier(.22,1,.36,1);
+    filter:drop-shadow(0 20px 36px rgba(43,33,26,.36))}
+  .schwebe.an{opacity:1;visibility:visible;transform:translate(-50%,-50%) rotate(-3.5deg) scale(1)}
+  .schwebe .rahmen{display:block;background:var(--white);padding:9px 9px 0;border-radius:2px}
+  .schwebe .fotos{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;border-radius:1px;background:var(--crust-d)}
+  .schwebe .fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
+  .schwebe .fotos img.zeig{opacity:1}
+  .schwebe .cap{display:block;text-align:center;font-family:var(--hand);font-weight:600;font-size:14px;color:var(--crumb);padding:9px 6px 11px}
 }
-.iv .panel{display:none}
-@media(min-width:820px){.iv .panel{display:block}}
+@media (prefers-reduced-motion:reduce){
+  .iv summary,.iv summary::after,.schwebe,.schwebe .fotos img{transition:none !important}
+  .schwebe{transform:translate(-50%,-50%) rotate(-3.5deg) !important}
+}
 </style>
 </head>
 <body>
@@ -151,45 +172,68 @@ function varB(){
 }
 /* Variante C */
 function varC(){
+  var rollen=['Der Gründer','Der Neffe','DDR-Zeit','Nach der Wende','Heute'];
   var det=GENS.map(function(g,i){
-    var inner = g.img
-      ? '<figure class="bild"><img src="'+g.img+'" alt="'+esc(g.name)+'"></figure>'+(g.zeitbild?'<span class="zb">Zeitbild, kein Porträt</span>':'')
-      : '<div class="mono" aria-hidden="true">'+g.ini+'</div><span class="zb">Platzhalter · echtes Porträt folgt</span>';
+    var inner='<figure class="bild"><img src="'+g.img+'" alt="'+esc(g.name)+'"></figure>'+(g.zeitbild?'<span class="zb">Zeitbild</span>':'');
     return '<details name="fam"'+(i===0?' open':'')+'><summary>'+medaille(g,40)+
-      '<span><span class="jahr">'+g.jahr+'</span> <span class="name">'+esc(g.name)+'</span></span>'+
+      '<span class="ztext"><span class="jahr">'+g.jahr+'</span> <span class="name">'+esc(g.name)+'</span></span>'+
+      '<span class="rolle">'+rollen[i]+'</span>'+
       '<span class="chev" aria-hidden="true">&#9656;</span></summary>'+
       '<div class="inhalt">'+inner+'<p>'+esc(g.text)+'</p></div></details>';
   }).join('');
-  var panel='<div class="panel" aria-hidden="true"><div class="pbild"></div><div class="ptxt"></div></div>';
+  var fotos=GENS.map(function(g){return '<img src="'+g.img+'" alt="" width="1400" height="1050">';}).join('');
+  var schwebe='<figure class="schwebe" aria-hidden="true"><span class="rahmen"><span class="fotos">'+fotos+'</span><span class="cap"></span></span></figure>';
   return '<section class="wrap"><span class="vbadge">Variante C</span>'+
-    '<h2 class="disp">Interaktiv: antippen oder drüberfahren</h2>'+
-    '<p class="vsub">Mobil ein Akkordeon: Generation antippen, Foto und Text klappen auf (immer nur eine offen). Auf dem Desktop steht links die Liste, rechts ein großes Bild-Panel, das beim Drüberfahren oder Fokussieren wechselt. Genau dein „erst mit Hover“-Gedanke, mobil sauber als Tap gelöst.</p>'+
-    '<div class="iv"><div class="liste">'+det+'</div>'+panel+'</div></section>';
+    '<h2 class="disp">Chronik-Index: überfahren oder antippen</h2>'+
+    '<p class="vsub">Mobil das Akkordeon wie freigegeben: Generation antippen, Foto und Text klappen auf. Auf dem Desktop ein schlanker Zeilen-Index; fährst du über eine Zeile, schwebt ihr Foto frei neben dem Cursor über der Section und wechselt beim Zeilenwechsel. Tastatur zeigt dasselbe Foto an fester Stelle, Touch bleibt beim Akkordeon.</p>'+
+    '<p class="iv-hint">überfahre eine Generation &#8594;</p>'+
+    '<div class="iv"><div class="liste">'+det+'</div>'+schwebe+'</div></section>';
 }
 
 document.getElementById('app').innerHTML = varA()+varB()+varC();
 
-/* Desktop-Enhancement für Variante C: Hover/Fokus wechselt das Panel */
+/* Desktop-Enhancement Variante C: frei schwebendes Foto folgt Cursor bzw. haengt bei Fokus an */
 (function(){
-  var reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var iv=document.querySelector('.iv'); if(!iv) return;
-  var panel=iv.querySelector('.panel'), pbild=panel.querySelector('.pbild'), ptxt=panel.querySelector('.ptxt');
+  var schwebe=iv.querySelector('.schwebe'); if(!schwebe) return;
+  var fotos=Array.prototype.slice.call(schwebe.querySelectorAll('.fotos img'));
+  var cap=schwebe.querySelector('.cap');
   var dets=Array.prototype.slice.call(iv.querySelectorAll('details'));
-  function desktop(){return matchMedia('(min-width:820px)').matches;}
-  function zeige(i){
-    var g=GENS[i];
-    pbild.innerHTML = g.img ? '<img src="'+g.img+'" alt="'+esc(g.name)+'">' : '<div class="mono" aria-hidden="true">'+g.ini+'</div>';
-    ptxt.innerHTML = '<span class="jahr">'+g.jahr+'</span><span class="name">'+esc(g.name)+'</span><p>'+esc(g.text)+'</p>'+(g.zeitbild?'<p class="zb">Zeitbild, kein Porträt</p>':(g.img?'':'<p class="zb">Platzhalter · echtes Porträt folgt</p>'));
-    dets.forEach(function(d,di){d.classList.toggle('aktiv',di===i);});
+  var mq=matchMedia('(hover:hover) and (min-width:820px)');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var cur=-1, tx=0, ty=0, cx=0, cy=0, raf=null, live=false, offX=195;
+
+  function swap(i){
+    if(i!==cur){ cur=i;
+      fotos.forEach(function(im,di){im.classList.toggle('zeig',di===i);});
+      cap.textContent=GENS[i].jahr+' · '+GENS[i].name;
+    }
+    schwebe.classList.add('an');
+  }
+  function weg(){ schwebe.classList.remove('an'); cur=-1; live=false; if(raf){cancelAnimationFrame(raf);raf=null;} }
+  function loop(){
+    var e=reduce?1:0.16;
+    cx+=(tx-cx)*e; cy+=(ty-cy)*e;
+    schwebe.style.left=cx+'px'; schwebe.style.top=cy+'px';
+    if(live) raf=requestAnimationFrame(loop);
+  }
+  function starte(){ if(!live){ live=true; loop(); } }
+  function ziel(px,py,snap){
+    var w=schwebe.offsetWidth||300, half=w/2;
+    if(px+half>innerWidth-8) px=px-2*offX;         /* rechte Kante: nach links kippen */
+    if(px-half<8) px=half+8;
+    tx=px; ty=Math.max(half*0.4+8,Math.min(py,innerHeight-8));
+    if(snap){ cx=tx; cy=ty; schwebe.style.left=cx+'px'; schwebe.style.top=cy+'px'; }
   }
   dets.forEach(function(d,i){
     var s=d.querySelector('summary');
-    s.addEventListener('mouseenter',function(){if(desktop())zeige(i);});
-    s.addEventListener('focus',function(){if(desktop())zeige(i);});
-    s.addEventListener('click',function(e){if(desktop()){e.preventDefault();zeige(i);}});
+    s.addEventListener('mouseenter',function(ev){ if(!mq.matches) return; ziel(ev.clientX+offX, ev.clientY, !live); swap(i); starte(); });
+    s.addEventListener('focus',function(){ if(!mq.matches) return; var r=s.getBoundingClientRect(); ziel(r.right+offX, r.top+r.height/2, true); swap(i); });
+    s.addEventListener('click',function(e){ if(mq.matches) e.preventDefault(); });
   });
-  if(desktop()) zeige(0);
-  addEventListener('resize',function(){if(desktop())zeige([].findIndex.call(dets,function(d){return d.classList.contains('aktiv');})>-1?[].findIndex.call(dets,function(d){return d.classList.contains('aktiv');}):0);});
+  iv.addEventListener('mousemove',function(e){ if(!mq.matches) return; ziel(e.clientX+offX, e.clientY, reduce); });
+  iv.addEventListener('mouseleave',function(){ if(mq.matches) weg(); });
+  iv.addEventListener('focusout',function(e){ if(mq.matches && !iv.contains(e.relatedTarget)) weg(); });
 })();
 </script>
 </body>
