@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>„Fünf Generationen“ · 3 Varianten · Bäckerei Siebert</title>
+<link rel="stylesheet" href="../../styles.css?v=3">
+<style>
+/* ===== Rahmen der Vergleichsseite (nicht Teil des Bausteins) ===== */
+.viewer-kopf{background:var(--crumb);color:var(--gold-l);text-align:center;font:600 11px/1.5 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;padding:8px}
+.vtitel{max-width:var(--wrap);margin:0 auto;padding:22px var(--pad) 0}
+.vtitel h1{font-family:var(--disp);font-weight:900;font-size:clamp(24px,4vw,36px)}
+.vtitel p{color:var(--ink2);max-width:70ch;margin-top:6px}
+.vbadge{display:inline-block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--red);padding:5px 9px;border-radius:3px;margin-bottom:6px}
+.vsub{max-width:70ch;color:var(--ink2);font-size:14.5px;margin:2px 0 20px}
+.vtrenn{border:0;border-top:1px dashed var(--line);margin:8px 0 0}
+.tag-platz{font-family:var(--hand);font-weight:600;font-size:14px;color:var(--red)}
+
+/* ===== gemeinsames Medaillon (Monogramm ODER Foto) ===== */
+.medaille{width:var(--m,64px);height:var(--m,64px);border-radius:50%;flex:0 0 auto;overflow:hidden;
+  background:var(--crust-d);color:var(--paper);display:grid;place-content:center;
+  font-family:var(--disp);font-weight:900;font-size:calc(var(--m,64px)*.46);
+  box-shadow:inset 0 0 0 2px var(--gold-l),0 4px 10px rgba(50,35,20,.2)}
+.medaille img{width:100%;height:100%;object-fit:cover}
+
+/* ============================================================
+   VARIANTE A — Zeitleiste mit Ankerpunkten (mobile-first)
+   ============================================================ */
+.tl{position:relative;margin-top:26px}
+.tl::before{content:"";position:absolute;left:31px;top:20px;bottom:20px;width:2px;background:var(--line)}
+.tl-item{position:relative;display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;margin-bottom:20px}
+.tl-item:last-child{margin-bottom:0}
+.tl-karte{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:3px;padding:16px 18px;box-shadow:4px 8px 18px rgba(50,35,20,.09)}
+.tl-karte .jahr{font-family:var(--disp);font-weight:900;font-size:28px;color:var(--crust-d);line-height:.9}
+.tl-karte .name{font-family:var(--hand);font-weight:600;font-size:18px;color:var(--red);display:block;margin:1px 0 6px}
+.tl-karte p{font-size:15px;line-height:1.42}
+@media(min-width:720px){
+  .tl::before{left:50%;transform:translateX(-1px)}
+  .tl-item{grid-template-columns:1fr 64px 1fr;align-items:center;gap:22px}
+  .tl-item:nth-child(odd) .medaille{order:2}
+  .tl-item:nth-child(odd) .tl-karte{order:1;text-align:right;border-left:0;border-right:4px solid var(--red)}
+  .tl-item:nth-child(odd)::after{content:"";grid-column:3}
+  .tl-item:nth-child(even) .tl-karte{order:3}
+  .tl-item:nth-child(even) .medaille{order:2}
+  .tl-item:nth-child(even)::before{content:"";order:1}
+}
+
+/* ============================================================
+   VARIANTE B — Foto-Karten (mobile-first, filmstrip)
+   ============================================================ */
+.fk{display:grid;gap:16px;grid-template-columns:1fr;margin-top:26px}
+@media(min-width:520px){.fk{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.fk{grid-template-columns:repeat(5,1fr);gap:12px}}
+.fk-karte{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--red);border-radius:3px;overflow:hidden;box-shadow:4px 8px 18px rgba(50,35,20,.09)}
+.fk-bild{aspect-ratio:4/3;background:var(--crust-d);overflow:hidden;position:relative}
+@media(min-width:900px){.fk-bild{aspect-ratio:3/4}}
+.fk-bild img{width:100%;height:100%;object-fit:cover}
+.fk-mono{width:100%;height:100%;display:grid;place-content:center;color:var(--gold-l);font-family:var(--disp);font-weight:900;font-size:64px;
+  background:radial-gradient(120% 120% at 30% 20%,#5b4022,var(--crust-d))}
+.fk-bild .zb{position:absolute;left:8px;top:8px;font:600 9px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);background:rgba(43,33,26,.7);padding:4px 6px;border-radius:2px}
+.fk-txt{padding:14px 16px 16px}
+.fk-txt .jahr{font-family:var(--disp);font-weight:900;font-size:24px;color:var(--crust-d);line-height:.9}
+.fk-txt .name{font-family:var(--hand);font-weight:600;font-size:17px;color:var(--red);display:block;margin:1px 0 6px}
+.fk-txt p{font-size:14px;line-height:1.4}
+
+/* ============================================================
+   VARIANTE C — Interaktiv: Akkordeon (mobil) / Hover-Panel (Desktop)
+   ============================================================ */
+.iv{margin-top:26px}
+/* mobil: Akkordeon aus <details> */
+.iv details{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:3px;margin-bottom:10px;overflow:hidden}
+.iv summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 16px}
+.iv summary::-webkit-details-marker{display:none}
+.iv summary .jahr{font-family:var(--disp);font-weight:900;font-size:24px;color:var(--crust-d);line-height:.9}
+.iv summary .name{font-family:var(--hand);font-weight:600;font-size:17px;color:var(--red)}
+.iv summary .chev{margin-left:auto;color:var(--crust);transition:transform .2s}
+.iv details[open] summary .chev{transform:rotate(90deg)}
+.iv .inhalt{display:grid;gap:14px;padding:0 16px 18px}
+.iv .inhalt .bild{margin:0}
+.iv .inhalt img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2px}
+.iv .inhalt .mono{aspect-ratio:16/10;border-radius:2px;display:grid;place-content:center;color:var(--gold-l);font-family:var(--disp);font-weight:900;font-size:56px;background:radial-gradient(120% 120% at 30% 20%,#5b4022,var(--crust-d))}
+.iv .inhalt p{font-size:15px;line-height:1.45}
+.iv .zb{font-family:var(--hand);font-weight:600;font-size:14px;color:var(--ink2)}
+/* Desktop: Liste links, ein Bild-Panel rechts (Hover/Fokus wechselt) */
+@media(min-width:820px){
+  .iv{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}
+  .iv .liste{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .iv details{border:0;border-bottom:1px solid var(--line);border-radius:0;margin:0;background:transparent}
+  .iv details summary{padding:16px 6px}
+  .iv details.aktiv summary{background:var(--paper)}
+  .iv details summary .chev{display:none}
+  .iv .inhalt{display:none !important}
+  .iv .panel{position:sticky;top:20px;background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:6px 12px 26px rgba(50,35,20,.12)}
+  .iv .panel .pbild img,.iv .panel .pbild .mono{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .iv .panel .mono{aspect-ratio:4/3;display:grid;place-content:center;color:var(--gold-l);font-family:var(--disp);font-weight:900;font-size:90px;background:radial-gradient(120% 120% at 30% 20%,#5b4022,var(--crust-d))}
+  .iv .panel .ptxt{padding:18px 20px 22px}
+  .iv .panel .ptxt .jahr{font-family:var(--disp);font-weight:900;font-size:34px;color:var(--crust-d);line-height:.9}
+  .iv .panel .ptxt .name{font-family:var(--hand);font-weight:600;font-size:20px;color:var(--red);display:block;margin:2px 0 8px}
+}
+.iv .panel{display:none}
+@media(min-width:820px){.iv .panel{display:block}}
+</style>
+</head>
+<body>
+<p class="viewer-kopf">Intern · Baustein „Fünf Generationen“ · 3 Varianten zur Auswahl · mobile-first</p>
+<div class="vtitel">
+  <h1>„Von Gustav bis Anke“ · drei Wege</h1>
+  <p>Der Familien-Block der Geschichte-Seite in drei Mechaniken. Alle mobile-first (bei ca. 375px zuerst gedacht) und für Bilder gebaut. Wo kein echtes Porträt vorliegt (Gustav, Albert), steht ein Monogramm-Medaillon; echte Fotos rutschen später an dieselbe Stelle. „Zeitbild“ = vorhandenes historisches Foto.</p>
+</div>
+
+<main id="app"></main>
+
+<script>
+var GENS = [
+  {ini:'G', jahr:'1906', name:'Gustav', text:'Der Gründer aus Schönfließ in Ostpreußen. Er baut das Haus in der Schönfließer Straße auf.', img:null},
+  {ini:'A', jahr:'1920', name:'Albert', text:'Führt die Bäckerei durch Inflation und zwei Weltkriege.', img:null},
+  {ini:'B', jahr:'DDR', name:'Bodo', text:'Hält das Handwerk gegen die Mangelwirtschaft. Butter, Rosinen und Mandeln sind Mangelware.', img:'../../img/laden-70er.jpg', zeitbild:true},
+  {ini:'L', jahr:'1990', name:'Lars und Catrin', text:'Retter der Ost-Schrippe. Der Brötchenteig ruht drei Stunden, der Brotteig über Nacht. Bis 2021.', img:'../../img/laden-theke.jpg', zeitbild:true},
+  {ini:'A', jahr:'2021', name:'Dr. Anke Siebert', text:'Fünfte Generation, mit Ulrich Kienzl. Die Rezepte bleiben, die Kasse wird bargeldlos.', img:'../../img/team-baeckerin.jpg'}
+];
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function medaille(g,size){var m=size?(' style="--m:'+size+'px"'):'';
+  return g.img ? '<span class="medaille"'+m+'><img src="'+g.img+'" alt="'+esc(g.name)+'"></span>'
+              : '<span class="medaille"'+m+' aria-hidden="true">'+g.ini+'</span>';}
+
+/* Variante A */
+function varA(){
+  var items=GENS.map(function(g){
+    return '<div class="tl-item">'+medaille(g)+
+      '<div class="tl-karte"><span class="jahr">'+g.jahr+'</span><span class="name">'+esc(g.name)+'</span><p>'+esc(g.text)+'</p></div></div>';
+  }).join('');
+  return '<section class="wrap"><span class="vbadge">Variante A</span>'+
+    '<h2 class="disp">Zeitleiste mit Ankerpunkten</h2>'+
+    '<p class="vsub">Eine Linie durch die Generationen, jede mit Medaillon (Monogramm oder Foto) und Karte. Mobil eine Spalte mit Leiste links, ab Tablet im Zickzack. Ruhig, sehr scanbar, ein Bild pro Generation.</p>'+
+    '<div class="tl">'+items+'</div></section><hr class="vtrenn">';
+}
+/* Variante B */
+function varB(){
+  var cards=GENS.map(function(g){
+    var bild = g.img
+      ? '<div class="fk-bild"><img src="'+g.img+'" alt="'+esc(g.name)+'">'+(g.zeitbild?'<span class="zb">Zeitbild</span>':'')+'</div>'
+      : '<div class="fk-bild"><span class="fk-mono" aria-hidden="true">'+g.ini+'</span></div>';
+    return '<article class="fk-karte">'+bild+
+      '<div class="fk-txt"><span class="jahr">'+g.jahr+'</span><span class="name">'+esc(g.name)+'</span><p>'+esc(g.text)+'</p></div></article>';
+  }).join('');
+  return '<section class="wrap"><span class="vbadge">Variante B</span>'+
+    '<h2 class="disp">Foto-Karten je Generation</h2>'+
+    '<p class="vsub">Bild-vorne: jede Generation eine Karte mit Foto (oder Monogramm), Jahr, Name, Text. Mobil gestapelt, ab Tablet zwei Spalten, Desktop als Reihe von fünf. Am bildstärksten, sobald echte Porträts da sind.</p>'+
+    '<div class="fk">'+cards+'</div></section><hr class="vtrenn">';
+}
+/* Variante C */
+function varC(){
+  var det=GENS.map(function(g,i){
+    var inner = g.img
+      ? '<figure class="bild"><img src="'+g.img+'" alt="'+esc(g.name)+'"></figure>'+(g.zeitbild?'<span class="zb">Zeitbild, kein Porträt</span>':'')
+      : '<div class="mono" aria-hidden="true">'+g.ini+'</div><span class="zb">Platzhalter · echtes Porträt folgt</span>';
+    return '<details name="fam"'+(i===0?' open':'')+'><summary>'+medaille(g,40)+
+      '<span><span class="jahr">'+g.jahr+'</span> <span class="name">'+esc(g.name)+'</span></span>'+
+      '<span class="chev" aria-hidden="true">&#9656;</span></summary>'+
+      '<div class="inhalt">'+inner+'<p>'+esc(g.text)+'</p></div></details>';
+  }).join('');
+  var panel='<div class="panel" aria-hidden="true"><div class="pbild"></div><div class="ptxt"></div></div>';
+  return '<section class="wrap"><span class="vbadge">Variante C</span>'+
+    '<h2 class="disp">Interaktiv: antippen oder drüberfahren</h2>'+
+    '<p class="vsub">Mobil ein Akkordeon: Generation antippen, Foto und Text klappen auf (immer nur eine offen). Auf dem Desktop steht links die Liste, rechts ein großes Bild-Panel, das beim Drüberfahren oder Fokussieren wechselt. Genau dein „erst mit Hover“-Gedanke, mobil sauber als Tap gelöst.</p>'+
+    '<div class="iv"><div class="liste">'+det+'</div>'+panel+'</div></section>';
+}
+
+document.getElementById('app').innerHTML = varA()+varB()+varC();
+
+/* Desktop-Enhancement für Variante C: Hover/Fokus wechselt das Panel */
+(function(){
+  var reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var iv=document.querySelector('.iv'); if(!iv) return;
+  var panel=iv.querySelector('.panel'), pbild=panel.querySelector('.pbild'), ptxt=panel.querySelector('.ptxt');
+  var dets=Array.prototype.slice.call(iv.querySelectorAll('details'));
+  function desktop(){return matchMedia('(min-width:820px)').matches;}
+  function zeige(i){
+    var g=GENS[i];
+    pbild.innerHTML = g.img ? '<img src="'+g.img+'" alt="'+esc(g.name)+'">' : '<div class="mono" aria-hidden="true">'+g.ini+'</div>';
+    ptxt.innerHTML = '<span class="jahr">'+g.jahr+'</span><span class="name">'+esc(g.name)+'</span><p>'+esc(g.text)+'</p>'+(g.zeitbild?'<p class="zb">Zeitbild, kein Porträt</p>':(g.img?'':'<p class="zb">Platzhalter · echtes Porträt folgt</p>'));
+    dets.forEach(function(d,di){d.classList.toggle('aktiv',di===i);});
+  }
+  dets.forEach(function(d,i){
+    var s=d.querySelector('summary');
+    s.addEventListener('mouseenter',function(){if(desktop())zeige(i);});
+    s.addEventListener('focus',function(){if(desktop())zeige(i);});
+    s.addEventListener('click',function(e){if(desktop()){e.preventDefault();zeige(i);}});
+  });
+  if(desktop()) zeige(0);
+  addEventListener('resize',function(){if(desktop())zeige([].findIndex.call(dets,function(d){return d.classList.contains('aktiv');})>-1?[].findIndex.call(dets,function(d){return d.classList.contains('aktiv');}):0);});
+})();
+</script>
+</body>
+</html>
