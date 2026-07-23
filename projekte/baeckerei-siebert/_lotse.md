@@ -55,16 +55,19 @@ Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") ->
 - [ ] Build: restliche Alt-Site-Bilder sichten (64a7e-Serie komplett, picture-2600-Serie,
   P1170491_CMYK vor Web-Einsatz konvertieren) — Liste in MANIFEST.md
 - [ ] **Marvin: verfeinerte Variante C freigeben** -> danach in live geschichte.html bauen.
-  C gewaehlt + Mechanik praezisiert (Marvin 2026-07-23): Mobil bleibt Akkordeon (freigegeben).
-  Desktop = Chronik-Index (schlanke Zeilen Jahr+Name+Rolle) + FREI SCHWEBENDES Foto, das dem
-  Cursor folgt und pro Zeile wechselt (losgeloest von der Zeile, schwebt ueber der Section);
-  roter Nadelstreifen-Wipe waechst in der Breite ueber die gehoverte Zeile. Gebaut in
-  `freigabe/konzepte/familie-varianten.html` (varC). Robustheit aus 3-Facetten-Recherche:
-  Tastatur-Paritaet (:focus-visible heftet Foto an feste Stelle), Touch bleibt Akkordeon
-  (@media hover:hover-Gate), prefers-reduced-motion (kein Nachlauf/Zoom), position:fixed =>
-  null CLS, alle 5 Fotos vorab im DOM (opacity-Wechsel, kein Flackern). Logik + Desktop-/
-  Mobile-Render verifiziert (Browser-Pane-Screenshot im Sandbox leer -> per JS-State + headless
-  Forced-Desktop-Render belegt).
+  C gewaehlt + Mechanik praezisiert (Marvin 2026-07-23): Mobil bleibt Akkordeon (freigegeben),
+  jetzt mit REICHEREM Text je Generation (Verwandtschaft + Lebensdaten + belegte Fakten).
+  Desktop = Chronik-Index (Zeilen Jahr+Name+Verwandtschaft) + FREI SCHWEBENDES Foto (folgt
+  Cursor, wechselt pro Zeile); roter Nadelstreifen-Wipe waechst in der Breite. NEU: KLICK auf
+  eine Zeile oeffnet ein Detail-MODAL (grosses Foto + ganze Geschichte, wie mobil) — barrierefrei
+  (role=dialog/aria-modal, Fokus-Falle, Esc, Backdrop-Klick, Fokus-Rueckgabe an die Zeile).
+  Verwandtschaftskette (belegt, product-marketing-context 0b): Gruender Gustav -> Neffe Otto ->
+  dessen Sohn Bodo -> dessen Sohn Lars -> dessen Tochter Dr. Anke (Ururenkelin Gustavs).
+  Alle Copy in GENS-Array (voll/rolle/daten/lang), nur A/B nutzen weiter kurze text-Felder.
+  Robustheit aus 3-Facetten-Recherche: Tastatur-Paritaet, @media hover:hover-Gate (Touch=Akkordeon),
+  reduced-motion, position:fixed => null CLS, 5 Fotos vorab im DOM. Gebaut + verifiziert in
+  `freigabe/konzepte/familie-varianten.html` (Logik per JS-State, Look per headless Forced-Desktop-Render;
+  Browser-Pane-Screenshot im Sandbox liefert leere Frames -> nicht nutzbar).
 - [ ] Foto-Luecken: aktuelles Ladenfront-Aussenfoto (Besuch + OG-Bild) besorgen; Torten-Mini-
   Shooting als Upsell notieren (Generationen-Fotos jetzt komplett echt, s.o.)
 - [ ] Danach: Skill `struktur-wireframe` (Freigabe-Dokument + Lo-Fi-Wireframe), dann Build

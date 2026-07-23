@@ -117,9 +117,33 @@
   .schwebe .fotos img.zeig{opacity:1}
   .schwebe .cap{display:block;text-align:center;font-family:var(--hand);font-weight:600;font-size:14px;color:var(--crumb);padding:9px 6px 11px}
 }
+/* mobil: Verwandtschaft + Lebensdaten im aufgeklappten Akkordeon */
+.iv .inhalt .rolle-in{display:block;font-family:var(--hand);font-weight:600;color:var(--red);font-size:15px;margin:-2px 0 2px}
+/* Detail-Modal (Desktop-Klick oeffnet Foto gross + Geschichte) */
+.gen-modal[hidden]{display:none}
+.gen-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+.gm-backdrop{position:absolute;inset:0;background:rgba(43,33,26,.62)}
+.gm-box{position:relative;max-width:560px;width:100%;max-height:88vh;overflow:auto;background:var(--paper);
+  border-radius:5px;box-shadow:0 30px 70px rgba(43,33,26,.5);animation:gmIn .3s cubic-bezier(.22,1,.36,1)}
+.gm-box:focus{outline:none}
+@keyframes gmIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.gm-x{position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border:0;border-radius:50%;
+  background:rgba(251,246,235,.92);color:var(--crumb);font-size:22px;line-height:1;cursor:pointer;
+  display:grid;place-content:center;box-shadow:0 2px 8px rgba(43,33,26,.28)}
+.gm-x:hover{background:var(--white)}
+.gm-x:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.gm-bild{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--crust-d)}
+.gm-bild img{width:100%;height:100%;object-fit:cover;display:block}
+.gm-bild .zb{position:absolute;left:10px;top:10px;font:600 9px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);background:rgba(43,33,26,.7);padding:4px 7px;border-radius:2px}
+.gm-txt{padding:20px 22px 24px}
+.gm-txt .jahr{font-family:var(--disp);font-weight:900;font-size:38px;color:var(--crust-d);line-height:.9}
+.gm-txt .name{font-family:var(--hand);font-weight:600;font-size:22px;color:var(--red);display:block;margin:3px 0 1px}
+.gm-txt .rolle{display:block;color:var(--ink2);font-size:14px;margin-bottom:12px}
+.gm-txt p{font-size:15.5px;line-height:1.52}
 @media (prefers-reduced-motion:reduce){
   .iv summary,.iv summary::after,.schwebe,.schwebe .fotos img{transition:none !important}
   .schwebe{transform:translate(-50%,-50%) rotate(-3.5deg) !important}
+  .gm-box{animation:none !important}
 }
 </style>
 </head>
@@ -134,11 +158,26 @@
 
 <script>
 var GENS = [
-  {ini:'G', jahr:'1906', name:'Gustav', text:'Der Gründer aus Ostpreußen. Er eröffnet 1906 und führt das Haus durch Kaiserreich und Ersten Weltkrieg.', img:'../../img/gen-1906.jpg', zeitbild:true},
-  {ini:'O', jahr:'1929', name:'Otto', text:'Gustavs Neffe. Er übernimmt nach dessen Tod 1929 und hält den Betrieb durch Krieg und Nachkriegszeit.', img:'../../img/gen-1929-otto.jpg', zeitbild:true},
-  {ini:'B', jahr:'DDR', name:'Bodo', text:'Hält das Handwerk gegen die Mangelwirtschaft. Butter, Rosinen und Mandeln sind Mangelware.', img:'../../img/gen-ddr-bodo.jpg', zeitbild:true},
-  {ini:'L', jahr:'1990', name:'Lars', text:'Übernimmt nach der Wende. Er bewahrt die Ost-Rezepte und macht den Laden zur Kult-Institution. Bis 2021.', img:'../../img/gen-1990-lars.jpg', zeitbild:true},
-  {ini:'A', jahr:'2021', name:'Dr. Anke Siebert', text:'Promovierte Wirtschafts- und Umweltwissenschaftlerin, fünfte Generation.', img:'../../img/gen-2021-anke.jpg'}
+  {ini:'G', jahr:'1906', name:'Gustav', voll:'Gustav Siebert', rolle:'Der Gründer', daten:'1865 bis 1929',
+   text:'Der Gründer aus Ostpreußen. Er eröffnet 1906 und führt das Haus durch Kaiserreich und Ersten Weltkrieg.',
+   lang:'Gustav Siebert kommt aus Ostpreußen und eröffnet 1906 die Bäckerei in der Schönfließer Straße. Er führt das Haus durch Kaiserreich und Ersten Weltkrieg und legt die Adresse fest, an der die Familie bis heute backt. 1929 stirbt er.',
+   img:'../../img/gen-1906.jpg', zeitbild:true},
+  {ini:'O', jahr:'1929', name:'Otto', voll:'Otto Siebert', rolle:'Gustavs Neffe', daten:'1897 bis 1968',
+   text:'Gustavs Neffe. Er übernimmt nach dessen Tod 1929 und hält den Betrieb durch Krieg und Nachkriegszeit.',
+   lang:'Gustavs Neffe übernimmt 1929 nach dem Tod des Gründers. Er hält den Betrieb durch den Zweiten Weltkrieg und die Nachkriegszeit: Die Familie schläft im Konditorraum neben den Arbeitsgeräten und weigert sich, den Laden zu verstaatlichen. Anfang der 1960er übergibt er an seinen Sohn Bodo. Das Foto zeigt das 30-Jahr-Jubiläum 1936, davor der dreijährige Bodo.',
+   img:'../../img/gen-1929-otto.jpg', zeitbild:true},
+  {ini:'B', jahr:'DDR', name:'Bodo', voll:'Bodo Siebert', rolle:'Ottos Sohn', daten:'geboren 1934',
+   text:'Hält das Handwerk gegen die Mangelwirtschaft. Butter, Rosinen und Mandeln sind Mangelware.',
+   lang:'Ottos Sohn führt den Laden durch die DDR-Jahre. Er hält das private Handwerk gegen die Mangelwirtschaft am Leben: Butter, Rosinen und Mandeln sind Mangelware, verstaatlicht wird trotzdem nicht. Bis zum Mauerfall bleibt die Bäckerei in Familienhand.',
+   img:'../../img/gen-ddr-bodo.jpg', zeitbild:true},
+  {ini:'L', jahr:'1990', name:'Lars', voll:'Lars Siebert', rolle:'Bodos Sohn', daten:'ab 1990',
+   text:'Übernimmt nach der Wende. Er bewahrt die Ost-Rezepte und macht den Laden zur Kult-Institution. Bis 2021.',
+   lang:'Direkt nach der Wende übernimmt Lars. Er bewahrt die DDR-Originalrezepte, die Schrippen und die Splitterbrötchen, und macht den Laden zur Kult-Institution im Prenzlauer Berg. Bis 2021 steht sein Name über der Tür.',
+   img:'../../img/gen-1990-lars.jpg', zeitbild:true},
+  {ini:'A', jahr:'2021', name:'Dr. Anke Siebert', voll:'Dr. Anke Siebert', rolle:'Lars’ Tochter', daten:'seit 2021',
+   text:'Promovierte Wirtschafts- und Umweltwissenschaftlerin, fünfte Generation.',
+   lang:'Seit 2021 führt Dr. Anke Siebert in fünfter Generation, Ururenkelin des Gründers Gustav. Die promovierte Wirtschafts- und Umweltwissenschaftlerin übernimmt von ihrem Vater Lars und bringt die Bäckerei ins Heute: digitalisiert, bargeldloses Zahlen, ohne das Handwerk anzufassen.',
+   img:'../../img/gen-2021-anke.jpg'}
 ];
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function medaille(g,size){var m=size?(' style="--m:'+size+'px"'):'';
@@ -172,22 +211,30 @@ function varB(){
 }
 /* Variante C */
 function varC(){
-  var rollen=['Der Gründer','Der Neffe','DDR-Zeit','Nach der Wende','Heute'];
   var det=GENS.map(function(g,i){
-    var inner='<figure class="bild"><img src="'+g.img+'" alt="'+esc(g.name)+'"></figure>'+(g.zeitbild?'<span class="zb">Zeitbild</span>':'');
+    var inner='<figure class="bild"><img src="'+g.img+'" alt="'+esc(g.voll)+'"></figure>'+
+      (g.zeitbild?'<span class="zb">Zeitbild</span>':'')+
+      '<span class="rolle-in">'+esc(g.rolle)+' · '+g.daten+'</span>';
     return '<details name="fam"'+(i===0?' open':'')+'><summary>'+medaille(g,40)+
       '<span class="ztext"><span class="jahr">'+g.jahr+'</span> <span class="name">'+esc(g.name)+'</span></span>'+
-      '<span class="rolle">'+rollen[i]+'</span>'+
+      '<span class="rolle">'+esc(g.rolle)+'</span>'+
       '<span class="chev" aria-hidden="true">&#9656;</span></summary>'+
-      '<div class="inhalt">'+inner+'<p>'+esc(g.text)+'</p></div></details>';
+      '<div class="inhalt">'+inner+'<p>'+esc(g.lang)+'</p></div></details>';
   }).join('');
   var fotos=GENS.map(function(g){return '<img src="'+g.img+'" alt="" width="1400" height="1050">';}).join('');
   var schwebe='<figure class="schwebe" aria-hidden="true"><span class="rahmen"><span class="fotos">'+fotos+'</span><span class="cap"></span></span></figure>';
+  var modal='<div class="gen-modal" role="dialog" aria-modal="true" aria-labelledby="gm-name" hidden>'+
+    '<div class="gm-backdrop" data-close></div>'+
+    '<div class="gm-box" tabindex="-1">'+
+      '<button type="button" class="gm-x" data-close aria-label="Schließen">&#215;</button>'+
+      '<figure class="gm-bild"><img alt=""><span class="zb" hidden>Zeitbild</span></figure>'+
+      '<div class="gm-txt"><span class="jahr"></span><span class="name" id="gm-name"></span><span class="rolle"></span><p></p></div>'+
+    '</div></div>';
   return '<section class="wrap"><span class="vbadge">Variante C</span>'+
     '<h2 class="disp">Chronik-Index: überfahren oder antippen</h2>'+
-    '<p class="vsub">Mobil das Akkordeon wie freigegeben: Generation antippen, Foto und Text klappen auf. Auf dem Desktop ein schlanker Zeilen-Index; fährst du über eine Zeile, schwebt ihr Foto frei neben dem Cursor über der Section und wechselt beim Zeilenwechsel. Tastatur zeigt dasselbe Foto an fester Stelle, Touch bleibt beim Akkordeon.</p>'+
-    '<p class="iv-hint">überfahre eine Generation &#8594;</p>'+
-    '<div class="iv"><div class="liste">'+det+'</div>'+schwebe+'</div></section>';
+    '<p class="vsub">Mobil das Akkordeon wie freigegeben: Generation antippen, Foto und Geschichte klappen auf. Auf dem Desktop ein schlanker Zeilen-Index: überfahren zeigt das schwebende Foto, ein Klick öffnet die ganze Geschichte als großes Bild mit Text. Tastatur und Touch inklusive.</p>'+
+    '<p class="iv-hint">überfahren fürs Foto · klicken für die Geschichte</p>'+
+    '<div class="iv"><div class="liste">'+det+'</div>'+schwebe+modal+'</div></section>';
 }
 
 document.getElementById('app').innerHTML = varA()+varB()+varC();
@@ -225,15 +272,33 @@ document.getElementById('app').innerHTML = varA()+varB()+varC();
     tx=px; ty=Math.max(half*0.4+8,Math.min(py,innerHeight-8));
     if(snap){ cx=tx; cy=ty; schwebe.style.left=cx+'px'; schwebe.style.top=cy+'px'; }
   }
+  /* Detail-Modal */
+  var modal=iv.querySelector('.gen-modal');
+  var gmImg=modal.querySelector('.gm-bild img'), gmZb=modal.querySelector('.gm-bild .zb'), gmClose=modal.querySelector('.gm-x');
+  var gmJahr=modal.querySelector('.gm-txt .jahr'), gmName=modal.querySelector('.gm-txt .name'),
+      gmRolle=modal.querySelector('.gm-txt .rolle'), gmP=modal.querySelector('.gm-txt p');
+  var lastFocus=null;
+  function onKey(e){ if(e.key==='Escape'){ e.preventDefault(); closeModal(); } else if(e.key==='Tab'){ e.preventDefault(); gmClose.focus(); } }
+  function openModal(i,trigger){ var g=GENS[i];
+    gmImg.src=g.img; gmImg.alt=g.voll; gmJahr.textContent=g.jahr; gmName.textContent=g.voll;
+    gmRolle.textContent=g.rolle+' · '+g.daten; gmP.textContent=g.lang; gmZb.hidden=!g.zeitbild;
+    lastFocus=trigger||document.activeElement; weg(); modal.hidden=false;
+    document.addEventListener('keydown',onKey); gmClose.focus();
+  }
+  function closeModal(){ if(modal.hidden) return; modal.hidden=true;
+    document.removeEventListener('keydown',onKey); if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  modal.addEventListener('click',function(e){ if(e.target.hasAttribute('data-close')) closeModal(); });
+
   dets.forEach(function(d,i){
     var s=d.querySelector('summary');
     s.addEventListener('mouseenter',function(ev){ if(!mq.matches) return; ziel(ev.clientX+offX, ev.clientY, !live); swap(i); starte(); });
     s.addEventListener('focus',function(){ if(!mq.matches) return; var r=s.getBoundingClientRect(); ziel(r.right+offX, r.top+r.height/2, true); swap(i); });
-    s.addEventListener('click',function(e){ if(mq.matches) e.preventDefault(); });
+    s.addEventListener('click',function(e){ if(mq.matches){ e.preventDefault(); openModal(i,s); } });
   });
   iv.addEventListener('mousemove',function(e){ if(!mq.matches) return; ziel(e.clientX+offX, e.clientY, reduce); });
-  iv.addEventListener('mouseleave',function(){ if(mq.matches) weg(); });
-  iv.addEventListener('focusout',function(e){ if(mq.matches && !iv.contains(e.relatedTarget)) weg(); });
+  iv.addEventListener('mouseleave',function(){ if(mq.matches && modal.hidden) weg(); });
+  iv.addEventListener('focusout',function(e){ if(mq.matches && modal.hidden && !iv.contains(e.relatedTarget)) weg(); });
 })();
 </script>
 </body>
