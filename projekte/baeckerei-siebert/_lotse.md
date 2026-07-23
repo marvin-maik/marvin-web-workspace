@@ -13,6 +13,13 @@ Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") ->
 - Design-Dossier + Animationsplan: `freigabe/design-richtung.md`.
 
 ## Feste Entscheidungen (NICHT neu aufrollen)
+- **Generationenfolge (KORRIGIERT 2026-07-23, Marvins Quellen museum-digital/tagesspiegel/bz):**
+  1. Gustav (1865-1929, Gruender 1906) 2. **Otto Siebert (1897-1968, NEFFE, ab 1929 nach Gustavs
+  Tod)** — NICHT "Albert" (das war ein Fehler frueher Recherche) 3. Bodo (geb. 1934, DDR) 4. Lars
+  (1990-2021, ohne "Catrin" auf der Site) 5. Dr. Anke (seit 2021, Wirtschafts- UND Umweltwissenschaftlerin).
+  B.Z. beschriftet das 1936er-Foto faelschlich mit "Gustav" (unmoeglich, 1929 tot). Neues echtes
+  Foto `img/laden-front-historisch.jpg` = Fein-Baeckerei-Front mit Schild "Otto Siebert Baeckermeister".
+  Details: product-marketing-context.md Abschnitt 0b.
 - **Design-Richtung = C ("Aus der Tuete"), mit dem ECHTEN Marken-Look** (Marvin 2026-07-22):
   Baeckerei-Rot + Gold + Loewen-Brezel-Wappen + Schreibschrift, NICHT das v1-"Zeit-Haus"
   (Gruen/League Gothic) und NICHT die kraftbraune C-Urfassung. Marke ist bewusst "authentisch
