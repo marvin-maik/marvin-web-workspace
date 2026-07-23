@@ -65,6 +65,17 @@ Stand: 2026-07-23 · Phase: **BUILD v2 fertig + QA gruen (D1b "Warmes Regal") ->
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Mobile-Nav = Burger-Menü.** Marvin-Befund: Nav-Bar nicht mobilfreundlich. Ursache:
+  Header war reines `flex-wrap:wrap` ohne Toggle -> auf 375px brachen die 6 Links mehrzeilig um, das
+  nowrap-Status-Badge verwaiste, der `sticky` Header wurde ~484px hoch (halbes Viewport, blieb beim
+  Scrollen gepinnt). Fix: Burger-Toggle nach dem routenwerk-Muster (aria-expanded/-controls, Escape +
+  Link-Klick schliessen) auf allen 6 Hauptseiten; Nav+Status in `<div class="kopf-nav" id="navLinks">`
+  gewrappt. Desktop `display:contents` -> pixelgleich zu vorher (verifiziert 1280: inline, Burger aus).
+  Ab `max-width:820px` klappt die Nav hinter den Burger (max-height-Transition, vertikale Liste mit
+  Hairline-Trennern, 44px-Tap-Ziel). Collapse nur bei aktivem JS (`html:not(.no-js)`), reduced-motion
+  schaltet Transition ab. Header geschlossen jetzt 87px. Verifiziert (375+1280): 0 Overflow-X, 0
+  Konsolenfehler, aria-current je Seite korrekt (Start/Sortiment geprueft), elementFromPoint bestaetigt
+  Button frei klickbar (echte Pane-Klicks flaky = bekannte Pane-Macke, Handler per .click() korrekt).
 - 2026-07-23: **QA v2 + Designakte** (8659ac3 / 8042b69). design-md-Agent hat `_design.md` auf
   "Warmes Regal" neu geschrieben (205 Z., Hex/Fonts gegen styles.css verifiziert). qa-polish-Agent
   am Session-Limit abgebrochen, aber Kernbefund geliefert + selbst-QA gemacht: BLOCKER Fokusring

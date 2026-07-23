@@ -37,6 +37,19 @@
     el.textContent=s.t; el.classList.toggle("zu",!s.offen);
   });
 
+  /* ---------- 1b. Mobile-Navigation (Burger) ---------- */
+  var burger=document.querySelector(".nav-burger"),navBox=document.getElementById("navLinks");
+  if(burger&&navBox){
+    function navZu(){navBox.classList.remove("offen");burger.setAttribute("aria-expanded","false");burger.setAttribute("aria-label","Menü öffnen");}
+    burger.addEventListener("click",function(){
+      var offen=navBox.classList.toggle("offen");
+      burger.setAttribute("aria-expanded",offen?"true":"false");
+      burger.setAttribute("aria-label",offen?"Menü schließen":"Menü öffnen");
+    });
+    navBox.addEventListener("click",function(e){if(e.target.closest("a"))navZu();});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&navBox.classList.contains("offen")){navZu();burger.focus();}});
+  }
+
   /* ---------- 2. Reveals (robust gegen Schnell-Scroll + Sweep-Netz) ---------- */
   function tsd(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,".");}
   function zahlen(scope){
