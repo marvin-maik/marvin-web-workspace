@@ -234,6 +234,12 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Karten-Bilder unten buendig (?v=12)** (Marvin: "Leiter" bei den Torten-Anlass-
+  Karten — Bild soll sich an der Kartenunterkante orientieren, Luecke waechst). `.karte` -> Flex-
+  Spalte, `.bild` margin-top:auto + padding-top:14px (Mindestabstand). Einheitlich: torten 3x,
+  ausbildung 2x Berufe, besuch Kontakt (Inline-margin raus). Verifiziert @1280: torten Bildboeden
+  exakt buendig (3x 1081), ausbildung buendig, Benefits/Hierher unveraendert; @375: Abstand
+  erhalten, 0 Overflow. Commit folgt.
 - 2026-07-23: **Ausbildung-Hero-Rotation gefixt + toter Stagger entdeckt** (Marvin: "rotiert suess,
   buggt dann zurueck — inspecten"). Befund: (1) `.hero-foto{transform:rotate(1.6deg)}` wurde vom
   Reveal-transform ueberschrieben (Bild stand nach Reveal GERADE), der data-rv-Abraeumer von heute

@@ -324,9 +324,11 @@ p{text-wrap:pretty}                                        /* Browser darf Umbru
 .karten{display:grid;gap:16px}
 @media(min-width:760px){.karten{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:640px){.karten.zwei{grid-template-columns:repeat(2,1fr)}}
-.karte{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:22px;box-shadow:4px 8px 18px rgba(50,35,20,.09)}
+/* Flex-Spalte: Bild dockt per margin-top:auto an der Kartenunterkante an -> im Grid gleicher
+   Reihenhoehe stehen alle Bilder unten buendig (kein Treppeneffekt bei unterschiedlich langem Text) */
+.karte{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:22px;box-shadow:4px 8px 18px rgba(50,35,20,.09);display:flex;flex-direction:column}
 .karte h3{font-size:19px;margin-bottom:6px}
-.karte .bild{margin-top:14px}
+.karte .bild{margin-top:auto;padding-top:14px}
 .karte img{aspect-ratio:4/3;object-fit:cover}
 .benefits{display:grid;gap:12px}
 @media(min-width:700px){.benefits{grid-template-columns:repeat(3,1fr)}}

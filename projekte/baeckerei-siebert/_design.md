@@ -266,3 +266,10 @@ geneigt (vorher: Reveal nahm die Rotation weg, Abraeumer liess sie zurueckschnap
 (ohne data-rv) statisch geneigt wie zuvor. AUSSERDEM: data-d-Stagger war sitewide TOT (nichts setzte
 --d); site.js verdrahtet jetzt data-d -> style --d im Reveal-Init -> Staffelung laeuft erstmals wie
 urspruenglich designt. ?v=11 / site.js?v=9.
+
+## Karten mit Bild: Boden-buendig (2026-07-23)
+`.karte` ist Flex-Spalte; `.karte .bild{margin-top:auto;padding-top:14px}` dockt das Bild an der
+Kartenunterkante an -> im Grid gleicher Reihenhoehe stehen alle Bilder unten buendig, die Luecke
+zwischen Text und Bild atmet (min. 14px). Betrifft torten (3 Anlass-Karten), ausbildung (2 Berufe-
+Karten), besuch Kontakt-Karte (Inline-margin dort entfernt). Textreine Karten (Benefits/Hierher/
+Zeiten) unveraendert (Reset verhindert Margin-Kollaps-Unterschiede). ?v=12.
