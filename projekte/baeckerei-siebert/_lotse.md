@@ -234,6 +234,10 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Handwerk-Schritt-Texte in .wg-Sinneinheiten** (Marvin: "Satz bricht nicht geil" —
+  "…und Zeit. Keine / Fertigmischung…"). Die 3 p.mut der Schritte 01-03 gruppiert (Muster wie
+  sitewide-wg-Strang). Verifiziert @1280: Bruch exakt an Satz-/Sinnkanten (01 = 2 Zeilen an der
+  Satzgrenze), @375: 0 interne Gruppen-Brueche, 0 Overflow. Nur HTML -> kein ?v-Bump. Deployed.
 - 2026-07-23: **Karten-Bilder unten buendig (?v=12)** (Marvin: "Leiter" bei den Torten-Anlass-
   Karten — Bild soll sich an der Kartenunterkante orientieren, Luecke waechst). `.karte` -> Flex-
   Spalte, `.bild` margin-top:auto + padding-top:14px (Mindestabstand). Einheitlich: torten 3x,
