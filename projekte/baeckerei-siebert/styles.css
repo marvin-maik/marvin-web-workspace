@@ -622,6 +622,31 @@ footer.fuss{background:var(--crumb);color:#D9C9AC;padding-block:42px 30px;font-s
 .gm-txt p{font-size:15.5px;line-height:1.52}
 body.modal-offen{overflow:hidden}
 
+/* ===== Mikro-Interaktionen (nur echte Zeiger, hover:hover — Touch bleibt unberuehrt) ===== */
+@media (hover:hover){
+  /* 1. Speisekarten-Zeile: Name faerbt sich, Zeile rueckt wie ein Fingerzeig nach rechts */
+  .tz{transition:transform .22s cubic-bezier(.22,1,.36,1)}
+  .tz b{transition:color .18s ease}
+  .tz:hover{transform:translateX(6px)}
+  .tz:hover b{color:var(--red)}
+  /* 3. Karten-Lift: Zettel hebt sich vom Tresen (Schatten waechst zum Grundschatten passend) */
+  .zahlen .zk,.karte{transition:transform .22s ease,box-shadow .22s ease}
+  .zahlen .zk:hover{transform:translateY(-3px);box-shadow:7px 15px 30px rgba(43,33,26,.3)}
+  .karte:hover{transform:translateY(-3px);box-shadow:5px 12px 26px rgba(50,35,20,.14)}
+}
+/* 2. Nav: Nadel-Unterstreichung laeuft von links ein (nur Desktop-Nav; aria-current behaelt
+   die statische Linie, focus-visible behaelt den sofortigen Rahmen) */
+@media (hover:hover) and (min-width:821px){
+  nav.haupt a{position:relative}
+  nav.haupt a::after{content:"";position:absolute;left:2px;right:2px;bottom:0;height:2px;background:var(--red);clip-path:inset(0 100% 0 0);transition:clip-path .3s cubic-bezier(.22,1,.36,1)}
+  nav.haupt a:hover{border-bottom-color:transparent}
+  nav.haupt a:hover::after{clip-path:inset(0 0 0 0)}
+  nav.haupt a[aria-current="page"]::after{content:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .tz,.tz b,.zahlen .zk,.karte,nav.haupt a::after{transition:none}
+}
+
 /* ===== Gross-Monitor-Stufe (>=1600px): mehr Buehne bei gleichen Proportionen.
    REIN ADDITIV — unter 1600px bleibt alles unveraendert. Klassen-Paddings
    (.zahlen-band, .fascia usw.) gewinnen weiter per Spezifitaet gegen section. ===== */

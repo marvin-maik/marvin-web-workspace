@@ -248,3 +248,12 @@ gewinnen weiter per Spezifitaet gegen das section-Padding (104px). Anlass: Kundi
 Ricks-Fluid-System (alles rem + Root-Formel) bewusst NICHT uebernommen (px-Refactor), als Option notiert.
 Verifiziert @1920 (wrap 1280 zentriert, Werte greifen, 0 Overflow, Originalbilder gewaehlt) + Regression
 @1280 (wrap 1090, h1 72, body 18 = alt, 0 Overflow).
+
+## Mikro-Interaktionen (2026-07-23)
+Block "Mikro-Interaktionen" in styles.css (vor der Gross-Monitor-Stufe), alles hinter `@media (hover:hover)`
+(Touch unberuehrt), Transitions per prefers-reduced-motion abgeschaltet:
+1. `.tz:hover` -> translateX(6px) + Gebaeckname (`b`) faerbt --red (Speisekarten-Zeilen, sortiment + index-Teaser).
+2. Nav-Unterstreichung als clip-path-Wipe von links (`nav.haupt a::after`, nur >=821px); `aria-current`
+   behaelt die STATISCHE rote Linie (::after dort content:none), focus-visible unveraendert sofort.
+3. Karten-Lift: `.zahlen .zk:hover` + `.karte:hover` -> translateY(-3px) + Schatten waechst passend zum Grundschatten.
+Bewusst NICHT: Dampf/Wackel-Handschrift (Kitsch-Gefahr). ?v=10.

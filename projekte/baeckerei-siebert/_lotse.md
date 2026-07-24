@@ -234,6 +234,13 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Mikro-Interaktionen LIVE (?v=10)** (Marvin: "mehr Leben", Wahl: alle 3 Vorschlaege).
+  Speisekarten-Zeilen-Hover (translateX + Rotfaerbung), Nav-Unterstreichung als clip-path-Wipe
+  (aria-current statisch, focus sofort), Karten-Lift (.zk/.karte). Alles @media(hover:hover) =
+  Touch unveraendert; reduced-motion: Transitions aus. Verifiziert @1280 via Stylesheet-Introspektion
+  (Pane setzt keinen echten :hover-State — synthetischer Hover erzeugt kein CSS-:hover, MERKE) +
+  Ruhezustand-Screenshot unveraendert; ::after im Ruhezustand inset(100%) bestaetigt. Details _design.md
+  ("Mikro-Interaktionen"). WICHTIG fuer Marvin: einmal selbst mit echter Maus drueberfahren.
 - 2026-07-23: **Saison-Spotlight in der Gross-Stufe zentriert (?v=9)** (Marvin per Element-Auswahl
   am Breitbild: "ggf sollte das center oder?"). Textspalte ist 1fr -> Gruppe klebte links im dunklen
   Band, Leerraum rechts. Fix NUR im >=1600-Block: `.saison.tabs-an .saison-stage{max-width:980px;
