@@ -67,7 +67,11 @@
   var ziele=Array.prototype.slice.call(document.querySelectorAll("[data-rv]"));
   if(!reduziert&&"IntersectionObserver" in window){
     var offen=ziele.slice();
-    function zeige(el){el.classList.add("in");zahlen(el);var k=offen.indexOf(el);if(k>-1)offen.splice(k,1);}
+    function zeige(el){el.classList.add("in");zahlen(el);var k=offen.indexOf(el);if(k>-1)offen.splice(k,1);
+      /* Nach dem Ausklingen (max Delay ~.3s + .7s Transition) das Attribut abraeumen:
+         der Reveal-Endzustand [data-rv].in (transform:none, traege 0.7s-Transition mit Delay)
+         wuerde sonst die schnellen Hover-Transforms (.tz-Einruecken, .karte-Lift) ueberstimmen */
+      setTimeout(function(){el.removeAttribute("data-rv");},1500);}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){
       if(e.isIntersecting||e.boundingClientRect.top<0){zeige(e.target);io.unobserve(e.target);}
     });},{threshold:.12,rootMargin:"9999px 0px -40px 0px"});

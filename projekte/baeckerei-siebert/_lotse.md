@@ -234,6 +234,17 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Hover-Fix: Reveal-System blockierte .tz-Einruecken + .karte-Lift** (Marvins Sicht-
+  Test: Nav-Wipe + Rotfaerbung + zk-Lift ok, Einruecken/Karten-Lift fehlten). Ursache: `.js-motion
+  [data-rv].in{transform:none}` (Spezifitaet + traege .7s-Transition mit data-d-Delay) ueberstimmt
+  die Hover-Transforms auf Elementen, die selbst data-rv tragen (.tz-Zeilen, .karte); die .zk haben
+  kein eigenes data-rv -> Lift lief dort schon. Fix in site.js zeige(): 1500ms nach dem Enthuellen
+  (max Delay ~.3s + .7s Transition) wird das data-rv-ATTRIBUT entfernt -> Endzustand identisch
+  (opacity 1/transform none = Defaults), aber die [data-rv]-Regeln greifen nicht mehr und die
+  schnellen Hover-Transitions (.22s) gelten. site.js?v=8. Verifiziert live: nach Reveal+1.5s ist
+  Attribut weg, .tz-transition = transform .22s. MERKE-Paar: (a) Hover-Transforms auf data-rv-
+  Elementen brauchen den Abraeumer; (b) Pane klebte am alten HTML trotz force-Navigate ->
+  Cache-Buster-Query (?fresh=N) noetig, scriptTag-src als Frische-Beweis pruefen.
 - 2026-07-23: **Mikro-Interaktionen LIVE (?v=10)** (Marvin: "mehr Leben", Wahl: alle 3 Vorschlaege).
   Speisekarten-Zeilen-Hover (translateX + Rotfaerbung), Nav-Unterstreichung als clip-path-Wipe
   (aria-current statisch, focus sofort), Karten-Lift (.zk/.karte). Alles @media(hover:hover) =
