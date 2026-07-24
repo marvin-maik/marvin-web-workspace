@@ -271,5 +271,5 @@ urspruenglich designt. ?v=11 / site.js?v=9.
 `.karte` ist Flex-Spalte; `.karte .bild{margin-top:auto;padding-top:14px}` dockt das Bild an der
 Kartenunterkante an -> im Grid gleicher Reihenhoehe stehen alle Bilder unten buendig, die Luecke
 zwischen Text und Bild atmet (min. 14px). Betrifft torten (3 Anlass-Karten), ausbildung (2 Berufe-
-Karten), besuch Kontakt-Karte (Inline-margin dort entfernt). Textreine Karten (Benefits/Hierher/
+Karten), besuch Kontakt-Karte (Inline-margin dort entfernt) UND die 3 `.schritt`-Handwerk-Spalten auf index (gleiche Mechanik, eigener Selektor). Textreine Karten (Benefits/Hierher/
 Zeiten) unveraendert (Reset verhindert Margin-Kollaps-Unterschiede). ?v=12.

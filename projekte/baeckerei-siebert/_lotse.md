@@ -239,7 +239,9 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   Spalte, `.bild` margin-top:auto + padding-top:14px (Mindestabstand). Einheitlich: torten 3x,
   ausbildung 2x Berufe, besuch Kontakt (Inline-margin raus). Verifiziert @1280: torten Bildboeden
   exakt buendig (3x 1081), ausbildung buendig, Benefits/Hierher unveraendert; @375: Abstand
-  erhalten, 0 Overflow. Commit folgt.
+  erhalten, 0 Overflow. NACHTRAG (Marvin "fast"): Handwerk-Schritte 01/02/03 auf index hatten
+  dieselbe Leiter -> `.schritt` ebenfalls Flex-Spalte + margin-top:auto (?v=13). Verifiziert @1280:
+  alle 3 Bildboeden exakt 3376. Commit folgt.
 - 2026-07-23: **Ausbildung-Hero-Rotation gefixt + toter Stagger entdeckt** (Marvin: "rotiert suess,
   buggt dann zurueck — inspecten"). Befund: (1) `.hero-foto{transform:rotate(1.6deg)}` wurde vom
   Reveal-transform ueberschrieben (Bild stand nach Reveal GERADE), der data-rv-Abraeumer von heute

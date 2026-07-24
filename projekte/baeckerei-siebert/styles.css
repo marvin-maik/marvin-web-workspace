@@ -315,9 +315,10 @@ p{text-wrap:pretty}                                        /* Browser darf Umbru
 /* ---------- Handwerk-Schritte ---------- */
 .schritte{display:grid;gap:28px}
 @media(min-width:840px){.schritte{grid-template-columns:repeat(3,1fr)}}
+.schritt{display:flex;flex-direction:column} /* Bild dockt unten an, wie .karte (kein Treppeneffekt) */
 .schritt .nr{font-family:var(--disp);font-weight:900;font-size:46px;line-height:1;color:var(--crust)}
 .schritt h3{font-size:19px;margin:8px 0 6px}
-.schritt .bild{margin-top:14px}
+.schritt .bild{margin-top:auto;padding-top:14px}
 .schritt img{aspect-ratio:4/3;object-fit:cover}
 
 /* ---------- Karten ---------- */
