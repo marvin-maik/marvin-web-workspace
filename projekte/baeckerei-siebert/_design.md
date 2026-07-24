@@ -257,3 +257,12 @@ Block "Mikro-Interaktionen" in styles.css (vor der Gross-Monitor-Stufe), alles h
    behaelt die STATISCHE rote Linie (::after dort content:none), focus-visible unveraendert sofort.
 3. Karten-Lift: `.zahlen .zk:hover` + `.karte:hover` -> translateY(-3px) + Schatten waechst passend zum Grundschatten.
 Bewusst NICHT: Dampf/Wackel-Handschrift (Kitsch-Gefahr). ?v=10.
+
+## Hero-Foto-Eindrehen + Reveal-Stagger (2026-07-23)
+`.hero-foto` Neigung jetzt als EIGENSTAENDIGE `rotate:1.6deg`-Eigenschaft (nicht mehr im transform) —
+kollidiert damit nicht mehr mit dem Reveal-transform. Mit js-motion: `[data-rv]:not(.in){rotate:0deg}`
++ rotate .9s in der Transition -> Bild dreht beim Einblenden sanft von 0 auf 1.6deg ein und BLEIBT
+geneigt (vorher: Reveal nahm die Rotation weg, Abraeumer liess sie zurueckschnappen). besuch-Hero
+(ohne data-rv) statisch geneigt wie zuvor. AUSSERDEM: data-d-Stagger war sitewide TOT (nichts setzte
+--d); site.js verdrahtet jetzt data-d -> style --d im Reveal-Init -> Staffelung laeuft erstmals wie
+urspruenglich designt. ?v=11 / site.js?v=9.

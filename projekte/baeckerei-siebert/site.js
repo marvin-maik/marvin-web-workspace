@@ -75,7 +75,10 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){
       if(e.isIntersecting||e.boundingClientRect.top<0){zeige(e.target);io.unobserve(e.target);}
     });},{threshold:.12,rootMargin:"9999px 0px -40px 0px"});
-    ziele.forEach(function(el){io.observe(el);});
+    ziele.forEach(function(el){
+      /* data-d -> --d verdrahten: CSS nutzt transition-delay:var(--d,0s), gesetzt hat es bisher nichts */
+      var d=el.getAttribute("data-d"); if(d)el.style.setProperty("--d",d);
+      io.observe(el);});
     function sweep(){for(var k=offen.length-1;k>=0;k--){if(offen[k].getBoundingClientRect().top<innerHeight-40)zeige(offen[k]);}
       if(!offen.length)removeEventListener("scroll",sweep);}
     addEventListener("scroll",sweep,{passive:true}); setTimeout(sweep,500);

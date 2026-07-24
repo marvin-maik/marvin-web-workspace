@@ -234,6 +234,18 @@ Stand: 2026-07-23 · Phase: **STAGING LIVE (noindex) auf Cloudflare Pages: https
   gegenstandslos (Zeiten-scope, Bild-lazy, Tafel-Highlight jetzt korrekt); die aktuelle QA v2 laeuft.
 
 ## Log (Neuestes oben)
+- 2026-07-23: **Ausbildung-Hero-Rotation gefixt + toter Stagger entdeckt** (Marvin: "rotiert suess,
+  buggt dann zurueck — inspecten"). Befund: (1) `.hero-foto{transform:rotate(1.6deg)}` wurde vom
+  Reveal-transform ueberschrieben (Bild stand nach Reveal GERADE), der data-rv-Abraeumer von heute
+  liess es nach 1,5s abrupt in die Neigung zurueckschnappen. Fix: Neigung als eigenstaendige
+  `rotate`-Eigenschaft + bewusstes Eindrehen 0->1.6deg (.9s) beim Reveal — das Suesse bleibt, das
+  Schnappen ist weg. (2) NEBENBEFUND: `transition-delay:var(--d,0s)` wurde nie befuellt — alle
+  data-d-Staffelungen waren seit jeher wirkungslos; site.js setzt jetzt data-d -> --d, Stagger
+  laeuft erstmals wie designt (max .25s, Abraeumer-Timer 1.5s deckt weiter). Verifiziert live
+  ausbildung: vor Reveal rotate 0, nach Reveal+Abraeumer rotate 1.6deg/transform none/Attribut weg,
+  --d kommt inline an. besuch-Hero (ohne data-rv) unveraendert statisch. ?v=11 / site.js?v=9,
+  _design.md mitgezogen. MERKE: Rotationen/Skews auf data-rv-Elementen IMMER als rotate/scale-
+  Eigenschaft, nie im transform (Kollision mit Reveal).
 - 2026-07-23: **Hover-Fix: Reveal-System blockierte .tz-Einruecken + .karte-Lift** (Marvins Sicht-
   Test: Nav-Wipe + Rotfaerbung + zk-Lift ok, Einruecken/Karten-Lift fehlten). Ursache: `.js-motion
   [data-rv].in{transform:none}` (Spezifitaet + traege .7s-Transition mit data-d-Delay) ueberstimmt
